@@ -1,0 +1,344 @@
+{
+  "roles": {
+    "OTHER": {
+      "title": "Учебная публикация 1 LOCAL03",
+      "createHttp": 201,
+      "id": "dfd10842-e3e3-4d1a-82cc-89bde39f2074",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 6481
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "error": "\nInvalid `db.announcement.findUnique()` invocation in\nC:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\local-03\\publication-role-ui.cjs:7:32\n\n  4 for(const[order,role]of roles.entries()){if(ev.roles[role]?.status==='PASS')continue;const row=ev.roles[role]||={title:`Учебная публикация ${order+1} LOCAL03`};a=await login(browser,role,390);try{await navigate(a.page,'Объявления');assert.ok(a.me.permissions.includes('announcements.create'));if(!row.id){await a.page.getByRole('button',{name:'Создать объявление',exact:true}).filter({visible:true}).first().click();const d=a.page.getByRole('dialog',{name:'Создать объявление',exact:true});await d.getByLabel('Заголовок',{exact:true}).fill(row.title);await d.getByLabel(/^Важность/).selectOption('NORMAL');await d.getByLabel('Текст',{exact:true}).fill('Учебная проверка штатной формы публикации и сохранения текста.');await d.getByRole('button',{name:'Весь завод',exact:true}).click();const t=Date.now();const[r]=await Promise.all([a.page.waitForResponse(r=>r.url().endsWith('/api/announcements')&&r.request().method()==='POST'),d.getByRole('button',{name:'Сохранить',exact:true}).click()]);row.createHttp=r.status();row.id=(await r.json()).id;save();assert.equal(r.status(),201);await d.waitFor({state:'hidden'});await b.page.getByRole('heading',{name:row.title,exact:true}).waitFor({timeout:16000});row.secondUi={mechanism:'POLLING_8000',ms:Date.now()-t};save();}\n  5 const ack=await db.announcementRead.findUnique({where:{announcementId_userId:{announcementId:row.id,userId:b.me.userId}}});if(!ack){const[r]=await Promise.all([b.page.waitForResponse(r=>r.url().endsWith(`/announcements/${row.id}/ack`)&&r.request().method()==='POST'),b.page.getByRole('button',{name:'Ознакомлен',exact:true}).click()]);assert.equal(r.status(),201);row.readerAckUi=201;}\n  6 if(a.me.permissions.includes('announcements.manage')){await a.page.locator('.announcement-tabs').getByRole('button',{name:'Управление',exact:true}).click();await a.page.locator('.announcement-manage-card').filter({hasText:row.title}).getByRole('button',{name:'В архив',exact:true}).click();const[r]=await Promise.all([a.page.waitForResponse(r=>r.url().endsWith(`/announcements/${row.id}/archive`)&&r.request().method()==='POST'),a.page.getByRole('dialog',{name:'Перенести объявление в архив',exact:true}).getByRole('button',{name:'В архив',exact:true}).click()]);assert.equal(r.status(),201);row.archiveUi=true;}else{row.archiveApi=(await api(b.page,'POST',`/announcements/${row.id}/archive`,{})).status;assert.equal(row.archiveApi,201);}\n→ 7 row.sql=await db.announcement.findUnique({\n      where: {\n        id: \"dfd10842-e3e3-4d1a-82cc-89bde39f2074\"\n      },\n      select: {\n        id: true,\n        title: true,\n        text: true,\n        priority: true,\n        factoryId: true,\n        createdById: true,\n        ~~~~~~~~~~~\n        archivedAt: true,\n        reads: {\n          select: {\n            id: true,\n            userId: true,\n            readAt: true\n          }\n        },\n    ?   departmentId?: true,\n    ?   authorId?: true,\n    ?   recurrence?: true,\n    ?   recurrenceAnchorAt?: true,\n    ?   nextReminderAt?: true,\n    ?   lastReminderAt?: true,\n    ?   visibleFrom?: true,\n    ?   visibleUntil?: true,\n    ?   deletedAt?: true,\n    ?   createdAt?: true,\n    ?   updatedAt?: true,\n    ?   factory?: true,\n    ?   department?: true,\n    ?   author?: true,\n    ?   audienceDepartments?: true,\n    ?   _count?: true\n      }\n    })\n\nUnknown field `createdById` for select statement on model `Announcement`. Available options are marked with ?.",
+      "uiA": "Завод LOCAL-01\n\nЗавод\n\nОнлайн · Другое Пользователь +.\nЛюди\nЧаты\nВозвраты на производство\nОбъявления\n1\nЕщё\n←\nОбъявления\n1 непрочитанное\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nУчебная публикация 1 LOCAL03\nОбъявление 1 из 1\nОбычное\nУчебная публикация 1 LOCAL03\nСотрудник · Сотрудник\nОпубликовано: 25 сент. 2026 г., 09:33\nДействует до: 2 окт. 2026 г., 09:33\nПолучатели: Весь завод\nНапоминание: Не повторять\n\nУчебная проверка штатной формы публикации и сохранения текста.\n\n←\n1 из 1\n→\nОзнакомлен",
+      "uiB": "Завод LOCAL-01\n\nЗавод\n\nОнлайн · Администратор Проверочный А.\n16\nОбъявления\n\nВажные сообщения завода. Прочитайте объявление и подтвердите ознакомление.\n\nНовыеАрхивУправление\nСоздать объявление\nЗагрузка объявлений...\nНет новых событий\nУчебная публикация 1 LOCAL03\nОбъявление 1 из 1\nОбычное\nУчебная публикация 1 LOCAL03\nСотрудник · Сотрудник\nОпубликовано: 25 сент. 2026 г., 09:33\nДействует до: 2 окт. 2026 г., 09:33\nПолучатели: Весь завод\nНапоминание: Не повторять\n\nУчебная проверка штатной формы публикации и сохранения текста.\n\n←\n1 из 1\n→\n✓ Ознакомлен\nСмена\nИстория смен\nЛюди\nАдминка\nАдминистрирование\nЛинии\nЗаявки\nМойка\nОКК\nНекондиция\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\n7\nОбъявления\n1\nАрхив\nУведомления\n16\nСтатистика / Аудит\nСообщить об ошибке\nНастройки",
+      "sql": {
+        "id": "dfd10842-e3e3-4d1a-82cc-89bde39f2074",
+        "title": "Учебная публикация 1 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "ea6cbf8e-fd24-4f90-a876-13d99c8f3d73",
+        "archivedAt": "2026-09-25T06:33:55.756Z",
+        "reads": [
+          {
+            "id": "9a9923d0-2389-4b24-b7df-ca6d6622355c",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:33:55.719Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "CONTRACTOR_LEAD": {
+      "title": "Учебная публикация 2 LOCAL03",
+      "createHttp": 201,
+      "id": "b46281f8-2af0-41ae-b354-41c18b1517d4",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 4977
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "b46281f8-2af0-41ae-b354-41c18b1517d4",
+        "title": "Учебная публикация 2 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "3287708e-d87b-4376-b406-d42343441e08",
+        "archivedAt": "2026-09-25T06:35:14.939Z",
+        "reads": [
+          {
+            "id": "296d8f90-2336-40be-a408-17eeff47b9d8",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:35:14.901Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "MANAGEMENT": {
+      "title": "Учебная публикация 3 LOCAL03",
+      "createHttp": 201,
+      "id": "5b205243-76f1-4db1-8f0d-7aec9fd558ee",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 6010
+      },
+      "readerAckUi": 201,
+      "archiveUi": true,
+      "sql": {
+        "id": "5b205243-76f1-4db1-8f0d-7aec9fd558ee",
+        "title": "Учебная публикация 3 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+        "archivedAt": "2026-09-25T06:35:23.367Z",
+        "reads": [
+          {
+            "id": "803160cd-8a91-4024-a6ae-03e793e2b954",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:35:23.016Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "MASTER": {
+      "title": "Учебная публикация 4 LOCAL03",
+      "createHttp": 201,
+      "id": "b776409a-9e1a-4c23-b27d-afd9018fb17a",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 5489
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "b776409a-9e1a-4c23-b27d-afd9018fb17a",
+        "title": "Учебная публикация 4 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+        "archivedAt": "2026-09-25T06:35:31.098Z",
+        "reads": [
+          {
+            "id": "b2a36748-92c8-4c10-a144-755a9fc289ee",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:35:31.071Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "TECHNOLOG": {
+      "title": "Учебная публикация 5 LOCAL03",
+      "createHttp": 201,
+      "id": "c7b9c4e9-ca49-4842-96c3-cde7c01e666a",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 5982
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "c7b9c4e9-ca49-4842-96c3-cde7c01e666a",
+        "title": "Учебная публикация 5 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "e3cd816e-6ee4-481f-8325-2d3bc52bf152",
+        "archivedAt": "2026-09-25T06:35:38.948Z",
+        "reads": [
+          {
+            "id": "ee8eac61-7956-4112-a023-017c1fcb2d85",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:35:38.918Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "OKK": {
+      "title": "Учебная публикация 6 LOCAL03",
+      "createHttp": 201,
+      "id": "55bd2684-fd14-44c2-8998-2ac6ed9cc540",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 5969
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "55bd2684-fd14-44c2-8998-2ac6ed9cc540",
+        "title": "Учебная публикация 6 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "10c314c0-4fe5-44fe-ba11-02ea45b31fd8",
+        "archivedAt": "2026-09-25T06:35:46.944Z",
+        "reads": [
+          {
+            "id": "6f559c8b-7386-453f-a035-366d5c5e3d1a",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:35:46.917Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "STORE": {
+      "title": "Учебная публикация 7 LOCAL03",
+      "createHttp": 201,
+      "id": "8ff82816-f97c-4203-97a9-5022be656928",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 5992
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "8ff82816-f97c-4203-97a9-5022be656928",
+        "title": "Учебная публикация 7 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "8aab468c-2433-4b1e-8295-84238dc64495",
+        "archivedAt": "2026-09-25T06:35:54.925Z",
+        "reads": [
+          {
+            "id": "8f756ab9-5ff4-44e1-9dac-f21c70dfefa8",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:35:54.900Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "TECH_MECHANIC": {
+      "title": "Учебная публикация 8 LOCAL03",
+      "createHttp": 201,
+      "id": "fb73b905-d5ae-46f8-bb12-a7be624f83fe",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 6023
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "fb73b905-d5ae-46f8-bb12-a7be624f83fe",
+        "title": "Учебная публикация 8 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "80615754-9a54-4d0f-83c2-b0e6f341c910",
+        "archivedAt": "2026-09-25T06:36:02.926Z",
+        "reads": [
+          {
+            "id": "89a26028-5f22-4d57-9b30-fdb317ad9688",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:36:02.899Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "TECH_ELECTRIC": {
+      "title": "Учебная публикация 9 LOCAL03",
+      "createHttp": 201,
+      "id": "f6484a93-0a51-4661-aad3-0187b25c333d",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 6005
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "f6484a93-0a51-4661-aad3-0187b25c333d",
+        "title": "Учебная публикация 9 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "65200cff-b27d-4929-a95d-e7565cc467f0",
+        "archivedAt": "2026-09-25T06:36:10.941Z",
+        "reads": [
+          {
+            "id": "babca63b-b570-46d5-98cd-8eacd73f9eb3",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:36:10.916Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "TECH_HOLOD": {
+      "title": "Учебная публикация 10 LOCAL03",
+      "createHttp": 201,
+      "id": "479e007f-8c3d-4bbd-8ae8-3e3a67efcd76",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 6576
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "479e007f-8c3d-4bbd-8ae8-3e3a67efcd76",
+        "title": "Учебная публикация 10 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "d5ed946c-e7c3-4fb2-b1ae-61de31b7da30",
+        "archivedAt": "2026-09-25T06:36:19.142Z",
+        "reads": [
+          {
+            "id": "dd03d579-4120-49e8-8b49-087a9d9fbbef",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:36:19.117Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "TECH_KIPIA": {
+      "title": "Учебная публикация 11 LOCAL03",
+      "createHttp": 201,
+      "id": "a3329951-d540-4ff3-8c73-279d6893b39c",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 6017
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "a3329951-d540-4ff3-8c73-279d6893b39c",
+        "title": "Учебная публикация 11 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032",
+        "archivedAt": "2026-09-25T06:36:27.215Z",
+        "reads": [
+          {
+            "id": "9eaff707-4650-46dd-a115-fcbbe6a9391d",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:36:27.187Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    "TECH_SANTECHNIK": {
+      "title": "Учебная публикация 12 LOCAL03",
+      "createHttp": 201,
+      "id": "e4bbd542-1327-42bc-ae19-8e653dd27a50",
+      "secondUi": {
+        "mechanism": "POLLING_8000",
+        "ms": 5992
+      },
+      "readerAckUi": 201,
+      "archiveApi": 201,
+      "sql": {
+        "id": "e4bbd542-1327-42bc-ae19-8e653dd27a50",
+        "title": "Учебная публикация 12 LOCAL03",
+        "text": "Учебная проверка штатной формы публикации и сохранения текста.",
+        "priority": "NORMAL",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "authorId": "d0b1a886-6833-4843-9315-2c4ba8a94453",
+        "archivedAt": "2026-09-25T06:36:35.111Z",
+        "reads": [
+          {
+            "id": "ac3cca21-c22b-41ae-b812-68c03ea5949a",
+            "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+            "readAt": "2026-09-25T06:36:35.084Z"
+          }
+        ]
+      },
+      "status": "PASS"
+    }
+  },
+  "status": "PASS_UI_CREATE_FOR_EFFECTIVE_CAPABILITY_ROLES"
+}

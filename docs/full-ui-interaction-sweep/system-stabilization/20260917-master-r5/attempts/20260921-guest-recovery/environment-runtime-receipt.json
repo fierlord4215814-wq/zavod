@@ -1,0 +1,61 @@
+{
+  "workingDbOrServiceInspected": false,
+  "oldQueueReplayed": false,
+  "observerTerminal": {
+    "stage": "complete",
+    "workingDbRead": false,
+    "error": null,
+    "guestInput": false,
+    "status": "READ_ONLY_OBSERVER_COMPLETED",
+    "vmMutation": false,
+    "at": "2026-09-21T16:09:11.8994779+03:00",
+    "pid": 14396
+  },
+  "channel": "BLOCKED_TOOL_CAPABILITY; see channel-observations.json",
+  "associatedJobs": [],
+  "ownPgCreated": false,
+  "ownApplicationProcessesStarted": 0,
+  "soleTargetVhdxConfirmed": true,
+  "vmId": "99A158DA-C247-422C-AE11-109485A92B1F",
+  "hostBoot": "2026-09-20T20:26:33.500517+03:00",
+  "syntheticFilesystemFixtures": "RETAINED_WITHIN_THIS_ATTEMPT",
+  "ownApplicationFixturesCreated": 0,
+  "guestInputs": 0,
+  "nativeUacAttempts": 1,
+  "processes": [
+    {
+      "commandLineExported": false,
+      "name": null,
+      "terminationPerformed": false,
+      "start": null,
+      "ownViewerIdentityMatches": false,
+      "pid": 14396,
+      "present": false
+    },
+    {
+      "commandLineExported": false,
+      "name": "vmconnect.exe",
+      "terminationPerformed": false,
+      "start": "2026-09-21T16:09:11.876306+03:00",
+      "ownViewerIdentityMatches": true,
+      "pid": 15316,
+      "present": true
+    }
+  ],
+  "vmMutation": false,
+  "guestWrites": 0,
+  "viewerClose": "Alt+F4 attempted; close not proven, do not force",
+  "workingDataCleanup": "UNKNOWN_NOT_INSPECTED",
+  "oldHelper": "Completed before host reboot; 9056 reused foreign PID not terminated",
+  "vmObservationAt": "2026-09-21T16:09:11.5995329+03:00",
+  "shutdown": {
+    "status": "NO_NEW_SHUTDOWN; old N/Running receipt is not Off proof"
+  },
+  "validNewScreenshots": 0,
+  "currentVmOffProven": true,
+  "observationAt": "2026-09-21T16:41:31.5205092+03:00",
+  "vmStateFreshlyRequeried": false,
+  "appRestartPerformed": false,
+  "finalStop": "STOP",
+  "vmState": "Off at recorded CIM observation; no continuous monitor"
+}

@@ -1,0 +1,27 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-legacy-before\\frontend\\src\\store\\shift-store.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\store\\shift-store.ts"
+index 07e1c92d..c0091be8 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-legacy-before\\frontend\\src\\store\\shift-store.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\store\\shift-store.ts"
+@@ -1,4 +1,4 @@
+-import { create } from 'zustand';
++import { appStore, useAppStore } from './app.store';
+ 
+ type ShiftStore = {
+   factoryId: string;
+@@ -6,7 +6,12 @@ type ShiftStore = {
+   setFactory: (factoryId: string) => void;
+ };
+ 
+-export const useShiftStore = create<ShiftStore>((set) => ({
+-  factoryId: '',
+-  setFactory: (factoryId) => set({ factoryId }),
+-}));
++// Compatibility hook for the unused prototype entrypoint. Factory identity and
++// context invalidation belong to appStore, not a second independent store.
++export function useShiftStore(): ShiftStore;
++export function useShiftStore<T>(selector: (state: ShiftStore) => T): T;
++export function useShiftStore<T>(selector?: (state: ShiftStore) => T) {
++  const { selectedFactoryId } = useAppStore();
++  const current: ShiftStore = { factoryId: selectedFactoryId, setFactory: appStore.selectFactory };
++  return selector ? selector(current) : current;
++}

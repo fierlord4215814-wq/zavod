@@ -1,0 +1,165 @@
+{
+  "startedAt": "2026-09-15T20:30:28.200Z",
+  "expected": [
+    {
+      "title": "R3-C2 actual Wash request retry retains operation ID within one form attempt",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 4,
+      "id": "e80e80b1c0b0"
+    },
+    {
+      "title": "R3-C2 actual Wash start retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "949eac1f684b"
+    },
+    {
+      "title": "R3-C2 actual Wash message retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "f99bd96fbb86"
+    },
+    {
+      "title": "R3-C2 actual Wash issue retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "27ab542af584"
+    },
+    {
+      "title": "R3-C2 actual Wash complete retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "6707d62d239a"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-C2 actual Wash request retry retains operation ID within one form attempt",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 4,
+      "id": "e80e80b1c0b0",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2638,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"2a137750-3815-4e7b-aaec-8954df8c4de4\"\u001b[39m\nReceived: \u001b[31m\"74247b58-502c-4527-86ef-bf2db5566d98\"\u001b[39m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-b721b--ID-within-one-form-attempt\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-b721b--ID-within-one-form-attempt\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 actual Wash start retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "949eac1f684b",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2924,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"objectDescription\": \"\",\u001b[22m\n\u001b[2m    \"objectName\": \"Зона упаковки\",\u001b[22m\n\u001b[32m-   \"operationId\": \"e915b0f7-38a8-4790-b70a-974ea9ba83a1\",\u001b[39m\n\u001b[31m+   \"operationId\": \"6a83dadf-fd04-4e19-b0ff-7532e1e3e149\",\u001b[39m\n\u001b[2m    \"targetType\": \"OTHER\",\u001b[22m\n\u001b[2m  }\u001b[22m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-587c4--retry-retains-operation-ID\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-587c4--retry-retains-operation-ID\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 actual Wash message retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "f99bd96fbb86",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3111,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"message\": \"Поверхность обработана\",\u001b[22m\n\u001b[32m-   \"operationId\": \"c0f7dee3-fdfc-474f-abbf-b8ced5d7e088\",\u001b[39m\n\u001b[31m+   \"operationId\": \"17bd4a8f-cc68-4a5e-a6b4-6b9672c4f948\",\u001b[39m\n\u001b[2m  }\u001b[22m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-39be9--retry-retains-operation-ID\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-39be9--retry-retains-operation-ID\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 actual Wash issue retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "27ab542af584",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3043,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"description\": \"Нужна повторная обработка\",\u001b[22m\n\u001b[32m-   \"operationId\": \"52792b56-f8ae-420f-b0ba-2d8f9728f869\",\u001b[39m\n\u001b[31m+   \"operationId\": \"3ea9e37d-71f0-42e5-aa1e-c299f5057e64\",\u001b[39m\n\u001b[2m    \"title\": \"Следы загрязнения\",\u001b[22m\n\u001b[2m  }\u001b[22m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-99f17--retry-retains-operation-ID\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-99f17--retry-retains-operation-ID\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 actual Wash complete retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "6707d62d239a",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 4379,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"operationId\": \"f9a272af-937a-4728-aaf8-31a14c148f8f\",\u001b[39m\n\u001b[31m+   \"operationId\": \"24d45588-4550-4a48-99f9-2fcd23a9f8ae\",\u001b[39m\n\u001b[2m  }\u001b[22m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-29935--retry-retains-operation-ID\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-producers-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-29935--retry-retains-operation-ID\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T20:30:51.177Z",
+  "status": "failed",
+  "listOnly": false
+}

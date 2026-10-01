@@ -1,0 +1,26 @@
+{
+  "atUtc": "2026-09-26T21:41:11.3514506Z",
+  "action": "Start",
+  "target": "T1",
+  "before": [],
+  "after": [
+    {
+      "port": 3000,
+      "pid": 23160,
+      "createdUtc": "2026-09-26T21:41:04.3201460Z",
+      "command": "\"C:\\Program Files\\nodejs\\node.exe\" backend/dist/main.js"
+    },
+    {
+      "port": 5173,
+      "pid": 23420,
+      "createdUtc": "2026-09-26T21:41:07.6848800Z",
+      "command": "\"C:\\Program Files\\nodejs\\node.exe\" docs/vps-preparation/local-03/frontend-preview.cjs"
+    },
+    {
+      "port": 15437,
+      "pid": 24212,
+      "createdUtc": "2026-09-26T21:41:03.5517600Z",
+      "command": "\"C:/Program Files/PostgreSQL/18/bin/postgres.exe\"  -D \"C:/Users/79164/AppData/Local/Zavod-Factory01/run-20260926-t1/pgdata\" -h 127.0.0.1 -p 15437 "
+    }
+  ]
+}

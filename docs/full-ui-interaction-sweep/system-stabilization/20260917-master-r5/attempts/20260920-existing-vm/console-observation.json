@@ -1,0 +1,71 @@
+{
+  "at": "2026-09-20T16:26:35.6431337+03:00",
+  "status": "NO_VALID_CAPTURE_PREFER_VMCONNECT",
+  "readOnly": true,
+  "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+  "captures": [],
+  "probes": [
+    {
+      "formatContract": "uint8[] raw RGB565",
+      "properties": [
+        {
+          "name": "ImageData",
+          "type": "System.Byte[]"
+        },
+        {
+          "name": "ReturnValue",
+          "type": "System.UInt32"
+        },
+        {
+          "name": "PSComputerName",
+          "type": "null"
+        }
+      ],
+      "at": "2026-09-20T16:26:35.4917546+03:00",
+      "status": "NO_VALID_IMAGE_CONTRACT_NOT_SATISFIED",
+      "actualType": "System.Byte[]",
+      "requested": {
+        "h": 480,
+        "w": 640
+      },
+      "returnValue": 0,
+      "expectedBytes": 614400,
+      "vmEnabledState": 2,
+      "actualArrayLength": 614404,
+      "acquisitionError": null,
+      "imageDataPresent": true,
+      "decodingError": null
+    },
+    {
+      "formatContract": "uint8[] raw RGB565",
+      "properties": [
+        {
+          "name": "ImageData",
+          "type": "System.Byte[]"
+        },
+        {
+          "name": "ReturnValue",
+          "type": "System.UInt32"
+        },
+        {
+          "name": "PSComputerName",
+          "type": "null"
+        }
+      ],
+      "at": "2026-09-20T16:26:35.6174432+03:00",
+      "status": "NO_VALID_IMAGE_CONTRACT_NOT_SATISFIED",
+      "actualType": "System.Byte[]",
+      "requested": {
+        "h": 240,
+        "w": 320
+      },
+      "returnValue": 0,
+      "expectedBytes": 153600,
+      "vmEnabledState": 2,
+      "actualArrayLength": 153604,
+      "acquisitionError": null,
+      "imageDataPresent": true,
+      "decodingError": null
+    }
+  ]
+}

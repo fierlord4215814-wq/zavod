@@ -1,0 +1,26 @@
+{
+  "status": "PASS_RESTORED_IMMUTABLE_HANDOVER_UI_TWO_ROLES_EXACT_SNAPSHOT_MAIN_UNCHANGED",
+  "scope": "restored managed handover copy only; never imported into main T1",
+  "id": "551ace7c-5078-509d-af59-dc41b277cd6a",
+  "priorHarnessError": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('УЧ T1 — неизменяемый снимок передачи в управляемой копии', { exact: true }) to be visible\u001b[22m\n",
+  "roles": [
+    {
+      "role": "MASTER",
+      "normalLogin": true,
+      "ui": true,
+      "http": 200,
+      "immutable": true,
+      "snapshotHash": "31b0400fe584394274a27104cb9a2380ee22263078b01028994a19be9b3c7cee"
+    },
+    {
+      "role": "ADMIN",
+      "normalLogin": true,
+      "ui": true,
+      "http": 200,
+      "immutable": true,
+      "snapshotHash": "31b0400fe584394274a27104cb9a2380ee22263078b01028994a19be9b3c7cee"
+    }
+  ],
+  "mainT1Unchanged": true,
+  "testClock": false
+}

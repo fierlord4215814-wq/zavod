@@ -1,0 +1,296 @@
+{
+  "status": "PASS_SOURCE_IDENTITY_SCHEMA_57_UNCHANGED",
+  "atUtc": "2026-09-26T18:35:22.762Z",
+  "identity": "e89c2bb4cc781ce01253d7574b608c558f0c1fd12c114473577387cda9fe1375",
+  "priorIdentity": "9d45c9851effe1545ae46a73867ff8a7caa7199f102cf3f34074d8beb4e2669c",
+  "files": [
+    {
+      "path": "backend/src/modules/employee/employee.service.ts",
+      "before": "6c8c25def3e628d38e0f7993eacde347878ba17d01ccbabdc317558163fc178f",
+      "after": "a7ffa47df2b25efca9211ed0fa915f8cede52fc7167c2e7105cc10fb92e19872",
+      "bytes": 55662,
+      "changed": true
+    },
+    {
+      "path": "backend/src/modules/assignment/assignment.controller.ts",
+      "before": "7530260a3ac06651c1d504d4287b3208245c7b920e8695b533ead9cb415d1ba1",
+      "after": "7530260a3ac06651c1d504d4287b3208245c7b920e8695b533ead9cb415d1ba1",
+      "bytes": 3332,
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/shift/shift.service.ts",
+      "before": "65483e13fc82926cd453f35f7a830b91425e31db4591b3390072b677814c41e1",
+      "after": "35bfc17642d4e391dd751d041a5f3da353541a206b01a0cd5e70dfe747824750",
+      "bytes": 141940,
+      "changed": true
+    },
+    {
+      "path": "backend/src/modules/shift/shift.controller.ts",
+      "before": "179422543b3afad22dba2aedf3fb5bf798ece211b52268e9f9e5d784cc6aa390",
+      "after": "03d5692205ec97d8c3ae4ced3ff2273907715e929fd392cdfe55309c4ac41c6b",
+      "bytes": 8812,
+      "changed": true
+    },
+    {
+      "path": "backend/src/common/shift-attendance.ts",
+      "before": "d58c75f88338bb3dff0551239b3fbebe06e480d2920cbcf8ff603f0591301026",
+      "after": "a782ce698b4947c17730bedbd4cae95f2c398939fe928631d7572c7534b46a1a",
+      "bytes": 3319,
+      "changed": true
+    },
+    {
+      "path": "backend/src/common/shift-session.ts",
+      "before": "57b6d52dded7bdcbbb1157b47e4a915a7ec607115d60e59a46c0fa78dfbbec82",
+      "after": "57b6d52dded7bdcbbb1157b47e4a915a7ec607115d60e59a46c0fa78dfbbec82",
+      "bytes": 1066,
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/shift-time.ts",
+      "before": "34778d267de92279b8fd5d08495b5821f6548a360c132f8a66bb391c96602c9f",
+      "after": "34778d267de92279b8fd5d08495b5821f6548a360c132f8a66bb391c96602c9f",
+      "bytes": 6841,
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/operation-lock.ts",
+      "before": "5560e30c00fcc661f1dc857c021c6f7e75f4cf873765f638442fb52b644d73d7",
+      "after": "f8743cbfd930e85a7de2c544aaae01a3bfd0041bfec64ba61dbd120d92dae21f",
+      "bytes": 3656,
+      "changed": true
+    },
+    {
+      "path": "backend/src/common/assignment-eligibility.ts",
+      "before": "5fb055b2b66536683c4567df8955a2800609d4c832fa421ce8ae193c11c66386",
+      "after": "5fb055b2b66536683c4567df8955a2800609d4c832fa421ce8ae193c11c66386",
+      "bytes": 291,
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/user-context.service.ts",
+      "before": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993",
+      "after": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993",
+      "bytes": 7492,
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/user-context.middleware.ts",
+      "before": "5ae55d4255f9da2b9de26c15b30152b5a609c68846fc9d6b0ab787706888e75d",
+      "after": "5ae55d4255f9da2b9de26c15b30152b5a609c68846fc9d6b0ab787706888e75d",
+      "bytes": 610,
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/effective-permissions.ts",
+      "before": "1abf62bd12838284b11c5afde39a0aa05986821cb50264653073144d19bdc17b",
+      "after": "1abf62bd12838284b11c5afde39a0aa05986821cb50264653073144d19bdc17b",
+      "bytes": 1329,
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/permission.guard.ts",
+      "before": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925",
+      "after": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925",
+      "bytes": 1774,
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/permissions.ts",
+      "before": "191a3350f6df52ceac627371e5ef53a4cf7275aa670d0e2f09fc4645360fff6b",
+      "after": "191a3350f6df52ceac627371e5ef53a4cf7275aa670d0e2f09fc4645360fff6b",
+      "bytes": 821,
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/audit.service.ts",
+      "before": "d207a3078d4109237ae8a7ad2a282b8e84f7fdf52fbfb532a9e8998932bbedd4",
+      "after": "d207a3078d4109237ae8a7ad2a282b8e84f7fdf52fbfb532a9e8998932bbedd4",
+      "bytes": 1476,
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/audit-presentation.ts",
+      "before": "6d5242826ffcc238fbfcc1507432ee713f37f80fe3dc69561a4ce102a01b816c",
+      "after": "6d5242826ffcc238fbfcc1507432ee713f37f80fe3dc69561a4ce102a01b816c",
+      "bytes": 9976,
+      "changed": false
+    },
+    {
+      "path": "backend/src/shift/employee-state.policy.ts",
+      "before": "4836587a3fcaf91047bf8cce53dc1a480443b7905b36bd2cb26472756814c0a0",
+      "after": "4836587a3fcaf91047bf8cce53dc1a480443b7905b36bd2cb26472756814c0a0",
+      "bytes": 1037,
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/people/assignment-close.ts",
+      "before": "40342f717b93abcc326d61a45804ea63c6c8fb80e9a7f0e629252c748a6068d3",
+      "after": "40342f717b93abcc326d61a45804ea63c6c8fb80e9a7f0e629252c748a6068d3",
+      "bytes": 1306,
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/people/people.service.ts",
+      "before": "dea7ebc1164718acf2dd8c6cd7d2c71cc000eede76b1fa43ed2af1c0bc257685",
+      "after": "dea7ebc1164718acf2dd8c6cd7d2c71cc000eede76b1fa43ed2af1c0bc257685",
+      "bytes": 53192,
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/line/line.service.ts",
+      "before": "3a0c52b875be7241776583fae49e94fbbe828ea0d8a0f53ddc40b7291825dc47",
+      "after": "40930307a3dc31b4d8dcb06a55f41e78ff6ce33daa663b411b0e965553af9b7d",
+      "bytes": 165049,
+      "changed": true
+    },
+    {
+      "path": "backend/src/modules/wash/wash.service.ts",
+      "before": "a06bcaa0e1e47b7ea3a1878d7f457c7a6e821f9b5cf4bcb959d4770e55e40957",
+      "after": "4d976aa566e8e24355fae2e74617bfba791e391afb35aafc5c8e978bc0806466",
+      "bytes": 77577,
+      "changed": true
+    },
+    {
+      "path": "backend/src/modules/notifications/notifications.service.ts",
+      "before": "8f67978ed1c3f7a184c883f41b276d08dfd9d312160b3d8604b17de70d76bf6c",
+      "after": "8f67978ed1c3f7a184c883f41b276d08dfd9d312160b3d8604b17de70d76bf6c",
+      "bytes": 42682,
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/shift-log/shift-log.service.ts",
+      "before": "34d5a1d66dad56fa91b45dbea260223608e8f0ac1e549f214283cf1f26c3891e",
+      "after": "34d5a1d66dad56fa91b45dbea260223608e8f0ac1e549f214283cf1f26c3891e",
+      "bytes": 43365,
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/shift-log/shift-log.controller.ts",
+      "before": "9358836d47ded7c32c2cf6f82b0958855bdf3fafd3628f196f533481b2569bb0",
+      "after": "9358836d47ded7c32c2cf6f82b0958855bdf3fafd3628f196f533481b2569bb0",
+      "bytes": 4196,
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/shift-log/shift-log.module.ts",
+      "before": "7461be663086f7645c207d77a8fce3e836438048b08b76c0a3d76a8e5f0df42b",
+      "after": "7461be663086f7645c207d77a8fce3e836438048b08b76c0a3d76a8e5f0df42b",
+      "bytes": 618,
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/attachments/attachments.service.ts",
+      "before": "d36cc45b2c7e836bce9466779b8ddf97826caea88d0ae12af99c889a0bc6b7e4",
+      "after": "d36cc45b2c7e836bce9466779b8ddf97826caea88d0ae12af99c889a0bc6b7e4",
+      "bytes": 44881,
+      "changed": false
+    },
+    {
+      "path": "backend/src/ws/events.ts",
+      "before": "ec808816942dea183e2bf5fd1aede93665950454ffbebb15818be5f2bc27369f",
+      "after": "ec808816942dea183e2bf5fd1aede93665950454ffbebb15818be5f2bc27369f",
+      "bytes": 2574,
+      "changed": false
+    },
+    {
+      "path": "backend/src/ws/ws.service.ts",
+      "before": "4092266082348f1321f9f42db070fcee03f19020a5a9b6723f65c67ba99762a7",
+      "after": "4092266082348f1321f9f42db070fcee03f19020a5a9b6723f65c67ba99762a7",
+      "bytes": 8398,
+      "changed": false
+    },
+    {
+      "path": "frontend/src/ws/client.ts",
+      "before": "3882659a98ad6bd0971bf3881967831c225130552cb53fb7ba6d5864a9479c26",
+      "after": "3882659a98ad6bd0971bf3881967831c225130552cb53fb7ba6d5864a9479c26",
+      "bytes": 9732,
+      "changed": false
+    },
+    {
+      "path": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "before": "a924d381b75aed7ecf03cfecf4ffc0c90c653bbeecaf0e897c3a08d2f14f8097",
+      "after": "758f9d25a50257b685d5547dc060d4cdc00cbdbf5d05d8fa4c1f1429efb42950",
+      "bytes": 358601,
+      "changed": true
+    },
+    {
+      "path": "frontend/src/screens/ShiftLogScreen.tsx",
+      "before": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+      "after": "11c5b56e474891e54d1ee94628886448084de110437bfb08516b035d1f39db54",
+      "bytes": 22581,
+      "changed": true
+    },
+    {
+      "path": "frontend/src/screens/AdminConfigScreen.tsx",
+      "before": "e1f3effbdbe58d12257a835ddf6ad10b42d83edaba82f3f6e03724b8c08a823b",
+      "after": "5ff414743bb8260c1db389f6a0433bc98400ee556d02aef384b3fb5ac60790ea",
+      "bytes": 241734,
+      "changed": true
+    },
+    {
+      "path": "frontend/src/navigation/permissions.ts",
+      "before": "d4ecc86c430cccbd65eede8ccc0fd70af0318ec9ba06fd42a192fbc93d5fd4b5",
+      "after": "d4ecc86c430cccbd65eede8ccc0fd70af0318ec9ba06fd42a192fbc93d5fd4b5",
+      "bytes": 5493,
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/admin/admin.service.ts",
+      "before": "7a76530af5b602804f3f8dd2fb79bc95e7b6140ed2d0bbb83397c06eafc90bea",
+      "after": "b0ac5f74200267e5cf942af9ab05e1cf275a6af0e92fdb67b36e684c3ceddc67",
+      "bytes": 323487,
+      "changed": true
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "before": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e",
+      "after": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e",
+      "bytes": 85485,
+      "changed": false
+    },
+    {
+      "path": "backend/prisma/system-foundation.cjs",
+      "before": "43052d4c571efc624ae53ea49f8999ad657fdfd999734025abae7e4a30d23c98",
+      "after": "43052d4c571efc624ae53ea49f8999ad657fdfd999734025abae7e4a30d23c98",
+      "bytes": 22200,
+      "changed": false
+    },
+    {
+      "path": "backend/scripts/admin01-settings-consumers.test.js",
+      "before": "4ada4172c3a0866ee64323cda69f42bd2f32fcde299fa26bdc8f74a2ddc20b74",
+      "after": "b0d0ae3205303659df0d58b0eb3fd610e09ed01f07d264e1fce98dbf77e79699",
+      "bytes": 4152,
+      "changed": true
+    },
+    {
+      "path": "backend/scripts/master-r2-wash-lifecycle.test.js",
+      "before": "d7c47bdb203a2ee7d7c0830ec47df01e0537f3e5c3bf13f2880fe4111517d095",
+      "after": "9b4a4c5d4c8f2b9678b77865fdc68d070fc05fd92712828fe916f222a04b69b6",
+      "bytes": 7883,
+      "changed": true
+    },
+    {
+      "path": "backend/scripts/master-r2-position.test.js",
+      "before": "5b6dfd7b844391b5fa9bbe0f0bceff0466e129dc1d528afa5f95998cb9a99281",
+      "after": "3431d4faeda00855713611a7db32ab5c552ee57bb9c12490f007f454afdb27e7",
+      "bytes": 3718,
+      "changed": true
+    },
+    {
+      "path": "backend/scripts/master-domain-contracts.test.js",
+      "before": "768b98d54bef435f2eea57202a359408389abf839318e0e2f4eefcffd1f4e8d9",
+      "after": "c26622a47c733dfcdb8530293c6b3a70e73355aa55da4a5966af372926f09e39",
+      "bytes": 42584,
+      "changed": true
+    },
+    {
+      "path": "backend/scripts/admin02-attendance.test.js",
+      "before": null,
+      "after": "f65eeaa4d5a867925d0cdd8af5c59f96e438a9f6358e835dfaed8f8e1091a11f",
+      "bytes": 5514,
+      "changed": true
+    }
+  ],
+  "migrations": 57
+}

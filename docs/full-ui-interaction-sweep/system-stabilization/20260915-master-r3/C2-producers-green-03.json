@@ -1,0 +1,139 @@
+{
+  "startedAt": "2026-09-15T21:09:47.332Z",
+  "expected": [
+    {
+      "title": "R3-C2 Defrost start same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "958bbb245dd2"
+    },
+    {
+      "title": "R3-C2 Defrost complete same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "939145e898d1"
+    },
+    {
+      "title": "R3-C2 Defrost blow same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "a22e87ff2d13"
+    },
+    {
+      "title": "R3-C2 Checklist row numeric zero retry retains key changed answer gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 20,
+      "id": "38f1185cfb83"
+    },
+    {
+      "title": "Journey J12 J13 real checklist typed runner empty validation 503 retry reopen numeric zero",
+      "file": "frontend/e2e/module-journeys.spec.ts",
+      "line": 24,
+      "id": "98f0c84c7ce6"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-C2 Defrost start same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "958bbb245dd2",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 12391,
+      "errors": [
+        "TimeoutError: locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').getByLabel('Комментарий', { exact: true })\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-green-03\\runner-artifacts\\master-r3-row-defrost-R3-C-04e81-opened-attempt-gets-new-key\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-green-03\\runner-artifacts\\master-r3-row-defrost-R3-C-04e81-opened-attempt-gets-new-key\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 Defrost complete same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "939145e898d1",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 12427,
+      "errors": [
+        "TimeoutError: locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').getByLabel('Комментарий', { exact: true })\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-green-03\\runner-artifacts\\master-r3-row-defrost-R3-C-61047-opened-attempt-gets-new-key\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-green-03\\runner-artifacts\\master-r3-row-defrost-R3-C-61047-opened-attempt-gets-new-key\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 Defrost blow same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "a22e87ff2d13",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 12549,
+      "errors": [
+        "TimeoutError: locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').getByLabel('Комментарий', { exact: true })\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-green-03\\runner-artifacts\\master-r3-row-defrost-R3-C-c4864-opened-attempt-gets-new-key\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-green-03\\runner-artifacts\\master-r3-row-defrost-R3-C-c4864-opened-attempt-gets-new-key\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 Checklist row numeric zero retry retains key changed answer gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 20,
+      "id": "38f1185cfb83",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2543,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "Journey J12 J13 real checklist typed runner empty validation 503 retry reopen numeric zero",
+      "file": "frontend/e2e/module-journeys.spec.ts",
+      "line": 24,
+      "id": "98f0c84c7ce6",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3272,
+      "errors": [],
+      "attachments": []
+    }
+  ],
+  "finishedAt": "2026-09-15T21:10:35.851Z",
+  "status": "failed",
+  "listOnly": false
+}

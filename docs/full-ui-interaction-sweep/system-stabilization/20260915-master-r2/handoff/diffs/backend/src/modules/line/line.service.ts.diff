@@ -1,0 +1,30 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-legacy-before\\backend\\src\\modules\\line\\line.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\line\\line.service.ts"
+index ef7d1080..bfe75dd6 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-legacy-before\\backend\\src\\modules\\line\\line.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\line\\line.service.ts"
+@@ -640,9 +640,11 @@ export class LineService {
+           ? 'DOWNTIME'
+           : lastInterval?.kind === 'WASH'
+             ? 'WASH'
+-            : lastInterval
+-              ? 'STOPPED'
+-              : 'UNKNOWN';
++            : lastInterval?.kind === 'DEFROST'
++              ? 'DEFROST'
++              : lastInterval
++                ? 'STOPPED'
++                : 'UNKNOWN';
+       const usersAtShiftEnd = new Set(lineAssignments
+         .filter((assignment) => assignment.startedAt < window.to && (!assignment.endedAt || assignment.endedAt >= window.to))
+         .map((assignment) => assignment.userId));
+@@ -2403,7 +2405,9 @@ export class LineService {
+         const processed = await tx.processedOperation.findUnique({
+           where: { userId_operationId: { userId: user.userId, operationId } },
+         });
+-        if (processed?.resultKey) {
++        if (processed) {
++          if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          await this.findLineForFactory(tx, user.selectedFactoryId, lineId);
+           const state = await tx.lineShiftState.findFirst({
+             where: { id: processed.resultKey, factoryId: user.selectedFactoryId, lineId },
+           });

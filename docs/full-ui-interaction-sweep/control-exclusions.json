@@ -1,0 +1,58 @@
+[
+  {
+    "controlId": "frontend/src/components/AttachmentPreviewList.tsx:190",
+    "reason": "UNREACHABLE: renderInlineMedia(image) is only reachable from renderAttachment in inline mode, while the inline attachment filter excludes every image before renderAttachment; other modes do not call renderInlineMedia."
+  },
+  {
+    "controlId": "frontend/src/components/AttachmentPreviewList.tsx:197",
+    "reason": "UNREACHABLE: renderInlineMedia(image) is only reachable from renderAttachment in inline mode, while the inline attachment filter excludes every image before renderAttachment; other modes do not call renderInlineMedia."
+  },
+  {
+    "controlId": "frontend/src/screens/FactorySelectScreen.tsx:407",
+    "reason": "NON_PRODUCTION: this control is inside the showDevLogin branch; showDevLogin is true only for import.meta.env.DEV or MODE=e2e, so the current production build cannot render it."
+  },
+  {
+    "controlId": "frontend/src/screens/FactorySelectScreen.tsx:414",
+    "reason": "NON_PRODUCTION: this control is inside the showDevLogin branch; showDevLogin is true only for import.meta.env.DEV or MODE=e2e, so the current production build cannot render it."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4109",
+    "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4139",
+    "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4140",
+    "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4141",
+    "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4145",
+    "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4146",
+    "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:5554",
+    "reason": "UNREACHABLE: this line selector requires activateLine with no pendingLine, but every reachable activate-line entry assigns pendingLine before opening the form."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:5653",
+    "reason": "UNREACHABLE: the legacy person line form can only be opened by manager controls already proven unreachable; the reachable manager flow uses the canonical line and slot pickers."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:5658",
+    "reason": "UNREACHABLE: the legacy person line form can only be opened by manager controls already proven unreachable; the reachable manager flow uses the canonical line and slot pickers."
+  },
+  {
+    "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:5665",
+    "reason": "UNREACHABLE: the legacy person line form can only be opened by manager controls already proven unreachable; the reachable manager flow uses the canonical line and slot pickers."
+  }
+]

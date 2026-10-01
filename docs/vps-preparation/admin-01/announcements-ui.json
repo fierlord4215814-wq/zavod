@@ -1,0 +1,188 @@
+{
+  "status": "PASS_ADMIN_FACTORY_SELECTED_DEPARTMENTS_ACK_REPORT_ARCHIVE_SETTINGS_CONSUMERS",
+  "items": [
+    {
+      "index": 0,
+      "title": "Объявление завода C ADMIN01",
+      "audience": "FACTORY",
+      "id": "89cc796c-d908-44ff-b706-d4b8490f0cf9",
+      "secondUiMs": 3937,
+      "withoutReload": true,
+      "defaultVisibleDaysConsumer": 2,
+      "importantNotifications": 0,
+      "badgeSetting": false,
+      "acked": 201,
+      "reportTotals": {
+        "all": 3,
+        "acknowledged": 1,
+        "pending": 2
+      },
+      "archived": true
+    },
+    {
+      "index": 1,
+      "title": "Объявление сборки C ADMIN01",
+      "audience": "Сборка C",
+      "id": "5d87fc31-9736-4fb9-8340-2c676818d85d",
+      "secondUiMs": 3969,
+      "withoutReload": true,
+      "defaultVisibleDaysConsumer": 2,
+      "importantNotifications": 3,
+      "badgeSetting": true,
+      "acked": 201,
+      "reportTotals": {
+        "all": 2,
+        "acknowledged": 1,
+        "pending": 1
+      },
+      "archived": true
+    },
+    {
+      "index": 2,
+      "title": "Объявление контроля C ADMIN01",
+      "audience": "Контроль C",
+      "id": "470eafad-c88a-4b8c-b406-fb4821e3c2f5",
+      "defaultVisibleDaysConsumer": 2,
+      "importantNotifications": 1,
+      "badgeSetting": true,
+      "readerDenied": 403,
+      "reportTotals": {
+        "all": 0,
+        "acknowledged": 0,
+        "pending": 0
+      },
+      "archived": true
+    }
+  ],
+  "settingsBefore": {
+    "defaultVisibleDays": 7,
+    "importantBadgeEnabled": true
+  },
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Создать объявление', exact: true }).locator('.announcement-department-grid').getByRole('button', { name: 'Сборка C', exact: true })\u001b[22m\n",
+  "uiA": "Учебная площадка C ADMIN01\n\nЗавод\n\nОнлайн · Администратор Администратор У.\nОбъявления\n\nВажные сообщения завода. Прочитайте объявление и подтвердите ознакомление.\n\nНовыеАрхивУправление\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений\nСоздать объявление\nЗакрыть\nЗаголовок\nВажность\nОбычное\nВажно\nПолучатели\nВесь завод\nВыбранные отделы\nВыбрать все\nСнять все\n+\nКонтроль C\n+\nСборка C\nВыберите хотя бы один отдел.\nДействует до\nПовторное напоминание\nНе повторять\nРаз в неделю\nРаз в 2 недели\nРаз в месяц\nТекст\nПредпросмотр для сотрудника\n\nОбъявление сборки C ADMIN01\n\nПолучатели: отделы не выбраны\nНапоминание: Не повторять\nДобавьте вложение. На телефоне камера и системный выбор открываются отдельными кнопками.\nСделать фото\nДобавить фото\nДобавить видео\nДобавить файл\nВидео: до 50 МБ, без офлайн-синхронизации файлов.\nОтменаСохранить\nСмена\nИстория смен\nЛюди\nАдминка\nАдминистрирование\nЛинии\nЗаявки\nМойка\nОКК\nНекондиция\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\nСтатистика / Аудит\nСообщить об ошибке\nНастройки",
+  "uiW": "Учебная площадка C ADMIN01\n\nЗавод\n\nОнлайн · Работник Приёмочный У.\nОбъявления\n\nВажные сообщения завода. Прочитайте объявление и подтвердите ознакомление.\n\nНовыеАрхив\nНовое объявление или обновление\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений\nСмена\nИстория смен\nЛюди\nОттайка\nВозвраты на производство\nОбъявления\nАрхив\nУведомления\nСообщить об ошибке\nНастройки",
+  "negativeCreate": 403,
+  "otherFactory": 403,
+  "audit": [
+    {
+      "action": "ANNOUNCEMENT_CREATED",
+      "entityId": "89cc796c-d908-44ff-b706-d4b8490f0cf9",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:50:14.409Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_IMPORTANT_CREATED",
+      "entityId": "89cc796c-d908-44ff-b706-d4b8490f0cf9",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:50:14.412Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_ACKNOWLEDGED",
+      "entityId": "89cc796c-d908-44ff-b706-d4b8490f0cf9",
+      "userId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:50:18.437Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_READ",
+      "entityId": "89cc796c-d908-44ff-b706-d4b8490f0cf9",
+      "userId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:50:18.439Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_REPORT_VIEWED",
+      "entityId": "89cc796c-d908-44ff-b706-d4b8490f0cf9",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:50:19.002Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_ARCHIVED",
+      "entityId": "89cc796c-d908-44ff-b706-d4b8490f0cf9",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:50:19.565Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_CREATED",
+      "entityId": "5d87fc31-9736-4fb9-8340-2c676818d85d",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:32.908Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_IMPORTANT_CREATED",
+      "entityId": "5d87fc31-9736-4fb9-8340-2c676818d85d",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:32.909Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_ACKNOWLEDGED",
+      "entityId": "5d87fc31-9736-4fb9-8340-2c676818d85d",
+      "userId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:36.868Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_READ",
+      "entityId": "5d87fc31-9736-4fb9-8340-2c676818d85d",
+      "userId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:36.869Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_REPORT_VIEWED",
+      "entityId": "5d87fc31-9736-4fb9-8340-2c676818d85d",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:37.452Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_ARCHIVED",
+      "entityId": "5d87fc31-9736-4fb9-8340-2c676818d85d",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:38.015Z"
+    },
+    {
+      "action": "ACCESS_DENIED",
+      "entityId": "470eafad-c88a-4b8c-b406-fb4821e3c2f5",
+      "userId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:41.385Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_REPORT_VIEWED",
+      "entityId": "470eafad-c88a-4b8c-b406-fb4821e3c2f5",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:41.487Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_ARCHIVED",
+      "entityId": "470eafad-c88a-4b8c-b406-fb4821e3c2f5",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:42.052Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_CREATED",
+      "entityId": "470eafad-c88a-4b8c-b406-fb4821e3c2f5",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:40.861Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_IMPORTANT_CREATED",
+      "entityId": "470eafad-c88a-4b8c-b406-fb4821e3c2f5",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:52:40.863Z"
+    }
+  ],
+  "settingsRestored": true
+}

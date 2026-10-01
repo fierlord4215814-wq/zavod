@@ -1,0 +1,15 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\src\\hooks\\useBodyScrollLock.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\hooks\\useBodyScrollLock.ts"
+index 051a385b..d87af5f7 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\src\\hooks\\useBodyScrollLock.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\hooks\\useBodyScrollLock.ts"
+@@ -40,7 +40,9 @@ function restorePage() {
+   document.body.style.width = current.bodyWidth;
+   document.body.style.overflow = current.bodyOverflow;
+   document.documentElement.style.overflow = current.htmlOverflow;
+-  window.requestAnimationFrame(() => window.scrollTo({ top: current.scrollY, left: 0, behavior: 'auto' }));
++  // Restore in the same lifecycle turn as the styles. A deferred callback can
++  // otherwise run after another screen or lock has already taken ownership.
++  window.scrollTo({ top: current.scrollY, left: 0, behavior: 'auto' });
+ }
+ 
+ export function useBodyScrollLock(locked: boolean) {

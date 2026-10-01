@@ -1,0 +1,22 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+index b7ac2ae6..660cd950 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+@@ -1,4 +1,16 @@
+-# MASTER R5 — единый текущий результат20.09.2026: старая очередь не разрешена
++# MASTER R5 — текущий результат20.09.2026: дефект late command 3 доказан в source
++
++MASTER_R5_STATUS=WAITING_GUEST_READ_ONLY_DIAGNOSTICS. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. [Точная диагностика/argv/inputs/план безопасного восстановления](attempts/20260920-late-command3-diagnosis/diagnosis.md), [текущий checkpoint](progress.md), [resume](resume-prompt.txt).
++
++Новое продолжение — только source-first диагностика собственной среды. В неизменном generator `create-seed-media.ps1:50` обнаружен PowerShell comma/+ defect: late3=5argv, sh-c program заканчивается незакрытой кавычкой. Точное host syntax-only воспроизведение даёт exit2; кандидат с parenthesizedconcatenation — 3argv/exit0. Это НЕ выполнение guest shell/команд и НЕ product test. Seed/helper/product не исправлялись; кандидат NOT_APPLIED. No VM reboot/shutdown/input/reinstall/VHDX operations/UAC. Сохранены before15owners, source SHA/copy, actual diagnostic outcomes. User-observed post-install/OpenSSH/cloud-init/late0–2/late3failure ещё не заменяет гостевые config/log/target readback; private config read denied ACL, bypass0.
++
++Старый helper теперь штатно завершён:000006receipt18:03:32 COMPLETED сVMState2=Running; terminal18:03:33/deadlineReached, PID9056absent. Это не доказательство Off/исполненного000007; freshjobs ещё не наблюдались. Старое состояние16:34 ниже сохранено исторически. Минимальный следующий шаг — Help→Enter shell в существующей ownVMConnect и снимок приглашения, пока без команд. Затем только узкая read-only гостевая диагностика для выбора in-place completion; source shutdown=poweroff требует отдельного безопасного решения до завершения installer. Переустановка не доказанно нужна и не предпринималась.
++
++Всех5livegates/32journeys/original063/finalregression выполнение остаётся впереди. Product fixes/builds/tests/live/fixtures0;215product/config132build72harness/6parentmatrices и4previousZIP совпали по bytes/hash.954/957semanticcontrols иP0/P1/P2=0/1/10 не переприняты. Working PostgreSQL/service/env/uploads/history не исследовались; физический телефон PENDING. Новая evidenceattempt20260920-late-command3-diagnosis сохранена на диск, старыеZIP не перезаписывались; их наличие не означает, что новая диагностика уже включена. STOP_AT_REQUIRED_MANUAL_GUEST_OBSERVATION, не отказ от общегоR5.
++
++---
++
++## Исторический результат20.09.2026 16:34: старая очередь не разрешена
+ 
+ MASTER_R5_STATUS=BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. Тот же R5; stage2 не завершён,3–8 NOT_RUN. Hyper-V готов, существующая VM подтверждена; отсутствие безопасно разрешённой старой очереди запрещает возобновлять установку. Это не достигнутая интеграционная приёмка.
+ 

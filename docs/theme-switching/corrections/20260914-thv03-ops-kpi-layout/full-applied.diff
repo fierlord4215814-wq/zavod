@@ -1,0 +1,643 @@
+diff --git "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\styles.css" "b/frontend\\src\\styles.css"
+index e34fb09e..0594a44d 100644
+--- "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\styles.css"
++++ "b/frontend\\src\\styles.css"
+@@ -21582,3 +21582,66 @@ body.pwa-standalone {
+     background: var(--info-soft);
+   }
+ }
++
++/* THV-03: Ops KPI cards need local geometry; shared KPI decoration is not content. */
++.ops-audit-screen .ops-metric-grid > .metric-card {
++  min-width: 0;
++  min-height: 112px;
++  align-content: center;
++  gap: 6px;
++  padding: 14px;
++}
++
++.ops-audit-screen .ops-metric-grid > .metric-card::before {
++  display: none;
++  content: none;
++}
++
++.ops-audit-screen :is(
++  .ops-metric-grid,
++  .ops-overview-metric-grid
++) :is(.metric-label, .metric-value, .metric-detail) {
++  min-width: 0;
++  max-width: 100%;
++  overflow: visible;
++  overflow-wrap: normal;
++  word-break: normal;
++  hyphens: none;
++  white-space: normal;
++}
++
++.ops-audit-screen :is(
++  .ops-metric-grid,
++  .ops-overview-metric-grid
++) .metric-label {
++  text-wrap: balance;
++}
++
++@media (max-width: 768px) {
++  .ops-audit-screen .ops-overview-metric-grid {
++    --premium-kpi-columns: 2;
++    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
++    gap: 8px !important;
++  }
++
++  .ops-audit-screen .ops-overview-metric-grid > .metric-card,
++  .ops-audit-screen .ops-metric-grid > .metric-card {
++    min-height: 100px !important;
++    align-content: center !important;
++    gap: 5px !important;
++    padding: 12px !important;
++  }
++
++  .ops-audit-screen .ops-overview-metric-grid .metric-label,
++  .ops-audit-screen .ops-metric-grid .metric-label,
++  .ops-audit-screen .ops-metric-grid .metric-detail {
++    font-size: 12px !important;
++    line-height: 1.25 !important;
++  }
++
++  .ops-audit-screen .ops-overview-metric-grid .metric-value,
++  .ops-audit-screen .ops-metric-grid .metric-value {
++    font-size: 23px !important;
++    line-height: 1.05 !important;
++  }
++}
+diff --git "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\OpsAuditScreen.tsx" "b/frontend\\src\\screens\\OpsAuditScreen.tsx"
+index 810f833b..cf1bd629 100644
+--- "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\OpsAuditScreen.tsx"
++++ "b/frontend\\src\\screens\\OpsAuditScreen.tsx"
+@@ -354,7 +354,7 @@ export function OpsAuditScreen() {
+   };
+ 
+   return (
+-    <section className="screen-panel">
++    <section className="screen-panel ops-audit-screen">
+       <PremiumSectionHeader
+         title="Статистика / Аудит"
+         subtitle="Операционная картина по простоям, заявкам, реакции отделов и качеству данных без финансовых допущений."
+@@ -587,7 +587,7 @@ export function OpsAuditScreen() {
+       ) : null}
+ 
+       {tab === 'Обзор' && overview ? (
+-        <div className="metric-grid premium-kpi-strip" data-count="4">
++        <div className="metric-grid premium-kpi-strip ops-overview-metric-grid" data-count="4">
+           <Metric label="Просроченные заявки" value={overview.overdueLongTasksCount} />
+           <Metric label="Активные заявки" value={overview.activeTasksCount} />
+           <Metric label="Активные мойки" value={overview.activeWashCount} />
+diff --git "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\three-themes.spec.ts" "b/frontend\\e2e\\three-themes.spec.ts"
+index be7dfcb0..97e9b771 100644
+--- "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\three-themes.spec.ts"
++++ "b/frontend\\e2e\\three-themes.spec.ts"
+@@ -75,6 +75,7 @@ type Runtime = {
+   isolatedFixtureWrites: Array<{ method: string; path: string }>;
+   computedStyles: Array<Record<string, unknown>>;
+   visibilityChecks: Array<Record<string, unknown>>;
++  opsLayoutChecks: Array<Record<string, unknown>>;
+ };
+ 
+ const runtime: Runtime = {
+@@ -89,6 +90,7 @@ const runtime: Runtime = {
+   isolatedFixtureWrites: [],
+   computedStyles: [],
+   visibilityChecks: [],
++  opsLayoutChecks: [],
+ };
+ 
+ const productStyleFingerprint = crypto.createHash('sha256')
+@@ -104,6 +106,7 @@ type IsolatedOptions = {
+   authDelayMs?: number;
+   allowForcedPasswordFixture?: boolean;
+   checklistState?: 'filled' | 'empty' | 'error';
++  opsState?: 'zero' | 'rich';
+ };
+ 
+ function viewportName(width: number) {
+@@ -239,6 +242,97 @@ function checklistArchiveTableFixture() {
+   };
+ }
+ 
++const thv03OverviewFixture = {
++  activeTasksCount: 123456,
++  overdueLongTasksCount: 98765,
++  activeWashCount: 43210,
++  washIssuesCount: 76543,
++  activeDefrostCount: 24680,
++  lowStockItemsCount: 13579,
++  openOrderRequestsCount: 112233,
++  activeImportantShiftLogsCount: 445566,
++  unreadNotificationsCount: 778899,
++  checklistAutoClosedCount: 223344,
++  recentAccessDeniedCount: 556677,
++};
++
++const thv03OperationsFixture = {
++  generatedAt: '2026-09-14T09:00:00.000Z',
++  period: { label: '8–14 сентября 2026', days: 7, capped: false, asOf: '2026-09-14T09:00:00.000Z' },
++  summary: {
++    totalLostMinutes: 123456,
++    totalLostLabel: '2 057 ч 36 мин',
++    downtimeCount: 98765,
++    averageDowntimeMinutes: 9876,
++    medianDowntimeMinutes: 4321,
++    p90DowntimeMinutes: 12345,
++    openDowntimeCount: 8765,
++    preliminary: true,
++    worstLine: {
++      lineId: 'theme-evidence-line-long',
++      lineName: 'Линия фасовки и упаковки № 12',
++      lostMinutes: 99999,
++      lostLabel: '1 666 ч 39 мин',
++      downtimeCount: 12345,
++      averageDowntimeMinutes: 678,
++      maxDowntimeMinutes: 9876,
++      downtimeSharePercent: 87,
++      openTasks: 4567,
++      linkedTasks: 3456,
++    },
++    urgentOpenTasks: 12345,
++    overdueLongTasks: 23456,
++    tasksTotal: 345678,
++    tasksOpen: 45678,
++    tasksCompleted: 299999,
++    averageResponseMinutes: 4321,
++    medianResponseMinutes: 3210,
++    p90ResponseMinutes: 8765,
++    maxResponseMinutes: 9876,
++    averageExecutionMinutes: 8765,
++    medianExecutionMinutes: 7654,
++    p90ExecutionMinutes: 6543,
++    maxExecutionMinutes: 12345,
++    averageResolutionMinutes: 7654,
++    medianResolutionMinutes: 6543,
++    p90ResolutionMinutes: 5432,
++    tenMinuteDailyEffect: {
++      yearlyLabel: '12 345 ч',
++      text: 'При сокращении ежедневных подтверждённых потерь на десять минут.',
++    },
++  },
++  weakSpots: [],
++  lineEvents: { stop: 123456, pause: 234567, work: 345678, downtimeLinkedTasks: 456789 },
++  quality: { okkDefects: 567890, stockDefects: 678901, stockDefectQuantity: 789012, returns: 890123 },
++  checklists: {
++    started: 901234,
++    active: 812345,
++    runsCompleted: 723456,
++    checksCompleted: 634567,
++    checksOverdue: 545678,
++    manuallyClosed: 456789,
++    shiftClosed: 367890,
++  },
++  wash: { active: 278901, completed: 189012, issues: 990123, openIssues: 801234, miniTasks: 712345, miniTasksDone: 623456 },
++  lines: [],
++  downtimeReasons: [],
++  downtimes: [],
++  tasks: [],
++  departments: [],
++  repeatedProblems: [],
++  dataQuality: { status: 'Требует проверки', warnings: [{ code: 'FIXTURE', label: 'Контрольная тестовая запись', count: 12345 }] },
++  limitations: ['Изолированная проверка не подтверждает формулы или данные backend.'],
++  filterOptions: {
++    lines: [{ id: 'theme-evidence-line-long', name: 'Линия фасовки и упаковки № 12' }],
++    departments: [{ id: 'theme-evidence-department', name: 'Производство и упаковка' }],
++    taskScopes: [{ value: 'all', label: 'Все заявки' }],
++  },
++};
++
++const thv03FixtureFingerprint = crypto.createHash('sha256')
++  .update(JSON.stringify({ overview: thv03OverviewFixture, operations: thv03OperationsFixture }))
++  .digest('hex');
++
+ async function installIsolatedAppState(page: Page, initialTheme: string | null = null, options: IsolatedOptions = {}) {
+   const identity = options.identity ?? 'admin';
+   const checklistState = options.checklistState ?? 'empty';
+@@ -287,7 +381,7 @@ async function installIsolatedAppState(page: Page, initialTheme: string | null =
+       await json(route, { message: 'Изолированный theme harness блокирует запись.' }, 409);
+       return;
+     }
+-    runtime.apiReads.push(apiPath);
++    runtime.apiReads.push(`${apiPath}${url.search}`);
+     if (apiPath === '/auth/me') {
+       if (options.authDelayMs) await new Promise((resolve) => setTimeout(resolve, options.authDelayMs));
+       const isGuest = identity === 'guest';
+@@ -427,6 +521,10 @@ async function installIsolatedAppState(page: Page, initialTheme: string | null =
+     if (apiPath.startsWith('/archive/items')) { await json(route, { items: [], page: 1, pageSize: 24, total: 0, hasMore: false, metrics: null }); return; }
+     if (apiPath.startsWith('/archive/attachments')) { await json(route, { items: [], page: 1, pageSize: 24, total: 0, hasMore: false }); return; }
+     if (apiPath.startsWith('/ops/operations/overview')) {
++      if (options.opsState === 'rich') {
++        await json(route, thv03OperationsFixture);
++        return;
++      }
+       await json(route, {
+         generatedAt: '2026-09-13T09:00:00.000Z', period: { label: '7 дней', days: 7, capped: false, asOf: '2026-09-13' },
+         summary: {
+@@ -450,6 +548,10 @@ async function installIsolatedAppState(page: Page, initialTheme: string | null =
+       return;
+     }
+     if (apiPath.startsWith('/ops/overview')) {
++      if (options.opsState === 'rich') {
++        await json(route, thv03OverviewFixture);
++        return;
++      }
+       await json(route, {
+         activeTasksCount: 0, overdueLongTasksCount: 0, activeWashCount: 0, washIssuesCount: 0,
+         activeDefrostCount: 0, lowStockItemsCount: 0, openOrderRequestsCount: 0,
+@@ -548,12 +650,18 @@ async function recordTargetVisibility(
+   locator: Locator,
+   caseId: string,
+   extra: Record<string, unknown> = {},
+-  scrollMethod: 'none' | 'scrollIntoView-center' = 'none',
++  scrollMethod: 'none' | 'scrollIntoView-center' | 'scrollIntoView-safe-top' = 'none',
+ ) {
+   await expect(locator).toBeVisible();
+   if (scrollMethod === 'scrollIntoView-center') {
+     await locator.evaluate((element) => element.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' }));
+     await page.waitForTimeout(80);
++  } else if (scrollMethod === 'scrollIntoView-safe-top') {
++    await locator.evaluate((element) => {
++      element.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' });
++      window.scrollBy({ top: -16, behavior: 'auto' });
++    });
++    await page.waitForTimeout(80);
+   }
+   const visibility = await locator.evaluate((element) => {
+     const rect = element.getBoundingClientRect();
+@@ -632,6 +740,140 @@ async function recordTargetVisibility(
+   return record;
+ }
+ 
++async function recordOpsLayout(
++  page: Page,
++  view: 'loss' | 'overview',
++  extra: Record<string, unknown> = {},
++) {
++  const heading = page.getByRole('heading', { name: 'Статистика / Аудит', exact: true }).filter({ visible: true }).first();
++  const root = page.locator('section.screen-panel').filter({ has: heading }).first();
++  await expect(root).toBeVisible();
++  const layout = await root.evaluate((element, viewName) => {
++    const asRect = (rect: DOMRect) => ({
++      x: rect.x,
++      y: rect.y,
++      width: rect.width,
++      height: rect.height,
++      right: rect.right,
++      bottom: rect.bottom,
++    });
++    const intersects = (first: DOMRect, second: { left: number; top: number; right: number; bottom: number }) => (
++      Math.min(first.right, second.right) - Math.max(first.left, second.left) > 1
++      && Math.min(first.bottom, second.bottom) - Math.max(first.top, second.top) > 1
++    );
++    const splitWords = (label: HTMLElement) => {
++      const node = Array.from(label.childNodes).find((child) => child.nodeType === Node.TEXT_NODE);
++      if (!node?.textContent) return [];
++      const broken: string[] = [];
++      for (const match of node.textContent.matchAll(/\S+/g)) {
++        if (match.index === undefined) continue;
++        const range = document.createRange();
++        range.setStart(node, match.index);
++        range.setEnd(node, match.index + match[0].length);
++        const wordRects = Array.from(range.getClientRects());
++        const firstLineTop = wordRects[0]?.top;
++        if (firstLineTop !== undefined && wordRects.some((rect) => Math.abs(rect.top - firstLineTop) > 2)) {
++          broken.push(match[0]);
++        }
++      }
++      return broken;
++    };
++    const rootElement = element as HTMLElement;
++    const selector = viewName === 'loss'
++      ? '.ops-analytics .metric-card'
++      : ':scope > .premium-kpi-strip > .metric-card';
++    const cards = Array.from(rootElement.querySelectorAll<HTMLElement>(selector)).map((card, index) => {
++      const cardRect = card.getBoundingClientRect();
++      const label = card.querySelector<HTMLElement>('.metric-label');
++      const value = card.querySelector<HTMLElement>('.metric-value');
++      const detail = card.querySelector<HTMLElement>('.metric-detail');
++      const textElements = [label, value, detail].filter((item): item is HTMLElement => Boolean(item));
++      const textRects = textElements.map((item) => item.getBoundingClientRect());
++      const textContentRects = textElements.map((item) => {
++        const range = document.createRange();
++        range.selectNodeContents(item);
++        return range.getBoundingClientRect();
++      });
++      const pseudo = getComputedStyle(card, '::before');
++      const content = pseudo.content;
++      const pseudoActive = pseudo.display !== 'none' && content !== 'none' && content !== 'normal';
++      const pseudoLeft = Number.parseFloat(pseudo.left) || 0;
++      const pseudoTop = Number.parseFloat(pseudo.top) || 0;
++      const pseudoWidth = Number.parseFloat(pseudo.width) || 0;
++      const pseudoHeight = Number.parseFloat(pseudo.height) || 0;
++      const pseudoRect = {
++        left: cardRect.left + pseudoLeft,
++        top: cardRect.top + pseudoTop,
++        right: cardRect.left + pseudoLeft + pseudoWidth,
++        bottom: cardRect.top + pseudoTop + pseudoHeight,
++      };
++      const textOverlapPairs: string[] = [];
++      for (let first = 0; first < textRects.length; first += 1) {
++        for (let second = first + 1; second < textRects.length; second += 1) {
++          if (intersects(textRects[first], textRects[second])) textOverlapPairs.push(`${first}-${second}`);
++        }
++      }
++      const decorationOverlapsText = pseudoActive && textRects.some((rect) => intersects(rect, pseudoRect));
++      const clippedElements = textElements.filter((_item, textIndex) => {
++        const contentRect = textContentRects[textIndex];
++        return contentRect.left < cardRect.left - 1
++          || contentRect.right > cardRect.right + 1
++          || contentRect.top < cardRect.top - 1
++          || contentRect.bottom > cardRect.bottom + 1;
++      }).map((item) => item.className);
++      const brokenWords = label ? splitWords(label) : [];
++      const grid = card.parentElement;
++      const gridStyle = grid ? getComputedStyle(grid) : null;
++      return {
++        index,
++        nestedLossCard: viewName === 'loss' && !grid?.classList.contains('premium-kpi-strip'),
++        label: label?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
++        value: value?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
++        detail: detail?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
++        cardRect: asRect(cardRect),
++        labelRect: label ? asRect(label.getBoundingClientRect()) : null,
++        valueRect: value ? asRect(value.getBoundingClientRect()) : null,
++        detailRect: detail ? asRect(detail.getBoundingClientRect()) : null,
++        textContentRects: textContentRects.map(asRect),
++        gridColumns: gridStyle?.gridTemplateColumns ?? '',
++        gridColumnCount: gridStyle?.gridTemplateColumns.split(' ').filter(Boolean).length ?? 0,
++        cardPadding: getComputedStyle(card).padding,
++        cardAlignContent: getComputedStyle(card).alignContent,
++        cardOverflow: getComputedStyle(card).overflow,
++        pseudoContent: content,
++        pseudoDisplay: pseudo.display,
++        pseudoPointerEvents: pseudo.pointerEvents,
++        pseudoRect,
++        decorationOverlapsText,
++        textOverlapPairs,
++        clippedElements,
++        brokenWords,
++      };
++    });
++    return {
++      view: viewName,
++      viewport: { width: innerWidth, height: innerHeight },
++      labels: cards.map((card) => card.label),
++      values: cards.map((card) => card.value),
++      details: cards.map((card) => card.detail),
++      cardCount: cards.length,
++      nestedLossCardCount: cards.filter((card) => card.nestedLossCard).length,
++      pseudoActiveCount: cards.filter((card) => card.pseudoContent !== 'none' && card.pseudoDisplay !== 'none').length,
++      decorationOverlapCount: cards.filter((card) => card.decorationOverlapsText).length,
++      textOverlapCount: cards.filter((card) => card.textOverlapPairs.length > 0).length,
++      clippedCount: cards.filter((card) => card.clippedElements.length > 0).length,
++      fragmentedWordCount: cards.reduce((total, card) => total + card.brokenWords.length, 0),
++      cards,
++    };
++  }, view);
++  const metricSetFingerprint = crypto.createHash('sha256')
++    .update(JSON.stringify({ labels: layout.labels, values: layout.values, details: layout.details }))
++    .digest('hex');
++  const record = { ...extra, ...layout, metricSetFingerprint, fixtureFingerprint: thv03FixtureFingerprint };
++  runtime.opsLayoutChecks.push(record);
++  return record;
++}
++
+ function csvCell(value: unknown) {
+   return `"${String(value ?? '').replace(/"/g, '""')}"`;
+ }
+@@ -654,6 +896,10 @@ function tc14LabelCombinations() {
+   return result;
+ }
+ 
++function thv03Combinations() {
++  return widths.flatMap((width) => (['dark', 'gray', 'light'] as const).map((theme) => ({ width, theme })));
++}
++
+ function correctionPartEnabled(part: string) {
+   return Boolean(correctionBatch)
+     && (correctionPart === 'all' || correctionPart === part || correctionPart.startsWith(`${part}-`));
+@@ -718,7 +964,8 @@ test.afterAll(() => {
+   const columns = [
+     'file', 'sha256', 'bytes', 'theme', 'width', 'state', 'role', 'capturedAt',
+     'productStyleFingerprint', 'harnessFingerprint', 'oldReviewId', 'sourceRelativePath',
+-    'visibilityStatus', 'scrollMethod', 'correctionPhase', 'correctionPart',
++    'visibilityStatus', 'scrollMethod', 'view', 'captureRole', 'fixtureFingerprint',
++    'metricSetFingerprint', 'queryFingerprint', 'correctionPhase', 'correctionPart',
+   ];
+   const lines = [columns.map(csvCell).join(',')];
+   for (const screenshot of runtime.screenshots) {
+@@ -1554,3 +1801,210 @@ test('TC14-E01 target-visible desktop Orders controls', async ({ page }, testInf
+   expect(runtime.apiWrites).toEqual([]);
+   expect(runtime.isolatedFixtureWrites).toEqual([]);
+ });
++
++const thv03LossLabels = [
++  'Самая проблемная линия', 'Средний простой', 'Срочные открытые', 'Средняя реакция',
++  'Среднее исполнение', 'Среднее решение', 'Эффект 10 минут', 'Качество данных',
++  'Остановки', 'Паузы', 'Возвраты в работу', 'Заявки из простоя',
++  'Брак ОКК', 'Некондиция', 'Возвраты',
++  'Запущено', 'Активно на конец периода', 'Проверок выполнено', 'Просрочено',
++  'Закрыто вручную', 'Закрыто сменой',
++  'Активные мойки', 'Завершённые мойки', 'Открытые проблемы', 'Мини-задания',
++] as const;
++
++const thv03OverviewLabels = [
++  'Просроченные заявки', 'Активные заявки', 'Активные мойки', 'Проблемы мойки',
++  'Остатки ниже порога', 'Заявки на заказ', 'Важные пересменки',
++  'Непрочитанные уведомления', 'Автозакрытые чек-листы', 'Отказы доступа',
++] as const;
++
++function thv03OpsRoot(page: Page) {
++  const heading = page.getByRole('heading', { name: 'Статистика / Аудит', exact: true }).filter({ visible: true }).first();
++  return page.locator('section.screen-panel').filter({ has: heading }).first();
++}
++
++function thv03QueryFingerprint(reads: string[]) {
++  const opsReads = reads.filter((item) => item.startsWith('/ops/'));
++  for (const prefix of [
++    '/ops/operations/overview?', '/ops/overview?', '/ops/events?limit=50&',
++    '/ops/audit?limit=50&', '/ops/module-summary?',
++  ]) {
++    expect(opsReads.filter((item) => item.startsWith(prefix)), `one intercepted read for ${prefix}`).toHaveLength(1);
++  }
++  expect(opsReads).toHaveLength(5);
++  return crypto.createHash('sha256').update(JSON.stringify([...opsReads].sort())).digest('hex');
++}
++
++async function thv03OpenOps(page: Page, theme: 'dark' | 'gray' | 'light') {
++  const readsAtStart = runtime.apiReads.length;
++  await openWithTheme(page, theme);
++  await navigateToScreen(page, 'Ops', 'Статистика / Аудит');
++  await expect(page.getByTestId('ops-filter-summary')).toBeVisible();
++  const root = thv03OpsRoot(page);
++  await expect(root).toBeVisible();
++  const queryFingerprint = thv03QueryFingerprint(runtime.apiReads.slice(readsAtStart));
++  return { root, queryFingerprint };
++}
++
++function expectThv03LayoutAfter(layout: Awaited<ReturnType<typeof recordOpsLayout>>, expectedCards: number) {
++  expect(layout.cardCount).toBe(expectedCards);
++  expect(layout.decorationOverlapCount).toBe(0);
++  expect(layout.textOverlapCount).toBe(0);
++  expect(layout.clippedCount).toBe(0);
++  expect(layout.fragmentedWordCount).toBe(0);
++}
++
++test('THV-03 Ops KPI rich layout matrix', async ({ page }, testInfo) => {
++  test.skip(testInfo.project.name !== 'desktop-edge' || !correctionPartEnabled('thv03-ops-rich'));
++  test.setTimeout(900_000);
++  const localPageErrors: string[] = [];
++  page.on('pageerror', (error) => { localPageErrors.push(error.message); runtime.pageErrors.push(error.message); });
++  await installIsolatedAppState(page, 'dark', { opsState: 'rich' });
++
++  for (const { width, theme } of thv03Combinations()) {
++    const viewport = viewportName(width);
++    const meta = { role: 'Admin / isolated rich Ops DTO', selectedTheme: theme, width, fixtureFingerprint: thv03FixtureFingerprint };
++    await page.setViewportSize({ width, height: 844 });
++    const { root, queryFingerprint } = await thv03OpenOps(page, theme);
++    const lossTab = root.getByRole('button', { name: 'Потери', exact: true });
++    await expect(lossTab).toHaveClass(/active/);
++    const lossLayout = await recordOpsLayout(page, 'loss', { ...meta, queryFingerprint });
++    expect(lossLayout.labels).toEqual([...thv03LossLabels]);
++    expect(lossLayout.cardCount).toBe(25);
++    expect(lossLayout.nestedLossCardCount).toBe(17);
++    expect(lossLayout.values.every((value) => value.length > 0)).toBe(true);
++
++    if (correctionPhase === 'before' && width <= 430) {
++      expect(lossLayout.decorationOverlapCount).toBeGreaterThan(0);
++    }
++    if (correctionPhase === 'after') {
++      expectThv03LayoutAfter(lossLayout, 25);
++      expect(lossLayout.pseudoActiveCount).toBe(0);
++    }
++
++    const upperSection = root.getByRole('heading', { name: 'Линии и простои', exact: true }).locator('..');
++    const upperVisibility = await recordTargetVisibility(page, upperSection, 'thv03-loss-upper-visible', meta, 'scrollIntoView-center');
++    expect(upperVisibility.fullyVisible).toBe(true);
++    await capture(page, `${viewport}-${theme}-ops-loss-upper`, {
++      ...meta,
++      state: 'thv03-ops-loss',
++      view: 'loss',
++      captureRole: 'mandatory-upper',
++      fixtureFingerprint: thv03FixtureFingerprint,
++      metricSetFingerprint: lossLayout.metricSetFingerprint,
++      queryFingerprint,
++      visibilityStatus: 'VERIFIED_VISIBLE',
++      scrollMethod: 'scrollIntoView-center',
++    });
++
++    const lowerSection = root.getByRole('heading', { name: 'Дисциплина чек-листов', exact: true }).locator('..');
++    const lowerVisibility = await recordTargetVisibility(page, lowerSection, 'thv03-loss-lower-visible', meta, 'scrollIntoView-safe-top');
++    expect(lowerVisibility.fullyVisible).toBe(true);
++    await capture(page, `${viewport}-${theme}-ops-loss-lower`, {
++      ...meta,
++      state: 'thv03-ops-loss',
++      view: 'loss',
++      captureRole: 'additional-lower-impact',
++      fixtureFingerprint: thv03FixtureFingerprint,
++      metricSetFingerprint: lossLayout.metricSetFingerprint,
++      queryFingerprint,
++      visibilityStatus: 'VERIFIED_VISIBLE',
++      scrollMethod: 'scrollIntoView-safe-top',
++    });
++
++    const overviewTab = root.getByRole('button', { name: 'Обзор', exact: true });
++    await overviewTab.click();
++    await expect(overviewTab).toHaveClass(/active/);
++    await expect(root.getByText('778899', { exact: true })).toBeVisible();
++    const overviewLayout = await recordOpsLayout(page, 'overview', { ...meta, queryFingerprint });
++    expect(overviewLayout.labels).toEqual([...thv03OverviewLabels]);
++    expect(overviewLayout.cardCount).toBe(10);
++    expect(overviewLayout.values.every((value) => value.length > 0)).toBe(true);
++    const overviewColumnCounts = new Set(overviewLayout.cards.map((card) => card.gridColumnCount));
++    expect(overviewColumnCounts.size).toBe(1);
++    if (correctionPhase === 'before' && width <= 430) {
++      expect([...overviewColumnCounts]).toEqual([4]);
++      expect(overviewLayout.clippedCount + overviewLayout.fragmentedWordCount).toBeGreaterThan(0);
++    }
++    if (correctionPhase === 'after') {
++      expectThv03LayoutAfter(overviewLayout, 10);
++      expect([...overviewColumnCounts]).toEqual([width <= 768 ? 2 : 4]);
++      expect(overviewLayout.pseudoActiveCount).toBe(0);
++    }
++    const overviewGrid = root.locator(':scope > .premium-kpi-strip');
++    const overviewVisibility = await recordTargetVisibility(page, overviewGrid, 'thv03-overview-visible', meta, 'scrollIntoView-center');
++    expect(overviewVisibility.fullyVisible).toBe(true);
++    await capture(page, `${viewport}-${theme}-ops-overview`, {
++      ...meta,
++      state: 'thv03-ops-overview',
++      view: 'overview',
++      captureRole: 'mandatory-overview',
++      fixtureFingerprint: thv03FixtureFingerprint,
++      metricSetFingerprint: overviewLayout.metricSetFingerprint,
++      queryFingerprint,
++      visibilityStatus: 'VERIFIED_VISIBLE',
++      scrollMethod: 'scrollIntoView-center',
++    });
++  }
++
++  expect(localPageErrors).toEqual([]);
++  expect(runtime.apiWrites).toEqual([]);
++  expect(runtime.isolatedFixtureWrites).toEqual([]);
++});
++
++test('THV-03 Ops KPI zero state at 390', async ({ page }, testInfo) => {
++  test.skip(testInfo.project.name !== 'desktop-edge' || !correctionPartEnabled('thv03-ops-zero'));
++  test.setTimeout(360_000);
++  const localPageErrors: string[] = [];
++  page.on('pageerror', (error) => { localPageErrors.push(error.message); runtime.pageErrors.push(error.message); });
++  await installIsolatedAppState(page, 'dark', { opsState: 'zero' });
++
++  for (const theme of ['dark', 'gray', 'light'] as const) {
++    const width = 390;
++    const meta = { role: 'Admin / isolated zero Ops DTO', selectedTheme: theme, width };
++    await page.setViewportSize({ width, height: 844 });
++    const { root, queryFingerprint } = await thv03OpenOps(page, theme);
++    const lossLayout = await recordOpsLayout(page, 'loss', { ...meta, queryFingerprint, fixtureState: 'zero' });
++    expect(lossLayout.labels).toEqual([...thv03LossLabels]);
++    expect(lossLayout.values).toContain('нет данных');
++    if (correctionPhase === 'after') expectThv03LayoutAfter(lossLayout, 25);
++    const lossTarget = root.getByRole('heading', { name: 'Качество', exact: true }).locator('..');
++    const lossVisibility = await recordTargetVisibility(page, lossTarget, 'thv03-zero-loss-visible', meta, 'scrollIntoView-center');
++    expect(lossVisibility.fullyVisible).toBe(true);
++    await capture(page, `390-${theme}-ops-loss-zero`, {
++      ...meta,
++      state: 'thv03-ops-loss-zero',
++      view: 'loss',
++      captureRole: 'additional-zero-state',
++      metricSetFingerprint: lossLayout.metricSetFingerprint,
++      queryFingerprint,
++      visibilityStatus: 'VERIFIED_VISIBLE',
++      scrollMethod: 'scrollIntoView-center',
++    });
++
++    const overviewTab = root.getByRole('button', { name: 'Обзор', exact: true });
++    await overviewTab.click();
++    await expect(overviewTab).toHaveClass(/active/);
++    const overviewLayout = await recordOpsLayout(page, 'overview', { ...meta, queryFingerprint, fixtureState: 'zero' });
++    expect(overviewLayout.labels).toEqual([...thv03OverviewLabels]);
++    expect(overviewLayout.values.every((value) => value === '0')).toBe(true);
++    if (correctionPhase === 'after') expectThv03LayoutAfter(overviewLayout, 10);
++    const overviewGrid = root.locator(':scope > .premium-kpi-strip');
++    const overviewVisibility = await recordTargetVisibility(page, overviewGrid, 'thv03-zero-overview-visible', meta, 'scrollIntoView-center');
++    expect(overviewVisibility.fullyVisible).toBe(true);
++    await capture(page, `390-${theme}-ops-overview-zero`, {
++      ...meta,
++      state: 'thv03-ops-overview-zero',
++      view: 'overview',
++      captureRole: 'additional-zero-state',
++      metricSetFingerprint: overviewLayout.metricSetFingerprint,
++      queryFingerprint,
++      visibilityStatus: 'VERIFIED_VISIBLE',
++      scrollMethod: 'scrollIntoView-center',
++    });
++  }
++
++  expect(localPageErrors).toEqual([]);
++  expect(runtime.apiWrites).toEqual([]);
++  expect(runtime.isolatedFixtureWrites).toEqual([]);
++});

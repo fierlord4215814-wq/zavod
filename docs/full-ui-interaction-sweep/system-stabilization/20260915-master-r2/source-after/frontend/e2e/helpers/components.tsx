@@ -1,0 +1,64 @@
+// Explicit isolated hosts for real shared owners. Never imported by production.
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { ActionModal } from '../../src/components/ActionModal';
+import { AttachmentPreviewList } from '../../src/components/AttachmentPreviewList';
+import { AttachmentPicker } from '../../src/components/AttachmentPicker';
+import { appStore } from '../../src/store/app.store';
+import { installMobileBackCoordinator } from '../../src/navigation/mobile-back';
+
+appStore.setAuthToken('isolated-component-token');
+appStore.setSession({currentUser:{userId:'component-reader',role:'WORKER',isGuest:false,isAdmin:false,permissions:['tasks.read'],departmentId:'component-department'},selectedFactoryId:'component-factory',availableFactories:[{id:'component-factory',name:'Изолированный завод',role:'WORKER',isGuest:false}]});
+installMobileBackCoordinator(()=>{});
+const image = {id:'component-image',originalName:'Снимок оборудования.png',mimeType:'image/png',sizeBytes:68};
+function MediaHost(){
+  const [first,setFirst]=useState(true),[second,setSecond]=useState(true),[revision,setRevision]=useState(0);
+  return <main className="app-shell"><section className="card"><h1>Изолированный контракт вложений</h1>
+    <button onClick={()=>setRevision(revision+1)}>Повторный render</button>
+    <button onClick={()=>setFirst(!first)}>Первый consumer</button><button onClick={()=>setSecond(!second)}>Второй consumer</button>
+    <button onClick={()=>appStore.selectFactory('component-second')}>Другой контекст</button>
+    <button onClick={()=>appStore.clearAuth()}>Выход из контекста</button>
+    {first&&<section data-testid="first"><AttachmentPreviewList attachments={[{...image}]} /></section>}
+    {second&&<section data-testid="second"><AttachmentPreviewList attachments={[{...image}]} /></section>}
+  </section></main>;
+}
+function GalleryHost(){
+  const [mode,setMode]=useState<'list'|'grid'|'inline'|'focus'>('list'),[visible,setVisible]=useState(true);
+  const attachments=[image,{...image,id:'component-second-image',originalName:'Схема узла.png'},{id:'component-audio',originalName:'Комментарий.wav',mimeType:'audio/wav',sizeBytes:204},{id:'component-video',originalName:'Осмотр.webm',mimeType:'video/webm',sizeBytes:256},{id:'component-document',originalName:'Инструкция.txt',mimeType:'text/plain',sizeBytes:40}];
+  return <main className="app-shell"><section className="card"><h1>Медиа по текущему контракту</h1>
+    <label>Режим<select aria-label="Режим" value={mode} onChange={e=>setMode(e.target.value as typeof mode)}>{['list','grid','inline','focus'].map(m=><option key={m}>{m}</option>)}</select></label>
+    <button onClick={()=>setVisible(!visible)}>Список вложений</button>
+    {visible&&<AttachmentPreviewList attachments={attachments} mode={mode}/>}</section></main>;
+}
+function ChildrenHost(){
+  const [open,setOpen]=useState(true),[draft,setDraft]=useState(''),[files,setFiles]=useState<File[]>([]);
+  return <main className="app-shell"><section className="card"><button onClick={()=>setOpen(true)}>Открыть форму</button>
+    {open&&<ActionModal title="Дочерние поля и файлы" dirty={Boolean(draft||files.length)} onCancel={()=>setOpen(false)} onSubmit={()=>{}}>
+      <label>Текст дочернего поля<input value={draft} onChange={e=>setDraft(e.target.value)}/></label>
+      <AttachmentPicker value={files} onChange={setFiles} allowFiles allowVideo/>
+    </ActionModal>}
+  </section></main>;
+}
+function FormHost(){
+  const [replaceType,setReplaceType]=useState(false),[removeOption,setRemoveOption]=useState(false);
+  const [open,setOpen]=useState(true),[late,setLate]=useState(false),[conditional,setConditional]=useState(true),[busy,setBusy]=useState(false),[entity,setEntity]=useState(1),[submitted,setSubmitted]=useState(''),[reorder,setReorder]=useState(false),[optionsRevision,setOptionsRevision]=useState(false);
+  const fields=[{name:'text',label:'Название',defaultValue:late?'Позднее название':''},{name:'number',label:'Количество',type:'number' as const,defaultValue:0},{name:'enabled',label:'Включено',type:'checkbox' as const,defaultValue:false},{name:'choice',label:'Получатель',type:'select' as const,defaultValue:late?'one':'',options:[{label:'Первый отдел',value:'one'},{label:'Второй отдел',value:'two'}]},{name:'date',label:'Дата',type:'date' as const,defaultValue:'2026-09-15'},{name:'time',label:'Время',type:'datetime-local' as const,defaultValue:'2026-09-15T20:00'},...(conditional?[{name:'comment',label:'Комментарий',type:'textarea' as const,defaultValue:''}]:[])];
+  return <main className="app-shell"><section className="card"><h1>Изолированный контракт формы</h1>
+    <button onClick={()=>setOpen(true)}>Открыть форму</button><output>{submitted}</output>
+    {open&&<ActionModal key={entity} title={`Форма ${entity}`} fields={(reorder?[...fields].reverse():fields).map(f=>f.name==='text'&&replaceType?{...f,type:'textarea' as const}:f.name==='choice'&&removeOption?{...f,options:[{label:'Первый отдел',value:'one'}]}:f.name==='choice'&&optionsRevision?{...f,options:[{label:'Отдел второй — новое имя',value:'two'},{label:'Отдел первый — новое имя',value:'one'}]}:f)} busy={busy} onCancel={()=>setOpen(false)} onSubmit={async values=>{
+      (window as any).submitCalls=((window as any).submitCalls||0)+1;
+      if((window as any).holdSubmit)await new Promise((resolve,reject)=>{(window as any).releaseSubmit=resolve;(window as any).rejectSubmit=reject;});
+      setSubmitted(JSON.stringify(values));
+    }}>
+      <button type="button" onClick={()=>setLate(!late)}>Поздние defaults</button>
+      <button type="button" onClick={()=>setConditional(!conditional)}>Условное поле</button>
+      <button type="button" onClick={()=>setBusy(!busy)}>Внешний busy</button>
+      <button type="button" onClick={()=>setReorder(!reorder)}>Порядок полей</button>
+      <button type="button" onClick={()=>setOptionsRevision(!optionsRevision)}>Обновить варианты</button>
+      <button type="button" onClick={()=>setReplaceType(!replaceType)}>Тип поля</button>
+      <button type="button" onClick={()=>setRemoveOption(!removeOption)}>Наличие варианта</button>
+      <button type="button" onClick={()=>{setEntity(entity+1);setLate(false);setConditional(true);}}>Новая сущность</button>
+    </ActionModal>}
+  </section></main>;
+}
+createRoot(document.getElementById('root')!).render(location.hash==='#form'?<FormHost/>:location.hash==='#children'?<ChildrenHost/>:location.hash==='#gallery'?<GalleryHost/>:<MediaHost/>);

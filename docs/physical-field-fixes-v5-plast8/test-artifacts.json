@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-08-09T11:33:24.362Z",
+  "marker": "__PFFV5_P8_1786275181590-7a83b1__",
+  "factoryId": "537cbb48-7fba-48b6-80af-659f82cdaeb3",
+  "templates": [
+    {
+      "id": "df3cbc6c-8991-4961-8e1f-9a1c608e1bb8",
+      "purpose": "mobile runner",
+      "finalState": "archived"
+    },
+    {
+      "id": "59763aee-5a35-439e-8de2-95f8c648f71f",
+      "purpose": "builder snapshot",
+      "finalState": "archived"
+    }
+  ],
+  "runs": [
+    {
+      "id": "e4f5963e-ab16-453a-bb4e-c9865e14787a",
+      "owner": "test-management",
+      "finalState": "closed"
+    },
+    {
+      "id": "cc9d8178-d959-42d8-9183-8a618d42481f",
+      "owner": "test-master",
+      "finalState": "closed"
+    },
+    {
+      "id": "fdd24f4b-4581-4350-a8f2-2fbded9ef060",
+      "owner": "test-master",
+      "finalState": "closed"
+    }
+  ],
+  "line": {
+    "id": "caba2920-f8e6-4269-817a-204964dca801",
+    "positionId": "1324fd06-37fd-429e-8b9d-cc07290ccf3e",
+    "staffingTemplateId": "44e54ca2-00fe-44f0-9865-45beb9b4df1e",
+    "finalState": "line, position and staffing template deactivated; no assignments created"
+  },
+  "provenFixtureCleanup": {
+    "classification": "PROVEN_PILOT_FIXTURE",
+    "record": "Проверка пересменки для пилота",
+    "idPrefix": "0c524aa3",
+    "action": "guarded audited soft archive via POST",
+    "operationalMatchesAfter": 0,
+    "archiveMatchesAfter": 1,
+    "auditAction": "SHIFT_LOG_ENTRY_UPDATED",
+    "possibleRealDataChanged": false
+  },
+  "physicalDeleteCount": 0,
+  "existingOperationalDataChanged": true,
+  "existingOperationalDataChangeScope": "only the explicitly proven pilot ShiftLog fixture was soft-archived"
+}

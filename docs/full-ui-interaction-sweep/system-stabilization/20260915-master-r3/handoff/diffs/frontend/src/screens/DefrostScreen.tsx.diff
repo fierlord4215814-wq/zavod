@@ -1,0 +1,50 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\C2-row-defrost-before\\frontend\\src\\screens\\DefrostScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\DefrostScreen.tsx"
+index d12d1fc9..acfe27f3 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\C2-row-defrost-before\\frontend\\src\\screens\\DefrostScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\DefrostScreen.tsx"
+@@ -205,6 +205,8 @@ export function DefrostScreen() {
+   const [noticeText, setNoticeText] = useState<string | null>(null);
+   const lineListRef = useRef<HTMLDivElement | null>(null);
+   const lineListScrollRef = useRef(0);
++  const actionAttemptRef = useRef<{ input: string; operationId: string } | null>(null);
++  const actionInFlightRef = useRef(false);
+   const closeLine = () => {
+     setSelectedLine(null);
+     window.requestAnimationFrame(() => window.scrollTo({ top: lineListScrollRef.current, left: 0, behavior: 'auto' }));
+@@ -353,7 +355,12 @@ export function DefrostScreen() {
+   };
+ 
+   const submitAction = async (line: DefrostLine, submittedComment = comment) => {
+-    if (!modal || busy) return;
++    if (!modal || busy || actionInFlightRef.current) return;
++    const input = JSON.stringify([modal.mode, line.id, submittedComment]);
++    if (actionAttemptRef.current?.input !== input) {
++      actionAttemptRef.current = { input, operationId: crypto.randomUUID() };
++    }
++    actionInFlightRef.current = true;
+     setBusy(true);
+     setErrorText(null);
+     setNoticeText(null);
+@@ -365,7 +372,7 @@ export function DefrostScreen() {
+           : `/defrost/lines/${line.id}/shock-chamber-blown`;
+       const result = await apiClient.post<{ message?: string; shockChamberBlowStats?: ShockChamberBlowStats }>(endpoint, {
+         comment: submittedComment,
+-        operationId: `defrost-${modal.mode}-${line.id}-${Date.now()}`,
++        operationId: actionAttemptRef.current.operationId,
+       });
+       if (modal.mode === 'blow') {
+         setNoticeText(result.message ?? 'Отметка сохранена.');
+@@ -380,11 +387,13 @@ export function DefrostScreen() {
+     } catch (error) {
+       setErrorText(errorMessage(error));
+     } finally {
++      actionInFlightRef.current = false;
+       setBusy(false);
+     }
+   };
+ 
+   const openAction = (mode: ModalState['mode']) => {
++    actionAttemptRef.current = null;
+     setComment('');
+     setErrorText(null);
+     setNoticeText(null);

@@ -1,0 +1,22 @@
+{
+  "status": "PASS_MANAGED_COPY_UI_IMMUTABLE_SECOND_PAGE_NO_MAIN_CLOCK_CHANGE",
+  "scope": "isolated paired handover copy; production T1 clock/data unchanged",
+  "availability": {
+    "available": true,
+    "shiftDate": "2026-09-26",
+    "shiftType": "NIGHT",
+    "opensAt": "2026-09-27T03:00:00.000Z",
+    "closesAt": "2026-09-27T05:00:00.000Z",
+    "message": "Передача смены доступна."
+  },
+  "comment": "УЧ T1 — неизменяемый снимок передачи в управляемой копии",
+  "id": "551ace7c-5078-509d-af59-dc41b277cd6a",
+  "secondPageMs": 5237,
+  "snapshotHash": "31b0400fe584394274a27104cb9a2380ee22263078b01028994a19be9b3c7cee",
+  "denied": {
+    "/shift-log/551ace7c-5078-509d-af59-dc41b277cd6a/comment": 409,
+    "/shift-log/551ace7c-5078-509d-af59-dc41b277cd6a/close-important": 409
+  },
+  "immutableRetry": true,
+  "mainT1Unchanged": true
+}

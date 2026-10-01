@@ -1,0 +1,28 @@
+✔ audit retains exact action and denial predicates; module uses displayed classifier (4.1784ms)
+✔ audit module includes secondary prefixes and still intersects exact action (13.6149ms)
+✔ audit stable snapshot clamps selected period and factory stays canonical (2.6437ms)
+✔ audit scans beyond first 800 before search/page; stable two-field order (60.1175ms)
+✔ personal notice predicate is also bounded to selected or global factory (0.5484ms)
+✔ nearest-rank empty/single/odd/even/duplicates [] (1.9473ms)
+✔ nearest-rank empty/single/odd/even/duplicates [9] (0.2322ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4,100] (0.1763ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4] (0.1529ms)
+✔ nearest-rank empty/single/odd/even/duplicates [2,2,2,9] (0.1865ms)
+✔ missing phase is not zero; negative duration rejected (0.2061ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"invalid"} (3.2888ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-02-31"} (1.4433ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31","dateTo":"2026-08-30"} (1.6433ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31T08:00:00+03:00","dateTo":"2026-08-31T08:00:00+03:00"} (1.481ms)
+✔ calendar period Moscow half-open and 93-day cap remain (4.5466ms)
+✔ department on-time denominator does not subtract still-open overdue tasks (1.062ms)
+✔ time-only downtime context excludes exact interval end (3.0916ms)
+✔ shift clipping intersects an interval, not only its starting label (3.6876ms)
+✔ open interval clipped to asOf, independent lines not merged (1.8601ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 700.4993

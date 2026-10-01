@@ -1,0 +1,37 @@
+// Real current WS/store source in a finite browser-API VM. No server, sockets or timers.
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),ts=require('typescript');
+function runtime(){
+  const timers=new Map(),sockets=[],events=[];let serial=0;
+  const storage=()=>{const m=new Map();return{getItem:k=>m.get(k)||null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k),key:i=>[...m.keys()][i],get length(){return m.size;}};};
+  const window=new EventTarget();Object.assign(window,{location:{origin:'http://127.0.0.1:5173'},localStorage:storage(),sessionStorage:storage(),setTimeout:(fn,ms)=>{timers.set(++serial,{fn,ms});return serial;},clearTimeout:id=>timers.delete(id)});
+  class Socket{static OPEN=1;static CONNECTING=0;constructor(){this.readyState=0;sockets.push(this);}close(){this.readyState=3;this.onclose?.({code:1000});}open(){this.readyState=1;this.onopen?.();}message(type,payload={}){this.onmessage?.({data:JSON.stringify({type,payload})});}}
+  class CustomEvent extends Event{constructor(type,options){super(type);this.detail=options?.detail;}}
+  const context=vm.createContext({window,localStorage:window.localStorage,navigator:{onLine:true},WebSocket:Socket,URL,console,CustomEvent});
+  function evaluate(owner,requires){const source=fs.readFileSync(path.join(__dirname,'../src',owner),'utf8').replaceAll('import.meta.env.VITE_API_URL',"''").replaceAll('import.meta.env.VITE_WS_ENABLED',"'1'").replaceAll('import.meta.env.DEV','false');const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;const result={};vm.runInContext(`(function(require,exports){${code}\n})`,context)(name=>{if(!(name in requires))throw Error('UNEXPECTED_IMPORT '+name);return requires[name];},result);return result;}
+  const store=evaluate('store/app.store.ts',{react:{useSyncExternalStore:()=>{throw Error('Hooks not in source-contract scope');}}});
+  const ws=evaluate('ws/client.ts',{'../store/app.store':store});const setSession=(user='memory-user',factory='memory-A')=>store.appStore.setSession({currentUser:{userId:user,role:'WORKER',permissions:['notifications.read'],isAdmin:false,isGuest:false},selectedFactoryId:factory,availableFactories:[{id:factory}]});
+  store.appStore.setAuthToken('isolated-no-network');setSession();
+  window.addEventListener('zavod:operational-data-invalidated',e=>events.push(e.detail));
+  const tick=ms=>{const entries=[...timers.entries()].filter(([,t])=>t.ms===ms);for(const[id,t]of entries){timers.delete(id);t.fn();}};
+  return{window,store,ws,sockets,timers,events,setSession,tick};
+}
+test('J30 real WS owner coalesces invalidations and bounded offline online reconnect',()=>{
+  const r=runtime(),statuses=[],handle=r.ws.connectWs({onStatus:s=>statuses.push(s)});r.sockets[0].open();r.sockets[0].message('line_updated');r.sockets[0].message('assignment_updated');assert.equal([...r.timers.values()].filter(t=>t.ms===140).length,1);r.tick(140);assert.equal(r.events.length,1);
+  r.sockets[0].message('notification_created',{id:'memory-notice',title:'Изолированное уведомление'});assert.equal(r.store.appStore.getState().notificationsUnreadCount,1);
+  r.sockets[0].close();assert.equal([...r.timers.values()].filter(t=>t.ms===2000).length,1);r.window.dispatchEvent(new Event('online'));r.window.dispatchEvent(new Event('online'));assert.equal(r.sockets.length,2);r.sockets[1].open();r.tick(140);handle.close();assert.equal([...r.timers.values()].filter(t=>t.ms!==140).length,0);assert.ok(statuses.includes('fallback'));
+});
+test('J09 J30 queued prior socket event must not change a new factory unread count',()=>{
+  const r=runtime(),seen=[],handle=r.ws.connectWs({onNotification:n=>seen.push(n.id)});r.sockets[0].open();r.tick(140);const queued=r.sockets[0].onmessage;
+  r.setSession('memory-user','memory-B');handle.close();r.ws.connectWs({onNotification:n=>seen.push(n.id)});r.sockets[1].open();r.tick(140);
+  queued({data:JSON.stringify({type:'notification_created',payload:{id:'memory-A-notice',factoryId:'memory-A',title:'Предыдущая площадка'}})});
+  assert.equal(r.store.appStore.getState().notificationsUnreadCount,0,'Closed/old-context callback must not modify current unread state');assert.equal(seen.length,0);
+});
+test('J09 J30 context ABA and permission revoke invalidate queued callbacks before owner cleanup',()=>{
+  for(const change of ['ABA','permissions']){
+    const r=runtime(),handle=r.ws.connectWs();r.sockets[0].open();r.tick(140);
+    r.sockets[0].message('line_updated');
+    if(change==='ABA'){r.setSession('memory-user','memory-B');r.setSession('memory-user','memory-A');}
+    else{const s=r.store.appStore.getState();r.store.appStore.setSession({...s,currentUser:{...s.currentUser,permissions:[]}});}
+    r.sockets[0].message('notification_created',{id:'old-notice',factoryId:'memory-A'});r.sockets[0].message('task_updated');r.tick(140);assert.equal(r.events.length,1);assert.equal(r.store.appStore.getState().notificationsUnreadCount,0);handle.close();
+  }
+});

@@ -1,0 +1,66 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+index 5dc9532f..6e279742 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+@@ -1,4 +1,60 @@
+-# MASTER R5 — остановка на границе среды, 17.09.2026
++# MASTER R5 — текущая передача перед ручной перезагрузкой, 19.09.2026
++
++MASTER_R5_STATUS=WAITING_MANUAL_REBOOT. EXECUTION_STATUS=STOPPED_AT_REBOOT_BOUNDARY. GOAL_ACCEPTANCE=NOT_ACCEPTED. Это тот же R5; stages3–9 не выполнены. Основной UI Sweep остаётся PAUSED_BY_USER / NOT_ACCEPTED. История17.09 ниже сохранена, но её прежнее «нужно новое разрешение/ничего не установлено/reboot UNKNOWN» больше не описывает текущее состояние.
++
++## Выполнено в продолжении18–19.09
++
++Поручение08cd10ab явно выбрало Hyper-V + одну UbuntuServer24.04LTS/x64 VM и разрешило новый штатный UAC после полной проверки совместимости. Stage1 не повторялся: только delta от checkpoint. `attempts/20260918-hyperv-ubuntu24/baseline.json` сохранил12 before-doc snapshots, прежние62 package entries и старый ZIP. `resume-byte-check.json`19.09 вновь подтвердил215 product/config (207+8),132 build,72 harness и6 parent matrices без изменения. Старые product fingerprints сохранены; это byte check, не новый build/test. Dirty worktree не сбрасывался и не присваивается R5.
++
++До системной записи подтверждены Win10Pro22H2x64/19045.6456, DEP, firmware virtualization/SLAT/VMMonitor,16GiB RAM. Непосредственно native coordinator наблюдал достаточные RAM/disk; точные числа в request.json. Read-only check14:02 показал freeRAM8,821,477,376bytes и freeDisk41,429,532,672bytes; прежний boot16.09. Ubuntu24.04 и pinned Node24.15.0/PostgreSQL18.3/Prisma6.0.0/Playwright1.60.0 проверены по официальным источникам и current package metadata. Это platform compatibility, НЕ доказанная работа пары Prisma/PostgreSQL или Linux browser. Депенденции продукта не менялись.
++
++Официальная подпись Ubuntu SHA256SUMS реально проверена по полному закреплённому fingerprint. ISO HEAD200/4,080,486,400bytes; **сам ISO не скачан**, полный SHA256 перед boot обязателен. Node/PG pinned checksums сохранены. Подробные источники, бюджет и осуществимый autoinstall/SSH/закрытое исполнение/export plan: `attempts/20260918-hyperv-ubuntu24/compatibility-and-budget.md`, `image-metadata-verification.json`. Начальная VM только2CPU/4GiB/16GiB dynamic cap, host disk floor10GiB, без mounts/доступа guest tests к host/LAN/интернету. Этот план ещё НЕ runtime/isolation/round-trip proof.
++
++## Фактическая установка и точный reboot boundary
++
++18.09 первый новый visible UAC создал WindowsPowerShell5.1 PID8828, exit1; install-before/result/log не появились. Отдельный read-only diagnostic.ps1 был отвергнут с PSSecurityException/UnauthorizedAccess («running scripts is disabled on this system»), effective5.1=Restricted при currentPowerShell7=RemoteSigned. Это подтверждает ошибочное предположение о загрузке .ps1 данным интерпретатором; stderr самого PID8828 не был захвачен. Внутренний token guard того helper не исполнился. Ошибка/скрипты не удалены, повтором receipt guard не обойдён.
++
++После диагностики использована [официальная native DISM операция Hyper-V](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/get-started/Install-Hyper-V), а не смена execution policy или другой механизм виртуализации. Current non-elevated coordinator запустил только Microsoft-signed `C:\Windows\System32\Dism.exe` через отдельный visible RunAs/UAC; его signature Valid и actual elevated token=true реально наблюдены. Coordinator SHA256=`c0475258d39583de368b6e08e2416eba2ec89872e6e2cec30eef2569b918080d`.
++
++Exact arguments: `/Online /Enable-Feature /FeatureName:Microsoft-Hyper-V /FeatureName:Microsoft-Hyper-V-Management-PowerShell /All /NoRestart /English /LogPath:<own native-dism-01/dism.log>`; полный абсолютный command и binary/preflight hashes в `native-dism-01/request.json`.19.09.2026 14:05:30+03 terminal: **PID51652, exit3010, REBOOT_REQUIRED**. Caller session19189 завершён exit0 после сохранения receipts. DISM log независимо сообщает `Reboot required=yes` и подавление restart параметром /NoRestart.
++
++Изменились только7 features, каждая InstallState2→1: Microsoft-Hyper-V-All, Microsoft-Hyper-V, Microsoft-Hyper-V-Tools-All, Microsoft-Hyper-V-Management-PowerShell, Microsoft-Hyper-V-Hypervisor, Microsoft-Hyper-V-Services, Microsoft-Hyper-V-Management-Clients. Other feature delta0. Компоненты включены, но HypervisorPresent=false до reboot; **готовым runtime это не считается**. FreeDisk после41,331,564,544bytes (около38.49GiB); бюджет VM перепроверить после reboot, ничего не удалять ради места.
++
++Сейчас единственный необходимый шаг пользователя — сохранить открытые документы и **вручную перезагрузить Windows**, затем сообщить об этом. Codex не перезагружал хост, не добавлял автозапуск и не менял BIOS/Defender/UAC/execution policy/VPN/питание/часы. Не повторять уже завершённый DISM и старые installers. После сообщения проверить новый boot/Hyper-V/RAM/disk и продолжить stage2 guest preparation, затем3–9. [Полная команда продолжения](resume-prompt.txt).
++
++## Что доказано, что ещё нет
++
++| Контур | Новое фактическое доказательство R5 | Остаток |
++|---|---|---|
++| Host component | signed DISM + actual elevated token + before/after + exit3010/log | Ручной reboot и actual readiness |
++| Guest/toolchain/isolation | Только platform review и план, VM не создана | ISO hash/boot, guest deps, canary round-trip, independently observed closed network/mount/identity/default-deny |
++| MI-SEC-01 | **0 live cases, NOT_RUN** | Commit-loss/replay/current authority/2SQL concurrency/rollback/readers |
++| MI-PUB-01 | **0 live cases, NOT_RUN** | Active detail→ACK→report→Notifications/Audit/WS/archive, concurrent ACK |
++| MI-R2-ORD-01 | **0 live cases, NOT_RUN** | TAKE/RESTOCK/retry/2TAKE7from10, exact movement IDs/readers |
++| MI-R2-CHAT-ATT-01 | **0 live cases, NOT_RUN** | Real bytes, membership/revoke/late responses/receivers |
++| UI-SWEEP-036 | **0 live cases, NOT_RUN** | Ordinary≠immutable handover, archive-only/ordinary-only/files, no archive mutation/read receipt,19bindings |
++
++Поимённые scopes/owners/требования не урезаны: `live-gate-matrix.json`. Существующие32journeys/1407edges сохранены, **0 новых real journeys**; прежние29 bounded-isolated/3 partial-isolated — исторические, не live. Впереди Admin/UFA; People/Shift/Lines→Task→notification→Back; Wash/Defrost; typed checklists0/false/files; QuantityRelease3+7; Archive/Ops/Audit/export content;2-context WS; actual C01 loss→403; один controlled J03. J15 automatic OKK→Task CONTRACT_ABSENT, не новая функция.
++
++UI063 original1286→1213/73px остаётся UNKNOWN/OPEN; новых traces нет. UI036 — отдельный архивный/комментарийный контракт, не функциональная зависимость063.014/050 требуют исторических фактов, запрещённая working/history DB не исследовалась; replay kind/input/time и publication expired/lateACK/future требуют только конкретных решений, не новых schema/backfill. Missing-option/pristineBack уже установлены; THV06/FS15 не задваиваются.
++
++Новых product fixes=0, source/schema/test dependency edits=0, Node/browser/live executions=0, captures/viewed=0. **Ни одно изменение продукта не оставлено «непроверенным в R5» — продукт не менялся**; непроверены подготовленный VM lifecycle plan/guest isolation и весь будущий стек. Installer проверен лишь до реального reboot boundary. Прежние549Node/177browser — R4 historical; strict types/builds/Prisma/final Linux identity/визуалы3темы×4ширины в R5 NOT_RUN. Не добавлять к controls количество CLI checks/receipts/PNG.6parentmatrices неизменны: historical954/957 controls,284surfaces,P0/P1/P2=0/1/10 — не новая приёмка R5.
++
++## Сохранность, системные изменения, передача
++
++Новая VM/диск/DB/fixtures/backend/frontend/browser/host proxy не созданы, image download не начат. Собственные helpers/DISM завершены; чужие processes и working PostgreSQL не опрашивались/не останавливались. WORKING_DB_ACCESSED=NO; WORKING_DATA_ENV_UPLOADS_CHANGED=NO. Own fixture cleanup=N/A_NONE_CREATED; working runtime/data/cleanup=UNKNOWN_NOT_INSPECTED. Никаких reset/clean/stash/restore/rebase/commit/push, seeds/migrations/cleanup; screenshots/старый review ZIP сохранены.
++
++Единственная выполненная системная запись — перечисленные7 Hyper-V feature enables штатным DISM. Автоматически удалять Hyper-V нельзя. Если пользователь позже отдельно запросит отмену: сначала проверить, что нет зависимых чужих VM/нового использования Hyper-V; сравнить актуальное состояние с saved before; отключать только согласованные компоненты штатным Windows Features/DISM с NoRestart и отдельным UAC. Сейчас rollback не выполняется, перезагрузка также только вручную; test disks/данные не удалять.
++
++Current parent README/progress/gap и R5 документы обновлены семантически; старые layers и exact before сохранены. Собственная дельта/after/diffs/final byte identities/изменённые файлы и current runtime receipt — `attempts/20260918-hyperv-ubuntu24/`. Library/account memory **NOT_WRITTEN / PERSISTENCE_PENDING**, SOURCE_SYNC=REPO_LOCAL_ONLY. Первый компактный checkpoint сохранён сразу после DISM результата, не отложен до упаковки.
++
++Новый единственный пакет этого продолжения: `zavod-master-r5-hyperv-reboot-20260919.zip`, exact bytes/SHA256 и полный entry readback — `attempts/20260918-hyperv-ubuntu24/package-receipt.json`. Старый `zavod-master-r5-checkpoint.zip`17.09 НЕ перезаписывается. В новом пакете docs/ownhelpers/receipts/точные references/матрицы/дельта; без .env/credentials/cookies/storageState/private keys/DB/uploads/.git/node_modules/ISO/VHDX. Public Ubuntu signing key — публичный, не credential. Third-party verifier runtime/archive не переупаковываются; official URLs/integrity/license сохранены. Native screenshots остаются по путям в `native-evidence-index.md`, новых кадров0.
++
++FINAL_STOP=STOP_AT_MANUAL_REBOOT_BOUNDARY. После сохранения пакета — STOP до сообщения о ручной перезагрузке.
++
++---
++
++## Исторический checkpoint17.09.2026 — не текущее состояние
+ 
+ MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_AND_COMPATIBILITY_REVIEW_REQUIRED. GOAL_ACCEPTANCE=NOT_ACCEPTED. Это частичный checkpoint, **не выполнение всей программы R5, не настоящая интеграционная приёмка и не Pilot Ready**.
+ 

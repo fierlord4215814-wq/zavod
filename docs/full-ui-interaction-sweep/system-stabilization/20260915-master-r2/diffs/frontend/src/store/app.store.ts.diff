@@ -1,0 +1,16 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\store\\app.store.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\store\\app.store.ts"
+index fe69efe6..086b6bcd 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\store\\app.store.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\store\\app.store.ts"
+@@ -398,9 +398,10 @@ export type ShiftLogHandoverSnapshot = {
+   generatedAt: string;
+   authorName: string;
+   comment?: string | null;
+-  counts: { lines: number; tasks: number; defrosts: number; people: number; importantLogs: number; total: number };
++  counts: { lines: number; washes: number; tasks: number; defrosts: number; people: number; importantLogs: number; total: number };
+   sections: {
+     lines: ShiftLogHandoverItem[];
++    washes: ShiftLogHandoverItem[];
+     tasks: ShiftLogHandoverItem[];
+     defrosts: ShiftLogHandoverItem[];
+     people: ShiftLogHandoverItem[];

@@ -1,0 +1,13 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\README.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\README.md"
+index da6209f5..9bffeb07 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\README.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\README.md"
+@@ -6,7 +6,7 @@ Monorepo:
+ 
+ ## Завод v1.0 — текущая точка передачи
+ 
+-MASTER R5,20.09: `BLOCKED_CONSOLE_OBSERVATION_PERMISSION / NOT_ACCEPTED`. [Единый текущий отчёт/пакет](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md). После нового явного UAC создана одна own Hyper-V Gen2 VM, официальный UbuntuISO полностью проверен, clean source подготовлен; actual guest/isolation/live ещё не доказаны. Read-only observer требует дополнительного разрешения после ошибки capture helper. Штатная остановка ownVM запрошена, terminal/Off на08:55 не подтверждены; exact runtime receipt обязателен, Force не применялся. Продукт/рабочая PostgreSQL/service/data/.env/uploads/history не менялись/не читались, основной sweep на паузе. DISM не повторять, duplicate VM не создавать. Следовать [resume](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt).
++MASTER R5,20.09 16:34: `BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS / NOT_ACCEPTED`. [Единый текущий отчёт/пакет](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md). Разрешённый read-only UAC выполнен: существующая Gen2 VM подтверждена Running, прежние GUID/BIOS/VHDX/ISO сохранены. PID9056 подтверждён по start/command line; SHUTDOWN000006/EXIT000007 всё ещё без результатов, associated jobs=[] не доказывает отмену. Наблюдатель штатно завершён. Thumbnail возвращает на4bytes больше RGB565 contract; данные не обрезались. VMConnect без elevation отказал в доступе; computer-use capture0x80004002. Установка гостя/изоляция/пять live gates не доказаны; сначала нужны состояние старого helper и наблюдаемый guest screen. Новый контроллер до сверки старой очереди не запускать. Рабочая PostgreSQL/service/data/.env/uploads/history не читались и не менялись, продукт не менялся, main sweep на паузе. DISM/VM creation не повторять. [Resume](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt).
+ 
+ Исторический checkpoint19.09 ниже уже заменён текущим:
+ 

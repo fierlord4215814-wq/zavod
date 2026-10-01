@@ -1,0 +1,27 @@
+require('./master-offline-guard.cjs');require('reflect-metadata');
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {memory,strict,denied}=require('./master-r2-memory.cjs');
+const {installAuthority}=require('./master-r2-authority-fixture.cjs');
+const {AdminService}=require('../dist/modules/admin/admin.service'),{DirectoryService}=require('../dist/modules/directory/directory.service'),{TaskService}=require('../dist/modules/task/task.service');
+const {TaskController}=require('../dist/modules/task/task.controller'),{PermissionGuard}=require('../dist/common/permission.guard'),{Reflector}=require('@nestjs/core');
+test('R2-E-J02/J25 actual Admin config mutation Directory Task consumers and UFA revoke restore',async()=>{
+  const m=memory(),adminUser={userId:'config-admin',selectedFactoryId:'config-factory',role:'ADMIN',isAdmin:true,isGuest:false,permissions:[]},departments=[];
+  const factory={id:adminUser.selectedFactoryId,name:'Площадка упаковки',isActive:true,deletedAt:null},account={id:'config-mechanic',firstName:'Иван',lastName:'Рабочий',employeeState:'AVAILABLE',blockedAt:null,deletedAt:null,passwordResetRequired:false,assignments:[]};
+  m.data.factory=m.model('factory',[factory]);m.data.department=m.model('department',departments);
+  const authEvents=[],ws=strict({...m.ws,notifyAuthChanged:id=>authEvents.push(id)}),admin=new AdminService({db:m.db},m.audit,ws,strict({}),strict({})),directory=new DirectoryService({db:m.db});
+  const tasks=new TaskService({db:m.db},m.ws,strict({}),m.audit,m.attachments,strict({}),directory);
+  const dept=await admin.createDepartment(adminUser,{name:'Механическая служба',code:'MECHANICAL_WORK'});
+  assert.equal((await directory.departments(adminUser,{}))[0].id,dept.id);assert.equal((await tasks.recipientDepartments(adminUser))[0].id,dept.id);
+  await admin.updateDepartmentStatus(adminUser,dept.id,{isActive:false,reason:'Временное изменение организации'});assert.equal((await directory.departments(adminUser,{})).length,0);assert.equal((await tasks.recipientDepartments(adminUser)).length,0);
+  await admin.updateDepartmentStatus(adminUser,dept.id,{isActive:true});assert.equal((await tasks.recipientDepartments(adminUser))[0].id,dept.id);
+  const access={id:'config-access',userId:account.id,factoryId:factory.id,factory,departmentId:dept.id,department:departments[0],role:'TECH_MECHANIC',isActive:true,isGuest:false,deactivatedAt:null,jobTitleId:null,jobTitle:null,companyId:null,company:null,user:account},accesses=[access];
+  m.data.userFactoryAccess=m.model('userFactoryAccess',accesses,{includes:['user','factory','department','jobTitle','company'],compounds:['userId_factoryId']});
+  const {resolve}=installAuthority(m,[account],accesses,{TECH_MECHANIC:['tasks.read','tasks.take','people.read']});
+  const guard=new PermissionGuard(new Reflector(),m.audit),canBoard=user=>guard.canActivate({getClass:()=>TaskController,getHandler:()=>TaskController.prototype.board,switchToHttp:()=>({getRequest:()=>({user,method:'GET',url:'/tasks/board'})})});
+  const first=await resolve(account.id,factory.id);assert.equal(first.isGuest,false);assert.equal(await canBoard(first),true);assert.equal((await directory.users(adminUser,{}))[0].userId,account.id);assert.equal((await tasks.assigneeCandidates(adminUser,{}))[0].userId,account.id);
+  await assert.rejects(admin.updateFactoryAccess({...adminUser,isAdmin:false,role:'WORKER'},account.id,{isActive:false,reason:'Проверка'}),denied);await assert.rejects(admin.updateFactoryAccess(adminUser,account.id,{factoryId:'foreign',isActive:false,reason:'Проверка'}),denied);assert.equal(access.isActive,true);
+  await admin.updateFactoryAccess(adminUser,account.id,{isActive:false,reason:'Доступ отозван администратором'});
+  const revoked=await resolve(account.id,factory.id);assert.equal(revoked.isGuest,true);await assert.rejects(canBoard(revoked),denied);assert.equal((await directory.users(adminUser,{})).length,0);assert.equal((await tasks.assigneeCandidates(adminUser,{})).length,0);assert.deepEqual(authEvents,[account.id]);
+  await admin.updateFactoryAccess(adminUser,account.id,{isActive:true});assert.equal((await resolve(account.id,factory.id)).isGuest,false);assert.equal((await tasks.assigneeCandidates(adminUser,{}))[0].userId,account.id);assert.equal(accesses.length,1);assert.deepEqual(authEvents,[account.id,account.id]);
+  await assert.rejects(directory.users(adminUser,{factoryId:'foreign'}),denied);assert.ok(m.audits.some(a=>a.action==='FACTORY_ACCESS_REVOKED'));assert.ok(m.audits.some(a=>a.action==='USER_FACTORY_ACCESS_RESTORED'));
+});

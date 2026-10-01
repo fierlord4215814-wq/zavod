@@ -1,0 +1,17 @@
+# MASTER R5 — renewed VM-control approval, 20.09.2026
+
+EXECUTION_STATUS=GRACEFUL_OWN_SHUTDOWN_UNVERIFIED_WAITING_READONLY_OBSERVER_UAC
+GOAL_ACCEPTANCE=NOT_ACCEPTED
+MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED
+
+08:55 boundary: no additional observer approval yet, observer launcher NOT_RUN. Source tar337files/338entries/6,896,128bytes verified; guest transfer0. Own guest SSH22 timeout, auth0. Normal SHUTDOWN000006 issued08:48, result still absent; EXIT_COORDINATOR000007 queued, no result. PID9056 observed alive; last proven VM state Running08:34, current Off/stop UNKNOWN_UNVERIFIED. No Force/TurnOff/kill. Loop's8h deadline does not interrupt a blocked synchronous Stop-VM; do not promise automatic completion. Next requires read-only observer permission/current VM/control inspection, not duplicate creation. Final report/package records pending lifecycle honestly.
+
+User explicitly authorized one new standard UAC for the limited own Hyper-V VM helper on20.09 and is ready to confirm. This is the same MASTER R5, not a replacement VM/parallel environment. The cancelled19.09 request/failure and partial ISO are preserved. No repeated DISM or working PostgreSQL/service/data/env/uploads/history access.
+
+Fresh named attempt; prior prepared coordinator copied through apply_patch with only a new owned switch name, bounded adapter-enumeration readiness wait, and own runtime reparse denial. All old receipts/guards remain unchanged. Before privileged mutations: selfhash, actual administrator token, exact own target absence, resource/route/MAC checks. VM starts OFF. No guest/product bootstrap until full official image hash and independent isolation/transfer proof. VM/guest/live gates are still NOT_RUN at this checkpoint.
+
+The19.09 ISO curl finished exit28 after1800001ms, partial3,665,735,933/4,080,486,400bytes retained; no download is currently running. The previous handoff preparation did not yet produce its new ZIP. Final review package will reflect the terminal outcome of this renewed authorized continuation.
+
+08:25 fresh read-only host: new boot20.09 08:03:28.500+03, hypervisor/DEP true, vmms Running, freeRAM9,026,576,384bytes/freeDisk50,506,760,192bytes. Scoped helper PID9056 actual administrator token confirmed; created own Gen2 VM99a158da-c247-422c-ae11-109485a92b1f OFF at08:26,2CPU/4GiB/16GiBdynamic, own Internal switch10.243.53.0/30. No NAT/firewall/security changes. Guest/bootstrap/isolation/live NOT_RUN. Next: separate image tail/full hash, own seed/boot, real round-trip/closed isolation before application stack.
+
+08:42 checkpoint: image-range/assembly exit0/full official SHA proven; original partial retained. Own seed ISO created, private guest key/media stay in runtime/private, never reports. Limited coordinator requests000001media/000002BOOT/000003space completed; VMRunning since08:34, 4GiB assigned. CAPTURE000004/000005 failed expected RGB565-size guard despite APIreturn0; actual console/Ubuntu installation status UNVERIFIED. No blind installer confirmation. Non-admin direct CIM read returned no own VM object. ComputerUse only listed windows, no VMConnect/opening/typing. Additional read-only observer prepared, NOT_EXECUTED, new explicit UAC approval requested. Encoder C# compile error found before UAC, revised to direct PowerShell/.NET; parser0, runtime still UNVERIFIED. Prep proxy exists as source only, no listener. Current DB/apps/fixtures/tests NONE.

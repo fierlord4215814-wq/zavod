@@ -1,0 +1,15 @@
+{
+  "exe": "C:/Users/79164/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/usr/bin/sh.exe",
+  "args": [
+    "-n",
+    "-c",
+    "install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"",
+    "11111111-2222-4333-8444-555555555555",
+    "\\n\" > /target/etc/r5-provision-instance"
+  ],
+  "exitCode": 2,
+  "signal": null,
+  "error": null,
+  "stdout": "",
+  "stderr": "11111111-2222-4333-8444-555555555555: -c: line 1: unexpected EOF while looking for matching `\"'\n"
+}

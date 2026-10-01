@@ -1,0 +1,1131 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\App.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\App.tsx"
+index 497a4558..c11153f0 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\App.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\App.tsx"
+@@ -1,5 +1,5 @@
+ ﻿import * as React from 'react';
+-import { useEffect, useMemo, useRef, useState } from 'react';
++import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+ import { apiClient } from './api/client';
+ import { canShowScreen, defaultQuickScreenIds, NavIconName, roleHomeScreen, SCREEN_DEFINITIONS, Screen, ScreenDefinition } from './navigation/permissions';
+ import { AdminConfigScreen } from './screens/AdminConfigScreen';
+@@ -17,10 +17,10 @@ import { ArchiveScreen } from './screens/ArchiveScreen';
+ import { BugReportScreen } from './screens/BugReportScreen';
+ import { AppConfirmDialog } from './components/AppConfirmDialog';
+ import { GuestHomeScreen } from './screens/GuestHomeScreen';
+-import { PeopleScreen } from './screens/PeopleScreen';
++import { PeopleScreen, PeopleTaskReturn } from './screens/PeopleScreen';
+ import { ShiftLogScreen } from './screens/ShiftLogScreen';
+-import { ShiftPeopleScreen } from './screens/ShiftPeopleScreen';
+-import { SituationScreen } from './screens/SituationScreen';
++import { ShiftPeopleScreen, ShiftTaskReturn } from './screens/ShiftPeopleScreen';
++import { SituationScreen, SituationTaskReturn } from './screens/SituationScreen';
+ import { StockScreen } from './screens/StockScreen';
+ import { TasksScreen } from './screens/TasksScreen';
+ import { WashScreen } from './screens/WashScreen';
+@@ -227,6 +227,9 @@ export default function App() {
+   const [pushStatus, setPushStatus] = useState<PushStatus | null>(null);
+   const [pendingNotificationIntent, setPendingNotificationIntent] = useState<NotificationNavigationIntent | null>(null);
+   const [pendingNotificationScreen, setPendingNotificationScreen] = useState<Screen | null>(null);
++  const notificationNavigationInFlight = useRef(new Map<string, Promise<void>>());
++  const [pendingTask, setPendingTask] = useState<{ id: string; context: string } | null>(null);
++  const [taskReturn, setTaskReturn] = useState<{ screen: Screen; context: string; value: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn } | null>(null);
+   useMobileBackLayer(mobileMoreOpen, () => {
+     if (quickSlotPickerIndex !== null) setQuickSlotPickerIndex(null);
+     else if (mobileSheetView === 'settings') setMobileSheetView('sections');
+@@ -331,6 +334,27 @@ export default function App() {
+     return quickPreference.find((id) => allowed.has(id)) ?? roleDefaultHomeScreen;
+   }, [currentUser?.isGuest, quickPreference, quickPreferenceConfigured, roleDefaultHomeScreen, visibleScreens]);
+   const navigationContextRef = useRef('');
++  useEffect(() => {
++    setPendingTask(null);
++    setTaskReturn(null);
++    // Legacy unscoped intents must never survive login/factory changes or reload.
++    try { window.localStorage.removeItem('zavod.taskHighlightId'); } catch { /* Optional storage. */ }
++  }, [navigationContextKey]);
++  const shellRef = useRef<HTMLElement>(null);
++
++  useLayoutEffect(() => {
++    const shell: HTMLElement | null = shellRef.current;
++    if (!shell) return;
++    const menus = shell.querySelectorAll<HTMLElement>('.bottom-nav, .mobile-quick-nav');
++    const measure = () => {
++      const height = Math.max(0, ...Array.from(menus, (menu) => menu.getBoundingClientRect().height));
++      shell.style.setProperty('--shell-navigation-inset', `${Math.ceil(height)}px`);
++    };
++    const observer = new ResizeObserver(measure);
++    menus.forEach((menu) => observer.observe(menu));
++    measure();
++    return () => observer.disconnect();
++  }, [authStatus, hasSelectedFactory, visibleScreens]);
+ 
+   useEffect(() => {
+     if (!visibleScreens.some((item) => item.id === screen)) {
+@@ -412,7 +436,7 @@ export default function App() {
+     return String(count > 99 ? '99+' : count);
+   };
+ 
+-  const openScreen = (next: Screen, remember = true, bypassDirtyCheck = false) => {
++  const openScreen = (next: Screen, remember = true, bypassDirtyCheck = false, linkedTaskNavigation = false) => {
+     if (!visibleScreens.some((item) => item.id === next)) return;
+     if (!bypassDirtyCheck && next !== screen && hasDirtyMobileForms()) {
+       setDirtyNavigation({ kind: 'screen', next, remember });
+@@ -424,6 +448,8 @@ export default function App() {
+       safeSessionSet(`${SESSION_SCROLL_PREFIX}.${navigationContextKey}.${screen}`, String(window.scrollY));
+       safeSessionSet(`${SESSION_ROUTE_PREFIX}.${navigationContextKey}`, next);
+     }
++    if (!linkedTaskNavigation) setPendingTask(null);
++    if (!linkedTaskNavigation && !(screen === 'Tasks' && next === taskReturn?.screen)) setTaskReturn(null);
+     if (remember && next !== screen) {
+       const history = screenHistoryRef.current;
+       screenHistoryRef.current = [...history, next].slice(-20);
+@@ -444,7 +470,7 @@ export default function App() {
+     if (target) openScreen(target.id);
+   };
+ 
+-  const openNotificationSource = async (intent: NotificationNavigationIntent) => {
++  const navigateNotificationSource = async (intent: NotificationNavigationIntent) => {
+     const sourceRoute = intent.sourceRoute?.trim() ?? '';
+     const sourceFactoryId = intent.factoryId?.trim() || selectedFactoryId;
+     if (!sourceRoute || !sourceFactoryId) throw new Error('Источник уведомления сейчас недоступен.');
+@@ -459,6 +485,10 @@ export default function App() {
+         body: '{}',
+         headers: targetHeaders,
+       });
++      if (sourceFactoryId === selectedFactoryId) {
++        const unread = await apiClient.request<{ count: number }>('/notifications/unread-count', { headers: targetHeaders }).catch(() => null);
++        if (unread) appStore.setNotificationsUnreadCount(unread.count);
++      }
+     }
+ 
+     const me = await apiClient.request<MeResponse>('/auth/me', { headers: targetHeaders });
+@@ -496,6 +526,15 @@ export default function App() {
+     setPendingNotificationScreen(targetDefinition.id);
+   };
+ 
++  const openNotificationSource = (intent: NotificationNavigationIntent) => {
++    const key = JSON.stringify([currentUser?.userId, intent.factoryId || selectedFactoryId, intent.notificationId, intent.sourceRoute]);
++    const inFlight = notificationNavigationInFlight.current.get(key);
++    if (inFlight) return inFlight;
++    const operation = navigateNotificationSource(intent).finally(() => notificationNavigationInFlight.current.delete(key));
++    notificationNavigationInFlight.current.set(key, operation);
++    return operation;
++  };
++
+   appBackRef.current = () => {
+     const history = screenHistoryRef.current;
+     if (history.length > 1) {
+@@ -536,9 +575,14 @@ export default function App() {
+ 
+   useEffect(() => {
+     const onNavigate = (event: Event) => {
+-      const detail = (event as CustomEvent<{ screen?: Screen; userId?: string }>).detail;
++      const detail = (event as CustomEvent<{ screen?: Screen; userId?: string; taskId?: string; taskReturn?: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn }>).detail;
+       if (detail?.screen) {
+-        openScreen(detail.screen);
++        if (detail.screen === 'Tasks' && detail.taskId && navigationContextKey
++          && visibleScreens.some((item) => item.id === 'Tasks') && !hasDirtyMobileForms()) {
++          setPendingTask({ id: detail.taskId, context: navigationContextKey });
++          setTaskReturn(detail.taskReturn ? { screen, context: navigationContextKey, value: detail.taskReturn } : null);
++        }
++        openScreen(detail.screen, true, false, Boolean(detail.screen === 'Tasks' && detail.taskId && !hasDirtyMobileForms()));
+         if (detail.screen === 'People' && detail.userId) {
+           window.setTimeout(() => {
+             window.dispatchEvent(new CustomEvent('zavod:open-person-profile', { detail: { userId: detail.userId } }));
+@@ -548,7 +592,7 @@ export default function App() {
+     };
+     window.addEventListener('zavod:navigate', onNavigate as EventListener);
+     return () => window.removeEventListener('zavod:navigate', onNavigate as EventListener);
+-  }, [visibleScreens]);
++  }, [visibleScreens, screen, navigationContextKey]);
+ 
+   useEffect(() => {
+     const acceptIntent = (intent: NotificationNavigationIntent | null | undefined) => {
+@@ -853,7 +897,7 @@ export default function App() {
+   }
+ 
+   return (
+-    <main className="app-shell">
++    <main className="app-shell" ref={shellRef}>
+       <header className="topbar">
+         <div className="brand" aria-label="Завод">
+           <div className="brand-mark" aria-hidden="true" />
+@@ -947,12 +991,12 @@ export default function App() {
+       </div> : null}
+ 
+       {screen === 'Home' && <GuestHomeScreen />}
+-      {screen === 'Shift' && <ShiftPeopleScreen />}
++      {screen === 'Shift' && <ShiftPeopleScreen taskReturn={taskReturn?.context === navigationContextKey && taskReturn.screen === 'Shift' ? taskReturn.value as ShiftTaskReturn : undefined} />}
+       {screen === 'ShiftHistory' && <ShiftPeopleScreen mode="history" />}
+-      {screen === 'People' && <PeopleScreen />}
++      {screen === 'People' && <PeopleScreen taskReturn={taskReturn?.context === navigationContextKey && taskReturn.screen === 'People' ? taskReturn.value as PeopleTaskReturn : undefined} />}
+       {screen === 'Admin' && <AdminConfigScreen />}
+-      {screen === 'Situation' && <SituationScreen />}
+-      {screen === 'Tasks' && <TasksScreen />}
++      {screen === 'Situation' && <SituationScreen taskReturn={taskReturn?.context === navigationContextKey && taskReturn.screen === 'Situation' ? taskReturn.value as SituationTaskReturn : undefined} />}
++      {screen === 'Tasks' && <React.Fragment key={navigationContextKey}><TasksScreen targetTaskId={pendingTask?.context === navigationContextKey ? pendingTask.id : undefined} onTargetConsumed={() => setPendingTask(null)} /></React.Fragment>}
+       {screen === 'Wash' && <WashScreen />}
+       {screen === 'OKK' && <OkkScreen />}
+       {screen === 'Stock' && <StockScreen />}
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\styles.css" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\styles.css"
+index 60705d0f..adad78db 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\styles.css"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\styles.css"
+@@ -21645,3 +21645,22 @@ body.pwa-standalone {
+     line-height: 1.05 !important;
+   }
+ }
++
++/* THV-06: reserve the rendered navigation height, including its safe-area padding. */
++.app-shell {
++  padding-bottom: calc(var(--shell-navigation-inset, 76px) + 24px);
++}
++
++@media (min-width: 769px) {
++  .bottom-nav,
++  .admin-screen + .bottom-nav {
++    max-width: 1440px;
++    max-height: 50dvh;
++    grid-template-columns: repeat(auto-fit, minmax(116px, 1fr));
++  }
++
++  .bottom-nav .nav-button {
++    overflow-wrap: normal;
++    word-break: normal;
++  }
++}
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\TasksScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\TasksScreen.tsx"
+index 66a01a09..68ca6958 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\TasksScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\TasksScreen.tsx"
+@@ -129,7 +129,7 @@ function boardSignature(board: Board) {
+     .join('|');
+ }
+ 
+-export function TasksScreen() {
++export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?: string; onTargetConsumed?: () => void } = {}) {
+   const { currentUser } = useAppStore();
+   const fixtureQuery = shouldHidePilotFixtures() ? '' : '?includeFixtures=true';
+   const [board, setBoard] = useState<Board>(emptyBoard);
+@@ -145,6 +145,7 @@ export function TasksScreen() {
+   const [modalOperationId, setModalOperationId] = useState('');
+   const [busy, setBusy] = useState(false);
+   const [loading, setLoading] = useState(true);
++  const [boardLoaded, setBoardLoaded] = useState(false);
+   const [archiveLoading, setArchiveLoading] = useState(false);
+   const [errorText, setErrorText] = useState<string | null>(null);
+   const [files, setFiles] = useState<File[]>([]);
+@@ -250,6 +251,7 @@ export function TasksScreen() {
+         apiClient.get<{ lines?: LineOption[] }>('/archive/options').catch(() => ({ lines: [] })),
+       ]);
+       setBoard(boardData);
++      setBoardLoaded(true);
+       const visibleTasks = [...boardData.NEW, ...boardData.IN_PROGRESS, ...boardData.LONG, ...boardData.DONE];
+       appStore.setTasks(visibleTasks);
+       if (selectedTask && !visibleTasks.some((task) => task.id === selectedTask.id)) {
+@@ -273,6 +275,15 @@ export function TasksScreen() {
+ 
+   useEffect(() => { void load(); void loadArchive(); }, []);
+ 
++  useEffect(() => {
++    if (!targetTaskId || !boardLoaded) return;
++    const target = [...board.NEW, ...board.IN_PROGRESS, ...board.LONG, ...board.DONE]
++      .find((task) => task.id === targetTaskId);
++    onTargetConsumed?.();
++    if (target) setSelectedTask(target);
++    else setErrorText('Связанная заявка недоступна в текущем списке. Возможно, она закрыта или доступ изменился.');
++  }, [targetTaskId, boardLoaded, board, onTargetConsumed]);
++
+   useEffect(() => {
+     const timer = window.setInterval(() => {
+       void load({ silent: true });
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\PeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\PeopleScreen.tsx"
+index fedd4dc9..4adcf82a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\PeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\PeopleScreen.tsx"
+@@ -98,16 +98,18 @@ const categoryFilters: Array<[CategoryFilter, string]> = [
+   ['services', 'Службы'],
+ ];
+ 
+-export function PeopleScreen() {
++export type PeopleTaskReturn = { profileId: string; shiftFilter: ShiftFilter; categoryFilter: CategoryFilter; search: string };
++
++export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } = {}) {
+   const { currentUser } = useAppStore();
+   const [people, setPeople] = useState<PersonRow[]>([]);
+   const [profile, setProfile] = useState<Profile | null>(null);
+   const [passwordResetCapability, setPasswordResetCapability] = useState<PasswordResetCapability | null>(null);
+   const [lines, setLines] = useState<Line[]>([]);
+   const [timeAreas, setTimeAreas] = useState<TimeArea[]>([]);
+-  const [shiftFilter, setShiftFilter] = useState<ShiftFilter>('all');
+-  const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>('all');
+-  const [search, setSearch] = useState('');
++  const [shiftFilter, setShiftFilter] = useState<ShiftFilter>(taskReturn?.shiftFilter ?? 'all');
++  const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>(taskReturn?.categoryFilter ?? 'all');
++  const [search, setSearch] = useState(taskReturn?.search ?? '');
+   const [filterOpen, setFilterOpen] = useState(false);
+   const [modal, setModal] = useState<Modal>(null);
+   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+@@ -212,6 +214,8 @@ export function PeopleScreen() {
+     return () => window.removeEventListener('zavod:open-person-profile', onOpenPersonProfile as EventListener);
+   }, []);
+ 
++  useEffect(() => { if (taskReturn?.profileId) void openProfile(taskReturn.profileId); }, []);
++
+   const currentLine = lines.find((line) => line.id === lineId);
+   const skillFields: ActionModalField[] = [
+     {
+@@ -551,8 +555,10 @@ export function PeopleScreen() {
+                     </div>
+                     {profile.serviceTaskStatus.state === 'ON_TASK' ? (
+                       <button className="secondary-button" type="button" onClick={() => {
+-                        window.localStorage.setItem('zavod.taskHighlightId', profile.serviceTaskStatus?.taskId ?? '');
+-                        window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: { screen: 'Tasks' } }));
++                        window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: {
++                          screen: 'Tasks', taskId: profile.serviceTaskStatus?.taskId,
++                          taskReturn: { profileId: profile.id, shiftFilter, categoryFilter, search } satisfies PeopleTaskReturn,
++                        } }));
+                       }}>
+                         Посмотреть заявку
+                       </button>
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\ShiftPeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+index 093ddbd3..3bb8e717 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+@@ -735,7 +735,8 @@ function errorMessage(error: unknown, fallback: string) {
+   return error instanceof Error ? error.message : fallback;
+ }
+ 
+-type ShiftPeopleScreenProps = { mode?: 'workspace' | 'history' };
++export type ShiftTaskReturn = { profileId: string; includeAllPeople: boolean; shiftTab: 'past' | 'current' | 'next' | 'future'; currentOperationalView: CurrentOperationalView; peoplePanelMode: PeoplePanelMode; peopleSearch: string };
++type ShiftPeopleScreenProps = { mode?: 'workspace' | 'history'; taskReturn?: ShiftTaskReturn };
+ 
+ const MONTH_NAMES = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+ 
+@@ -766,22 +767,22 @@ function monthCalendar(month: string) {
+   ];
+ }
+ 
+-export function ShiftPeopleScreen({ mode = 'workspace' }: ShiftPeopleScreenProps = {}) {
++export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopleScreenProps = {}) {
+   const { lines, currentUser, availableFactories, selectedFactoryId } = useAppStore();
+   const historyOnly = mode === 'history';
+   const [people, setPeople] = useState<ShiftPerson[]>([]);
+-  const [includeAllPeople, setIncludeAllPeople] = useState(false);
++  const [includeAllPeople, setIncludeAllPeople] = useState(taskReturn?.includeAllPeople ?? false);
+   const [loading, setLoading] = useState(true);
+   const [initialLoadCompleted, setInitialLoadCompleted] = useState(false);
+   const [busy, setBusy] = useState(false);
+   const [errorText, setErrorText] = useState<string | null>(null);
+   const [toastText, setToastText] = useState<string | null>(null);
+   const [liveStatus, setLiveStatus] = useState('Нет новых событий');
+-  const [shiftTab, setShiftTab] = useState<'past' | 'current' | 'next' | 'future'>(historyOnly ? 'past' : 'current');
+-  const [currentOperationalView, setCurrentOperationalView] = useState<CurrentOperationalView>(retainedCurrentOperationalView);
++  const [shiftTab, setShiftTab] = useState<'past' | 'current' | 'next' | 'future'>(taskReturn?.shiftTab ?? (historyOnly ? 'past' : 'current'));
++  const [currentOperationalView, setCurrentOperationalView] = useState<CurrentOperationalView>(taskReturn?.currentOperationalView ?? retainedCurrentOperationalView);
+   const [shiftPickerOpen, setShiftPickerOpen] = useState(false);
+-  const [peoplePanelMode, setPeoplePanelMode] = useState<PeoplePanelMode>(null);
+-  const [peopleSearch, setPeopleSearch] = useState('');
++  const [peoplePanelMode, setPeoplePanelMode] = useState<PeoplePanelMode>(taskReturn?.peoplePanelMode ?? null);
++  const [peopleSearch, setPeopleSearch] = useState(taskReturn?.peopleSearch ?? '');
+   const [selectedQuickPersonId, setSelectedQuickPersonId] = useState('');
+   const [assignmentMenuUser, setAssignmentMenuUser] = useState<ShiftPerson | null>(null);
+   const [assignmentFlowUser, setAssignmentFlowUser] = useState<ShiftPerson | null>(null);
+@@ -863,6 +864,7 @@ export function ShiftPeopleScreen({ mode = 'workspace' }: ShiftPeopleScreenProps
+   const [assignmentRowToDelete, setAssignmentRowToDelete] = useState<LineShiftAssignmentRow | null>(null);
+   const [dashboardLoading, setDashboardLoading] = useState(false);
+   const [profile, setProfile] = useState<PersonProfile | null>(null);
++  useEffect(() => { if (taskReturn?.profileId) void openProfile(taskReturn.profileId); }, []);
+   const [workAreas, setWorkAreas] = useState<WorkArea[]>([]);
+   const [workAreaBoard, setWorkAreaBoard] = useState<WorkAreaBoard | null>(null);
+   const [workAreaLoading, setWorkAreaLoading] = useState(false);
+@@ -5756,8 +5758,10 @@ export function ShiftPeopleScreen({ mode = 'workspace' }: ShiftPeopleScreenProps
+                   </div>
+                   {profile.serviceTaskStatus.state === 'ON_TASK' ? (
+                     <button className="secondary-button compact-action" type="button" onClick={() => {
+-                      window.localStorage.setItem('zavod.taskHighlightId', profile.serviceTaskStatus?.taskId ?? '');
+-                      window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: { screen: 'Tasks' } }));
++                    window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: {
++                      screen: 'Tasks', taskId: profile.serviceTaskStatus?.taskId,
++                      taskReturn: { profileId: profile.id, includeAllPeople, shiftTab, currentOperationalView, peoplePanelMode, peopleSearch } satisfies ShiftTaskReturn,
++                    } }));
+                     }}>
+                       Посмотреть заявку
+                     </button>
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\SituationScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\SituationScreen.tsx"
+index a7874aec..50435d4b 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\SituationScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\SituationScreen.tsx"
+@@ -181,7 +181,8 @@ function taskCountLabel(value: number) {
+   return 'заявок';
+ }
+ 
+-export function SituationScreen() {
++export type SituationTaskReturn = { selectedLineId: string | null };
++export function SituationScreen({ taskReturn }: { taskReturn?: SituationTaskReturn } = {}) {
+   const { currentUser, lines, washSessions } = useAppStore();
+   const [loading, setLoading] = useState(true);
+   const [pendingAction, setPendingAction] = useState<PendingAction>(null);
+@@ -189,7 +190,8 @@ export function SituationScreen() {
+   const actionRequestInFlightRef = useRef(false);
+   const [serverNowIso, setServerNowIso] = useState<string | null>(null);
+   const [downtimeReasons, setDowntimeReasons] = useState<Array<{ value: string; label: string }>>([]);
+-  const [selectedLineId, setSelectedLineId] = useState<string | null>(null);
++  const [selectedLineId, setSelectedLineId] = useState<string | null>(taskReturn?.selectedLineId ?? null);
++  useEffect(() => { if (taskReturn?.selectedLineId) void loadLineDetail(taskReturn.selectedLineId); }, []);
+   const [showInactivePicker, setShowInactivePicker] = useState(false);
+   const [errorText, setErrorText] = useState<string | null>(null);
+   const [runtimeStats, setRuntimeStats] = useState<any | null>(null);
+@@ -341,8 +343,9 @@ export function SituationScreen() {
+   };
+ 
+   const openTask = (taskId: string) => {
+-    window.localStorage.setItem('zavod.taskHighlightId', taskId);
+-    window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: { screen: 'Tasks' } }));
++    window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: {
++      screen: 'Tasks', taskId, taskReturn: { selectedLineId } satisfies SituationTaskReturn,
++    } }));
+   };
+ 
+   const openPendingAction = (action: Exclude<PendingAction, null>) => {
+@@ -442,8 +445,7 @@ export function SituationScreen() {
+   const openTimelineSource = (event: LineTimelineEvent) => {
+     if (!event.canOpen) return;
+     if (event.sourceType === 'TASK') {
+-      window.localStorage.setItem('zavod.taskHighlightId', event.sourceId);
+-      window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: { screen: 'Tasks' } }));
++      openTask(event.sourceId);
+       return;
+     }
+     if (event.sourceType === 'WASH_SESSION') {
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\NotificationsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\NotificationsScreen.tsx"
+index 76e428f6..48361de1 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\screens\\NotificationsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\screens\\NotificationsScreen.tsx"
+@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
+ import { apiClient } from '../api/client';
+ import { PremiumKpiStrip, PremiumSectionHeader } from '../components/PremiumShell';
+ import { appStore, NotificationItem, useAppStore } from '../store/app.store';
++import { notificationNavigationIntent, NotificationNavigationIntent } from '../notifications/browser-notifications';
+ 
+ const entityLabels: Record<string, string> = {
+   TASK: 'Заявка',
+@@ -32,7 +33,7 @@ function groupNotifications(items: NotificationItem[]) {
+ }
+ 
+ type Props = {
+-  onOpenSource?: (item: NotificationItem) => Promise<void>;
++  onOpenSource?: (intent: NotificationNavigationIntent) => Promise<void>;
+ };
+ 
+ export function NotificationsScreen({ onOpenSource }: Props) {
+@@ -98,7 +99,7 @@ export function NotificationsScreen({ onOpenSource }: Props) {
+     setErrorText(null);
+     setNoticeText(null);
+     try {
+-      await onOpenSource(item);
++      await onOpenSource(notificationNavigationIntent(item));
+     } catch (error) {
+       setErrorText(error instanceof Error ? error.message : 'Источник уведомления сейчас недоступен.');
+     } finally {
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\components\\ActionModal.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\components\\ActionModal.tsx"
+index 6ebd30d6..fb1ada8f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\components\\ActionModal.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\components\\ActionModal.tsx"
+@@ -42,7 +42,16 @@ export function ActionModal({
+   dirty = false,
+   className = '',
+ }: ActionModalProps) {
+-  const [values, setValues] = useState<Record<string, string | boolean>>({});
++  const [{ values, baseline }, setForm] = useState(() => {
++    const initial: Record<string, string | boolean> = {};
++    fields.forEach((field) => {
++      initial[field.name] = field.type === 'checkbox' ? Boolean(field.defaultValue) : String(field.defaultValue ?? '');
++    });
++    return { values: initial, baseline: { ...initial } };
++  });
++  const setValues = (update: (current: Record<string, string | boolean>) => Record<string, string | boolean>) => {
++    setForm((current) => ({ ...current, values: update(current.values) }));
++  };
+   const [discardOpen, setDiscardOpen] = useState(false);
+   const errorRef = useRef<HTMLDivElement>(null);
+   useBodyScrollLock(true);
+@@ -54,16 +63,18 @@ export function ActionModal({
+   ].join(':')).join('||'), [fields]);
+ 
+   useEffect(() => {
+-    setValues((current) => {
++    setForm((current) => {
+       const next: Record<string, string | boolean> = {};
++      const nextBaseline: Record<string, string | boolean> = {};
+       fields.forEach((field) => {
+-        if (Object.prototype.hasOwnProperty.call(current, field.name)) {
+-          next[field.name] = current[field.name];
+-          return;
+-        }
+-        next[field.name] = field.type === 'checkbox' ? Boolean(field.defaultValue) : String(field.defaultValue ?? '');
++        const edited = Object.prototype.hasOwnProperty.call(current.values, field.name)
++          && current.values[field.name] !== current.baseline[field.name];
++        const defaultValue = field.type === 'checkbox' ? Boolean(field.defaultValue) : String(field.defaultValue ?? '');
++        // Late defaults update pristine fields atomically with their baseline; drafts keep both.
++        next[field.name] = edited ? current.values[field.name] : defaultValue;
++        nextBaseline[field.name] = edited ? current.baseline[field.name] : defaultValue;
+       });
+-      return next;
++      return { values: next, baseline: nextBaseline };
+     });
+   }, [fieldsSignature]);
+ 
+@@ -72,14 +83,7 @@ export function ActionModal({
+     errorRef.current?.scrollIntoView({ block: 'center', inline: 'nearest' });
+   }, [errorText]);
+ 
+-  const defaultValues = React.useMemo(() => {
+-    const next: Record<string, string | boolean> = {};
+-    fields.forEach((field) => {
+-      next[field.name] = field.type === 'checkbox' ? Boolean(field.defaultValue) : String(field.defaultValue ?? '');
+-    });
+-    return next;
+-  }, [fieldsSignature]);
+-  const hasChanges = dirty || JSON.stringify(values) !== JSON.stringify(defaultValues);
++  const hasChanges = dirty || Object.keys(values).some((name) => values[name] !== baseline[name]);
+   const requestCancel = () => {
+     if (busy) return;
+     if (hasChanges) setDiscardOpen(true);
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\notifications\\browser-notifications.ts" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\notifications\\browser-notifications.ts"
+index 7b6fd4f8..b54eb1aa 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\baseline\\frontend\\src\\notifications\\browser-notifications.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\src\\notifications\\browser-notifications.ts"
+@@ -15,6 +15,10 @@ export type NotificationNavigationIntent = {
+ 
+ export const NOTIFICATION_NAVIGATION_EVENT = 'zavod:notification-navigation';
+ 
++export function notificationNavigationIntent(item: NotificationItem): NotificationNavigationIntent {
++  return { notificationId: item.id, factoryId: item.factoryId ?? null, sourceRoute: item.sourceRoute ?? null };
++}
++
+ export function dispatchNotificationNavigation(intent: NotificationNavigationIntent) {
+   window.dispatchEvent(new CustomEvent(NOTIFICATION_NAVIGATION_EVENT, { detail: intent }));
+ }
+@@ -92,19 +96,11 @@ export async function signalImportantNotification(item: NotificationItem) {
+       tag: item.id,
+       icon: '/pwa-icon-192.png',
+       badge: '/pwa-icon-192.png',
+-      data: {
+-        notificationId: item.id,
+-        factoryId: item.factoryId ?? null,
+-        sourceRoute: item.sourceRoute ?? null,
+-      },
++      data: notificationNavigationIntent(item),
+     });
+     notification.onclick = () => {
+       window.focus();
+-      dispatchNotificationNavigation({
+-        notificationId: item.id,
+-        factoryId: item.factoryId ?? null,
+-        sourceRoute: item.sourceRoute ?? null,
+-      });
++      dispatchNotificationNavigation(notificationNavigationIntent(item));
+       notification.close();
+     };
+   }
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\diffs\\empty-before" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\e2e\\frontend-series.spec.ts"
+index e69de29b..0c87e86c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\diffs\\empty-before"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\handoff\\frontend\\e2e\\frontend-series.spec.ts"
+@@ -0,0 +1,595 @@
++import { expect, test, Page, Route, WebSocketRoute } from '@playwright/test';
++import fs from 'node:fs';
++import path from 'node:path';
++import crypto from 'node:crypto';
++
++const root = path.resolve(__dirname, '../../docs/full-ui-interaction-sweep/frontend-series/20260915-autonomous-frontend');
++const run = process.env.FRONTEND_SERIES_RUN || `run-${Date.now()}`;
++const out = path.join(root, 'evidence', run);
++const before = process.env.FRONTEND_SERIES_PHASE === 'before';
++const sha = (data: Buffer) => crypto.createHash('sha256').update(data).digest('hex');
++const permissions = ['shift.self.read','shift.current.read','shift.future.read','people.profile.read','people.read','admin.overview.read','admin.read','config.read','lines.read','tasks.read','wash.read','okk.read','stock.read','orders.read','checklists.templates.read','checklists.runs.self','checklists.runs.read','returns.publication.read','shift-log.read','shift-log.archive.read','defrost.read','chats.read','announcements.read','announcements.archive.read','notifications.read','ops.overview.read','ops.events.read','ops.audit.read','ops.statistics.read'];
++const records: any[] = [];
++const network: any[] = [];
++const errors: string[] = [];
++const unknown: string[] = [];
++const identities = new WeakMap<Page,string>();
++const json = (route: Route, body: unknown, status = 200) => route.fulfill({status, contentType:'application/json', body:JSON.stringify(body)});
++type Options = { role?: 'ADMIN' | 'WORKER' | 'TECH_MECHANIC'; theme?: string; screen?: string; socket?: (socket: WebSocketRoute)=>void; replies?: (route: Route, pathname: string) => Promise<boolean> };
++
++// DTOs reused from the established shift-readonly-profile-and-history-choice fixture.
++const shiftCard = (type: string) => ({key:`2026-09-07:${type}:self`,shiftDate:'2026-09-07',shiftType:type,shiftTypeLabel:type==='DAY'?'День':'Ночь',title:type==='DAY'?'Дневная смена 7 сентября':'Ночная смена 7 сентября',masterLabel:'Мастер смены',masters:['Мастер смены'],peopleCount:1,lineCount:1,downtimeCount:0,taskCount:0,washCount:0,importantShiftLogs:0,readOnly:true});
++
++async function isolate(page: Page, options: Options = {}) {
++  identities.set(page,options.role||'ADMIN');
++  page.on('pageerror', e => errors.push(e.message));
++  await page.routeWebSocket('**', socket => { network.push({kind:options.socket?'websocket-isolated':'websocket-blocked',url:socket.url()}); if(options.socket) options.socket(socket); else socket.close(); });
++  await page.route('**/*', async route => {
++    const url = new URL(route.request().url());
++    if (url.origin === 'http://127.0.0.1:5173' && !url.pathname.startsWith('/api/')) return route.continue();
++    const p = url.pathname.replace(/^\/api/, '');
++    const method = route.request().method();
++    network.push({method,path:p, factory:route.request().headers()['x-factory-id']});
++    if (url.origin === 'http://127.0.0.1:5173' && options.replies && await options.replies(route,p)) return;
++    if (url.origin !== 'http://127.0.0.1:5173' || method !== 'GET') {
++      unknown.push(`${method} ${url.origin}${p}`); return route.abort('blockedbyclient');
++    }
++    if (p === '/auth/me') return json(route,{userId:'series-user',selectedFactoryId:'series-factory',role:options.role||'ADMIN',departmentId:'series-department',permissions:options.role==='WORKER'?['shift.self.read','tasks.read','notifications.read']:permissions,isAdmin:!options.role||options.role==='ADMIN',isGuest:false,displayName:'Проверка интерфейса',availableFactories:[{id:'series-factory',name:'Изолированный завод',role:options.role||'ADMIN',isGuest:false}]});
++    if (p === '/notifications/push/status') return json(route,{available:false,publicKey:null,reason:'Изолированная проверка',activeSubscriptions:0});
++    if (p === '/health') return json(route,{status:'ok'});
++    if (p === '/auth/assignment-request') return json(route,{status:'WAITING_ASSIGNMENT',request:null,options:{assignments:[]}});
++    if (p === '/shift/timeline') return json(route,{current:{shiftDate:'2026-09-15',targetShiftDate:'2026-09-15',shiftType:'DAY',label:'Текущая смена'},next:{shiftDate:'2026-09-15',targetShiftDate:'2026-09-15',shiftType:'NIGHT',label:'Следующая смена'},future:[],past:[]});
++    if (p === '/shift/me') return json(route,{user:null,currentShift:null,assignment:null,canConfirm:false});
++    if (p === '/shift-log/handover/previous') return json(route,null);
++    if (p === '/shift-log/handover/availability') return json(route,{available:false});
++    if (p === '/notifications/unread-count') return json(route,{count:0});
++    if (p === '/announcements/current') return json(route,{total:0,current:null,items:[]});
++    if (p === '/tasks/board') return json(route,{NEW:[],IN_PROGRESS:[],LONG:[],DONE:[]});
++    if (p === '/people') return json(route,{people:[],groups:{}});
++    if (p === '/shift/past') return json(route,{month:'2026-09',shifts:[shiftCard('DAY'),shiftCard('NIGHT')],sessions:[],assignments:[]});
++    if (p.startsWith('/shift/past/')) {
++      const type = decodeURIComponent(p).includes(':NIGHT:')?'NIGHT':'DAY';
++      return json(route,{...shiftCard(type),timeRange:type==='DAY'?'08:00–20:00':'20:00–08:00',scope:'SELF',allowedActions:{},summary:{masters:['Мастер смены'],peopleCount:1,lineCount:1,downtimeCount:0,downtimeLabel:'0 мин',taskCount:0,washCount:0,importantShiftLogs:0},people:[],lines:[],downtime:[],tasks:[],washes:[],shiftLogs:[],tabs:['Обзор']});
++    }
++    if (['/notifications','/chats','/error-reports','/lines','/lines/shift-overview','/shift/people','/work-areas','/lines/downtime-reasons','/tasks','/tasks/assignees','/tasks/departments'].includes(p)) return json(route,[]);
++    unknown.push(`${method} ${p}${url.search}`);
++    return json(route,{message:'UNKNOWN_REQUEST_BLOCKED'},501);
++  });
++  await page.addInitScript(({theme,screen}) => {
++    if (!sessionStorage.getItem('series-initialized')) {
++      localStorage.clear(); sessionStorage.clear();
++      localStorage.setItem('zavod.authToken','isolated-series-token');
++      localStorage.setItem('zavod.devUserId','series-user');
++      localStorage.setItem('zavod.selectedFactoryId','series-factory');
++      localStorage.setItem('zavod.appearanceTheme',theme);
++      sessionStorage.setItem('zavod.session.route.series-user.series-factory',screen);
++      localStorage.setItem('zavod.quick-nav.series-user.series-factory',JSON.stringify(['Report','Situation','Tasks','ShiftHistory']));
++      sessionStorage.setItem('series-initialized','1');
++    }
++  },{theme:options.theme||'dark',screen:options.screen||'Report'});
++}
++
++async function shot(page: Page, name: string, metadata: object = {}) {
++  fs.mkdirSync(out,{recursive:true});
++  if(process.env.FRONTEND_SERIES_CAPTURE==='0') {records.push({name,viewport:page.viewportSize(),state:'FINAL_RECHECK_NO_DUPLICATE_PNG',...metadata});save();return;}
++  // Preserve native UI: wait for finite entrance animations, do not inject CSS or hide layers.
++  await page.evaluate(async()=>{
++    const animations=document.getAnimations().filter(a=>a.playState==='running'&&Number.isFinite(a.effect?.getComputedTiming().endTime));
++    await Promise.all(animations.map(a=>a.finished.catch(()=>undefined)));
++  });
++  const file = `${String(records.length+1).padStart(3,'0')}-${name}.png`;
++  const png = await page.screenshot({path:path.join(out,file),fullPage:false});
++  records.push({file,sha256:sha(png),time:new Date().toISOString(),viewport:page.viewportSize(),theme:await page.locator('html').getAttribute('data-theme'),role:identities.get(page),build:await page.locator('script[src]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('src'))),review:'CAPTURED_NOT_REVIEWED',...metadata});
++  save();
++}
++function save() {
++  fs.mkdirSync(out,{recursive:true});
++  fs.writeFileSync(path.join(out,'runtime.json'),JSON.stringify({run,before,records,network,unknown,errors,realBackendWrites:0,source:{App:sha(fs.readFileSync(path.resolve(__dirname,'../src/App.tsx'))),styles:sha(fs.readFileSync(path.resolve(__dirname,'../src/styles.css'))),harness:sha(fs.readFileSync(__filename))}},null,2));
++}
++test.afterEach(async ({},info) => { records.push({test:info.title,status:info.status,error:info.error?.message}); save(); });
++async function open(page: Page, title: string) {
++  await expect(page.locator('.bottom-nav, .mobile-quick-nav').filter({visible:true}).first()).toBeVisible();
++  const button = page.locator('.bottom-nav button, .mobile-quick-nav button').filter({hasText:title}).filter({visible:true});
++  if (await button.count()) await button.first().click();
++  else { await page.getByRole('button',{name:'Ещё',exact:true}).click(); await page.locator('.mobile-nav-sheet button').filter({hasText:title}).first().click(); }
++}
++async function end(page: Page) {
++  await page.mouse.move(30,200);
++  await page.mouse.wheel(0,100000);
++  await expect.poll(() => page.evaluate(() => Math.abs(document.documentElement.scrollHeight-innerHeight-scrollY))).toBeLessThanOrEqual(2);
++}
++async function geometry(page: Page) {
++  return page.evaluate(() => {
++    const nav = [...document.querySelectorAll<HTMLElement>('.bottom-nav,.mobile-quick-nav')].find(e=>e.getBoundingClientRect().height>0)!;
++    const r=nav.getBoundingClientRect();
++    const labels=[...nav.querySelectorAll('button')].map(b=>{
++      const rect=b.getBoundingClientRect();
++      const label=b.querySelector('span:not(.nav-icon):not(.nav-badge)');
++      const range=document.createRange(); if(label) range.selectNodeContents(label);
++      return {text:label?.textContent,rect:rect.toJSON(),lines:[...range.getClientRects()].map(x=>x.toJSON()),font:getComputedStyle(b).fontSize};
++    });
++    return {nav:r.toJSON(),navScroll:nav.scrollHeight,navClient:nav.clientHeight,labels,padding:getComputedStyle(document.querySelector('.app-shell')!).paddingBottom,overflow:document.documentElement.scrollWidth-innerWidth};
++  });
++}
++
++test('Series A navigation geometry and history end controls',async ({page})=>{
++  test.setTimeout(240000);
++  await isolate(page);
++  await page.goto('/');
++  await expect(page.locator('.app-shell')).toBeVisible();
++  for(const theme of ['dark','gray','light']) {
++    // Change the real persisted theme through the existing Settings UI, once per theme.
++    if(theme!=='dark') {
++      await page.setViewportSize({width:1440,height:844});
++      await page.locator('.nav-settings-button').click();
++      await page.getByRole('button',{name:theme==='gray'?'Серая':'Светлая',exact:true}).click();
++      await page.goBack();
++      await expect(page.locator('.mobile-nav-sheet h2')).toHaveText('Ещё');
++      await page.goBack();
++      await expect(page.locator('.mobile-sheet-backdrop')).toBeHidden();
++    }
++    for(const [width,height] of [[1440,844],[360,844],[390,844],[430,844],[360,640],[1440,720]]) {
++      await page.setViewportSize({width,height});
++      await open(page,'История смен');
++      const history=page.getByTestId('worker-shift-history');
++      await expect(history).toBeVisible();
++      await history.getByRole('button',{name:'2026-09-07, дневная смена, ночная смена',exact:true}).click();
++      await end(page);
++      const choice=history.locator('.shift-history-choice-card');
++      await shot(page,`A-${theme}-${width}-${height}-choice`,{geometry:await geometry(page),role:'ADMIN',state:'history-choice'});
++      await choice.getByRole('button',{name:/Ночь.*20:00.*08:00/}).click();
++      await end(page);
++      const back=history.getByRole('button',{name:'Назад к календарю',exact:true});
++      const bounds=await back.boundingBox(); const g=await geometry(page);
++      await shot(page,`A-${theme}-${width}-${height}-detail`,{geometry:g,target:bounds,role:'ADMIN',state:'history-detail'});
++      if(!before) { expect(g.overflow).toBeLessThanOrEqual(1); expect(g.navScroll).toBeLessThanOrEqual(g.navClient+1); expect(bounds!.y+bounds!.height).toBeLessThanOrEqual(g.nav.y); }
++      await back.click();
++      await expect(choice).toBeVisible();
++      await open(page,'Сообщить');
++    }
++  }
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series A restricted navigation short page and long settings sheet',async ({page})=>{
++  test.setTimeout(120000);
++  await isolate(page,{role:'WORKER'});
++  await page.goto('/');
++  for (const theme of ['dark','gray','light']) {
++    await page.setViewportSize({width:1440,height:720});
++    await page.locator('.nav-settings-button').click();
++    await page.getByRole('button',{name:({dark:'Тёмная',gray:'Серая',light:'Светлая'})[theme],exact:true}).click();
++    await page.goBack(); await expect(page.locator('.mobile-nav-sheet h2')).toHaveText('Ещё');
++    await page.goBack(); await expect(page.locator('.mobile-sheet-backdrop')).toBeHidden();
++    for(const [width,height] of [[1440,720],[360,640],[390,844],[430,844]]) {
++      await page.setViewportSize({width,height});
++      await open(page,'Уведомления');
++      await expect(page.getByText('Уведомлений нет.',{exact:true})).toBeVisible();
++      await end(page);
++      const g=await geometry(page);
++      expect(g.navScroll).toBeLessThanOrEqual(g.navClient+1);
++      expect(parseFloat(g.padding)).toBeLessThanOrEqual(g.nav.height+25);
++      expect(g.overflow).toBeLessThanOrEqual(1);
++      await shot(page,`A-worker-${theme}-${width}-short`,{role:'WORKER',state:'short-empty-notifications',geometry:g});
++    }
++  }
++  await page.getByRole('button',{name:'Ещё',exact:true}).click();
++  await page.locator('.mobile-nav-sheet').getByRole('button',{name:/Настройки/}).click();
++  const sheet=page.locator('.mobile-nav-sheet');
++  await page.mouse.move(200,500); await page.mouse.wheel(0,100000);
++  await shot(page,'A-worker-long-settings-end',{role:'WORKER',state:'settings-internal-scroll'});
++  await page.goBack(); await expect(sheet.locator('h2')).toHaveText('Ещё');
++  await page.goBack(); await expect(sheet).toBeHidden();
++  expect(await page.evaluate(()=>getComputedStyle(document.body).overflow)).not.toBe('hidden');
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++const serviceTask = {state:'ON_TASK',label:'В работе',taskId:'series-task',title:'Проверка датчика линии',lineName:'Линия фасовки'};
++const person = {userId:'series-person',id:'series-person',displayName:'Сервисов Сергей Сергеевич',role:'TECH_MECHANIC',departmentId:'series-department',departmentName:'Механики',employeeState:'ON_TASK',phoneLabel:'Не указан',skillsSummary:'Механик',onShift:true,serviceTaskStatus:serviceTask,skills:[],notes:[],factoryAccesses:[],availableActions:[],currentAssignment:null};
++const taskRow = {id:'series-task',factoryId:'series-factory',description:'Проверка датчика линии',title:'Проверка датчика линии',status:'IN_PROGRESS',type:'URGENT',lineId:'series-line',lineName:'Линия фасовки',createdAt:'2026-09-15T00:00:00Z',startedAt:'2026-09-15T00:05:00Z',assignedToId:'series-person',assignedToName:person.displayName,recipientDepartments:[],comments:[],attachments:[],reads:[]};
++const taskSummary = {taskId:taskRow.id,taskStatus:taskRow.status,taskStatusLabel:'В работе',taskType:'URGENT',taskTypeLabel:'Срочная',serviceLabel:'Механики',assigneeDisplayName:person.displayName,hasAssignee:true,createdAt:taskRow.createdAt,startedAt:taskRow.startedAt,deadlineAt:null,overdue:false,sourceKind:'LINE',sourceLabel:'Заявка по линии',canOpen:true,additionalActiveCount:0};
++const lineRow = {id:'series-line',name:'Линия фасовки',status:'WORK',operationalState:'RUNNING',activeWorkersCount:1,activeTasksCount:1,activeTaskSummary:taskSummary,activeAssignments:[],positions:[],shortageSummary:[]};
++async function linkedReplies(route: Route,p: string) {
++  if(route.request().method()!=='GET') return false;
++  let body: unknown;
++  if(p==='/people') body={people:[person],groups:{}};
++  else if(p==='/people/series-person') body=person;
++  else if(p==='/people/series-person/profile') body={...person,employeeState:'AVAILABLE',sections:{skills:'Механик',recommendations:'Допущен к работе',comments:null},factoryAccessSummary:{factoryName:'Изолированный завод',role:person.role,isActive:true}};
++  else if(p==='/admin/users/series-person/password-reset/preview') body={allowed:false,reason:'Изолированная проверка',passwordResetRequired:false};
++  else if(p==='/shift/people') body=[{...person,employeeState:'AVAILABLE'}];
++  else if(p==='/lines'||p==='/lines/shift-overview') body=[lineRow];
++  else if(p==='/lines/series-line/dashboard') body={line:lineRow,assignedCount:1,requiredCount:1,structureConfigured:true,structureMessage:null,assignmentsByPosition:[],withoutPosition:[],activeTasks:[taskSummary],activeWash:[],recentEvents:[]};
++  else if(p==='/tasks/board') body={NEW:[],IN_PROGRESS:[taskRow],LONG:[],DONE:[]};
++  else if(p==='/tasks/series-task') body=taskRow;
++  else if(p==='/tasks/recipient-departments'||p==='/tasks/assignee-candidates'||p==='/wash') body=[];
++  else if(p==='/archive/options') body={lines:[lineRow]};
++  else if(p==='/admin/task-settings') body={taskAttachmentsEnabled:true};
++  else if(p==='/tasks/archive/summary') body={metrics:{total:0,open:0,closed:0,overdueLong:0},tasks:[],items:[],byDepartment:[],byLine:[]};
++  else return false;
++  await json(route,body); return true;
++}
++test('Series B real linked sources exact target and parent Back',async({page})=>{
++  test.setTimeout(120000);
++  await isolate(page,{role:'TECH_MECHANIC',replies:linkedReplies}); await page.goto('/');
++  for(const width of [1440,390,360,430]) {
++    await page.setViewportSize({width,height:844});
++    for(const source of ['Люди','Смена','Линии']) {
++      await open(page,source);
++      if(source==='Люди') await page.locator('.people-compact-row').filter({hasText:'Сервисов'}).first().click();
++      if(source==='Смена') await page.locator('.person-card').filter({hasText:'Сервисов'}).getByRole('button',{name:/Сервисов/}).first().click();
++      if(source==='Линии') await page.locator('.line-card').getByRole('button',{name:'Линия фасовки',exact:true}).first().click();
++      const sourceButton=page.getByRole('button',{name:source==='Линии'?/Открыть заявку/:/Посмотреть заявку/}).first();
++      await expect(sourceButton).toBeVisible();
++      await shot(page,`B-${width}-${source}-source`,{source,state:'real-source-button'});
++      await sourceButton.click();
++      await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible();
++      await expect(page.locator('.task-card').first()).toBeVisible();
++      await shot(page,`B-${width}-${source}-target`,{source,state:'source-result'});
++      if(before) {
++        expect(await page.getByRole('dialog').count()).toBe(0);
++        expect(await page.evaluate(()=>localStorage.getItem('zavod.taskHighlightId'))).toBe('series-task');
++        await page.goBack();
++      } else {
++        const detail=page.getByRole('dialog'); await expect(detail).toContainText(taskRow.description);
++        await page.goBack(); await expect(detail).toBeHidden();
++        await page.goBack(); await expect(sourceButton).toBeVisible();
++        await page.goBack();
++      }
++    }
++  }
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series B delayed board missing target and one-shot reload',async({page})=>{
++  test.setTimeout(60000);
++  let release: (()=>void)|undefined; let mode='delay';
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/tasks/board') {
++      if(mode==='delay') await new Promise<void>(resolve=>{release=resolve;});
++      await json(route,mode==='missing'?{NEW:[],IN_PROGRESS:[],LONG:[],DONE:[]}:{NEW:[],IN_PROGRESS:[taskRow],LONG:[],DONE:[]});return true;
++    }
++    return linkedReplies(route,p);
++  }});
++  await page.setViewportSize({width:390,height:844}); await page.goto('/');
++  await open(page,'Люди'); await page.locator('.people-compact-row').first().click();
++  await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();
++  await expect.poll(()=>Boolean(release)).toBe(true);
++  await expect(page.getByRole('dialog')).toBeHidden();
++  await shot(page,'B-delayed-loading',{state:'pending-board-no-premature-detail'});
++  mode='loaded'; release!();
++  await expect(page.getByRole('dialog')).toContainText(taskRow.description);
++  await page.goBack(); await expect(page.getByRole('dialog')).toBeHidden();
++  await page.reload(); await expect(page.locator('.task-card').first()).toBeVisible();
++  await expect(page.getByRole('dialog')).toBeHidden();
++  expect(await page.evaluate(()=>localStorage.getItem('zavod.taskHighlightId'))).toBeNull();
++  mode='missing'; await open(page,'Люди'); await page.locator('.people-compact-row').first().click();
++  await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();
++  await expect(page.getByText(/Связанная заявка недоступна/)).toBeVisible();
++  await expect(page.getByRole('dialog')).toBeHidden();
++  await shot(page,'B-missing-fallback',{state:'not-in-authorized-board'});
++  await page.goBack(); await expect(page.getByRole('button',{name:'Посмотреть заявку',exact:true})).toBeVisible();
++  await page.goBack(); await open(page,'Заявки'); await expect(page.getByRole('dialog')).toBeHidden();
++  await page.goBack(); await expect(page.getByRole('heading',{name:'Люди',exact:true})).toBeVisible();
++  await expect(page.locator('.profile-card')).toBeHidden();
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series C internal notification read count and Back',async({page})=>{
++  test.setTimeout(60000);
++  let readAt: string|null=null; const reads: string[]=[];
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/notifications') {await json(route,[{id:'series-notice',factoryId:'series-factory',sourceRoute:'tasks',title:'Заявка требует внимания',message:'Проверить датчик линии',severity:'WARNING',createdAt:'2026-09-15T00:00:00Z',readAt}]);return true;}
++    if(p==='/notifications/unread-count') {await json(route,{count:readAt?0:1});return true;}
++    if(p==='/notifications/series-notice/read'&&route.request().method()==='POST') {reads.push(route.request().headers()['x-factory-id']);readAt='2026-09-15T00:10:00Z'; await json(route,{ok:true});return true;}
++    return linkedReplies(route,p);
++  }});
++  await page.goto('/');
++  for(const width of [1440,390,360,430]) {
++    await page.setViewportSize({width,height:844});
++    readAt=null; await open(page,'Уведомления');
++    const card=page.locator('.notification-card'); await expect(card).toContainText('не прочитано');
++    await end(page);
++    await shot(page,`C-${width}-before-open`,{state:'unread-internal'});
++    const n=reads.length; await card.getByRole('button',{name:'Открыть',exact:true}).click();
++    await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible();
++    expect(reads.length-n).toBe(before?0:1);
++    await page.goBack(); await expect(card).toBeVisible();
++    await expect(card).toContainText(before?'не прочитано':'прочитано');
++    if(!before) await expect(card.getByRole('button',{name:'Отметить прочитанным'})).toBeHidden();
++    await end(page);
++    await shot(page,`C-${width}-returned`,{state:'back-to-feed',reads:[...reads]});
++    await open(page,'Заявки');
++  }
++  expect(reads.every(x=>x==='series-factory')).toBe(true);
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series C error retry duplicate adapters and foreign denial',async({page})=>{
++  test.setTimeout(60000);
++  let readAt: string|null=null; let fail=true; let reads=0; let denySource=false; let holdRead=false; let releaseRead:(()=>void)|undefined;
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/auth/me'&&denySource) {await json(route,{userId:'series-user',selectedFactoryId:'series-factory',role:'WORKER',isAdmin:false,isGuest:false,permissions:['notifications.read'],availableFactories:[{id:'series-factory',name:'Изолированный завод',role:'WORKER',isGuest:false}]});return true;}
++    if(p==='/notifications') {await json(route,[{id:'series-notice',factoryId:'series-factory',sourceRoute:'tasks',title:'Проверка повторов',message:'Сохранить источник',severity:'WARNING',createdAt:'2026-09-15T00:00:00Z',readAt},{id:'no-source',title:'Источник удалён',message:'Событие без перехода',severity:'INFO',createdAt:'2026-09-15T00:00:00Z',readAt:null,sourceRoute:null}]);return true;}
++    if(p==='/notifications/unread-count') {await json(route,{count:readAt?1:2});return true;}
++    if(p==='/notifications/series-notice/read'&&route.request().method()==='POST') {
++      reads++;
++      if(route.request().headers()['x-factory-id']==='foreign-factory') {await json(route,{message:'Доступ к заводу больше не действует.'},403);return true;}
++      if(fail) {await json(route,{message:'Не удалось отметить уведомление. Повторите.'},503);return true;}
++      if(holdRead) await new Promise<void>(resolve=>{releaseRead=resolve;});
++      readAt='2026-09-15T00:10:00Z'; await json(route,{ok:true});return true;
++    }
++    return linkedReplies(route,p);
++  }});
++  await page.setViewportSize({width:390,height:844}); await page.goto('/');
++  await open(page,'Уведомления');
++  const card=page.locator('.notification-card').filter({hasText:'Проверка повторов'});
++  await expect(page.locator('.notification-card').filter({hasText:'Источник удалён'}).getByRole('button',{name:'Открыть',exact:true})).toBeHidden();
++  await card.getByRole('button',{name:'Открыть',exact:true}).click();
++  await expect(page.locator('.error-state')).toContainText('Ошибка сервера. Повторите позже.');
++  await expect(card).toContainText('не прочитано'); expect(reads).toBe(1);
++  await shot(page,'C-error-no-false-read',{state:'POST503-stays-unread'});
++  fail=false; await card.getByRole('button',{name:'Открыть',exact:true}).click();
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible(); expect(reads).toBe(2);
++  await page.goBack(); await expect(card).toBeVisible();
++  await card.getByRole('button',{name:'Открыть',exact:true}).click();
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible(); expect(reads).toBe(3);
++  await page.goBack(); await expect(card).toBeVisible();
++  holdRead=true;
++  await page.evaluate(()=>{
++    const detail={notificationId:'series-notice',factoryId:'series-factory',sourceRoute:'tasks'};
++    window.dispatchEvent(new CustomEvent('zavod:notification-navigation',{detail}));
++  });
++  await expect.poll(()=>Boolean(releaseRead)).toBe(true);
++  await page.evaluate(()=>navigator.serviceWorker.dispatchEvent(new MessageEvent('message',{data:{type:'ZAVOD_NOTIFICATION_NAVIGATION',intent:{notificationId:'series-notice',factoryId:'series-factory',sourceRoute:'tasks'}}})));
++  // Flush the adapter effect across frames while the first operation is still held.
++  await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
++  expect(reads).toBe(4); holdRead=false; releaseRead!();
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible(); expect(reads).toBe(4);
++  await page.goBack(); await expect(card).toBeVisible();
++  await page.evaluate(()=>window.dispatchEvent(new CustomEvent('zavod:notification-navigation',{detail:{notificationId:'series-notice',factoryId:'foreign-factory',sourceRoute:'tasks'}})));
++  await expect(page.getByText('Доступ к заводу больше не действует.',{exact:false})).toBeVisible();
++  await expect(page.locator('.brand-name')).toHaveText('Изолированный завод');
++  expect(network.filter(x=>x.path?.startsWith('/tasks')&&x.factory==='foreign-factory')).toEqual([]);
++  await shot(page,'C-foreign-denied',{state:'intercepted403-no-foreign-tasks'});
++  await page.goto('/?notificationId=series-notice&notificationFactory=series-factory&notificationRoute=tasks');
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible();
++  expect(reads).toBe(6); expect(new URL(page.url()).search).toBe('');
++  await page.reload(); await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible(); expect(reads).toBe(6);
++  await open(page,'Уведомления'); denySource=true;
++  await card.getByRole('button',{name:'Открыть',exact:true}).click();
++  await expect(page.locator('.error-state')).toContainText('Доступ к связанному разделу больше не действует.');
++  await expect(page.getByRole('heading',{name:'Уведомления',exact:true})).toBeVisible();expect(reads).toBe(7);
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++async function modalState(page: Page) {
++  return page.locator('.action-modal-backdrop form').evaluate(form=>{
++    const key=Object.keys(form).find(k=>k.startsWith('__reactFiber'))!;
++    let fiber=(form as any)[key];
++    while(fiber&&!fiber.memoizedProps?.fields) fiber=fiber.return;
++    const props=fiber?.memoizedProps;
++    return {title:props?.title,defaults:props?.fields?.map((f:any)=>({name:f.name,type:f.type,defaultValue:f.defaultValue})),firstHook:fiber?.memoizedState?.memoizedState,dom:[...form.querySelectorAll<HTMLInputElement>('input,textarea,select')].map(e=>({name:e.name,value:e.value,checked:e.checked})),active:document.activeElement?.tagName};
++  });
++}
++test('Series D controlled async baseline and real Browser Back',async({page})=>{
++  test.setTimeout(120000);
++  let armed=false; let release:(()=>void)|undefined; let now=Date.parse('2026-09-15T00:00:00Z');
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/health') {
++      if(armed) {armed=false; await new Promise<void>(resolve=>{release=resolve;}); now+=120000;}
++      await json(route,{status:'ok',timestamp:new Date(now).toISOString()});return true;
++    }
++    return linkedReplies(route,p);
++  }});
++  await page.goto('/'); await open(page,'Линии');
++  // Arm only after initial Lines load (including health) finished; hold the action request, not bootstrap.
++  await expect(page.locator('.line-card').getByRole('button',{name:'Простой',exact:true})).toBeVisible();
++  const sizes=before?[1440,390]:[1440,1440,1440,390,390,390,360,430];
++  for(const [i,width] of sizes.entries()) {
++    await page.setViewportSize({width,height:844});
++    armed=true; release=undefined;
++    await page.locator('.line-card').getByRole('button',{name:'Простой',exact:true}).click();
++    const modal=page.locator('.action-modal-backdrop'); await expect(modal).toBeVisible();
++    await expect.poll(()=>Boolean(release)).toBe(true);
++    const initial=await modalState(page);
++    release!();
++    await expect.poll(async()=>JSON.stringify((await modalState(page)).defaults)).not.toBe(JSON.stringify(initial.defaults));
++    const arrived=await modalState(page);
++    records.push({case:'D-async-arrival',width,iteration:i,initial,arrived});save();
++    if(i===0||width!==sizes[i-1]) await shot(page,`D-${width}-untouched-arrival-${i}`,{state:'untouched-after-async',initial,arrived});
++    await page.goBack();
++    if(before) {
++      await expect(page.getByRole('heading',{name:'Изменения не сохранены',exact:true})).toBeVisible();
++      await shot(page,`D-${width}-false-dirty-${i}`,{state:'FALSE_DIRTY_REPRODUCED'});
++      await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();
++    } else await expect(modal).toBeHidden();
++    await expect(modal).toBeHidden();
++    await page.locator('.line-card').getByRole('button',{name:'Простой',exact:true}).click();
++    await modal.getByLabel('Комментарий',{exact:true}).fill(`Черновик ${i}`);
++    await modal.getByLabel('Время события',{exact:true}).selectOption('CUSTOM');
++    await page.goBack(); // Focus-first contract: blur, then logical layer Back.
++    await expect(modal).toBeVisible();
++    await page.goBack();
++    await expect(page.getByRole('heading',{name:'Изменения не сохранены',exact:true})).toBeVisible();
++    await page.getByRole('button',{name:'Остаться',exact:true}).click();
++    await expect(modal.getByLabel('Комментарий',{exact:true})).toHaveValue(`Черновик ${i}`);
++    await expect(modal.getByLabel('Время события',{exact:true})).toHaveValue('CUSTOM');
++    await page.goBack();
++    await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();
++    await expect(modal).toBeHidden();
++    expect(await page.evaluate(()=>getComputedStyle(document.body).overflow)).not.toBe('hidden');
++  }
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series D real nested People number checkbox and reopen',async({page})=>{
++  test.setTimeout(60000);
++  const worker={...person,role:'WORKER',employeeState:'AVAILABLE',skills:[{id:'series-skill',lineId:'series-line',lineName:'Линия фасовки',positionId:'series-position',positionName:'Упаковщик',experienceCount:4,level:'Подтверждён',color:'GREEN',recommended:true}]};
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/people') {await json(route,{people:[worker],groups:{}});return true;}
++    if(p==='/people/series-person') {await json(route,worker);return true;}
++    return linkedReplies(route,p);
++  }}); await page.goto('/');
++  for(const width of [1440,390]) {
++    await page.setViewportSize({width,height:844}); await open(page,'Люди');
++    await page.locator('.people-compact-row').first().click();
++    await page.getByRole('button',{name:/Навыки по линиям/}).click();
++    await page.getByRole('button',{name:'Изменить',exact:true}).click();
++    const modal=page.locator('.action-modal-backdrop');
++    await expect(modal.getByLabel('Фактический опыт',{exact:true})).toHaveValue('4');
++    await expect(modal.getByLabel('Навык активен',{exact:true})).toBeChecked();
++    await page.goBack(); await expect(modal).toBeVisible(); // autofocus blur
++    await page.goBack(); await expect(modal).toBeHidden();
++    await expect(page.locator('.profile-card')).toBeVisible();
++    await page.getByRole('button',{name:'Изменить',exact:true}).click();
++    await modal.getByLabel('Навык активен',{exact:true}).uncheck();
++    await page.goBack(); await page.goBack();
++    await expect(page.getByRole('heading',{name:'Изменения не сохранены',exact:true})).toBeVisible();
++    await page.getByRole('button',{name:'Остаться',exact:true}).click();
++    await expect(modal.getByLabel('Навык активен',{exact:true})).not.toBeChecked();
++    await shot(page,`D-${width}-nested-checkbox-preserved`,{state:'real-People-consumer-stay',role:'ADMIN'});
++    await page.goBack(); await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();
++    await expect(modal).toBeHidden(); await expect(page.locator('.profile-card')).toBeVisible();
++    await page.getByRole('button',{name:'Изменить',exact:true}).click();
++    await expect(modal.getByLabel('Навык активен',{exact:true})).toBeChecked();
++    await page.goBack(); await page.goBack(); await expect(modal).toBeHidden();
++    await page.goBack(); await expect(page.locator('.profile-card')).toBeHidden();
++  }
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series E pending task cannot cross factory switch',async({page})=>{
++  test.setTimeout(60000); let release:(()=>void)|undefined;
++  const factories=[{id:'series-factory',name:'Изолированный завод',code:'SERIES',role:'ADMIN',isGuest:false},{id:'series-second',name:'Вторая площадка',code:'SECOND',role:'ADMIN',isGuest:false}];
++  await isolate(page,{replies:async(route,p)=>{
++    const factory=route.request().headers()['x-factory-id']||'series-factory';
++    if(p==='/auth/me') {await json(route,{userId:'series-user',selectedFactoryId:factory,role:'ADMIN',isAdmin:true,isGuest:false,permissions,availableFactories:factories,displayName:'Проверка интерфейса'});return true;}
++    if(p==='/tasks/board') {
++      if(factory==='series-factory') await new Promise<void>(resolve=>{release=resolve;});
++      await json(route,{NEW:[],IN_PROGRESS:factory==='series-factory'?[taskRow]:[],LONG:[],DONE:[]});return true;
++    }
++    return linkedReplies(route,p);
++  }});
++  await page.setViewportSize({width:1440,height:720}); await page.goto('/');
++  await open(page,'Люди'); await page.locator('.people-compact-row').first().click();
++  await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();
++  await expect.poll(()=>Boolean(release)).toBe(true);
++  await page.locator('.nav-settings-button').click();
++  await page.getByRole('button',{name:'Сменить завод',exact:true}).click();
++  await page.getByRole('button',{name:/Вторая площадка/}).click();
++  await expect(page.locator('.brand-name')).toHaveText('Вторая площадка');
++  release!();
++  await open(page,'Заявки');
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible();
++  await expect(page.getByRole('dialog')).toBeHidden();
++  await expect(page.getByText(taskRow.description,{exact:true})).toBeHidden();
++  await shot(page,'E-factory-no-stale-task',{state:'old-board-arrived-after-context-change'});
++  expect(network.filter(x=>x.path==='/tasks/series-task'&&x.factory==='series-second')).toEqual([]);
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series E actual browser notification callback on isolated websocket',async({page})=>{
++  let socket:WebSocketRoute|undefined; let reads=0;
++  await isolate(page,{socket:s=>{socket=s;},replies:async(route,p)=>{
++    if(p==='/notifications/series-browser/read'&&route.request().method()==='POST') {reads++;await json(route,{ok:true});return true;}
++    return linkedReplies(route,p);
++  }});
++  await page.addInitScript(()=>{
++    localStorage.setItem('zavod.browserNotificationsEnabled','1');
++    (window as any).__seriesNotifications=[];
++    Object.defineProperty(window,'Notification',{configurable:true,value:class {
++      static permission='granted'; onclick:Function|null=null; data:any;
++      constructor(public title:string,options:any) {this.data=options.data;(window as any).__seriesNotifications.push(this);}
++      close() {}
++    }});
++  });
++  await page.goto('/'); await expect.poll(()=>Boolean(socket)).toBe(true);
++  socket!.send(JSON.stringify({type:'notification_created',payload:{id:'series-browser',factoryId:'series-factory',sourceRoute:'tasks',title:'Событие из адаптера',message:'Изолированный канал',severity:'WARNING',createdAt:'2026-09-15T00:00:00Z',readAt:null}}));
++  await expect.poll(()=>page.evaluate(()=>(window as any).__seriesNotifications.length)).toBe(1);
++  const data=await page.evaluate(()=>{const notice=(window as any).__seriesNotifications[0];notice.onclick();return notice.data;});
++  expect(data).toEqual({notificationId:'series-browser',factoryId:'series-factory',sourceRoute:'tasks'});
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible();expect(reads).toBe(1);
++  await page.goBack(); await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeHidden();
++  await shot(page,'E-browser-adapter-return',{state:'actual-product-callback-isolated-delivery'});
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series E non-default People filters survive linked task return',async({page})=>{
++  test.setTimeout(60000);
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/people/search') {await json(route,{queryAccepted:true,message:'Изолированный поиск',context:null,results:[]});return true;}
++    return linkedReplies(route,p);
++  }}); await page.goto('/');
++  for(const width of [1440,390]) {
++    await page.setViewportSize({width,height:844});await open(page,'Люди');
++    await page.locator('.people-shift-tabs').getByRole('button',{name:'На смене',exact:true}).click();
++    await page.getByRole('button',{name:'Поиск и фильтры',exact:true}).click();
++    const sheet=page.locator('.premium-sheet');
++    await page.locator('.people-category-tabs').getByRole('button',{name:'Службы',exact:true}).click();
++    await page.locator('.people-search-panel input').fill('Сервис');
++    await page.getByRole('button',{name:'Показать',exact:true}).click();
++    await page.locator('.people-compact-row').first().click();
++    await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();
++    await expect(page.getByRole('dialog')).toContainText(taskRow.description);
++    await page.goBack();await expect(page.getByRole('dialog')).toBeHidden();
++    await page.goBack();await expect(page.locator('.profile-card')).toBeVisible();
++    await page.goBack();await expect(page.locator('.profile-card')).toBeHidden();
++    await expect(page.locator('.people-shift-tabs').getByRole('button',{name:'На смене',exact:true})).toHaveAttribute('aria-pressed','true');
++    await page.getByRole('button',{name:'Поиск и фильтры',exact:true}).click();
++    await expect(page.locator('.people-category-tabs').getByRole('button',{name:'Службы',exact:true})).toHaveAttribute('aria-pressed','true');
++    await expect(page.locator('.people-search-panel input')).toHaveValue('Сервис');
++    await shot(page,`E-${width}-source-filters-restored`,{state:'non-default-return',role:'ADMIN'});
++    await page.getByRole('button',{name:'Показать',exact:true}).click();
++    await open(page,'Заявки');
++  }
++  expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++test('Series E long ordinary page end hit-test and nav text ranges',async({page})=>{
++  test.setTimeout(60000);
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/notifications') {await json(route,Array.from({length:12},(_,i)=>({id:`long-${i}`,factoryId:'series-factory',sourceRoute:'tasks',title:`Событие ${i+1}`,message:'Проверка доступности последнего действия длинного списка уведомлений.',severity:'INFO',createdAt:'2026-09-15T00:00:00Z',readAt:null})));return true;}
++    return linkedReplies(route,p);
++  }});await page.goto('/');
++  for(const theme of ['dark','gray','light']) {
++    await page.setViewportSize({width:1440,height:720});
++    await page.locator('.nav-settings-button').click();
++    await page.getByRole('button',{name:({dark:'Тёмная',gray:'Серая',light:'Светлая'})[theme],exact:true}).click();
++    await page.goBack();await expect(page.locator('.mobile-nav-sheet h2')).toHaveText('Ещё');
++    await page.goBack();await expect(page.locator('.mobile-sheet-backdrop')).toBeHidden();
++    await open(page,'Уведомления'); await expect(page.locator('.notification-card')).toHaveCount(12);
++    for(const width of [1440,360,390,430]) {
++      await page.setViewportSize({width,height:width===360?640:720});await end(page);
++      const target=page.locator('.notification-card').last().getByRole('button',{name:'Открыть',exact:true});
++      const hit=await target.evaluate(button=>{const r=button.getBoundingClientRect();const e=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {rect:r.toJSON(),hit:e===button||button.contains(e)};});
++      const g=await geometry(page);expect(hit.hit).toBe(true);expect(hit.rect.bottom).toBeLessThanOrEqual(g.nav.top);
++      if(width===1440) for(const label of g.labels) for(const line of label.lines) {expect(line.bottom).toBeLessThanOrEqual(g.nav.bottom);expect(line.left).toBeGreaterThanOrEqual(label.rect.left);expect(line.right).toBeLessThanOrEqual(label.rect.right);}
++      records.push({case:'long-page-end',theme,width,hit,geometry:g});save();
++      if(width===1440||width===360) await shot(page,`E-long-${theme}-${width}`,{state:'ordinary-scroll-last-control',hit,geometry:g});
++    }
++  }
++  expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++test('Series E affected timeline task writer returns exact selected shift',async({page})=>{
++  test.setTimeout(60000);
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/lines/series-line/timeline') {await json(route,{line:{id:lineRow.id,name:lineRow.name},shift:{shiftDate:'2026-09-14',shiftType:'NIGHT',startsAt:'2026-09-14T17:00:00Z',endsAt:'2026-09-15T05:00:00Z',isCurrent:false},navigation:{previous:{shiftDate:'2026-09-14',shiftType:'DAY'},next:null},currentStatus:'WORK',summary:{workDurationMs:0,downtimeDurationMs:0,stoppedDurationMs:0,washDurationMs:0,defrostDurationMs:0,linkedTaskCount:1,averageTaskReactionMs:0},events:[{id:'series-timeline-event',kind:'TASK',title:'Заявка по датчику',description:'Связанная заявка',occurredAt:'2026-09-14T18:00:00Z',durationMs:0,status:'IN_PROGRESS',sourceType:'TASK',sourceId:taskRow.id,canOpen:true}],diagnostics:[]});return true;}
++    return linkedReplies(route,p);
++  }});await page.goto('/');
++  for(const width of [1440,390]) {
++    await page.setViewportSize({width,height:844});await open(page,'Линии');
++    await page.locator('.line-card').getByRole('button',{name:lineRow.name,exact:true}).click();
++    await page.getByRole('button',{name:'История линии',exact:true}).click();
++    const timeline=page.locator('.line-timeline-list');await expect(timeline).toContainText('Заявка по датчику');
++    await timeline.getByRole('button',{name:'Открыть',exact:true}).click();
++    await expect(page.getByRole('dialog')).toContainText(taskRow.description);
++    await page.goBack();await expect(page.getByRole('dialog')).toBeHidden();
++    await page.goBack();await expect(timeline).toContainText('Заявка по датчику');
++    await shot(page,`E-${width}-timeline-return`,{state:'night-shift-timeline-parent-restored'});
++    await page.goBack();await expect(timeline).toBeHidden();
++    await page.goBack();
++    await open(page,'Заявки');
++  }
++  expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});

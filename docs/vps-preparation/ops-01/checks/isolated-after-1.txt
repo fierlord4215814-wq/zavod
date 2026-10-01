@@ -1,0 +1,23 @@
+✔ nearest-rank empty/single/odd/even/duplicates [] (1.1783ms)
+✔ nearest-rank empty/single/odd/even/duplicates [9] (0.1857ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4,100] (0.1593ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4] (0.124ms)
+✔ nearest-rank empty/single/odd/even/duplicates [2,2,2,9] (0.1412ms)
+✔ missing phase is not zero; negative duration rejected (0.1958ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"invalid"} (2.0599ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-02-31"} (0.771ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31","dateTo":"2026-08-30"} (0.8609ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31T08:00:00+03:00","dateTo":"2026-08-31T08:00:00+03:00"} (0.4589ms)
+✔ calendar period Moscow half-open and 93-day cap remain (2.0487ms)
+✔ department on-time denominator does not subtract still-open overdue tasks (0.4435ms)
+✔ time-only downtime context excludes exact interval end (1.4261ms)
+✔ shift clipping intersects an interval, not only its starting label (2.3255ms)
+✔ open interval clipped to asOf, independent lines not merged (1.0907ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 386.5158

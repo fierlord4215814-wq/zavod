@@ -1,0 +1,34 @@
+# A / F — actual R2 delta review and final R3 impact
+
+Review завершён в source/isolated scope. Таблица ниже сохраняет исходные вопросы A; они разрешены последующими B–H либо вынесены в decision-queue.md. Current closure: affected-owner-proof.md, G2/replay-producer-matrix.json, G2/shared-consumer-matrix.json и handoff/final-test-manifest.json. Current own delta —13 product +34 test/support исходных файла, handoff/source-delta-manifest-v2.json;10 generated dist rows старого manifest исключены из числа исходных правок. Все47 before/after source hashes проверены, отсутствующие до создания имеют ABSENT receipt.
+
+All26 R2 product diffs read against unchanged initial G2/handoff hashes; this is source review, not26 runtime PASS. R2 original source snapshots and own diffs retained. The current R3 own product delta is separately named below. Raw G-scroll and F-pristine failures reviewed; list-only callbacks never accepted as executions.
+
+| R2 owner/family | Substantive result from source / affected receiver | Remaining targeted proof |
+|---|---|---|
+|Task service|Replay uses current factory/deletion/audience and request target; create author, comments parent+author. New mutation eligibility is not imposed on already committed readable result|C2 producer/key lineage, current guards and postcommit receivers|
+|Wash service|Request/session helpers scope current factory/type; start target/actor; message/issue parent+author; complete removes helper relations from DTO|Supplemental direct request replay may not bind changed payload/target; confirm C2|
+|Employee service|Replay checks worker active UFA, target exists, kind/line/session/workarea; ended assignment may be read without assigning again|Current wrappers, time policy and no-double-write|
+|Shift service|Future replay binds date/type/worker/area/position/slot; release exact result ID. Contractor result factory/company/date/shift/item filters|Outer time preconditions precede lookup: C3, no scheduler execution|
+|Chats service|Membership replay moved under current-chat/read and transaction locks; target member bound; first owner/manage checks preserved|Current revoke, cache cleanup, actual downstream E|
+|Announcements service|LIST archive selection separated from ENTITY read; current visible entity fixed; P2002 exact-winner read and notice recovery|Personal expired-unread and archived-future remain policy rows, not new read permission|
+|Attachments service|Both read/write where use canonical active member with left/removed guards; deletion policy unchanged|Actual metadata/download/cache boundaries, no downloaded-byte revocation claim|
+|Checklists service|Replay current run audience plus exact row; null processed result cannot start fresh command|Occurrence/closed/typed downstream E|
+|Defrost service|Start/blown actor+line/event type; end result ID+endedBy; completeToday current line/event actor|Exact producer/action/time and first/replay denial|
+|Line service|History recognizes DEFROST instead of STOPPED; template replay checks current scoped line, null result deny, exact line state|Both public wrappers and runtime history DTO, C2 opaque state operation kind|
+|Okk/Returns/Stock create resolvers|Absent differs from processed-null; current result factory/creator/deleted status checked; no fallback write on missing persisted result|R2 resolver execution is narrower than full create caller, C2/F must retain limit|
+|ErrorReport resolver|Scoped factory/author result with relations; missing/null conflict, cannot fall through new create|No deletedAt schema fiction; original create/retry consumer|
+|AttachmentPreviewList + ArchiveScreen|Reduced preview DTO carries only needed display fields; Archive mapper uses actual detail DTO and does not invent write entity metadata|28 bindings compatibility, runtime metadata0/empty and denial|
+|sync-engine + shift-store|Legacy entrypoints delegate to existing canonical sync and app store; no second Dexie/assignment state|Actual queue identity/ABA and delegation receiver|
+|AdminConfigScreen|Delegation preview fallback uses real source/target.displayName fields|Real serializer current option/permission action then revoke|
+|ChatsScreen|Nullable author grouping retained; participantAccent skipped for missing author ID|System/anonymous/normal actual rows, no blanket string cast|
+|PeopleScreen|R2 captures locked pageTop and attempts one-time return. R3 found list/profile shared-loading readiness and late response defects|R3 B fixes; original73px still separate UNKNOWN|
+|ShiftPeopleScreen|Explicit DEFROST/LineEvent/planning types and profile body/row adapters preserve runtime contracts|Current/future/night/area/profile/media return, all distinct affected layouts|
+|WashScreen + app.store|Control item optional collections adapted; handover counts/sections model matches serializer|Empty/false/0/runtime DTOs and actual receiver chains|
+|styles.css|Only scoped profile Gray/Light text tokens added by R2, Dark unchanged|Retained theme readability after shared lifecycle change|
+
+R3 own owners: PeopleScreen, useBodyScrollLock, App, ActionModal, api/client, WashScreen/WashService, OrdersService, ShiftService, AnnouncementsScreen, QuantityReleaseService, DefrostScreen, ChecklistsScreen. App authority/session epoch remount affects every mounted screen lifecycle; B-context-red-03 proved stale People note form after revoke. C5 then separately proved and fixed obsolete late-submit continuations;13 API context cases and actual late People POST path passed in H. Backend delta is restricted to immutable replay payload comparisons and no duplicate future-plan fanout. Rights/schema/store architecture unchanged. No arbitrary promise cancellation or server rollback claim.
+
+ActionModal source census remains31 bindings across10 screen owners: Wash8, Tasks3, Stock3, Situation1, Orders1, ShiftLog3, People6, Archive1, Checklists2, Okk3 (sum31). Consumer props remain compatible; source excerpts reviewed for fixed enums, async candidates/dependent positions, numeric/date fields, boolean fields, parent-owned child drafts/files, no-fields confirmations, polymorphic modal modes. Same-name boolean↔text is not a current product binding found; the permanent shared-owner safety case is isolated, not a claim that31 submissions executed. Dynamic option removal does occur with Tasks candidate lists and People line→position. Strong server validators still own authorization; client missing-option validation does not grant any right.
+
+Evidence corrections: B-context-red-01 wrong field label;02 strict multi-dialog locator;03 actual product fail. C1-green-01's old absent-option assertion is incompatible with the new explicit unavailable option; replacement keeps identity/typed values and adds disabled/invalid plus negative submit. Original files/run outputs are immutable. No test changed to erase an unexplained failure.

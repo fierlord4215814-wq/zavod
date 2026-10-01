@@ -1,0 +1,21 @@
+import {test,expect} from '@playwright/test';
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+import {isolate,linkedReplies,json,open,shot,person,lineRow,records,save,unknown,errors,before,installEvidenceHooks} from './helpers/frontend-series';
+installEvidenceHooks();
+for(const theme of ['dark','gray','light'])for(const width of [1440,360,390,430])test(`R3-C1 actual dependent-option visual ${theme} ${width}`,async({page})=>{
+ const lines=[{...lineRow,id:'r3-line-A',name:'Первая линия',positions:[{id:'r3-position-A',name:'Оператор первой'}]},{...lineRow,id:'r3-line-B',name:'Вторая линия',positions:[{id:'r3-position-B',name:'Оператор второй'}]}];const posts:any[]=[];
+ await isolate(page,{theme,socket:()=>{},replies:async(r,p)=>{if(p==='/lines'){await json(r,lines);return true;}if(p===`/people/${person.id}`){await json(r,{...person,role:'WORKER'});return true;}if(p===`/people/${person.id}/skills`&&r.request().method()==='POST'){posts.push(r.request().postDataJSON());await json(r,{id:'r3-skill'});return true;}return linkedReplies(r,p);}});
+ if(before){
+  // Reconstruct comparable BEFORE using the saved genuine pre-R3 compiled app, never edit product/dist.
+  const source=path.resolve(__dirname,'../../docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/B-build-before/frontend/dist/assets/index-B_xW5MpD.js');
+  const bytes=fs.readFileSync(source);const identity=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../../docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/G2/final-build-identity.json'),'utf8'));
+  const old=identity.files.find((f:{owner:string})=>f.owner.endsWith('/index-B_xW5MpD.js'));expect(crypto.createHash('sha256').update(bytes).digest('hex')).toBe(old.sha256);
+  await page.route('**/assets/index-*.js',r=>r.fulfill({status:200,contentType:'text/javascript',body:bytes}));records.push({beforeSource:'SAVED_R2_COMPILED_APP_REPLAY',sourceSha256:old.sha256,notCurrentBuild:true});
+ }
+ await page.setViewportSize({width,height:width===360?640:844});await page.goto('/');await open(page,'Люди');await page.locator('.people-compact-row').click();await page.getByRole('button',{name:/Навыки по линиям/}).click();await page.getByRole('button',{name:'Добавить навык',exact:true}).click();
+ await page.getByRole('combobox',{name:/^Линия/}).selectOption('r3-line-A');await page.getByLabel('Позиция',{exact:true}).selectOption('r3-position-A');await page.getByRole('combobox',{name:/^Линия/}).selectOption('r3-line-B');
+ const field=page.getByLabel('Позиция',{exact:true}),submit=page.getByRole('button',{name:'Добавить',exact:true});
+ if(!before){await expect(field).toHaveValue('r3-position-A');await expect(field).toHaveAttribute('aria-invalid','true');await submit.click();expect(posts).toHaveLength(0);}
+ await submit.scrollIntoViewIfNeeded();const hit=await submit.evaluate(e=>{const r=e.getBoundingClientRect();const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return !!hit&&e.contains(hit);});expect(hit).toBe(true);expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);
+ await shot(page,`C1-${before?'before-replay':'after'}-${theme}-${width}`,{family:'ActionModal unavailable dependent option in actual People',nativeHit:hit,phase:before?'SAVED_COMPILED_BEFORE':'CURRENT_AFTER'});expect(unknown).toEqual([]);expect(errors).toEqual([]);save();
+});

@@ -1,0 +1,96 @@
+{
+  "workingDbServiceInspected": false,
+  "lastActualVmObservation": {
+    "at": "2026-09-20T16:26:38.6967893+03:00",
+    "vm": {
+      "Name": "99A158DA-C247-422C-AE11-109485A92B1F",
+      "ElementName": "Zavod-Master-R5-Ubuntu24",
+      "EnabledState": 2,
+      "RequestedState": 5,
+      "OperationalStatus": [
+        2
+      ],
+      "StatusDescriptions": [
+        "Работает нормально"
+      ],
+      "HealthState": 5,
+      "ProcessID": 8664
+    },
+    "jobs": []
+  },
+  "at": "2026-09-20T16:42:36.7229500+03:00",
+  "observerTerminal": {
+    "at": "2026-09-20T16:26:38.7176183+03:00",
+    "message": null,
+    "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+    "status": "READ_ONLY_OBSERVER_COMPLETED_VM_UNCHANGED",
+    "pid": 8296,
+    "hostGuestMutations": false
+  },
+  "newMutatingControllerStarted": false,
+  "guestInputActions": 0,
+  "oldControllerSha256": "4f22e068a0d5f20a68a8b2070e89646424dea17a5dc62f1ecf996814e5beec9e",
+  "processes": [
+    {
+      "pid": 9056,
+      "hasExited": false,
+      "exists": true,
+      "name": "pwsh",
+      "start": "2026-09-20T08:26:22.4640876+03:00"
+    },
+    {
+      "pid": 8296,
+      "hasExited": null,
+      "exists": false,
+      "name": null,
+      "start": null
+    },
+    {
+      "pid": 9616,
+      "hasExited": null,
+      "exists": false,
+      "name": null,
+      "start": null
+    }
+  ],
+  "currentVmOffProven": false,
+  "workingDataEnvUploadsChanged": false,
+  "oldTerminalExists": false,
+  "queue": [
+    {
+      "sha256": "101d76f27749bbfe7eba763e3afd532fdab6ceceafc6e546eb25a2f36e41d675",
+      "exists": true,
+      "name": "000006.request.json",
+      "data": {
+        "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+        "operation": "SHUTDOWN"
+      }
+    },
+    {
+      "sha256": null,
+      "exists": false,
+      "name": "000006.result.json",
+      "data": null
+    },
+    {
+      "sha256": "531d9ecf05a4fda1e24956ebd0db10bbfb73b56316a94b14543911c1ac2ab5ef",
+      "exists": true,
+      "name": "000007.request.json",
+      "data": {
+        "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+        "operation": "EXIT_COORDINATOR"
+      }
+    },
+    {
+      "sha256": null,
+      "exists": false,
+      "name": "000007.result.json",
+      "data": null
+    }
+  ],
+  "oldFailureExists": false,
+  "forceOrReboot": false,
+  "workingCleanup": "UNKNOWN_NOT_INSPECTED",
+  "ownAppsDbFixtures": [],
+  "freeDiskBytes": 44870172672
+}

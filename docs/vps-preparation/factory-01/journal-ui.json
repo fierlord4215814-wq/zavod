@@ -1,0 +1,59 @@
+{
+  "status": "PASS_ORDINARY_SHIFTLOG_SECOND_PAGE_FILE_SCOPE_ARCHIVE",
+  "steps": [
+    {
+      "name": "ordinary-important-create-second-page",
+      "ms": 4612,
+      "http": 201
+    },
+    {
+      "name": "comment-open-detail-second-page",
+      "ms": 5243,
+      "http": 201
+    },
+    {
+      "name": "attachment-metadata-second-page",
+      "ms": 4695,
+      "http": 201
+    },
+    {
+      "name": "important-close-second-page",
+      "ms": 5178,
+      "http": 201
+    }
+  ],
+  "startedAt": "2026-09-26T20:43:28.133Z",
+  "id": "398762a8-590a-4b00-bae4-b64413e8f039",
+  "uploadStatus": 201,
+  "sql": {
+    "id": "398762a8-590a-4b00-bae4-b64413e8f039",
+    "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+    "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+    "isImportant": true,
+    "status": "ACTIVE"
+  },
+  "attachment": {
+    "id": "6dfc6e60-7076-469a-89d4-d09b925b71d2",
+    "sha256": "6b1048f8a6d40bac0b2954c18fefa40c4ea7a96120fc2e54b7317c0e43c2bbec"
+  },
+  "otherDepartment": {
+    "listStatus": 200,
+    "detailStatus": 409,
+    "noForeignCard": true
+  },
+  "otherFactory": {
+    "listStatus": 200,
+    "detailStatus": 409,
+    "noForeignCard": true
+  },
+  "archiveReadOnly": true,
+  "archiveHttp": 200,
+  "archiveFileSha": true,
+  "sqlFinal": {
+    "id": "398762a8-590a-4b00-bae4-b64413e8f039",
+    "status": "CLOSED",
+    "isImportant": false,
+    "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799"
+  },
+  "priorHarnessError": "locator.click: Error: strict mode violation: getByRole('button', { name: 'Архив', exact: true }) resolved to 2 elements:\n    1) <button class=\"\" type=\"button\">Архив</button> aka locator('section').getByRole('button', { name: 'Архив' })\n    2) <button type=\"button\" class=\"nav-button \">…</button> aka getByRole('navigation').getByRole('button', { name: 'Архив' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Архив', exact: true })\u001b[22m\n"
+}

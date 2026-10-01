@@ -1,0 +1,11 @@
+# Frontend modules
+- shift
+- shift-situation
+- lines
+- tasks
+- wash
+- okk
+- stock-defects
+- returns
+- shift-log
+- checklists

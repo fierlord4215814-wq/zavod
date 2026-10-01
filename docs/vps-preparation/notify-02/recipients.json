@@ -1,0 +1,777 @@
+{
+  "status": "PASS_28_EVENT_STATE_CASES_CURRENT_AUTHORITY_NO_REALTIME_LEAK_NO_LATE_FANOUT",
+  "cases": [
+    {
+      "key": "request-department",
+      "event": "ORDER_REQUEST_CREATED",
+      "state": "revoked",
+      "target": "TECH_KIPIA",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "65a3809a-84ea-4e9a-a8f9-7d114df6aa32",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "1234b6ca-a8b0-405b-a708-8669379e697a",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:26.488Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-department",
+      "event": "ORDER_REQUEST_CREATED",
+      "state": "guest",
+      "target": "TECH_KIPIA",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "db1a45cc-cc37-4b2e-a6ce-df55b7619c92",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "6e972389-3ad9-4220-bdab-9201d81d9957",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:26.780Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-department",
+      "event": "ORDER_REQUEST_CREATED",
+      "state": "blocked",
+      "target": "TECH_KIPIA",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "68940234-8ce3-4f0b-827f-9016e3ae4c6b",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "ceb3184a-b6d1-416d-bffa-23ee88bbde97",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:27.010Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-department",
+      "event": "ORDER_REQUEST_CREATED",
+      "state": "deleted",
+      "target": "TECH_KIPIA",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "1bfa82df-1ead-4dc2-a210-ded3e543425b",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "40786b52-33d3-4266-b73a-ae51caa82347",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:27.241Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-factory",
+      "event": "ORDER_REQUEST_CREATED",
+      "state": "revoked",
+      "target": "STORE",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": true,
+      "rows": [
+        {
+          "id": "606fc3f3-a46f-40e5-819b-d2ce08632473",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": null,
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "ORDER_REQUEST",
+          "entityId": "0fd60341-21b7-47f6-b28e-a896e3c7396e",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:27.457Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-factory",
+      "event": "ORDER_REQUEST_CREATED",
+      "state": "guest",
+      "target": "STORE",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": true,
+      "rows": [
+        {
+          "id": "7b25f8a2-220f-4e43-8d43-7edb89191bc2",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": null,
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "ORDER_REQUEST",
+          "entityId": "88b91039-7183-460e-a0ba-d4ee5914bd2e",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:27.741Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-factory",
+      "event": "ORDER_REQUEST_CREATED",
+      "state": "blocked",
+      "target": "STORE",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": true,
+      "rows": [
+        {
+          "id": "4186f6cd-d58f-4fc0-81a5-c91fef515a88",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": null,
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "ORDER_REQUEST",
+          "entityId": "565a9bc0-88d0-49c3-8186-1f3f08a0361c",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:28.059Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-factory",
+      "event": "ORDER_REQUEST_CREATED",
+      "state": "deleted",
+      "target": "STORE",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": true,
+      "rows": [
+        {
+          "id": "11c31d11-ae0e-442c-856c-4ea6c71024ee",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": null,
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "ORDER_REQUEST",
+          "entityId": "a9636931-56b4-4826-a24b-66244e0e4866",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:28.378Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "low-stock",
+      "event": "ORDER_STOCK_BELOW_THRESHOLD",
+      "state": "revoked",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "a473279f-851c-49b2-9f37-95b8ebb225f8",
+          "type": "ORDER_STOCK_BELOW_THRESHOLD",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "MINIMUM_STOCK_ITEM",
+          "entityId": "04612e4e-30b9-40f7-88a8-24da2f916256",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:28.706Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "low-stock",
+      "event": "ORDER_STOCK_BELOW_THRESHOLD",
+      "state": "guest",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "f601c3ec-0e0a-47be-b504-91f99332ebdc",
+          "type": "ORDER_STOCK_BELOW_THRESHOLD",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "MINIMUM_STOCK_ITEM",
+          "entityId": "1db209eb-9372-4d45-84ea-0167d2f1ca0d",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:28.918Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "low-stock",
+      "event": "ORDER_STOCK_BELOW_THRESHOLD",
+      "state": "blocked",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "f3ca0bb5-5088-4ab6-a013-cff231109320",
+          "type": "ORDER_STOCK_BELOW_THRESHOLD",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "MINIMUM_STOCK_ITEM",
+          "entityId": "cabd1a45-82cf-449d-b8a8-d6356e269042",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:29.140Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "low-stock",
+      "event": "ORDER_STOCK_BELOW_THRESHOLD",
+      "state": "deleted",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "1cf97eea-bf12-4011-a803-7523acaea585",
+          "type": "ORDER_STOCK_BELOW_THRESHOLD",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "MINIMUM_STOCK_ITEM",
+          "entityId": "c5abdec6-6fde-429a-abae-ad7e349bb6ae",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:29.366Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-close",
+      "event": "ORDER_REQUEST_CLOSED",
+      "state": "revoked",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "6ecef5c7-f430-472d-a87f-7090420e88c4",
+          "type": "ORDER_REQUEST_CLOSED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "45782c28-f0f3-4b3a-97a1-3168582f0c64",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:29.626Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-close",
+      "event": "ORDER_REQUEST_CLOSED",
+      "state": "guest",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "f91088f5-0cbf-4ff7-9f9f-b19669cf1327",
+          "type": "ORDER_REQUEST_CLOSED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8f77b97a-9be3-4c0f-b444-58fcfa74d10f",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:29.865Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-close",
+      "event": "ORDER_REQUEST_CLOSED",
+      "state": "blocked",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "e285ae33-e9cb-4e1c-9017-87bf8dd49a77",
+          "type": "ORDER_REQUEST_CLOSED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8c10843f-f79b-46ee-bbbc-0ec9b58b3a6c",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:30.128Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "request-close",
+      "event": "ORDER_REQUEST_CLOSED",
+      "state": "deleted",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "5c9a7539-5b3c-4ef9-8802-2df38d95c215",
+          "type": "ORDER_REQUEST_CLOSED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8e6eaf91-c785-4ca4-89ee-ca2b3f3fb2f4",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:30.390Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-done",
+      "event": "TASK_DONE",
+      "state": "revoked",
+      "target": "MASTER",
+      "http": 201,
+      "explicitCreator": true,
+      "shared": false,
+      "rows": [
+        {
+          "id": "5188801d-2cc4-413c-8181-ed112df683d3",
+          "type": "TASK_DONE",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "befd9a10-fdfc-42fc-9775-fc47974e608e",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:30.678Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-done",
+      "event": "TASK_DONE",
+      "state": "guest",
+      "target": "MASTER",
+      "http": 201,
+      "explicitCreator": true,
+      "shared": false,
+      "rows": [
+        {
+          "id": "8009e507-eaa3-452b-886f-3f286239cf35",
+          "type": "TASK_DONE",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "fb7ae630-ee7d-4d86-afd2-0fa8a1554c60",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:30.960Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-done",
+      "event": "TASK_DONE",
+      "state": "blocked",
+      "target": "MASTER",
+      "http": 201,
+      "explicitCreator": true,
+      "shared": false,
+      "rows": [
+        {
+          "id": "68654b43-bc1c-4970-bfcb-7212d3e44156",
+          "type": "TASK_DONE",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "38fd679f-a2b7-46f1-8010-46305a223031",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:31.223Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-done",
+      "event": "TASK_DONE",
+      "state": "deleted",
+      "target": "MASTER",
+      "http": 201,
+      "explicitCreator": true,
+      "shared": false,
+      "rows": [
+        {
+          "id": "eeb8d307-dff1-4e04-9bb8-318081520d85",
+          "type": "TASK_DONE",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "838ba2df-e019-4932-96b1-d51adc178ed3",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:31.509Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-redirect",
+      "event": "TASK_REDIRECTED",
+      "state": "revoked",
+      "target": "TECH_ELECTRIC",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "0b3cbb51-1321-4551-ab46-4c9860f461e6",
+          "type": "TASK_REDIRECTED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+          "entityType": "TASK",
+          "entityId": "4272ef4b-9344-4bc6-8ea2-e7feaa1d18ce",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:31.791Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-redirect",
+      "event": "TASK_REDIRECTED",
+      "state": "guest",
+      "target": "TECH_ELECTRIC",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "61df8570-1377-49a7-9905-8c2a3c9e167c",
+          "type": "TASK_REDIRECTED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+          "entityType": "TASK",
+          "entityId": "ec36d83d-ecf3-4734-8a7a-de81a8cb6e55",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:32.146Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-redirect",
+      "event": "TASK_REDIRECTED",
+      "state": "blocked",
+      "target": "TECH_ELECTRIC",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "f606b998-05ce-4efb-ab8d-ed7f2d7e19a6",
+          "type": "TASK_REDIRECTED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+          "entityType": "TASK",
+          "entityId": "651ee9b3-bca3-42ba-b590-20c935c256cd",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:32.445Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-redirect",
+      "event": "TASK_REDIRECTED",
+      "state": "deleted",
+      "target": "TECH_ELECTRIC",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "7f39edf1-4f34-422e-9f75-e8a3f7e6448d",
+          "type": "TASK_REDIRECTED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+          "entityType": "TASK",
+          "entityId": "74c4da27-9637-4d56-acdd-cdb52a45d551",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:32.723Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-escalated",
+      "event": "TASK_LONG_ESCALATED",
+      "state": "revoked",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "cd5b17ea-c73f-46dd-9586-93bdac8ee56d",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "47bd0623-c15e-4a45-aad6-aaa92eab107d",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:33.009Z"
+        },
+        {
+          "id": "f8af046f-af44-4e9e-a5b5-386a23475170",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "47bd0623-c15e-4a45-aad6-aaa92eab107d",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:33.012Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-escalated",
+      "event": "TASK_LONG_ESCALATED",
+      "state": "guest",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "263e7676-6a74-4e73-8311-da627b337eca",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "7dd5b1e9-4fdb-4300-a796-9ee804bf572d",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:33.315Z"
+        },
+        {
+          "id": "8c7cdafd-1cde-4504-bd0e-321fc573335e",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "7dd5b1e9-4fdb-4300-a796-9ee804bf572d",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:33.313Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-escalated",
+      "event": "TASK_LONG_ESCALATED",
+      "state": "blocked",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "87c93243-6b28-4219-a27a-5ace6330f716",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "eda011e2-59e3-48ac-b21f-b3c6923bed7c",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:33.594Z"
+        },
+        {
+          "id": "98269905-b25c-4d55-889f-0d628e009690",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "eda011e2-59e3-48ac-b21f-b3c6923bed7c",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:33.596Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    },
+    {
+      "key": "task-escalated",
+      "event": "TASK_LONG_ESCALATED",
+      "state": "deleted",
+      "target": "MANAGEMENT",
+      "http": 201,
+      "explicitCreator": false,
+      "shared": false,
+      "rows": [
+        {
+          "id": "16c4b36b-63c6-4472-8c99-85148b392896",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "f33d7bf1-f551-4caf-840f-4ad97e20350e",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:33.873Z"
+        },
+        {
+          "id": "2bcd05a1-b8bb-414a-837e-85dfe41c89d0",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "f33d7bf1-f551-4caf-840f-4ad97e20350e",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:48:33.871Z"
+        }
+      ],
+      "unauthorizedWsPayload": false,
+      "replayAfterReactivation": 201,
+      "recipientSnapshotUnchanged": true,
+      "closed": true
+    }
+  ]
+}

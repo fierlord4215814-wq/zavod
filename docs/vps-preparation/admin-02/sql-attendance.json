@@ -1,0 +1,614 @@
+{
+  "status": "PASS_REAL_SQL_ATTENDANCE_SCOPE_AND_TWO_CLIENT_CONCURRENCY",
+  "atUtc": "2026-09-26T18:05:45.608Z",
+  "cases": [
+    {
+      "name": "SECONDARY_LINE_RELEASE_SCOPED",
+      "status": "PASS"
+    },
+    {
+      "name": "SECONDARY_WASH_RELEASE_SCOPED",
+      "status": "PASS"
+    },
+    {
+      "name": "SECONDARY_WORK_AREA_RELEASE_SCOPED",
+      "status": "PASS"
+    },
+    {
+      "name": "SECONDARY_TIME_AREA_RELEASE_SCOPED",
+      "status": "PASS"
+    },
+    {
+      "name": "SECONDARY_TIME_LEGACY_RELEASE_SCOPED",
+      "status": "PASS"
+    },
+    {
+      "name": "HOME_FACTORY_START_LINE_RELEASE_END_UNCHANGED",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_LINE",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_WASH",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_WORK_AREA",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_TIME_AREA",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_TIME_LEGACY",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_RELEASE",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_SEND_HOME",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_START",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_END",
+      "status": "PASS"
+    },
+    {
+      "name": "FOREIGN_ACTIVE_A0_DENY_REQUEST",
+      "status": "PASS"
+    },
+    {
+      "name": "SECONDARY_SEND_HOME_COMMENT_SETTING_PROVENANCE_APPROVE",
+      "status": "PASS"
+    },
+    {
+      "name": "SEND_HOME_AND_REQUEST_DENY_revoked",
+      "status": "PASS"
+    },
+    {
+      "name": "SEND_HOME_AND_REQUEST_DENY_guest",
+      "status": "PASS"
+    },
+    {
+      "name": "SEND_HOME_AND_REQUEST_DENY_blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "SEND_HOME_AND_REQUEST_DENY_deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "SEND_HOME_NO_FACTUAL_C_DENY",
+      "status": "PASS"
+    },
+    {
+      "name": "TWO_SQL_CLIENTS_CONCURRENT_A0_C_START_SINGLE_FACT",
+      "status": "PASS"
+    },
+    {
+      "name": "TWO_SQL_CLIENTS_CONCURRENT_SEND_HOME_ONE_AUDIT",
+      "status": "PASS"
+    },
+    {
+      "name": "TWO_SQL_CLIENTS_RETURN_CREATE_AND_DECISION_SINGLE_WINNER",
+      "status": "PASS"
+    },
+    {
+      "name": "STALE_REQUEST_BEFORE_LATEST_SEND_HOME_CANNOT_APPROVE",
+      "status": "PASS"
+    }
+  ],
+  "actors": [
+    "a02sql-9902e779-584d-47f6-8949-da9ec9da1785",
+    "a02sql-14cf86de-2432-48f6-a663-87a73fa3f374",
+    "a02sql-0c88d08f-a6bd-4660-bd3d-239cec7393b6",
+    "a02sql-8d2c0f11-c9e6-4e5c-990e-0d0af478d44d",
+    "a02sql-075ea0e0-d262-4b36-9b24-90491f72cf8d",
+    "a02sql-ba7e31fc-c49c-434f-9cef-fe65e40e344a",
+    "a02sql-6320a3b4-2032-4630-9a9c-55e65f32d154",
+    "a02sql-8173c358-5715-42f9-8186-dbd9afee5496",
+    "a02sql-4500e01b-becd-42cd-927b-ad069a859e85",
+    "a02sql-735f03f1-7823-4398-986c-f5be80428c7b",
+    "a02sql-09cf9ccb-e669-4efb-93ba-10d1539130a7",
+    "a02sql-14079c6b-af41-40eb-bd4f-82319306ae5a",
+    "a02sql-03c71578-44c4-45d2-b418-1bf48e57a833",
+    "a02sql-4679ec5c-b6ab-40cf-9227-d04112a56464",
+    "a02sql-aeadf376-ba30-4d84-9c08-f9debf1cd17e",
+    "a02sql-5d3d3738-858d-4987-ac6d-d69481fd97b3",
+    "a02sql-18c1ab1f-a389-4334-bbba-4732ac07ea15",
+    "a02sql-cec2de52-a0fc-4fdf-987d-6ada80b3acae",
+    "a02sql-a56adb65-d275-489c-a0fc-1251f71c7b1d",
+    "a02sql-41c8b42b-6459-477e-8c57-f3f84d4345c0",
+    "a02sql-2f2e8397-0d90-4ee7-b490-83a21537b153",
+    "a02sql-4ea2cd31-d101-459e-9531-d86228b6474c",
+    "a02sql-b0a61f30-4c47-47bf-81d3-525325447e9f",
+    "a02sql-bff49df5-cd02-462d-8496-9b10a73d67cd",
+    "a02sql-f3f37eec-640b-4158-ac97-87857f56ec17",
+    "a02sql-4fa92ae2-80a7-41ab-9dfb-12f7bd4e4246"
+  ],
+  "pids": [
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-B",
+      "pid": 8076
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-B",
+      "pid": 8076
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-B",
+      "pid": 8076
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-B",
+      "pid": 8076
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    },
+    {
+      "label": "client-A",
+      "pid": 5672
+    }
+  ],
+  "scope": "Owned ADMIN02 only; true SQL clients and transactions; transport spies are not HTTP/WS proof",
+  "line": "d1a734c2-62e4-4ccf-abeb-963ca78f80e5",
+  "wash": "f3c60496-2ab4-4bcb-96d7-d0a19b3f75a3",
+  "homeLine": "89e9064b-dd21-49f8-8af4-08768a65e563",
+  "startRace": {
+    "pids": [
+      8076,
+      5672
+    ],
+    "statuses": [
+      "fulfilled",
+      "rejected"
+    ],
+    "factory": "dab94090-619c-46f4-91cf-cc48f3b22002"
+  },
+  "homeRace": {
+    "pids": [
+      5672,
+      8076
+    ],
+    "statuses": [
+      "fulfilled",
+      "rejected"
+    ]
+  },
+  "returnRace": {
+    "pids": [
+      5672,
+      8076
+    ],
+    "statuses": [
+      "fulfilled",
+      "rejected"
+    ],
+    "oneAudit": true,
+    "oneStateTransition": true,
+    "oneInvalidation": true
+  }
+}

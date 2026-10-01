@@ -1,0 +1,34 @@
+{
+  "status": "PROVEN_UI_RETRY_DUPLICATES_COMMITTED_ATTACHMENT",
+  "runId": "98d9dcfd-3d52-400e-89ba-936654bdc8a9",
+  "rowId": "d5d230f5-feac-4626-868d-020fe2c18e76",
+  "firstServerCommit": {
+    "status": 201,
+    "id": "68a38d57-22aa-4259-9e8e-2bf550a80a1c"
+  },
+  "interrupted": {
+    "rowStatus": "PENDING",
+    "files": [
+      "68a38d57-22aa-4259-9e8e-2bf550a80a1c"
+    ],
+    "retainedSelection": 0
+  },
+  "retry": {
+    "requests": [
+      {
+        "status": 201,
+        "id": "68a38d57-22aa-4259-9e8e-2bf550a80a1c"
+      },
+      {
+        "status": 201,
+        "id": "a5ff42d7-984d-4c12-b7c9-06008f98832d"
+      }
+    ],
+    "files": [
+      "68a38d57-22aa-4259-9e8e-2bf550a80a1c",
+      "a5ff42d7-984d-4c12-b7c9-06008f98832d"
+    ],
+    "deduplicated": false
+  },
+  "closed": true
+}

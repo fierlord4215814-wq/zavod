@@ -1,0 +1,24 @@
+{
+  "observedAt": "2026-09-16T18:08:44.2468197Z",
+  "workingDbAccessed": false,
+  "workingDataEnvUploadsChanged": false,
+  "ownedLongRunning": [{
+    "runId": "B-preview-01", "pid": 13076, "parentPid": 10528,
+    "command": "C:\\Program Files\\nodejs\\node.exe frontend/scripts/master-r2-preview.cjs",
+    "creationDate": "2026-09-16T20:31:53.029561+03:00",
+    "spawnReceiptStartedAt": "2026-09-16T17:31:52.853Z",
+    "bind": "127.0.0.1", "port": 15464,
+    "kind": "STATIC_FRONTEND_ONLY_NO_API_PROXY_NO_WS_UPGRADE",
+    "beforeStop": "CIM command/PID/start time and Get-NetTCPConnection owningPID independently observed with standard read-only approval; sandbox CIM first returned Access denied",
+    "stop": "Ctrl-C to owned recorder session87304; terminal exit1, no natural child-exit receipt. Not a failed test and not a fabricated exit0",
+    "afterStop": {"processesWithPid": [], "listenersOn15464": []},
+    "status": "STOPPED_VERIFIED"
+  }],
+  "browser": "Single worker finished H-browser-recheck-02 exit0; no persistent browser server started",
+  "remainingOwnedRuntime": [],
+  "realSyntheticStack": "NOT_CREATED_BLOCKED_ENV_C1_TECHNICAL_ISOLATION_UNAVAILABLE",
+  "freshPgDataFileRootsUsersFixtures": "NOT_CREATED",
+  "workingRuntimeAndHistoricalFixtureCleanup": "UNKNOWN_NOT_INSPECTED_NOT_TOUCHED",
+  "publicAccessTunnelPowerKeepAwake": "NOT_STARTED_NOT_CHANGED",
+  "secrets": "No fresh stack credentials created; no existing env read for tests; no credentials exported"
+}

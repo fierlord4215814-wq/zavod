@@ -1,0 +1,34 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260921-visible-uac-diagnostic-boot\before\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\final-report.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\final-report.md', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+index 225f779a..b82a054f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+@@ -1,4 +1,26 @@
+-# MASTER R5 — актуальный результат21.09 22:29: диагностический Hyper-V→SSH путь остановлен на UAC
++# MASTER R5 — актуальный результат21.09 23:11: UAC успешен, no-media guard остановил загрузку
++
++MASTER_R5_STATUS=BLOCKED_DVD_READBACK_GUARD_NEW_UAC_REQUIRED. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. PHYSICAL_PHONE=PENDING. FINAL_STOP=STOP.
++
++Одна новая visible-UAC попытка **успешна**: helperPID11600/start23:11:05.9722321+03, actualadministrator=true23:11:06.0083435. Это не повтор отменённогоlauncher: отдельная именованная `attempts/20260921-visible-uac-diagnostic-boot/`, прежниеrequest/failure сохранены. Capture/VMConnect/DISM/newVM не запускались.
++
++Fresh23:11:11 подтверждены exactVM99a158da-c247-422c-ae11-109485a92b1f/Gen2/BIOS, **Off**, единственный прежнийVHDX16GiB безparent/passthrough/чужихдисков, двеownISO, jobs=[], другихR5controllers нет. Hyper-V/DEPtrue; actualhostboot21.09 22:12:54.5, freeRAM10,269,270,016bytes/freeDisk39,737,823,232bytes. Собственная internalnetwork/MAC/10.243.53.1/30/interface25 подтверждены, foreignendpoint/addressconflict indicators0; LANне сканировалась, сетьне менялась. [VMbefore](attempts/20260921-visible-uac-diagnostic-boot/vm-before.json).
++
++Реальное изменение: существующий VHDX переставлен первым; SecureBoot On/UEFI template иостальные5firmwarefields сохранились. Два Set-VMDvdDrive -Path null вызваны толькодлясвоихDVD; последующий objectreadback всёещё показал обаISOpath. Поэтому **извлечение не подтверждено**, а guard завершилhelper23:11:11.8835008 с `No-media/VHDX-first readback failed; no boot issued`. `mutations[]` вrawreceipt обозначает вызовы, не выполненныеpostconditions. ISOфайлы/VHDX не удалены/непересозданы; никаких Start-VM/shutdown/reset. [After](attempts/20260921-visible-uac-diagnostic-boot/configuration-after.json), [terminal](attempts/20260921-visible-uac-diagnostic-boot/helper-terminal.json).
++
++Это расхождение инфраструктурной проверки, **не product defect и не повреждениеUbuntu**. Source-first readonlyinspection установленного Microsoftcmdlet подтверждает поддержку explicitnull иreuseVMobject; локальный UpdateThreshold5s поддерживает гипотезу cachedread. ActualDVDproviderstate послеоперации отдельно не получен: причина cache-vs-noop пока UNKNOWN. Подготовлен более строгий freshCIM readbackcandidate, **НЕ исполнен**, no-media guard неослаблен. [Диагностика/ограничения](attempts/20260921-visible-uac-diagnostic-boot/dvd-readback-diagnosis.md).
++
++Helper11600 завершился, последующийPIDabsent; launcher2548/session34078exit0. Одна разрешённая UAC-попытка использована. Для следующего privilegedreadback нужен **новый явно разрешённый UAC**, не обходчерездругойканал. Следующаяоперация — freshCIM exactVM/storage, затем только недостающиеmediaactions/проверки иодинdiagnosticboot. ПриRunningне выключать/не менятьmedia. Полная серияR5 сохраняется и продолжается послеэтойapprovalграницы, не после «ещёодногоcapture».
++
++Diagnosticboot **NOT_RUN_GUARD_STOPPED**; SSH **NOT_RUN_BOOT_NOT_REACHED**. Fresh ownseed подтверждаетr5ops/ownclientkeypath/passwordauthOFF/10.243.53.2, но применимостьinstalledguestнепроверена. Ownknownhostspaths=[], independentlyverifiedserverkeyпока отсутствует; clientfingerprintнеравенserverkey. Guestrepair/isolation/ownPG/actualstack NOT_RUN. MI-SEC-01, MI-PUB-01, MI-R2-ORD-01, MI-R2-CHAT-ATT-01, UI-SWEEP-036 — каждый0новыхlivecases. Journeys0newreal/32, original063OPEN/UNKNOWN, finaltypes/builds/Prisma/regressionNOT_RUN.014/050/replay/publicationне придуманы, autoOKKTaskнет.
++
++Generatorcorrected/10hostPASS неизменён/notrerun; productfixes0. Толькоowninfra helpers/candidate/docs/metadata/receipts.215product/config132build72harness/6mainmatrices/7старыхZIP сохранены; main954/957/P0/P1/P2=0/1/10 retainedhistory, не новаяприёмка. WorkingPostgreSQL/service/.env/uploads/businessdata/protectedhistory не читались/не менялись. Новыхproductfixtures/screenshots0, workingcleanupUNKNOWN_NOT_INSPECTED. SOURCE_SYNC=REPO_LOCAL_ONLY, Library/accountmemoryNOT_WRITTEN.
++
++[Полный результат attempt](attempts/20260921-visible-uac-diagnostic-boot/result.md) · [Runtime](attempts/20260921-visible-uac-diagnostic-boot/environment-runtime-receipt.json) · [Единый review ZIP](zavod-master-r5-visible-uac-20260921.zip) · [SHA/размер/full-entry readback](attempts/20260921-visible-uac-diagnostic-boot/package-receipt.json) · [Resume](resume-prompt.txt). Старыепакеты/скриншоты не перезаписаны. Ниже исторические checkpoint, не текущаяотменаUAC.
++
++---
++
++## Исторический результат21.09 22:29: диагностический Hyper-V→SSH путь остановлен на UAC
+ 
+ MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_DIAGNOSTIC_BOOT. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. PHYSICAL_PHONE=PENDING. FINAL_STOP=STOP.
+ 

@@ -1,0 +1,490 @@
+diff --git a/docs/theme-switching/corrections/20260914-tc14-label-visibility-evidence/baseline-source/three-themes.before-tc14.spec.ts b/frontend/e2e/three-themes.spec.ts
+index b71d3286..be7dfcb0 100644
+--- a/docs/theme-switching/corrections/20260914-tc14-label-visibility-evidence/baseline-source/three-themes.before-tc14.spec.ts
++++ b/frontend/e2e/three-themes.spec.ts
+@@ -1,9 +1,9 @@
+-import { expect, Page, Route, test } from '@playwright/test';
++import { expect, Locator, Page, Route, test } from '@playwright/test';
+ import crypto from 'node:crypto';
+ import fs from 'node:fs';
+ import path from 'node:path';
+ 
+ const phase = process.env.THEME_EVIDENCE_PHASE === 'before' ? 'before' : 'after';
+ const batch = process.env.THEME_EVIDENCE_BATCH || `20260913-three-themes-${phase}-${Date.now()}`;
+ const uniqueScope = process.env.THEME_UNIQUE_SCOPE || 'all';
+ const correctionBatch = process.env.THEME_CORRECTION_BATCH || '';
+@@ -69,31 +69,40 @@ type Runtime = {
+   screenshots: Array<Record<string, unknown>>;
+   apiReads: string[];
+   apiWrites: Array<{ method: string; path: string }>;
+   pageErrors: string[];
+   consoleErrors: string[];
+   requestFailures: Array<{ url: string; error: string }>;
+   isolatedFixtureWrites: Array<{ method: string; path: string }>;
+   computedStyles: Array<Record<string, unknown>>;
++  visibilityChecks: Array<Record<string, unknown>>;
+ };
+ 
+ const runtime: Runtime = {
+   phase: correctionBatch ? correctionPhase : phase,
+   batch: correctionBatch || batch,
+   screenshots: [],
+   apiReads: [],
+   apiWrites: [],
+   pageErrors: [],
+   consoleErrors: [],
+   requestFailures: [],
+   isolatedFixtureWrites: [],
+   computedStyles: [],
++  visibilityChecks: [],
+ };
+ 
++const productStyleFingerprint = crypto.createHash('sha256')
++  .update(fs.readFileSync(path.resolve(__dirname, '../src/styles.css')))
++  .digest('hex');
++const harnessFingerprint = crypto.createHash('sha256')
++  .update(fs.readFileSync(__filename))
++  .digest('hex');
++
+ type IsolatedIdentity = 'admin' | 'anonymous' | 'factory-picker' | 'guest';
+ type IsolatedOptions = {
+   identity?: IsolatedIdentity;
+   authDelayMs?: number;
+   allowForcedPasswordFixture?: boolean;
+   checklistState?: 'filled' | 'empty' | 'error';
+ };
+ 
+@@ -461,20 +470,55 @@ async function capture(page: Page, name: string, extra: Record<string, unknown>
+   await page.screenshot({ path: target, fullPage, animations: 'disabled' });
+   const geometry = await page.evaluate(() => ({
+     theme: document.documentElement.dataset.theme || 'dark',
+     width: innerWidth,
+     overflowX: Math.max(0, document.documentElement.scrollWidth - innerWidth),
+     bodyBackground: getComputedStyle(document.body).backgroundColor,
+     textColor: getComputedStyle(document.body).color,
+   }));
+-  runtime.screenshots.push({ file, ...geometry, ...extra });
++  runtime.screenshots.push({
++    file,
++    capturedAt: new Date().toISOString(),
++    productStyleFingerprint,
++    harnessFingerprint,
++    ...geometry,
++    ...extra,
++  });
+   expect(geometry.overflowX).toBeLessThanOrEqual(4);
+ }
+ 
++async function recordLocatorComputedStyle(
++  locator: Locator,
++  selectorLabel: string,
++  caseId: string,
++  extra: Record<string, unknown> = {},
++) {
++  await expect(locator).toBeVisible();
++  const style = await locator.evaluate((element, selectorValue) => {
++    const computed = getComputedStyle(element);
++    const rect = element.getBoundingClientRect();
++    const control = element as HTMLButtonElement | HTMLInputElement;
++    return {
++      selector: selectorValue,
++      color: computed.color,
++      backgroundColor: computed.backgroundColor,
++      backgroundImage: computed.backgroundImage,
++      borderColor: computed.borderColor,
++      opacity: computed.opacity,
++      disabled: 'disabled' in control ? Boolean(control.disabled) : null,
++      ariaPressed: element.getAttribute('aria-pressed'),
++      text: element.textContent?.replace(/\s+/g, ' ').trim() ?? '',
++      rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
++    };
++  }, selectorLabel);
++  runtime.computedStyles.push({ caseId, ...extra, ...style });
++  return style;
++}
++
+ async function recordComputedStyle(
+   page: Page,
+   selector: string,
+   caseId: string,
+   extra: Record<string, unknown> = {},
+ ) {
+   const locator = page.locator(selector).filter({ visible: true }).first();
+   await expect(locator).toBeVisible();
+@@ -494,29 +538,127 @@ async function recordComputedStyle(
+       text: element.textContent?.replace(/\s+/g, ' ').trim() ?? '',
+       rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+     };
+   }, selector);
+   runtime.computedStyles.push({ caseId, ...extra, ...style });
+   return style;
+ }
+ 
++async function recordTargetVisibility(
++  page: Page,
++  locator: Locator,
++  caseId: string,
++  extra: Record<string, unknown> = {},
++  scrollMethod: 'none' | 'scrollIntoView-center' = 'none',
++) {
++  await expect(locator).toBeVisible();
++  if (scrollMethod === 'scrollIntoView-center') {
++    await locator.evaluate((element) => element.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' }));
++    await page.waitForTimeout(80);
++  }
++  const visibility = await locator.evaluate((element) => {
++    const rect = element.getBoundingClientRect();
++    let clipLeft = 0;
++    let clipTop = 0;
++    let clipRight = innerWidth;
++    let clipBottom = innerHeight;
++    const clippingAncestors: Array<Record<string, unknown>> = [];
++    let ancestor = element.parentElement;
++    while (ancestor) {
++      const style = getComputedStyle(ancestor);
++      const clipsX = /(auto|scroll|hidden|clip)/.test(style.overflowX);
++      const clipsY = /(auto|scroll|hidden|clip)/.test(style.overflowY);
++      if (clipsX || clipsY) {
++        const ancestorRect = ancestor.getBoundingClientRect();
++        if (clipsX) {
++          clipLeft = Math.max(clipLeft, ancestorRect.left);
++          clipRight = Math.min(clipRight, ancestorRect.right);
++        }
++        if (clipsY) {
++          clipTop = Math.max(clipTop, ancestorRect.top);
++          clipBottom = Math.min(clipBottom, ancestorRect.bottom);
++        }
++        clippingAncestors.push({
++          tag: ancestor.tagName,
++          className: ancestor.className,
++          overflowX: style.overflowX,
++          overflowY: style.overflowY,
++          scrollLeft: ancestor.scrollLeft,
++          scrollTop: ancestor.scrollTop,
++          rect: { x: ancestorRect.x, y: ancestorRect.y, width: ancestorRect.width, height: ancestorRect.height },
++        });
++      }
++      ancestor = ancestor.parentElement;
++    }
++    const epsilon = 1;
++    const fullyInsideClip = rect.left >= clipLeft - epsilon
++      && rect.top >= clipTop - epsilon
++      && rect.right <= clipRight + epsilon
++      && rect.bottom <= clipBottom + epsilon;
++    const insetX = Math.min(6, Math.max(1, rect.width / 8));
++    const insetY = Math.min(6, Math.max(1, rect.height / 8));
++    const points = [
++      [rect.left + insetX, rect.top + insetY],
++      [rect.right - insetX, rect.top + insetY],
++      [rect.left + rect.width / 2, rect.top + rect.height / 2],
++      [rect.left + insetX, rect.bottom - insetY],
++      [rect.right - insetX, rect.bottom - insetY],
++    ].map(([x, y]) => {
++      const topElement = x >= 0 && x < innerWidth && y >= 0 && y < innerHeight
++        ? document.elementFromPoint(x, y)
++        : null;
++      return {
++        x,
++        y,
++        topTag: topElement?.tagName ?? null,
++        topClass: topElement instanceof HTMLElement ? topElement.className : null,
++        targetOwnsHit: Boolean(topElement && (topElement === element || element.contains(topElement))),
++      };
++    });
++    const hitTestClear = points.every((point) => point.targetOwnsHit);
++    return {
++      text: element.textContent?.replace(/\s+/g, ' ').trim() ?? '',
++      rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom },
++      viewport: { width: innerWidth, height: innerHeight },
++      effectiveClip: { left: clipLeft, top: clipTop, right: clipRight, bottom: clipBottom },
++      clippingAncestors,
++      fullyInsideClip,
++      hitTestClear,
++      fullyVisible: fullyInsideClip && hitTestClear && rect.width > 0 && rect.height > 0,
++      points,
++    };
++  });
++  const record = { caseId, scrollMethod, ...extra, ...visibility };
++  runtime.visibilityChecks.push(record);
++  return record;
++}
++
+ function csvCell(value: unknown) {
+   return `"${String(value ?? '').replace(/"/g, '""')}"`;
+ }
+ 
+ function correctionCombinations() {
+   const result: Array<{ width: typeof widths[number]; theme: 'dark' | 'gray' | 'light' }> = [];
+   for (const width of widths) {
+     for (const theme of ['gray', 'light'] as const) result.push({ width, theme });
+     if (correctionPhase === 'after' && (width === 1440 || width === 390)) result.push({ width, theme: 'dark' });
+   }
+   return result;
+ }
+ 
++function tc14LabelCombinations() {
++  const result: Array<{ width: typeof widths[number]; theme: 'dark' | 'gray' | 'light' }> = [];
++  for (const width of widths) {
++    for (const theme of ['gray', 'light'] as const) result.push({ width, theme });
++    if (width === 1440 || width === 390) result.push({ width, theme: 'dark' });
++  }
++  return result;
++}
++
+ function correctionPartEnabled(part: string) {
+   return Boolean(correctionBatch)
+     && (correctionPart === 'all' || correctionPart === part || correctionPart.startsWith(`${part}-`));
+ }
+ 
+ async function navigateToScreen(page: Page, screen: string, heading?: string) {
+   await page.evaluate((nextScreen) => {
+     window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: { screen: nextScreen } }));
+@@ -568,17 +710,21 @@ test.beforeEach(async ({ page }) => {
+   });
+   page.on('requestfailed', (request) => {
+     runtime.requestFailures.push({ url: request.url(), error: request.failure()?.errorText || 'UNKNOWN' });
+   });
+ });
+ test.afterAll(() => {
+   fs.writeFileSync(runtimePath, `${JSON.stringify(runtime, null, 2)}\n`, 'utf8');
+   if (!correctionBatch) return;
+-  const columns = ['file', 'sha256', 'bytes', 'theme', 'width', 'state', 'role', 'correctionPhase', 'correctionPart'];
++  const columns = [
++    'file', 'sha256', 'bytes', 'theme', 'width', 'state', 'role', 'capturedAt',
++    'productStyleFingerprint', 'harnessFingerprint', 'oldReviewId', 'sourceRelativePath',
++    'visibilityStatus', 'scrollMethod', 'correctionPhase', 'correctionPart',
++  ];
+   const lines = [columns.map(csvCell).join(',')];
+   for (const screenshot of runtime.screenshots) {
+     const file = String(screenshot.file ?? '');
+     const filePath = path.join(evidenceRoot, file);
+     const bytes = fs.readFileSync(filePath);
+     const row = {
+       ...screenshot,
+       sha256: crypto.createHash('sha256').update(bytes).digest('hex'),
+@@ -1186,8 +1332,225 @@ test('Theme correction disabled primary state', async ({ page }, testInfo) => {
+       expect(disabledPrimary.opacity).toBe('0.88');
+       expect(disabledPrimary.color).not.toBe('rgb(137, 147, 155)');
+     }
+     await expect(page.locator('.topbar')).toBeVisible({ timeout: 10_000 });
+   }
+   expect(localPageErrors).toEqual([]);
+   expect(runtime.apiWrites).toEqual([]);
+ });
++
++test('TC14-01 real modal form labels and affected shared consumers', async ({ page }, testInfo) => {
++  test.skip(testInfo.project.name !== 'desktop-edge' || !correctionPartEnabled('tc14-labels'));
++  test.setTimeout(600_000);
++  const localPageErrors: string[] = [];
++  page.on('pageerror', (error) => { localPageErrors.push(error.message); runtime.pageErrors.push(error.message); });
++  await installIsolatedAppState(page, 'gray', { checklistState: 'filled' });
++
++  for (const { width, theme } of tc14LabelCombinations()) {
++    const viewport = viewportName(width);
++    const meta = { role: 'Admin', selectedTheme: theme, width, focusedField: 'Название', selectedChatType: 'FACTORY' };
++    await page.setViewportSize({ width, height: 844 });
++    await openWithTheme(page, theme);
++    await navigateToScreen(page, 'Chats');
++    await expect(page.locator('.chats-screen')).toBeVisible();
++    await page.getByRole('button', { name: 'Создать чат', exact: true }).filter({ visible: true }).first().click();
++    const dialog = page.getByRole('dialog');
++    await expect(dialog.getByRole('heading', { name: 'Создать чат', exact: true })).toBeVisible();
++    const initialFormLabels = dialog.locator('.form-grid > label');
++    await initialFormLabels.nth(1).locator('select').selectOption('FACTORY');
++    const checkbox = dialog.locator('.form-grid > label.checkbox-row input[type="checkbox"]');
++    await checkbox.check();
++    await initialFormLabels.nth(0).locator('input').focus();
++    await expect(initialFormLabels.nth(1).locator('select')).toHaveValue('FACTORY');
++    await expect(checkbox).toBeChecked();
++    await expect(dialog.getByRole('button', { name: 'Сохранить', exact: true })).toBeDisabled();
++    await expect(dialog.getByRole('button', { name: 'Отмена', exact: true })).toBeEnabled();
++    await expect(dialog.getByRole('button', { name: 'Закрыть', exact: true })).toBeEnabled();
++
++    const formLabels = dialog.locator('.form-grid > label');
++    await expect(formLabels).toHaveCount(4);
++    const titleLabel = formLabels.nth(0);
++    const typeLabel = formLabels.nth(1);
++    const descriptionLabel = formLabels.nth(2);
++    const checkboxLabel = formLabels.nth(3);
++    const titleStyle = await recordLocatorComputedStyle(titleLabel, 'Chats create label: Название', 'tc14-chat-label-title', meta);
++    const typeStyle = await recordLocatorComputedStyle(typeLabel, 'Chats create label: Тип', 'tc14-chat-label-type', meta);
++    const descriptionStyle = await recordLocatorComputedStyle(descriptionLabel, 'Chats create label: Описание', 'tc14-chat-label-description', meta);
++    const checkboxStyle = await recordLocatorComputedStyle(checkboxLabel, 'Chats create checkbox label', 'tc14-chat-checkbox-label', meta);
++    const visibility = [];
++    visibility.push(await recordTargetVisibility(page, titleLabel, 'tc14-chat-label-title-visible', meta));
++    visibility.push(await recordTargetVisibility(page, typeLabel, 'tc14-chat-label-type-visible', meta));
++    visibility.push(await recordTargetVisibility(page, descriptionLabel, 'tc14-chat-label-description-visible', meta));
++    visibility.push(await recordTargetVisibility(page, checkboxLabel, 'tc14-chat-checkbox-label-visible', meta));
++    await capture(page, `${viewport}-${theme}-chat-form-labels`, {
++      ...meta,
++      state: 'tc14-chat-form-labels',
++      visibilityStatus: visibility.every((item) => item.fullyVisible) ? 'VERIFIED_VISIBLE' : 'BLOCKED',
++      scrollMethod: 'none',
++    });
++    expect(visibility.every((item) => item.fullyVisible)).toBe(true);
++    if (theme === 'dark') {
++      expect([titleStyle.color, typeStyle.color, descriptionStyle.color]).toEqual([
++        'rgb(219, 234, 254)', 'rgb(219, 234, 254)', 'rgb(219, 234, 254)',
++      ]);
++      expect(checkboxStyle.color).toBe('rgb(219, 234, 254)');
++    } else if (correctionPhase === 'before') {
++      expect([titleStyle.color, typeStyle.color, descriptionStyle.color]).toEqual([
++        'rgb(219, 234, 254)', 'rgb(219, 234, 254)', 'rgb(219, 234, 254)',
++      ]);
++      expect(checkboxStyle.color).not.toBe('rgb(219, 234, 254)');
++    } else {
++      expect(titleStyle.color).not.toBe('rgb(219, 234, 254)');
++      expect(typeStyle.color).toBe(titleStyle.color);
++      expect(descriptionStyle.color).toBe(titleStyle.color);
++      expect(checkboxStyle.color).toBe(titleStyle.color);
++    }
++    await dialog.getByRole('button', { name: 'Закрыть', exact: true }).click();
++
++    if (theme === 'dark' || (width !== 1440 && width !== 390)) continue;
++
++    await navigateToScreen(page, 'Announcements');
++    await expect(page.locator('.announcements-screen')).toBeVisible();
++    await page.getByRole('button', { name: 'Создать объявление', exact: true }).filter({ visible: true }).first().click();
++    const announcementDialog = page.getByRole('dialog', { name: 'Создать объявление' });
++    const announcementLabel = announcementDialog.locator('.form-grid > label').first();
++    await announcementLabel.locator('input').focus();
++    const announcementStyle = await recordLocatorComputedStyle(announcementLabel, 'Announcement create label: Заголовок', 'tc14-announcement-label', meta);
++    const announcementVisibility = await recordTargetVisibility(page, announcementLabel, 'tc14-announcement-label-visible', meta, 'scrollIntoView-center');
++    await capture(page, `${viewport}-${theme}-announcement-form-label`, {
++      ...meta,
++      state: 'tc14-announcement-form-label',
++      visibilityStatus: announcementVisibility.fullyVisible ? 'VERIFIED_VISIBLE' : 'BLOCKED',
++      scrollMethod: 'scrollIntoView-center',
++    });
++    expect(announcementVisibility.fullyVisible).toBe(true);
++    if (correctionPhase === 'before') expect(announcementStyle.color).toBe('rgb(219, 234, 254)');
++    else expect(announcementStyle.color).not.toBe('rgb(219, 234, 254)');
++    await announcementDialog.getByRole('button', { name: 'Закрыть', exact: true }).click();
++
++    await navigateToScreen(page, 'Returns');
++    await expect(page.locator('.returns-screen')).toBeVisible();
++    await page.getByRole('button', { name: 'Опубликовать возврат', exact: true }).click();
++    const returnsDialog = page.getByRole('dialog', { name: 'Возврат на производство' });
++    const returnsLabel = returnsDialog.locator('.form-grid > label').first();
++    await returnsLabel.locator('input').focus();
++    const returnsStyle = await recordLocatorComputedStyle(returnsLabel, 'Returns create label: Заголовок', 'tc14-returns-label', meta);
++    const returnsVisibility = await recordTargetVisibility(page, returnsLabel, 'tc14-returns-label-visible', meta, 'scrollIntoView-center');
++    await capture(page, `${viewport}-${theme}-returns-form-label`, {
++      ...meta,
++      state: 'tc14-returns-form-label',
++      visibilityStatus: returnsVisibility.fullyVisible ? 'VERIFIED_VISIBLE' : 'BLOCKED',
++      scrollMethod: 'scrollIntoView-center',
++    });
++    expect(returnsVisibility.fullyVisible).toBe(true);
++    if (correctionPhase === 'before') expect(returnsStyle.color).toBe('rgb(219, 234, 254)');
++    else expect(returnsStyle.color).not.toBe('rgb(219, 234, 254)');
++    await returnsDialog.getByRole('button', { name: 'Закрыть', exact: true }).click();
++  }
++  expect(localPageErrors).toEqual([]);
++  expect(runtime.apiWrites).toEqual([]);
++  expect(runtime.isolatedFixtureWrites).toEqual([]);
++});
++
++const tc14ChecklistVisibilityTargets = [
++  { oldReviewId: 'TC14-IMG-0014', width: 360, theme: 'gray', sourceRelativePath: 'screenshots/after-checklists/360-gray-checklists-real-checkbox.png' },
++  { oldReviewId: 'TC14-IMG-0018', width: 360, theme: 'light', sourceRelativePath: 'screenshots/after-checklists/360-light-checklists-real-checkbox.png' },
++  { oldReviewId: 'TC14-IMG-0022', width: 390, theme: 'gray', sourceRelativePath: 'screenshots/after-checklists/390-gray-checklists-real-checkbox.png' },
++  { oldReviewId: 'TC14-IMG-0026', width: 390, theme: 'light', sourceRelativePath: 'screenshots/after-checklists/390-light-checklists-real-checkbox.png' },
++  { oldReviewId: 'TC14-IMG-0030', width: 390, theme: 'dark', sourceRelativePath: 'screenshots/after-checklists/390-dark-checklists-real-checkbox.png' },
++  { oldReviewId: 'TC14-IMG-0034', width: 430, theme: 'gray', sourceRelativePath: 'screenshots/after-checklists/430-gray-checklists-real-checkbox.png' },
++  { oldReviewId: 'TC14-IMG-0038', width: 430, theme: 'light', sourceRelativePath: 'screenshots/after-checklists/430-light-checklists-real-checkbox.png' },
++] as const;
++
++test('TC14-E01 target-visible mobile Checklists controls', async ({ page }, testInfo) => {
++  test.skip(testInfo.project.name !== 'desktop-edge' || correctionPhase !== 'after' || !correctionPartEnabled('tc14-visible-checklists'));
++  test.setTimeout(480_000);
++  const localPageErrors: string[] = [];
++  page.on('pageerror', (error) => { localPageErrors.push(error.message); runtime.pageErrors.push(error.message); });
++  await installIsolatedAppState(page, 'gray', { checklistState: 'filled' });
++  for (const target of tc14ChecklistVisibilityTargets) {
++    const meta = { role: 'Admin', selectedTheme: target.theme, width: target.width, oldReviewId: target.oldReviewId, sourceRelativePath: target.sourceRelativePath };
++    await page.setViewportSize({ width: target.width, height: 844 });
++    await openWithTheme(page, target.theme);
++    await navigateToScreen(page, 'Checklists', 'Чек-листы');
++    await page.locator('.checklist-kpi-strip').getByRole('button', { name: /Архив/ }).click();
++    await page.getByRole('button', { name: 'Фильтры и отчёты', exact: true }).click();
++    const onlyDeviations = page.getByRole('checkbox', { name: 'Только отклонения', exact: true }).locator('..');
++    const visibility = await recordTargetVisibility(page, onlyDeviations, `${target.oldReviewId}-visible`, meta, 'scrollIntoView-center');
++    await capture(page, `${target.width}-${target.theme}-checklists-only-deviations-visible`, {
++      ...meta,
++      state: 'tc14-checklists-only-deviations-visible',
++      visibilityStatus: visibility.fullyVisible ? 'VERIFIED_VISIBLE' : 'BLOCKED',
++      scrollMethod: 'scrollIntoView-center',
++    });
++    expect(visibility.fullyVisible).toBe(true);
++    await page.locator('.checklist-archive-tools .premium-sheet-footer').getByRole('button', { name: 'Закрыть', exact: true }).click();
++  }
++  expect(localPageErrors).toEqual([]);
++  expect(runtime.apiWrites).toEqual([]);
++  expect(runtime.isolatedFixtureWrites).toEqual([]);
++});
++
++const tc14GalleryVisibilityTargets = [
++  { oldReviewId: 'TC14-IMG-0003', theme: 'gray', sourceRelativePath: 'screenshots/after-checklists/desktop-gray-gallery-checkbox.png' },
++  { oldReviewId: 'TC14-IMG-0007', theme: 'light', sourceRelativePath: 'screenshots/after-checklists/desktop-light-gallery-checkbox.png' },
++  { oldReviewId: 'TC14-IMG-0011', theme: 'dark', sourceRelativePath: 'screenshots/after-checklists/desktop-dark-gallery-checkbox.png' },
++] as const;
++
++test('TC14-E01 target-visible desktop gallery controls', async ({ page }, testInfo) => {
++  test.skip(testInfo.project.name !== 'desktop-edge' || correctionPhase !== 'after' || !correctionPartEnabled('tc14-visible-gallery'));
++  test.setTimeout(240_000);
++  const localPageErrors: string[] = [];
++  page.on('pageerror', (error) => { localPageErrors.push(error.message); runtime.pageErrors.push(error.message); });
++  await page.route('**/__theme-gallery**', async (route) => {
++    const url = new URL(route.request().url());
++    await route.fulfill({ contentType: 'text/html; charset=utf-8', body: galleryHtml(url.searchParams.get('theme') || 'dark', false) });
++  });
++  for (const target of tc14GalleryVisibilityTargets) {
++    const meta = { role: 'Static isolated gallery', selectedTheme: target.theme, width: 1440, oldReviewId: target.oldReviewId, sourceRelativePath: target.sourceRelativePath };
++    await page.setViewportSize({ width: 1440, height: 844 });
++    await page.goto(`/__theme-gallery?theme=${target.theme}`);
++    const checkbox = page.locator('.theme-evidence-gallery .checkbox-row');
++    const visibility = await recordTargetVisibility(page, checkbox, `${target.oldReviewId}-visible`, meta, 'scrollIntoView-center');
++    await capture(page, `desktop-${target.theme}-gallery-checkbox-visible`, {
++      ...meta,
++      state: 'tc14-gallery-checkbox-visible',
++      visibilityStatus: visibility.fullyVisible ? 'VERIFIED_VISIBLE' : 'BLOCKED',
++      scrollMethod: 'scrollIntoView-center',
++    });
++    expect(visibility.fullyVisible).toBe(true);
++  }
++  expect(localPageErrors).toEqual([]);
++  expect(runtime.apiWrites).toEqual([]);
++});
++
++const tc14OrdersVisibilityTargets = [
++  { oldReviewId: 'TC14-IMG-0060', theme: 'gray', sourceRelativePath: 'screenshots/after-controls/desktop-gray-orders-tabs.png' },
++  { oldReviewId: 'TC14-IMG-0064', theme: 'light', sourceRelativePath: 'screenshots/after-controls/desktop-light-orders-tabs.png' },
++  { oldReviewId: 'TC14-IMG-0068', theme: 'dark', sourceRelativePath: 'screenshots/after-controls/desktop-dark-orders-tabs.png' },
++] as const;
++
++test('TC14-E01 target-visible desktop Orders controls', async ({ page }, testInfo) => {
++  test.skip(testInfo.project.name !== 'desktop-edge' || correctionPhase !== 'after' || !correctionPartEnabled('tc14-visible-orders'));
++  test.setTimeout(240_000);
++  const localPageErrors: string[] = [];
++  page.on('pageerror', (error) => { localPageErrors.push(error.message); runtime.pageErrors.push(error.message); });
++  await installIsolatedAppState(page, 'gray', { checklistState: 'filled' });
++  for (const target of tc14OrdersVisibilityTargets) {
++    const meta = { role: 'Admin', selectedTheme: target.theme, width: 1440, oldReviewId: target.oldReviewId, sourceRelativePath: target.sourceRelativePath };
++    await page.setViewportSize({ width: 1440, height: 844 });
++    await openWithTheme(page, target.theme);
++    await navigateToScreen(page, 'Orders', 'Заказы / Остатки');
++    const tabs = page.locator('.orders-stock-tabs');
++    const visibility = await recordTargetVisibility(page, tabs, `${target.oldReviewId}-visible`, meta, 'scrollIntoView-center');
++    await capture(page, `desktop-${target.theme}-orders-tabs-visible`, {
++      ...meta,
++      state: 'tc14-orders-tabs-visible',
++      visibilityStatus: visibility.fullyVisible ? 'VERIFIED_VISIBLE' : 'BLOCKED',
++      scrollMethod: 'scrollIntoView-center',
++    });
++    expect(visibility.fullyVisible).toBe(true);
++  }
++  expect(localPageErrors).toEqual([]);
++  expect(runtime.apiWrites).toEqual([]);
++  expect(runtime.isolatedFixtureWrites).toEqual([]);
++});

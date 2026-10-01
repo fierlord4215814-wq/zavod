@@ -1,0 +1,3405 @@
+{
+  "schemaVersion": "factory-config-v1",
+  "exportedAt": "2026-06-07T05:07:35.808Z",
+  "sourceFactory": {
+    "name": "Завод 4",
+    "code": "factory-4"
+  },
+  "config": {
+    "localDepartments": [
+      {
+        "localKey": "department-kipia",
+        "name": "КИПиА",
+        "code": "kipia",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-masters",
+        "name": "Мастера",
+        "code": "masters",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-contractors",
+        "name": "Наёмники",
+        "code": "contractors",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-okk",
+        "name": "ОКК",
+        "code": "okk",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-workers",
+        "name": "Рабочие",
+        "code": "workers",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-management",
+        "name": "Руководство",
+        "code": "management",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-plumbing",
+        "name": "Сантехники",
+        "code": "plumbing",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-store",
+        "name": "Склад",
+        "code": "store",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-technologs",
+        "name": "Технологи",
+        "code": "technologs",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-cold",
+        "name": "Холодильная служба",
+        "code": "cold",
+        "scope": "LOCAL",
+        "isActive": true
+      },
+      {
+        "localKey": "department-electric",
+        "name": "Электрики",
+        "code": "electric",
+        "scope": "LOCAL",
+        "isActive": true
+      }
+    ],
+    "globalServiceRefs": [
+      {
+        "localKey": "global-service-service-other",
+        "name": "Другие службы",
+        "code": "service-other",
+        "isActive": true
+      },
+      {
+        "localKey": "global-service-kipia",
+        "name": "КИПиА",
+        "code": "kipia",
+        "isActive": true
+      },
+      {
+        "localKey": "global-service-mechanics",
+        "name": "Механики",
+        "code": "mechanics",
+        "isActive": true
+      },
+      {
+        "localKey": "global-service-santechnik",
+        "name": "Сантехники",
+        "code": "santechnik",
+        "isActive": true
+      },
+      {
+        "localKey": "global-service-technolog",
+        "name": "Технологи",
+        "code": "technolog",
+        "isActive": true
+      },
+      {
+        "localKey": "global-service-holod",
+        "name": "Холодильная служба",
+        "code": "holod",
+        "isActive": true
+      },
+      {
+        "localKey": "global-service-electric",
+        "name": "Электрики",
+        "code": "electric",
+        "isActive": true
+      }
+    ],
+    "lines": [
+      {
+        "localKey": "line-блины-No3",
+        "name": "Блины №3",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-блины-No3-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-No3-замес-тесто",
+            "name": "Замес/Тесто",
+            "displayName": "Замес/Тесто",
+            "normalizedName": "замес-тесто",
+            "skillCode": null,
+            "skillFamilyKey": "замес-тесто",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-No3-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-No3-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-блины-No3-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-блины-No3-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-блины-No3-замес-тесто",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-блины-No3-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-блины-No3-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-блины-No4",
+        "name": "Блины №4",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-блины-No4-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-No4-замес-тесто",
+            "name": "Замес/Тесто",
+            "displayName": "Замес/Тесто",
+            "normalizedName": "замес-тесто",
+            "skillCode": null,
+            "skillFamilyKey": "замес-тесто",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-No4-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-No4-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-блины-No4-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-блины-No4-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-блины-No4-замес-тесто",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-блины-No4-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-блины-No4-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-блины-трубочка",
+        "name": "Блины Трубочка",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-блины-трубочка-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-трубочка-оператор-т",
+            "name": "Оператор (Т)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "Т",
+            "skillFamilyKey": "оператор:Т",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-трубочка-лепка-формовка",
+            "name": "Лепка/Формовка",
+            "displayName": "Лепка/Формовка",
+            "normalizedName": "лепка-формовка",
+            "skillCode": null,
+            "skillFamilyKey": "лепка-формовка",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-трубочка-фасовщик-трубочка-т",
+            "name": "Фасовщик трубочка (Т)",
+            "displayName": "Фасовщик трубочка",
+            "normalizedName": "фасовщик-трубочка",
+            "skillCode": "Т",
+            "skillFamilyKey": "фасовщик-трубочка:Т",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-трубочка-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-трубочка-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-блины-трубочка-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-блины-трубочка-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-блины-трубочка-оператор-т",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-блины-трубочка-фасовщик-трубочка-т",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 2,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-блины-трубочка-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          },
+          {
+            "localKey": "template-блины-трубочка-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-блины-трубочка-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-блины-трубочка-лепка-формовка",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-блины-трубочка-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-блины-трубочка-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-жаренки",
+        "name": "Жаренки",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-жаренки-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-жаренки-лепка-формовка",
+            "name": "Лепка/Формовка",
+            "displayName": "Лепка/Формовка",
+            "normalizedName": "лепка-формовка",
+            "skillCode": null,
+            "skillFamilyKey": "лепка-формовка",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-жаренки-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-жаренки-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-жаренки-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-жаренки-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-жаренки-лепка-формовка",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-жаренки-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-жаренки-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-котлеты",
+        "name": "Котлеты",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-котлеты-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-котлеты-оператор-ко",
+            "name": "Оператор (Ко)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "Ко",
+            "skillFamilyKey": "оператор:Ко",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-котлеты-лепка-формовка",
+            "name": "Лепка/Формовка",
+            "displayName": "Лепка/Формовка",
+            "normalizedName": "лепка-формовка",
+            "skillCode": null,
+            "skillFamilyKey": "лепка-формовка",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-котлеты-формовщик-ко",
+            "name": "Формовщик (Ко)",
+            "displayName": "Формовщик",
+            "normalizedName": "формовщик",
+            "skillCode": "Ко",
+            "skillFamilyKey": "формовщик:Ко",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-котлеты-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-котлеты-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-котлеты-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-котлеты-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-котлеты-оператор-ко",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-котлеты-формовщик-ко",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 7,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-котлеты-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          },
+          {
+            "localKey": "template-котлеты-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-котлеты-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-котлеты-лепка-формовка",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-котлеты-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-котлеты-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-линия-блины-конверт-No3",
+        "name": "Линия блины конверт №3",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-линия-блины-конверт-No3-оператор-б",
+            "name": "Оператор (Б)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "Б",
+            "skillFamilyKey": "оператор:Б",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-блины-конверт-No3-фасовщик-обычныи-к",
+            "name": "Фасовщик обычный (К)",
+            "displayName": "Фасовщик обычный",
+            "normalizedName": "фасовщик-обычный",
+            "skillCode": "К",
+            "skillFamilyKey": "фасовщик-обычный:К",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-блины-конверт-No3-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-блины-конверт-No3-дополнительно",
+            "name": "Дополнительно",
+            "displayName": "Дополнительно",
+            "normalizedName": "дополнительно",
+            "skillCode": null,
+            "skillFamilyKey": "дополнительно",
+            "isExtraSlot": true,
+            "doesNotAffectShortage": true,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-линия-блины-конверт-No3-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-линия-блины-конверт-No3-оператор-б",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-линия-блины-конверт-No3-фасовщик-обычныи-к",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 4,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-линия-блины-конверт-No3-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-линия-блины-конверт-No3-дополнительно",
+                "requiredCount": 0,
+                "minRequired": 0,
+                "maxRequired": 1,
+                "defaultPlanned": 0,
+                "plannedCount": 0,
+                "isFlexible": true,
+                "isExtraSlot": true,
+                "doesNotAffectShortage": true,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-линия-блины-конверт-No4",
+        "name": "Линия блины конверт №4",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-линия-блины-конверт-No4-оператор-б",
+            "name": "Оператор (Б)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "Б",
+            "skillFamilyKey": "оператор:Б",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-блины-конверт-No4-фасовщик-обычныи-к",
+            "name": "Фасовщик обычный (К)",
+            "displayName": "Фасовщик обычный",
+            "normalizedName": "фасовщик-обычный",
+            "skillCode": "К",
+            "skillFamilyKey": "фасовщик-обычный:К",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-блины-конверт-No4-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-блины-конверт-No4-дополнительно",
+            "name": "Дополнительно",
+            "displayName": "Дополнительно",
+            "normalizedName": "дополнительно",
+            "skillCode": null,
+            "skillFamilyKey": "дополнительно",
+            "isExtraSlot": true,
+            "doesNotAffectShortage": true,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-линия-блины-конверт-No4-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-линия-блины-конверт-No4-оператор-б",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-линия-блины-конверт-No4-фасовщик-обычныи-к",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 4,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-линия-блины-конверт-No4-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-линия-блины-конверт-No4-дополнительно",
+                "requiredCount": 0,
+                "minRequired": 0,
+                "maxRequired": 1,
+                "defaultPlanned": 0,
+                "plannedCount": 0,
+                "isFlexible": true,
+                "isExtraSlot": true,
+                "doesNotAffectShortage": true,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-линия-основа-раи-корт",
+        "name": "Линия основа Райкорт",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-линия-основа-раи-корт-оператор-ро",
+            "name": "Оператор (Ро)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "Ро",
+            "skillFamilyKey": "оператор:Ро",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-основа-раи-корт-фасовщик-обычныи-к",
+            "name": "Фасовщик обычный (К)",
+            "displayName": "Фасовщик обычный",
+            "normalizedName": "фасовщик-обычный",
+            "skillCode": "К",
+            "skillFamilyKey": "фасовщик-обычный:К",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-основа-раи-корт-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-линия-основа-раи-корт-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-линия-основа-раи-корт-оператор-ро",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-линия-основа-раи-корт-фасовщик-обычныи-к",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 7,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-линия-основа-раи-корт-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-линия-пицца-рондо",
+        "name": "Линия Пицца Рондо",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-линия-пицца-рондо-оператор-п",
+            "name": "Оператор (П)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "П",
+            "skillFamilyKey": "оператор:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-пицца-рондо-фасовщик-обычныи-к",
+            "name": "Фасовщик обычный (К)",
+            "displayName": "Фасовщик обычный",
+            "normalizedName": "фасовщик-обычный",
+            "skillCode": "К",
+            "skillFamilyKey": "фасовщик-обычный:К",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-пицца-рондо-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-пицца-рондо-дополнительно",
+            "name": "Дополнительно",
+            "displayName": "Дополнительно",
+            "normalizedName": "дополнительно",
+            "skillCode": null,
+            "skillFamilyKey": "дополнительно",
+            "isExtraSlot": true,
+            "doesNotAffectShortage": true,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-линия-пицца-рондо-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-линия-пицца-рондо-оператор-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-линия-пицца-рондо-фасовщик-обычныи-к",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 5,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-линия-пицца-рондо-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-линия-пицца-рондо-дополнительно",
+                "requiredCount": 0,
+                "minRequired": 0,
+                "maxRequired": 1,
+                "defaultPlanned": 0,
+                "plannedCount": 0,
+                "isFlexible": true,
+                "isExtraSlot": true,
+                "doesNotAffectShortage": true,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-линия-пицца-цезарь",
+        "name": "Линия Пицца Цезарь",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-линия-пицца-цезарь-оператор-п",
+            "name": "Оператор (П)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "П",
+            "skillFamilyKey": "оператор:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-пицца-цезарь-фасовщик-обычныи-к",
+            "name": "Фасовщик обычный (К)",
+            "displayName": "Фасовщик обычный",
+            "normalizedName": "фасовщик-обычный",
+            "skillCode": "К",
+            "skillFamilyKey": "фасовщик-обычный:К",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-пицца-цезарь-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-пицца-цезарь-дополнительно",
+            "name": "Дополнительно",
+            "displayName": "Дополнительно",
+            "normalizedName": "дополнительно",
+            "skillCode": null,
+            "skillFamilyKey": "дополнительно",
+            "isExtraSlot": true,
+            "doesNotAffectShortage": true,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-линия-пицца-цезарь-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-линия-пицца-цезарь-оператор-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-линия-пицца-цезарь-фасовщик-обычныи-к",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 4,
+                "defaultPlanned": 2,
+                "plannedCount": 3,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-линия-пицца-цезарь-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-линия-пицца-цезарь-дополнительно",
+                "requiredCount": 0,
+                "minRequired": 0,
+                "maxRequired": 1,
+                "defaultPlanned": 0,
+                "plannedCount": 0,
+                "isFlexible": true,
+                "isExtraSlot": true,
+                "doesNotAffectShortage": true,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-линия-пиццы",
+        "name": "Линия пиццы",
+        "version": 16,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-линия-пиццы-оператор-линии",
+            "name": "Оператор линии",
+            "displayName": null,
+            "normalizedName": null,
+            "skillCode": null,
+            "skillFamilyKey": null,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-пиццы-начинка",
+            "name": "Начинка",
+            "displayName": null,
+            "normalizedName": null,
+            "skillCode": null,
+            "skillFamilyKey": null,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-пиццы-укладчик",
+            "name": "Укладчик",
+            "displayName": null,
+            "normalizedName": null,
+            "skillCode": null,
+            "skillFamilyKey": null,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-линия-пиццы-контроль",
+            "name": "Контроль",
+            "displayName": null,
+            "normalizedName": null,
+            "skillCode": null,
+            "skillFamilyKey": null,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-линия-пиццы-пицца-ле-гкая",
+            "name": "Пицца лёгкая",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-линия-пиццы-оператор-линии",
+                "requiredCount": 1,
+                "minRequired": null,
+                "maxRequired": null,
+                "defaultPlanned": null,
+                "plannedCount": null,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-линия-пиццы-начинка",
+                "requiredCount": 2,
+                "minRequired": null,
+                "maxRequired": null,
+                "defaultPlanned": null,
+                "plannedCount": null,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-линия-пиццы-укладчик",
+                "requiredCount": 1,
+                "minRequired": null,
+                "maxRequired": null,
+                "defaultPlanned": null,
+                "plannedCount": null,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          },
+          {
+            "localKey": "template-линия-пиццы-пицца-сложная",
+            "name": "Пицца сложная",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-линия-пиццы-оператор-линии",
+                "requiredCount": 1,
+                "minRequired": null,
+                "maxRequired": null,
+                "defaultPlanned": null,
+                "plannedCount": null,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-линия-пиццы-начинка",
+                "requiredCount": 3,
+                "minRequired": null,
+                "maxRequired": null,
+                "defaultPlanned": null,
+                "plannedCount": null,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-линия-пиццы-укладчик",
+                "requiredCount": 2,
+                "minRequired": null,
+                "maxRequired": null,
+                "defaultPlanned": null,
+                "plannedCount": null,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-линия-пиццы-контроль",
+                "requiredCount": 1,
+                "minRequired": null,
+                "maxRequired": null,
+                "defaultPlanned": null,
+                "plannedCount": null,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-манты-и-хинкали-7-лепестков",
+        "name": "Манты и Хинкали 7 лепестков",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-манты-и-хинкали-7-лепестков-оператор-х",
+            "name": "Оператор (Х)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "Х",
+            "skillFamilyKey": "оператор:Х",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-манты-и-хинкали-7-лепестков-лепщик-х",
+            "name": "Лепщик (Х)",
+            "displayName": "Лепщик",
+            "normalizedName": "лепщик",
+            "skillCode": "Х",
+            "skillFamilyKey": "лепщик:Х",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-манты-и-хинкали-7-лепестков-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-манты-и-хинкали-7-лепестков-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-манты-и-хинкали-7-лепестков-оператор-х",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-манты-и-хинкали-7-лепестков-лепщик-х",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 7,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-манты-и-хинкали-7-лепестков-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-основа-раи-корт",
+        "name": "Основа Райкорт",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-основа-раи-корт-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-основа-раи-корт-замес-тесто",
+            "name": "Замес/Тесто",
+            "displayName": "Замес/Тесто",
+            "normalizedName": "замес-тесто",
+            "skillCode": null,
+            "skillFamilyKey": "замес-тесто",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-основа-раи-корт-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-основа-раи-корт-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-основа-раи-корт-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-основа-раи-корт-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-основа-раи-корт-замес-тесто",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-основа-раи-корт-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-основа-раи-корт-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-пельмени",
+        "name": "Пельмени",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-пельмени-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пельмени-лепка-формовка",
+            "name": "Лепка/Формовка",
+            "displayName": "Лепка/Формовка",
+            "normalizedName": "лепка-формовка",
+            "skillCode": null,
+            "skillFamilyKey": "лепка-формовка",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пельмени-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пельмени-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-пельмени-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-пельмени-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-пельмени-лепка-формовка",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-пельмени-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-пельмени-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-пельмени-сигнал-пак",
+        "name": "Пельмени Сигнал-пак",
+        "version": 56,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-пельмени-сигнал-пак-оператор-п",
+            "name": "Оператор (П)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "П",
+            "skillFamilyKey": "оператор:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пельмени-сигнал-пак-лепщик-п",
+            "name": "Лепщик (П)",
+            "displayName": "Лепщик",
+            "normalizedName": "лепщик",
+            "skillCode": "П",
+            "skillFamilyKey": "лепщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пельмени-сигнал-пак-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пельмени-сигнал-пак-дополнительно",
+            "name": "Дополнительно",
+            "displayName": "Дополнительно",
+            "normalizedName": "дополнительно",
+            "skillCode": null,
+            "skillFamilyKey": "дополнительно",
+            "isExtraSlot": true,
+            "doesNotAffectShortage": true,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-пельмени-сигнал-пак-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-пельмени-сигнал-пак-оператор-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-пельмени-сигнал-пак-лепщик-п",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 8,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-пельмени-сигнал-пак-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-пельмени-сигнал-пак-дополнительно",
+                "requiredCount": 0,
+                "minRequired": 0,
+                "maxRequired": 1,
+                "defaultPlanned": 0,
+                "plannedCount": 0,
+                "isFlexible": true,
+                "isExtraSlot": true,
+                "doesNotAffectShortage": true,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-пельмени-экст",
+        "name": "Пельмени экст.",
+        "version": 107,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-пельмени-экст-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пельмени-экст-лепка-формовка",
+            "name": "Лепка/Формовка",
+            "displayName": "Лепка/Формовка",
+            "normalizedName": "лепка-формовка",
+            "skillCode": null,
+            "skillFamilyKey": "лепка-формовка",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пельмени-экст-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пельмени-экст-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-пельмени-экст-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-пельмени-экст-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-пельмени-экст-лепка-формовка",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-пельмени-экст-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-пельмени-экст-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-пицца-рондо",
+        "name": "Пицца Рондо",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-пицца-рондо-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пицца-рондо-замес-тесто",
+            "name": "Замес/Тесто",
+            "displayName": "Замес/Тесто",
+            "normalizedName": "замес-тесто",
+            "skillCode": null,
+            "skillFamilyKey": "замес-тесто",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пицца-рондо-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пицца-рондо-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-пицца-рондо-ле-гкая",
+            "name": "Лёгкая",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-пицца-рондо-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-пицца-рондо-замес-тесто",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-пицца-рондо-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          },
+          {
+            "localKey": "template-пицца-рондо-сложная",
+            "name": "Сложная",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-пицца-рондо-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-пицца-рондо-замес-тесто",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 2,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-пицца-рондо-фасовщик",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 2,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-пицца-рондо-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          },
+          {
+            "localKey": "template-пицца-рондо-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-пицца-рондо-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-пицца-рондо-замес-тесто",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-пицца-рондо-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-пицца-рондо-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-пицца-цезарь",
+        "name": "Пицца Цезарь",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-пицца-цезарь-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пицца-цезарь-замес-тесто",
+            "name": "Замес/Тесто",
+            "displayName": "Замес/Тесто",
+            "normalizedName": "замес-тесто",
+            "skillCode": null,
+            "skillFamilyKey": "замес-тесто",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пицца-цезарь-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-пицца-цезарь-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-пицца-цезарь-ле-гкая",
+            "name": "Лёгкая",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-пицца-цезарь-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-пицца-цезарь-замес-тесто",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-пицца-цезарь-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          },
+          {
+            "localKey": "template-пицца-цезарь-сложная",
+            "name": "Сложная",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-пицца-цезарь-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-пицца-цезарь-замес-тесто",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 2,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-пицца-цезарь-фасовщик",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 2,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-пицца-цезарь-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          },
+          {
+            "localKey": "template-пицца-цезарь-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-пицца-цезарь-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-пицца-цезарь-замес-тесто",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-пицца-цезарь-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-пицца-цезарь-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-упаковка",
+        "name": "Упаковка",
+        "version": 4,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-упаковка-упаковщик",
+            "name": "Упаковщик",
+            "displayName": null,
+            "normalizedName": null,
+            "skillCode": null,
+            "skillFamilyKey": null,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-упаковка-маркировка",
+            "name": "Маркировка",
+            "displayName": null,
+            "normalizedName": null,
+            "skillCode": null,
+            "skillFamilyKey": null,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-упаковка-упаковка-стандарт",
+            "name": "Упаковка стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-упаковка-упаковщик",
+                "requiredCount": 2,
+                "minRequired": null,
+                "maxRequired": null,
+                "defaultPlanned": null,
+                "plannedCount": null,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-упаковка-маркировка",
+                "requiredCount": 1,
+                "minRequired": null,
+                "maxRequired": null,
+                "defaultPlanned": null,
+                "plannedCount": null,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-фрикадельки-наггетсы-куриные-палочки",
+        "name": "Фрикадельки / наггетсы / куриные палочки",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-фрикадельки-наггетсы-куриные-палочки-оператор-ко",
+            "name": "Оператор (Ко)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "Ко",
+            "skillFamilyKey": "оператор:Ко",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-фрикадельки-наггетсы-куриные-палочки-формовщик-ко",
+            "name": "Формовщик (Ко)",
+            "displayName": "Формовщик",
+            "normalizedName": "формовщик",
+            "skillCode": "Ко",
+            "skillFamilyKey": "формовщик:Ко",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-фрикадельки-наггетсы-куриные-палочки-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-фрикадельки-наггетсы-куриные-палочки-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-фрикадельки-наггетсы-куриные-палочки-оператор-ко",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-фрикадельки-наггетсы-куриные-палочки-формовщик-ко",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 7,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-фрикадельки-наггетсы-куриные-палочки-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-хинкали",
+        "name": "Хинкали",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-хинкали-оператор",
+            "name": "Оператор",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": null,
+            "skillFamilyKey": "оператор",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-хинкали-лепка-формовка",
+            "name": "Лепка/Формовка",
+            "displayName": "Лепка/Формовка",
+            "normalizedName": "лепка-формовка",
+            "skillCode": null,
+            "skillFamilyKey": "лепка-формовка",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-хинкали-фасовщик",
+            "name": "Фасовщик",
+            "displayName": "Фасовщик",
+            "normalizedName": "фасовщик",
+            "skillCode": null,
+            "skillFamilyKey": "фасовщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "position-хинкали-упаковщик",
+            "name": "Упаковщик",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": null,
+            "skillFamilyKey": "упаковщик",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 40,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-хинкали-стандарт",
+            "name": "Стандарт",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-хинкали-оператор",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-хинкали-лепка-формовка",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-хинкали-фасовщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              },
+              {
+                "positionLocalKey": "position-хинкали-упаковщик",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 40
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-хинкали-мини",
+        "name": "Хинкали мини",
+        "version": 11,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-хинкали-мини-оператор-х",
+            "name": "Оператор (Х)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "Х",
+            "skillFamilyKey": "оператор:Х",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-хинкали-мини-лепщик-х",
+            "name": "Лепщик (Х)",
+            "displayName": "Лепщик",
+            "normalizedName": "лепщик",
+            "skillCode": "Х",
+            "skillFamilyKey": "лепщик:Х",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-хинкали-мини-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-хинкали-мини-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-хинкали-мини-оператор-х",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-хинкали-мини-лепщик-х",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 5,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-хинкали-мини-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-чебурек",
+        "name": "Чебурек",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-чебурек-оператор-ч",
+            "name": "Оператор (Ч)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "Ч",
+            "skillFamilyKey": "оператор:Ч",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-чебурек-формовщик-ч",
+            "name": "Формовщик (Ч)",
+            "displayName": "Формовщик",
+            "normalizedName": "формовщик",
+            "skillCode": "Ч",
+            "skillFamilyKey": "формовщик:Ч",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-чебурек-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-чебурек-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-чебурек-оператор-ч",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-чебурек-формовщик-ч",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 8,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-чебурек-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "localKey": "line-экструзионные-пельмени",
+        "name": "Экструзионные пельмени",
+        "version": 1,
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "position-экструзионные-пельмени-оператор-п",
+            "name": "Оператор (П)",
+            "displayName": "Оператор",
+            "normalizedName": "оператор",
+            "skillCode": "П",
+            "skillFamilyKey": "оператор:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "position-экструзионные-пельмени-лепщик-п",
+            "name": "Лепщик (П)",
+            "displayName": "Лепщик",
+            "normalizedName": "лепщик",
+            "skillCode": "П",
+            "skillFamilyKey": "лепщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "position-экструзионные-пельмени-упаковщик-п",
+            "name": "Упаковщик (П)",
+            "displayName": "Упаковщик",
+            "normalizedName": "упаковщик",
+            "skillCode": "П",
+            "skillFamilyKey": "упаковщик:П",
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "isFlexibleSkillGroup": false,
+            "sortOrder": 30,
+            "isActive": true
+          }
+        ],
+        "staffingTemplates": [
+          {
+            "localKey": "template-экструзионные-пельмени-люди-на-линиях",
+            "name": "Люди на линиях",
+            "isActive": true,
+            "items": [
+              {
+                "positionLocalKey": "position-экструзионные-пельмени-оператор-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 10
+              },
+              {
+                "positionLocalKey": "position-экструзионные-пельмени-лепщик-п",
+                "requiredCount": 2,
+                "minRequired": 2,
+                "maxRequired": 8,
+                "defaultPlanned": 2,
+                "plannedCount": 2,
+                "isFlexible": true,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 20
+              },
+              {
+                "positionLocalKey": "position-экструзионные-пельмени-упаковщик-п",
+                "requiredCount": 1,
+                "minRequired": 1,
+                "maxRequired": 1,
+                "defaultPlanned": 1,
+                "plannedCount": 1,
+                "isFlexible": false,
+                "isExtraSlot": false,
+                "doesNotAffectShortage": false,
+                "sortOrder": 30
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workAreas": [
+      {
+        "localKey": "work-area-повременщики",
+        "departmentLocalKey": null,
+        "name": "Повременщики",
+        "description": "Рабочая зона для сменных повременных назначений, не производственная линия.",
+        "isActive": true,
+        "positions": [
+          {
+            "localKey": "work-area-position-повременщики-оператор-наладчик",
+            "title": "Оператор-наладчик",
+            "minRequired": 1,
+            "maxRequired": 2,
+            "defaultPlanned": 1,
+            "plannedCount": 1,
+            "isFlexible": true,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "sortOrder": 10,
+            "isActive": true
+          },
+          {
+            "localKey": "work-area-position-повременщики-грузчик-склада",
+            "title": "Грузчик склада",
+            "minRequired": 1,
+            "maxRequired": 2,
+            "defaultPlanned": 1,
+            "plannedCount": 1,
+            "isFlexible": true,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "sortOrder": 20,
+            "isActive": true
+          },
+          {
+            "localKey": "work-area-position-повременщики-грузчик",
+            "title": "Грузчик",
+            "minRequired": 1,
+            "maxRequired": 5,
+            "defaultPlanned": 1,
+            "plannedCount": 2,
+            "isFlexible": true,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "sortOrder": 30,
+            "isActive": true
+          },
+          {
+            "localKey": "work-area-position-повременщики-водитель-погрузчика",
+            "title": "Водитель погрузчика",
+            "minRequired": 1,
+            "maxRequired": 1,
+            "defaultPlanned": 1,
+            "plannedCount": 1,
+            "isFlexible": false,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "sortOrder": 40,
+            "isActive": true
+          },
+          {
+            "localKey": "work-area-position-повременщики-уборщицы",
+            "title": "Уборщицы",
+            "minRequired": 2,
+            "maxRequired": 4,
+            "defaultPlanned": 2,
+            "plannedCount": 3,
+            "isFlexible": true,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "sortOrder": 50,
+            "isActive": true
+          },
+          {
+            "localKey": "work-area-position-повременщики-мои-ка-тары",
+            "title": "Мойка тары",
+            "minRequired": 1,
+            "maxRequired": 1,
+            "defaultPlanned": 1,
+            "plannedCount": 1,
+            "isFlexible": false,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "sortOrder": 60,
+            "isActive": true
+          },
+          {
+            "localKey": "work-area-position-повременщики-запаснои-сотрудник",
+            "title": "Запасной сотрудник",
+            "minRequired": 0,
+            "maxRequired": 1,
+            "defaultPlanned": 0,
+            "plannedCount": 0,
+            "isFlexible": true,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "sortOrder": 70,
+            "isActive": true
+          },
+          {
+            "localKey": "work-area-position-повременщики-жарщики",
+            "title": "Жарщики",
+            "minRequired": 2,
+            "maxRequired": 2,
+            "defaultPlanned": 2,
+            "plannedCount": 2,
+            "isFlexible": false,
+            "isExtraSlot": false,
+            "doesNotAffectShortage": false,
+            "sortOrder": 80,
+            "isActive": true
+          },
+          {
+            "localKey": "work-area-position-повременщики-дополнительно",
+            "title": "Дополнительно",
+            "minRequired": 0,
+            "maxRequired": 1,
+            "defaultPlanned": 0,
+            "plannedCount": 0,
+            "isFlexible": true,
+            "isExtraSlot": true,
+            "doesNotAffectShortage": true,
+            "sortOrder": 90,
+            "isActive": true
+          }
+        ]
+      }
+    ],
+    "jobTitles": [],
+    "moduleSettings": [
+      {
+        "model": "shiftSettings",
+        "data": {
+          "dayShiftStartTime": "08:00",
+          "dayShiftEndTime": "20:00",
+          "nightShiftStartTime": "20:00",
+          "nightShiftEndTime": "08:00",
+          "willBeOpenHoursBeforeShift": 24,
+          "noShowCheckMinutesAfterShiftStart": 60,
+          "minAssignmentMoveIntervalMinutes": 5,
+          "contractorLeadMaxPeoplePerShift": 6,
+          "returnRequestEnabled": true,
+          "autoCloseChecklistsAtShiftEnd": false,
+          "sendHomeRequiresComment": true,
+          "willBeCancelRequiresComment": true
+        }
+      },
+      {
+        "model": "taskSettings",
+        "data": {
+          "longTaskDefaultDeadlineHours": 48,
+          "longTaskEscalationEnabled": true,
+          "longTaskEscalationGraceMinutes": 0,
+          "urgentTaskRequiresLineWhenCreatedFromLine": true,
+          "taskRedirectRequiresComment": true,
+          "taskDoneRequiresComment": false,
+          "taskReadReceiptsEnabled": true,
+          "taskAttachmentsEnabled": true,
+          "taskDepartmentRecipientsEnabled": true,
+          "taskPersonalAssigneeEnabled": true,
+          "taskChatMirrorEnabledReserved": false,
+          "taskStorageRetentionMode": "dev-local"
+        }
+      },
+      {
+        "model": "washSettings",
+        "data": {
+          "washIssueRequiresPhoto": false,
+          "washIssueResolveRequiresPhoto": false,
+          "washCompleteRequiresOkkReview": false,
+          "washCompleteRequiresNoOpenIssues": true,
+          "washMiniTasksEnabled": true,
+          "washControlEnabled": true,
+          "washOkkReviewEnabled": true,
+          "washDefaultControlItems": null,
+          "washAllowNonLineWorkers": false,
+          "washMessagesEnabled": true,
+          "washAttachmentsEnabled": true
+        }
+      },
+      {
+        "model": "defrostSettings",
+        "data": {
+          "defrostCommentRequiredOnStart": true,
+          "defrostCommentRequiredOnEnd": true,
+          "defrostShowOnLineDashboard": true,
+          "defrostCalendarEnabled": true,
+          "defrostAttachmentsEnabled": false
+        }
+      },
+      {
+        "model": "orderSettings",
+        "data": {
+          "lowStockNotificationsEnabled": true,
+          "orderRequestNotificationsEnabled": true,
+          "restockRequiresComment": false,
+          "takeRequiresComment": true,
+          "archiveRequiresComment": false,
+          "defaultUnit": "шт",
+          "warningYellowPercent": 40,
+          "warningRedPercent": 20
+        }
+      },
+      {
+        "model": "checklistSettings",
+        "data": {
+          "autoCloseAtDayShiftEnd": true,
+          "autoCloseAtNightShiftEnd": true,
+          "requirePauseComment": true,
+          "allowEditAfterCloseHours": 24,
+          "checklistAttachmentsEnabled": true,
+          "archiveEnabled": true
+        }
+      },
+      {
+        "model": "chatSettings",
+        "data": {
+          "chatEnabled": true,
+          "attachmentsEnabled": true,
+          "editWindowMinutes": 15,
+          "deleteWindowMinutes": 15,
+          "retentionMonths": 2,
+          "voiceReserved": false,
+          "videoReserved": false
+        }
+      },
+      {
+        "model": "announcementSettings",
+        "data": {
+          "defaultVisibleDays": 7,
+          "archiveRetentionDays": 30,
+          "attachmentsEnabled": true,
+          "guestCanRead": true,
+          "importantBadgeEnabled": true
+        }
+      }
+    ]
+  },
+  "counts": {
+    "localDepartments": 11,
+    "globalServices": 7,
+    "lines": 24,
+    "linePositions": 94,
+    "staffingTemplates": 31,
+    "staffingTemplateItems": 111,
+    "workAreas": 1,
+    "workAreaPositions": 9,
+    "jobTitles": 0,
+    "moduleSettings": 8
+  },
+  "runtimeCopied": false,
+  "notExported": [
+    "Пользователи и доступы к заводам",
+    "Смены, отметки “Я буду”, назначения и планы смен",
+    "История линий, простои, заявки и комментарии",
+    "Мойка, ОКК, возвраты, некондиция и складские движения",
+    "Чаты, сообщения, объявления, ознакомления и уведомления",
+    "Вложения, файлы, пути хранения и физическое хранилище",
+    "Аудит, сессии, токены, хэши паролей и любые секреты"
+  ]
+}

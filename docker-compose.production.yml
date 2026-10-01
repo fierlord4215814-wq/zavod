@@ -1,0 +1,61 @@
+name: zavod
+
+services:
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      PGDATA: /var/lib/postgresql/18/docker
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ${DB_DATA_DIR}:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ${ZAVOD_BUILD_CONTEXT:-.}
+      dockerfile: backend/Dockerfile.production
+      args:
+        APP_VERSION: ${ZAVOD_RELEASE_ID:-1.0.0-source-unverified}
+    restart: unless-stopped
+    env_file:
+      - ${ZAVOD_RUNTIME_ENV_FILE:-./setup/runtime/production.env}
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      FILE_STORAGE_ROOT: /app/uploads
+      ERROR_REPORTS_EXPORT_PATH: /app/error-reports-export
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/ready',{signal:AbortSignal.timeout(3000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    ports:
+      - "127.0.0.1:${BACKEND_PORT}:3000"
+    volumes:
+      - ${UPLOADS_DIR}:/app/uploads
+      - ${ERROR_REPORTS_EXPORT_DIR}:/app/error-reports-export
+      - ${LOGS_DIR}:/app/logs
+
+  frontend:
+    build:
+      context: ${ZAVOD_BUILD_CONTEXT:-.}
+      dockerfile: frontend/Dockerfile.production
+      args:
+        VITE_API_URL: ${PUBLIC_API_URL}
+        APP_VERSION: ${ZAVOD_RELEASE_ID:-1.0.0-source-unverified}
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${FRONTEND_PORT}:80"

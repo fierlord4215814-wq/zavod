@@ -1,0 +1,198 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\before\\first-admin-bootstrap.ts" "b/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\after\\backend\\src\\common\\first-admin-bootstrap.ts"
+index b3a640d0..a4e14edd 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\before\\first-admin-bootstrap.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\after\\backend\\src\\common\\first-admin-bootstrap.ts"
+@@ -33,6 +33,27 @@ export type FirstAdminBootstrapTestHooks = {
+   failAfter?: 'factory' | 'user' | 'access';
+ };
+ 
++export type FirstAdminRecoveryInput = {
++  databaseName: string;
++  serverAddress: string;
++  serverPort: number;
++  factoryCode: string;
++  adminPhone: string;
++  recoveryCredential: string;
++  credentialTtlMinutes?: number;
++};
++
++export type FirstAdminRecoveryResult = {
++  status: 'REISSUED' | 'ALREADY_REISSUED';
++  changed: boolean;
++  maskedPhone: string;
++  credentialExpiresAt: Date;
++};
++
++export type FirstAdminRecoveryTestHooks = {
++  failAfterUpdate?: boolean;
++};
++
+ function cleanRequired(value: string, label: string, maxLength: number) {
+   const result = String(value ?? '').trim();
+   if (result.length < 2 || result.length > maxLength) {
+@@ -210,3 +231,108 @@ export async function bootstrapFirstAdmin(
+     };
+   });
+ }
++
++/** Operator-only recovery for the one original bootstrap ADMIN, never a public auth path. */
++export async function reissueFirstAdminRecovery(
++  prisma: PrismaClient,
++  rawInput: FirstAdminRecoveryInput,
++  testHooks: FirstAdminRecoveryTestHooks = {},
++): Promise<FirstAdminRecoveryResult> {
++  const phone = normalizePhone(rawInput.adminPhone);
++  if (!phone) throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: invalid admin phone');
++  const factoryCode = normalizeFactoryCode(rawInput.factoryCode);
++  const databaseName = String(rawInput.databaseName ?? '').trim();
++  const serverAddress = String(rawInput.serverAddress ?? '').trim();
++  const serverPort = Number(rawInput.serverPort);
++  if (!/^[a-zA-Z0-9_-]{1,63}$/.test(databaseName) || !serverAddress || !Number.isInteger(serverPort) || serverPort < 1 || serverPort > 65535) {
++    throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: explicit database identity is required');
++  }
++  assertRecoveryCredentialPolicy(rawInput.recoveryCredential);
++  const nextHash = hashRecoveryCredential(rawInput.recoveryCredential);
++
++  return prisma.$transaction(async (tx) => {
++    await tx.$queryRaw`SELECT pg_advisory_xact_lock(914221, 2)::text AS lock_result`;
++    const [identity] = await tx.$queryRaw<Array<{ database_name: string; server_address: string | null; server_port: number | null }>>`
++      SELECT current_database() AS database_name, host(inet_server_addr()) AS server_address, inet_server_port() AS server_port
++    `;
++    if (identity?.database_name !== databaseName || identity.server_address !== serverAddress || Number(identity.server_port) !== serverPort) {
++      throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: database identity mismatch');
++    }
++    const foundation = await tx.systemFoundationState.findUnique({ where: { id: SYSTEM_FOUNDATION_ID } });
++    if (!foundation) throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: system foundation missing');
++
++    const [factoryCount, userCount, accessCount, bootstrapAuditCount] = await Promise.all([
++      tx.factory.count(), tx.user.count(), tx.userFactoryAccess.count(),
++      tx.auditLog.count({ where: { action: 'FIRST_ADMIN_BOOTSTRAPPED', entityType: 'SystemBootstrap' } }),
++    ]);
++    if (factoryCount !== 1 || userCount !== 1 || accessCount !== 1 || bootstrapAuditCount !== 1) {
++      throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: bootstrap identity cardinality mismatch');
++    }
++    const [factory, user, audit] = await Promise.all([
++      tx.factory.findUnique({ where: { code: factoryCode } }),
++      tx.user.findUnique({ where: { normalizedPhone: phone } }),
++      tx.auditLog.findFirst({ where: { action: 'FIRST_ADMIN_BOOTSTRAPPED', entityType: 'SystemBootstrap' } }),
++    ]);
++    const access = factory && user ? await tx.userFactoryAccess.findUnique({
++      where: { userId_factoryId: { userId: user.id, factoryId: factory.id } },
++    }) : null;
++    const provenance = factory && user ? inputFingerprint({
++      factoryName: factory.name, factoryCode: factory.code, adminPhone: phone,
++      adminLastName: user.lastName ?? '', adminFirstName: user.firstName ?? '', adminMiddleName: user.middleName,
++    }) : null;
++    const auditDetails = audit?.details && typeof audit.details === 'object' && !Array.isArray(audit.details)
++      ? audit.details as Record<string, unknown> : null;
++    if (!factory || !factory.isActive || factory.deletedAt || !user || user.factoryId !== factory.id
++      || user.role !== UserRole.ADMIN || user.deletedAt || user.blockedAt || user.passwordHash !== null
++      || !user.passwordResetRequired || user.passwordChangedAt || !user.passwordRecoveryHash
++      || !user.passwordRecoveryIssuedAt || !user.passwordRecoveryExpiresAt || user.passwordRecoveryConsumedAt
++      || user.passwordRecoveryFactoryId !== factory.id || user.passwordRecoveryIssuedById !== null
++      || !access || !access.isActive || access.deactivatedAt || access.isGuest || access.role !== UserRole.ADMIN
++      || audit?.factoryId !== factory.id || audit?.entityId !== user.id || audit?.userId !== user.id
++      || auditDetails?.source !== 'vps-prep-01-cli' || detailsFingerprint(audit?.details) !== provenance) {
++      throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: bootstrap provenance or access mismatch');
++    }
++
++    const now = new Date();
++    if (user.passwordRecoveryIssuedAt.getTime() > now.getTime()
++      || user.passwordRecoveryExpiresAt.getTime() <= user.passwordRecoveryIssuedAt.getTime()) {
++      throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: inconsistent credential timestamps');
++    }
++    if (user.passwordRecoveryExpiresAt.getTime() > now.getTime()) {
++      const priorReissue = await tx.auditLog.findFirst({ where: {
++        action: 'FIRST_ADMIN_RECOVERY_REISSUED', entityType: 'SystemBootstrap', entityId: user.id,
++      }, orderBy: { createdAt: 'desc' } });
++      if (priorReissue && verifyRecoveryCredential(rawInput.recoveryCredential, user.passwordRecoveryHash)) {
++        return { status: 'ALREADY_REISSUED', changed: false, maskedPhone: maskPhone(phone), credentialExpiresAt: user.passwordRecoveryExpiresAt };
++      }
++      throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: current credential has not expired');
++    }
++    if (verifyRecoveryCredential(rawInput.recoveryCredential, user.passwordRecoveryHash)) {
++      throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: expired credential cannot be reissued unchanged');
++    }
++    const nextExpiry = recoveryCredentialExpiresAt(now, rawInput.credentialTtlMinutes);
++    const authEpoch = new Date(Math.max(now.getTime(), (user.authUpdatedAt?.getTime() ?? 0) + 1));
++    const changed = await tx.user.updateMany({
++      where: {
++        id: user.id, passwordRecoveryHash: user.passwordRecoveryHash,
++        passwordRecoveryExpiresAt: user.passwordRecoveryExpiresAt,
++        passwordRecoveryConsumedAt: null, passwordResetRequired: true,
++        authUpdatedAt: user.authUpdatedAt,
++      },
++      data: {
++        passwordRecoveryHash: nextHash, passwordRecoveryExpiresAt: nextExpiry,
++        passwordRecoveryIssuedAt: now, passwordRecoveryIssuedById: null,
++        passwordRecoveryFactoryId: factory.id, passwordRecoveryConsumedAt: null,
++        failedLoginCount: 0, lockedUntil: null, authUpdatedAt: authEpoch,
++      },
++    });
++    if (changed.count !== 1) throw new Error('FIRST_ADMIN_RECOVERY_REFUSED: compare-and-swap failed');
++    if (testHooks.failAfterUpdate) throw new Error('TEST_FAIL_AFTER_RECOVERY_UPDATE');
++    await tx.auditLog.create({ data: {
++      userId: null, factoryId: factory.id, action: 'FIRST_ADMIN_RECOVERY_REISSUED',
++      entityType: 'SystemBootstrap', entityId: user.id,
++      details: { source: 'operator-cli', databaseName, passwordSetupRequired: true, credentialExpiresAt: nextExpiry.toISOString() },
++    } });
++    return { status: 'REISSUED', changed: true, maskedPhone: maskPhone(phone), credentialExpiresAt: nextExpiry };
++  });
++}
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\before\\checklists.service.ts" "b/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\after\\backend\\src\\modules\\checklists\\checklists.service.ts"
+index d333d7c1..0cc6744f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\before\\checklists.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\after\\backend\\src\\modules\\checklists\\checklists.service.ts"
+@@ -719,7 +719,10 @@ export class ChecklistsService implements OnModuleInit, OnModuleDestroy {
+         orderBy: { createdAt: 'desc' },
+         select: { id: true, checkId: true },
+       });
+-      const expectedCheckId = typeof body.checkId === 'string' && body.checkId.trim() ? body.checkId.trim() : null;
++      const expectedCheckId = typeof body?.checkId === 'string' && body.checkId.trim() ? body.checkId.trim() : null;
++      if (run.status === ChecklistRunStatus.ACTIVE && this.isPeriodicRun(run) && !expectedCheckId) {
++        throw new ConflictError('Укажите текущую проверку перед сохранением ответа. Обновите чек-лист.');
++      }
+       if (expectedCheckId && activeCheckRow?.checkId !== expectedCheckId) {
+         throw new ConflictError('Эта проверка уже завершена или изменилась. Обновите чек-лист.');
+       }
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\before\\master-r2-checklist.test.js" "b/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\after\\backend\\scripts\\master-r2-checklist.test.js"
+index 57392247..3ab63a51 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\before\\master-r2-checklist.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\after\\backend\\scripts\\master-r2-checklist.test.js"
+@@ -2,6 +2,7 @@ require('./master-offline-guard.cjs');require('reflect-metadata');
+ const {test}=require('node:test'),assert=require('node:assert/strict');
+ const {memory,strict,copy,denied}=require('./master-r2-memory.cjs');
+ const {ChecklistsService}=require('../dist/modules/checklists/checklists.service');
++const {ChecklistsController}=require('../dist/modules/checklists/checklists.controller');
+ function fixture(){
+   const m=memory(),user={userId:'periodic-user',selectedFactoryId:'periodic-factory',departmentId:'periodic-dept',role:'MASTER',isAdmin:false,isGuest:false,permissions:['checklists.templates.manage','checklists.runs.self']};
+   const department={id:user.departmentId,factoryId:user.selectedFactoryId,name:'Упаковка',scope:'FACTORY',isActive:true,deletedAt:null};
+@@ -28,6 +29,16 @@ test('R2-A checklist missing processed result denies before changing a current a
+   const writes=f.writes.length;await assert.rejects(f.service.completeRow(f.user,f.run.id,row.id,{answerNumber:7,checkId:f.run.currentCheck.id,operationId:'missing-answer-result'}),error=>{assert.ok(denied(error),error.stack);return true;});
+   assert.equal(f.writes.length,writes);assert.equal(row.answerNumber,null);assert.equal(f.entries[0].answerNumber,null);
+ });
++test('FACTORY09 periodic row consumer requires the current checkId before any answer write',async()=>{
++  const f=await started(),row=f.rows[0];
++  const controller=new ChecklistsController(f.service);
++  const writes=f.writes.length;
++  await assert.rejects(controller.completeRow(f.user,f.run.id,row.id,{answerNumber:7,operationId:'missing-check-id'}),denied);
++  assert.equal(f.writes.length,writes);
++  assert.equal(row.answerNumber,null);
++  await controller.completeRow(f.user,f.run.id,row.id,{answerNumber:7,checkId:f.run.currentCheck.id,operationId:'valid-check-id'});
++  assert.equal(row.answerNumber,7);
++});
+ test('R2-E-J12 actual template run numeric0 false photo occurrence retry pause resume close archive identities',async()=>{
+   const f=await started(),id=f.run.id,check=f.run.currentCheck.id;assert.equal(f.run.templateId,f.template.id);assert.equal(f.run.rows.length,3);assert.equal((await f.service.startRun(f.user,{templateId:f.template.id})).id,id);assert.equal(f.runs.length,1);
+   const number=f.rows[0],boolean=f.rows[1],photo=f.rows[2];
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\before\\backend-package.json" "b/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\after\\backend\\package.json"
+index 708afaa0..f070a01f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\before\\backend-package.json"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\factory-09-ui\\autonomous-01\\after\\backend\\package.json"
+@@ -14,6 +14,7 @@
+     "prisma:migrate:dev": "node ./node_modules/prisma/build/index.js migrate dev --schema prisma/schema.prisma",
+     "vps-prep:foundation": "node dist/cli/apply-system-foundation.js",
+     "vps-prep:first-admin": "node dist/cli/bootstrap-first-admin.js",
++    "vps-prep:first-admin-reissue": "node dist/cli/reissue-first-admin-recovery.js",
+     "vps-prep:runtime-status": "node dist/cli/check-runtime-readiness.js",
+     "vps-prep:readiness-regression": "node scripts/vps-prep-02-readiness-regression.js",
+     "vps-prep:regression": "node scripts/vps-prep-01-regression.js",

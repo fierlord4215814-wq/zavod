@@ -1,0 +1,22 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260921-visible-uac-diagnostic-boot\before\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\expected-actual.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\expected-actual.json', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json"
+index fd051a86..d4733cb3 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json"
+@@ -1,5 +1,5 @@
+ {
+-  "currentContinuation": {"checkpoint": "2026-09-21_2229_VHDX_SSH_UAC_CANCELLED", "installerActual": "USER_OBSERVED_LATE_COMMAND3_EXIT2", "guestActual": "CURRENT_VM_UNKNOWN_LAST_OFF_1609_DIAGNOSTIC_BOOT_SSH_NOT_RUN_UAC_CANCELLED", "sourceOnlyCheck": "RETAINED_UNCHANGED_CORRECTED_GENERATOR_10PASS_HOST_SYNTHETIC_GUEST_PENDING_NOT_RERUN", "actualSeedRegenerated": false, "guestRepairExecuted": false, "productCasesExecuted": 0, "uacOutcome": "OPERATION_CANCELLED_BY_USER_EXACT_OS_MESSAGE_CAUSE_UNKNOWN", "diagnosticBootExecuted": false, "sshExecuted": false, "codexRestart": "USER_CONFIRMED"},
++  "currentContinuation": {"checkpoint":"2026-09-21_2311_VISIBLE_UAC_DVD_GUARD","installerActual":"USER_OBSERVED_LATE_COMMAND3_EXIT2","guestActual":"LAST_OFF_231111_BOOT_NOT_RUN_DVD_PROVIDER_STATE_PENDING","sourceOnlyCheck":"RETAINED_UNCHANGED_CORRECTED_GENERATOR_10PASS_HOST_SYNTHETIC_GUEST_PENDING_NOT_RERUN","actualSeedRegenerated":false,"guestRepairExecuted":false,"productCasesExecuted":0,"uacOutcome":"SUCCESS_HELPER_STARTED_ACTUAL_ADMIN_TOKEN_TRUE","diagnosticBootExecuted":false,"sshExecuted":false,"codexRestart":"USER_CONFIRMED","environment":"BLOCKED_DVD_READBACK_GUARD_NEW_UAC_REQUIRED","vmReadback":"OFF_231111_SOLE_VHDX_BIOS_NETWORK_VERIFIED","firmwareVhdxFirstConfirmed":true,"dvdEjectPostcondition":"UNKNOWN_OBJECT_READBACK_RETAINS_ISO_PATHS_FRESH_CIM_PENDING","bootExecuted":false},
+   "stage": 8,
+   "result": "NOT_RUN_ENVIRONMENT_GATE",
+   "r5FinalGenerationFrozen": false,
+@@ -23,7 +23,7 @@
+     "isR5Execution": false
+   },
+   "typesBuildsPrisma": "NOT_RUN_R5_PRODUCT_UNCHANGED",
+-  "runtimeInstallFailureClass": "BLOCKED_UAC_CANCELLED_DIAGNOSTIC_BOOT_NO_ELEVATED_HELPER_STARTED",
++  "runtimeInstallFailureClass": "UAC_SUCCESS_HELPER_STOPPED_DVD_READBACK_BOOT_GUARD",
+   "ownProcessOrderingCorrection": "Full stack compatibility review completed after unsuccessful UAC; selection withdrawn pending supported guest path",
+   "nativeR5Captured": 0,
+   "nativeR5Viewed": 0

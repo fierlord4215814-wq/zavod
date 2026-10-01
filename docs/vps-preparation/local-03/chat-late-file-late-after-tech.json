@@ -1,0 +1,63 @@
+{
+  "attempt": "late-after-tech",
+  "proof": "real HTTP response held, never fabricated; own group only",
+  "actors": {
+    "owner": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+    "member": "65200cff-b27d-4929-a95d-e7565cc467f0",
+    "memberRole": "TECH_ELECTRIC"
+  },
+  "chatId": "58c9d704-0791-435a-a397-2eb2ad053aec",
+  "title": "Учебный поздний ответ LOCAL03 late-after-tech",
+  "messageId": "119628a1-46b3-4527-810a-2e9362c4b55f",
+  "fileId": "43acf66f-be08-459b-aa09-b107560e6b78",
+  "uploadRetrySameId": true,
+  "range": {
+    "status": 200,
+    "contentRange": null,
+    "acceptRanges": null,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813",
+    "verdict": "CHARACTERIZED_200_FULL_BODY_NO_RANGE_CONTRACT"
+  },
+  "abort": {
+    "status": 200,
+    "point": "after headers, before application body consumption",
+    "error": "AbortError"
+  },
+  "newContextRetry": {
+    "status": 200,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813"
+  },
+  "invitedUiMessage": "01aabff8-bd2c-4c61-bee2-314951486a46",
+  "invitedSecondUiMs": 117,
+  "invitedUiButtons": {
+    "create": 0,
+    "directory": 0
+  },
+  "heldResponse": {
+    "status": 200,
+    "heldAt": "2026-09-25T05:40:33.334Z"
+  },
+  "removedAt": "2026-09-25T05:40:33.922Z",
+  "removedUi": true,
+  "freshDetail": 403,
+  "freshFile": 403,
+  "trace": {
+    "events": [],
+    "exposed": [],
+    "releasedAt": 2456.3000000000466
+  },
+  "finalDialog": 0,
+  "sql": {
+    "messages": 1,
+    "attachments": 1,
+    "member": {
+      "removedAt": "2026-09-25T05:40:33.911Z",
+      "leftAt": null,
+      "canRead": false
+    }
+  },
+  "status": "PASS_LATE_RESPONSE_NO_REOPEN",
+  "finallyArchive": 200
+}

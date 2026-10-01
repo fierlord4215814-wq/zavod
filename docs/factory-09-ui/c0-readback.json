@@ -1,0 +1,50 @@
+{
+  "stage": "FACTORY-09-UI-01",
+  "target": "new isolated local Windows cluster only",
+  "observedAtUtc": "2026-09-28T09:26:26.2908459Z",
+  "postgres": {
+    "version": "18.3",
+    "host": "127.0.0.1",
+    "port": 15439,
+    "database": "zavod_factory09_ui01",
+    "migrationsApplied": 57,
+    "strictSchemaDiff": "NO_DIFFERENCE",
+    "stagedMigrationSqlHashMismatch": 0
+  },
+  "foundation": "INITIALIZED_CLEAN",
+  "firstAdminBootstrap": "CREATED",
+  "businessFactory9Created": false,
+  "counts": {
+    "Factory": 1,
+    "User": 1,
+    "UserFactoryAccess": 1,
+    "Department": 0,
+    "JobTitle": 0,
+    "Line": 0,
+    "LinePosition": 0,
+    "LineStaffingTemplate": 0,
+    "ShiftSession": 0,
+    "Assignment": 0,
+    "Task": 0,
+    "ChecklistRun": 0,
+    "Attachment": 0
+  },
+  "backend": {
+    "url": "http://127.0.0.1:3000",
+    "ready": "READY",
+    "version": "FACTORY09-UI01-20260928",
+    "pidAtObservation": 26892
+  },
+  "frontend": {
+    "url": "http://127.0.0.1:5173/",
+    "httpStatus": 200,
+    "ordinaryLoginVisible": true,
+    "pidAtObservation": 32120
+  },
+  "postgresPidAtObservation": 32900,
+  "personalPasswordRotation": "HANDOFF_REQUIRED_NOT_YET_CONFIRMED",
+  "uiBusinessWrites": 0,
+  "directBusinessApiSqlWrites": 0,
+  "oldStandsTouched": false,
+  "vpsRun": false
+}

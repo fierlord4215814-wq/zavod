@@ -1,0 +1,181 @@
+{
+  "name": "Учебный ролевой контроль LOCAL03",
+  "roles": {
+    "MASTER": {
+      "workspaceShift": {
+        "shiftDate": "2026-09-26",
+        "shiftType": "DAY",
+        "startsAt": "2026-09-26T05:00:00.000Z",
+        "endsAt": "2026-09-26T17:00:00.000Z"
+      },
+      "runId": "6a23a39d-4c1e-4ab0-9626-d40f62585939",
+      "startRequest": {
+        "templateId": "5ce16cab-764c-48b0-8eed-a02017e419db",
+        "operationId": "09088c6c-ee8f-4804-a13c-3a63c621074a"
+      },
+      "sql": {
+        "id": "6a23a39d-4c1e-4ab0-9626-d40f62585939",
+        "userId": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+        "status": "CLOSED",
+        "shiftType": "DAY",
+        "rows": [
+          {
+            "id": "ec5ba462-baac-4fe0-81f0-a6a9eb28775b",
+            "status": "OK"
+          }
+        ]
+      },
+      "manageDenied": 403,
+      "status": "PASS"
+    },
+    "TECHNOLOG": {
+      "workspaceShift": {
+        "shiftDate": "2026-09-26",
+        "shiftType": "DAY",
+        "startsAt": "2026-09-26T05:00:00.000Z",
+        "endsAt": "2026-09-26T17:00:00.000Z"
+      },
+      "runId": "d218c5dd-4af3-410b-a37a-17aedc028dfd",
+      "startRequest": {
+        "templateId": "5ce16cab-764c-48b0-8eed-a02017e419db",
+        "operationId": "5850807f-f694-4aea-8dc6-916d5c316f5b"
+      },
+      "sql": {
+        "id": "d218c5dd-4af3-410b-a37a-17aedc028dfd",
+        "userId": "e3cd816e-6ee4-481f-8325-2d3bc52bf152",
+        "status": "CLOSED",
+        "shiftType": "DAY",
+        "rows": [
+          {
+            "id": "fc8ebf2e-e3eb-495a-83e4-14f04be92fe3",
+            "status": "OK"
+          }
+        ]
+      },
+      "manageDenied": 403,
+      "status": "PASS"
+    },
+    "MANAGEMENT": {
+      "workspaceShift": {
+        "shiftDate": "2026-09-26",
+        "shiftType": "DAY",
+        "startsAt": "2026-09-26T05:00:00.000Z",
+        "endsAt": "2026-09-26T17:00:00.000Z"
+      },
+      "runId": "ac18a0bb-d61d-40da-a596-678489da04e9",
+      "startRequest": {
+        "templateId": "5ce16cab-764c-48b0-8eed-a02017e419db",
+        "operationId": "460e748e-fa16-4278-a11f-7004962541fd"
+      },
+      "sql": {
+        "id": "ac18a0bb-d61d-40da-a596-678489da04e9",
+        "userId": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+        "status": "CLOSED",
+        "shiftType": "DAY",
+        "rows": [
+          {
+            "id": "c135846b-da50-4b46-85e7-4c8c4671c6ea",
+            "status": "OK"
+          }
+        ]
+      },
+      "status": "PASS"
+    }
+  },
+  "temporaryDepartments": [
+    {
+      "role": "MANAGEMENT",
+      "uid": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+      "original": {
+        "id": "70ba05aa-058d-47b7-9be0-a5227a1dea50",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "factoryName": "Завод LOCAL-01",
+        "role": "MANAGEMENT",
+        "departmentId": null,
+        "departmentName": null,
+        "jobTitleId": null,
+        "jobTitleName": null,
+        "companyId": null,
+        "companyName": null,
+        "isGuest": false,
+        "isActive": true
+      },
+      "restored": true
+    },
+    {
+      "role": "MASTER",
+      "uid": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+      "original": {
+        "id": "10bf7ef5-3c6b-4ba7-bb9d-c2d47d351cac",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "factoryName": "Завод LOCAL-01",
+        "role": "MASTER",
+        "departmentId": null,
+        "departmentName": null,
+        "jobTitleId": null,
+        "jobTitleName": null,
+        "companyId": null,
+        "companyName": null,
+        "isGuest": false,
+        "isActive": true
+      },
+      "restored": true
+    },
+    {
+      "role": "TECHNOLOG",
+      "uid": "e3cd816e-6ee4-481f-8325-2d3bc52bf152",
+      "original": {
+        "id": "725acba8-f785-4376-a7f9-f7547f7b2977",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "factoryName": "Завод LOCAL-01",
+        "role": "TECHNOLOG",
+        "departmentId": null,
+        "departmentName": null,
+        "jobTitleId": null,
+        "jobTitleName": null,
+        "companyId": null,
+        "companyName": null,
+        "isGuest": false,
+        "isActive": true
+      },
+      "restored": true
+    }
+  ],
+  "templateId": "5ce16cab-764c-48b0-8eed-a02017e419db",
+  "createRequest": {
+    "name": "Учебный ролевой контроль LOCAL03",
+    "description": "",
+    "departmentId": "3dc3713a-aa2b-4b23-89d8-7b6bb01d3cc8",
+    "scope": "DEPARTMENT",
+    "lineId": null,
+    "assignmentRoles": [],
+    "shiftType": null,
+    "frequencyRule": "MANUAL",
+    "frequencyIntervalUnit": null,
+    "frequencyIntervalValue": null,
+    "frequencyHours": null,
+    "isMandatory": false,
+    "isActive": true,
+    "rows": [
+      {
+        "title": "Учебный ответ сохранён",
+        "description": "",
+        "sortOrder": 10,
+        "rowType": "YES_NO",
+        "requiredAnswer": true,
+        "requiresPhoto": false,
+        "requiresComment": false,
+        "isRequired": true,
+        "isActive": true,
+        "unit": "",
+        "minValue": "",
+        "maxValue": "",
+        "targetValue": "",
+        "optionsText": ""
+      }
+    ],
+    "operationId": "d9a81433-de88-4ade-8842-bae11f93e2bf"
+  },
+  "archived": true,
+  "status": "PASS_THREE_ROLE_UI_RUNS_MANAGER_TEMPLATE"
+}

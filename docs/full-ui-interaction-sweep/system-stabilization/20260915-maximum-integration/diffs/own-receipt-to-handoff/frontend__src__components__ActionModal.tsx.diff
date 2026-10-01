@@ -1,0 +1,117 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C047-before\\frontend\\src\\components\\ActionModal.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\components\\ActionModal.tsx"
+index fb1ada8f..81a050ad 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C047-before\\frontend\\src\\components\\ActionModal.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\components\\ActionModal.tsx"
+@@ -53,19 +53,26 @@ export function ActionModal({
+     setForm((current) => ({ ...current, values: update(current.values) }));
+   };
+   const [discardOpen, setDiscardOpen] = useState(false);
++  const submitInFlight = useRef(false);
++  const [submitting, setSubmitting] = useState(false);
++  const [submitError, setSubmitError] = useState<string | null>(null);
++  const effectiveBusy = busy || submitting;
++  const effectiveError = errorText || submitError;
+   const errorRef = useRef<HTMLDivElement>(null);
+   useBodyScrollLock(true);
+-  const fieldsSignature = React.useMemo(() => fields.map((field) => [
++  const fieldsSignature = React.useMemo(() => JSON.stringify(fields.map((field) => [
+     field.name,
+     field.type ?? 'text',
+     String(field.defaultValue ?? ''),
+-    field.options?.map((option) => `${option.value}:${option.label}`).join('|') ?? '',
+-  ].join(':')).join('||'), [fields]);
++    field.options ?? [],
++  ])), [fields]);
+ 
+   useEffect(() => {
+     setForm((current) => {
+-      const next: Record<string, string | boolean> = {};
+-      const nextBaseline: Record<string, string | boolean> = {};
++      // Conditional fields may return after a parent rerender. Preserve their
++      // drafts and dirty baseline; only currently rendered fields are submitted.
++      const next: Record<string, string | boolean> = { ...current.values };
++      const nextBaseline: Record<string, string | boolean> = { ...current.baseline };
+       fields.forEach((field) => {
+         const edited = Object.prototype.hasOwnProperty.call(current.values, field.name)
+           && current.values[field.name] !== current.baseline[field.name];
+@@ -79,13 +86,13 @@ export function ActionModal({
+   }, [fieldsSignature]);
+ 
+   useEffect(() => {
+-    if (!errorText) return;
++    if (!effectiveError) return;
+     errorRef.current?.scrollIntoView({ block: 'center', inline: 'nearest' });
+-  }, [errorText]);
++  }, [effectiveError]);
+ 
+   const hasChanges = dirty || Object.keys(values).some((name) => values[name] !== baseline[name]);
+   const requestCancel = () => {
+-    if (busy) return;
++    if (busy || submitInFlight.current) return;
+     if (hasChanges) setDiscardOpen(true);
+     else onCancel();
+   };
+@@ -93,7 +100,12 @@ export function ActionModal({
+ 
+   const submit = async (event: FormEvent) => {
+     event.preventDefault();
+-    await onSubmit(values);
++    if (busy || submitInFlight.current) return;
++    submitInFlight.current = true;
++    setSubmitting(true); setSubmitError(null);
++    try { await onSubmit(Object.fromEntries(fields.map(field => [field.name, values[field.name]]))); }
++    catch { setSubmitError('Не удалось сохранить. Введённые данные сохранены в форме. Проверьте связь и повторите попытку.'); }
++    finally { submitInFlight.current = false; setSubmitting(false); }
+   };
+ 
+   return (
+@@ -110,7 +122,7 @@ export function ActionModal({
+                   <input
+                     aria-label={field.label}
+                     checked={Boolean(value)}
+-                    disabled={busy}
++                    disabled={effectiveBusy}
+                     name={field.name}
+                     onChange={(event) => setValues((current) => ({ ...current, [field.name]: event.target.checked }))}
+                     type="checkbox"
+@@ -125,7 +137,7 @@ export function ActionModal({
+                   {field.label}
+                   <select
+                     aria-label={field.label}
+-                    disabled={busy}
++                    disabled={effectiveBusy}
+                     name={field.name}
+                     onChange={(event) => setValues((current) => ({ ...current, [field.name]: event.target.value }))}
+                     required={field.required}
+@@ -144,7 +156,7 @@ export function ActionModal({
+                   <textarea
+                     aria-label={field.label}
+                     autoFocus={fields[0]?.name === field.name}
+-                    disabled={busy}
++                    disabled={effectiveBusy}
+                     name={field.name}
+                     onChange={(event) => setValues((current) => ({ ...current, [field.name]: event.target.value }))}
+                     placeholder={field.placeholder}
+@@ -155,7 +167,7 @@ export function ActionModal({
+                   <input
+                     aria-label={field.label}
+                     autoFocus={fields[0]?.name === field.name}
+-                    disabled={busy}
++                    disabled={effectiveBusy}
+                     name={field.name}
+                     inputMode={field.type === 'number' ? 'decimal' : undefined}
+                     onChange={(event) => setValues((current) => ({ ...current, [field.name]: event.target.value }))}
+@@ -169,10 +181,10 @@ export function ActionModal({
+             );
+           })}
+           {children}
+-          {errorText ? <div className="empty-state error-state" ref={errorRef}>{errorText}</div> : null}
++          {effectiveError ? <div className="empty-state error-state" ref={errorRef}>{effectiveError}</div> : null}
+           <div className="modal-actions premium-action-row">
+-            <button className="secondary-button" disabled={busy} onClick={requestCancel} type="button">{cancelLabel}</button>
+-            <button className="primary-button" disabled={busy} type="submit">{confirmLabel}</button>
++            <button className="secondary-button" disabled={effectiveBusy} onClick={requestCancel} type="button">{cancelLabel}</button>
++            <button className="primary-button" disabled={effectiveBusy} type="submit">{confirmLabel}</button>
+           </div>
+         </form>
+       </div>

@@ -1,0 +1,61 @@
+{
+  "provenance": "LOCAL02 own C1",
+  "denied": {
+    "WORKER": {
+      "list": 403,
+      "detail": 403,
+      "media": 403,
+      "members": 403,
+      "groupCreate": 403,
+      "directCreate": 403,
+      "message": 403,
+      "readState": 403,
+      "fileMetadata": 403,
+      "file": 403,
+      "upload": 403,
+      "targetDirect": 403
+    },
+    "CONTRACTOR": {
+      "list": 403,
+      "detail": 403,
+      "media": 403,
+      "members": 403,
+      "groupCreate": 403,
+      "directCreate": 403,
+      "message": 403,
+      "readState": 403,
+      "fileMetadata": 403,
+      "file": 403,
+      "upload": 403,
+      "targetDirect": 403
+    }
+  },
+  "positive": {
+    "direct": 201,
+    "group": 201,
+    "message": 201,
+    "file": 201,
+    "contractorLeadMembershipPreserved": true,
+    "secondPageNoReload": true,
+    "restrictedChatWsFrames": 0
+  },
+  "transitions": [
+    {
+      "role": "CONTRACTOR",
+      "staleTokenDetail": 403,
+      "staleTokenMessage": 403,
+      "retainedMembership": 1
+    },
+    {
+      "role": "WORKER",
+      "staleTokenDetail": 403,
+      "staleTokenMessage": 403,
+      "retainedMembership": 1
+    }
+  ],
+  "crossFactory": 403,
+  "oldWorkerChatId": "d62010a6-42ad-44a9-8b37-da3ea658e275",
+  "historyPreserved": true,
+  "revocationAndRoleRestoration": "PASS",
+  "fixtureRestoredToWorker": true
+}

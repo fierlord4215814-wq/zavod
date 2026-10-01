@@ -1,0 +1,671 @@
+{
+  "status": "PASS_H_NATIVE_BACKEND_RESTART_SEVEN_CASES",
+  "cases": [
+    {
+      "key": "request-department",
+      "id": "644a8077-5acd-4bc1-bdf5-421ac9cf975a",
+      "before": {
+        "business": {
+          "id": "644a8077-5acd-4bc1-bdf5-421ac9cf975a",
+          "status": "ACTIVE",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "createdById": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+        },
+        "processed": [
+          {
+            "id": "cd34661a-120f-430b-bfe8-f9175e5f13d6",
+            "resultKey": "644a8077-5acd-4bc1-bdf5-421ac9cf975a"
+          }
+        ],
+        "history": [],
+        "audit": [
+          {
+            "id": "a7f50e28-bc66-4908-9b9e-39af0557a492",
+            "action": "ORDER_REQUEST_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "7724f904-ed8d-4ef0-8db9-6d41920cd3f3",
+            "type": "ORDER_REQUEST_CREATED",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "644a8077-5acd-4bc1-bdf5-421ac9cf975a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:39.893Z"
+          },
+          {
+            "id": "949b94f3-9906-46cd-966e-8b9ccb829825",
+            "type": "ORDER_REQUEST_CREATED",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "644a8077-5acd-4bc1-bdf5-421ac9cf975a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:39.890Z"
+          }
+        ],
+        "allNotifications": [
+          {
+            "id": "7724f904-ed8d-4ef0-8db9-6d41920cd3f3",
+            "type": "ORDER_REQUEST_CREATED",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "644a8077-5acd-4bc1-bdf5-421ac9cf975a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:39.893Z"
+          },
+          {
+            "id": "949b94f3-9906-46cd-966e-8b9ccb829825",
+            "type": "ORDER_REQUEST_CREATED",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "644a8077-5acd-4bc1-bdf5-421ac9cf975a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:39.890Z"
+          }
+        ]
+      },
+      "listBeforeRetry": [
+        "949b94f3-9906-46cd-966e-8b9ccb829825"
+      ],
+      "replay": 201,
+      "sameDurableState": true,
+      "closed": true
+    },
+    {
+      "key": "request-factory",
+      "id": "c8bfaed9-c6a6-4d2a-9865-00efea2d1ad4",
+      "before": {
+        "business": {
+          "id": "c8bfaed9-c6a6-4d2a-9865-00efea2d1ad4",
+          "status": "ACTIVE",
+          "departmentId": null,
+          "createdById": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+        },
+        "processed": [
+          {
+            "id": "ab99573e-7e50-4cd8-96a4-e414ce3f39db",
+            "resultKey": "c8bfaed9-c6a6-4d2a-9865-00efea2d1ad4"
+          }
+        ],
+        "history": [],
+        "audit": [
+          {
+            "id": "2c18c71a-4d8b-4be1-ba0e-471602368f1f",
+            "action": "ORDER_REQUEST_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "bf4beb7d-9141-47ea-92d7-63cf5c17c254",
+            "type": "ORDER_REQUEST_CREATED",
+            "userId": null,
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "ORDER_REQUEST",
+            "entityId": "c8bfaed9-c6a6-4d2a-9865-00efea2d1ad4",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:40.030Z"
+          }
+        ],
+        "allNotifications": [
+          {
+            "id": "bf4beb7d-9141-47ea-92d7-63cf5c17c254",
+            "type": "ORDER_REQUEST_CREATED",
+            "userId": null,
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "ORDER_REQUEST",
+            "entityId": "c8bfaed9-c6a6-4d2a-9865-00efea2d1ad4",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:40.030Z"
+          }
+        ]
+      },
+      "listBeforeRetry": [
+        "bf4beb7d-9141-47ea-92d7-63cf5c17c254",
+        "bf4beb7d-9141-47ea-92d7-63cf5c17c254",
+        "bf4beb7d-9141-47ea-92d7-63cf5c17c254"
+      ],
+      "replay": 201,
+      "sameDurableState": true,
+      "closed": true
+    },
+    {
+      "key": "low-stock",
+      "id": "1ee89c32-ac4c-4bd1-ae2c-82da6b4977fb",
+      "before": {
+        "business": {
+          "id": "1ee89c32-ac4c-4bd1-ae2c-82da6b4977fb",
+          "currentQuantity": 7,
+          "minThreshold": 7,
+          "departmentId": null,
+          "movements": [
+            {
+              "id": "610a657c-f832-44b1-954d-c9283f5c42aa",
+              "type": "TAKE",
+              "quantity": 3,
+              "beforeQuantity": 10,
+              "afterQuantity": 7
+            }
+          ]
+        },
+        "processed": [
+          {
+            "id": "4dff100a-1677-4c71-af11-718a56caef60",
+            "resultKey": "610a657c-f832-44b1-954d-c9283f5c42aa"
+          }
+        ],
+        "history": [],
+        "audit": [
+          {
+            "id": "1daa99f4-704e-472a-8dc6-b666c4e9dd85",
+            "action": "ORDER_STOCK_BELOW_THRESHOLD"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "4c20cb5a-e1c4-40c3-b6d7-defd4e7ac67a",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "1ee89c32-ac4c-4bd1-ae2c-82da6b4977fb",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:40.412Z"
+          },
+          {
+            "id": "623550b6-c030-4ac4-9e06-afbed259da53",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "1ee89c32-ac4c-4bd1-ae2c-82da6b4977fb",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:40.415Z"
+          }
+        ],
+        "allNotifications": [
+          {
+            "id": "4c20cb5a-e1c4-40c3-b6d7-defd4e7ac67a",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "1ee89c32-ac4c-4bd1-ae2c-82da6b4977fb",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:40.412Z"
+          },
+          {
+            "id": "623550b6-c030-4ac4-9e06-afbed259da53",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "1ee89c32-ac4c-4bd1-ae2c-82da6b4977fb",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:40.415Z"
+          }
+        ]
+      },
+      "listBeforeRetry": [
+        "4c20cb5a-e1c4-40c3-b6d7-defd4e7ac67a",
+        "623550b6-c030-4ac4-9e06-afbed259da53"
+      ],
+      "replay": 201,
+      "sameDurableState": true,
+      "closed": true
+    },
+    {
+      "key": "request-close",
+      "id": "68622ff2-5f9b-43f1-9647-f9ffa902caa6",
+      "before": {
+        "business": {
+          "id": "68622ff2-5f9b-43f1-9647-f9ffa902caa6",
+          "status": "ORDERED",
+          "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+          "createdById": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+        },
+        "processed": [],
+        "history": [],
+        "audit": [
+          {
+            "id": "5f922d07-8b90-4ad8-b574-aa3b764e12ee",
+            "action": "ORDER_REQUEST_CLOSED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "c2953473-402b-49e3-b774-73904219e9f5",
+            "type": "ORDER_REQUEST_CLOSED",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "68622ff2-5f9b-43f1-9647-f9ffa902caa6",
+            "readAt": "2026-09-27T09:32:40.752Z",
+            "createdAt": "2026-09-27T09:32:40.635Z"
+          },
+          {
+            "id": "fb65c55d-af03-40e8-8d8c-5ae9bd8ba609",
+            "type": "ORDER_REQUEST_CLOSED",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "68622ff2-5f9b-43f1-9647-f9ffa902caa6",
+            "readAt": "2026-09-27T09:32:40.752Z",
+            "createdAt": "2026-09-27T09:32:40.637Z"
+          }
+        ],
+        "allNotifications": [
+          {
+            "id": "a7d937b6-a492-4eb3-82d6-212746af7576",
+            "type": "ORDER_REQUEST_CREATED",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "68622ff2-5f9b-43f1-9647-f9ffa902caa6",
+            "readAt": "2026-09-27T09:32:40.630Z",
+            "createdAt": "2026-09-27T09:32:40.577Z"
+          },
+          {
+            "id": "c2953473-402b-49e3-b774-73904219e9f5",
+            "type": "ORDER_REQUEST_CLOSED",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "68622ff2-5f9b-43f1-9647-f9ffa902caa6",
+            "readAt": "2026-09-27T09:32:40.752Z",
+            "createdAt": "2026-09-27T09:32:40.635Z"
+          },
+          {
+            "id": "ee2f5220-82fa-4ada-bcbd-f0a250eb64f3",
+            "type": "ORDER_REQUEST_CREATED",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "68622ff2-5f9b-43f1-9647-f9ffa902caa6",
+            "readAt": "2026-09-27T09:32:40.630Z",
+            "createdAt": "2026-09-27T09:32:40.579Z"
+          },
+          {
+            "id": "fb65c55d-af03-40e8-8d8c-5ae9bd8ba609",
+            "type": "ORDER_REQUEST_CLOSED",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+            "entityType": "ORDER_REQUEST",
+            "entityId": "68622ff2-5f9b-43f1-9647-f9ffa902caa6",
+            "readAt": "2026-09-27T09:32:40.752Z",
+            "createdAt": "2026-09-27T09:32:40.637Z"
+          }
+        ]
+      },
+      "listBeforeRetry": [
+        "c2953473-402b-49e3-b774-73904219e9f5",
+        "fb65c55d-af03-40e8-8d8c-5ae9bd8ba609"
+      ],
+      "replay": 201,
+      "sameDurableState": true,
+      "closed": true
+    },
+    {
+      "key": "task-done",
+      "id": "b0e0b9ca-61f3-42a0-aecc-48b4af43e794",
+      "before": {
+        "business": {
+          "id": "b0e0b9ca-61f3-42a0-aecc-48b4af43e794",
+          "status": "DONE",
+          "version": 2,
+          "escalatedAt": null,
+          "assignedToId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "departmentRecipients": [],
+          "assignees": [
+            {
+              "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+              "active": true
+            },
+            {
+              "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+              "active": true
+            }
+          ]
+        },
+        "processed": [
+          {
+            "id": "63f9bf72-705a-4f87-9ce7-4b000ee57433",
+            "resultKey": "b0e0b9ca-61f3-42a0-aecc-48b4af43e794"
+          }
+        ],
+        "history": [
+          {
+            "id": "3111a79e-1767-4fd4-b55d-0edcf9280810",
+            "action": "TASK_DONE"
+          }
+        ],
+        "audit": [
+          {
+            "id": "6fbafdcd-a956-49bc-96eb-aa3291c85814",
+            "action": "TASK_DONE"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "d3a5ef25-95bf-4ab9-b67e-064ea3e98364",
+            "type": "TASK_DONE",
+            "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "b0e0b9ca-61f3-42a0-aecc-48b4af43e794",
+            "readAt": "2026-09-27T09:32:40.930Z",
+            "createdAt": "2026-09-27T09:32:40.862Z"
+          }
+        ],
+        "allNotifications": [
+          {
+            "id": "90bbc59b-719e-452b-a61b-89c0acced220",
+            "type": "TASK_CREATED",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "b0e0b9ca-61f3-42a0-aecc-48b4af43e794",
+            "readAt": "2026-09-27T09:32:40.860Z",
+            "createdAt": "2026-09-27T09:32:40.812Z"
+          },
+          {
+            "id": "d3a5ef25-95bf-4ab9-b67e-064ea3e98364",
+            "type": "TASK_DONE",
+            "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "b0e0b9ca-61f3-42a0-aecc-48b4af43e794",
+            "readAt": "2026-09-27T09:32:40.930Z",
+            "createdAt": "2026-09-27T09:32:40.862Z"
+          }
+        ]
+      },
+      "listBeforeRetry": [
+        "d3a5ef25-95bf-4ab9-b67e-064ea3e98364"
+      ],
+      "replay": 201,
+      "sameDurableState": true,
+      "closed": true
+    },
+    {
+      "key": "task-redirect",
+      "id": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7",
+      "before": {
+        "business": {
+          "id": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7",
+          "status": "NEW",
+          "version": 2,
+          "escalatedAt": null,
+          "assignedToId": null,
+          "departmentRecipients": [
+            {
+              "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+              "active": true
+            }
+          ],
+          "assignees": [
+            {
+              "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+              "active": false
+            },
+            {
+              "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+              "active": true
+            }
+          ]
+        },
+        "processed": [
+          {
+            "id": "649a902b-8799-4ac6-ac0f-52c69b881d7c",
+            "resultKey": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7"
+          }
+        ],
+        "history": [
+          {
+            "id": "51c46980-3215-423d-b4d3-7ba73afcb9a0",
+            "action": "TASK_REDIRECTED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "c668df63-b52f-4fee-8e66-9534fa0d6b66",
+            "action": "TASK_REDIRECTED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "2b723841-038d-4ee9-9f66-682099cc7258",
+            "type": "TASK_REDIRECTED",
+            "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+            "entityType": "TASK",
+            "entityId": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.022Z"
+          },
+          {
+            "id": "317c6047-cc8e-4982-9f10-aee58e7f380f",
+            "type": "TASK_REDIRECTED",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+            "entityType": "TASK",
+            "entityId": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.020Z"
+          },
+          {
+            "id": "faadc3a9-a994-4ec6-8d59-0af152944fa7",
+            "type": "TASK_REDIRECTED",
+            "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.017Z"
+          }
+        ],
+        "allNotifications": [
+          {
+            "id": "2b723841-038d-4ee9-9f66-682099cc7258",
+            "type": "TASK_REDIRECTED",
+            "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+            "entityType": "TASK",
+            "entityId": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.022Z"
+          },
+          {
+            "id": "317c6047-cc8e-4982-9f10-aee58e7f380f",
+            "type": "TASK_REDIRECTED",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+            "entityType": "TASK",
+            "entityId": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.020Z"
+          },
+          {
+            "id": "bf5363bf-d1e8-4556-a984-f863ac5ca86b",
+            "type": "TASK_CREATED",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7",
+            "readAt": "2026-09-27T09:32:41.014Z",
+            "createdAt": "2026-09-27T09:32:40.971Z"
+          },
+          {
+            "id": "faadc3a9-a994-4ec6-8d59-0af152944fa7",
+            "type": "TASK_REDIRECTED",
+            "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "1b5083b9-f760-4dda-b2c7-6bfff615fdb7",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.017Z"
+          }
+        ]
+      },
+      "listBeforeRetry": [
+        "317c6047-cc8e-4982-9f10-aee58e7f380f",
+        "2b723841-038d-4ee9-9f66-682099cc7258"
+      ],
+      "replay": 201,
+      "sameDurableState": true,
+      "closed": true
+    },
+    {
+      "key": "task-escalated",
+      "id": "f835639e-b198-44f0-a6ab-6e98a486d59a",
+      "before": {
+        "business": {
+          "id": "f835639e-b198-44f0-a6ab-6e98a486d59a",
+          "status": "NEW",
+          "version": 1,
+          "escalatedAt": "2026-09-27T09:32:41.219Z",
+          "assignedToId": null,
+          "departmentRecipients": [],
+          "assignees": [
+            {
+              "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+              "active": true
+            }
+          ]
+        },
+        "processed": [],
+        "history": [
+          {
+            "id": "9f777124-bbd1-45c5-bad3-c1f3ca78ac37",
+            "action": "TASK_LONG_ESCALATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "ebb2293d-1be8-40d6-bc76-6a96658bcd11",
+            "action": "TASK_LONG_ESCALATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "357aa744-3d4c-43c1-8336-fecdac283cb5",
+            "type": "TASK_LONG_ESCALATED",
+            "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "f835639e-b198-44f0-a6ab-6e98a486d59a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.229Z"
+          },
+          {
+            "id": "a2a36ea5-e522-4512-b774-5e9f597a2a8b",
+            "type": "TASK_LONG_ESCALATED",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "f835639e-b198-44f0-a6ab-6e98a486d59a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.233Z"
+          },
+          {
+            "id": "f49f9c3f-1822-4bc0-a4bf-8b17082d57da",
+            "type": "TASK_LONG_ESCALATED",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "f835639e-b198-44f0-a6ab-6e98a486d59a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.231Z"
+          }
+        ],
+        "allNotifications": [
+          {
+            "id": "357aa744-3d4c-43c1-8336-fecdac283cb5",
+            "type": "TASK_LONG_ESCALATED",
+            "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "f835639e-b198-44f0-a6ab-6e98a486d59a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.229Z"
+          },
+          {
+            "id": "a2a36ea5-e522-4512-b774-5e9f597a2a8b",
+            "type": "TASK_LONG_ESCALATED",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "f835639e-b198-44f0-a6ab-6e98a486d59a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.233Z"
+          },
+          {
+            "id": "c998c0ea-5993-4afd-a86c-579629b03cff",
+            "type": "TASK_CREATED",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "f835639e-b198-44f0-a6ab-6e98a486d59a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.186Z"
+          },
+          {
+            "id": "f49f9c3f-1822-4bc0-a4bf-8b17082d57da",
+            "type": "TASK_LONG_ESCALATED",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "TASK",
+            "entityId": "f835639e-b198-44f0-a6ab-6e98a486d59a",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:32:41.231Z"
+          }
+        ]
+      },
+      "listBeforeRetry": [
+        "357aa744-3d4c-43c1-8336-fecdac283cb5",
+        "f49f9c3f-1822-4bc0-a4bf-8b17082d57da",
+        "a2a36ea5-e522-4512-b774-5e9f597a2a8b"
+      ],
+      "replay": 201,
+      "sameDurableState": true,
+      "closed": true
+    }
+  ]
+}

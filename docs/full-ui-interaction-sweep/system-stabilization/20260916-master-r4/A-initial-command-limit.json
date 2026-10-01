@@ -1,0 +1,9 @@
+{
+  "operation": "initial baseline script before receipt write",
+  "command": "git status --porcelain=v1 --untracked-files=all (Node spawnSync default buffer)",
+  "outcome": "ENV_OUTPUT_LIMIT_ENOBUFS",
+  "stdoutBytesObserved": 1040384,
+  "writesBeforeFailure": 0,
+  "correction": "Use untracked-files=normal, preserving grouped untracked directories and all tracked dirty names, with explicit16MiB buffer. Do not enumerate historical evidence directories recursively for baseline.",
+  "productOrTestExecution": false
+}

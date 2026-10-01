@@ -1,0 +1,46 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\E046-050-053-before\\backend\\src\\common\\pilot-visibility.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\common\\pilot-visibility.ts"
+index df663da6..c39555ec 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\E046-050-053-before\\backend\\src\\common\\pilot-visibility.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\common\\pilot-visibility.ts"
+@@ -65,8 +65,29 @@ const PILOT_PACK_USER_LABELS: Record<string, string> = {
+   'mobile-tech-santechnik': 'Сантехник',
+ };
+ 
++function hasExactAnnouncementFixture(values: Array<unknown>) {
++  // Documented title AND body pairs, not a timestamp/title heuristic.
++  // stage24-announcements; physical-field-fixes-v5-plast17c-existing-realtime.
++  const pairs: Array<[RegExp, string]> = [
++    [/^Проверка объявления завода \d{13}$/, 'Активное объявление для всего завода в служебной проверке.'],
++    [/^Проверка объявления отдела \d{13}$/, 'Объявление для отдела руководства в служебной проверке.'],
++    [/^Плановое уведомление \d{13}$/, 'Проверка адресного realtime без раскрытия содержимого.'],
++  ];
++  return pairs.some(([title, body]) => values.includes(body) && values.some(value => typeof value === 'string' && title.test(value)));
++}
++
++function hasExactCompanyFixture(value: string) {
++  // pilot-pack-v1 canonical company; Cyrillic word-boundary is not reliable here.
++  if (value === 'PILOT Фирма наёмных работников v1.0') return true;
++  // pilot-fix-plast3: Date.now().toString(36), bounded timestamp shape.
++  const match = value.match(/^Временная фирма [АБ] ([a-z0-9]{8,9})$/);
++  if (!match) return false;
++  const timestamp = Number.parseInt(match[1], 36);
++  return timestamp >= Date.UTC(2000, 0, 1) && timestamp < Date.UTC(2100, 0, 1) && timestamp.toString(36) === match[1];
++}
++
+ export function hasPilotFixtureMarker(...values: Array<unknown>) {
+-  return values
++  return hasExactAnnouncementFixture(values) || values
+     .filter((value): value is string => typeof value === 'string' && value.trim().length > 0)
+     .filter((value) => !UUID_RE.test(value.trim()))
+     .some((value) => STAGE_MARKER_RE.test(value)
+@@ -77,6 +98,10 @@ export function hasPilotFixtureMarker(...values: Array<unknown>) {
+       || CHECKLIST_FIXTURE_RE.test(value)
+       || ERROR_REPORT_EXPORT_FIXTURE_RE.test(value)
+       || FACTORY_FIXTURE_CODE_RE.test(value.trim())
++      // Exact existing scheduler-boundary and multi-factory-tech generator codes.
++      || /^scheduler-(?:граница|изоляция|конкурентность|защита)-\d{13}-[a-f0-9]{6}$/i.test(value)
++      || /^mf-service-[abcd]$/.test(value)
++      || hasExactCompanyFixture(value)
+       || hasPhysicalFieldFixtureMarker(value));
+ }
+ 

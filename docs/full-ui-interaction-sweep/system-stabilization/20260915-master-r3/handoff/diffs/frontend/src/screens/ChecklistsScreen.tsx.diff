@@ -1,0 +1,33 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\C2-row-defrost-before\\frontend\\src\\screens\\ChecklistsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+index 4c658c1c..d20b903b 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\C2-row-defrost-before\\frontend\\src\\screens\\ChecklistsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+@@ -523,6 +523,7 @@ export function ChecklistsScreen() {
+   const [guidedIndex, setGuidedIndex] = useState(0);
+   const guidedRowRef = React.useRef<HTMLElement | null>(null);
+   const checkCompletionOperationRef = React.useRef<{ checkId: string; operationId: string } | null>(null);
++  const rowCompletionOperationRef = React.useRef<{ input: string; operationId: string } | null>(null);
+   const [showAllRows, setShowAllRows] = useState(false);
+   const [showFinalReview, setShowFinalReview] = useState(false);
+   const [dirtyRowIds, setDirtyRowIds] = useState<Set<string>>(() => new Set());
+@@ -958,13 +959,17 @@ export function ChecklistsScreen() {
+     setSaveNotice('Сохраняется...');
+     try {
+       if (!networkOnline) throw new Error('Нет связи с сервером. Действие не сохранено.');
++      const payload = { ...rowPayload(currentRow, currentDraft), checkId: selectedRun.currentCheck?.id ?? null };
++      const input = JSON.stringify([selectedRun.id, currentRow.id, payload]);
++      if (rowCompletionOperationRef.current?.input !== input) {
++        rowCompletionOperationRef.current = { input, operationId: crypto.randomUUID() };
++      }
+       await uploadFiles(currentRow.entryId ? 'CHECKLIST_ENTRY' : 'CHECKLIST_RUN_ROW', currentRow.entryId ?? currentRow.id, currentFiles);
+       await apiClient.request(`/checklists/runs/${selectedRun.id}/rows/${currentRow.id}/complete`, {
+         method: 'POST',
+         body: JSON.stringify({
+-          ...rowPayload(currentRow, currentDraft),
+-          checkId: selectedRun.currentCheck?.id ?? null,
+-          operationId: crypto.randomUUID(),
++          ...payload,
++          operationId: rowCompletionOperationRef.current.operationId,
+         }),
+       });
+       setFilesByRow((current) => ({ ...current, [currentRow.id]: [] }));

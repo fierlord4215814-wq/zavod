@@ -1,0 +1,13 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\README.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\README.md"
+index 1d8b629f..c244e9d6 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\README.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\README.md"
+@@ -6,7 +6,7 @@ Monorepo:
+ 
+ ## Завод v1.0 — текущая точка передачи
+ 
+-MASTER R5: `BLOCKED_UAC_CANCELLED_AND_COMPATIBILITY_REVIEW_REQUIRED`. [Checkpoint и передача](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md). R4 product/build/config/harness baseline совпала. Установка теперь разрешена в границах одной тестовой среды, но штатный UAC вернул «Операция была отменена пользователем» до запуска installer. Ничего не установлено; до новой попытки также нужен пересмотр Win10 guest / официальной совместимости Playwright1.60. Новых product edits/tests/live cases/fixtures нет; рабочая БД/env/uploads не читались и не менялись. Reboot не запрашивается без результата установки. Новая штатная UAC-попытка — после подтверждения, основной UI Sweep остаётся на паузе.
++MASTER R5: `WAITING_MANUAL_REBOOT` (19.09.2026), NOT_ACCEPTED. [Checkpoint и передача](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md). По новому явному разрешению выбран Hyper-V + Ubuntu24.04; после проверки совместимости и ресурсов штатный visible UAC/DISM включил7 Hyper-V компонентов, actual administrator token подтверждён, exit3010 требует ручной перезагрузки. Автоматический reboot подавлен /NoRestart. VM/guest/isolation/продуктовые tests/fixtures ещё NOT_RUN, рабочая PostgreSQL и данные не тронуты. Source/config/build/harness и6matrices совпадают с checkpoint; старые Sandbox cancellation и PowerShell failure сохранены. После ручной перезагрузки продолжить тот же R5 с actual host readiness и stage2 VM, не повторять installer/discovery. Основной UI Sweep остаётся на паузе.
+ 
+ ### Исторический результат R4
+ 

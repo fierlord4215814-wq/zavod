@@ -1,0 +1,46 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-before\\frontend\\e2e\\helpers\\frontend-series.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\frontend-series.ts"
+index 9e72dedd..a9792a3f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-before\\frontend\\e2e\\helpers\\frontend-series.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\frontend-series.ts"
+@@ -7,12 +7,15 @@ const root = path.resolve(__dirname, '../../../docs/full-ui-interaction-sweep',
+ const run = process.env.FRONTEND_SERIES_RUN || `run-${Date.now()}`;
+ let out = path.join(root, 'evidence', run);
+ let currentTest = 'initial';
++export function installEvidenceHooks() {
+ test.beforeEach(async ({}, info) => {
+   currentTest = `${crypto.createHash('sha256').update(info.title).digest('hex').slice(0,12)}-retry${info.retry}`;
+   out = path.join(root, 'evidence', run, currentTest);
+   if(fs.existsSync(out)) throw new Error(`Run/test evidence already exists: ${out}`);
+   records.length=0; network.length=0; errors.length=0; unknown.length=0;
+ });
++test.afterEach(async ({},info) => { records.push({test:info.title,status:info.status,error:info.error?.message}); save(); });
++}
+ export const before = process.env.FRONTEND_SERIES_PHASE === 'before';
+ const sha = (data: Buffer) => crypto.createHash('sha256').update(data).digest('hex');
+ export const permissions = ['shift.self.read','shift.current.read','shift.future.read','people.profile.read','people.read','admin.overview.read','admin.read','config.read','lines.read','tasks.read','wash.read','okk.read','stock.read','orders.read','checklists.templates.read','checklists.runs.self','checklists.runs.read','returns.publication.read','shift-log.read','shift-log.archive.read','defrost.read','chats.read','announcements.read','announcements.archive.read','notifications.read','ops.overview.read','ops.events.read','ops.audit.read','ops.statistics.read'];
+@@ -22,7 +25,7 @@ export const errors: string[] = [];
+ export const unknown: string[] = [];
+ const identities = new WeakMap<Page,string>();
+ export const json = (route: Route, body: unknown, status = 200) => route.fulfill({status, contentType:'application/json', body:JSON.stringify(body)});
+-type Options = { role?: 'ADMIN' | 'WORKER' | 'TECH_MECHANIC'; theme?: string; screen?: string; socket?: (socket: WebSocketRoute)=>void; replies?: (route: Route, pathname: string) => Promise<boolean> };
++type Options = { role?: 'ADMIN' | 'WORKER' | 'TECH_MECHANIC' | 'MASTER'; granted?: string[]; theme?: string; screen?: string; socket?: (socket: WebSocketRoute)=>void; replies?: (route: Route, pathname: string) => Promise<boolean> };
+ 
+ // DTOs reused from the established shift-readonly-profile-and-history-choice fixture.
+ const shiftCard = (type: string) => ({key:`2026-09-07:${type}:self`,shiftDate:'2026-09-07',shiftType:type,shiftTypeLabel:type==='DAY'?'День':'Ночь',title:type==='DAY'?'Дневная смена 7 сентября':'Ночная смена 7 сентября',masterLabel:'Мастер смены',masters:['Мастер смены'],peopleCount:1,lineCount:1,downtimeCount:0,taskCount:0,washCount:0,importantShiftLogs:0,readOnly:true});
+@@ -41,7 +44,7 @@ export async function isolate(page: Page, options: Options = {}) {
+     if (url.origin !== 'http://127.0.0.1:5173' || method !== 'GET') {
+       unknown.push(`${method} ${url.origin}${p}`); return route.abort('blockedbyclient');
+     }
+-    if (p === '/auth/me') return json(route,{userId:'series-user',selectedFactoryId:'series-factory',role:options.role||'ADMIN',departmentId:'series-department',permissions:options.role==='WORKER'?['shift.self.read','tasks.read','notifications.read']:permissions,isAdmin:!options.role||options.role==='ADMIN',isGuest:false,displayName:'Проверка интерфейса',availableFactories:[{id:'series-factory',name:'Изолированный завод',role:options.role||'ADMIN',isGuest:false}]});
++    if (p === '/auth/me') return json(route,{userId:'series-user',selectedFactoryId:'series-factory',role:options.role||'ADMIN',departmentId:'series-department',permissions:options.granted??(options.role==='WORKER'?['shift.self.read','tasks.read','notifications.read']:permissions),isAdmin:!options.role||options.role==='ADMIN',isGuest:false,displayName:'Проверка интерфейса',availableFactories:[{id:'series-factory',name:'Изолированный завод',role:options.role||'ADMIN',isGuest:false}]});
+     if (p === '/notifications/push/status') return json(route,{available:false,publicKey:null,reason:'Изолированная проверка',activeSubscriptions:0});
+     if (p === '/health') return json(route,{status:'ok'});
+     if (p === '/auth/assignment-request') return json(route,{status:'WAITING_ASSIGNMENT',request:null,options:{assignments:[]}});
+@@ -98,7 +101,6 @@ export function save() {
+   fs.mkdirSync(out,{recursive:true});
+   fs.writeFileSync(path.join(out,'runtime.json'),JSON.stringify({run,currentTest,before,records,network,unknown,errors,realBackendWrites:0,source:{App:sha(fs.readFileSync(path.resolve(__dirname,'../../src/App.tsx'))),styles:sha(fs.readFileSync(path.resolve(__dirname,'../../src/styles.css'))),harness:sha(fs.readFileSync(__filename))}},null,2));
+ }
+-test.afterEach(async ({},info) => { records.push({test:info.title,status:info.status,error:info.error?.message}); save(); });
+ export async function open(page: Page, title: string) {
+   await expect(page.locator('.bottom-nav, .mobile-quick-nav').filter({visible:true}).first()).toBeVisible();
+   const button = page.locator('.bottom-nav button, .mobile-quick-nav button').filter({hasText:title}).filter({visible:true});

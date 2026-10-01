@@ -1,0 +1,53 @@
+// Actual frontend client transpiled in VM. Synthetic store/transport only, no product bootstrap.
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),ts=require('typescript');
+const source=fs.readFileSync(path.resolve(__dirname,'../../frontend/src/api/client.ts'),'utf8').replace(/export const BASE_URL = .*;/,"export const BASE_URL = '/api';");
+const code=ts.transpileModule(source,{fileName:'client.ts',compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+const offline=/ответ сервера|Нет связи с сервером/;
+function deferred(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return{promise,resolve,reject};}
+function client(){
+ const events=[],listeners=new Set(),pending=[],xhrs=[];
+ let identity={userId:'r4-synthetic-user',factoryId:'r4-factory-a',authToken:'SYNTHETIC_ONLY'};
+ const state={authStatus:'ready',currentUser:{role:'MASTER',isGuest:false,departmentId:'r4-dept',permissions:['tasks.read']}};
+ class Xhr {constructor(){this.upload={};this.status=0;this.response=null;this.responseText='';xhrs.push(this);}open(){}setRequestHeader(){}send(){this.sent=true;}abort(){this.onabort?.();}}
+ const context={exports:{},TypeError,SyntaxError,Error,FormData,Blob,DOMException,AbortController,crypto:{randomUUID:()=> 'r4-synthetic-operation'},XMLHttpRequest:Xhr,
+  CustomEvent:class{constructor(type,options){this.type=type;this.detail=options.detail;}},window:{dispatchEvent:e=>events.push(e.detail.message)},
+  require:n=>{assert.equal(n,'../store/app.store');return{appStore:{getState:()=>state,subscribe:fn=>{listeners.add(fn);return()=>listeners.delete(fn);}},getApiContext:()=>({...identity})};},
+  fetch:()=>{const d=deferred();pending.push(d);return d.promise;}};
+ vm.runInNewContext(code,context,{timeout:1000});
+ const api=context.exports.apiClient;
+ function invoke(kind,options){return kind==='blob'?api.downloadBlob('/r4'):kind==='xhr'?api.uploadWithProgress('/r4',new FormData(),options):kind==='form'?api.upload('/r4',new FormData()):api.request('/r4',{method:'POST',body:'{}',...options});}
+ function settle(kind,index,outcome){if(kind==='xhr'){const x=xhrs[index];if(outcome instanceof Error){if(outcome.name==='AbortError')x.onabort();else if(outcome.name==='TimeoutError')x.ontimeout?.();else x.onerror();}else{Object.assign(x,{status:outcome.status,response:outcome.body,responseText:outcome.invalid?'not-json':''});x.onload();}}else{const p=pending[index];if(outcome instanceof Error)p.reject(outcome);else p.resolve({status:outcome.status,ok:outcome.status>=200&&outcome.status<300,headers:new Headers(),json:async()=>{if(outcome.bodyError)throw outcome.bodyError;return outcome.body;},blob:async()=>{if(outcome.bodyError)throw outcome.bodyError;return new Blob(['r4-file-bytes']);}});}}
+ async function round(kind,outcome){const i=kind==='xhr'?xhrs.length:pending.length,p=invoke(kind);settle(kind,i,outcome);try{return{value:await p};}catch(error){return{error};}}
+ function change(kind){if(kind==='revoke')state.currentUser.permissions=[];else if(kind==='logout'){state.authStatus='unauthenticated';identity.authToken=null;}else identity.factoryId='r4-factory-b';for(const f of listeners)f();if(kind==='ABA'||kind==='logout'){identity={userId:'r4-synthetic-user',factoryId:'r4-factory-a',authToken:'SYNTHETIC_ONLY'};state.authStatus='ready';for(const f of listeners)f();}}
+ return{events,listeners,invoke,settle,round,change,pending,xhrs};
+}
+for(const kind of ['json','blob','form','xhr']){
+ for(const status of [403,409,404,422])test(`R4 C01 ${kind} recovery${status} clears offline but preserves business denial`,async()=>{
+  const c=client();assert.ok((await c.round(kind,new TypeError('synthetic network loss'))).error);assert.match(c.events.at(-1),offline);
+  const result=await c.round(kind,{status,body:{message:status===404?'Данные не найдены.':'Нет доступа.'}});
+  assert.ok(result.error);assert.notEqual(result.error.name,'ApiNetworkError');assert.match(result.error.message,status===404?/Данные не найдены/:/Нет доступа/);assert.equal(c.events.at(-1),null);assert.equal(c.listeners.size,0);
+ });
+ for(const status of [200,204])test(`R4 C01 ${kind} recovery${status} then a new loss is not claimed unsaved`,async()=>{
+  const c=client();await c.round(kind,new TypeError('loss'));const out=await c.round(kind,{status,body:status===204?null:{value:0}});assert.equal(out.error,undefined);assert.equal(c.events.at(-1),null);
+  const lost=await c.round(kind,new TypeError('lost response after possible commit'));assert.equal(lost.error.name,'ApiNetworkError');assert.match(c.events.at(-1),offline);assert.doesNotMatch(c.events.at(-1),/Действие не сохранено|не сохраняются/);assert.equal(c.listeners.size,0);
+ });
+ test(`R4 C01 ${kind} HTTP500 and503 mean application errors not transport absence`,async()=>{
+  const c=client();for(const status of [500,503]){await c.round(kind,new TypeError('loss'));const out=await c.round(kind,{status,body:{message:'internal private details'}});assert.match(out.error.message,/Ошибка сервера/);assert.doesNotMatch(out.error.message,/private/);assert.equal(c.events.at(-1),null);}assert.equal(c.listeners.size,0);
+ });
+ for(const transition of ['factory','ABA','revoke','logout'])test(`R4 C01 ${kind} stale success and network error after ${transition} cannot publish`,async()=>{
+  for(const outcome of [{status:200,body:{ok:true}},new TypeError('late old-context loss')]){const c=client(),p=c.invoke(kind);c.change(transition);c.settle(kind,0,outcome);await assert.rejects(p,{name:'ApiContextChangedError'});assert.deepEqual(c.events,[]);assert.equal(c.listeners.size,0);}
+ });
+ test(`R4 C01 ${kind} reverse completion does not let older outcome overwrite newer observation`,async()=>{
+  for(const last of ['online','offline']){const c=client(),a=c.invoke(kind),b=c.invoke(kind);const aResult=a.then(v=>({v}),error=>({error})),bResult=b.then(v=>({v}),error=>({error}));
+   c.settle(kind,1,last==='online'?{status:200,body:{ok:true}}:new TypeError('newer loss'));await bResult;const events=c.events.slice();
+   c.settle(kind,0,last==='online'?new TypeError('older loss'):{status:200,body:{ok:true}});await aResult;assert.deepEqual(c.events,events);assert.equal(c.listeners.size,0);
+  }
+ });
+}
+test('R4 C01 invalid JSON is an invalid response, not a saved command or offline transport',async()=>{const c=client();await c.round('json',new TypeError('loss'));const out=await c.round('json',{status:200,bodyError:new SyntaxError('Unexpected sensitive-token')});assert.match(out.error.message,/некорректный ответ/);assert.equal(c.events.at(-1),null);assert.doesNotMatch(out.error.message,/sensitive-token/);assert.equal(c.listeners.size,0);});
+for(const kind of ['json','blob'])test(`R4 C01 ${kind} response body network loss remains ambiguous`,async()=>{const c=client();const out=await c.round(kind,{status:200,bodyError:new TypeError('body connection interrupted')});assert.equal(out.error.name,'ApiNetworkError');assert.match(c.events.at(-1),offline);assert.doesNotMatch(c.events.at(-1),/Действие не сохранено/);assert.equal(c.listeners.size,0);});
+test('R4 C01 malformed successful XHR payload is not command success',async()=>{const c=client();await c.round('xhr',new TypeError('loss'));const out=await c.round('xhr',{status:200,body:null,invalid:true});assert.match(out.error.message,/некорректный ответ/);assert.equal(c.events.at(-1),null);assert.equal(c.listeners.size,0);});
+for(const kind of ['json','xhr'])test(`R4 C01 ${kind} explicit abort is silent but timeout signals ambiguous transport`,async()=>{
+ const c=client();const aborted=await c.round(kind,new DOMException('cancelled','AbortError'));assert.equal(aborted.error.name,'AbortError');assert.deepEqual(c.events,[]);const timeout=await c.round(kind,new DOMException('timeout','TimeoutError'));assert.equal(timeout.error.name,'ApiNetworkError');assert.match(c.events.at(-1),offline);assert.equal(c.listeners.size,0);
+});
+test('R4 C01 preaborted upload settles without sending or leaking subscriber',async()=>{const c=client(),controller=new AbortController();controller.abort();await assert.rejects(c.invoke('xhr',{signal:controller.signal}),{name:'AbortError'});assert.equal(c.xhrs[0].sent,undefined);assert.equal(c.listeners.size,0);assert.deepEqual(c.events,[]);});

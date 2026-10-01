@@ -1,0 +1,909 @@
+{
+  "plast": "16C",
+  "runId": "1787868705921-605f4d",
+  "marker": "__PFFV5_P16C_1787868705921-605f4d__",
+  "status": "PASS",
+  "controlledPeriod": {
+    "dateFrom": "2026-08-27",
+    "dateTo": "2026-08-27",
+    "timezone": "Europe/Moscow"
+  },
+  "expected": {
+    "downtimeCount": 4,
+    "totalLostMinutes": 70,
+    "averageDowntimeMinutes": 18,
+    "medianDowntimeMinutes": 10,
+    "p90DowntimeMinutes": 30,
+    "openDowntimeCount": 1,
+    "tasksTotal": 3,
+    "tasksOpen": 2,
+    "tasksCompleted": 1,
+    "urgentOpenTasks": 1,
+    "overdueLongTasks": 1,
+    "averageResponseMinutes": 5,
+    "averageExecutionMinutes": 20,
+    "averageResolutionMinutes": 25
+  },
+  "actual": {
+    "summary": {
+      "totalLostMinutes": 70,
+      "totalLostLabel": "1 ч 10 мин",
+      "downtimeCount": 4,
+      "averageDowntimeMinutes": 18,
+      "medianDowntimeMinutes": 10,
+      "p90DowntimeMinutes": 30,
+      "openDowntimeCount": 1,
+      "preliminary": true,
+      "activeLines": 2,
+      "worstLine": {
+        "lineId": "9147aada-56b6-43f3-a9f7-284cf9e59ded",
+        "lineName": "__PFFV5_P16C_1787868705921-605f4d__ Линия Альфа",
+        "status": "PAUSE",
+        "lostMinutes": 60,
+        "lostLabel": "1 ч",
+        "downtimeCount": 3,
+        "averageDowntimeMinutes": 20,
+        "medianDowntimeMinutes": 20,
+        "maxDowntimeMinutes": 30,
+        "downtimeSharePercent": 4.3,
+        "cleanWorkMinutes": 1350,
+        "currentOpenDowntime": {
+          "eventId": "391d27e4-9491-4938-b0a0-f41ff4525d7e",
+          "lineId": "9147aada-56b6-43f3-a9f7-284cf9e59ded",
+          "lineName": "__PFFV5_P16C_1787868705921-605f4d__ Линия Альфа",
+          "status": "PAUSE",
+          "startAt": "2026-08-27T20:00:00.000Z",
+          "endAt": "2026-08-27T20:30:00.000Z",
+          "durationMinutes": 30,
+          "durationLabel": "30 мин",
+          "reasonLabel": "Не хватает людей",
+          "comment": "__PFFV5_P16C_1787868705921-605f4d__ Нехватка людей",
+          "isOpen": true,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Продолжается"
+        },
+        "downtimesWithoutComment": 0,
+        "linkedTasks": 1,
+        "openTasks": 2,
+        "planCompletionPercent": null,
+        "planCompletionLabel": "Недостаточно данных"
+      },
+      "urgentOpenTasks": 1,
+      "overdueLongTasks": 1,
+      "tasksTotal": 3,
+      "tasksOpen": 2,
+      "tasksCompleted": 1,
+      "averageResponseMinutes": 5,
+      "medianResponseMinutes": 5,
+      "p90ResponseMinutes": 5,
+      "maxResponseMinutes": 5,
+      "averageExecutionMinutes": 20,
+      "medianExecutionMinutes": 20,
+      "p90ExecutionMinutes": 20,
+      "maxExecutionMinutes": 20,
+      "averageResolutionMinutes": 25,
+      "medianResolutionMinutes": 25,
+      "p90ResolutionMinutes": 25,
+      "maxResolutionMinutes": 25,
+      "tenMinuteDailyEffect": {
+        "dailyMinutes": 10,
+        "workdaysInPeriod": 1,
+        "potentialMinutes": 10,
+        "yearlyMinutes": 10,
+        "yearlyLabel": "10 мин",
+        "text": "За выбранный период можно вернуть до 10 мин, сокращая подтверждённые простои максимум на 10 минут в каждый будний день."
+      }
+    },
+    "downtimeReasons": [
+      {
+        "reason": "PEOPLE",
+        "reasonLabel": "Не хватает людей",
+        "count": 1,
+        "totalMinutes": 30,
+        "totalLabel": "30 мин",
+        "averageMinutes": 30
+      },
+      {
+        "reason": "QUALITY",
+        "reasonLabel": "Контроль качества",
+        "count": 1,
+        "totalMinutes": 20,
+        "totalLabel": "20 мин",
+        "averageMinutes": 20
+      },
+      {
+        "reason": "OTHER",
+        "reasonLabel": "Другое",
+        "count": 1,
+        "totalMinutes": 10,
+        "totalLabel": "10 мин",
+        "averageMinutes": 10
+      },
+      {
+        "reason": "TECHNICAL",
+        "reasonLabel": "Техническая неисправность",
+        "count": 1,
+        "totalMinutes": 10,
+        "totalLabel": "10 мин",
+        "averageMinutes": 10
+      }
+    ],
+    "checklists": {
+      "started": 4,
+      "active": 1,
+      "runsCompleted": 3,
+      "checksCompleted": 1,
+      "checksOverdue": 1,
+      "manuallyClosed": 2,
+      "shiftClosed": 1
+    },
+    "wash": {
+      "active": 1,
+      "completed": 1,
+      "issues": 1,
+      "openIssues": 1,
+      "miniTasks": 1,
+      "miniTasksDone": 1
+    },
+    "quality": {
+      "okkDefects": 1,
+      "stockDefects": 1,
+      "stockDefectQuantity": 15,
+      "returns": 1
+    },
+    "moduleCounts": {
+      "Tasks": 3,
+      "Wash": 2,
+      "Checklists": 4,
+      "Orders": 0,
+      "OKK": 1,
+      "Stock": 1,
+      "Returns": 1,
+      "ShiftLog": 0,
+      "Defrost": 0,
+      "Notifications": 0,
+      "Auth/access": 0
+    }
+  },
+  "auditRows": 25,
+  "checks": [
+    {
+      "name": "formula downtimeCount",
+      "passed": true,
+      "expected": 4,
+      "actual": 4
+    },
+    {
+      "name": "formula totalLostMinutes",
+      "passed": true,
+      "expected": 70,
+      "actual": 70
+    },
+    {
+      "name": "formula averageDowntimeMinutes",
+      "passed": true,
+      "expected": 18,
+      "actual": 18
+    },
+    {
+      "name": "formula medianDowntimeMinutes",
+      "passed": true,
+      "expected": 10,
+      "actual": 10
+    },
+    {
+      "name": "formula p90DowntimeMinutes",
+      "passed": true,
+      "expected": 30,
+      "actual": 30
+    },
+    {
+      "name": "formula openDowntimeCount",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "formula tasksTotal",
+      "passed": true,
+      "expected": 3,
+      "actual": 3
+    },
+    {
+      "name": "formula tasksOpen",
+      "passed": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "formula tasksCompleted",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "formula urgentOpenTasks",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "formula overdueLongTasks",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "formula averageResponseMinutes",
+      "passed": true,
+      "expected": 5,
+      "actual": 5
+    },
+    {
+      "name": "formula averageExecutionMinutes",
+      "passed": true,
+      "expected": 20,
+      "actual": 20
+    },
+    {
+      "name": "formula averageResolutionMinutes",
+      "passed": true,
+      "expected": 25,
+      "actual": 25
+    },
+    {
+      "name": "period start is factory-local midnight",
+      "passed": true,
+      "expected": "2026-08-26T21:00:00.000Z",
+      "actual": "2026-08-26T21:00:00.000Z"
+    },
+    {
+      "name": "period end is exclusive factory-local midnight",
+      "passed": true,
+      "expected": "2026-08-27T21:00:00.000Z",
+      "actual": "2026-08-27T21:00:00.000Z"
+    },
+    {
+      "name": "period as-of uses controlled server time",
+      "passed": true,
+      "expected": "2026-08-27T20:30:00.000Z",
+      "actual": "2026-08-27T20:30:00.000Z"
+    },
+    {
+      "name": "ten-minute effect is capped by selected-period actual loss",
+      "passed": true,
+      "expected": 10,
+      "actual": 10
+    },
+    {
+      "name": "problem line is deterministic Line A",
+      "passed": true,
+      "expected": "__PFFV5_P16C_1787868705921-605f4d__ Линия Альфа",
+      "actual": "__PFFV5_P16C_1787868705921-605f4d__ Линия Альфа"
+    },
+    {
+      "name": "problem line total is 60 minutes",
+      "passed": true,
+      "expected": 60,
+      "actual": 60
+    },
+    {
+      "name": "reason TECHNICAL",
+      "passed": true,
+      "expected": {
+        "count": 1,
+        "totalMinutes": 10
+      },
+      "actual": {
+        "count": 1,
+        "totalMinutes": 10
+      }
+    },
+    {
+      "name": "reason QUALITY",
+      "passed": true,
+      "expected": {
+        "count": 1,
+        "totalMinutes": 20
+      },
+      "actual": {
+        "count": 1,
+        "totalMinutes": 20
+      }
+    },
+    {
+      "name": "reason PEOPLE",
+      "passed": true,
+      "expected": {
+        "count": 1,
+        "totalMinutes": 30
+      },
+      "actual": {
+        "count": 1,
+        "totalMinutes": 30
+      }
+    },
+    {
+      "name": "reason OTHER",
+      "passed": true,
+      "expected": {
+        "count": 1,
+        "totalMinutes": 10
+      },
+      "actual": {
+        "count": 1,
+        "totalMinutes": 10
+      }
+    },
+    {
+      "name": "all controlled reason labels are Russian",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "open interval is clipped to period start",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "linked downtime task counted exactly once",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "unrelated requests are not downtime-linked",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "completed request reaction = created to taken",
+      "passed": true,
+      "expected": 5,
+      "actual": 5
+    },
+    {
+      "name": "completed request execution = taken to done",
+      "passed": true,
+      "expected": 20,
+      "actual": 20
+    },
+    {
+      "name": "completed request resolution = created to done",
+      "passed": true,
+      "expected": 25,
+      "actual": 25
+    },
+    {
+      "name": "checklist started count",
+      "passed": true,
+      "expected": 4,
+      "actual": 4
+    },
+    {
+      "name": "checklist active at period end",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "checklist manual and manual-early grouping",
+      "passed": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "checklist shift-close grouping",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "checklist completed occurrence",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "evidence": 1
+    },
+    {
+      "name": "checklist overdue excludes closed-parent legacy children",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "wash active count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "wash completed count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "wash issue count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "wash open issue count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "wash mini-task count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "wash completed mini-task count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "quality OKK count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "quality stock count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "quality remaining stock quantity is not double-counted",
+      "passed": true,
+      "expected": 15,
+      "actual": 15
+    },
+    {
+      "name": "quality returns count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "line filter count",
+      "passed": true,
+      "expected": 3,
+      "actual": 3
+    },
+    {
+      "name": "line filter total",
+      "passed": true,
+      "expected": 60,
+      "actual": 60
+    },
+    {
+      "name": "task open filter",
+      "passed": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "all module cards follow selected period",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "module tasks count",
+      "passed": true,
+      "expected": 3,
+      "actual": 3
+    },
+    {
+      "name": "module wash count",
+      "passed": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "module checklist count",
+      "passed": true,
+      "expected": 4,
+      "actual": 4
+    },
+    {
+      "name": "module OKK count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "module Stock count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "module Returns count",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "normal management excludes diagnostic marker lines",
+      "passed": true,
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "normal management excludes diagnostic global departments",
+      "passed": true,
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "diagnostic admin includes controlled department option",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "normal management excludes diagnostic marker metrics",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "normal admin cannot enable diagnostics",
+      "passed": true,
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "cross-factory line filter returns no controlled data",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "worker direct statistics access denied",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "evidence": "Статистика и аудит доступны только руководству и администраторам."
+    },
+    {
+      "name": "worker direct audit access denied",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "evidence": "Статистика и аудит доступны только руководству и администраторам."
+    },
+    {
+      "name": "audit controlled rows exist",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "evidence": 25
+    },
+    {
+      "name": "audit uses human action labels",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "audit uses human actor labels",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "audit uses human object labels",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "audit before-after quantity row",
+      "passed": true,
+      "expected": {
+        "label": "Количество",
+        "before": "20",
+        "after": "15"
+      },
+      "actual": {
+        "label": "Количество",
+        "before": "20",
+        "after": "15"
+      }
+    },
+    {
+      "name": "audit public rows omit raw details and scope ids",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "audit public rows contain no secret field names",
+      "passed": true,
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "audit public rows contain no JSON dump",
+      "passed": true,
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "normal management audit excludes marker rows",
+      "passed": true,
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "historical forensic cohort remains exactly 723 rows",
+      "passed": true,
+      "expected": 723,
+      "actual": 723
+    },
+    {
+      "name": "legacy closed-parent active children unchanged during proof",
+      "passed": true,
+      "expected": 573,
+      "actual": 573
+    },
+    {
+      "name": "global historical 723-child cohort unchanged during proof",
+      "passed": true,
+      "expected": 723,
+      "actual": 723
+    },
+    {
+      "name": "ambiguous Factory 4 open STOP rows unchanged during proof",
+      "passed": true,
+      "expected": 4,
+      "actual": 4
+    },
+    {
+      "name": "legacy checklist anomaly is exposed as read-only warning",
+      "passed": true,
+      "expected": 573,
+      "actual": 573
+    }
+  ],
+  "passed": 79,
+  "failed": 0,
+  "cleanup": {
+    "ACTIVE_P16C_LINES": 0,
+    "ACTIVE_P16C_LINE_EVENTS": 0,
+    "ACTIVE_P16C_TASKS": 0,
+    "ACTIVE_P16C_ASSIGNMENTS": 0,
+    "ACTIVE_P16C_PLANS": 0,
+    "ACTIVE_P16C_CHECKLIST_TEMPLATES": 0,
+    "ACTIVE_P16C_CHECKLIST_RUNS": 0,
+    "ACTIVE_P16C_WASHES": 0,
+    "ACTIVE_P16C_QUALITY_RECORDS": 0,
+    "ACTIVE_P16C_ACCESSES": 0,
+    "ACTIVE_P16C_FACTORIES": 0,
+    "ACTIVE_P16C_USERS": 0,
+    "ACTIVE_P16C_TEST_ARTIFACTS": 0
+  },
+  "protectedFactory4": {
+    "beforeHash": "8ed7ced1e3cfc9915615faa65ea4d53b189dbbd0a702326fc72714f0f86a690a",
+    "afterHash": "8ed7ced1e3cfc9915615faa65ea4d53b189dbbd0a702326fc72714f0f86a690a",
+    "legacyChecklistChildrenBefore": 573,
+    "legacyChecklistChildrenAfter": 573,
+    "globalLegacyChecklistChildrenBefore": 723,
+    "globalLegacyChecklistChildrenAfter": 723,
+    "ambiguousOpenStopsBefore": 4,
+    "ambiguousOpenStopsAfter": 4
+  },
+  "directPrismaBusinessHappyPathWrites": 0,
+  "directPrismaSetupAndSoftCleanupOnly": true,
+  "physicalDeletes": 0,
+  "migrationCreated": false,
+  "updatedAt": "2026-08-27T22:12:14.561Z",
+  "cleanupChecks": [
+    {
+      "name": "cleanup ACTIVE_P16C_LINES",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_LINE_EVENTS",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_TASKS",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_ASSIGNMENTS",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_PLANS",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_CHECKLIST_TEMPLATES",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_CHECKLIST_RUNS",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_WASHES",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_QUALITY_RECORDS",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_ACCESSES",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_FACTORIES",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_USERS",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "cleanup ACTIVE_P16C_TEST_ARTIFACTS",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "Factory 4 protected hash unchanged",
+      "passed": true,
+      "expected": "8ed7ced1e3cfc9915615faa65ea4d53b189dbbd0a702326fc72714f0f86a690a",
+      "actual": "8ed7ced1e3cfc9915615faa65ea4d53b189dbbd0a702326fc72714f0f86a690a"
+    },
+    {
+      "name": "legacy checklist rows not mutated",
+      "passed": true,
+      "expected": 573,
+      "actual": 573
+    },
+    {
+      "name": "global historical 723-child cohort not mutated",
+      "passed": true,
+      "expected": 723,
+      "actual": 723
+    },
+    {
+      "name": "ambiguous open STOP rows not mutated",
+      "passed": true,
+      "expected": 4,
+      "actual": 4
+    }
+  ],
+  "cleanupPassed": 17,
+  "cleanupFailed": 0,
+  "browser": {
+    "status": "PASS",
+    "playwrightExitCode": 0,
+    "cleanupExitCode": 0,
+    "error": null,
+    "widths": [
+      360,
+      390,
+      430,
+      1440
+    ],
+    "desktop": true,
+    "mobile": true,
+    "androidBack": true,
+    "horizontalOverflow": 0,
+    "screenshots": [
+      "01-control-center-desktop.png",
+      "02-control-center-mobile-390.png",
+      "03-filters-mobile-390.png",
+      "04-downtime-reasons-desktop.png",
+      "05-modules-mobile-360.png",
+      "06-audit-detail-desktop.png",
+      "07-events-mobile-430.png"
+    ],
+    "screenshotCount": 7
+  },
+  "targetedGates": {
+    "controlledFormula": {
+      "formulaPassed": 79,
+      "cleanupPassed": 17,
+      "totalPassed": 96,
+      "failed": 0
+    },
+    "sourceRegression": {
+      "passed": 15,
+      "failed": 0
+    },
+    "archiveXlsxSmoke": {
+      "passed": 13,
+      "failed": 0
+    },
+    "shiftTransitionSmoke": {
+      "passed": 36,
+      "failed": 0
+    },
+    "statisticsFormulaGates": "18/18",
+    "auditGates": "10/10"
+  },
+  "builds": {
+    "backend": "PASS",
+    "frontend": "PASS_WITH_KNOWN_CHUNK_WARNING",
+    "prismaValidate": "PASS",
+    "prismaMigrateStatus": "UP_TO_DATE_52_MIGRATIONS",
+    "seedSyntax": "PASS",
+    "changedScriptsSyntax": "PASS",
+    "migration": "NOT_REQUIRED"
+  },
+  "finalRuntime": {
+    "status": "PASS",
+    "startedAt": "2026-08-28T01:19:28+03:00",
+    "publicUrl": "https://von-drawn-verse-podcasts.trycloudflare.com",
+    "publicHealthUrl": "https://von-drawn-verse-podcasts.trycloudflare.com/api/health",
+    "backendPid": 12364,
+    "frontendPid": 8984,
+    "tunnelPid": 4356,
+    "keepAwakePid": 11500,
+    "serviceWorkerVersion": "zavod-shell-v6",
+    "localSmoke": "PASS",
+    "publicSmoke": "PASS",
+    "routeCount": 10,
+    "websocket": "PASS_AUTHENTICATED_WSS",
+    "secureContext": true,
+    "serviceWorker": "READY",
+    "horizontalOverflow": 0,
+    "consoleErrors": 0,
+    "failedRequests": 0,
+    "forbiddenRuntimeTargets": 0,
+    "qrPath": "docs/physical-field-fixes-v5-plast16c/physical-recheck-qr.png"
+  },
+  "finalStatus": {
+    "plast16c": "PASS",
+    "productP0": 0,
+    "productP1": 0,
+    "productP2": 0,
+    "final": "PASS_WITH_PHYSICAL_PENDING",
+    "physicalRecheck": "READY",
+    "physicalPhoneGate": "PENDING"
+  }
+}

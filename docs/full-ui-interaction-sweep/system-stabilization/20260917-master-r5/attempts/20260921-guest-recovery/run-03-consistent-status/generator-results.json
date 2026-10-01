@@ -1,0 +1,131 @@
+{
+  "at": "2026-09-21T13:19:34.454Z",
+  "kind": "PROVISIONING_GENERATOR_ONLY_NOT_PRODUCT_GATE",
+  "status": "SOURCE_VERIFIED_FUNCTIONAL_PENDING",
+  "cases": 10,
+  "passed": 7,
+  "failed": 0,
+  "blocked": 3,
+  "results": [
+    {
+      "id": "argv-json-yaml-roundtrip",
+      "status": "PASS",
+      "detail": {
+        "counts": [
+          9,
+          9,
+          3,
+          3
+        ],
+        "allArgTypes": "string",
+        "parser": "yaml@2.8.1",
+        "jsonRoundTrip": true,
+        "yamlRoundTrip": true
+      }
+    },
+    {
+      "id": "commands-0-through-2-unchanged",
+      "status": "PASS",
+      "detail": {
+        "comparedTo": "actual attached seed redacted readback",
+        "commandsExecuted": false
+      }
+    },
+    {
+      "id": "legacy-syntax-exit2",
+      "status": "PASS",
+      "detail": {
+        "argumentCount": 5,
+        "exitCode": 2,
+        "parseOnly": true
+      }
+    },
+    {
+      "id": "fixed-syntax-exit0",
+      "status": "PASS",
+      "detail": {
+        "argumentCount": 3,
+        "exitCode": 0,
+        "parseOnly": true
+      }
+    },
+    {
+      "id": "invalid-vmid-rejected",
+      "status": "PASS",
+      "detail": {
+        "exitCode": 1,
+        "validation": "UUID whitelist",
+        "programExecuted": false
+      }
+    },
+    {
+      "id": "synthetic-success-and-repeat",
+      "status": "BLOCKED_ENV_PREREQUISITE",
+      "detail": {
+        "blocked": true,
+        "reason": "HOST_GIT_RUNTIME_HAS_NO_INSTALL_UTILITY",
+        "functionalGuestCheck": "PENDING",
+        "guestTouched": false
+      }
+    },
+    {
+      "id": "missing-proof-no-fabrication-no-marker",
+      "status": "PASS",
+      "detail": {
+        "exitCode": 1,
+        "fixtureRoot": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\run-03-consistent-status\\synthetic-target-HbdTjk\\missing-proof",
+        "proofCopied": false,
+        "instanceFileWritten": false,
+        "syntheticOnly": true,
+        "modeProof": "Windows MSYS does not prove Ubuntu uid/gid/mode",
+        "targetQuoting": "spaces and apostrophe",
+        "existingGuestTouched": false
+      }
+    },
+    {
+      "id": "wrong-proof-rejected-no-marker",
+      "status": "PASS",
+      "detail": {
+        "exitCode": 1,
+        "fixtureRoot": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\run-03-consistent-status\\synthetic-target-HbdTjk\\wrong-proof",
+        "proofCopied": false,
+        "instanceFileWritten": false,
+        "syntheticOnly": true,
+        "modeProof": "Windows MSYS does not prove Ubuntu uid/gid/mode",
+        "targetQuoting": "spaces and apostrophe",
+        "existingGuestTouched": false
+      }
+    },
+    {
+      "id": "copy-failure-stops-before-marker",
+      "status": "BLOCKED_ENV_PREREQUISITE",
+      "detail": {
+        "blocked": true,
+        "reason": "HOST_GIT_RUNTIME_HAS_NO_INSTALL_UTILITY",
+        "functionalGuestCheck": "PENDING",
+        "guestTouched": false
+      }
+    },
+    {
+      "id": "marker-write-failure-is-nonzero-partial-copy-recorded",
+      "status": "BLOCKED_ENV_PREREQUISITE",
+      "detail": {
+        "blocked": true,
+        "reason": "HOST_GIT_RUNTIME_HAS_NO_INSTALL_UTILITY",
+        "functionalGuestCheck": "PENDING",
+        "guestTouched": false
+      }
+    }
+  ],
+  "powershell": "7.6.5",
+  "shell": "C:/Users/79164/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/usr/bin/sh.exe",
+  "shellIdentity": "Host Git Bash in sh mode, not guest dash",
+  "generatorSha256": "b843cd35eb10d0b206de4256795024b12e498d7d7f5c61f80cf7946e048611d0",
+  "pureHelperSha256": "84333c54deca7ec8356a738510d16c619ef70b697d72fa84b929c2fe60ae38cb",
+  "fullMediaGeneratorExecuted": false,
+  "existingSeedRegenerated": false,
+  "guestRepairExecuted": false,
+  "guestPosixAndPermissionsVerification": "PENDING",
+  "sourceCorrectionApplied": true,
+  "workingDbAccessed": false
+}

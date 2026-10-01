@@ -1,0 +1,423 @@
+{
+  "status": "PASS_UI_API_SQL_RELOAD_RESTORE_NOT_CONSUMER_PASS",
+  "modules": [
+    {
+      "key": "shift",
+      "model": "shiftSettings",
+      "fields": [
+        "minAssignmentMoveIntervalMinutes",
+        "contractorLeadMaxPeoplePerShift",
+        "returnRequestEnabled",
+        "willBeCancelRequiresComment"
+      ],
+      "before": {
+        "minAssignmentMoveIntervalMinutes": 5,
+        "contractorLeadMaxPeoplePerShift": 6,
+        "returnRequestEnabled": true,
+        "willBeCancelRequiresComment": true
+      },
+      "changed": {
+        "minAssignmentMoveIntervalMinutes": 6,
+        "contractorLeadMaxPeoplePerShift": 7,
+        "returnRequestEnabled": false,
+        "willBeCancelRequiresComment": false
+      },
+      "consumerStatus": "PENDING_SEPARATE_LIVE_PROOF",
+      "labels": [
+        "Пауза между переносами",
+        "Лимит бригадира",
+        "Возврат на смену",
+        "Комментарий при отмене “Я буду”"
+      ],
+      "http": {
+        "status": 200,
+        "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+      },
+      "reload": true,
+      "restored": true,
+      "A0Unchanged": true
+    },
+    {
+      "key": "tasks",
+      "model": "taskSettings",
+      "fields": [
+        "longTaskDefaultDeadlineHours",
+        "longTaskEscalationEnabled",
+        "longTaskEscalationGraceMinutes",
+        "taskRedirectRequiresComment",
+        "taskDoneRequiresComment",
+        "taskReadReceiptsEnabled"
+      ],
+      "before": {
+        "longTaskDefaultDeadlineHours": null,
+        "longTaskEscalationEnabled": true,
+        "longTaskEscalationGraceMinutes": 0,
+        "taskRedirectRequiresComment": true,
+        "taskDoneRequiresComment": false,
+        "taskReadReceiptsEnabled": true
+      },
+      "changed": {
+        "longTaskDefaultDeadlineHours": 36,
+        "longTaskEscalationEnabled": false,
+        "longTaskEscalationGraceMinutes": 1,
+        "taskRedirectRequiresComment": false,
+        "taskDoneRequiresComment": true,
+        "taskReadReceiptsEnabled": false
+      },
+      "consumerStatus": "PENDING_SEPARATE_LIVE_PROOF",
+      "labels": [
+        "Срок длинной заявки, часов",
+        "Эскалация длинных заявок",
+        "Льготное время эскалации, минут",
+        "Комментарий при передаче",
+        "Комментарий при закрытии",
+        "Отметки чтения заявок"
+      ],
+      "http": {
+        "status": 200,
+        "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+      },
+      "reload": true,
+      "restored": true,
+      "A0Unchanged": true
+    },
+    {
+      "key": "wash",
+      "model": "washSettings",
+      "fields": [
+        "washIssueResolveRequiresPhoto",
+        "washCompleteRequiresOkkReview",
+        "washCompleteRequiresNoOpenIssues",
+        "washMiniTasksEnabled",
+        "washControlEnabled",
+        "washOkkReviewEnabled"
+      ],
+      "before": {
+        "washIssueResolveRequiresPhoto": false,
+        "washCompleteRequiresOkkReview": false,
+        "washCompleteRequiresNoOpenIssues": true,
+        "washMiniTasksEnabled": true,
+        "washControlEnabled": true,
+        "washOkkReviewEnabled": true
+      },
+      "changed": {
+        "washIssueResolveRequiresPhoto": true,
+        "washCompleteRequiresOkkReview": true,
+        "washCompleteRequiresNoOpenIssues": false,
+        "washMiniTasksEnabled": false,
+        "washControlEnabled": false,
+        "washOkkReviewEnabled": false
+      },
+      "consumerStatus": "PENDING_SEPARATE_LIVE_PROOF",
+      "labels": [
+        "Фото при закрытии проблемы мойки",
+        "ОКК перед завершением мойки",
+        "Завершение мойки без открытых проблем",
+        "Мини-задачи мойки",
+        "Контроль мойки",
+        "ОКК-проверка мойки"
+      ],
+      "http": {
+        "status": 200,
+        "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+      },
+      "reload": true,
+      "restored": true,
+      "A0Unchanged": true
+    },
+    {
+      "key": "defrost",
+      "model": "defrostSettings",
+      "fields": [
+        "defrostCommentRequiredOnStart",
+        "defrostCommentRequiredOnEnd"
+      ],
+      "before": {
+        "defrostCommentRequiredOnStart": false,
+        "defrostCommentRequiredOnEnd": false
+      },
+      "changed": {
+        "defrostCommentRequiredOnStart": true,
+        "defrostCommentRequiredOnEnd": true
+      },
+      "consumerStatus": "PENDING_SEPARATE_LIVE_PROOF",
+      "labels": [
+        "Комментарий при запуске оттайки",
+        "Комментарий при завершении оттайки"
+      ],
+      "http": {
+        "status": 200,
+        "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+      },
+      "reload": true,
+      "restored": true,
+      "A0Unchanged": true
+    },
+    {
+      "key": "orders",
+      "model": "orderSettings",
+      "fields": [
+        "lowStockNotificationsEnabled",
+        "restockRequiresComment",
+        "takeRequiresComment",
+        "archiveRequiresComment",
+        "defaultUnit"
+      ],
+      "before": {
+        "lowStockNotificationsEnabled": true,
+        "restockRequiresComment": false,
+        "takeRequiresComment": true,
+        "archiveRequiresComment": false,
+        "defaultUnit": "шт"
+      },
+      "changed": {
+        "lowStockNotificationsEnabled": false,
+        "restockRequiresComment": true,
+        "takeRequiresComment": false,
+        "archiveRequiresComment": true,
+        "defaultUnit": "кг"
+      },
+      "consumerStatus": "PENDING_SEPARATE_LIVE_PROOF",
+      "labels": [
+        "Уведомления о низком остатке",
+        "Комментарий при пополнении",
+        "Комментарий при списании",
+        "Комментарий при архивировании",
+        "Единица по умолчанию"
+      ],
+      "http": {
+        "status": 200,
+        "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+      },
+      "reload": true,
+      "restored": true,
+      "A0Unchanged": true
+    },
+    {
+      "key": "checklists",
+      "model": "checklistSettings",
+      "fields": [
+        "autoCloseAtDayShiftEnd",
+        "autoCloseAtNightShiftEnd",
+        "requirePauseComment",
+        "allowEditAfterCloseHours"
+      ],
+      "before": {
+        "autoCloseAtDayShiftEnd": true,
+        "autoCloseAtNightShiftEnd": true,
+        "requirePauseComment": true,
+        "allowEditAfterCloseHours": 24
+      },
+      "changed": {
+        "autoCloseAtDayShiftEnd": false,
+        "autoCloseAtNightShiftEnd": false,
+        "requirePauseComment": false,
+        "allowEditAfterCloseHours": 25
+      },
+      "consumerStatus": "PENDING_SEPARATE_LIVE_PROOF",
+      "labels": [
+        "Автозакрытие в конце дневной смены",
+        "Автозакрытие в конце ночной смены",
+        "Комментарий при паузе чек-листа",
+        "Редактирование после закрытия, часов"
+      ],
+      "http": {
+        "status": 200,
+        "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+      },
+      "reload": true,
+      "restored": true,
+      "A0Unchanged": true
+    },
+    {
+      "key": "chats",
+      "model": "chatSettings",
+      "fields": [
+        "chatEnabled",
+        "editWindowMinutes",
+        "deleteWindowMinutes"
+      ],
+      "before": {
+        "chatEnabled": true,
+        "editWindowMinutes": 15,
+        "deleteWindowMinutes": 15
+      },
+      "changed": {
+        "chatEnabled": false,
+        "editWindowMinutes": 16,
+        "deleteWindowMinutes": 16
+      },
+      "consumerStatus": "PENDING_SEPARATE_LIVE_PROOF",
+      "labels": [
+        "Чаты включены",
+        "Окно редактирования, минут",
+        "Окно удаления, минут"
+      ],
+      "http": {
+        "status": 200,
+        "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+      },
+      "reload": true,
+      "restored": true,
+      "A0Unchanged": true
+    },
+    {
+      "key": "announcements",
+      "model": "announcementSettings",
+      "fields": [
+        "defaultVisibleDays",
+        "importantBadgeEnabled"
+      ],
+      "before": {
+        "defaultVisibleDays": 7,
+        "importantBadgeEnabled": true
+      },
+      "changed": {
+        "defaultVisibleDays": 8,
+        "importantBadgeEnabled": false
+      },
+      "consumerStatus": "PENDING_SEPARATE_LIVE_PROOF",
+      "labels": [
+        "Срок показа по умолчанию, дней",
+        "Метка важных объявлений"
+      ],
+      "http": {
+        "status": 200,
+        "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+      },
+      "reload": true,
+      "restored": true,
+      "A0Unchanged": true
+    }
+  ],
+  "audit": [
+    {
+      "action": "SHIFT_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "ShiftSettings",
+      "entityId": "128fcf8f-d297-4cc1-988c-0c9ef7563f13",
+      "createdAt": "2026-09-26T14:12:59.490Z"
+    },
+    {
+      "action": "SHIFT_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "ShiftSettings",
+      "entityId": "128fcf8f-d297-4cc1-988c-0c9ef7563f13",
+      "createdAt": "2026-09-26T14:13:01.244Z"
+    },
+    {
+      "action": "TASK_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "TaskSettings",
+      "entityId": "076238f3-ab6f-4e79-8660-a7ecf04062b7",
+      "createdAt": "2026-09-26T14:13:02.155Z"
+    },
+    {
+      "action": "WASH_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "WashSettings",
+      "entityId": "893ce2fc-a3b4-4309-8bc4-fde287e5c23c",
+      "createdAt": "2026-09-26T14:13:04.887Z"
+    },
+    {
+      "action": "CHAT_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "ChatSettings",
+      "entityId": "28bfadcc-06fb-434f-9e54-862e4aa8eb0f",
+      "createdAt": "2026-09-26T14:13:18.487Z"
+    },
+    {
+      "action": "TASK_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "TaskSettings",
+      "entityId": "076238f3-ab6f-4e79-8660-a7ecf04062b7",
+      "createdAt": "2026-09-26T14:13:03.958Z"
+    },
+    {
+      "action": "DEFROST_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "DefrostSettings",
+      "entityId": "21469fa0-23e8-4cf4-b3e4-2f074c10dfa4",
+      "createdAt": "2026-09-26T14:13:07.840Z"
+    },
+    {
+      "action": "DEFROST_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "DefrostSettings",
+      "entityId": "21469fa0-23e8-4cf4-b3e4-2f074c10dfa4",
+      "createdAt": "2026-09-26T14:13:09.812Z"
+    },
+    {
+      "action": "WASH_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "WashSettings",
+      "entityId": "893ce2fc-a3b4-4309-8bc4-fde287e5c23c",
+      "createdAt": "2026-09-26T14:13:07.036Z"
+    },
+    {
+      "action": "ORDER_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "OrderSettings",
+      "entityId": "1f2d85ea-6849-42b2-bcb4-715ac07d8255",
+      "createdAt": "2026-09-26T14:13:10.703Z"
+    },
+    {
+      "action": "ORDER_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "OrderSettings",
+      "entityId": "1f2d85ea-6849-42b2-bcb4-715ac07d8255",
+      "createdAt": "2026-09-26T14:13:12.786Z"
+    },
+    {
+      "action": "CHECKLIST_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "ChecklistSettings",
+      "entityId": "745452e2-7ee6-49ee-bbe4-33e6fb66792e",
+      "createdAt": "2026-09-26T14:13:13.638Z"
+    },
+    {
+      "action": "CHECKLIST_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "ChecklistSettings",
+      "entityId": "745452e2-7ee6-49ee-bbe4-33e6fb66792e",
+      "createdAt": "2026-09-26T14:13:15.704Z"
+    },
+    {
+      "action": "CHAT_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "ChatSettings",
+      "entityId": "28bfadcc-06fb-434f-9e54-862e4aa8eb0f",
+      "createdAt": "2026-09-26T14:13:16.520Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "AnnouncementSettings",
+      "entityId": "fcf8da59-342f-4b24-ba80-e4af6948263f",
+      "createdAt": "2026-09-26T14:13:19.303Z"
+    },
+    {
+      "action": "ANNOUNCEMENT_SETTINGS_UPDATED",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "entityType": "AnnouncementSettings",
+      "entityId": "fcf8da59-342f-4b24-ba80-e4af6948263f",
+      "createdAt": "2026-09-26T14:13:20.708Z"
+    }
+  ]
+}

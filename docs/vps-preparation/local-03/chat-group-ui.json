@@ -1,0 +1,117 @@
+{
+  "title": "Учебная группа LOCAL03",
+  "steps": [
+    {
+      "title": "Передать управление группой?",
+      "status": 201
+    },
+    {
+      "title": "Убрать участника?",
+      "status": 201
+    },
+    {
+      "title": "Передать управление группой?",
+      "status": 201
+    },
+    {
+      "title": "Выйти из группового чата?",
+      "status": 201
+    },
+    {
+      "title": "Архивировать чат?",
+      "status": 200
+    }
+  ],
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.chat-message').filter({ hasText: 'Учебное сообщение LOCAL03 для проверки истории' }).getByRole('button', { name: 'Действия сообщения', exact: true })\u001b[22m\n",
+  "uiA": "←\nУГ\nУчебная группа LOCAL03\n\nГрупповой чат · 2 участника\n\n⋯\nСегодня\nП+\nПользователь +7 *** ***-10-03 · Руководство\n08:18\n\nУчебное сообщение LOCAL03 для проверки истории\n\n📎\n🙂\n🎙",
+  "uiB": "Завод LOCAL-01\n\nЗавод\n\nОнлайн · Механик Пользователь +.\n1\nЧаты\n\nВнутренний мессенджер завода: отделы, группы, вложения и прочитанные сообщения.\n\nЛичный чат\nНовое сообщение или обновление чата\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nУГ\nУчебная группа LOCAL03\n08:18\nГрупповой чат · 2 уч.\nПользователь +7 *** ***-10-03: Учебное сообщение LOCAL03 для проверки истории\nУГ\nУчебная группа LOCAL03\n\nГрупповой чат · 2 участника\n\nУчастники\nОбновить\nСегодня\nП+\nПользователь +7 *** ***-10-03 · Руководство\n08:18\n...\n\nУчебное сообщение LOCAL03 для проверки истории\n\n📎\n🙂\n🎙\nСмена\nЛюди\nЛинии\nЗаявки\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\n1\nСообщить об ошибке\nНастройки",
+  "actors": {
+    "management": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+    "techMechanic": "80615754-9a54-4d0f-83c2-b0e6f341c910"
+  },
+  "id": "75b68305-0367-42b7-b1d0-440a7ddfd04d",
+  "messageId": "80969d24-b7df-4ed2-8d03-d14ab01daac1",
+  "secondUiMs": 165,
+  "fileId": "96e5e4ef-8083-4ac0-b0f6-fc60c2965f7d",
+  "fileSha": "e16e08076d129505f573c3d9a3e9c9c1dfa93ef7830b3d596e489a12a127bbc4",
+  "edited": true,
+  "reply": "eec64c87-6864-4d37-96c5-1dd97cc3d80b",
+  "reaction": true,
+  "promoted": true,
+  "transferred": true,
+  "removed": {
+    "uiMs": 338,
+    "denials": {
+      "detail": 403,
+      "/members": 403,
+      "/media": 403,
+      "file": 403
+    }
+  },
+  "readded": true,
+  "ownerBack": true,
+  "left": true,
+  "archived": true,
+  "sql": {
+    "id": "75b68305-0367-42b7-b1d0-440a7ddfd04d",
+    "isActive": false,
+    "archivedAt": "2026-09-25T05:20:47.276Z",
+    "members": [
+      {
+        "userId": "80615754-9a54-4d0f-83c2-b0e6f341c910",
+        "membershipRole": "MEMBER",
+        "removedAt": null,
+        "leftAt": "2026-09-25T05:20:46.629Z"
+      },
+      {
+        "userId": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+        "membershipRole": "OWNER",
+        "removedAt": null,
+        "leftAt": null
+      }
+    ],
+    "messages": [
+      {
+        "id": "eec64c87-6864-4d37-96c5-1dd97cc3d80b",
+        "replyToMessageId": "80969d24-b7df-4ed2-8d03-d14ab01daac1",
+        "deletedAt": null
+      },
+      {
+        "id": "80969d24-b7df-4ed2-8d03-d14ab01daac1",
+        "replyToMessageId": null,
+        "deletedAt": null
+      },
+      {
+        "id": "dcdadc86-4c00-4fe5-b0d5-3f0e7b60bc2c",
+        "replyToMessageId": null,
+        "deletedAt": null
+      },
+      {
+        "id": "c6e6212f-9e8b-4a4d-88aa-a45461e04e35",
+        "replyToMessageId": null,
+        "deletedAt": null
+      },
+      {
+        "id": "efcdc626-f27f-4a34-a6bd-ddb3b936f680",
+        "replyToMessageId": null,
+        "deletedAt": null
+      },
+      {
+        "id": "afcc4388-dcd1-4ab1-ba7b-44bca9685f29",
+        "replyToMessageId": null,
+        "deletedAt": null
+      },
+      {
+        "id": "1a221f3a-61b7-470a-bd24-ad45fd479eca",
+        "replyToMessageId": null,
+        "deletedAt": null
+      },
+      {
+        "id": "7bec64d5-9057-4bdf-9fff-e2e91b480712",
+        "replyToMessageId": null,
+        "deletedAt": null
+      }
+    ]
+  },
+  "status": "PASS_UI_GROUP_LIFECYCLE_BOUNDED"
+}

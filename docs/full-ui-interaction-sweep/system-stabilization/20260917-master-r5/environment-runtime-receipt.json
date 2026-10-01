@@ -1,0 +1,75 @@
+{
+  "at": "2026-09-17T17:48:48.717Z",
+  "evidence": [
+    "environment-inventory-host.json",
+    "license-policy-observation.json",
+    "install-uac-terminal.json"
+  ],
+  "callerSession": 50801,
+  "callerExitCode": 1,
+  "uac": {
+    "startedAt": "2026-09-17T20:32:45.9842457+03:00",
+    "scriptSha256": "cdd82283c09300b64a6e78a9659a1c075b498ef546078d876544b64a81ef2e0f",
+    "message": "This command cannot be run due to the error: An error occurred trying to start process 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe' with working directory 'C:\\Users\\79164\\Documents\\work'. Операция была отменена пользователем.",
+    "at": "2026-09-17T20:34:48.6869288+03:00",
+    "status": "UAC_OR_LAUNCH_ERROR"
+  },
+  "elevatedInstallerPid": null,
+  "elevatedInstallerStarted": false,
+  "installationReceipts": [
+    {
+      "name": "install-uac-start.json",
+      "exists": false
+    },
+    {
+      "name": "install-before-features.json",
+      "exists": false
+    },
+    {
+      "name": "install-result.json",
+      "exists": false
+    }
+  ],
+  "componentsInstalledByR5": [],
+  "componentsEnabledByR5": [],
+  "systemConfigurationChanges": [],
+  "automaticReboot": false,
+  "restartRequirement": "UNKNOWN_NO_INSTALL_RESULT_DO_NOT_REQUEST_REBOOT",
+  "compatibility": "WINDOWS_SANDBOX_HARDWARE_LICENSE_CANDIDATE_NOT_FULL_STACK_APPROVED_PLAYWRIGHT_1_60_WIN10_NOT_LISTED",
+  "provisionedEnvironment": null,
+  "observedEnvironmentIdentity": null,
+  "isolationProof": "NOT_RUN_NO_GUEST",
+  "negativeCases": [
+    {
+      "id": "manifest_identity_substitution",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "foreign_target",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "unexpected_mount",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "wrong_environment",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "forbidden_destination",
+      "result": "NOT_RUN"
+    },
+    {
+      "id": "missing_provision_isolation_gate",
+      "result": "NOT_RUN"
+    }
+  ],
+  "ownedRuntime": [],
+  "ownedRuntimeStatus": "NO_APP_DB_BROWSER_VM_PROCESS_STARTED",
+  "syntheticFixtureStatus": "NONE_CREATED",
+  "workingDbAccessed": false,
+  "workingDataEnvUploadsChanged": false,
+  "existingWorkingRuntimeStatus": "UNKNOWN_NOT_INSPECTED",
+  "rollback": "No installed mechanism to uninstall. Preserve evidence and UAC error; do not delete guards or retry without confirmation."
+}

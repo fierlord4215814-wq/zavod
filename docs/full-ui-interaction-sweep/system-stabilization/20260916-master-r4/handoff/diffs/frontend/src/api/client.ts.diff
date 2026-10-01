@@ -1,0 +1,132 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\B-before\\frontend\\src\\api\\client.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\api\\client.ts"
+index eec5e2e8..d68e34f9 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\B-before\\frontend\\src\\api\\client.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\api\\client.ts"
+@@ -26,7 +26,11 @@ export class ApiContextChangedError extends Error {
+   }
+ }
+ 
++let connectivityRequestSequence = 0;
++let connectivityObservationSequence = 0;
++
+ function observeResponseContext() {
++  const sequence = ++connectivityRequestSequence;
+   const identity = () => {
+     const state = appStore.getState();
+     return JSON.stringify([getApiContext(), state.authStatus, state.currentUser?.role,
+@@ -38,15 +42,30 @@ function observeResponseContext() {
+   // Remember intervening transitions too: comparing only the final A after
+   // A→B→A (or logout/login) would accept a response from an obsolete session.
+   const release = appStore.subscribe(() => { if (identity() !== initial) invalidated = true; });
+-  return { current: () => !invalidated, release, assertCurrent: () => { if (invalidated) throw new ApiContextChangedError(); } };
++  return {
++    current: () => !invalidated, release,
++    assertCurrent: () => { if (invalidated) throw new ApiContextChangedError(); },
++    reportConnectivity: (message: string | null) => {
++      // An older in-flight request cannot overwrite a newer observation. This
++      // describes this API transport only, not application health or commit status.
++      if (invalidated || sequence < connectivityObservationSequence) return;
++      connectivityObservationSequence = sequence;
++      emitApiConnectivity(message);
++    },
++  };
+ }
+ 
+ function isNetworkError(error: unknown) {
+-  return error instanceof TypeError || error instanceof ApiNetworkError;
++  return error instanceof TypeError || error instanceof ApiNetworkError
++    || (error instanceof Error && error.name === 'TimeoutError');
+ }
+ 
+ function networkErrorMessage() {
+-  return 'Нет связи с сервером. Действие не сохранено.';
++  return 'Не удалось получить ответ сервера. Проверьте результат действия перед повтором.';
++}
++
++function invalidResponseMessage() {
++  return 'Сервер вернул некорректный ответ. Проверьте результат действия перед повтором.';
+ }
+ 
+ function emitApiConnectivity(message: string | null) {
+@@ -112,6 +131,9 @@ async function request<T>(url: string, options?: RequestOptions): Promise<T> {
+       headers,
+     });
+     responseContext.assertCurrent();
++    // A current HTTP refusal still proves that this request reached a responder.
++    // Keep its business error; never equate this notice reset with command success.
++    responseContext.reportConnectivity(null);
+     if (!response.ok) {
+       const message = await apiErrorMessage(response);
+       responseContext.assertCurrent();
+@@ -119,16 +141,15 @@ async function request<T>(url: string, options?: RequestOptions): Promise<T> {
+     }
+     const result = response.status === 204 ? null : await response.json();
+     responseContext.assertCurrent();
+-    emitApiConnectivity(null);
+     return result as T;
+   } catch (error) {
+     responseContext.assertCurrent();
+     if (isNetworkError(error)) {
+       const message = networkErrorMessage();
+-      emitApiConnectivity(message);
++      responseContext.reportConnectivity(message);
+       throw new ApiNetworkError(message);
+     }
+-
++    if (error instanceof SyntaxError) throw new Error(invalidResponseMessage());
+     throw error;
+   } finally {
+     responseContext.release();
+@@ -148,6 +169,7 @@ async function downloadBlob(url: string): Promise<{ blob: Blob; filename: string
+     },
+   });
+   responseContext.assertCurrent();
++  responseContext.reportConnectivity(null);
+   if (!response.ok) throw new Error(await apiErrorMessage(response));
+   const disposition = response.headers.get('content-disposition') ?? '';
+   const encoded = disposition.match(/filename\*=UTF-8''([^;]+)/i)?.[1]
+@@ -160,6 +182,11 @@ async function downloadBlob(url: string): Promise<{ blob: Blob; filename: string
+   return { blob, filename, primaryCount: Number.isFinite(countValue) ? countValue : null };
+   } catch (error) {
+     responseContext.assertCurrent();
++    if (isNetworkError(error)) {
++      const message = networkErrorMessage();
++      responseContext.reportConnectivity(message);
++      throw new ApiNetworkError(message);
++    }
+     throw error;
+   } finally {
+     responseContext.release();
+@@ -184,22 +211,29 @@ function uploadWithProgress<T>(url: string, formData: FormData, options: UploadP
+     xhr.upload.onprogress = (event) => {
+       if (responseContext.current() && event.lengthComputable) options.onProgress?.(Math.min(100, Math.round((event.loaded / event.total) * 100)));
+     };
+-    xhr.onerror = () => {
++    const failTransport = () => {
+       finish();
+       if (!responseContext.current()) { reject(new ApiContextChangedError()); return; }
+       const message = networkErrorMessage();
+-      emitApiConnectivity(message);
++      responseContext.reportConnectivity(message);
+       reject(new ApiNetworkError(message));
+     };
++    xhr.onerror = failTransport;
++    xhr.ontimeout = failTransport;
+     xhr.onabort = () => { finish(); reject(new DOMException('Загрузка отменена.', 'AbortError')); };
+     xhr.onload = () => {
+       finish();
+       if (!responseContext.current()) { reject(new ApiContextChangedError()); return; }
+-      emitApiConnectivity(null);
++      if (xhr.status === 0) { failTransport(); return; }
++      responseContext.reportConnectivity(null);
+       const payload = xhr.response ?? (() => {
+         try { return JSON.parse(xhr.responseText); } catch { return null; }
+       })();
+       if (xhr.status >= 200 && xhr.status < 300) {
++        if (xhr.status !== 204 && payload === null) {
++          reject(new Error(invalidResponseMessage()));
++          return;
++        }
+         options.onProgress?.(100);
+         resolve(payload as T);
+         return;

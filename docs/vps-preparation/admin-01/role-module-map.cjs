@@ -1,0 +1,8 @@
+// Source projection only. No DB/application bootstrap or new acceptance of all role families.
+require('../../../backend/scripts/master-offline-guard.cjs');
+const fs=require('node:fs'),path=require('node:path'),ts=require('../../../node_modules/typescript'),Module=require('node:module'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'../../..'),source=path.join(root,'frontend/src/navigation/permissions.ts'),compiled=ts.transpileModule(fs.readFileSync(source,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText;
+const m=new Module(source,module);m.filename=source;m.paths=module.paths;m._compile(compiled,source);const nav=m.exports;
+const{resolveEffectivePermissions}=require('../../../backend/dist/common/effective-permissions'),catalog=require('../../../backend/prisma/system-foundation.cjs'),roles=Object.keys(catalog.rolePermissions);assert.equal(roles.length,15);
+const screenRoles=nav.SCREEN_DEFINITIONS.map(s=>({screen:s.code,label:s.label,defaultEligibleRoles:roles.filter(role=>nav.canShowScreen(s.code,resolveEffectivePermissions({role,isGuest:false,rolePermissionCodes:catalog.rolePermissions[role]}),role,false)),guest:nav.canShowScreen(s.code,[], 'OTHER',true)}));
+fs.writeFileSync(path.join(__dirname,'role-module-map.json'),JSON.stringify({status:'SOURCE_ONLY_CURRENT_DEFAULT_EFFECTIVE_CAPABILITY_PROJECTION',owners:['backend/prisma/system-foundation.cjs','backend/src/common/effective-permissions.ts','frontend/src/navigation/permissions.ts'],screenRoles,limits:'Menu entry only; service guards, membership, department, active UFA, blocked and overrides still apply. Not role completeness PASS.'},null,2));console.log(JSON.stringify(screenRoles));

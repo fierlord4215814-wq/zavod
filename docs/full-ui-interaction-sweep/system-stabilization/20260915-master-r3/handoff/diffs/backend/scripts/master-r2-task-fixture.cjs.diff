@@ -1,0 +1,27 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-task-fixture.cjs" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-task-fixture.cjs"
+index f3cf3f99..c94a8d66 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-task-fixture.cjs"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-task-fixture.cjs"
+@@ -37,4 +37,21 @@ function taskFixture() {
+   const create = (operationId = 'r2-task-create', user = actor) => service.createTask({ actor: user, operationId, description: 'Проверить ограждение', assigneeUserIds: [actor.userId] });
+   return { ...m, tasks, assignees, recipients, comments, histories, notifications, service, create, failAdapter: name => { failAdapter = name; } };
+ }
+-module.exports={actor,taskFixture};
++// Extended existing fixture for the IPC receiver chain; no HTTP or bootstrap.
++function taskBridgeFixture(){
++ const f=taskFixture(),user={...actor,permissions:[...actor.permissions,'notifications.read','ops.audit.read']};
++ const users=[user.userId,'r2-next-manager'].map(id=>({id,firstName:'Мастер',lastName:id===user.userId?'Первый':'Второй',role:'MASTER',blockedAt:null,deletedAt:null,passwordResetRequired:false,assignments:[]}));
++ users.push({id:'r3-management',firstName:'Ирина',lastName:'Производственная',role:'MANAGEMENT',blockedAt:null,deletedAt:null,passwordResetRequired:false,assignments:[]});
++ const accesses=users.map(account=>({userId:account.id,factoryId:user.selectedFactoryId,role:account.role,departmentId:user.departmentId,department:{id:user.departmentId,name:'Служба эксплуатации',scope:'FACTORY'},isActive:true,isGuest:false,deactivatedAt:null,user:account,factory:{isActive:true,deletedAt:null},companyId:null}));
++ f.data.userFactoryAccess=f.model('userFactoryAccess',accesses,{includes:['user','department'],compounds:['userId_factoryId']});
++ const authorityFixture=require('./master-r2-authority-fixture.cjs').installAuthority(f,users,accesses,{MASTER:user.permissions,MANAGEMENT:user.permissions});
++ const userReads=f.model('user',users,{enrich:r=>({...r,factoryAccess:accesses.filter(a=>a.userId===r.id)})});f.data.user=strict({...f.data.user,findMany:userReads.findMany});
++ const {AuditService}=require('../dist/common/audit.service'),{NotificationsService}=require('../dist/modules/notifications/notifications.service'),{OpsService}=require('../dist/modules/ops/ops.service');
++ f.data.auditLog=f.model('auditLog',f.audits,{includes:['user'],enrich:r=>({...r,user:users.find(u=>u.id===r.userId)??null})});f.audit=new AuditService({db:f.db});
++ const notices=[],pushes=[];f.data.notification=f.model('notification',notices,{defaults:{readAt:null,expiresAt:null}});
++ const push=strict({sendPush:(...args)=>pushes.push(copy(args)),sendNotificationToUsers:async(...args)=>pushes.push(copy(args))});
++ const directory=new (require('../dist/modules/directory/directory.service').DirectoryService)({db:f.db});
++ const notification=new NotificationsService({db:f.db},f.audit,f.ws,push,authorityFixture.authority),service=new TaskService({db:f.db},f.ws,push,f.audit,f.attachments,notification,directory);
++ return {...f,user,users,accesses,account:users[0],access:accesses[0],authorityFixture,notification,notices,pushes,service,controller:new TaskController(service),ops:new OpsService({db:f.db},f.audit)};
++}
++module.exports={actor,taskFixture,taskBridgeFixture};

@@ -1,0 +1,13 @@
+From: OPS01 actual three-hunk edit record
+Note: this owner was discovered after initial 25-file baseline. This is a
+review change record, NOT a claimed pre-edit byte/SHA capture.
+--- frontend/src/api/attachments.ts (before OPS01 upload fix)
++++ frontend/src/api/attachments.ts (after OPS01 upload fix)
+@@ uploadAttachments: before try
++    options.onProgress?.({ file, index, percent: 0, state: 'uploading' });
+@@ uploadWithProgress callback
+-        onProgress: (percent) => options.onProgress?.({ file, index, percent, state: percent >= 100 ? 'done' : 'uploading' }),
++        // Bytes sent is not server acceptance; keep cancellation available until the response.
++        onProgress: (percent) => options.onProgress?.({ file, index, percent, state: 'uploading' }),
+@@ after successful await and uploaded.push(result)
++      options.onProgress?.({ file, index, percent: 100, state: 'done' });

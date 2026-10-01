@@ -1,0 +1,759 @@
+{
+  "status": "PASS_REMAINING_VISIBLE_FORMATTED_METRICS_EMPTY_AND_FLAGS",
+  "cases": [
+    {
+      "key": "ADMIN",
+      "width": 1440,
+      "name": "history",
+      "rows": [
+        {
+          "METRIC": "summary.tenMinuteDailyEffect.potentialMinutes",
+          "USER_MEANING": "Условный потенциал, не деньги и не измеренная производительность",
+          "SOURCE_ROWS": [
+            "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+            "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+            "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+            "10782695-321f-46c3-b0be-96d7eb4e8684",
+            "aa971061-8a07-4bb7-8f7f-fa708317040f",
+            "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+            "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+            "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+            "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+          ],
+          "TIME_BASIS": "период",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "min(lost, 10*weekdays)",
+          "UNIT": "минуты",
+          "EXPECTED": 50,
+          "API_ACTUAL": 50,
+          "UI_ACTUAL": "50 мин",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "quality.stockDefectQuantities",
+          "USER_MEANING": "Текущее сохранённое количество в записях периода; не исторический снимок объёма",
+          "SOURCE_ROWS": [
+            "bd20c979-119e-4651-a625-38d76c83baa3"
+          ],
+          "TIME_BASIS": "current quantity of period records",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "group by unit, sum each row once; no release ledger addition",
+          "UNIT": "по единицам",
+          "EXPECTED": [
+            {
+              "unit": "гофры",
+              "quantity": 14
+            }
+          ],
+          "API_ACTUAL": [
+            {
+              "unit": "гофры",
+              "quantity": 14
+            }
+          ],
+          "UI_ACTUAL": "Текущее количество в записях периода: 14 гофры",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "summary.worstLine.lostMinutes",
+          "USER_MEANING": "summary.worstLine.lostMinutes",
+          "SOURCE_ROWS": [
+            "9125a431-9d33-47d2-8763-08889bc2ab52"
+          ],
+          "TIME_BASIS": "selected period",
+          "FILTERS": "same applicable selection as independent primary reference",
+          "FORMULA": "summed unique line-event minutes",
+          "UNIT": "минуты",
+          "EXPECTED": 1276,
+          "API_ACTUAL": 1276,
+          "UI_ACTUAL": "21 ч 16 мин",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "dataQuality.status",
+          "USER_MEANING": "Наличие диагностических предупреждений, не гарантия полноты",
+          "SOURCE_ROWS": [
+            "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+            "10782695-321f-46c3-b0be-96d7eb4e8684",
+            "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+            "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+            "f234062f-deca-4e20-8bc5-baee5b774102"
+          ],
+          "TIME_BASIS": "period plus current legacy diagnostic",
+          "FILTERS": {
+            "dateFrom": "2026-09-20",
+            "dateTo": "2026-09-27"
+          },
+          "FORMULA": "nonzero warning categories ? Требует проверки : Данные достаточны для расчёта",
+          "EXPECTED": "Требует проверки",
+          "API_ACTUAL": "Требует проверки",
+          "UI_ACTUAL": "Требует проверки",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        }
+      ],
+      "asOf": "2026-09-27T17:30:22.801Z",
+      "legacyYearlyNameIsPeriodOnly": true,
+      "taskStatusLabels": true,
+      "intervalOpenFlags": true,
+      "insights": [
+        {
+          "key": "line-loss",
+          "text": "УЧ-Линия 1: 21 ч 16 мин за выбранный период, простоев: 2.",
+          "detail": "На линии есть открытый простой.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "repeated-problem",
+          "text": "Техническая неисправность: повторов 2, линия УЧ-Линия 1.",
+          "detail": "Суммарное влияние: 21 ч 16 мин.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "quality",
+          "text": "ОКК: 1, некондиция: 1, возвраты: 1.",
+          "detail": "Записи выбранного завода, созданные за период, включая архивные; это число записей, не объём продукции.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "data-quality",
+          "text": "Незавершённые простои: 4.",
+          "detail": "Это не скрывается: руководителю важно видеть ограничения расчёта.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        }
+      ],
+      "limitations": [
+        "История включения линии в смену учитывается только по достоверным событиям и текущим line state; если line event отсутствует, время работы не выдумывается.",
+        "Заявка считается созданной из простоя только при явной связи lineStatusEventId. Совпадение по времени показывается отдельно как контекст.",
+        "Финансовые потери не считаются: в системе нет достоверной стоимости минуты простоя.",
+        "Медиана и p90 считаются методом ближайшего ранга по завершённым временным интервалам в минутах."
+      ]
+    },
+    {
+      "key": "ADMIN",
+      "width": 1440,
+      "name": "controlled",
+      "rows": [
+        {
+          "METRIC": "summary.tenMinuteDailyEffect.potentialMinutes",
+          "USER_MEANING": "Условный потенциал, не деньги и не измеренная производительность",
+          "SOURCE_ROWS": [
+            "90feb22b-689e-4fc5-b31c-3603330f8dd8",
+            "dd5b8e75-4cf7-4da5-95c5-cdd43b23daf5",
+            "3f19c225-6e35-4a70-8121-f3deb07661a0",
+            "e25328e0-7bdb-4a68-a627-e413d02d18bf",
+            "3a2f0462-f4e1-40fd-b592-e8e25b5cbabd",
+            "fbd11826-d2a1-4ff8-81f6-3be776e2abbf"
+          ],
+          "TIME_BASIS": "период",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "min(lost, 10*weekdays)",
+          "UNIT": "минуты",
+          "EXPECTED": 10,
+          "API_ACTUAL": 10,
+          "UI_ACTUAL": "10 мин",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "quality.stockDefectQuantities",
+          "USER_MEANING": "Текущее сохранённое количество в записях периода; не исторический снимок объёма",
+          "SOURCE_ROWS": [
+            "c07bdd9e-1b0f-4084-8246-8450da7ff62a",
+            "fe47faa9-53c9-4f9e-a344-532337d3c67c"
+          ],
+          "TIME_BASIS": "current quantity of period records",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "group by unit, sum each row once; no release ledger addition",
+          "UNIT": "по единицам",
+          "EXPECTED": [
+            {
+              "unit": "кг",
+              "quantity": 2
+            },
+            {
+              "unit": "шт",
+              "quantity": 3
+            }
+          ],
+          "API_ACTUAL": [
+            {
+              "unit": "кг",
+              "quantity": 2
+            },
+            {
+              "unit": "шт",
+              "quantity": 3
+            }
+          ],
+          "UI_ACTUAL": "Текущее количество в записях периода: 2 кг; 3 шт",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "summary.worstLine.lostMinutes",
+          "USER_MEANING": "summary.worstLine.lostMinutes",
+          "SOURCE_ROWS": [
+            "40ce951f-bf4e-4692-b5a1-7334001b0a08"
+          ],
+          "TIME_BASIS": "selected period",
+          "FILTERS": "same applicable selection as independent primary reference",
+          "FORMULA": "summed unique line-event minutes",
+          "UNIT": "минуты",
+          "EXPECTED": 360,
+          "API_ACTUAL": 360,
+          "UI_ACTUAL": "6 ч",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "dataQuality.status",
+          "USER_MEANING": "Наличие диагностических предупреждений, не гарантия полноты",
+          "SOURCE_ROWS": [
+            "e25328e0-7bdb-4a68-a627-e413d02d18bf",
+            "4ed40a64-9bef-455a-b4d2-d3d863b9e227",
+            "52580727-a67f-4b41-bc91-947f5da79b04",
+            "f234062f-deca-4e20-8bc5-baee5b774102"
+          ],
+          "TIME_BASIS": "period plus current legacy diagnostic",
+          "FILTERS": {
+            "dateFrom": "2026-08-31",
+            "dateTo": "2026-08-31"
+          },
+          "FORMULA": "nonzero warning categories ? Требует проверки : Данные достаточны для расчёта",
+          "EXPECTED": "Требует проверки",
+          "API_ACTUAL": "Требует проверки",
+          "UI_ACTUAL": "Требует проверки",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        }
+      ],
+      "asOf": "2026-08-31T21:00:00.000Z",
+      "legacyYearlyNameIsPeriodOnly": true,
+      "taskStatusLabels": true,
+      "intervalOpenFlags": true,
+      "insights": [
+        {
+          "key": "line-loss",
+          "text": "УЧ-Линия 2: 6 ч за выбранный период, простоев: 4.",
+          "detail": "На линии есть открытый простой.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "overdue-long",
+          "text": "1 долгих заявок вышли за срок и требуют управленческого внимания.",
+          "detail": "В списке заявок ниже показаны только подтверждённые записи текущего завода.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "department-response",
+          "text": "УЧ — Производство T1: открыто 1, просрочено 1.",
+          "detail": "Максимальная реакция: 1 ч 40 мин.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "repeated-problem",
+          "text": "Техническая неисправность: повторов 2, линия УЧ-Линия 2.",
+          "detail": "Суммарное влияние: 50 мин.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "checklist-discipline",
+          "text": "1 проверок требуют внимания по срокам.",
+          "detail": "Смотрите блок чек-листов и архив запусков.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "quality",
+          "text": "ОКК: 0, некондиция: 2, возвраты: 0.",
+          "detail": "Записи выбранного завода, созданные за период, включая архивные; это число записей, не объём продукции.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "wash",
+          "text": "Открытых проблем мойки: 1, незавершённых мини-заданий: 1.",
+          "detail": "Проверьте контроль мойки перед запуском линии.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "data-quality",
+          "text": "Незавершённые простои: 1.",
+          "detail": "Это не скрывается: руководителю важно видеть ограничения расчёта.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        }
+      ],
+      "limitations": [
+        "История включения линии в смену учитывается только по достоверным событиям и текущим line state; если line event отсутствует, время работы не выдумывается.",
+        "Заявка считается созданной из простоя только при явной связи lineStatusEventId. Совпадение по времени показывается отдельно как контекст.",
+        "Финансовые потери не считаются: в системе нет достоверной стоимости минуты простоя.",
+        "Медиана и p90 считаются методом ближайшего ранга по завершённым временным интервалам в минутах."
+      ]
+    },
+    {
+      "key": "ADMIN",
+      "width": 1440,
+      "name": "empty",
+      "rows": [
+        {
+          "METRIC": "summary.tenMinuteDailyEffect.potentialMinutes",
+          "USER_MEANING": "Условный потенциал, не деньги и не измеренная производительность",
+          "SOURCE_ROWS": [],
+          "TIME_BASIS": "период",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "min(lost, 10*weekdays)",
+          "UNIT": "минуты",
+          "EXPECTED": 0,
+          "API_ACTUAL": 0,
+          "UI_ACTUAL": "0 мин",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "quality.stockDefectQuantities",
+          "USER_MEANING": "Текущее сохранённое количество в записях периода; не исторический снимок объёма",
+          "SOURCE_ROWS": [],
+          "TIME_BASIS": "current quantity of period records",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "group by unit, sum each row once; no release ledger addition",
+          "UNIT": "по единицам",
+          "EXPECTED": [],
+          "API_ACTUAL": [],
+          "UI_ACTUAL": "Текущее количество в записях периода: нет данных",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "summary.worstLine.lostMinutes",
+          "USER_MEANING": "summary.worstLine.lostMinutes",
+          "SOURCE_ROWS": [],
+          "TIME_BASIS": "selected period",
+          "FILTERS": "same applicable selection as independent primary reference",
+          "FORMULA": "summed unique line-event minutes",
+          "UNIT": "минуты",
+          "EXPECTED": null,
+          "API_ACTUAL": null,
+          "UI_ACTUAL": "Потерь не найдено",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "dataQuality.status",
+          "USER_MEANING": "Наличие диагностических предупреждений, не гарантия полноты",
+          "SOURCE_ROWS": [
+            "f234062f-deca-4e20-8bc5-baee5b774102"
+          ],
+          "TIME_BASIS": "period plus current legacy diagnostic",
+          "FILTERS": {
+            "dateFrom": "2026-08-01",
+            "dateTo": "2026-08-01"
+          },
+          "FORMULA": "nonzero warning categories ? Требует проверки : Данные достаточны для расчёта",
+          "EXPECTED": "Требует проверки",
+          "API_ACTUAL": "Требует проверки",
+          "UI_ACTUAL": "Требует проверки",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        }
+      ],
+      "asOf": "2026-08-01T21:00:00.000Z",
+      "legacyYearlyNameIsPeriodOnly": true,
+      "taskStatusLabels": true,
+      "intervalOpenFlags": true,
+      "insights": [
+        {
+          "key": "data-quality",
+          "text": "Исторические активные проверки внутри закрытых чек-листов: 1.",
+          "detail": "Это не скрывается: руководителю важно видеть ограничения расчёта.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        }
+      ],
+      "limitations": [
+        "История включения линии в смену учитывается только по достоверным событиям и текущим line state; если line event отсутствует, время работы не выдумывается.",
+        "Заявка считается созданной из простоя только при явной связи lineStatusEventId. Совпадение по времени показывается отдельно как контекст.",
+        "Финансовые потери не считаются: в системе нет достоверной стоимости минуты простоя.",
+        "Медиана и p90 считаются методом ближайшего ранга по завершённым временным интервалам в минутах."
+      ]
+    },
+    {
+      "key": "MANAGEMENT",
+      "width": 390,
+      "name": "history",
+      "rows": [
+        {
+          "METRIC": "summary.tenMinuteDailyEffect.potentialMinutes",
+          "USER_MEANING": "Условный потенциал, не деньги и не измеренная производительность",
+          "SOURCE_ROWS": [
+            "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+            "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+            "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+            "10782695-321f-46c3-b0be-96d7eb4e8684",
+            "aa971061-8a07-4bb7-8f7f-fa708317040f",
+            "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+            "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+            "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+            "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+          ],
+          "TIME_BASIS": "период",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "min(lost, 10*weekdays)",
+          "UNIT": "минуты",
+          "EXPECTED": 50,
+          "API_ACTUAL": 50,
+          "UI_ACTUAL": "50 мин",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "quality.stockDefectQuantities",
+          "USER_MEANING": "Текущее сохранённое количество в записях периода; не исторический снимок объёма",
+          "SOURCE_ROWS": [
+            "bd20c979-119e-4651-a625-38d76c83baa3"
+          ],
+          "TIME_BASIS": "current quantity of period records",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "group by unit, sum each row once; no release ledger addition",
+          "UNIT": "по единицам",
+          "EXPECTED": [
+            {
+              "unit": "гофры",
+              "quantity": 14
+            }
+          ],
+          "API_ACTUAL": [
+            {
+              "unit": "гофры",
+              "quantity": 14
+            }
+          ],
+          "UI_ACTUAL": "Текущее количество в записях периода: 14 гофры",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "summary.worstLine.lostMinutes",
+          "USER_MEANING": "summary.worstLine.lostMinutes",
+          "SOURCE_ROWS": [
+            "9125a431-9d33-47d2-8763-08889bc2ab52"
+          ],
+          "TIME_BASIS": "selected period",
+          "FILTERS": "same applicable selection as independent primary reference",
+          "FORMULA": "summed unique line-event minutes",
+          "UNIT": "минуты",
+          "EXPECTED": 1276,
+          "API_ACTUAL": 1276,
+          "UI_ACTUAL": "21 ч 16 мин",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "dataQuality.status",
+          "USER_MEANING": "Наличие диагностических предупреждений, не гарантия полноты",
+          "SOURCE_ROWS": [
+            "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+            "10782695-321f-46c3-b0be-96d7eb4e8684",
+            "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+            "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+            "f234062f-deca-4e20-8bc5-baee5b774102"
+          ],
+          "TIME_BASIS": "period plus current legacy diagnostic",
+          "FILTERS": {
+            "dateFrom": "2026-09-20",
+            "dateTo": "2026-09-27"
+          },
+          "FORMULA": "nonzero warning categories ? Требует проверки : Данные достаточны для расчёта",
+          "EXPECTED": "Требует проверки",
+          "API_ACTUAL": "Требует проверки",
+          "UI_ACTUAL": "Требует проверки",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        }
+      ],
+      "asOf": "2026-09-27T17:30:25.748Z",
+      "legacyYearlyNameIsPeriodOnly": true,
+      "taskStatusLabels": true,
+      "intervalOpenFlags": true,
+      "insights": [
+        {
+          "key": "line-loss",
+          "text": "УЧ-Линия 1: 21 ч 16 мин за выбранный период, простоев: 2.",
+          "detail": "На линии есть открытый простой.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "repeated-problem",
+          "text": "Техническая неисправность: повторов 2, линия УЧ-Линия 1.",
+          "detail": "Суммарное влияние: 21 ч 16 мин.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "quality",
+          "text": "ОКК: 1, некондиция: 1, возвраты: 1.",
+          "detail": "Записи выбранного завода, созданные за период, включая архивные; это число записей, не объём продукции.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "data-quality",
+          "text": "Незавершённые простои: 4.",
+          "detail": "Это не скрывается: руководителю важно видеть ограничения расчёта.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        }
+      ],
+      "limitations": [
+        "История включения линии в смену учитывается только по достоверным событиям и текущим line state; если line event отсутствует, время работы не выдумывается.",
+        "Заявка считается созданной из простоя только при явной связи lineStatusEventId. Совпадение по времени показывается отдельно как контекст.",
+        "Финансовые потери не считаются: в системе нет достоверной стоимости минуты простоя.",
+        "Медиана и p90 считаются методом ближайшего ранга по завершённым временным интервалам в минутах."
+      ]
+    },
+    {
+      "key": "MANAGEMENT",
+      "width": 390,
+      "name": "controlled",
+      "rows": [
+        {
+          "METRIC": "summary.tenMinuteDailyEffect.potentialMinutes",
+          "USER_MEANING": "Условный потенциал, не деньги и не измеренная производительность",
+          "SOURCE_ROWS": [
+            "90feb22b-689e-4fc5-b31c-3603330f8dd8",
+            "dd5b8e75-4cf7-4da5-95c5-cdd43b23daf5",
+            "3f19c225-6e35-4a70-8121-f3deb07661a0",
+            "e25328e0-7bdb-4a68-a627-e413d02d18bf",
+            "3a2f0462-f4e1-40fd-b592-e8e25b5cbabd",
+            "fbd11826-d2a1-4ff8-81f6-3be776e2abbf"
+          ],
+          "TIME_BASIS": "период",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "min(lost, 10*weekdays)",
+          "UNIT": "минуты",
+          "EXPECTED": 10,
+          "API_ACTUAL": 10,
+          "UI_ACTUAL": "10 мин",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "quality.stockDefectQuantities",
+          "USER_MEANING": "Текущее сохранённое количество в записях периода; не исторический снимок объёма",
+          "SOURCE_ROWS": [
+            "c07bdd9e-1b0f-4084-8246-8450da7ff62a",
+            "fe47faa9-53c9-4f9e-a344-532337d3c67c"
+          ],
+          "TIME_BASIS": "current quantity of period records",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "group by unit, sum each row once; no release ledger addition",
+          "UNIT": "по единицам",
+          "EXPECTED": [
+            {
+              "unit": "кг",
+              "quantity": 2
+            },
+            {
+              "unit": "шт",
+              "quantity": 3
+            }
+          ],
+          "API_ACTUAL": [
+            {
+              "unit": "кг",
+              "quantity": 2
+            },
+            {
+              "unit": "шт",
+              "quantity": 3
+            }
+          ],
+          "UI_ACTUAL": "Текущее количество в записях периода: 2 кг; 3 шт",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "summary.worstLine.lostMinutes",
+          "USER_MEANING": "summary.worstLine.lostMinutes",
+          "SOURCE_ROWS": [
+            "40ce951f-bf4e-4692-b5a1-7334001b0a08"
+          ],
+          "TIME_BASIS": "selected period",
+          "FILTERS": "same applicable selection as independent primary reference",
+          "FORMULA": "summed unique line-event minutes",
+          "UNIT": "минуты",
+          "EXPECTED": 360,
+          "API_ACTUAL": 360,
+          "UI_ACTUAL": "6 ч",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "dataQuality.status",
+          "USER_MEANING": "Наличие диагностических предупреждений, не гарантия полноты",
+          "SOURCE_ROWS": [
+            "e25328e0-7bdb-4a68-a627-e413d02d18bf",
+            "4ed40a64-9bef-455a-b4d2-d3d863b9e227",
+            "52580727-a67f-4b41-bc91-947f5da79b04",
+            "f234062f-deca-4e20-8bc5-baee5b774102"
+          ],
+          "TIME_BASIS": "period plus current legacy diagnostic",
+          "FILTERS": {
+            "dateFrom": "2026-08-31",
+            "dateTo": "2026-08-31"
+          },
+          "FORMULA": "nonzero warning categories ? Требует проверки : Данные достаточны для расчёта",
+          "EXPECTED": "Требует проверки",
+          "API_ACTUAL": "Требует проверки",
+          "UI_ACTUAL": "Требует проверки",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        }
+      ],
+      "asOf": "2026-08-31T21:00:00.000Z",
+      "legacyYearlyNameIsPeriodOnly": true,
+      "taskStatusLabels": true,
+      "intervalOpenFlags": true,
+      "insights": [
+        {
+          "key": "line-loss",
+          "text": "УЧ-Линия 2: 6 ч за выбранный период, простоев: 4.",
+          "detail": "На линии есть открытый простой.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "overdue-long",
+          "text": "1 долгих заявок вышли за срок и требуют управленческого внимания.",
+          "detail": "В списке заявок ниже показаны только подтверждённые записи текущего завода.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "department-response",
+          "text": "УЧ — Производство T1: открыто 1, просрочено 1.",
+          "detail": "Максимальная реакция: 1 ч 40 мин.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "repeated-problem",
+          "text": "Техническая неисправность: повторов 2, линия УЧ-Линия 2.",
+          "detail": "Суммарное влияние: 50 мин.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "checklist-discipline",
+          "text": "1 проверок требуют внимания по срокам.",
+          "detail": "Смотрите блок чек-листов и архив запусков.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "quality",
+          "text": "ОКК: 0, некондиция: 2, возвраты: 0.",
+          "detail": "Записи выбранного завода, созданные за период, включая архивные; это число записей, не объём продукции.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "wash",
+          "text": "Открытых проблем мойки: 1, незавершённых мини-заданий: 1.",
+          "detail": "Проверьте контроль мойки перед запуском линии.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        },
+        {
+          "key": "data-quality",
+          "text": "Незавершённые простои: 1.",
+          "detail": "Это не скрывается: руководителю важно видеть ограничения расчёта.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        }
+      ],
+      "limitations": [
+        "История включения линии в смену учитывается только по достоверным событиям и текущим line state; если line event отсутствует, время работы не выдумывается.",
+        "Заявка считается созданной из простоя только при явной связи lineStatusEventId. Совпадение по времени показывается отдельно как контекст.",
+        "Финансовые потери не считаются: в системе нет достоверной стоимости минуты простоя.",
+        "Медиана и p90 считаются методом ближайшего ранга по завершённым временным интервалам в минутах."
+      ]
+    },
+    {
+      "key": "MANAGEMENT",
+      "width": 390,
+      "name": "empty",
+      "rows": [
+        {
+          "METRIC": "summary.tenMinuteDailyEffect.potentialMinutes",
+          "USER_MEANING": "Условный потенциал, не деньги и не измеренная производительность",
+          "SOURCE_ROWS": [],
+          "TIME_BASIS": "период",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "min(lost, 10*weekdays)",
+          "UNIT": "минуты",
+          "EXPECTED": 0,
+          "API_ACTUAL": 0,
+          "UI_ACTUAL": "0 мин",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "quality.stockDefectQuantities",
+          "USER_MEANING": "Текущее сохранённое количество в записях периода; не исторический снимок объёма",
+          "SOURCE_ROWS": [],
+          "TIME_BASIS": "current quantity of period records",
+          "FILTERS": "selected factory; optional applicable line/department/shift",
+          "FORMULA": "group by unit, sum each row once; no release ledger addition",
+          "UNIT": "по единицам",
+          "EXPECTED": [],
+          "API_ACTUAL": [],
+          "UI_ACTUAL": "Текущее количество в записях периода: нет данных",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "summary.worstLine.lostMinutes",
+          "USER_MEANING": "summary.worstLine.lostMinutes",
+          "SOURCE_ROWS": [],
+          "TIME_BASIS": "selected period",
+          "FILTERS": "same applicable selection as independent primary reference",
+          "FORMULA": "summed unique line-event minutes",
+          "UNIT": "минуты",
+          "EXPECTED": null,
+          "API_ACTUAL": null,
+          "UI_ACTUAL": "Потерь не найдено",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        },
+        {
+          "METRIC": "dataQuality.status",
+          "USER_MEANING": "Наличие диагностических предупреждений, не гарантия полноты",
+          "SOURCE_ROWS": [
+            "f234062f-deca-4e20-8bc5-baee5b774102"
+          ],
+          "TIME_BASIS": "period plus current legacy diagnostic",
+          "FILTERS": {
+            "dateFrom": "2026-08-01",
+            "dateTo": "2026-08-01"
+          },
+          "FORMULA": "nonzero warning categories ? Требует проверки : Данные достаточны для расчёта",
+          "EXPECTED": "Требует проверки",
+          "API_ACTUAL": "Требует проверки",
+          "UI_ACTUAL": "Требует проверки",
+          "STATUS": "PASS_SQL_HTTP_UI"
+        }
+      ],
+      "asOf": "2026-08-01T21:00:00.000Z",
+      "legacyYearlyNameIsPeriodOnly": true,
+      "taskStatusLabels": true,
+      "intervalOpenFlags": true,
+      "insights": [
+        {
+          "key": "data-quality",
+          "text": "Исторические активные проверки внутри закрытых чек-листов: 1.",
+          "detail": "Это не скрывается: руководителю важно видеть ограничения расчёта.",
+          "UI_PRESENT": true,
+          "basis": "Qualitative source rule over already independently checked numbers; no exhaustive severity threshold claim."
+        }
+      ],
+      "limitations": [
+        "История включения линии в смену учитывается только по достоверным событиям и текущим line state; если line event отсутствует, время работы не выдумывается.",
+        "Заявка считается созданной из простоя только при явной связи lineStatusEventId. Совпадение по времени показывается отдельно как контекст.",
+        "Финансовые потери не считаются: в системе нет достоверной стоимости минуты простоя.",
+        "Медиана и p90 считаются методом ближайшего ранга по завершённым временным интервалам в минутах."
+      ]
+    }
+  ]
+}

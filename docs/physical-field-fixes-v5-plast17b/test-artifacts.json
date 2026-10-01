@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-29T05:39:30.918Z",
+  "status": "PASS",
+  "scope": "PHYSICAL_FIELD_FIXES_V5_PLAST17B",
+  "migration": {
+    "name": "20260828120000_p17b_identity_effective_capabilities",
+    "kind": "additive",
+    "destructiveMatches": 0,
+    "prismaValidateExitCode": 0,
+    "prismaMigrateStatusExitCode": 0,
+    "migrationsFound": 53,
+    "schemaUpToDate": true
+  },
+  "identity": {
+    "trustedBackfilledUsers": 5,
+    "resolvedAtFinalCensus": 11,
+    "unresolvedAtFinalCensus": 3563,
+    "inventedNames": 0
+  },
+  "tests": [
+    {
+      "command": "npm.cmd run physical-field-fixes:v5-plast17b-regression --workspace backend",
+      "exitCode": 0,
+      "passed": 34,
+      "failed": 0
+    },
+    {
+      "command": "npm.cmd run security:privacy-v1-regression --workspace backend",
+      "exitCode": 0,
+      "passed": 17,
+      "failed": 0
+    },
+    {
+      "command": "npm.cmd run physical-field-fixes:v5-plast17b-e2e --workspace frontend",
+      "exitCode": 0,
+      "passed": 2,
+      "skipped": 2,
+      "failed": 0
+    },
+    {
+      "command": "npm.cmd run build --workspace backend",
+      "exitCode": 0
+    },
+    {
+      "command": "npm.cmd run build --workspace frontend",
+      "exitCode": 0,
+      "warnings": [
+        "Known Vite chunk-size warning"
+      ]
+    }
+  ],
+  "dataSafety": {
+    "businessRelationshipHashBefore": "f6189125236154e8e53ada521090f124cb6f08f7ef9b9c029e6c3a1638dbae55",
+    "businessRelationshipHashAfter": "f6189125236154e8e53ada521090f124cb6f08f7ef9b9c029e6c3a1638dbae55",
+    "preexistingRelationshipsChanged": 0,
+    "markerUsersCreatedAcrossRetries": 7,
+    "activeMarkerUsers": 0,
+    "activeMarkerAccesses": 0,
+    "activeMarkerMultiFactoryAccesses": 0,
+    "activeMarkerTestArtifacts": 0,
+    "physicalDeletes": 0
+  },
+  "screenshots": [
+    "01-canonical-marker-identity.png",
+    "02-tech-situation-mobile-390.png",
+    "03-returns-readonly-mobile-390.png",
+    "04-technologist-wash-mobile-390.png",
+    "05-limited-master-admin-mobile-390.png",
+    "06-factory-a-to-b-mobile-390.png"
+  ],
+  "staticScans": {
+    "gitDiffCheck": "PASS",
+    "trailingWhitespace": 0,
+    "productBrowserDialogs": 0,
+    "frontendAuthorityGaps": 0,
+    "publicProtectedFieldLeaks": 0,
+    "mojibakeContent": 0
+  },
+  "resolvedSb": [
+    "SB-001",
+    "SB-002",
+    "SB-003",
+    "SB-004",
+    "SB-005",
+    "SB-006",
+    "SB-007",
+    "SB-008",
+    "SB-010",
+    "SB-011",
+    "SB-014"
+  ],
+  "knownOpen": [
+    "SB-009",
+    "SB-012",
+    "SB-013",
+    "SB-015",
+    "SB-016",
+    "SB-017",
+    "SB-018"
+  ],
+  "runtime": {
+    "temporaryProcessesStopped": true,
+    "portsExpectedFree": [
+      3000,
+      5173
+    ],
+    "finalTunnelCreated": false,
+    "plast17cStarted": false
+  }
+}

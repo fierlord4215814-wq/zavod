@@ -1,0 +1,1175 @@
+[
+  {
+    "model": "ShiftSettings",
+    "field": "dayShiftStartTime",
+    "type": "String",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "dayShiftEndTime",
+    "type": "String",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "nightShiftStartTime",
+    "type": "String",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "nightShiftEndTime",
+    "type": "String",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "willBeOpenHoursBeforeShift",
+    "type": "Int",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "noShowCheckMinutesAfterShiftStart",
+    "type": "Int",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "minAssignmentMoveIntervalMinutes",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/employee/employee.service.ts",
+        "line": 1012,
+        "text": "const minutes = settings?.minAssignmentMoveIntervalMinutes ?? 5;"
+      },
+      {
+        "path": "backend/src/modules/employee/employee.service.ts",
+        "line": 1032,
+        "text": "minAssignmentMoveIntervalMinutes: minutes,"
+      },
+      {
+        "path": "backend/src/modules/people/people.service.ts",
+        "line": 733,
+        "text": "this.prisma.db.shiftSettings.findUnique({ where: { factoryId }, select: { minAssignmentMoveIntervalMinutes: true } }),"
+      },
+      {
+        "path": "backend/src/modules/people/people.service.ts",
+        "line": 772,
+        "text": "const moveIntervalMs = Math.max(0, shiftSettings?.minAssignmentMoveIntervalMinutes ?? 0) * 60_000;"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "contractorLeadMaxPeoplePerShift",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/shift/shift.service.ts",
+        "line": 2060,
+        "text": "if (contractorUserIds.length > settings.contractorLeadMaxPeoplePerShift) throw new ConflictError('Превышен лимит наёмных работников на смену');"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "returnRequestEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/shift/shift.service.ts",
+        "line": 1753,
+        "text": "canRequestReturn: settings.returnRequestEnabled && person?.employeeState === EmployeeState.OFF_SHIFT && !returnRequest,"
+      },
+      {
+        "path": "backend/src/modules/shift/shift.service.ts",
+        "line": 1889,
+        "text": "if (!settings.returnRequestEnabled) throw new ConflictError('return requests disabled');"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "autoCloseChecklistsAtShiftEnd",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "sendHomeRequiresComment",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ShiftSettings",
+    "field": "willBeCancelRequiresComment",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/shift/shift.service.ts",
+        "line": 1752,
+        "text": "canCancelWillBe: Boolean(willBe) && settings.willBeCancelRequiresComment,"
+      },
+      {
+        "path": "backend/src/modules/shift/shift.service.ts",
+        "line": 1798,
+        "text": "if (settings.willBeCancelRequiresComment && !body.comment?.trim()) throw new ConflictError('comment is required');"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "longTaskDefaultDeadlineHours",
+    "type": "Int?",
+    "references": [
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 23,
+        "text": "longTaskDefaultDeadlineHours: number | null;"
+      },
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 761,
+        "text": "{ name: 'deadlineAt', label: 'Дедлайн для долгой заявки', type: 'datetime-local', defaultValue: buildDeadline(settings?.longTaskDefaultDeadlineHours ?? 48) },"
+      },
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 777,
+        "text": "deadlineAt: type === 'LONG' ? new Date(String(values.deadlineAt || buildDeadline(settings?.longTaskDefaultDeadlineHours ?? 48))).toISOString() : null,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "longTaskEscalationEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 24,
+        "text": "longTaskEscalationEnabled: boolean;"
+      },
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 527,
+        "text": "{settings ? <span className=\"tag\">Эскалация: {settings.longTaskEscalationEnabled ? 'включена' : 'выключена'}</span> : null}"
+      },
+      {
+        "path": "backend/src/modules/task/task.service.ts",
+        "line": 575,
+        "text": "if (!settings.longTaskEscalationEnabled) return { escalated: 0, taskIds: [] };"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "longTaskEscalationGraceMinutes",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/task/task.service.ts",
+        "line": 576,
+        "text": "const now = new Date(Date.now() - settings.longTaskEscalationGraceMinutes * 60 * 1000);"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "urgentTaskRequiresLineWhenCreatedFromLine",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "taskRedirectRequiresComment",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 25,
+        "text": "taskRedirectRequiresComment: boolean;"
+      },
+      {
+        "path": "backend/src/modules/task/task.service.ts",
+        "line": 372,
+        "text": "if (settings.taskRedirectRequiresComment && !body.comment?.trim()) throw new ConflictError('Укажите причину передачи заявки');"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "taskDoneRequiresComment",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 26,
+        "text": "taskDoneRequiresComment: boolean;"
+      },
+      {
+        "path": "backend/src/modules/task/task.service.ts",
+        "line": 300,
+        "text": "if (settings.taskDoneRequiresComment && !comment?.trim()) throw new ConflictError('Укажите комментарий к закрытию заявки');"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "taskReadReceiptsEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 27,
+        "text": "taskReadReceiptsEnabled: boolean;"
+      },
+      {
+        "path": "backend/src/modules/task/task.service.ts",
+        "line": 497,
+        "text": "if (!settings.taskReadReceiptsEnabled) return { skipped: true };"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "taskAttachmentsEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 28,
+        "text": "taskAttachmentsEnabled: boolean;"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "taskDepartmentRecipientsEnabled",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "taskPersonalAssigneeEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "frontend/src/screens/TasksScreen.tsx",
+        "line": 29,
+        "text": "taskPersonalAssigneeEnabled: boolean;"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "taskChatMirrorEnabledReserved",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "TaskSettings",
+    "field": "taskStorageRetentionMode",
+    "type": "String?",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washIssueRequiresPhoto",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washIssueResolveRequiresPhoto",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/wash/wash.service.ts",
+        "line": 610,
+        "text": "if (status === 'RESOLVED' && settings.washIssueResolveRequiresPhoto) {"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washCompleteRequiresOkkReview",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/wash/wash.service.ts",
+        "line": 892,
+        "text": "if (settings.washCompleteRequiresOkkReview) {"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washCompleteRequiresNoOpenIssues",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/wash/wash.service.ts",
+        "line": 874,
+        "text": "if (settings.washCompleteRequiresNoOpenIssues) {"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washMiniTasksEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/wash/wash.service.ts",
+        "line": 677,
+        "text": "if (type === 'MINI_TASK' && !settings.washMiniTasksEnabled) throw new ConflictError('Мини-задания мойки отключены в настройках');"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washControlEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/wash/wash.service.ts",
+        "line": 676,
+        "text": "if (type === 'CONTROL' && !settings.washControlEnabled) throw new ConflictError('Контроль мойки отключен в настройках');"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washOkkReviewEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/wash/wash.service.ts",
+        "line": 788,
+        "text": "if (!settings.washOkkReviewEnabled) throw new ConflictError('ОКК-проверка мойки отключена в настройках');"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washDefaultControlItems",
+    "type": "Json?",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washAllowNonLineWorkers",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washMessagesEnabled",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "WashSettings",
+    "field": "washAttachmentsEnabled",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "DefrostSettings",
+    "field": "defrostCommentRequiredOnStart",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/defrost/defrost.service.ts",
+        "line": 233,
+        "text": "if (!options.ignoreCommentRequirement && settings.defrostCommentRequiredOnStart && !body.comment?.trim()) {"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "DefrostSettings",
+    "field": "defrostCommentRequiredOnEnd",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/defrost/defrost.service.ts",
+        "line": 313,
+        "text": "if (!options.ignoreCommentRequirement && settings.defrostCommentRequiredOnEnd && !body.comment?.trim()) {"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "DefrostSettings",
+    "field": "defrostShowOnLineDashboard",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "DefrostSettings",
+    "field": "defrostCalendarEnabled",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "DefrostSettings",
+    "field": "defrostAttachmentsEnabled",
+    "type": "Boolean",
+    "references": [],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "OrderSettings",
+    "field": "lowStockNotificationsEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 51,
+        "text": "...(nextValue.lowStockNotificationsEnabled === false ? ['Уведомления о нехватке будут отключены.'] : []),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 438,
+        "text": "if (type === MinimumStockMovementType.TAKE && afterQuantity <= item.minThreshold && settings.lowStockNotificationsEnabled) {"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 454,
+        "text": "if (result.changed && type === MinimumStockMovementType.TAKE && result.item.belowThreshold && settings.lowStockNotificationsEnabled) {"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 899,
+        "text": "lowStockNotificationsEnabled: bool('lowStockNotificationsEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 912,
+        "text": "lowStockNotificationsEnabled: settings.lowStockNotificationsEnabled,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "OrderSettings",
+    "field": "orderRequestNotificationsEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 900,
+        "text": "orderRequestNotificationsEnabled: bool('orderRequestNotificationsEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 913,
+        "text": "orderRequestNotificationsEnabled: settings.orderRequestNotificationsEnabled,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "OrderSettings",
+    "field": "restockRequiresComment",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 225,
+        "text": "const comment = settings.restockRequiresComment ? this.requiredText(body.comment, 'Укажите комментарий к пополнению.') : body.comment?.trim() || 'Пополнение';"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 901,
+        "text": "restockRequiresComment: bool('restockRequiresComment'),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 914,
+        "text": "restockRequiresComment: settings.restockRequiresComment,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "OrderSettings",
+    "field": "takeRequiresComment",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 50,
+        "text": "...(nextValue.takeRequiresComment === false ? ['Расход без комментария ослабляет историю движения остатков.'] : []),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 216,
+        "text": "const comment = settings.takeRequiresComment"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 902,
+        "text": "takeRequiresComment: bool('takeRequiresComment'),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 915,
+        "text": "takeRequiresComment: settings.takeRequiresComment,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "OrderSettings",
+    "field": "archiveRequiresComment",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 329,
+        "text": "if (settings.archiveRequiresComment) this.requiredText(body.comment, 'Укажите причину архивации.');"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 903,
+        "text": "archiveRequiresComment: bool('archiveRequiresComment'),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 916,
+        "text": "archiveRequiresComment: settings.archiveRequiresComment,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "OrderSettings",
+    "field": "defaultUnit",
+    "type": "String",
+    "references": [
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 138,
+        "text": "const unit = this.unitValue(body.unit ?? settings.defaultUnit);"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 904,
+        "text": "defaultUnit: this.unitValue(body.defaultUnit ?? current.defaultUnit),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 917,
+        "text": "defaultUnit: this.displayUnit(settings.defaultUnit),"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "OrderSettings",
+    "field": "warningYellowPercent",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 52,
+        "text": "...(nextValue.warningRedPercent >= nextValue.warningYellowPercent ? ['Красный порог должен быть ниже жёлтого.'] : []),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 59,
+        "text": "allowed: nextValue.warningRedPercent >= 0 && nextValue.warningYellowPercent > nextValue.warningRedPercent,"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 60,
+        "text": "reason: nextValue.warningYellowPercent <= nextValue.warningRedPercent ? 'Жёлтый порог должен быть выше красного.' : null,"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 905,
+        "text": "warningYellowPercent: numeric('warningYellowPercent'),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 918,
+        "text": "warningYellowPercent: settings.warningYellowPercent,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "OrderSettings",
+    "field": "warningRedPercent",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 52,
+        "text": "...(nextValue.warningRedPercent >= nextValue.warningYellowPercent ? ['Красный порог должен быть ниже жёлтого.'] : []),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 59,
+        "text": "allowed: nextValue.warningRedPercent >= 0 && nextValue.warningYellowPercent > nextValue.warningRedPercent,"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 60,
+        "text": "reason: nextValue.warningYellowPercent <= nextValue.warningRedPercent ? 'Жёлтый порог должен быть выше красного.' : null,"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 906,
+        "text": "warningRedPercent: numeric('warningRedPercent'),"
+      },
+      {
+        "path": "backend/src/modules/orders/orders.service.ts",
+        "line": 919,
+        "text": "warningRedPercent: settings.warningRedPercent,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChecklistSettings",
+    "field": "autoCloseAtDayShiftEnd",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 880,
+        "text": "if (body.force !== true && settings.autoCloseAtDayShiftEnd === false && settings.autoCloseAtNightShiftEnd === false) {"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 938,
+        "text": ": factorySettings?.autoCloseAtDayShiftEnd !== false;"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2761,
+        "text": "autoCloseAtDayShiftEnd: bool('autoCloseAtDayShiftEnd'),"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2772,
+        "text": "autoCloseAtDayShiftEnd: settings.autoCloseAtDayShiftEnd,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChecklistSettings",
+    "field": "autoCloseAtNightShiftEnd",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 880,
+        "text": "if (body.force !== true && settings.autoCloseAtDayShiftEnd === false && settings.autoCloseAtNightShiftEnd === false) {"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 937,
+        "text": "? factorySettings?.autoCloseAtNightShiftEnd !== false"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2762,
+        "text": "autoCloseAtNightShiftEnd: bool('autoCloseAtNightShiftEnd'),"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2773,
+        "text": "autoCloseAtNightShiftEnd: settings.autoCloseAtNightShiftEnd,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChecklistSettings",
+    "field": "requirePauseComment",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 73,
+        "text": "...(nextValue.requirePauseComment === false ? ['Пауза без комментария ослабляет traceability чек-листа.'] : []),"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 828,
+        "text": "const reason = settings.requirePauseComment ? this.requiredText(body.reason ?? body.comment, 'Укажите причину паузы.') : body.reason?.trim() || body.comment?.trim() || 'Пауза';"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2763,
+        "text": "requirePauseComment: bool('requirePauseComment'),"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2774,
+        "text": "requirePauseComment: settings.requirePauseComment,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChecklistSettings",
+    "field": "allowEditAfterCloseHours",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 75,
+        "text": "...(nextValue.allowEditAfterCloseHours < 0 ? ['Окно правки после закрытия не может быть отрицательным.'] : []),"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 82,
+        "text": "allowed: nextValue.allowEditAfterCloseHours >= 0,"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 83,
+        "text": "reason: nextValue.allowEditAfterCloseHours < 0 ? 'Окно правки после закрытия не может быть отрицательным.' : null,"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2687,
+        "text": "const allowedHours = Math.max(0, settings?.allowEditAfterCloseHours ?? 0);"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2764,
+        "text": "allowEditAfterCloseHours: numeric('allowEditAfterCloseHours'),"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2775,
+        "text": "allowEditAfterCloseHours: settings.allowEditAfterCloseHours,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChecklistSettings",
+    "field": "checklistAttachmentsEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2765,
+        "text": "checklistAttachmentsEnabled: bool('checklistAttachmentsEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2776,
+        "text": "checklistAttachmentsEnabled: settings.checklistAttachmentsEnabled,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChecklistSettings",
+    "field": "archiveEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 74,
+        "text": "...(nextValue.archiveEnabled === false ? ['Архив чек-листов будет скрыт в рабочем интерфейсе.'] : []),"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2766,
+        "text": "archiveEnabled: bool('archiveEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/checklists/checklists.service.ts",
+        "line": 2777,
+        "text": "archiveEnabled: settings.archiveEnabled,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChatSettings",
+    "field": "chatEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 716,
+        "text": "if (!settings.chatEnabled) throw new ConflictError('Чаты временно отключены.');"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 813,
+        "text": "if (!settings.chatEnabled) throw new ConflictError('Чаты временно отключены.');"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 976,
+        "text": "...(nextValue.chatEnabled === false ? ['Отключение чатов скроет рабочую коммуникацию.'] : []),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1696,
+        "text": "chatEnabled: bool('chatEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1708,
+        "text": "chatEnabled: settings.chatEnabled,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChatSettings",
+    "field": "attachmentsEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 923,
+        "text": "attachmentsEnabled: bool('attachmentsEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 933,
+        "text": "attachmentsEnabled: settings.attachmentsEnabled,"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1697,
+        "text": "attachmentsEnabled: bool('attachmentsEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1709,
+        "text": "attachmentsEnabled: settings.attachmentsEnabled,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChatSettings",
+    "field": "editWindowMinutes",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 758,
+        "text": "const canEdit = this.canManage(user, chat) || (message.authorId === user.userId && Date.now() - message.createdAt.getTime() <= settings.editWindowMinutes * 60_000);"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 979,
+        "text": "return { factoryId: user.selectedFactoryId, oldValue: this.cleanSettings(current), nextValue, warnings, allowed: nextValue.editWindowMinutes >= 0 && nextValue.deleteWindowMinutes >= 0 && nextValue.retentionMonths >= 1 };"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1698,
+        "text": "editWindowMinutes: numeric('editWindowMinutes'),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1710,
+        "text": "editWindowMinutes: settings.editWindowMinutes,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChatSettings",
+    "field": "deleteWindowMinutes",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 777,
+        "text": "const canDelete = canDeleteChatMessage(user, chat, message, settings.deleteWindowMinutes);"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 979,
+        "text": "return { factoryId: user.selectedFactoryId, oldValue: this.cleanSettings(current), nextValue, warnings, allowed: nextValue.editWindowMinutes >= 0 && nextValue.deleteWindowMinutes >= 0 && nextValue.retentionMonths >= 1 };"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1699,
+        "text": "deleteWindowMinutes: numeric('deleteWindowMinutes'),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1711,
+        "text": "deleteWindowMinutes: settings.deleteWindowMinutes,"
+      },
+      {
+        "path": "backend/src/modules/chats/chat-message-delete-policy.ts",
+        "line": 107,
+        "text": "deleteWindowMinutes: number,"
+      },
+      {
+        "path": "backend/src/modules/chats/chat-message-delete-policy.ts",
+        "line": 113,
+        "text": "&& now - message.createdAt.getTime() <= deleteWindowMinutes * 60_000"
+      },
+      {
+        "path": "backend/src/modules/attachments/attachments.service.ts",
+        "line": 473,
+        "text": "select: { deleteWindowMinutes: true },"
+      },
+      {
+        "path": "backend/src/modules/attachments/attachments.service.ts",
+        "line": 475,
+        "text": "const deleteWindowMinutes = settings?.deleteWindowMinutes ?? DEFAULT_CHAT_DELETE_WINDOW_MINUTES;"
+      },
+      {
+        "path": "backend/src/modules/attachments/attachments.service.ts",
+        "line": 477,
+        "text": "&& canDeleteChatMessage(user, message.chat, message, deleteWindowMinutes);"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChatSettings",
+    "field": "retentionMonths",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 977,
+        "text": "...(nextValue.retentionMonths < 2 ? ['История меньше двух месяцев может быть неудобна для пересменки и разборов.'] : []),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 979,
+        "text": "return { factoryId: user.selectedFactoryId, oldValue: this.cleanSettings(current), nextValue, warnings, allowed: nextValue.editWindowMinutes >= 0 && nextValue.deleteWindowMinutes >= 0 && nextValue.retentionMonths >= 1 };"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1700,
+        "text": "retentionMonths: numeric('retentionMonths'),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1712,
+        "text": "retentionMonths: settings.retentionMonths,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChatSettings",
+    "field": "voiceReserved",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1701,
+        "text": "voiceReserved: bool('voiceReserved'),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1713,
+        "text": "voiceReserved: settings.voiceReserved,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "ChatSettings",
+    "field": "videoReserved",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1702,
+        "text": "videoReserved: bool('videoReserved'),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1714,
+        "text": "videoReserved: settings.videoReserved,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "AnnouncementSettings",
+    "field": "defaultVisibleDays",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 140,
+        "text": "const visibleUntil = body.visibleUntil ? new Date(body.visibleUntil) : new Date(visibleFrom.getTime() + settings.defaultVisibleDays * 86_400_000);"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 505,
+        "text": "allowed: nextValue.defaultVisibleDays > 0 && nextValue.archiveRetentionDays >= 0,"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 921,
+        "text": "defaultVisibleDays: numeric('defaultVisibleDays'),"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 931,
+        "text": "defaultVisibleDays: settings.defaultVisibleDays,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "AnnouncementSettings",
+    "field": "archiveRetentionDays",
+    "type": "Int",
+    "references": [
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 505,
+        "text": "allowed: nextValue.defaultVisibleDays > 0 && nextValue.archiveRetentionDays >= 0,"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 922,
+        "text": "archiveRetentionDays: numeric('archiveRetentionDays'),"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 932,
+        "text": "archiveRetentionDays: settings.archiveRetentionDays,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "AnnouncementSettings",
+    "field": "attachmentsEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 923,
+        "text": "attachmentsEnabled: bool('attachmentsEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 933,
+        "text": "attachmentsEnabled: settings.attachmentsEnabled,"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1697,
+        "text": "attachmentsEnabled: bool('attachmentsEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/chats/chats.service.ts",
+        "line": 1709,
+        "text": "attachmentsEnabled: settings.attachmentsEnabled,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "AnnouncementSettings",
+    "field": "guestCanRead",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 494,
+        "text": "return { ...settings, guestCanRead: false };"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 504,
+        "text": "warnings: body.guestCanRead === true ? ['Гостевой доступ к объявлениям отменён правилами назначения пользователей.'] : [],"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 924,
+        "text": "guestCanRead: false,"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 934,
+        "text": "guestCanRead: false,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  },
+  {
+    "model": "AnnouncementSettings",
+    "field": "importantBadgeEnabled",
+    "type": "Boolean",
+    "references": [
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 208,
+        "text": "if (priority === AnnouncementPriority.IMPORTANT && settings.importantBadgeEnabled) {"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 925,
+        "text": "importantBadgeEnabled: bool('importantBadgeEnabled'),"
+      },
+      {
+        "path": "backend/src/modules/announcements/announcements.service.ts",
+        "line": 935,
+        "text": "importantBadgeEnabled: settings.importantBadgeEnabled,"
+      }
+    ],
+    "classification": "REQUIRES_CONSUMER_REVIEW"
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "status": "PASS_UI_ONE_TIME_DELIVERY_PERSONAL_PASSWORD_RELOGIN_STALE_DENY",
+  "oneTimeUiCleared": true,
+  "staleTokenStatus": 403,
+  "replayStatus": 401,
+  "flags": {
+    "passwordResetRequired": false,
+    "passwordRecoveryConsumedAt": null
+  },
+  "audit": [
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "ADMIN_PASSWORD_RECOVERY_ISSUED",
+      "entityType": "User",
+      "entityId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "createdAt": "2026-09-26T13:54:39.897Z",
+      "details": {
+        "reason": "Сброс пароля подтверждён в админке",
+        "expiresAt": "2026-09-26T14:24:39.856Z",
+        "ttlMinutes": 30,
+        "targetUserId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+        "replacedExisting": false
+      }
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "ADMIN_PASSWORD_RECOVERY_ISSUED",
+      "entityType": "User",
+      "entityId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "createdAt": "2026-09-26T14:01:12.413Z",
+      "details": {
+        "reason": "Сброс пароля подтверждён в админке",
+        "expiresAt": "2026-09-26T14:31:12.370Z",
+        "ttlMinutes": 30,
+        "targetUserId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+        "replacedExisting": true
+      }
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "ADMIN_PASSWORD_RECOVERY_ISSUED",
+      "entityType": "User",
+      "entityId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "createdAt": "2026-09-26T14:01:14.823Z",
+      "details": {
+        "reason": "Сброс пароля подтверждён в админке",
+        "expiresAt": "2026-09-26T14:31:14.785Z",
+        "ttlMinutes": 30,
+        "targetUserId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+        "replacedExisting": false
+      }
+    }
+  ],
+  "secretsExcluded": true
+}

@@ -1,0 +1,13 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\C4-copy-before\\frontend\\src\\screens\\AnnouncementsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AnnouncementsScreen.tsx"
+index 62486f15..3d16fa71 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\C4-copy-before\\frontend\\src\\screens\\AnnouncementsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AnnouncementsScreen.tsx"
+@@ -471,7 +471,7 @@ export function AnnouncementsScreen() {
+           {current ? renderAnnouncement(current, 'read') : (
+             <div className="empty-state announcement-empty">
+               <h3>Новых объявлений нет.</h3>
+-              <p>{canArchive ? 'Все важные сообщения уже прочитаны. Прочитанные объявления можно открыть в архиве.' : 'Новых объявлений для вас сейчас нет.'}</p>
++              <p>{canArchive ? 'Новых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.' : 'Новых объявлений для вас сейчас нет.'}</p>
+               {canArchive ? <button className="secondary-button" type="button" onClick={() => openTab('archive')}>Архив объявлений</button> : null}
+             </div>
+           )}

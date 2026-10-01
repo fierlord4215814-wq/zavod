@@ -1,0 +1,22 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\components\\AttachmentPreviewList.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\components\\AttachmentPreviewList.tsx"
+index bf671e1c..1ef45c8e 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\components\\AttachmentPreviewList.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\components\\AttachmentPreviewList.tsx"
+@@ -3,11 +3,16 @@ import { useEffect, useRef, useState } from 'react';
+ import { acquireAttachmentPreview } from '../api/attachment-preview-resource';
+ import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
+ import { useMobileBackLayer } from '../navigation/mobile-back';
+-import { type Attachment } from '../store/app.store';
++import { type Attachment as EntityAttachment } from '../store/app.store';
+ import { isPilotFixtureText } from '../utils/pilot-ui';
+ 
+ void React;
+ 
++// Preview authority is resolved by the guarded attachment-id endpoint. Archive
++// detail supplies display metadata, not the source entity's write DTO.
++export type AttachmentPreviewItem = Pick<EntityAttachment, 'id' | 'kind' | 'originalName' | 'mimeType' | 'sizeBytes' | 'createdAt'>;
++type Attachment = AttachmentPreviewItem;
++
+ type Props = {
+   attachments?: Attachment[];
+   showEmpty?: boolean;

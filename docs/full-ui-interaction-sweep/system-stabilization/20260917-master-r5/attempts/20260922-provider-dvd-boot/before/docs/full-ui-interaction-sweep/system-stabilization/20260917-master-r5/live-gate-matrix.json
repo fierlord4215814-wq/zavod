@@ -1,0 +1,152 @@
+{
+  "currentContinuation": {"checkpoint":"2026-09-21_2311_VISIBLE_UAC_DVD_GUARD","environment":"BLOCKED_DVD_READBACK_GUARD_NEW_UAC_REQUIRED","guestAndIsolation":"NOT_RUN_BOOT_GUARD_STOPPED_DVD_PROVIDER_STATE_PENDING","sourceDefect":"ATTACHED_SEED_FIVE_ARGV_CONFIRMED_SOURCE_FIXED_THREE_ARGV_UNCHANGED","candidateApplied":true,"actualSeedRegenerated":false,"guestRepairExecuted":false,"provisioningOnlyChecks":{"pass":10,"blocked":0,"productCases":0,"scope":"RETAINED_HOST_SYNTHETIC_GUEST_PENDING_NOT_RERUN"},"newLiveCases":0,"diagnosticBootExecuted":false,"sshExecuted":false,"captureRetries":0,"codexRestart":"USER_CONFIRMED","uacOutcome":"SUCCESS_HELPER_STARTED_ACTUAL_ADMIN_TOKEN_TRUE","vmReadback":"OFF_231111_SOLE_VHDX_BIOS_NETWORK_VERIFIED","firmwareVhdxFirstConfirmed":true,"dvdEjectPostcondition":"UNKNOWN_OBJECT_READBACK_RETAINS_ISO_PATHS_FRESH_CIM_PENDING","bootExecuted":false},
+  "gates": [
+    {
+      "id": "MI-SEC-01",
+      "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+      "owners": [
+        {
+          "path": "backend/src/modules/task/task.service.ts",
+          "sha256": "947de3145e4116d5d9df56dd58d63bce90df3638dd91ab38e585bdded925acd3",
+          "bytes": 45887
+        },
+        {
+          "path": "backend/src/modules/wash/wash.service.ts",
+          "sha256": "a06bcaa0e1e47b7ea3a1878d7f457c7a6e821f9b5cf4bcb959d4770e55e40957",
+          "bytes": 76356
+        },
+        {
+          "path": "backend/src/common/operation-lock.ts",
+          "sha256": "5560e30c00fcc661f1dc857c021c6f7e75f4cf873765f638442fb52b644d73d7",
+          "bytes": 3507
+        }
+      ],
+      "isolated": {
+        "cases": 144,
+        "status": "SCOPED_REVALIDATED_NOT_LIVE",
+        "generation": "R4_HISTORICAL_NOT_R5_RUN"
+      },
+      "required": "Commit/lost response/same intent replay/completed result; null/missing/foreign type/factory/current revoked blocked deleted; same and different keys with actual SQL unique/advisory/row locking; no duplicate mutation/fanout. Opaque kind/input ambiguity remains decision.",
+      "liveTestStack": {
+        "cases": 0,
+        "status": "NOT_RUN_DVD_READBACK_BOOT_GUARD"
+      },
+      "physical": "PENDING"
+    },
+    {
+      "id": "MI-PUB-01",
+      "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+      "owners": [
+        {
+          "path": "backend/src/modules/announcements/announcements.service.ts",
+          "sha256": "dff3e2cd004dc6a70975af2b839ae5a752780f6a98d3e4ecb9ddd6ee4b2c7a57",
+          "bytes": 44004
+        },
+        {
+          "path": "backend/src/common/publication-policy.ts",
+          "sha256": "7a6f5b7eb582f0d540bc12acb2694f164912e9fa08a003e8c183a5a392c28606",
+          "bytes": 711
+        }
+      ],
+      "isolated": {
+        "cases": 64,
+        "status": "SCOPED_REVALIDATED_NOT_LIVE",
+        "generation": "R4_HISTORICAL_NOT_R5_RUN"
+      },
+      "required": "Active IMPORTANT/NORMAL with/without archive; global/factory/department audience; list/detail/ACK/report/notification/personal archive; concurrent ACK and postcommit retry keep one timestamp/audit with real receivers. Expired/future characterization is not approved policy.",
+      "liveTestStack": {
+        "cases": 0,
+        "status": "NOT_RUN_DVD_READBACK_BOOT_GUARD"
+      },
+      "physical": "PENDING"
+    },
+    {
+      "id": "MI-R2-ORD-01",
+      "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+      "owners": [
+        {
+          "path": "backend/src/modules/orders/orders.service.ts",
+          "sha256": "3cf44648254032e20d65026a6c873408e0f5083a26ee66cb10d6284b8e5fa177",
+          "bytes": 49539
+        },
+        {
+          "path": "backend/src/modules/stock/stock.service.ts",
+          "sha256": "ea2428ef1a2fc8fde07217ce9285a8a9abb8bad8ffc385bf7ddb32fd5ba560fc",
+          "bytes": 8525
+        }
+      ],
+      "isolated": {
+        "cases": 29,
+        "status": "SCOPED_REVALIDATED_NOT_LIVE",
+        "generation": "R4_HISTORICAL_NOT_R5_RUN"
+      },
+      "required": "Quantity10 minimum5 TAKE3 then retry leaves7; changed input denied where immutable; RESTOCK3 once returns10; contested different TAKE7 keys one success one refusal; exact movement/history/archive/audit IDs; cross-factory deny.",
+      "liveTestStack": {
+        "cases": 0,
+        "status": "NOT_RUN_DVD_READBACK_BOOT_GUARD"
+      },
+      "physical": "PENDING"
+    },
+    {
+      "id": "MI-R2-CHAT-ATT-01",
+      "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+      "owners": [
+        {
+          "path": "backend/src/modules/chats/chats.service.ts",
+          "sha256": "e3217fb5b72f05661d04bb00c619e2c02ec61d1984475bf9ecb807fa0f2f5c40",
+          "bytes": 81708
+        },
+        {
+          "path": "backend/src/modules/attachments/attachments.service.ts",
+          "sha256": "b9353200842657096ce5d43a84dbf016c4781bb3dcdc08708a75a4871b59f7a0",
+          "bytes": 36374
+        }
+      ],
+      "isolated": {
+        "cases": 65,
+        "status": "SCOPED_REVALIDATED_NOT_LIVE",
+        "generation": "R4_HISTORICAL_NOT_R5_RUN"
+      },
+      "required": "Private chat upload metadata and actual bytes/hash; owner/member/nonmember/removal/leave/staleflags/transfer/restore; fresh metadata/file denied after revoke; current UI invalidation/resource cleanup; HTTP range/stream/abort and allowed new-context retry. No remote revocation of downloaded files.",
+      "liveTestStack": {
+        "cases": 0,
+        "status": "NOT_RUN_DVD_READBACK_BOOT_GUARD"
+      },
+      "physical": "PENDING"
+    },
+    {
+      "id": "UI-SWEEP-036",
+      "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+      "owners": [
+        {
+          "path": "backend/src/modules/shift-log/shift-log.service.ts",
+          "sha256": "34d5a1d66dad56fa91b45dbea260223608e8f0ac1e549f214283cf1f26c3891e",
+          "bytes": 43365
+        },
+        {
+          "path": "backend/src/modules/attachments/attachments.service.ts",
+          "sha256": "b9353200842657096ce5d43a84dbf016c4781bb3dcdc08708a75a4871b59f7a0",
+          "bytes": 36374
+        },
+        {
+          "path": "frontend/src/screens/ShiftLogScreen.tsx",
+          "sha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+          "bytes": 19943
+        }
+      ],
+      "isolated": {
+        "cases": 14,
+        "status": "SCOPED_REVALIDATED_NOT_LIVE",
+        "generation": "R4_HISTORICAL_NOT_R5_RUN"
+      },
+      "required": "Distinct ordinary/handover comments; current/closed/soft archived; archive-only vs normal-only; master/management/admin and guest/blocked/revoked/foreign factory/department; exact list/detail/file/Back; ordinary archive query not bypass; no archive write/receipt/ACK/upload/delete/important-close or counter change.",
+      "liveTestStack": {
+        "cases": 0,
+        "status": "NOT_RUN_DVD_READBACK_BOOT_GUARD"
+      },
+      "physical": "PENDING"
+    }
+  ],
+  "uniqueLiveCases": 0,
+  "inheritedCountsMayOverlap": true
+}

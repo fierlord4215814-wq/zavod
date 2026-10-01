@@ -1,0 +1,102 @@
+{
+  "at": "2026-09-17T20:27:25.0576284+03:00",
+  "purpose": "READ_ONLY_TARGETED_COMPATIBILITY_NO_WORKING_DB_SERVICE_DATA_ACCESS",
+  "elevated": false,
+  "windows": {
+    "InstallationType": "Client",
+    "CurrentBuild": "19045",
+    "EditionID": "Professional",
+    "DisplayVersion": "22H2",
+    "UBR": 6456,
+    "ProductName": "Windows 10 Pro"
+  },
+  "cpu": {
+    "Name": "Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz",
+    "NumberOfCores": 4,
+    "NumberOfLogicalProcessors": 8,
+    "VirtualizationFirmwareEnabled": true,
+    "SecondLevelAddressTranslationExtensions": true,
+    "VMMonitorModeExtensions": true
+  },
+  "computer": {
+    "HypervisorPresent": false,
+    "TotalPhysicalMemory": 17137594368
+  },
+  "os": {
+    "Caption": "Майкрософт Windows 10 Pro",
+    "Version": "10.0.19045",
+    "BuildNumber": "19045",
+    "OSArchitecture": "64-разрядная",
+    "FreePhysicalMemory": 7732696,
+    "LastBootUpTime": "2026-09-16T20:09:27.245326+03:00"
+  },
+  "disk": {
+    "DeviceID": "C:",
+    "FileSystem": "NTFS",
+    "Size": 499493367808,
+    "FreeSpace": 42146291712
+  },
+  "features": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "sandboxExecutable": false,
+  "sandboxPolicy": null,
+  "commandAvailability": [
+    {
+      "path": null,
+      "name": "docker",
+      "present": false
+    },
+    {
+      "path": null,
+      "name": "podman",
+      "present": false
+    },
+    {
+      "path": "C:\\WINDOWS\\system32\\wsl.exe",
+      "name": "wsl",
+      "present": true
+    },
+    {
+      "path": null,
+      "name": "WindowsSandbox",
+      "present": false
+    },
+    {
+      "path": "C:\\Program Files\\nodejs\\node.exe",
+      "name": "node",
+      "present": true
+    }
+  ],
+  "errors": [
+    {
+      "message": "Запрошенная операция требует повышения.\r\n",
+      "section": "feature:Containers-DisposableClientVM",
+      "type": "System.Runtime.InteropServices.COMException"
+    },
+    {
+      "message": "Запрошенная операция требует повышения.\r\n",
+      "section": "feature:Microsoft-Hyper-V-All",
+      "type": "System.Runtime.InteropServices.COMException"
+    },
+    {
+      "message": "Запрошенная операция требует повышения.\r\n",
+      "section": "feature:VirtualMachinePlatform",
+      "type": "System.Runtime.InteropServices.COMException"
+    },
+    {
+      "message": "Запрошенная операция требует повышения.\r\n",
+      "section": "feature:Microsoft-Windows-Subsystem-Linux",
+      "type": "System.Runtime.InteropServices.COMException"
+    },
+    {
+      "message": "Запрошенная операция требует повышения.\r\n",
+      "section": "feature:HypervisorPlatform",
+      "type": "System.Runtime.InteropServices.COMException"
+    }
+  ]
+}

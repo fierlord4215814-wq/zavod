@@ -1,0 +1,131 @@
+{
+  "schema": "zavod-checkpoint-handoff-receipt/v1",
+  "createdAt": "2026-09-22T20:59:28.0239904+03:00",
+  "checkpointStatus": "COMPLETE_CHECKPOINT_AND_HANDOFF",
+  "workspace": "C:\\Users\\79164\\Documents\\work",
+  "branch": "main",
+  "head": "2dd40727042a01994ff32f396897f70b41d3a3a7",
+  "codeCopy": {
+    "path": "C:\\Users\\79164\\Documents\\ZAVOD-Code-Checkpoint-20260922\\zavod-code-current-20260922.zip",
+    "bytes": 11334514,
+    "sha256": "888765f9f44604b580fd4ca3bb79bf5567a6fe5575f19d6602d45655e825793e",
+    "sourceEntries": 1111,
+    "generatedMetadataEntries": 3,
+    "entriesChecked": 1114,
+    "expectedEntries": 1114,
+    "mismatches": 0,
+    "missingEntries": 0,
+    "fullEntryReadback": true,
+    "hashMatchesPreDocumentationReceipt": true,
+    "sourceRehashAfterArchive": "ALL_MATCH",
+    "kind": "CONTROL_CODE_COPY_NOT_DATA_BACKUP_NOT_DEPLOYMENT_PROOF"
+  },
+  "postSnapshotDocumentation": {
+    "changedPreexistingManagementFiles": 10,
+    "newManagementFilesIncludingThisReceipt": 4,
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "bytes": 10980,
+        "sha256": "03a3475330d35029e243ec9cbef7aa70d58c9b9c434bb88c495ae6fba029ac65"
+      },
+      {
+        "path": "README.md",
+        "bytes": 10516,
+        "sha256": "6eef2bb27a9c310a4c1471f60110be8beccdb99c403c3bb1d1fefaa83632f17f"
+      },
+      {
+        "path": "docs/v1-completion-goal.md",
+        "bytes": 22214,
+        "sha256": "098fd6d70cc48397c786745ad66f268b674e8fae8858feed0ffc770ce41db883"
+      },
+      {
+        "path": "docs/full-ui-interaction-sweep/progress.md",
+        "bytes": 822074,
+        "sha256": "3bec85a9c6db4f137b57a2a100e8cfc654d628bb04ae00d1b55e33d05a80c0de"
+      },
+      {
+        "path": "docs/full-ui-interaction-sweep/visual-gap-register.md",
+        "bytes": 227858,
+        "sha256": "5c3b451d6eaab76ecdf574a8d414d1259f764a77721c5180baf4189a1a51998a"
+      },
+      {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+        "bytes": 11461,
+        "sha256": "45e2ea022398367e540d31325a86830e38310d4fb1543da938bf699e0a27ba42"
+      },
+      {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md",
+        "bytes": 50011,
+        "sha256": "5bf74cf95615de7fc6d3b41395abf77b855fc8717458a584e1777a51a7c19a98"
+      },
+      {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md",
+        "bytes": 13820,
+        "sha256": "ad49dcb0a008677ca38050ebd9c31c92c83c922ae2f84001241c885d6c63aa29"
+      },
+      {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+        "bytes": 12946,
+        "sha256": "5e0126aa76f07ef59423ff2e7e5c4527f87abeb13daecfc27394e8a905850935"
+      },
+      {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+        "bytes": 36131,
+        "sha256": "2b2f9d84819d4e32b27a42ff4dd8d33b13d6afb6a0b109c37409212032fd0b17"
+      },
+      {
+        "path": "docs/vps-preparation/handoff.md",
+        "bytes": 25906,
+        "sha256": "0d9bdd8c10dca1b30e5a2dbfe333a1c180a140357cd5b50d0722dccca7a38ae0"
+      },
+      {
+        "path": "docs/vps-preparation/new-chat-prompt.txt",
+        "bytes": 1612,
+        "sha256": "25326149dfae66cf1b7b38ad5d9d38630fa254814867d7aca4a945b51b712a11"
+      },
+      {
+        "path": "docs/vps-preparation/source-update-delta.md",
+        "bytes": 1526,
+        "sha256": "9edc8d265974611d851794ae80f7391c52dfcbd044a9e6693e9c2091e6b7cb6e"
+      }
+    ],
+    "selfHashExcludedToAvoidCircularReceipt": true
+  },
+  "validations": {
+    "preDocumentationManifestEntriesRehashed": 1111,
+    "changedSinceSnapshot": 10,
+    "expectedManagementDocumentsChanged": 10,
+    "unexpectedChangedManifestEntries": [],
+    "missingManifestEntries": [],
+    "productCodeChanges": 0,
+    "managementFilesLinkChecked": 10,
+    "localLinksChecked": 189,
+    "missingLocalLinks": 0,
+    "testsOrBuildsRun": 0,
+    "applicationOrDockerOrVmOrUacOrSshOrVpsRun": 0,
+    "databaseOrUploadsOrEnvInspected": false,
+    "runtimeStatus": "UNKNOWN_NOT_OBSERVED"
+  },
+  "exclusions": [
+    "working .env and setup/runtime",
+    "private keys, credentials, cookies and storageState",
+    "databases, dumps, backups and uploads",
+    "node_modules, build output and coverage",
+    ".git",
+    "VM, VHDX and ISO",
+    "logs, PID files, test-results, screenshots, traces and prior evidence ZIPs"
+  ],
+  "status": {
+    "PRODUCT_CODE_CHANGES": 0,
+    "DATA_BACKUP": "NOT_PERFORMED",
+    "DATABASE_CLEANUP": "NOT_PERFORMED",
+    "CLEAN_SERVER_PREPARATION": "NOT_STARTED",
+    "VPS_DEPLOYMENT": "NOT_STARTED",
+    "MASTER_R5_EXECUTION": "PAUSED_BY_PRIORITY_CHANGE",
+    "MASTER_R5_ACCEPTANCE": "NOT_ACCEPTED",
+    "MASTER_R5_LAST_TECHNICAL_STATUS": "BLOCKED_UAC_CANCELLED_PROVIDER_READBACK",
+    "MAIN_UI_SWEEP": "PAUSED_BY_USER / NOT_ACCEPTED",
+    "FINAL_STOP": "STOP_AFTER_CHECKPOINT_AND_HANDOFF"
+  }
+}

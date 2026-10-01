@@ -1,0 +1,27 @@
+{
+  "roles": {
+    "ADMIN": {
+      "login": 200,
+      "run": "CLOSED"
+    },
+    "STORE": {
+      "login": 200,
+      "order": 200
+    },
+    "WORKER": {
+      "login": 200,
+      "activeShift": false
+    }
+  },
+  "files": [
+    {
+      "id": "52ea4828-db6b-450e-b2bb-b386e59196ad",
+      "sha256": "56dd0b5f47d0357f587538af617917ed7dffe8c79629cafb8a1bbfeacaf52270"
+    },
+    {
+      "id": "ae66aefd-01f2-42f2-ba16-5f4e436488e0",
+      "sha256": "fefbe2f007b3b667e5eb7048db917042945ebd25c6f715eb4c2d6dac464da4eb"
+    }
+  ],
+  "status": "PASS_C1_NATIVE_RESTART_BROWSER_SQL_FILES"
+}

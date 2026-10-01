@@ -1,0 +1,55 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-types-before\\frontend\\src\\screens\\ChecklistsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+index fc528b7c..4c658c1c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-types-before\\frontend\\src\\screens\\ChecklistsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+@@ -111,6 +111,7 @@ type ChecklistRunRow = {
+ 
+ type ChecklistRun = {
+   id: string;
++  userId: string;
+   status: 'ACTIVE' | 'PAUSED' | 'CLOSED' | 'AUTO_CLOSED';
+   startedAt: string;
+   closedAt?: string | null;
+@@ -1000,7 +1001,10 @@ export function ChecklistsScreen() {
+       setCompositeStepByRow((current) => ({ ...current, [currentRow.id]: 1 }));
+       return;
+     }
+-    if (runIsEditable && (currentRow.status === 'PENDING' || dirtyRowIds.has(currentRow.id))) await saveCurrentRow();
++    if (runIsEditable && (currentRow.status === 'PENDING' || dirtyRowIds.has(currentRow.id))) {
++      try { await saveCurrentRow(); }
++      catch { return; } // saveCurrentRow already presents the error and keeps the draft.
++    }
+     if (guidedIndex < activeRows.length - 1) setGuidedIndex((current) => current + 1);
+   };
+ 
+@@ -1022,9 +1026,18 @@ export function ChecklistsScreen() {
+       await goNext();
+       return;
+     }
+-    if (currentRow && runIsEditable && (currentRow.status === 'PENDING' || dirtyRowIds.has(currentRow.id))) await saveCurrentRow();
+-    await refreshRun(selectedRun.id);
+-    setShowFinalReview(true);
++    try {
++      if (currentRow && runIsEditable && (currentRow.status === 'PENDING' || dirtyRowIds.has(currentRow.id))) await saveCurrentRow();
++      await refreshRun(selectedRun.id);
++      setShowFinalReview(true);
++    } catch (error) {
++      setErrorText(error instanceof Error ? error.message : 'Не удалось проверить результат. Повторите попытку.');
++    }
++  };
++
++  const retryCurrentRow = async () => {
++    try { await saveCurrentRow(); }
++    catch { /* Error and unchanged draft are already visible in the runner. */ }
+   };
+ 
+   const completeCurrentPeriodicCheck = async () => {
+@@ -2565,7 +2578,7 @@ export function ChecklistsScreen() {
+                 {saveNotice ?? 'Ответ можно сохранить и продолжить позже.'}
+               </span>
+               {saveNotice === 'Нет связи. Ответ не сохранён.' || saveNotice === 'Не удалось сохранить' ? (
+-                <button className="secondary-button compact-action" disabled={loading} onClick={() => void saveCurrentRow()} type="button">Повторить</button>
++                <button className="secondary-button compact-action" disabled={loading} onClick={() => void retryCurrentRow()} type="button">Повторить</button>
+               ) : null}
+             </div>
+ 

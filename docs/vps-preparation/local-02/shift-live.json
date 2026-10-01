@@ -1,0 +1,35 @@
+{
+  "result": "PASS_WITHOUT_PRODUCT_CHANGE",
+  "noReload": true,
+  "trigger": "real authenticated HTTP start/end",
+  "before": {
+    "onShift": false,
+    "shiftSession": null,
+    "assignment": null,
+    "count": 0,
+    "panelCards": 0
+  },
+  "sequence": [
+    0,
+    1,
+    0
+  ],
+  "start": 201,
+  "end": 201,
+  "session": {
+    "id": "86a10cc7-fe5c-4c65-99bb-2fc0d31ab6a5",
+    "status": "ENDED",
+    "startedAt": "2026-09-24T15:12:24.943Z",
+    "endedAt": "2026-09-24T15:12:25.421Z"
+  },
+  "managerWs": [
+    "connected",
+    "shift_updated",
+    "shift_updated"
+  ],
+  "workerWs": [
+    "connected",
+    "shift_updated",
+    "shift_updated"
+  ]
+}

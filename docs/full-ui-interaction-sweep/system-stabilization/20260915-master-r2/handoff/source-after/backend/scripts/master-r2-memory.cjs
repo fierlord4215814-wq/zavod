@@ -1,0 +1,112 @@
+// R2 repository infrastructure only. No Prisma construction, sockets, SQL rollback or lock claims.
+require('./master-offline-guard.cjs');
+const assert = require('node:assert/strict');
+const strict = (value, label = 'dependency') => new Proxy(value, {
+  get(target, key) {
+    if (typeof key === 'symbol' || key === 'then') return target[key];
+    if (!(key in target)) throw Error(`UNMOCKED ${label}.${key}`);
+    return target[key];
+  },
+});
+const copy = value => {
+  if (value === null || typeof value !== 'object') return value;
+  if (value instanceof Date) return new Date(value);
+  if (typeof value.toDecimalPlaces === 'function') return value;
+  if (Array.isArray(value)) return value.map(copy);
+  return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, copy(item)]));
+};
+function matches(row, where = {}) {
+  if (row == null) return false;
+  return Object.entries(where).every(([key, value]) => {
+    if (value === undefined) return true;
+    if (key === 'AND') return (Array.isArray(value) ? value : [value]).every(item => matches(row, item));
+    if (key === 'OR') return value.some(item => matches(row, item));
+    if (key === 'NOT') return !(Array.isArray(value) ? value : [value]).some(item => matches(row, item));
+    const actual = row[key];
+    if (value instanceof Date) return actual instanceof Date && +actual === +value;
+    if (value && typeof value === 'object') {
+      if (actual && typeof actual === 'object' && !Array.isArray(actual) && !(actual instanceof Date)) return matches(actual, value);
+      return Object.entries(value).every(([operator, operand]) => {
+        switch (operator) {
+          case 'in': return operand.includes(actual);
+          case 'notIn': return !operand.includes(actual);
+          case 'not': return operand && typeof operand === 'object' ? !matches({ value: actual }, { value: operand }) : actual !== operand;
+          case 'equals': return actual === operand;
+          case 'gte': return actual >= operand;
+          case 'lte': return actual <= operand;
+          case 'gt': return actual > operand;
+          case 'lt': return actual < operand;
+          case 'some': assert.ok(Array.isArray(actual), `UNMOCKED relation ${key}`); return actual.some(item => matches(item, operand));
+          case 'none': assert.ok(Array.isArray(actual), `UNMOCKED relation ${key}`); return !actual.some(item => matches(item, operand));
+          case 'startsWith': return String(actual ?? '').startsWith(operand);
+          case 'contains': return value.mode === 'insensitive' ? String(actual ?? '').toLowerCase().includes(String(operand).toLowerCase()) : String(actual ?? '').includes(operand);
+          case 'mode': assert.equal(operand, 'insensitive'); return true;
+          default: throw Error(`UNSUPPORTED_WHERE ${key}.${operator}`);
+        }
+      });
+    }
+    return actual === value;
+  });
+}
+function memory() {
+  const data = {}, calls = [], writes = [], audits = [], events = [], locks = [], operations = [];
+  let sequence = 0, tail = Promise.resolve();
+  const model = (label, rows, options = {}) => {
+    const queryRow = row => options.enrich ? options.enrich(copy(row)) : copy(row);
+    const check = query => {
+      for (const relation of Object.keys(query.include ?? {})) {
+        if (!options.includes?.includes(relation)) throw Error(`UNMOCKED_INCLUDE ${label}.${relation}`);
+      }
+      calls.push({ label, query: copy(query) });
+    };
+    const whereOf = where => options.compounds?.reduce((current, key) => current[key] ?? current, where) ?? where;
+    const get = query => { check(query); return rows.find(row => matches(queryRow(row), whereOf(query.where))); };
+    const present = row => row ? queryRow(row) : null;
+    const apply = (row, values) => {
+      for (const [key, value] of Object.entries(values)) {
+        if (value && typeof value === 'object' && !(value instanceof Date) && ('increment' in value || 'decrement' in value)) {
+          row[key] += value.increment ?? -value.decrement;
+        } else row[key] = copy(value);
+      }
+    };
+    const api = {
+      findUnique: async query => present(get(query)),
+      findFirst: async query => present(get(query)),
+      findMany: async (query = {}) => {
+        check(query);
+        let selected = rows.map(queryRow).filter(row => matches(row, query.where));
+        for (const order of (Array.isArray(query.orderBy) ? query.orderBy : [query.orderBy]).filter(Boolean).reverse()) {
+          const [key, direction] = Object.entries(order)[0];
+          selected.sort((a, b) => (a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0) * (direction === 'desc' ? -1 : 1));
+        }
+        return selected.slice(query.skip ?? 0, query.take === undefined ? undefined : (query.skip ?? 0) + query.take);
+      },
+      count: async query => { check(query); return rows.filter(row => matches(queryRow(row), query.where)).length; },
+      create: async query => {
+        check(query);
+        const input = options.prepare ? options.prepare(copy(query.data)) : copy(query.data);
+        for (const keys of options.unique ?? []) if (rows.some(row => keys.every(key => row[key] === input[key]))) {
+          const error = Error(`MEMORY_UNIQUE ${label}`); error.code = 'P2002'; throw error;
+        }
+        const row = { id: `r2-${label}-${++sequence}`, version: 0, deletedAt: null, archivedAt: null, createdAt: new Date(), ...copy(options.defaults ?? {}), ...input };
+        rows.push(row); writes.push({ label, action: 'create', id: row.id }); return present(row);
+      },
+      update: async query => { const row = get(query); assert.ok(row, `MISSING_UPDATE ${label}`); apply(row, query.data); writes.push({ label, action: 'update', id: row.id }); return present(row); },
+      updateMany: async query => { check(query); const selected = rows.filter(row => matches(queryRow(row), query.where)); for (const row of selected) apply(row, query.data); writes.push({ label, action: 'updateMany', count: selected.length }); return { count: selected.length }; },
+      createMany: async query => { for (const row of query.data) await api.create({ data: row }); return { count: query.data.length }; },
+      upsert: async query => { const row = get(query); return row ? api.update({ where: { id: row.id }, data: query.update }) : api.create({ data: query.create }); },
+    };
+    return strict(api, label);
+  };
+  const db = strict(data, 'db');
+  data.$executeRaw = async (strings, ...values) => { assert.match(strings.join('?'), /pg_advisory_xact_lock/); locks.push(copy(values)); return 0; };
+  // Deterministic FIFO transactions, not PostgreSQL locking, rollback or concurrent isolation.
+  data.$transaction = fn => { assert.equal(typeof fn, 'function'); const result = tail.then(() => fn(db)); tail = result.catch(() => {}); return result; };
+  data.processedOperation = model('processedOperation', operations, { compounds: ['userId_operationId'], unique: [['userId', 'operationId']] });
+  const audit = strict({ write: async item => audits.push(copy(item)), writeTx: async (_tx, item) => audits.push(copy(item)) }, 'audit');
+  const ws = strict({ broadcast: (...args) => events.push(copy(args)), sendToUsers: (...args) => events.push(copy(args)) }, 'ws');
+  const attachments = strict({ listForEntities: async () => new Map() }, 'attachments');
+  return { data, db, model, calls, writes, audits, events, operations, locks, audit, ws, attachments };
+}
+const denied = error => [400, 403, 404, 409].includes(error.getStatus?.());
+module.exports = { strict, copy, matches, memory, denied };

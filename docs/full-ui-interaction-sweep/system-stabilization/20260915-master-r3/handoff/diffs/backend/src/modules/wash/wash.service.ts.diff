@@ -1,0 +1,23 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\src\\modules\\wash\\wash.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\wash\\wash.service.ts"
+index 49630d46..4db911c6 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\src\\modules\\wash\\wash.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\wash\\wash.service.ts"
+@@ -180,6 +180,18 @@ export class WashService {
+         if (existing.factoryId !== user.selectedFactoryId || existing.deletedAt || existing.type !== 'WASH_REQUEST') {
+           throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
+         }
++        // This direct-key record persists its immutable creation input. Bind
++        // the replay to that input; a matching creator/key alone is not enough.
++        if (existing.targetType !== target.targetType
++          || (existing.lineId ?? '') !== (target.targetType === 'LINE' ? target.lineId : '')
++          || (existing.objectName ?? null) !== target.objectName
++          || (existing.objectDescription ?? null) !== target.objectDescription
++          || existing.description !== description
++          || existing.priority !== priority
++          || (existing.dueAt ? new Date(existing.dueAt).getTime() : null) !== (dueAt?.getTime() ?? null)
++          || (existing.comment ?? null) !== (String(input.comment ?? '').trim() || null)) {
++          throw new ConflictError('Идентификатор действия уже использован с другими данными. Обновите экран.');
++        }
+         await this.assertFactoryUserTx(tx, user.userId, user.selectedFactoryId);
+         return { request: existing, changed: false };
+       }

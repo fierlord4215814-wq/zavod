@@ -1,0 +1,194 @@
+{
+  "status": "PARTIAL_SHIFT_SETTINGS_CONSUMERS_SEND_HOME_FACTORY_LINK_AND_RETURN_DECISION_UI_GAPS",
+  "steps": {
+    "companyViaUi": true,
+    "limitNegative": {
+      "status": 409,
+      "body": {
+        "code": "CONFLICT",
+        "message": "Превышен лимит наёмных работников на смену"
+      }
+    },
+    "limitNegativeScope": "Guard precedence with one eligible contractor and the lead outside contractor pool; not a two-eligible-person UI proof",
+    "plan": {
+      "id": "e539d2ce-61d0-440d-82ab-c63eccb3cba5",
+      "itemId": "787f3b72-28e2-4a02-a749-a99e27524daf"
+    },
+    "arrival": {
+      "id": "11342788-5263-4c22-b24d-06386c5bcacf"
+    },
+    "firstAssignment": {
+      "id": "c81d1e99-1cb8-4b16-a5fc-e1847ceda571"
+    },
+    "releasedFirst": true,
+    "intervalDenied": {
+      "status": 409,
+      "body": {
+        "code": "CONFLICT",
+        "message": "Сотрудника можно перемещать не чаще одного раза в 60 минут."
+      }
+    },
+    "secondAssignment": {
+      "id": "e171cfe9-faef-407c-9160-e3f53d8cf3c4"
+    },
+    "releasedSecond": true
+  },
+  "error": "POST /shift/send-home: Сотрудник относится к другому заводу\n\n409 !== 201\n",
+  "originalSettings": {
+    "minAssignmentMoveIntervalMinutes": 5,
+    "contractorLeadMaxPeoplePerShift": 6,
+    "returnRequestEnabled": true
+  },
+  "originalUsers": [
+    {
+      "id": "601fb913-9de5-4e89-8319-387a8045b54b",
+      "role": "MASTER",
+      "blockedAt": null,
+      "factoryAccess": [
+        {
+          "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+          "role": "MASTER",
+          "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+          "jobTitleId": "b502b908-e77c-44cf-9ed2-3032805511b7",
+          "companyId": null,
+          "isGuest": false,
+          "isActive": true
+        },
+        {
+          "factoryId": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca",
+          "role": "OTHER",
+          "departmentId": null,
+          "jobTitleId": null,
+          "companyId": null,
+          "isGuest": true,
+          "isActive": true
+        }
+      ]
+    },
+    {
+      "id": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "role": "WORKER",
+      "blockedAt": null,
+      "factoryAccess": [
+        {
+          "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+          "role": "WORKER",
+          "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+          "jobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+          "companyId": null,
+          "isGuest": false,
+          "isActive": true
+        },
+        {
+          "factoryId": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca",
+          "role": "OTHER",
+          "departmentId": null,
+          "jobTitleId": null,
+          "companyId": null,
+          "isGuest": true,
+          "isActive": true
+        }
+      ]
+    }
+  ],
+  "adminUi": "Учебная площадка C ADMIN01\n\nЗавод\n\nОнлайн · Администратор Администратор У.\n12\nСмена\n\nРабочий стол мастера: линии, люди, назначения, заявки и мойка.\n\n≡\nВ работе\n0\n●\nЛюди на смене\n1\nⅡ\nПростой\n0\n!\nЗаявки\n0\nНа производственных линиях:\n0 из 0\nТекущая смена · Учебная площадка C ADMIN01\n26.09.2026 · День · 08:00–20:00\nВыбрать смену\n⌄\nОтдел для передачи смены\nВыберите отдел\nКонтроль C\nСборка C\n\nВыберите отдел, чтобы увидеть предыдущую передачу и время следующей. Без отдела запись не создаётся.\n\nСотрудник относится к другому заводу\nНет новых событий\nНа смене\nСвободные сначала, затем уже распределённые сотрудники\nСвободные: 1\nРаспределены: 0\nПоиск по ФИО, роли, линии\nВыбрать из неотмеченных\nВыбран для следующего назначения: Приёмочный У. З.\nСвободные\n1\nПР\nПриёмочный У. З.\nНаёмный работник · Подрядчик C — приёмка\nПодрядчик C — приёмка\nНазначить\nРаспределены\n0\nРаспределённых работников или наёмных сотрудников нет\n\nНавык проверяется по выбранной линии и позиции: зелёный — прямое совпадение, золотой — схожий навык, нейтральный — без подтверждённого совпадения.\n\nЗакрыть\nЛинии в работе\n0\nРаботающих линий сейчас нет\nПовременщики и рабочие зоны\n0\nРабочие зоны пока не настроены\nЛинии на мойке\n0\nЛиний на мойке сейчас нет\nОстановленные линии\n1\nЛиния настройки C\nОстановлена\nЛюди 0/1\nОсновной состав C\nПростой\nОстановить\nПодробнее\nПлан\nЗапустить новую линию\nНа смене\n1\nПР\nПриёмочный У. З.\nПодрядчик C — приёмка · Наёмный работник\nПодробнее\nПриёмочный Участник Заводович\n\nОтправить сотрудника домой\n\nОтмена\nПодтвердить\nСмена\nИстория смен\nЛюди\nАдминка\nАдминистрирование\nЛинии\nЗаявки\nМойка\nОКК\nНекондиция\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\n12\nСтатистика / Аудит\nСообщить об ошибке\nНастройки",
+  "leadUi": "Учебная площадка C ADMIN01\n\nЗавод\n\nОнлайн · Старший наёмных работников Приёмочный Р.\nСмена\n\nВаша смена и текущее назначение.\n\n≡\nВ работе\n0\nНа мойке: 0\n●\nЛюди на смене\n0\nⅡ\nПростой\n0\nНа производственных линиях:\n0 из 0\nТекущая смена · Учебная площадка C ADMIN01\n26.09.2026 · День · 08:00–20:00\nВыбрать смену\n⌄\nНет новых событий\nНаёмные работники\nПодрядчик C — приёмка · только ваша фирма\nПрибыло: 1\nЗапланировано: 1\nВыбрано на следующую смену: 0\nТекущая смена\nФакт\nПР\nПриёмочный У. З.\nНа смене\nПрибыл\nПрибыл\nНе прибыл\nСледующая смена\nПлан\nПриёмочный У. З.\nНе выбран\nВыбрать всех\nСнять всех\nПриведу: 0\n\nПоследний сохранённый план: 1 чел. · Подрядчик C — приёмка\n\nМоя смена\n0\nНа текущей смене пока нет сотрудников.\nСмена\nИстория смен\nЛюди\nВозвраты на производство\nЧаты\nОбъявления\nАрхив\nСообщить об ошибке\nНастройки",
+  "restoredUsers": [
+    {
+      "id": "601fb913-9de5-4e89-8319-387a8045b54b",
+      "role": "MASTER",
+      "blockedAt": null,
+      "factoryAccess": [
+        {
+          "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+          "role": "MASTER",
+          "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+          "jobTitleId": "b502b908-e77c-44cf-9ed2-3032805511b7",
+          "companyId": null,
+          "isGuest": false,
+          "isActive": true
+        },
+        {
+          "factoryId": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca",
+          "role": "OTHER",
+          "departmentId": null,
+          "jobTitleId": null,
+          "companyId": null,
+          "isGuest": true,
+          "isActive": true
+        }
+      ]
+    },
+    {
+      "id": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "role": "WORKER",
+      "blockedAt": null,
+      "factoryAccess": [
+        {
+          "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+          "role": "WORKER",
+          "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+          "jobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+          "companyId": null,
+          "isGuest": false,
+          "isActive": true
+        },
+        {
+          "factoryId": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca",
+          "role": "OTHER",
+          "departmentId": null,
+          "jobTitleId": null,
+          "companyId": null,
+          "isGuest": true,
+          "isActive": true
+        }
+      ]
+    }
+  ],
+  "restored": true,
+  "sendHomeGap": {
+    "uiHttp": 409,
+    "message": "Сотрудник относится к другому заводу",
+    "owner": "EmployeeService.sendHome uses User.factoryId, unlike assignToLine UFA",
+    "userHome": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca",
+    "selectedFactory": "7615c315-5c00-415b-92d6-39182af7ea0a"
+  },
+  "sessionCleanup": {
+    "mechanism": "Canonical own HTTP /shift/end; no current self-end UI found, NOT UI journey PASS",
+    "id": "66c85f82-a5a7-4bd3-ae08-ab52fb897d48"
+  },
+  "returnDisabled": 409,
+  "returnEnabledEligible": false,
+  "sql": {
+    "activeAssignments": 0,
+    "activeSessions": 0,
+    "line": {
+      "status": "STOP"
+    },
+    "plans": [
+      {
+        "id": "39ed8134-95bd-449c-b37d-998f089b837f",
+        "status": "SUBMITTED",
+        "items": [
+          {
+            "id": "11342788-5263-4c22-b24d-06386c5bcacf",
+            "status": "PROPOSED",
+            "actualStatus": "ARRIVED"
+          }
+        ]
+      },
+      {
+        "id": "e539d2ce-61d0-440d-82ab-c63eccb3cba5",
+        "status": "REJECTED",
+        "items": [
+          {
+            "id": "787f3b72-28e2-4a02-a749-a99e27524daf",
+            "status": "REJECTED",
+            "actualStatus": "PLANNED"
+          }
+        ]
+      }
+    ]
+  },
+  "finalSettingsRestored": true
+}

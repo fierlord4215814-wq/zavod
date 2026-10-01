@@ -1,0 +1,72 @@
+{
+  "startedAt": "2026-09-15T20:05:14.365Z",
+  "expected": [
+    {
+      "title": "R3-C1 permanently removed selection preserved visibly and blocked until explicit replacement",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 49,
+      "id": "166e229b5498"
+    },
+    {
+      "title": "R3-C1 incompatible text checkbox keeps separate drafts without string true conversion",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 61,
+      "id": "93c5f7b2810d"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-C1 permanently removed selection preserved visibly and blocked until explicit replacement",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 49,
+      "id": "166e229b5498",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 9103,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Получатель', { exact: true })\nExpected: \u001b[32m\"two\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Получатель', { exact: true })\u001b[22m\n\u001b[2m    20 × locator resolved to <select name=\"choice\" aria-label=\"Получатель\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C1-red-01\\runner-artifacts\\master-r3-form-back-R3-C1--df297--until-explicit-replacement\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C1-red-01\\runner-artifacts\\master-r3-form-back-R3-C1--df297--until-explicit-replacement\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C1 incompatible text checkbox keeps separate drafts without string true conversion",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 61,
+      "id": "93c5f7b2810d",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 9161,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeChecked\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Название', { exact: true })\nExpected: not checked\nReceived: checked\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeChecked\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Название', { exact: true })\u001b[22m\n\u001b[2m    20 × locator resolved to <input checked name=\"text\" type=\"checkbox\" aria-label=\"Название\"/>\u001b[22m\n\u001b[2m       - unexpected value \"checked\"\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C1-red-01\\runner-artifacts\\master-r3-form-back-R3-C1--be7ea-hout-string-true-conversion\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C1-red-01\\runner-artifacts\\master-r3-form-back-R3-C1--be7ea-hout-string-true-conversion\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T20:05:35.169Z",
+  "status": "failed",
+  "listOnly": false
+}

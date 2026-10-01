@@ -1,0 +1,230 @@
+{
+  "id": "6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9",
+  "name": "Фильтр вентиляции учебного стенда",
+  "operations": [
+    {
+      "mode": "take",
+      "http": {
+        "status": 201,
+        "body": {
+          "quantity": 1,
+          "comment": "Учебная проверка формы LOCAL03 take",
+          "operationId": "d99e5cf2-0073-4f5b-83f1-35ebc7a0c787"
+        }
+      },
+      "secondUiMs": 340,
+      "retry": 201,
+      "quantity": 2
+    },
+    {
+      "mode": "restock",
+      "http": {
+        "status": 201,
+        "body": {
+          "quantity": 1,
+          "comment": "Учебная проверка формы LOCAL03 restock",
+          "operationId": "9251712f-10cc-4a5f-a852-23114d52b370"
+        }
+      },
+      "secondUiMs": 312,
+      "retry": 201,
+      "quantity": 3
+    }
+  ],
+  "before": {
+    "id": "6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9",
+    "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+    "departmentId": "6b39b352-adf5-4c3c-92b7-f5760926df97",
+    "departmentName": "Учебный отдел склада",
+    "departmentScope": "LOCAL",
+    "departmentLabel": "Учебный отдел склада",
+    "name": "Фильтр вентиляции учебного стенда",
+    "category": "Расходные материалы",
+    "description": "Учебная проверка движения неснижаемого остатка",
+    "storageLocation": "Учебный склад",
+    "currentQuantity": 3,
+    "minThreshold": 5,
+    "initialQuantity": 10,
+    "referenceQuantity": 10,
+    "unit": "шт",
+    "percent": 60,
+    "color": "yellow",
+    "shortageStatus": "LOW",
+    "shortageStatusLabel": "Мало",
+    "belowThreshold": true,
+    "activeOrderRequestsCount": 1,
+    "hasOpenOrderRequest": true,
+    "openOrderRequestId": "8ec98df0-7c60-4e8d-b05d-afcd245993cc",
+    "isActive": false,
+    "archivedAt": "2026-09-24T10:35:25.800Z",
+    "createdAt": "2026-09-24T10:24:40.612Z",
+    "updatedAt": "2026-09-24T10:35:25.800Z",
+    "attachments": [],
+    "availableActions": [
+      "take",
+      "order",
+      "detail"
+    ],
+    "movements": [
+      {
+        "id": "4bcbf356-17b3-4dad-8fe7-b9857471fd89",
+        "type": "TAKE",
+        "typeLabel": "Расход",
+        "quantity": 7,
+        "beforeQuantity": 10,
+        "afterQuantity": 3,
+        "unit": "шт",
+        "comment": "Учебная конкуренция первая",
+        "createdAt": "2026-09-24T10:24:56.901Z"
+      },
+      {
+        "id": "4200dc5c-e1f0-4079-bacf-0419c71bff7e",
+        "type": "RESTOCK",
+        "typeLabel": "Пополнение",
+        "quantity": 3,
+        "beforeQuantity": 7,
+        "afterQuantity": 10,
+        "unit": "шт",
+        "comment": "Учебное пополнение трех фильтров",
+        "createdAt": "2026-09-24T10:24:56.834Z"
+      },
+      {
+        "id": "c62e6df1-4ac1-400e-bd60-207a8deb6861",
+        "type": "TAKE",
+        "typeLabel": "Расход",
+        "quantity": 3,
+        "beforeQuantity": 10,
+        "afterQuantity": 7,
+        "unit": "шт",
+        "comment": "Учебный расход трех фильтров",
+        "createdAt": "2026-09-24T10:24:56.690Z"
+      }
+    ],
+    "orderRequests": [
+      {
+        "id": "8ec98df0-7c60-4e8d-b05d-afcd245993cc",
+        "departmentId": "6b39b352-adf5-4c3c-92b7-f5760926df97",
+        "departmentName": "Учебный отдел склада",
+        "departmentScope": "LOCAL",
+        "departmentLabel": "Учебный отдел склада",
+        "title": "Фильтр вентиляции учебного стенда",
+        "description": "Учебная проверка движения неснижаемого остатка",
+        "sourceType": "AUTO_FROM_STOCK",
+        "sourceTypeLabel": "Из остатка",
+        "status": "ORDERED",
+        "statusLabel": "К заказу",
+        "requestedQuantity": 7,
+        "unit": "шт",
+        "reasonComment": "Учебное восстановление минимального остатка",
+        "closeComment": "Учебная заявка принята к заказу",
+        "createdAt": "2026-09-24T10:28:47.456Z",
+        "closedAt": "2026-09-24T10:34:31.930Z",
+        "sourceItem": null,
+        "createdByLabel": "Проверочный Администратор",
+        "attachments": []
+      }
+    ]
+  },
+  "restoreHttp": {
+    "status": 201,
+    "body": {
+      "operationId": "95ca3ba8-3f6b-4f09-938b-e91a322d01c0"
+    }
+  },
+  "restored": true,
+  "restoreSecondUiMs": 334,
+  "archiveHttp": {
+    "status": 201,
+    "body": {
+      "comment": "Учебная форма LOCAL03 проверена; история сохранена",
+      "operationId": "9683e72a-2c3c-43d8-b607-1fb7cc8ad744"
+    }
+  },
+  "archived": true,
+  "sql": {
+    "id": "6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9",
+    "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+    "departmentId": "6b39b352-adf5-4c3c-92b7-f5760926df97",
+    "name": "Фильтр вентиляции учебного стенда",
+    "category": "Расходные материалы",
+    "description": "Учебная проверка движения неснижаемого остатка",
+    "storageLocation": "Учебный склад",
+    "minThreshold": 5,
+    "initialQuantity": 10,
+    "currentQuantity": 3,
+    "referenceQuantity": 10,
+    "unit": "шт",
+    "isActive": false,
+    "archivedAt": "2026-09-25T05:44:40.527Z",
+    "archivedById": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+    "restoredAt": "2026-09-25T05:44:38.319Z",
+    "restoredById": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+    "createdById": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+    "updatedById": "8aab468c-2433-4b1e-8295-84238dc64495",
+    "createdAt": "2026-09-24T10:24:40.612Z",
+    "updatedAt": "2026-09-25T05:44:40.527Z",
+    "movements": [
+      {
+        "id": "c62e6df1-4ac1-400e-bd60-207a8deb6861",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "itemId": "6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9",
+        "actorId": "8aab468c-2433-4b1e-8295-84238dc64495",
+        "type": "TAKE",
+        "quantity": 3,
+        "beforeQuantity": 10,
+        "afterQuantity": 7,
+        "comment": "Учебный расход трех фильтров",
+        "createdAt": "2026-09-24T10:24:56.690Z"
+      },
+      {
+        "id": "4200dc5c-e1f0-4079-bacf-0419c71bff7e",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "itemId": "6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9",
+        "actorId": "8aab468c-2433-4b1e-8295-84238dc64495",
+        "type": "RESTOCK",
+        "quantity": 3,
+        "beforeQuantity": 7,
+        "afterQuantity": 10,
+        "comment": "Учебное пополнение трех фильтров",
+        "createdAt": "2026-09-24T10:24:56.834Z"
+      },
+      {
+        "id": "4bcbf356-17b3-4dad-8fe7-b9857471fd89",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "itemId": "6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9",
+        "actorId": "8aab468c-2433-4b1e-8295-84238dc64495",
+        "type": "TAKE",
+        "quantity": 7,
+        "beforeQuantity": 10,
+        "afterQuantity": 3,
+        "comment": "Учебная конкуренция первая",
+        "createdAt": "2026-09-24T10:24:56.901Z"
+      },
+      {
+        "id": "992dca30-17b3-4ca3-9786-ff00726f39de",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "itemId": "6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9",
+        "actorId": "8aab468c-2433-4b1e-8295-84238dc64495",
+        "type": "TAKE",
+        "quantity": 1,
+        "beforeQuantity": 3,
+        "afterQuantity": 2,
+        "comment": "Учебная проверка формы LOCAL03 take",
+        "createdAt": "2026-09-25T05:44:39.072Z"
+      },
+      {
+        "id": "33e7daf8-6e9a-42d4-b684-e4b7fd0b70e7",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "itemId": "6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9",
+        "actorId": "8aab468c-2433-4b1e-8295-84238dc64495",
+        "type": "RESTOCK",
+        "quantity": 1,
+        "beforeQuantity": 2,
+        "afterQuantity": 3,
+        "comment": "Учебная проверка формы LOCAL03 restock",
+        "createdAt": "2026-09-25T05:44:39.821Z"
+      }
+    ]
+  },
+  "status": "PASS_UI_RESTORE_TAKE_RESTOCK_RETRY_ARCHIVE"
+}

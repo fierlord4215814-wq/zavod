@@ -1,0 +1,22 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260921-vhdx-ssh\before\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\progress.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\progress.md', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-vhdx-ssh\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+index 4ed85d27..43dd8d73 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-vhdx-ssh\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+@@ -1,5 +1,15 @@
+ # MASTER R5 — recoverable checkpoint
+ 
++## Актуальное продолжение21.09 — Hyper-V/VHDX → SSH, без capture
++
++MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_DIAGNOSTIC_BOOT; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; PHYSICAL_PHONE=PENDING; FINAL_STOP=STOP. Новая authority: `attempts/20260921-vhdx-ssh/continuation-request.txt` (ff30e7d9). Пользователь подтвердил прежний restart Codex; точное время неизвестно, повтор не требуется. Capture/VMConnect больше не повторять.
++
++Последняя завершённая операция: сохранены current before16owners, неизменные215product/config+132build+72harness,6matrices и6старыхZIP; `attempts/20260921-vhdx-ssh/baseline.json`. Исправленный generator уже имеет10/10 host PASS,7/3 в новом поручении — устаревший ориентир. Guest repair/isolation/live пока не выполнялись.
++
++Последняя завершённая операция22:29:35+03: единственный native UAC вернул «Операция была отменена пользователем», caller session30272 exit1; `attempts/20260921-vhdx-ssh/uac-failure.json`. Причина отмены/таймаут не установлены. Elevated PID/actual token/helper-start отсутствуют. Скрипт diagnostic-boot НЕ исполнился; fresh VM/config/network/seed reads, извлечение DVD, firmware change и Start-VM НЕ выполнялись. SSH probe только подготовлен, НЕ запущен. Состояние VM сейчас UNKNOWN, последнее independentOff16:09 — история, не новый факт. Capture retries0; working DB/service/env/uploads/history не читались.
++
++Незавершённая операция: UAC для существующей VM. Точка восстановления: новое явное разрешение пользователя на одну штатную UAC-попытку и готовность подтвердить системное окно; прежний launcher защищён от повторения. Не повторять отменённый запрос/не менять канал для обхода. После разрешения — fresh exact GUID/BIOS/soleVHDX/jobs/controllers/firmware/DVD/network/resources; только при Off две ownISO извлечь, существующий диск первым, SecureBoot сохранить, один Start-VM. При Running не выключать. Далее bounded SSH10.243.53.2:22/отдельный known_hosts/независимая привязка host key, затем полная серия. Прежний helper завершён; reused9056 не трогать. Ниже — исторические checkpoint, не команды к исполнению.
++
+ ## Актуальный checkpoint21.09 после повторного поручения4576acc6
+ 
+ MASTER_R5_STATUS=BLOCKED_TOOL_CAPABILITY; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; FINAL_STOP=STOP. [Последний результат](attempts/20260921-channel-recheck/result.md). История предыдущей попытки ниже сохранена; её7PASS/3BLOCKED и viewer15316alive больше не являются последними данными.

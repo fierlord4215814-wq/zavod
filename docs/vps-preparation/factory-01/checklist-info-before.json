@@ -1,0 +1,153 @@
+{
+  "status": "IN_PROGRESS",
+  "templates": [
+    {
+      "name": "УЧЕБНЫЙ — Чистота производственного участка",
+      "key": "clean",
+      "actor": "OKK",
+      "department": "okk",
+      "types": [
+        "YES_NO",
+        "NUMBER",
+        "TEXT",
+        "REQUIRED_COMMENT",
+        "PHOTO",
+        "YES_NO_NA",
+        "SELECT",
+        "INFO",
+        "REQUIRED_PHOTO",
+        "YES_NO"
+      ],
+      "id": "c67eead8-1401-4ac5-a937-ac6ac7e9b0dd",
+      "references": [
+        "e8ef230e-5a6a-468b-b41c-6983dcbdf7bd",
+        "33e95a20-98a1-4c5a-a094-56543a8668d9",
+        "8c09c19c-408f-4e60-bb9f-56cee6674563",
+        "0f2570c7-bec9-44e5-8f0c-c9593e8589c0",
+        "cd7c6432-456e-430e-ba4e-ca7347f3a5ba",
+        "578e388a-d0e9-4a65-8315-67c1a4b9a0d9",
+        "93ddc47e-3aba-407b-97cd-d06288f71412",
+        "2518d8f8-06b2-4866-91d5-fad8dddeb446",
+        "c374c627-6407-4710-9a9d-21585601f8fa",
+        "30bdc517-705c-4791-89a9-67e22153e489"
+      ],
+      "secondUiMs": 764,
+      "source": "same existing template renamed/updated, not cloned"
+    },
+    {
+      "name": "УЧЕБНЫЙ — Проверка линии перед запуском",
+      "key": "line",
+      "actor": "MASTER",
+      "department": "production",
+      "line": true,
+      "types": [
+        "YES_NO",
+        "NUMBER",
+        "REQUIRED_PHOTO"
+      ],
+      "id": "6333dbcc-cec1-48d0-b1ca-d53a0d1dbf05",
+      "references": [
+        "5266e883-d6b5-465a-a766-d1083d8dc026",
+        "4585555a-a677-45f8-b866-9ac548123e37",
+        "6ece1cfb-2743-4b37-bb7f-849a8cb6681f"
+      ],
+      "secondUiMs": 486,
+      "source": "ADMIN create UI"
+    },
+    {
+      "name": "УЧЕБНЫЙ — Контроль окончания смены",
+      "key": "end",
+      "actor": "MASTER02",
+      "department": "production",
+      "types": [
+        "REQUIRED_COMMENT",
+        "YES_NO_NA",
+        "INFO"
+      ],
+      "id": "ca0d11ea-93a2-4cc3-a8d8-f23915e3bf6f",
+      "references": [
+        "1a05be27-3cdb-4fd7-bdc8-cb2be2460a5f",
+        "f82f444a-010a-4c5f-a36b-7e236a566459",
+        "f27b0458-1936-4c9f-9f02-2a1a90986157"
+      ],
+      "secondUiMs": 581,
+      "source": "ADMIN create UI"
+    }
+  ],
+  "runs": [
+    {
+      "key": "clean",
+      "actor": "OKK",
+      "id": "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+      "completed": [
+        {
+          "id": "33523048-281c-4beb-897e-094c696ef494",
+          "type": "YES_NO"
+        },
+        {
+          "id": "138947c2-cc92-4beb-bd25-da565f94c6ab",
+          "type": "NUMBER"
+        },
+        {
+          "id": "ca09ec92-da60-45ba-b6ab-24e3b375bb0c",
+          "type": "TEXT"
+        },
+        {
+          "id": "bdbf35b5-34c5-419f-9d55-76d186a96f10",
+          "type": "REQUIRED_COMMENT"
+        },
+        {
+          "id": "23f66e59-ff85-48e4-8ab2-d5a75db05723",
+          "type": "PHOTO"
+        },
+        {
+          "id": "9fea3856-48dd-458e-a6dd-710a77b6b8eb",
+          "type": "YES_NO_NA"
+        },
+        {
+          "id": "96b78daf-f1eb-4d99-b6a2-04bb842c9f54",
+          "type": "SELECT"
+        }
+      ],
+      "negative": {
+        "missingAnswer": 409,
+        "referenceNotResult": 409
+      }
+    },
+    {
+      "key": "line",
+      "actor": "MASTER",
+      "id": "fe49f6ab-b260-4bba-b66a-98371214989b",
+      "completed": []
+    },
+    {
+      "key": "end",
+      "actor": "MASTER02",
+      "id": "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+      "completed": []
+    }
+  ],
+  "multiRun": {
+    "concurrentActive": 3,
+    "rows": [
+      {
+        "id": "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "fe49f6ab-b260-4bba-b66a-98371214989b",
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "status": "ACTIVE"
+      }
+    ]
+  },
+  "error": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.guided-run-modal').locator('.guided-row-heading').filter({ hasText: 'Дверь холодильной зоны' }) to be visible\u001b[22m\n",
+  "uiA": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Администратор Учебный А.\n11\n\nОТДЕЛОВОЙ КОНТРОЛЬ\n\nЧек-листы\n\nТекущие проверки, сроки и выполнение по вашему отделу.\n\n✓\nВ работе\n0\n+\nДоступные\n0\n▤\nАрхив\n2\nНастройка чек-листов\nУправление шаблонами ›\n\nАрхив\n\nЗавершённые чек-листы\nОткройте запись, чтобы посмотреть ответы и результат.\nФильтры и отчёты\nУЧЕБНЫЙ — Чистота производственного участка\n26.09.2026, 23:27:02 · Ночь\nЗакрыт\n10 из 10 пунктов\nОткрыть\nУЧЕБНЫЙ — Чистота производственного участка\n26.09.2026, 23:25:59 · Ночь\nЗакрыт\n10 из 10 пунктов\nОткрыть\nСмена\nИстория смен\nЛюди\nАдминка\nАдминистрирование\nЛинии\nЗаявки\nМойка\nОКК\nНекондиция\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\n6\nОбъявления\nАрхив\nУведомления\n11\nСтатистика / Аудит\nСообщить об ошибке\nНастройки",
+  "uiCurrent": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n5\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\n\nОТДЕЛОВОЙ КОНТРОЛЬ\n\nЧек-листы\n\nТекущие проверки, сроки и выполнение по вашему отделу.\n\n✓\nВ работе\n1\n+\nДоступные\n0\n▤\nАрхив\n1\nДобавьте фото: пункт «Контейнер отходов» требует подтверждение фотографией.\nВ работе\n1\nУЧЕБНЫЙ — Чистота производственного участка\nУЧ — ОКК T1 · 10 пунктов\nВ работе\nЗаполнено: 7/10\nВручную\nПродолжить\nПодробнее\nНачать новый чек-лист\n←\nУЧЕБНЫЙ — Чистота производственного участка\nУЧ — ОКК T1 · Без привязки к линии · Ночь\n⋯\nПункт 8 из 10 · шаг 2 из 2\nЕсть несохранённые изменения\nВ работе\nКонтейнер отходов\nФото-эталон\nВложения: 1\nУчебное-фото-37.png\nФото · 1 КБ\nОткрыть\nФото результата\nВложений нет.\nИнформационный пункт. Проверьте текст и нажмите “Дальше”.\nНазад\nДальше"
+}

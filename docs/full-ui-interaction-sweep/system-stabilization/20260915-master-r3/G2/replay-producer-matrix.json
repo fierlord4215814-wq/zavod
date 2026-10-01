@@ -1,0 +1,940 @@
+{
+  "unit": "45 inherited method rows, not endpoints/controls; source lineage, final test verdicts separate",
+  "rows": [
+    {
+      "id": "ChatsService.addMember",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 372,
+      "methodSha256": "2843e4b809906b5a3eed8b0bd3170544e7a630461926c2d0be2664f519cb7381",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/chats/chats.controller.ts",
+          "line": 55,
+          "text": "return this.chatsService.addMember(user, id, body);"
+        }
+      ],
+      "producerOwner": "ChatsScreen.tsx",
+      "producerAndReader": "Membership commands use apiClient default per-invocation UUID; message uses sendAttemptRef reset on text/file/reply/context change. Membership processed helper binds requested member, current canonical membership and factory.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-chat-chain.test.js; R3 Chat IPC",
+      "limit": "Membership action/input opaque in ProcessedOperation; message is separate durable entity."
+    },
+    {
+      "id": "ChatsService.removeMember",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 449,
+      "methodSha256": "3283f38d53b1d77b8473fecaf96b44eb4aeebbc84acac3a7882b18d90b88f973",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/chats/chats.controller.ts",
+          "line": 60,
+          "text": "return this.chatsService.removeMember(user, id, userId, body);"
+        },
+        {
+          "owner": "backend/src/modules/chats/chats.controller.ts",
+          "line": 65,
+          "text": "return this.chatsService.removeMember(user, id, userId, body);"
+        }
+      ],
+      "producerOwner": "ChatsScreen.tsx",
+      "producerAndReader": "Membership commands use apiClient default per-invocation UUID; message uses sendAttemptRef reset on text/file/reply/context change. Membership processed helper binds requested member, current canonical membership and factory.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-chat-chain.test.js; R3 Chat IPC",
+      "limit": "Membership action/input opaque in ProcessedOperation; message is separate durable entity."
+    },
+    {
+      "id": "ChatsService.leave",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 504,
+      "methodSha256": "938c058eb0a77ee2fe38e52ed13957309dd39d5c4ef98cd3ccac7641d183afe7",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/chats/chats.controller.ts",
+          "line": 75,
+          "text": "return this.chatsService.leave(user, id, body);"
+        }
+      ],
+      "producerOwner": "ChatsScreen.tsx",
+      "producerAndReader": "Membership commands use apiClient default per-invocation UUID; message uses sendAttemptRef reset on text/file/reply/context change. Membership processed helper binds requested member, current canonical membership and factory.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-chat-chain.test.js; R3 Chat IPC",
+      "limit": "Membership action/input opaque in ProcessedOperation; message is separate durable entity."
+    },
+    {
+      "id": "ChatsService.updateMemberRole",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 554,
+      "methodSha256": "f0ef257e64bf8e55ae6663ea86be8cfdad32757198f64738f05245fdf7202295",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/chats/chats.controller.ts",
+          "line": 70,
+          "text": "return this.chatsService.updateMemberRole(user, id, userId, body);"
+        }
+      ],
+      "producerOwner": "ChatsScreen.tsx",
+      "producerAndReader": "Membership commands use apiClient default per-invocation UUID; message uses sendAttemptRef reset on text/file/reply/context change. Membership processed helper binds requested member, current canonical membership and factory.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-chat-chain.test.js; R3 Chat IPC",
+      "limit": "Membership action/input opaque in ProcessedOperation; message is separate durable entity."
+    },
+    {
+      "id": "ChatsService.transferOwnership",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 606,
+      "methodSha256": "7bad43d6689bfea77669239fb63d1a13e92fca71fb2857d2bb934a08231d82b8",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/chats/chats.controller.ts",
+          "line": 80,
+          "text": "return this.chatsService.transferOwnership(user, id, body);"
+        }
+      ],
+      "producerOwner": "ChatsScreen.tsx",
+      "producerAndReader": "Membership commands use apiClient default per-invocation UUID; message uses sendAttemptRef reset on text/file/reply/context change. Membership processed helper binds requested member, current canonical membership and factory.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-chat-chain.test.js; R3 Chat IPC",
+      "limit": "Membership action/input opaque in ProcessedOperation; message is separate durable entity."
+    },
+    {
+      "id": "ChatsService.setDirectCommunicationBlock",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 663,
+      "methodSha256": "29e986c59df89338fd865dba2213974357dc667af7657b068a310583ce58b4a2",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/chats/chats.controller.ts",
+          "line": 85,
+          "text": "return this.chatsService.setDirectCommunicationBlock(user, id, body);"
+        }
+      ],
+      "producerOwner": "ChatsScreen.tsx",
+      "producerAndReader": "Membership commands use apiClient default per-invocation UUID; message uses sendAttemptRef reset on text/file/reply/context change. Membership processed helper binds requested member, current canonical membership and factory.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-chat-chain.test.js; R3 Chat IPC",
+      "limit": "Membership action/input opaque in ProcessedOperation; message is separate durable entity."
+    },
+    {
+      "id": "ChatsService.processedMembershipReplayTx",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 1603,
+      "methodSha256": "fd6ea5145b73d34ae6533a3a0de732763794f5da72150f9ab60394e54d7478b5",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "HELPER_NOT_ENDPOINT_BOUNDED_ASSERTIONS",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "ChatsScreen.tsx",
+      "producerAndReader": "Membership commands use apiClient default per-invocation UUID; message uses sendAttemptRef reset on text/file/reply/context change. Membership processed helper binds requested member, current canonical membership and factory.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-chat-chain.test.js; R3 Chat IPC",
+      "limit": "Membership action/input opaque in ProcessedOperation; message is separate durable entity."
+    },
+    {
+      "id": "ChecklistsService.completeRow",
+      "owner": "backend/src/modules/checklists/checklists.service.ts",
+      "line": 671,
+      "methodSha256": "58df7480e693f9c60de1382cf6c0d18a2c98e384f2da581cec85a70a8b42803c",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/checklists/checklists.controller.ts",
+          "line": 150,
+          "text": "return this.service.completeRow(user, id, rowId, body);"
+        }
+      ],
+      "producerOwner": "ChecklistsScreen.tsx",
+      "producerAndReader": "completeRow now retains row/run/check/typed payload attempt; completeCurrentCheck existing checkCompletionOperationRef. Closed/old occurrence replay reads scoped result.",
+      "candidateAssertionFiles": "master-r2-related-replay.test.js; master-r2-replay-tail.test.js; master-r2-checklist-chain.test.js; master-r3-row-defrost.spec.ts",
+      "limit": "Row answer mutable; old immutable payload/kind cannot be reconstructed. Upload bytes not exactly-once."
+    },
+    {
+      "id": "ChecklistsService.completeCurrentCheck",
+      "owner": "backend/src/modules/checklists/checklists.service.ts",
+      "line": 751,
+      "methodSha256": "247b7a1e641726fd4459615189637cadc0b8d2e8774646a4e62060481898a029",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/checklists/checklists.controller.ts",
+          "line": 156,
+          "text": "return this.service.completeCurrentCheck(user, id, body);"
+        }
+      ],
+      "producerOwner": "ChecklistsScreen.tsx",
+      "producerAndReader": "completeRow now retains row/run/check/typed payload attempt; completeCurrentCheck existing checkCompletionOperationRef. Closed/old occurrence replay reads scoped result.",
+      "candidateAssertionFiles": "master-r2-related-replay.test.js; master-r2-replay-tail.test.js; master-r2-checklist-chain.test.js; master-r3-row-defrost.spec.ts",
+      "limit": "Row answer mutable; old immutable payload/kind cannot be reconstructed. Upload bytes not exactly-once."
+    },
+    {
+      "id": "DefrostService.start",
+      "owner": "backend/src/modules/defrost/defrost.service.ts",
+      "line": 223,
+      "methodSha256": "e877e497e89c3fe93c1c2eabb2719518c7c4d4dd7d4ef687774a6116efa52c46",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/defrost/defrost.controller.ts",
+          "line": 62,
+          "text": "return this.defrostService.start(user, body);"
+        }
+      ],
+      "producerOwner": "DefrostScreen.tsx",
+      "producerAndReader": "start-today→start; complete-today→completeToday/end; shock-chamber-blown→markShockChamberBlown. R3 explicit modal/line/comment attempt, reset on reopen. end also used by current controller.",
+      "candidateAssertionFiles": "master-r2-replay-tail.test.js; master-domain-contracts.test.js; master-r3-row-defrost.spec.ts",
+      "limit": "Event actor/line/type are available; event mutable fields are not a durable full input fingerprint."
+    },
+    {
+      "id": "DefrostService.end",
+      "owner": "backend/src/modules/defrost/defrost.service.ts",
+      "line": 304,
+      "methodSha256": "b302896dcfaa0a32876255713fa3e89adb2c6cf6baaa6c8cce7860d3be91478d",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/defrost/defrost.controller.ts",
+          "line": 68,
+          "text": "return this.defrostService.end(user, id, body);"
+        }
+      ],
+      "producerOwner": "DefrostScreen.tsx",
+      "producerAndReader": "start-today→start; complete-today→completeToday/end; shock-chamber-blown→markShockChamberBlown. R3 explicit modal/line/comment attempt, reset on reopen. end also used by current controller.",
+      "candidateAssertionFiles": "master-r2-replay-tail.test.js; master-domain-contracts.test.js; master-r3-row-defrost.spec.ts",
+      "limit": "Event actor/line/type are available; event mutable fields are not a durable full input fingerprint."
+    },
+    {
+      "id": "DefrostService.completeToday",
+      "owner": "backend/src/modules/defrost/defrost.service.ts",
+      "line": 387,
+      "methodSha256": "b17048f77dd6057311f4f43d1adb2dcd0e9abd3fd9afb91a3a02c763c8c48834",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/defrost/defrost.controller.ts",
+          "line": 45,
+          "text": "return this.defrostService.completeToday(user, lineId, body);"
+        }
+      ],
+      "producerOwner": "DefrostScreen.tsx",
+      "producerAndReader": "start-today→start; complete-today→completeToday/end; shock-chamber-blown→markShockChamberBlown. R3 explicit modal/line/comment attempt, reset on reopen. end also used by current controller.",
+      "candidateAssertionFiles": "master-r2-replay-tail.test.js; master-domain-contracts.test.js; master-r3-row-defrost.spec.ts",
+      "limit": "Event actor/line/type are available; event mutable fields are not a durable full input fingerprint."
+    },
+    {
+      "id": "DefrostService.markShockChamberBlown",
+      "owner": "backend/src/modules/defrost/defrost.service.ts",
+      "line": 413,
+      "methodSha256": "48dfdd0ca9f260661e1a13e87b08dcdf0d9cb09c49ac8ed6fa6cbc366e3439c8",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/defrost/defrost.controller.ts",
+          "line": 51,
+          "text": "return this.defrostService.markShockChamberBlown(user, lineId, body);"
+        }
+      ],
+      "producerOwner": "DefrostScreen.tsx",
+      "producerAndReader": "start-today→start; complete-today→completeToday/end; shock-chamber-blown→markShockChamberBlown. R3 explicit modal/line/comment attempt, reset on reopen. end also used by current controller.",
+      "candidateAssertionFiles": "master-r2-replay-tail.test.js; master-domain-contracts.test.js; master-r3-row-defrost.spec.ts",
+      "limit": "Event actor/line/type are available; event mutable fields are not a durable full input fingerprint."
+    },
+    {
+      "id": "EmployeeService.assignToLine",
+      "owner": "backend/src/modules/employee/employee.service.ts",
+      "line": 52,
+      "methodSha256": "adfa1bc9587382fc2bbe30a58e2f64f167990f06ae2a38d1b0ae8630a9ecc345",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "postCurrentShiftAction /assignments/line,/assignments/wash,/work-areas/:id/assign; per-invocation UUID unless manualSearchSelection carries an attempt. Current worker UFA/target/kind checked; ended result does not reassign.",
+      "candidateAssertionFiles": "master-r2-related-replay.test.js; master-r2-position.test.js",
+      "limit": "Ordinary invocation vs retry intent not durable in current UI; same-entity mutable input opaque."
+    },
+    {
+      "id": "EmployeeService.assignToWash",
+      "owner": "backend/src/modules/employee/employee.service.ts",
+      "line": 341,
+      "methodSha256": "a3dc04b63e507a51955386011dd390f4d0cd6bf907e48e00b1614860f2ee605c",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "postCurrentShiftAction /assignments/line,/assignments/wash,/work-areas/:id/assign; per-invocation UUID unless manualSearchSelection carries an attempt. Current worker UFA/target/kind checked; ended result does not reassign.",
+      "candidateAssertionFiles": "master-r2-related-replay.test.js; master-r2-position.test.js",
+      "limit": "Ordinary invocation vs retry intent not durable in current UI; same-entity mutable input opaque."
+    },
+    {
+      "id": "EmployeeService.assignToWorkArea",
+      "owner": "backend/src/modules/employee/employee.service.ts",
+      "line": 526,
+      "methodSha256": "812a12e7263d34bb21be9700d4c3f67b75d2381bf5ee7b70084f8b9ed601dd48",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "postCurrentShiftAction /assignments/line,/assignments/wash,/work-areas/:id/assign; per-invocation UUID unless manualSearchSelection carries an attempt. Current worker UFA/target/kind checked; ended result does not reassign.",
+      "candidateAssertionFiles": "master-r2-related-replay.test.js; master-r2-position.test.js",
+      "limit": "Ordinary invocation vs retry intent not durable in current UI; same-entity mutable input opaque."
+    },
+    {
+      "id": "ErrorReportService.create",
+      "owner": "backend/src/modules/error-report/error-report.service.ts",
+      "line": 76,
+      "methodSha256": "48d87f579a892c614b782db5b2b8a9e938a3b6831a1b14495c7fbb33c8843d73",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/error-report/error-report.controller.ts",
+          "line": 20,
+          "text": "return this.errorReportService.create(user, body);"
+        }
+      ],
+      "producerOwner": "BugReportScreen.tsx",
+      "producerAndReader": "Existing create apiClient.post(/error-reports) gets per-invocation key; pendingUploadRef retains saved reportId and per-file operationIds. findProcessedCreate private resolver, not another endpoint. J29 upload retry retained.",
+      "candidateAssertionFiles": "master-r2-quality-replay.test.js; master-domain-contracts.test.js; master-integration.spec.ts J29",
+      "limit": "Resolver assertions not all entire-create HTTP branches; create immutable kind/input missing."
+    },
+    {
+      "id": "ErrorReportService.findProcessedCreate",
+      "owner": "backend/src/modules/error-report/error-report.service.ts",
+      "line": 212,
+      "methodSha256": "307c80e51b9ea98357a6d7d134ff3fe880fea6759417c52ff88f6325138bea6f",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "HELPER_NOT_ENDPOINT_BOUNDED_ASSERTIONS",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "BugReportScreen.tsx",
+      "producerAndReader": "Existing create apiClient.post(/error-reports) gets per-invocation key; pendingUploadRef retains saved reportId and per-file operationIds. findProcessedCreate private resolver, not another endpoint. J29 upload retry retained.",
+      "candidateAssertionFiles": "master-r2-quality-replay.test.js; master-domain-contracts.test.js; master-integration.spec.ts J29",
+      "limit": "Resolver assertions not all entire-create HTTP branches; create immutable kind/input missing."
+    },
+    {
+      "id": "LineService.assignPlannedSlot",
+      "owner": "backend/src/modules/line/line.service.ts",
+      "line": 1524,
+      "methodSha256": "65c0b1c291f2619bdbef1be7d87987c95218f6217b4c3510c595883f4d43ca4f",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": false,
+      "status": "STATIC_NON_ENTITY_CURRENT_BOARD",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/line/line.controller.ts",
+          "line": 174,
+          "text": "return this.lineService.assignPlannedSlot(user, id, body);"
+        }
+      ],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "Planning-slot/manual selection and template-remap dialog retain explicit IDs; ordinary template/action invokes generated IDs. applyTemplateActivation called through activateTemplate/activateForShift.",
+      "candidateAssertionFiles": "master-r2-replay-tail.test.js; master-r2-line-history.test.js; master-r2-position.test.js",
+      "limit": "assignPlannedSlot/applyPlanningTemplate return current board, not historical result entity; state-result payload opaque."
+    },
+    {
+      "id": "LineService.applyPlanningTemplate",
+      "owner": "backend/src/modules/line/line.service.ts",
+      "line": 1746,
+      "methodSha256": "fb0034c0fb5a086afddde27f0a2a8f91b8caeff604804c743139b25d04a2d311",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": false,
+      "status": "STATIC_NON_ENTITY_CURRENT_BOARD",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/line/line.controller.ts",
+          "line": 168,
+          "text": "return this.lineService.applyPlanningTemplate(user, id, body);"
+        }
+      ],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "Planning-slot/manual selection and template-remap dialog retain explicit IDs; ordinary template/action invokes generated IDs. applyTemplateActivation called through activateTemplate/activateForShift.",
+      "candidateAssertionFiles": "master-r2-replay-tail.test.js; master-r2-line-history.test.js; master-r2-position.test.js",
+      "limit": "assignPlannedSlot/applyPlanningTemplate return current board, not historical result entity; state-result payload opaque."
+    },
+    {
+      "id": "LineService.applyTemplateActivation",
+      "owner": "backend/src/modules/line/line.service.ts",
+      "line": 2390,
+      "methodSha256": "84c64a184f73319d1da442242ecbbac62a412c1bd349fccf267705f0b3d6d3ea",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "Planning-slot/manual selection and template-remap dialog retain explicit IDs; ordinary template/action invokes generated IDs. applyTemplateActivation called through activateTemplate/activateForShift.",
+      "candidateAssertionFiles": "master-r2-replay-tail.test.js; master-r2-line-history.test.js; master-r2-position.test.js",
+      "limit": "assignPlannedSlot/applyPlanningTemplate return current board, not historical result entity; state-result payload opaque."
+    },
+    {
+      "id": "OkkService.createRecord",
+      "owner": "backend/src/modules/okk/okk.service.ts",
+      "line": 60,
+      "methodSha256": "29348bec1ec1cd90555e8606408477d949a661ce4893ede96d31689b670f8fa0",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/okk/okk.controller.ts",
+          "line": 46,
+          "text": "return this.okkService.createRecord(user, body);"
+        }
+      ],
+      "producerOwner": "OkkScreen.tsx",
+      "producerAndReader": "createRecord form uses apiClient-generated key per invocation; findProcessedCreate private helper. ReleaseQuantityModal holds separate immutable-input key.",
+      "candidateAssertionFiles": "master-r2-quality-replay.test.js; master-domain-contracts.test.js; master-r3-quantity.test.js",
+      "limit": "Create payload opaque; QuantityRelease own store has exact immutable quantity/comment checks after R3."
+    },
+    {
+      "id": "OkkService.findProcessedCreate",
+      "owner": "backend/src/modules/okk/okk.service.ts",
+      "line": 362,
+      "methodSha256": "811e07ff8f52ab729eede40e98e1710c95634b69dc0c3cae11812ab7a2a61bcc",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "HELPER_NOT_ENDPOINT_BOUNDED_ASSERTIONS",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "OkkScreen.tsx",
+      "producerAndReader": "createRecord form uses apiClient-generated key per invocation; findProcessedCreate private helper. ReleaseQuantityModal holds separate immutable-input key.",
+      "candidateAssertionFiles": "master-r2-quality-replay.test.js; master-domain-contracts.test.js; master-r3-quantity.test.js",
+      "limit": "Create payload opaque; QuantityRelease own store has exact immutable quantity/comment checks after R3."
+    },
+    {
+      "id": "OrdersService.move",
+      "owner": "backend/src/modules/orders/orders.service.ts",
+      "line": 362,
+      "methodSha256": "e48b25a5ad99e5f2a6abb9b7657121bb6eef13402a004532320f40ac9e28c945",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": true,
+      "controllerCalls": [],
+      "producerOwner": "OrdersScreen.tsx",
+      "producerAndReader": "Existing action modal→take/restock/request; apiClient supplies UUID if omitted. move stores immutable movement; createRequestTx common internal request path.",
+      "candidateAssertionFiles": "master-r2-stock-replay.test.js; master-r2-orders.test.js; master-domain-contracts.test.js",
+      "limit": "R3 move binds quantity/comment/item/type/actor/factory; request mutable fields not inferred as immutable fingerprint."
+    },
+    {
+      "id": "OrdersService.createRequestTx",
+      "owner": "backend/src/modules/orders/orders.service.ts",
+      "line": 463,
+      "methodSha256": "ad56de59e7f3bebd1314af33a74ea143f155152f4c666dff8a57a35c7cc7b634",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "OrdersScreen.tsx",
+      "producerAndReader": "Existing action modal→take/restock/request; apiClient supplies UUID if omitted. move stores immutable movement; createRequestTx common internal request path.",
+      "candidateAssertionFiles": "master-r2-stock-replay.test.js; master-r2-orders.test.js; master-domain-contracts.test.js",
+      "limit": "R3 move binds quantity/comment/item/type/actor/factory; request mutable fields not inferred as immutable fingerprint."
+    },
+    {
+      "id": "ReturnsService.createReturn",
+      "owner": "backend/src/modules/returns/returns.service.ts",
+      "line": 23,
+      "methodSha256": "6eca3ef900d942de338bb9712cd83cc0d7b4141f47a1dafee3f8d0b9cad2c437",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/returns/returns.controller.ts",
+          "line": 38,
+          "text": "return this.returnsService.createReturn(user, body);"
+        }
+      ],
+      "producerOwner": "ReturnsScreen.tsx",
+      "producerAndReader": "createReturn existing producer via Report; private findProcessedCreate; separate ReleaseQuantityModal attempt for partial-release.",
+      "candidateAssertionFiles": "master-r2-quality-replay.test.js; master-domain-contracts.test.js; master-r3-quantity.test.js",
+      "limit": "Create payload opaque. RETURN release negative fixture is preexisting memory row; actual OKK writer→reader chain distinct."
+    },
+    {
+      "id": "ReturnsService.findProcessedCreate",
+      "owner": "backend/src/modules/returns/returns.service.ts",
+      "line": 271,
+      "methodSha256": "2b5143005ca672d255c572fddb4293128c7db66b7185881fc3d32addcd8f6fca",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "HELPER_NOT_ENDPOINT_BOUNDED_ASSERTIONS",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "ReturnsScreen.tsx",
+      "producerAndReader": "createReturn existing producer via Report; private findProcessedCreate; separate ReleaseQuantityModal attempt for partial-release.",
+      "candidateAssertionFiles": "master-r2-quality-replay.test.js; master-domain-contracts.test.js; master-r3-quantity.test.js",
+      "limit": "Create payload opaque. RETURN release negative fixture is preexisting memory row; actual OKK writer→reader chain distinct."
+    },
+    {
+      "id": "ShiftService.activateCurrentLinePlan",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 412,
+      "methodSha256": "06016d65f0183fd7746ee5721cd4cbdb4cb5699ed5417e2e6b775230b53a224b",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": false,
+      "status": "BLOCKED_ENV_MAINTENANCE_NOT_EXECUTED",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "futureAssignmentAttemptRef keys full target payload; futureReleaseAttemptRef exact ID. Contractor submit/status/arrival per-invocation UUID; current target is server-clock policy. Two activateCurrent* methods are internal maintenance only.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-related-replay.test.js; master-domain-contracts.test.js",
+      "limit": "No lifecycle execution. Contractor/future cross-window replay policy asymmetric; ordinary repeated invocation not blanket lost-response proof."
+    },
+    {
+      "id": "ShiftService.activateCurrentWorkAreaPlan",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 505,
+      "methodSha256": "49c18791b569060612fe37c4afb8811b50163b2342c54a43f7b02d053e6af6d5",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": false,
+      "status": "BLOCKED_ENV_MAINTENANCE_NOT_EXECUTED",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "futureAssignmentAttemptRef keys full target payload; futureReleaseAttemptRef exact ID. Contractor submit/status/arrival per-invocation UUID; current target is server-clock policy. Two activateCurrent* methods are internal maintenance only.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-related-replay.test.js; master-domain-contracts.test.js",
+      "limit": "No lifecycle execution. Contractor/future cross-window replay policy asymmetric; ordinary repeated invocation not blanket lost-response proof."
+    },
+    {
+      "id": "ShiftService.createFutureShiftAssignment",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 1071,
+      "methodSha256": "53e6412d28c6bc98446fd83e8e8f6a769c5d069b44fb75f0494ee1dee7d3c3c9",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": true,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/shift/shift.controller.ts",
+          "line": 135,
+          "text": "return this.shiftService.createFutureShiftAssignment(user, body);"
+        }
+      ],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "futureAssignmentAttemptRef keys full target payload; futureReleaseAttemptRef exact ID. Contractor submit/status/arrival per-invocation UUID; current target is server-clock policy. Two activateCurrent* methods are internal maintenance only.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-related-replay.test.js; master-domain-contracts.test.js",
+      "limit": "No lifecycle execution. Contractor/future cross-window replay policy asymmetric; ordinary repeated invocation not blanket lost-response proof."
+    },
+    {
+      "id": "ShiftService.releaseFutureShiftAssignment",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 1314,
+      "methodSha256": "e6a89e7d17d6031bd9b3afa30e80a15825cadcb94e1f62d07d23643672f13ebf",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": true,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/shift/shift.controller.ts",
+          "line": 141,
+          "text": "return this.shiftService.releaseFutureShiftAssignment(user, id, body);"
+        }
+      ],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "futureAssignmentAttemptRef keys full target payload; futureReleaseAttemptRef exact ID. Contractor submit/status/arrival per-invocation UUID; current target is server-clock policy. Two activateCurrent* methods are internal maintenance only.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-related-replay.test.js; master-domain-contracts.test.js",
+      "limit": "No lifecycle execution. Contractor/future cross-window replay policy asymmetric; ordinary repeated invocation not blanket lost-response proof."
+    },
+    {
+      "id": "ShiftService.createContractorSubmission",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 2049,
+      "methodSha256": "04fc7c8b96b47bd905fd2514cc9b07f894f768e2bb6a4b42c47b56899aad7f68",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/shift/shift.controller.ts",
+          "line": 230,
+          "text": "return this.shiftService.createContractorSubmission(user, body);"
+        }
+      ],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "futureAssignmentAttemptRef keys full target payload; futureReleaseAttemptRef exact ID. Contractor submit/status/arrival per-invocation UUID; current target is server-clock policy. Two activateCurrent* methods are internal maintenance only.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-related-replay.test.js; master-domain-contracts.test.js",
+      "limit": "No lifecycle execution. Contractor/future cross-window replay policy asymmetric; ordinary repeated invocation not blanket lost-response proof."
+    },
+    {
+      "id": "ShiftService.updateContractorActualStatus",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 2154,
+      "methodSha256": "bc8bd06e5fb004c54e133664256fbc44604f38b93ab489b100a13662f22cc6a6",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/shift/shift.controller.ts",
+          "line": 241,
+          "text": "return this.shiftService.updateContractorActualStatus(user, submissionId, itemId, body);"
+        }
+      ],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "futureAssignmentAttemptRef keys full target payload; futureReleaseAttemptRef exact ID. Contractor submit/status/arrival per-invocation UUID; current target is server-clock policy. Two activateCurrent* methods are internal maintenance only.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-related-replay.test.js; master-domain-contracts.test.js",
+      "limit": "No lifecycle execution. Contractor/future cross-window replay policy asymmetric; ordinary repeated invocation not blanket lost-response proof."
+    },
+    {
+      "id": "ShiftService.addContractorCurrentArrival",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 2279,
+      "methodSha256": "476f9ae2269f6baa352265eedea12e015390132d6dceed37b68a920b77822e21",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/shift/shift.controller.ts",
+          "line": 247,
+          "text": "return this.shiftService.addContractorCurrentArrival(user, body);"
+        }
+      ],
+      "producerOwner": "ShiftPeopleScreen.tsx",
+      "producerAndReader": "futureAssignmentAttemptRef keys full target payload; futureReleaseAttemptRef exact ID. Contractor submit/status/arrival per-invocation UUID; current target is server-clock policy. Two activateCurrent* methods are internal maintenance only.",
+      "candidateAssertionFiles": "master-r2-membership-future.test.js; master-r2-related-replay.test.js; master-domain-contracts.test.js",
+      "limit": "No lifecycle execution. Contractor/future cross-window replay policy asymmetric; ordinary repeated invocation not blanket lost-response proof."
+    },
+    {
+      "id": "StockService.createDefect",
+      "owner": "backend/src/modules/stock/stock.service.ts",
+      "line": 19,
+      "methodSha256": "19f60e9abd0f6bbfbbeb63aa2fdb8a3bec90805ea0a500995518fe2849eedcee",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/stock/stock.controller.ts",
+          "line": 20,
+          "text": "return this.stockService.createDefect(user, body);"
+        }
+      ],
+      "producerOwner": "StockScreen.tsx",
+      "producerAndReader": "createDefect form via apiClient default operation key; findProcessedCreate private helper, not extra endpoint.",
+      "candidateAssertionFiles": "master-r2-quality-replay.test.js; master-domain-contracts.test.js",
+      "limit": "Create opaque immutable input; mutable record cannot supply missing historical fingerprint."
+    },
+    {
+      "id": "StockService.findProcessedCreate",
+      "owner": "backend/src/modules/stock/stock.service.ts",
+      "line": 137,
+      "methodSha256": "964819eeabf6ad2652f7e016dafa6577d1a40f8835c89458bf099d3fa9b646dd",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "HELPER_NOT_ENDPOINT_BOUNDED_ASSERTIONS",
+      "methodChanged": false,
+      "controllerCalls": [],
+      "producerOwner": "StockScreen.tsx",
+      "producerAndReader": "createDefect form via apiClient default operation key; findProcessedCreate private helper, not extra endpoint.",
+      "candidateAssertionFiles": "master-r2-quality-replay.test.js; master-domain-contracts.test.js",
+      "limit": "Create opaque immutable input; mutable record cannot supply missing historical fingerprint."
+    },
+    {
+      "id": "TaskService.createTask",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 62,
+      "methodSha256": "f3651d839399243204a2d3f58291498f539c752041b9fc7da40d716e4ba9e2e2",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/task/task.controller.ts",
+          "line": 43,
+          "text": "return this.taskService.createTask({"
+        }
+      ],
+      "producerOwner": "TasksScreen.tsx",
+      "producerAndReader": "take keyed task action map; modalOperationId retained for create/comment/redirect/done until close. Current factory/audience checks precede old result.",
+      "candidateAssertionFiles": "master-r2-replay.test.js; master-r2-task-chain.test.js; master-r3-receivers.test.js; master-r3-bridge.spec.ts",
+      "limit": "Actual cross-action same entity returns saved mutable task unchanged: kind/input unknown, not denied."
+    },
+    {
+      "id": "TaskService.takeTask",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 241,
+      "methodSha256": "897216a4b06994d46783008040d28d1e19b55e9787aebf4638242fad965ea690",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/task/task.controller.ts",
+          "line": 59,
+          "text": "return this.taskService.takeTask(id, user, body.operationId);"
+        }
+      ],
+      "producerOwner": "TasksScreen.tsx",
+      "producerAndReader": "take keyed task action map; modalOperationId retained for create/comment/redirect/done until close. Current factory/audience checks precede old result.",
+      "candidateAssertionFiles": "master-r2-replay.test.js; master-r2-task-chain.test.js; master-r3-receivers.test.js; master-r3-bridge.spec.ts",
+      "limit": "Actual cross-action same entity returns saved mutable task unchanged: kind/input unknown, not denied."
+    },
+    {
+      "id": "TaskService.completeTask",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 298,
+      "methodSha256": "28468632f58c2af83fbdebe26a8e2faceb445bfee1f3fc52dff5b784368c07e9",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/task/task.controller.ts",
+          "line": 65,
+          "text": "return this.taskService.completeTask(id, user, body.operationId, body.comment ?? null);"
+        }
+      ],
+      "producerOwner": "TasksScreen.tsx",
+      "producerAndReader": "take keyed task action map; modalOperationId retained for create/comment/redirect/done until close. Current factory/audience checks precede old result.",
+      "candidateAssertionFiles": "master-r2-replay.test.js; master-r2-task-chain.test.js; master-r3-receivers.test.js; master-r3-bridge.spec.ts",
+      "limit": "Actual cross-action same entity returns saved mutable task unchanged: kind/input unknown, not denied."
+    },
+    {
+      "id": "TaskService.redirectTask",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 370,
+      "methodSha256": "b0614bab6a488a7bd2d28e0f5b1f359af83c0b9ff071b846a5bd42b3670f4a85",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/task/task.controller.ts",
+          "line": 112,
+          "text": "return this.taskService.redirectTask(id, user, body);"
+        }
+      ],
+      "producerOwner": "TasksScreen.tsx",
+      "producerAndReader": "take keyed task action map; modalOperationId retained for create/comment/redirect/done until close. Current factory/audience checks precede old result.",
+      "candidateAssertionFiles": "master-r2-replay.test.js; master-r2-task-chain.test.js; master-r3-receivers.test.js; master-r3-bridge.spec.ts",
+      "limit": "Actual cross-action same entity returns saved mutable task unchanged: kind/input unknown, not denied."
+    },
+    {
+      "id": "TaskService.addComment",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 460,
+      "methodSha256": "ccb7c3cab8025aff6da0acdb24eece0e37fb25dfdc46f4d06cbe9f133e1d8191",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/task/task.controller.ts",
+          "line": 71,
+          "text": "return this.taskService.addComment(id, user, body.message, body.operationId);"
+        }
+      ],
+      "producerOwner": "TasksScreen.tsx",
+      "producerAndReader": "take keyed task action map; modalOperationId retained for create/comment/redirect/done until close. Current factory/audience checks precede old result.",
+      "candidateAssertionFiles": "master-r2-replay.test.js; master-r2-task-chain.test.js; master-r3-receivers.test.js; master-r3-bridge.spec.ts",
+      "limit": "Actual cross-action same entity returns saved mutable task unchanged: kind/input unknown, not denied."
+    },
+    {
+      "id": "WashService.startWash",
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "line": 312,
+      "methodSha256": "90a56247c49d71db96849a5f7b8e36b0dfe5a25871772d5359ddd187ecd004b1",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/wash/wash.controller.ts",
+          "line": 83,
+          "text": "return this.washService.startWash("
+        }
+      ],
+      "producerOwner": "WashScreen.tsx",
+      "producerAndReader": "formOperationId keys action+input for request/start/message/issue/complete, resetModal clears. start synchronous in-flight guard. ShiftPeople /wash/start remains per-invocation command.",
+      "candidateAssertionFiles": "master-r2-replay.test.js; master-r2-wash-chain.test.js; master-r3-wash-retry.spec.ts",
+      "limit": "Direct request supplemental compares persisted normalized immutable fields. Message/issue uploads not exactly-once; opaque session actions remain decision."
+    },
+    {
+      "id": "WashService.addMessage",
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "line": 489,
+      "methodSha256": "617605e408495294d3371029120cc0f4bdbf54bc378296af4ef8b6b2a835a08e",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/wash/wash.controller.ts",
+          "line": 94,
+          "text": "return this.washService.addMessage(id, user.userId, body.message, body.operationId, user.selectedFactoryId);"
+        }
+      ],
+      "producerOwner": "WashScreen.tsx",
+      "producerAndReader": "formOperationId keys action+input for request/start/message/issue/complete, resetModal clears. start synchronous in-flight guard. ShiftPeople /wash/start remains per-invocation command.",
+      "candidateAssertionFiles": "master-r2-replay.test.js; master-r2-wash-chain.test.js; master-r3-wash-retry.spec.ts",
+      "limit": "Direct request supplemental compares persisted normalized immutable fields. Message/issue uploads not exactly-once; opaque session actions remain decision."
+    },
+    {
+      "id": "WashService.addIssue",
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "line": 532,
+      "methodSha256": "1080c4a249bf9a7570faede9efa784fcba04027fdb1decf92824b6c816dbe69d",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/wash/wash.controller.ts",
+          "line": 100,
+          "text": "return this.washService.addIssue(id, user.userId, body, user.selectedFactoryId);"
+        },
+        {
+          "owner": "backend/src/modules/wash/wash.controller.ts",
+          "line": 106,
+          "text": "return this.washService.addIssue(id, user.userId, body, user.selectedFactoryId);"
+        }
+      ],
+      "producerOwner": "WashScreen.tsx",
+      "producerAndReader": "formOperationId keys action+input for request/start/message/issue/complete, resetModal clears. start synchronous in-flight guard. ShiftPeople /wash/start remains per-invocation command.",
+      "candidateAssertionFiles": "master-r2-replay.test.js; master-r2-wash-chain.test.js; master-r3-wash-retry.spec.ts",
+      "limit": "Direct request supplemental compares persisted normalized immutable fields. Message/issue uploads not exactly-once; opaque session actions remain decision."
+    },
+    {
+      "id": "WashService.completeWash",
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "line": 823,
+      "methodSha256": "fefabc90cc3f1b1c8927ef39622bf93e4f37762d3dcfb05d8b6b005bc3e67cd0",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "BOUNDED_ASSERTIONS_NOT_ALL_BRANCHES",
+      "methodChanged": false,
+      "controllerCalls": [
+        {
+          "owner": "backend/src/modules/wash/wash.controller.ts",
+          "line": 142,
+          "text": "return this.washService.completeWash(id, user.userId, user.selectedFactoryId, body.operationId);"
+        }
+      ],
+      "producerOwner": "WashScreen.tsx",
+      "producerAndReader": "formOperationId keys action+input for request/start/message/issue/complete, resetModal clears. start synchronous in-flight guard. ShiftPeople /wash/start remains per-invocation command.",
+      "candidateAssertionFiles": "master-r2-replay.test.js; master-r2-wash-chain.test.js; master-r3-wash-retry.spec.ts",
+      "limit": "Direct request supplemental compares persisted normalized immutable fields. Message/issue uploads not exactly-once; opaque session actions remain decision."
+    }
+  ],
+  "supplemental": [
+    {
+      "owner": "WashService.createRequest",
+      "proof": "C2-wash-green-01",
+      "contract": "immutable normalized request payload, actor/factory/type"
+    },
+    {
+      "owner": "QuantityReleaseService.release",
+      "proof": "E-quantity-green-01",
+      "contract": "immutable quantity/comment/source kind/id/actor/factory; independent store"
+    }
+  ],
+  "offline": "Existing offline/sync.ts is dormant: no App/main caller; not all UI commands offline-supported"
+}

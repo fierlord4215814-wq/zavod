@@ -1,0 +1,25 @@
+# F — конечные затронутые owners и разные ветви
+
+13 own product files, не все dirty repo. Current identities —G2/. Before/after own diff —final handoff manifest. Source compatibility31ActionModal и28preview bindings —G2/shared-consumer-matrix.json (каждый binding/props/line/hash), не59E2E submissions. Ни один source scan не заменяет runtime proof.
+
+|Owner → caller/receiver|Данные/ветви и result|Actual evidence / неизменный предел|
+|---|---|---|
+|PeopleScreen → profile/list→Task return|List ready отдельно отprofile loading; generation отменяет late/closed profile. Exactoffset/context after data/unlock schedules; manualwheel отменяетrestore|master-r3-navigation,consumers,context; oldR2return preserved. Original73pxUNKNOWN; geometry change не pixel identity promise|
+|useBodyScrollLock → все modal/media consumers|Final unlock restore synchronous; старыйRAF не пишет в следующийscreen|Btrace stale RAF before +fixed schedules, component modal nesting/resource/Back; no globalrestorationdisable|
+|App → mounted screens and API/WS identity|Existing authority epoch remount, owned RAF cancel, locked pageTop. revoke→closeform, oldPOSTnotfollowGET, A/B/logout/ABA; dirtyStay/discard|R3context/api-context/consumers +retainedbase/WS; no realauthtransport|
+|ActionModal →31 bindings10owners|Absent option disabledRussianmarker+invalid+submitdeny; nofirstoptionfallback. Text/boolean distinct drafts.0falseempty/null/omitted; hiddennotserialized; pristine/editedrevert/delayeddefault/focus/child/busy/retry|component-contracts12 +form-back9 +actualPeopleline/position +Wash/Tasks/Checklist. Incompatible type synthetic shared case; no31mutationsclaim|
+|api/client → fetchJSON/blob/XHR consumers|Synchronous context observer remembersABA; stale success/error/progress rejected; subscriptionsremoved, aborted-before-sendsettles. RuntimeJSON0/false/empty/null/undefined|R3api-context13 +latePOSTApp +oldresourcecases; noabortrollbackorservercancellationclaim|
+|WashService.createRequest →Wash form+requestreaders|Samekey exact persistedimmutable normalized target/description/priority/date/comment; differentinput409. Currentactor/factory/target checksretain|replay8new +old73; Washactualchainfirst/replay/notice/occupancy. NoDBisolation|
+|WashScreen →request/start/message/issue/complete|Scopedaction+input attempt, reopenreset, synchronousstartinflightguard; unchanged503retry samekey|wash-retry5 actualserialized. Uploadbyte exact-once notproved; othercommandsnotblanketpromoted|
+|OrdersService.move →TAKE/RESTOCK/history|Persisted immutable quantity/unit/comment match;4changedpayloadnegatives409 withoutbalancemutation; archived-readable/currententityretained|stock-replay18 +domainquantity/thresholdcases; realatomicdecrementpending|
+|ShiftService futurecreate/release →WS consumer boundary|Transaction changedtag; replay/existingsameplan doesn'tbroadcastsecondtime. Futuredate/slot/worker/contextguardsunchanged|membership-future +2fanoutred→green +5futureclock; contractor9temporal +related61. WScollector isboundarywitness, realroompending|
+|AnnouncementsScreen →currentempty/readpoll|Expired/future403→actual8spoll factualempty text, notallread. Archiveaction remains|bridge2actualUI→service+pubstate64; layout12threeThemesfourWidths. Noaudiencewidening|
+|QuantityReleaseService →OKK/RETURN/history/Audit/Ops|Exactimmutable signedquantity/comment onreplay; actualOKKwriter10→3released/7remaining→7final→same2historyIDs/auditIDs;4payloadmismatches409|quantity5 +domain14; memorydecimal notSQL; automaticTaskCONTRACT_ABSENT|
+|DefrostScreen →start/complete/blown endpoints|Sameinput retrykey, edited/reopenedfresh; synchronousbusyguard. Ordinarydraftretained503|row-defrost3actual+oldbackendDefrostline/occupancy. No timepolicy changed|
+|ChecklistsScreen →rowcomplete/check/readmodel|Run,row,check,typedpayload-bound retrykey; changedanswerfresh, numeric0unchanged; oldempty/offline/reopen|row-defrost1 +J12/J13 actualrunner +backendtyped/periodicchain. Photo uploadkeynotnewexact-oncepromise|
+
+## Пять прежних partial edge witnesses
+
+Announcement→Notifications теперь actual recipient/read-count через existing NotificationsService, включая recovery after readcommit. Announcement→Audit actual AuditService→memory audit row, oneACKplusallowedACCESS_DENIED (это неdoubleACK). ShiftLog→Audit actual ordinarywriter→Auditserializer→reader. Task→ProcessedOperation actual commandcontroller and strict operationstore, same IDs; opaquecrossaction recognizedlimit. Task→Audit→Ops actualAuditwriter/current Ops reader, not callcounter. Existing R2 affected-edge-proof IDs retained, graph1407 denominator unchanged; no1407PASS. POST upload mapping retained; metadata fixture doesn't prove realuploadtransport.
+
+Normal/empty/invalid/denied/alreadydone/revoked/duplicate/failure-before-write/postcommitfailure/late/reversed/cancel branches находятся в названныхactualtests; конечныеcaseIDs иterminalverdicts —Hmanifest. N/A: nativepermissiondialog/SQL/roomdelivery не входят вmemoryscope; maintenancefirstexecution запрещён; nonexistentOKKTaskedge несимулируется. Legacykind/input иcrosswindowpolicy вынесеныотдельно, не скрытыйPASS.

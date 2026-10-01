@@ -1,0 +1,62 @@
+require('./master-offline-guard.cjs');
+require('reflect-metadata');
+const assert=require('node:assert/strict');
+const {test}=require('node:test');
+const {Reflector}=require('@nestjs/core');
+const {PermissionGuard}=require('../dist/common/permission.guard');
+const {TaskService}=require('../dist/modules/task/task.service');
+const {TaskController}=require('../dist/modules/task/task.controller');
+const {NotificationsService}=require('../dist/modules/notifications/notifications.service');
+const {NotificationsController}=require('../dist/modules/notifications/notifications.controller');
+
+const actor={userId:'offline-operator',selectedFactoryId:'offline-factory',departmentId:'offline-department',role:'TECH_MECHANIC',isGuest:false,isAdmin:false,permissions:['tasks.read','notifications.read']};
+function strict(object,label='repository'){return new Proxy(object,{get(target,key){if(typeof key==='symbol'||key==='then')return target[key];if(!(key in target))throw Error(`UNMOCKED ${label}.${key}`);return target[key];}});}
+function matches(row,where={}) {return Object.entries(where).every(([key,value])=>{
+  if(value===undefined)return true;
+  if(key==='AND')return (Array.isArray(value)?value:[value]).every(v=>matches(row,v));
+  if(key==='OR')return value.some(v=>matches(row,v));
+  if(value&&typeof value==='object'&&!(value instanceof Date)) return Object.entries(value).every(([op,v])=>{
+    if(op==='not')return row[key]!==v;if(op==='in')return v.includes(row[key]);if(op==='gt')return row[key]>v;if(op==='gte')return row[key]>=v;if(op==='lt')return row[key]<v;if(op==='lte')return row[key]<=v;
+    throw Error(`UNSUPPORTED_PRISMA_PREDICATE ${key}.${op}`);
+  });
+  return row[key]===value;
+});}
+const audit={write:async()=>{},writeTx:async()=>{}};
+const guard=new PermissionGuard(new Reflector(),audit);
+const allow=(controller,handler,user)=>guard.canActivate({getHandler:()=>controller.prototype[handler],getClass:()=>controller,switchToHttp:()=>({getRequest:()=>({user,method:'GET',url:'/offline-contract'})})});
+const emptyAttachments=strict({listForEntities:async()=>new Map()},'attachments');
+
+test('063 existing guarded detail outside board300; current DTO, scope and read side effect',async()=>{
+  const rows=Array.from({length:301},(_,i)=>({id:`offline-task-${i}`,factoryId:actor.selectedFactoryId,description:`Проверка датчика ${i+1}`,status:'IN_PROGRESS',type:'URGENT',createdById:actor.userId,createdAt:new Date('2026-09-15T00:00:00Z'),deletedAt:null,departmentRecipients:[],assignees:[],comments:[],reads:[]}));
+  let receipts=0;
+  const db=strict({task:strict({findMany:async({where,take})=>rows.filter(r=>matches(r,where)).slice(0,take),findFirst:async({where})=>rows.find(r=>matches(r,where))||null}),taskSettings:strict({findUnique:async()=>({taskReadReceiptsEnabled:true})}),taskRead:strict({upsert:async()=>{receipts++;return {readAt:new Date()};}})});
+  const service=new TaskService({db},strict({}),strict({}),audit,emptyAttachments,strict({}),strict({}));
+  await allow(TaskController,'detail',actor);
+  const board=await service.board(actor);
+  assert.equal(board.IN_PROGRESS.length,300);assert.ok(!board.IN_PROGRESS.some(t=>t.id===rows[300].id));
+  const controller=new TaskController(service);
+  const detail=await controller.detail(rows[300].id,actor);
+  assert.equal(detail.id,rows[300].id);assert.equal(detail.title,rows[300].description);assert.ok(Array.isArray(detail.comments));assert.ok(Array.isArray(detail.attachments));assert.equal(receipts,1);
+  await assert.rejects(controller.detail(rows[300].id,{...actor,selectedFactoryId:'foreign-factory'}));
+  await assert.rejects(controller.detail(rows[300].id,{...actor,userId:'unrelated-reader',departmentId:'other'}));
+  await assert.rejects(allow(TaskController,'detail',{...actor,permissions:[]}));
+  await assert.rejects(allow(TaskController,'detail',{...actor,isGuest:true}));
+  rows[300].deletedAt=new Date();await assert.rejects(controller.detail(rows[300].id,actor));assert.equal(receipts,1);
+});
+
+test('044 real service read/feed/count/source permission and personal idempotent result',async()=>{
+  const rows=[{id:'offline-notice',factoryId:actor.selectedFactoryId,departmentId:null,userId:actor.userId,type:'TASK_CREATED',entityType:'TASK',entityId:'offline-task',title:'Новая заявка',message:'Проверить датчик',severity:'INFO',createdAt:new Date('2026-09-15T00:00:00Z'),expiresAt:null,readAt:null,operationId:null}];
+  let updates=0;const events=[];
+  const db=strict({notification:strict({findMany:async({where})=>rows.filter(r=>matches(r,where)),findFirst:async({where})=>rows.find(r=>matches(r,where))||null,update:async({where,data})=>{updates++;const row=rows.find(r=>matches(r,where));Object.assign(row,data);return {...row};}})});
+  const service=new NotificationsService({db},audit,strict({sendToUsers:(...args)=>events.push(args)}),strict({}),strict({resolveForFactory:async()=>({...actor,isGuest:true,permissions:[]})}));
+  const controller=new NotificationsController(service);
+  await allow(NotificationsController,'markRead',actor);
+  assert.equal((await controller.unreadCount(actor)).count,1);
+  const read=await controller.markRead(actor,rows[0].id);assert.equal(read.sourceRoute,'tasks');assert.ok(read.readAt);assert.ok(!('operationId' in read));
+  assert.equal((await controller.unreadCount(actor)).count,0);assert.ok((await controller.list(actor))[0].readAt);
+  await controller.markRead(actor,rows[0].id);assert.equal(updates,1);assert.ok(events.length>0);
+  await assert.rejects(controller.markRead({...actor,permissions:['notifications.read']},rows[0].id));
+  await assert.rejects(controller.markRead({...actor,selectedFactoryId:'foreign-factory'},rows[0].id));
+  await assert.rejects(controller.markRead({...actor,userId:'other-person'},rows[0].id));
+  await assert.rejects(allow(NotificationsController,'markRead',{...actor,isGuest:true}));assert.equal(updates,1);
+});

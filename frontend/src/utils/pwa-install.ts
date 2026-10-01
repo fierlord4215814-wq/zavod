@@ -1,0 +1,43 @@
+import { isStandalonePwa } from './pwa-runtime';
+
+type InstallEvent = Event & { prompt: () => Promise<unknown>; userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }> };
+type InstallState = 'unavailable' | 'available' | 'prompting' | 'accepted' | 'cancelled' | 'installed' | 'error';
+let state: InstallState = 'unavailable';
+let deferred: InstallEvent | null = null;
+let sequence = 0;
+const listeners = new Set<() => void>();
+const publish = (value: InstallState) => { state = value; listeners.forEach(listener => listener()); };
+export const pwaInstallStore = {
+  getSnapshot: () => state,
+  subscribe: (listener: () => void) => { listeners.add(listener); return () => { listeners.delete(listener); }; },
+};
+export function observePwaInstall() {
+  const media = window.matchMedia('(display-mode: standalone)');
+  const onMode = () => { if (isStandalonePwa()) { sequence++; deferred = null; publish('installed'); } };
+  const onPrompt = (event: Event) => {
+    if (isStandalonePwa() || typeof (event as InstallEvent).prompt !== 'function') return;
+    event.preventDefault(); deferred = event as InstallEvent; sequence++; publish('available');
+  };
+  const onInstalled = () => { sequence++; deferred = null; publish('installed'); };
+  onMode();
+  window.addEventListener('beforeinstallprompt', onPrompt);
+  window.addEventListener('appinstalled', onInstalled);
+  media.addEventListener?.('change', onMode);
+  return () => {
+    sequence++; deferred = null;
+    window.removeEventListener('beforeinstallprompt', onPrompt);
+    window.removeEventListener('appinstalled', onInstalled);
+    media.removeEventListener?.('change', onMode);
+  };
+}
+export async function requestPwaInstall() {
+  if (!deferred || state === 'prompting' || isStandalonePwa()) return;
+  const event = deferred, attempt = ++sequence;
+  deferred = null; publish('prompting');
+  try {
+    // Must run directly in this user gesture, never after an API request.
+    await event.prompt();
+    const result = await event.userChoice;
+    if (attempt === sequence) publish(result.outcome === 'accepted' ? 'accepted' : 'cancelled');
+  } catch { if (attempt === sequence) publish('error'); }
+}

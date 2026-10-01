@@ -1,0 +1,56 @@
+{
+  "status": "PASS_TASK_SETTINGS6_UI_HTTP_SQL",
+  "title": "Учебная проверка настроек заявки ADMIN01",
+  "original": {
+    "longTaskDefaultDeadlineHours": null,
+    "longTaskEscalationEnabled": true,
+    "longTaskEscalationGraceMinutes": 0,
+    "taskRedirectRequiresComment": true,
+    "taskDoneRequiresComment": false,
+    "taskReadReceiptsEnabled": true
+  },
+  "defaultDeadlineHours": 7,
+  "id": "0153a8f8-5ea3-48c8-a9ce-1061baf5668a",
+  "readReceiptsOff": true,
+  "redirectRequired": false,
+  "before": {
+    "configuredHours": 7,
+    "uiHours": 45,
+    "configuredComment": false,
+    "uiRequired": true
+  },
+  "restored": true,
+  "redirectWithoutComment": true,
+  "requiredDenials": {
+    "redirect": {
+      "status": 409,
+      "message": "Укажите причину передачи заявки"
+    },
+    "complete": {
+      "status": 409,
+      "message": "Укажите комментарий к закрытию заявки"
+    }
+  },
+  "escalationOff": {
+    "escalated": 0,
+    "taskIds": []
+  },
+  "escalationGrace60": {
+    "escalated": 0,
+    "taskIds": []
+  },
+  "escalationGrace0": {
+    "escalated": 1,
+    "taskIds": [
+      "0153a8f8-5ea3-48c8-a9ce-1061baf5668a"
+    ]
+  },
+  "readReceiptsOn": true,
+  "sql": {
+    "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+    "status": "DONE",
+    "deadlineAt": "2026-09-26T15:28:00.000Z",
+    "escalatedAt": "2026-09-26T15:43:58.597Z"
+  },
+  "done": true
+}

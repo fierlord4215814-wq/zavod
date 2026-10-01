@@ -1,0 +1,48 @@
+✔ J02 J25 real Admin create config Directory consumers deny duplicate foreign deactivate restore (13.2447ms)
+✖ J05 actual Line PAUSE preserves factual assignment STOP closes it without touching future plan (5.0714ms)
+✔ J03 actual Shift timeline factory midnight projection planning and past permission contracts are read-only (10.1686ms)
+✔ J12 actual periodic Checklist pause resume close keeps occurrences and reason line guards (4.5156ms)
+✔ J15 J17 OKK actual release and publication readers agree through partial final replay denial (8.8054ms)
+✔ J15 J17 RETURN actual release and publication readers agree through partial final replay denial (4.4107ms)
+✔ J16 StockDefect current issue archive same record and scoped negative (2.8924ms)
+✔ J18 actual stock movements threshold list detail retry and STORE request boundary (6.2082ms)
+✔ J11 actual Defrost start end calendar line invalidation and forbidden WORK or Wash overlap (3.1182ms)
+✖ J10 actual Wash request take start comment completion preserves linked request and participant history (9.0793ms)
+✔ J01 J02 actual UserContext resolves UFA role overrides blocked revoked guest and factory deactivation (1.8299ms)
+✔ J19 publication ack report archive identity; archive capability=false (7.1553ms)
+✔ J19 publication ack report archive identity; archive capability=true KNOWN_NEGATIVE_MI-PUB-01 (1.4008ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1134.5141
+
+✖ failing tests:
+
+test at backend\scripts\master-domain-contracts.test.js:43:1
+✖ J05 actual Line PAUSE preserves factual assignment STOP closes it without touching future plan (5.0714ms)
+  Error: UNMOCKED db.shiftSession
+      at Object.get (C:\Users\79164\Documents\work\backend\scripts\master-domain-contracts.test.js:19:134)
+      at assertNoForeignAttendanceTx (C:\Users\79164\Documents\work\backend\dist\common\shift-attendance.js:16:12)
+      at C:\Users\79164\Documents\work\backend\dist\modules\line\line.service.js:2699:78
+      at async LineService.updateStatus (C:\Users\79164\Documents\work\backend\dist\modules\line\line.service.js:2622:24)
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\master-domain-contracts.test.js:50:2)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+
+test at backend\scripts\master-domain-contracts.test.js:124:1
+✖ J10 actual Wash request take start comment completion preserves linked request and participant history (9.0793ms)
+  Error: UNMOCKED db.auditLog
+      at Object.get (C:\Users\79164\Documents\work\backend\scripts\master-domain-contracts.test.js:19:134)
+      at latestSentHomeTx (C:\Users\79164\Documents\work\backend\dist\common\shift-attendance.js:56:15)
+      at isSentHomeAwaitingReturn (C:\Users\79164\Documents\work\backend\dist\common\shift-attendance.js:40:28)
+      at assertMayAttendTx (C:\Users\79164\Documents\work\backend\dist\common\shift-attendance.js:34:15)
+      at async C:\Users\79164\Documents\work\backend\dist\modules\wash\wash.service.js:308:17
+      at async WashService.startWash (C:\Users\79164\Documents\work\backend\dist\modules\wash\wash.service.js:236:24)
+      at async WashService.startRequest (C:\Users\79164\Documents\work\backend\dist\modules\wash\wash.service.js:200:25)
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\master-domain-contracts.test.js:134:16)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)

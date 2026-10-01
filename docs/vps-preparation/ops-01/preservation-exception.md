@@ -1,0 +1,15 @@
+# Исключение сохранности T1 — требуется review, не автоматический rollback
+
+27.09.2026. **T1_PRESERVATION=PARTIAL / EXACT_TABLE_PRESERVATION_FAILED_AFTER_RETURN**.
+
+1. До возврата backend на T1: [before-return](before-return.json) доказал **все90 таблиц,68 attachment bindings и68 файлов exact**, восстановленные auth/UFA flags. Все изменяющие OPS01 scenarios выполнялись только на новой копии.
+2. В20:33:39 MSK агент запустил T1 через existing helper: [Switch](../factory-01/runtime-20260927-173342-980.json). Запуск не был read-only: оставшиеся в исходной T1 три ACTIVE дневные смены имели plannedEndAt20:00. Агент не учёл их maintenance при обязательстве сохранить весь baseline exact. Прежний historical safe-idle не заменял current readback.
+3. В20:33:41 штатный `ShiftService.onModuleInit`→`runShiftMaintenance`→`autoCloseDueShiftSessions`→`closeShiftSessionTx` закрыл эти три смены **на их plannedEndAt**, три назначения и начислил три skill credits. [SQL IDs/timestamps/new audit/source cause](preservation-exception.json):3 `SHIFT_AUTO_CLOSED` +3 `SKILL_EXPERIENCE_CREDITED`, actor null; `autoClosed=true`, `endedById=null`. В OPS01 те же source sessions штатно закрылись раньше, на реальной границе20:00. Это не копирование synthetic OPS fixtures в T1.
+4. Exact-assert честно упал; failure receipt сохранён. Изменились **Assignment, AuditLog, ShiftSession, User, UserSkill, UserSkillCredit**; остальные84 таблицы exact, все68 оригинальных файлов/bindings exact. Audit1772→1778, credits10→13. Users31/factories2 и auth/UFA flags сохранены. Factory T1 `isActive=true`; данные не удалены.
+5. Для предотвращения дальнейших неучтённых writes собственные backend27280 и preview20592 остановлены по новой identity: [Quiesce](../factory-01/runtime-20260927-173506-227.json). Собственный PG15437/PID24212 оставлен; otherAppConnections0. Сcheduler config/code не менялся, часы/WSL/сеть не трогались. Сейчас HTTP3000/frontend5173 **не обслуживаются**.
+
+Нельзя переобъявить baseline, удалить audit/credits, скрыть сотрудников, отключить scheduler или восстановить dump поверх T1 ради зелёного результата. Защищённая `pair-ops01` и копия сохранены; это возможность отдельного согласованного восстановления, **не разрешение выполнить его сейчас**.
+
+**Следующее решение пользователя/review:** принять эти доказанные штатные maintenance-изменения как сохранённую историю и затем отдельно вернуть T1 online; либо согласовать адресный план восстановления из pair-ops01 с предварительным сохранением нынешней дельты. Автоматически ни один вариант не выполняется. Причина установлена, но exact-preservation обязательство не выполнено; это handoff/acceptance blocker, не доказанный новый дефект scheduler.
+
+Штатный stop оставшегося собственного PG (не выполнялся): `./docs/vps-preparation/factory-01/stand.ps1 -Action Stop -Target T1`. Не использовать исторические PID как команды. URL после отдельного решения о запуске остаётся `http://127.0.0.1:5173/`. Изменения продуктового Shift/People/assignment-close в OPS01 отсутствуют.

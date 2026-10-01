@@ -1,0 +1,95 @@
+{
+  "status": "PARTIAL_SQL_ROLLBACK_RESULTKEY_PASS_POSTCOMMIT_FANOUT_LOSS_CONFIRMED",
+  "scope": "owned handover copy; targeted SQL fault barriers, real HTTP, no product/schema edits",
+  "cases": [
+    {
+      "barrierTable": "AuditLog",
+      "holderPid": 22696,
+      "waiterPid": 12344,
+      "waitEvent": "Lock",
+      "locks": [
+        {
+          "relname": "ProcessedOperation",
+          "mode": "AccessShareLock"
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "RowExclusiveLock"
+        },
+        {
+          "relname": "Task",
+          "mode": "AccessShareLock"
+        },
+        {
+          "relname": "Task",
+          "mode": "RowShareLock"
+        },
+        {
+          "relname": "Task",
+          "mode": "RowExclusiveLock"
+        },
+        {
+          "relname": "TaskHistory",
+          "mode": "RowExclusiveLock"
+        }
+      ],
+      "cancelledOwnWaiter": true,
+      "http": 500,
+      "result": "PASS_ROLLBACK_AFTER_TASK_PROCESSED_HISTORY_BEFORE_AUDIT_COMMIT"
+    }
+  ],
+  "replayFanout": {
+    "id": "ea491281-db8d-4999-8e7f-ae8c13f88cdc",
+    "history": 1,
+    "audit": 1,
+    "notifications": [
+      {
+        "id": "a92d7f70-0dfc-4962-9c07-1bd9a580787d",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "type": "TASK_CREATED"
+      }
+    ],
+    "unchanged": true
+  },
+  "resultKeyFixtures": [
+    {
+      "fixture": "explicit isolated SQL ProcessedOperation fixture, not product/UI-created data",
+      "label": "null",
+      "http": 409,
+      "noTaskCreated": true
+    },
+    {
+      "fixture": "explicit isolated SQL ProcessedOperation fixture, not product/UI-created data",
+      "label": "missing",
+      "http": 409,
+      "noTaskCreated": true
+    },
+    {
+      "fixture": "explicit isolated SQL ProcessedOperation fixture, not product/UI-created data",
+      "label": "foreign-type",
+      "http": 409,
+      "noTaskCreated": true
+    }
+  ],
+  "postcommit": {
+    "barrierTable": "Notification",
+    "queryPhase": "SELECT",
+    "holderPid": 17576,
+    "waiterPid": 10560,
+    "cancelledExactOwnQuery": true,
+    "committedTaskVisibleToIndependentSqlBeforeCancellation": true,
+    "taskId": "c945f2a5-1898-4c35-874c-5fd3b0a1578b",
+    "firstHttp": 500,
+    "retryHttp": 201,
+    "notificationsBeforeRetry": 0,
+    "notificationsAfterRetry": 0,
+    "verdict": "CONFIRMED_POSTCOMMIT_NOTIFICATION_LOSS_NOT_RECOVERED_ON_REPLAY"
+  },
+  "copyCleanup": [
+    "ea491281-db8d-4999-8e7f-ae8c13f88cdc",
+    "6bb86017-ba81-4049-862e-de7b5b281042",
+    "c945f2a5-1898-4c35-874c-5fd3b0a1578b"
+  ],
+  "mainT1Unchanged": true,
+  "priorHarnessError": "The expression evaluated to a falsy value:\n\n  assert(waiter.query.includes('INSERT')&&waiter.query.includes(table))\n"
+}

@@ -1,0 +1,20 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\resume-prompt.txt" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\resume-prompt.txt"
+index 1e8018c4..19a044fc 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\resume-prompt.txt"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\resume-prompt.txt"
+@@ -1,3 +1,15 @@
++ТОТ ЖЕ MASTER R5 — checkpoint20.09.2026 WAITING_GUEST_READ_ONLY_DIAGNOSTICS / WAITING_MANUAL_GUEST_SHELL.
++Сохранить выбранную GPT-6 Astra Max, dirty worktree/evidence, MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. Новейшее поручение: пользователь наблюдал post-install, успешные late0–2 и late3 exit2/install_fail. VM оставить как есть. НИКАКИХ reboot/shutdown/Force/TurnOff/retry/reinstall/media/VHDX изменений до диагностики. Рабочую DB/service/env/uploads/businessdata/protectedhistory не читать. Не повторять DISM/discovery/создание VM.
++
++Сначала прочитать attempts/20260920-late-command3-diagnosis/diagnosis.md, source-diagnosis.json, baseline.json, runtime-observation.json и текущие progress/final-report/decision-queue. Exact generator20260920-vm-control/create-seed-media.ps1:50 неизменён, SHA3964a3d034f5e97f3cd9d0c621699519ed5de4da9a73f099973e7121a9104a9a. Ошибка PowerShell comma/+ создаёт5argv; sh-c получает незакрытуюкавычку. Доказано host syntax-only sh-n-c exit2; parenthesizedcandidate3argv/exit0. Candidate NOT_APPLIED, ни generator/seed/guest не исправляли. Нельзя запускать diagnose-source.ps1 поверх существующих receipts или provisioning generator заново. Direct private user-data read denied ACL, не missing; никаких обходов. Exact actual guestconfig/stderr/target ещё нужны.
++
++Old9056 уже НЕжив: новый000006result18:03:32 COMPLETED/VMState2Running, terminal18:03:33 deadlineReached EXITED_VM_AND_EVIDENCE_PRESERVED, PIDabsent в свежем наблюдении.000007result отсутствует — EXIT не доказан; Hyper-V jobs перед будущей mutation ещё сверить. Не считать000006 proofOff. Устаревшие запросы oldhelperlines ниже неактуальны; не запускать старый loop/второйcontroller на их основании. Новые UAC не выполнялись.
++
++Точный следующий РУЧНОЙ шаг: в уже открытой консоли Zavod-Master-R5-Ubuntu24 выбрать Help → Enter shell и прислать кадр только приглашения. Никаких команд/reboot/retry. После наблюденияprompt определить узкую read-only проверку guest late[3]/error, soleownVHDX↔target mount, proof marker, r5app/r5pg/sudoers и base boot/packages/finalization. Полный autoinstall/cloud-init/crash сключами неэкспортировать. Предпочесть guarded in-place finalization только после фактов. Source shutdown=poweroff: исправление и auto-finalization могут выключить VM, запрещённо текущим hold без выбранного безопасного действия. Переустановка пока НЕобоснована. If manual step needed stop and give only that step.
++
++После восстановления прежний весьcontract неизменён: isolation→отдельныйPG→actualstack→5gates→32journeys→original063→однаfinalregression/reviewZIP. Сейчас0productfixes/tests/live/fixtures/guestwrites. Coverage954/957,0/1/10 — история, не новаяприёмка. Все4старыхZIP сохранены, текущие результаты этой diagnosisattempt ещё НЕвключены в предыдущийZIP. Product/config215/build132/harness72/main6matrices byteverified unchanged. Не обещать installed/bootable/commands0–2actualPASS только по source/Userreport.
++
++НИЖЕ — СОХРАНЁННЫЙ ИСТОРИЧЕСКИЙ CHECKPOINT16:34, НЕ ТЕКУЩИЕ КОМАНДЫ:
+ ТОТ ЖЕ MASTER R5 — checkpoint20.09.2026 16:34 BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS.
+ Сохранить выбранную GPT-6 Astra Max, dirty worktree/evidence, MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. Hyper-V готов; DISM, VM/диск/switch и ISO download НЕ повторять.
+ 

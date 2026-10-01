@@ -1,0 +1,139 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-replay-before\\backend\\src\\modules\\wash\\wash.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\wash\\wash.service.ts"
+index ef50e2fe..49630d46 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-replay-before\\backend\\src\\modules\\wash\\wash.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\wash\\wash.service.ts"
+@@ -176,7 +176,13 @@ export class WashService {
+     const result = await this.prisma.db.$transaction(async (tx) => {
+       await lockOperationKeys(tx, [operationLockKey.processedOperation(user.userId, input.operationId!)]);
+       const existing = await tx.washControlItem.findFirst({ where: { createdById: user.userId, operationId: input.operationId! } });
+-      if (existing) return { request: existing, changed: false };
++      if (existing) {
++        if (existing.factoryId !== user.selectedFactoryId || existing.deletedAt || existing.type !== 'WASH_REQUEST') {
++          throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++        }
++        await this.assertFactoryUserTx(tx, user.userId, user.selectedFactoryId);
++        return { request: existing, changed: false };
++      }
+       await this.assertFactoryUserTx(tx, user.userId, user.selectedFactoryId);
+       const line = target.targetType === 'LINE'
+         ? await tx.line.findFirst({ where: { id: target.lineId, factoryId: user.selectedFactoryId, deletedAt: null, deactivatedAt: null } })
+@@ -300,9 +306,13 @@ export class WashService {
+         target.targetType === 'LINE' && target.lineId ? operationLockKey.lineLifecycle(target.lineId) : null,
+       ]);
+       const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId, operationId } } });
+-      if (processed?.resultKey) {
+-        const existing = await tx.washSession.findUnique({ where: { id: processed.resultKey }, include: this.sessionInclude() });
+-        if (!existing) throw new ConflictError('Идентификатор действия уже использован. Обновите экран.');
++      if (processed) {
++        if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++        const existing = await this.loadReplaySessionTx(tx, processed.resultKey, userId, selectedFactoryId);
++        if (existing.startedById !== userId || existing.targetType !== target.targetType
++          || (target.targetType === 'LINE' ? existing.lineId !== target.lineId : existing.objectName !== target.objectName)) {
++          throw new ConflictError('Идентификатор действия уже использован. Обновите экран.');
++        }
+         return { session: existing, changed: false };
+       }
+ 
+@@ -469,10 +479,14 @@ export class WashService {
+     const result = await this.prisma.db.$transaction(async (tx) => {
+       if (operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId, operationId } } });
+-        if (processed?.resultKey) {
++        if (processed) {
++          if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          const session = await this.loadReplaySessionTx(tx, sessionId, userId, selectedFactoryId);
++          const washMessage = await tx.washMessage.findFirst({ where: { id: processed.resultKey, washSessionId: session.id, userId } });
++          if (!washMessage) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
+           return {
+-            washMessage: await tx.washMessage.findUnique({ where: { id: processed.resultKey } }) as any,
+-            factoryId: selectedFactoryId ?? null,
++            washMessage,
++            factoryId: session.factoryId,
+             changed: false,
+           };
+         }
+@@ -511,9 +525,14 @@ export class WashService {
+     const result = await this.prisma.db.$transaction(async (tx) => {
+       if (input.operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId, operationId: input.operationId } } });
+-        if (processed?.resultKey) {
++        if (processed) {
++          if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          const session = await this.loadReplaySessionTx(tx, sessionId, userId, selectedFactoryId);
++          const issue = await tx.washIssue.findFirst({ where: { id: processed.resultKey, washSessionId: session.id, factoryId: session.factoryId, createdById: userId } });
++          if (!issue) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
+           return {
+-            issue: await tx.washIssue.findUnique({ where: { id: processed.resultKey } }) as any,
++            issue,
++            factoryId: session.factoryId,
+             changed: false,
+           };
+         }
+@@ -555,11 +574,11 @@ export class WashService {
+         entityId: issue.id,
+         details: { washSessionId: sessionId, title, assignedToId: input.assignedToId ?? null },
+       });
+-      return { issue, changed: true };
++      return { issue, factoryId: session.factoryId, changed: true };
+     });
+     const issue = result.issue;
+-    if (result.changed) this.broadcastUpdate(issue.factoryId);
+-    await this.notificationsService.notifyWashIssueCreated({ ...issue, factoryId: issue.factoryId ?? selectedFactoryId ?? '' });
++    if (result.changed) this.broadcastUpdate(result.factoryId);
++    await this.notificationsService.notifyWashIssueCreated({ ...issue, factoryId: result.factoryId });
+     return issue;
+   }
+ 
+@@ -792,7 +811,7 @@ export class WashService {
+   async completeWash(sessionId: string, userId: string, factoryId: string, operationId?: string) {
+     const completedAt = factoryServerNow();
+     const result = await this.prisma.db.$transaction(async (tx: Prisma.TransactionClient) => {
+-      let session = await tx.washSession.findUnique({ where: { id: sessionId }, include: { line: true } });
++      let session = await tx.washSession.findFirst({ where: { id: sessionId, factoryId, deletedAt: null }, include: { line: true } });
+       if (!session) throw new ConflictError('Мойка не найдена');
+       const marker = await tx.washMessage.findFirst({
+         where: { washSessionId: sessionId, message: { startsWith: 'WASHERS:' } },
+@@ -818,13 +837,16 @@ export class WashService {
+       ]);
+       if (operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId, operationId } } });
+-        if (processed?.resultKey) {
+-          const existing = await tx.washSession.findUnique({ where: { id: processed.resultKey } });
+-          if (!existing || existing.id !== sessionId) throw new ConflictError('Идентификатор действия уже использован. Обновите экран.');
+-          return { session: existing, releasedUserIds: [] as string[], changed: false };
++        if (processed) {
++          if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          if (processed.resultKey !== sessionId) throw new ConflictError('Идентификатор действия уже использован. Обновите экран.');
++          const existing = await this.loadReplaySessionTx(tx, sessionId, userId, factoryId);
++          const { line: _line, startedBy: _startedBy, assignments: _assignments, issues: _issues,
++            messages: _messages, events: _events, controlItems: _controlItems, okkReviews: _okkReviews, ...sessionResult } = existing;
++          return { session: sessionResult, releasedUserIds: [] as string[], changed: false };
+         }
+       }
+-      session = await tx.washSession.findUnique({ where: { id: sessionId }, include: { line: true } });
++      session = await tx.washSession.findFirst({ where: { id: sessionId, factoryId, deletedAt: null }, include: { line: true } });
+       if (!session) throw new ConflictError('Мойка не найдена');
+       if (session.factoryId !== factoryId) throw new ConflictError('Нет доступа к заводу этой мойки');
+       if (session.status === WashStatus.DONE) return { session, releasedUserIds: [] as string[], changed: false };
+@@ -1322,6 +1344,21 @@ export class WashService {
+     });
+   }
+ 
++  private async loadReplaySessionTx(tx: Prisma.TransactionClient, sessionId: string, userId: string, selectedFactoryId?: string) {
++    const factoryId = selectedFactoryId ?? (await tx.user.findUnique({ where: { id: userId }, select: { factoryId: true } }))?.factoryId;
++    if (!factoryId) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++    await this.assertFactoryUserTx(tx, userId, factoryId);
++    const session = await tx.washSession.findFirst({
++      where: { id: sessionId, factoryId, deletedAt: null },
++      include: this.sessionInclude(),
++    });
++    // DONE remains a valid committed result; occupancy is an initial-action precondition.
++    if (!session || (!isDiagnosticFixtureActor(userId) && !isRuntimeVisibleWashSession(session))) {
++      throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++    }
++    return session;
++  }
++
+   private async assertSessionTx(tx: Prisma.TransactionClient, sessionId: string, selectedFactoryId?: string) {
+     const session = await tx.washSession.findUnique({ where: { id: sessionId } });
+     if (!session) throw new ConflictError('Мойка не найдена');

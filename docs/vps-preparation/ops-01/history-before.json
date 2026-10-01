@@ -1,0 +1,4972 @@
+{
+  "status": "CAPTURED_PRIMARY_AND_REAL_HTTP_NOT_PARITY_PASS",
+  "identity": {
+    "version": "FACTORY01-20260926-OPS01",
+    "database": "zavod_factory01_ops01",
+    "factory": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+  },
+  "query": {
+    "dateFrom": "2026-09-20",
+    "dateTo": "2026-09-27"
+  },
+  "primary": {
+    "line": [
+      {
+        "id": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "name": "УЧ-Линия 2",
+        "status": "STOP",
+        "deletedAt": null,
+        "deactivatedAt": null
+      },
+      {
+        "id": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "name": "УЧ-Линия 1",
+        "status": "STOP",
+        "deletedAt": null,
+        "deactivatedAt": null
+      },
+      {
+        "id": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "name": "УЧ-Линия 4",
+        "status": "STOP",
+        "deletedAt": null,
+        "deactivatedAt": null
+      },
+      {
+        "id": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "name": "УЧ-Линия 3",
+        "status": "STOP",
+        "deletedAt": null,
+        "deactivatedAt": null
+      }
+    ],
+    "task": [
+      {
+        "id": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "lineStatusEventId": null,
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "assignedToId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "takenById": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "doneById": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "type": "LONG",
+        "description": "Нужен УЧ — Двигатель",
+        "status": "DONE",
+        "deadlineAt": "2026-09-28T21:11:00.000Z",
+        "startedAt": "2026-09-26T21:11:35.037Z",
+        "doneAt": "2026-09-26T21:11:35.694Z",
+        "createdAt": "2026-09-26T21:11:34.422Z",
+        "updatedAt": "2026-09-26T21:11:35.695Z",
+        "deletedAt": null,
+        "operationId": "5df790d8-a628-4eed-bd26-3535d841785a"
+      },
+      {
+        "id": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "lineStatusEventId": null,
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "assignedToId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "takenById": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "doneById": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "URGENT",
+        "description": "УЧ T1 — проверка Учебный-Руководитель-01 Тестовый",
+        "status": "DONE",
+        "deadlineAt": null,
+        "startedAt": "2026-09-26T21:37:19.619Z",
+        "doneAt": "2026-09-26T21:37:20.298Z",
+        "createdAt": "2026-09-26T21:37:19.072Z",
+        "updatedAt": "2026-09-26T21:37:20.299Z",
+        "deletedAt": null,
+        "operationId": "049740f0-5391-49d6-8ce8-d27ca21b10e1"
+      },
+      {
+        "id": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "lineStatusEventId": null,
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "assignedToId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "takenById": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "doneById": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "type": "URGENT",
+        "description": "Учебная проверка механика FACTORY01 T1",
+        "status": "DONE",
+        "deadlineAt": null,
+        "startedAt": "2026-09-26T20:07:25.126Z",
+        "doneAt": "2026-09-26T20:07:26.355Z",
+        "createdAt": "2026-09-26T20:07:23.180Z",
+        "updatedAt": "2026-09-26T20:07:26.356Z",
+        "deletedAt": null,
+        "operationId": "c90c4b57-a473-40cc-99e5-8581353de48d"
+      },
+      {
+        "id": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "lineStatusEventId": null,
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "assignedToId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "takenById": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "doneById": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "type": "LONG",
+        "description": "Учебная проверка электрика FACTORY01 T1",
+        "status": "DONE",
+        "deadlineAt": "2026-09-28T20:07:00.000Z",
+        "startedAt": "2026-09-26T20:07:30.395Z",
+        "doneAt": "2026-09-26T20:07:31.918Z",
+        "createdAt": "2026-09-26T20:07:28.541Z",
+        "updatedAt": "2026-09-26T20:07:31.919Z",
+        "deletedAt": null,
+        "operationId": "97d874ce-986e-4331-961c-c9520d76ec30"
+      },
+      {
+        "id": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "lineStatusEventId": null,
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "assignedToId": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "takenById": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "doneById": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "type": "URGENT",
+        "description": "Учебная проверка сантехника FACTORY01 T1",
+        "status": "DONE",
+        "deadlineAt": null,
+        "startedAt": "2026-09-26T20:07:46.608Z",
+        "doneAt": "2026-09-26T20:07:48.058Z",
+        "createdAt": "2026-09-26T20:07:44.790Z",
+        "updatedAt": "2026-09-26T20:07:48.059Z",
+        "deletedAt": null,
+        "operationId": "db0c4520-eb5d-4a7c-a96c-6045068acb23"
+      },
+      {
+        "id": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "lineStatusEventId": null,
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "assignedToId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "takenById": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "doneById": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "type": "LONG",
+        "description": "Учебная проверка КИПиА FACTORY01 T1",
+        "status": "DONE",
+        "deadlineAt": "2026-09-28T20:07:00.000Z",
+        "startedAt": "2026-09-26T20:07:41.224Z",
+        "doneAt": "2026-09-26T20:07:42.622Z",
+        "createdAt": "2026-09-26T20:07:39.441Z",
+        "updatedAt": "2026-09-26T20:07:42.623Z",
+        "deletedAt": null,
+        "operationId": "569e8be7-bb1b-4daa-9ddd-a80af50a965f"
+      },
+      {
+        "id": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "lineStatusEventId": null,
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "assignedToId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "takenById": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "doneById": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "type": "URGENT",
+        "description": "Учебная проверка холодильной службы FACTORY01 T1",
+        "status": "DONE",
+        "deadlineAt": null,
+        "startedAt": "2026-09-26T20:07:35.891Z",
+        "doneAt": "2026-09-26T20:07:37.342Z",
+        "createdAt": "2026-09-26T20:07:34.107Z",
+        "updatedAt": "2026-09-26T20:07:37.343Z",
+        "deletedAt": null,
+        "operationId": "18f93fae-1e8c-4954-b336-0e0ff77f9dcb"
+      },
+      {
+        "id": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "lineStatusEventId": null,
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "assignedToId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "takenById": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "doneById": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "type": "URGENT",
+        "description": "УЧ T1 — проверка Учебный-Технолог-01 Тестовый",
+        "status": "DONE",
+        "deadlineAt": null,
+        "startedAt": "2026-09-26T21:37:26.534Z",
+        "doneAt": "2026-09-26T21:37:27.199Z",
+        "createdAt": "2026-09-26T21:37:25.969Z",
+        "updatedAt": "2026-09-26T21:37:27.201Z",
+        "deletedAt": null,
+        "operationId": "4aa91e9a-3e35-4eff-9f03-82d194c80f1b"
+      }
+    ],
+    "okkRecord": [
+      {
+        "id": "588b6d3e-f722-47ec-b055-5752cc2a3375",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "status": "COMPLETED",
+        "description": "Учебная партия ОКК FACTORY01 T1 - Учебное повреждение упаковки",
+        "article": "УЧ-ОКК-T1",
+        "productName": "Учебная партия ОКК FACTORY01 T1",
+        "shiftLabel": "День",
+        "defectQuantity": "10 гофры",
+        "createdAt": "2026-09-26T20:23:40.699Z",
+        "completedAt": "2026-09-26T20:24:48.874Z",
+        "archivedAt": "2026-09-26T20:24:48.874Z",
+        "deletedAt": "2026-09-26T20:24:48.874Z"
+      }
+    ],
+    "stockDefect": [
+      {
+        "id": "bd20c979-119e-4651-a625-38d76c83baa3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "productName": "Учебная некондиция FACTORY01 T1",
+        "name": "Учебная некондиция FACTORY01 T1",
+        "quantity": 14,
+        "unit": "гофры",
+        "status": "ARCHIVED",
+        "comment": "Учебная выдача FACTORY01 T1; не рабочая продукция",
+        "createdAt": "2026-09-26T20:24:54.929Z",
+        "deletedAt": "2026-09-26T20:25:12.974Z"
+      }
+    ],
+    "returnRecord": [
+      {
+        "id": "faf19f9f-65a3-4d00-ae6e-61adc3f656fa",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": null,
+        "description": "Учебный возврат FACTORY01 T1 - Учебная проверка упаковки и сохранения полей",
+        "article": "УЧ-0301",
+        "productName": "Учебный возврат FACTORY01 T1",
+        "quantity": 8,
+        "unit": "шт.",
+        "status": "ARCHIVED",
+        "createdAt": "2026-09-26T20:25:03.009Z",
+        "completedAt": null,
+        "archivedAt": "2026-09-26T20:25:17.354Z",
+        "deletedAt": "2026-09-26T20:25:17.354Z"
+      }
+    ],
+    "checklistRun": [
+      {
+        "id": "3c9899a3-4f1b-46c5-ae33-40468065103d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+        "templateId": "c67eead8-1401-4ac5-a937-ac6ac7e9b0dd",
+        "userId": "f94efe82-3b48-4a2a-a4a1-6a993b506fd2",
+        "lineId": null,
+        "shiftType": "NIGHT",
+        "status": "CLOSED",
+        "startedAt": "2026-09-26T20:27:02.046Z",
+        "closedAt": "2026-09-26T20:27:06.589Z",
+        "closeKind": "MANUAL"
+      },
+      {
+        "id": "98d9dcfd-3d52-400e-89ba-936654bdc8a9",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "templateId": "6333dbcc-cec1-48d0-b1ca-d53a0d1dbf05",
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "shiftType": "NIGHT",
+        "status": "CLOSED",
+        "startedAt": "2026-09-26T21:01:08.817Z",
+        "closedAt": "2026-09-26T21:01:10.667Z",
+        "closeKind": "MANUAL"
+      },
+      {
+        "id": "9fab8b3c-6b6c-48a0-925f-6c6e9692a76f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "templateId": "6333dbcc-cec1-48d0-b1ca-d53a0d1dbf05",
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "shiftType": "NIGHT",
+        "status": "CLOSED",
+        "startedAt": "2026-09-26T21:03:22.215Z",
+        "closedAt": "2026-09-26T21:03:24.109Z",
+        "closeKind": "MANUAL"
+      },
+      {
+        "id": "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "templateId": "ca0d11ea-93a2-4cc3-a8d8-f23915e3bf6f",
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "lineId": null,
+        "shiftType": "NIGHT",
+        "status": "CLOSED",
+        "startedAt": "2026-09-26T20:47:38.150Z",
+        "closedAt": "2026-09-26T20:51:02.948Z",
+        "closeKind": "MANUAL"
+      },
+      {
+        "id": "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+        "templateId": "c67eead8-1401-4ac5-a937-ac6ac7e9b0dd",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "lineId": null,
+        "shiftType": "NIGHT",
+        "status": "CLOSED",
+        "startedAt": "2026-09-26T20:25:59.427Z",
+        "closedAt": "2026-09-26T20:26:03.575Z",
+        "closeKind": "MANUAL"
+      },
+      {
+        "id": "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+        "templateId": "c67eead8-1401-4ac5-a937-ac6ac7e9b0dd",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "lineId": null,
+        "shiftType": "NIGHT",
+        "status": "CLOSED",
+        "startedAt": "2026-09-26T20:47:37.041Z",
+        "closedAt": "2026-09-26T20:50:57.774Z",
+        "closeKind": "MANUAL"
+      },
+      {
+        "id": "fe49f6ab-b260-4bba-b66a-98371214989b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "templateId": "6333dbcc-cec1-48d0-b1ca-d53a0d1dbf05",
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "shiftType": "NIGHT",
+        "status": "CLOSED",
+        "startedAt": "2026-09-26T20:47:37.516Z",
+        "closedAt": "2026-09-26T20:51:00.276Z",
+        "closeKind": "MANUAL"
+      }
+    ],
+    "washSession": [
+      {
+        "id": "1ac06d5b-b2d2-4a3f-b0d3-0bfee8c08647",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "targetType": "LINE",
+        "objectName": null,
+        "objectDescription": null,
+        "startedById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "DONE",
+        "createdAt": "2026-09-26T20:16:42.047Z",
+        "completedAt": "2026-09-26T20:16:48.282Z",
+        "deletedAt": null
+      }
+    ],
+    "minimumStockItem": [
+      {
+        "id": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "name": "Учебный двигатель",
+        "minThreshold": 5,
+        "initialQuantity": 10,
+        "currentQuantity": 3,
+        "unit": "шт",
+        "isActive": false,
+        "archivedAt": "2026-09-26T20:14:53.333Z",
+        "createdAt": "2026-09-26T20:09:53.786Z"
+      },
+      {
+        "id": "4566242f-ef9f-4405-ba74-59d3f0a71ba3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "name": "Учебный датчик",
+        "minThreshold": 5,
+        "initialQuantity": 10,
+        "currentQuantity": 10,
+        "unit": "шт",
+        "isActive": true,
+        "archivedAt": null,
+        "createdAt": "2026-09-26T20:09:54.717Z"
+      },
+      {
+        "id": "53a110c1-7b54-429e-86b7-19c0fef4eb8f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "name": "Учебный ремкомплект",
+        "minThreshold": 5,
+        "initialQuantity": 10,
+        "currentQuantity": 10,
+        "unit": "шт",
+        "isActive": true,
+        "archivedAt": null,
+        "createdAt": "2026-09-26T20:09:55.284Z"
+      },
+      {
+        "id": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "name": "Учебный подшипник",
+        "minThreshold": 5,
+        "initialQuantity": 10,
+        "currentQuantity": 9,
+        "unit": "шт",
+        "isActive": true,
+        "archivedAt": null,
+        "createdAt": "2026-09-26T20:09:54.184Z"
+      },
+      {
+        "id": "ee220699-aafe-48a8-a18d-28925f6eac07",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "name": "Учебный расходник",
+        "minThreshold": 5,
+        "initialQuantity": 10,
+        "currentQuantity": 10,
+        "unit": "шт",
+        "isActive": true,
+        "archivedAt": null,
+        "createdAt": "2026-09-26T20:09:55.685Z"
+      }
+    ],
+    "minimumStockMovement": [
+      {
+        "id": "1c095912-dfee-4efb-9a66-664f83b29828",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "type": "TAKE",
+        "quantity": 2,
+        "beforeQuantity": 10,
+        "afterQuantity": 8,
+        "createdAt": "2026-09-26T20:09:59.137Z"
+      },
+      {
+        "id": "2598ea77-48c8-42f1-81b7-0ee1f5dcf185",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "ee220699-aafe-48a8-a18d-28925f6eac07",
+        "type": "RESTOCK",
+        "quantity": 1,
+        "beforeQuantity": 9,
+        "afterQuantity": 10,
+        "createdAt": "2026-09-26T21:07:09.878Z"
+      },
+      {
+        "id": "2f09bb24-826a-419a-a985-0bd469445328",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "ee220699-aafe-48a8-a18d-28925f6eac07",
+        "type": "TAKE",
+        "quantity": 1,
+        "beforeQuantity": 10,
+        "afterQuantity": 9,
+        "createdAt": "2026-09-26T21:07:08.692Z"
+      },
+      {
+        "id": "5ec632c3-5b91-4d4d-af46-be3bfe923dfd",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "type": "RESTOCK",
+        "quantity": 3,
+        "beforeQuantity": 7,
+        "afterQuantity": 10,
+        "createdAt": "2026-09-26T20:09:57.703Z"
+      },
+      {
+        "id": "a5f6f7ab-38bd-4ce2-baef-6f267ab89716",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "type": "TAKE",
+        "quantity": 3,
+        "beforeQuantity": 10,
+        "afterQuantity": 7,
+        "createdAt": "2026-09-26T20:09:56.448Z"
+      },
+      {
+        "id": "c10436d2-e34c-401f-ad91-5bbdabb80295",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "type": "RESTOCK",
+        "quantity": 1,
+        "beforeQuantity": 8,
+        "afterQuantity": 9,
+        "createdAt": "2026-09-26T20:10:00.265Z"
+      },
+      {
+        "id": "ee3425a3-3044-44bf-94ea-fc103c7c81e1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "type": "TAKE",
+        "quantity": 7,
+        "beforeQuantity": 10,
+        "afterQuantity": 3,
+        "createdAt": "2026-09-26T20:09:58.315Z"
+      }
+    ],
+    "orderRequest": [
+      {
+        "id": "26d5c8c5-c9b1-483a-820e-0917c37f6e95",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "sourceItemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "title": "Учебный двигатель",
+        "description": "Синтетический запас; не норматив рабочего склада",
+        "reasonComment": "УЧ T1: восстановить учебный запас, без реальной закупки",
+        "status": "ORDERED",
+        "createdAt": "2026-09-26T20:13:20.008Z",
+        "closedAt": "2026-09-26T20:13:20.996Z"
+      }
+    ],
+    "shiftLog": [
+      {
+        "id": "03d59a73-1fbf-4fa3-a5b0-b61a84de475f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "title": "УЧ T1 — отделовая запись Учебный-Кладовщик-01 Тестовый",
+        "text": "УЧ T1: проверка текущего доступа своего отдела. Обычная запись, не передача смены.",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T21:35:32.439Z"
+      },
+      {
+        "id": "398762a8-590a-4b00-bae4-b64413e8f039",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "title": "УЧ T1 — обычная запись производства",
+        "text": "УЧ T1: учебные линии и работники проверены",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T20:43:34.868Z"
+      },
+      {
+        "id": "4d066739-0645-488b-96e6-811be8334a5e",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+        "title": "УЧ T1 — отделовая запись MANAGEMENT",
+        "text": "УЧ T1: проверка текущего доступа своего отдела. Обычная запись, не передача смены.",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T21:34:32.514Z"
+      },
+      {
+        "id": "5938e483-8457-4a08-86a5-2cf07930c49a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+        "title": "УЧ T1 — отделовая запись Учебный-Механик-01 Тестовый",
+        "text": "УЧ T1: проверка текущего доступа своего отдела. Обычная запись, не передача смены.",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T21:35:37.359Z"
+      },
+      {
+        "id": "6793de0d-092a-4685-910a-47c5ccd14319",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+        "title": "УЧ T1 — отделовая запись Учебный-КИПиА-01 Тестовый",
+        "text": "УЧ T1: проверка текущего доступа своего отдела. Обычная запись, не передача смены.",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T21:35:52.423Z"
+      },
+      {
+        "id": "849ee1c7-9fad-41af-bc48-26d98b491cd7",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8",
+        "title": "УЧ T1 — отделовая запись Учебный-Холодильщик-01 Тестовый",
+        "text": "УЧ T1: проверка текущего доступа своего отдела. Обычная запись, не передача смены.",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T21:35:47.624Z"
+      },
+      {
+        "id": "85c712a0-357c-4951-824b-ca0cf3f841d2",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+        "title": "УЧ T1 — отделовая запись Учебный-ОКК-01 Тестовый",
+        "text": "УЧ T1: проверка текущего доступа своего отдела. Обычная запись, не передача смены.",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T21:35:28.207Z"
+      },
+      {
+        "id": "bc8a6ca9-95ae-4666-8540-b3478245199b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "78218e97-dc2e-4c5e-ac34-61bec98713bd",
+        "title": "УЧ T1 — отделовая запись TECHNOLOG",
+        "text": "УЧ T1: проверка текущего доступа своего отдела. Обычная запись, не передача смены.",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T21:34:38.404Z"
+      },
+      {
+        "id": "c4e95c00-203b-43ff-a59e-4300fd6aaa61",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "6cdab967-9071-47cc-ab50-29d8a22b34fb",
+        "title": "УЧ T1 — отделовая запись Учебный-Сантехник-01 Тестовый",
+        "text": "УЧ T1: проверка текущего доступа своего отдела. Обычная запись, не передача смены.",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T21:35:57.172Z"
+      },
+      {
+        "id": "de447986-2195-4e6e-845c-0c216755670b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+        "title": "УЧ T1 — отделовая запись Учебный-Электрик-01 Тестовый",
+        "text": "УЧ T1: проверка текущего доступа своего отдела. Обычная запись, не передача смены.",
+        "isImportant": false,
+        "status": "ARCHIVED",
+        "isDeleted": true,
+        "createdAt": "2026-09-26T21:35:42.224Z"
+      }
+    ],
+    "defrostEvent": [
+      {
+        "id": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "eventType": "DEFROST",
+        "status": "COMPLETED",
+        "startAt": "2026-09-26T20:16:55.848Z",
+        "endAt": "2026-09-26T20:16:56.568Z",
+        "comment": "Учебная оттайка FACTORY01 T1"
+      }
+    ],
+    "lineShiftResult": [],
+    "notification": [
+      {
+        "id": "03488290-e03e-41c1-afb9-5914f0d2afc2",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "78218e97-dc2e-4c5e-ac34-61bec98713bd",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "УЧ T1 — проверка Учебный-Технолог-01 Тестовый",
+        "entityType": "TASK",
+        "entityId": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "readAt": "2026-09-26T21:37:27.218Z",
+        "createdAt": "2026-09-26T21:37:26.019Z"
+      },
+      {
+        "id": "050424ab-cc39-477a-883e-8b4f7a24af7d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.874Z"
+      },
+      {
+        "id": "069985f1-3b23-4b33-8bc3-85d6a934bea0",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "6cdab967-9071-47cc-ab50-29d8a22b34fb",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка сантехника FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "readAt": "2026-09-26T20:07:48.073Z",
+        "createdAt": "2026-09-26T20:07:44.822Z"
+      },
+      {
+        "id": "06c77671-9c19-483b-b17e-0ca1a4c3c0fa",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.839Z"
+      },
+      {
+        "id": "0d451131-adfc-437d-929b-7748863af358",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "УЧ T1 — проверка Учебный-Технолог-01 Тестовый",
+        "entityType": "TASK",
+        "entityId": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "readAt": "2026-09-26T21:37:27.218Z",
+        "createdAt": "2026-09-26T21:37:26.005Z"
+      },
+      {
+        "id": "0f46714f-be82-4c9f-8f12-cfaad06f0a9d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "TASK_DONE",
+        "title": "Заявка закрыта",
+        "message": "Учебная проверка электрика FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:07:31.941Z"
+      },
+      {
+        "id": "1041eb55-85d1-400e-91fa-f8c5008a9236",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Нужен УЧ — Двигатель",
+        "entityType": "TASK",
+        "entityId": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "readAt": "2026-09-26T21:11:35.711Z",
+        "createdAt": "2026-09-26T21:11:34.471Z"
+      },
+      {
+        "id": "117b7dd4-ad91-4459-b471-24f6dedb68f4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.574Z"
+      },
+      {
+        "id": "11eaf717-fcdf-4d69-89a7-d571b2e8d7bd",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "type": "WASH_OKK_REVIEW_CREATED",
+        "title": "ОКК по мойке",
+        "message": "APPROVED: Учебный контроль ОКК пройден",
+        "entityType": "WASH_OKK_REVIEW",
+        "entityId": "b34a99e8-052a-4aed-8ee4-e3716320478b",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:47.886Z"
+      },
+      {
+        "id": "1869ac69-b927-4c80-be30-6454e9d7c1e5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "type": "WASH_CONTROL_ITEM_CREATED",
+        "title": "Контроль мойки создан",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.052Z"
+      },
+      {
+        "id": "1a947daf-7391-40bf-9888-04090dc29811",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "SHIFT_RETURN_REQUESTED",
+        "title": "Запрос возврата на смену",
+        "message": "Учебный-Работник-01 Тестовый: УЧ T1: первый запрос возврата",
+        "entityType": "SHIFT_RETURN_REQUEST",
+        "entityId": "6ed85584-1696-4e4e-b4bd-78cfed220554",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:06:25.440Z"
+      },
+      {
+        "id": "1ea28b03-325b-458c-9a4e-dbb5b2d83329",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "23280f41-9fac-4bb8-8cc2-4c59219ca803",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.623Z"
+      },
+      {
+        "id": "1fd24325-019e-434b-bfb4-5947c9090712",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — архив, аудитории и подтверждения",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "readAt": "2026-09-26T21:15:17.053Z",
+        "createdAt": "2026-09-26T21:12:02.660Z"
+      },
+      {
+        "id": "20adf52c-0381-4d78-9a52-2c319f906b34",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "ORDER_STOCK_BELOW_THRESHOLD",
+        "title": "Остаток ниже порога",
+        "message": "Учебный двигатель: сейчас 3, минимум 5",
+        "entityType": "MINIMUM_STOCK_ITEM",
+        "entityId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "readAt": "2026-09-26T20:14:53.343Z",
+        "createdAt": "2026-09-26T20:09:58.329Z"
+      },
+      {
+        "id": "20eff30a-5912-4c0a-8b58-829b2d3eafe1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+        "userId": "f94efe82-3b48-4a2a-a4a1-6a993b506fd2",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — архив, аудитории и подтверждения",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "readAt": null,
+        "createdAt": "2026-09-26T21:12:02.653Z"
+      },
+      {
+        "id": "228ecd76-c350-453f-908a-cf924d552582",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "5bf79301-8f09-4342-9d51-d1fa58b3465a",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.734Z"
+      },
+      {
+        "id": "239de61f-838e-4200-b27d-f47cc4833775",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.884Z"
+      },
+      {
+        "id": "26531201-5344-4e8a-b409-560ea564fa7b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка холодильной службы FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "readAt": "2026-09-26T20:07:37.356Z",
+        "createdAt": "2026-09-26T20:07:34.138Z"
+      },
+      {
+        "id": "29d4934e-96b0-4f1b-b581-f18be2b6a525",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — архив, аудитории и подтверждения",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "readAt": null,
+        "createdAt": "2026-09-26T21:12:02.668Z"
+      },
+      {
+        "id": "2b2ab9d0-5d14-49a1-9d61-0344c7dd5737",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "WASH_ISSUE_CREATED",
+        "title": "Проблема в мойке",
+        "message": "Учебная проверка остатка загрязнения",
+        "entityType": "WASH_ISSUE",
+        "entityId": "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:44.717Z"
+      },
+      {
+        "id": "2bce51b6-3b8c-449a-9361-98c9f75a2116",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "WASH_MINI_TASK_DONE",
+        "title": "Мини-задание мойки выполнено",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.732Z"
+      },
+      {
+        "id": "2c825654-174a-4ea3-b8cb-dcb3026a4430",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.857Z"
+      },
+      {
+        "id": "3044559c-3958-4e76-8782-3764300d391a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "f94efe82-3b48-4a2a-a4a1-6a993b506fd2",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.633Z"
+      },
+      {
+        "id": "32829c1b-715e-4418-8667-7644f3dceef3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.831Z"
+      },
+      {
+        "id": "3292c599-6b72-40a1-b353-8845c4daa82d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — архив, аудитории и подтверждения",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "readAt": "2026-09-26T21:15:17.300Z",
+        "createdAt": "2026-09-26T21:12:02.687Z"
+      },
+      {
+        "id": "362d8564-64c7-47f9-8cdc-39aad7d92e88",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "596f6f50-cfba-4cf4-a43e-82225e3a708d",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.771Z"
+      },
+      {
+        "id": "396bd0a0-e04a-4938-8060-13b6680f5dec",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.653Z"
+      },
+      {
+        "id": "396c3727-6c69-44e3-901f-6e389aeca493",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "type": "WASH_MINI_TASK_DONE",
+        "title": "Мини-задание мойки выполнено",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.722Z"
+      },
+      {
+        "id": "3a50fe6a-a9fe-4198-b2b8-ce1ab45300b3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "type": "SHIFT_LOG_IMPORTANT_CREATED",
+        "title": "Важная запись пересменки",
+        "message": "УЧ T1 — обычная запись производства",
+        "entityType": "SHIFT_LOG",
+        "entityId": "398762a8-590a-4b00-bae4-b64413e8f039",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:43:34.940Z"
+      },
+      {
+        "id": "3b078127-d1f5-4545-a671-58db51215710",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка КИПиА FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "readAt": "2026-09-26T20:07:42.634Z",
+        "createdAt": "2026-09-26T20:07:39.472Z"
+      },
+      {
+        "id": "3f430c6e-f2e6-45a7-99c3-91c0ab63177f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "SHIFT_LOG_IMPORTANT_CREATED",
+        "title": "Важная запись пересменки",
+        "message": "УЧ T1 — обычная запись производства",
+        "entityType": "SHIFT_LOG",
+        "entityId": "398762a8-590a-4b00-bae4-b64413e8f039",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:43:34.975Z"
+      },
+      {
+        "id": "4279f3cc-67f6-4933-895a-c70662f441c7",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.615Z"
+      },
+      {
+        "id": "476b540a-591e-40fe-8061-12dadd51fd4f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.596Z"
+      },
+      {
+        "id": "4822dc73-37cb-45f6-9a44-fe6db279b14f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "type": "CHECKLIST_CHECK_OVERDUE_1",
+        "title": "Проверка чек-листа просрочена",
+        "message": "УЧЕБНЫЙ — Чистота производственного участка · Срок: 26.09, 23:47",
+        "entityType": "CHECKLIST_RUN_CHECK",
+        "entityId": "7cc775c7-e61c-4be8-a662-74ec28f65a94",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:50:04.935Z"
+      },
+      {
+        "id": "4c9a85c8-a1fd-4bb8-9c16-2c828903ea9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "type": "WASH_OKK_REVIEW_CREATED",
+        "title": "ОКК по мойке",
+        "message": "APPROVED: Учебный контроль ОКК пройден",
+        "entityType": "WASH_OKK_REVIEW",
+        "entityId": "b34a99e8-052a-4aed-8ee4-e3716320478b",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:47.806Z"
+      },
+      {
+        "id": "549b51fb-56a8-452b-8b3f-a31e24158cf1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "TASK_DONE",
+        "title": "Заявка закрыта",
+        "message": "Учебная проверка КИПиА FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:07:42.641Z"
+      },
+      {
+        "id": "57f7cc17-1f2f-4c2c-a7e3-93506c6d0f5a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "6cdab967-9071-47cc-ab50-29d8a22b34fb",
+        "userId": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка сантехника FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "readAt": "2026-09-26T20:07:48.073Z",
+        "createdAt": "2026-09-26T20:07:44.842Z"
+      },
+      {
+        "id": "585e8e57-1202-4e4b-a971-f11be538e3c1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.713Z"
+      },
+      {
+        "id": "58a46175-754f-4e8c-b0dd-f37f55628dc5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "WASH_MINI_TASK_DONE",
+        "title": "Мини-задание мойки выполнено",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.759Z"
+      },
+      {
+        "id": "5d4af796-54d4-4edd-8640-fe1ba85cae6d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+        "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка электрика FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "readAt": "2026-09-26T20:07:31.933Z",
+        "createdAt": "2026-09-26T20:07:28.602Z"
+      },
+      {
+        "id": "5e1b0ee5-cff7-4d58-b544-cb84b23af62a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.822Z"
+      },
+      {
+        "id": "5fa54094-b2e7-42fe-ae87-e30a877bb9fc",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "type": "WASH_OKK_REVIEW_CREATED",
+        "title": "ОКК по мойке",
+        "message": "APPROVED: Учебный контроль ОКК пройден",
+        "entityType": "WASH_OKK_REVIEW",
+        "entityId": "b34a99e8-052a-4aed-8ee4-e3716320478b",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:47.843Z"
+      },
+      {
+        "id": "64032b3f-51aa-4f39-b9fd-78fae3e80698",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "CHECKLIST_CHECK_OVERDUE_1",
+        "title": "Проверка чек-листа просрочена",
+        "message": "УЧЕБНЫЙ — Проверка линии перед запуском · Линия: УЧ-Линия 1 · Срок: 26.09, 23:47",
+        "entityType": "CHECKLIST_RUN_CHECK",
+        "entityId": "746cdddf-8c94-4846-b89f-dcb6a96aa4c7",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:50:04.948Z"
+      },
+      {
+        "id": "68577712-b94c-4495-bb2b-c23489c32087",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "e13945c9-26e7-4bc2-bc4c-6de8ea61d944",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.814Z"
+      },
+      {
+        "id": "687f8877-51b5-4fb3-baa1-8dc322b2f011",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "78218e97-dc2e-4c5e-ac34-61bec98713bd",
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "УЧ T1 — проверка Учебный-Технолог-01 Тестовый",
+        "entityType": "TASK",
+        "entityId": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "readAt": "2026-09-26T21:37:27.218Z",
+        "createdAt": "2026-09-26T21:37:26.034Z"
+      },
+      {
+        "id": "6a377848-b4db-4e8d-8ffb-a6ab190226c0",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "WASH_ISSUE_CREATED",
+        "title": "Проблема в мойке",
+        "message": "Учебная проверка остатка загрязнения",
+        "entityType": "WASH_ISSUE",
+        "entityId": "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:44.710Z"
+      },
+      {
+        "id": "6ab12650-000b-48cb-b011-1fc39cc412b0",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "DEFROST_COMPLETED",
+        "title": "Оттайка завершена",
+        "message": "Линия: УЧ-Линия 2",
+        "entityType": "DEFROST_EVENT",
+        "entityId": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:56.589Z"
+      },
+      {
+        "id": "6b7893ed-f664-48e1-8403-eb325104e7e5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "type": "WASH_CONTROL_ITEM_CREATED",
+        "title": "Контроль мойки создан",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.025Z"
+      },
+      {
+        "id": "6e99c9ef-cf9a-46e4-82f8-570c48a05337",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "TASK_DONE",
+        "title": "Заявка закрыта",
+        "message": "УЧ T1 — проверка Учебный-Руководитель-01 Тестовый",
+        "entityType": "TASK",
+        "entityId": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "readAt": null,
+        "createdAt": "2026-09-26T21:37:20.333Z"
+      },
+      {
+        "id": "6f88967b-2243-4302-8a30-ad3c04c63bcc",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "type": "SHIFT_RETURN_REQUESTED",
+        "title": "Запрос возврата на смену",
+        "message": "Учебный-Работник-01 Тестовый: УЧ T1: первый запрос возврата",
+        "entityType": "SHIFT_RETURN_REQUEST",
+        "entityId": "6ed85584-1696-4e4e-b4bd-78cfed220554",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:06:25.423Z"
+      },
+      {
+        "id": "704103cf-2363-4e22-a59d-470ef07ea033",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "SHIFT_RETURN_REQUESTED",
+        "title": "Запрос возврата на смену",
+        "message": "Учебный-Работник-01 Тестовый: УЧ T1: готов вернуться",
+        "entityType": "SHIFT_RETURN_REQUEST",
+        "entityId": "e3c6c4ab-b016-4a98-87a9-35fdb557d2b3",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:06:26.439Z"
+      },
+      {
+        "id": "70f0938b-ac16-4977-aee5-7b70e19b0a1c",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "WASH_CONTROL_ITEM_CREATED",
+        "title": "Контроль мойки создан",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.015Z"
+      },
+      {
+        "id": "720833ce-4be1-4781-b9e3-bd1a7a32fd3b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "100d35e3-cae5-49ee-915d-a5c7bde00855",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.699Z"
+      },
+      {
+        "id": "730223bd-ac6b-4d85-8b77-f7239974f21f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.789Z"
+      },
+      {
+        "id": "75dc9d64-3e0d-4580-b458-bd015142d5cf",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "type": "DEFROST_COMPLETED",
+        "title": "Оттайка завершена",
+        "message": "Линия: УЧ-Линия 2",
+        "entityType": "DEFROST_EVENT",
+        "entityId": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:56.597Z"
+      },
+      {
+        "id": "7731d85f-65f9-43fe-9edb-78bdec6e598a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка электрика FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "readAt": "2026-09-26T20:07:31.933Z",
+        "createdAt": "2026-09-26T20:07:28.569Z"
+      },
+      {
+        "id": "7932726a-092a-4cfd-8d90-dfdab3edf9ca",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "532a459e-a032-49a7-a80a-bd0d4f076830",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.848Z"
+      },
+      {
+        "id": "7b21676a-e0c1-4457-8d5f-5dafc82efefa",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "SHIFT_RETURN_REQUESTED",
+        "title": "Запрос возврата на смену",
+        "message": "Учебный-Работник-01 Тестовый: УЧ T1: готов вернуться",
+        "entityType": "SHIFT_RETURN_REQUEST",
+        "entityId": "e3c6c4ab-b016-4a98-87a9-35fdb557d2b3",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:06:26.431Z"
+      },
+      {
+        "id": "83ad1339-1920-49d0-9305-45422476d094",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "f94efe82-3b48-4a2a-a4a1-6a993b506fd2",
+        "type": "WASH_MINI_TASK_DONE",
+        "title": "Мини-задание мойки выполнено",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.752Z"
+      },
+      {
+        "id": "83b02880-7391-4146-85e0-f0b5a1f6f595",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "type": "WASH_MINI_TASK_DONE",
+        "title": "Мини-задание мойки выполнено",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.786Z"
+      },
+      {
+        "id": "842fac84-9729-4b01-8045-e78d4306fbd1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — архив, аудитории и подтверждения",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "readAt": null,
+        "createdAt": "2026-09-26T21:12:02.698Z"
+      },
+      {
+        "id": "857dd37c-04d8-4e60-82ce-e61ebfdbd24c",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "DEFROST_COMPLETED",
+        "title": "Оттайка завершена",
+        "message": "Линия: УЧ-Линия 2",
+        "entityType": "DEFROST_EVENT",
+        "entityId": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:56.579Z"
+      },
+      {
+        "id": "85f77ea8-b5ce-41b4-babb-632bbbeb63cf",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка КИПиА FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "readAt": "2026-09-26T20:07:42.634Z",
+        "createdAt": "2026-09-26T20:07:39.460Z"
+      },
+      {
+        "id": "8795b227-21a8-43ee-ba14-0635c327e5c9",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Нужен УЧ — Двигатель",
+        "entityType": "TASK",
+        "entityId": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "readAt": "2026-09-26T21:11:35.711Z",
+        "createdAt": "2026-09-26T21:11:34.491Z"
+      },
+      {
+        "id": "87d0a5d5-5ca4-4361-8ff4-b563d72b2a01",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "TASK_DONE",
+        "title": "Заявка закрыта",
+        "message": "УЧ T1 — проверка Учебный-Технолог-01 Тестовый",
+        "entityType": "TASK",
+        "entityId": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "readAt": null,
+        "createdAt": "2026-09-26T21:37:27.228Z"
+      },
+      {
+        "id": "88a2329f-abe5-4734-b43c-2133748c79cb",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка холодильной службы FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "readAt": "2026-09-26T20:07:37.356Z",
+        "createdAt": "2026-09-26T20:07:34.149Z"
+      },
+      {
+        "id": "88bc51ec-1ae5-4ea2-8178-83928e495693",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "TASK_DONE",
+        "title": "Заявка закрыта",
+        "message": "Учебная проверка механика FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:07:26.377Z"
+      },
+      {
+        "id": "8a8bc8e3-feba-48db-89ea-c6a60aac9a27",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8",
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка холодильной службы FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "readAt": "2026-09-26T20:07:37.356Z",
+        "createdAt": "2026-09-26T20:07:34.159Z"
+      },
+      {
+        "id": "8c270225-76ea-43fb-886d-0ddd0f9502af",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "f94efe82-3b48-4a2a-a4a1-6a993b506fd2",
+        "type": "WASH_CONTROL_ITEM_CREATED",
+        "title": "Контроль мойки создан",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.008Z"
+      },
+      {
+        "id": "9251c66e-d646-494d-b544-32646e74c94b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "userId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — архив, аудитории и подтверждения",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "readAt": "2026-09-26T21:15:17.778Z",
+        "createdAt": "2026-09-26T21:12:02.675Z"
+      },
+      {
+        "id": "938b6c37-5624-4d0d-9a79-a030dd8a8de7",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "e8ba2d30-0bbb-4e58-bc4b-3a38aa7012ce",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.764Z"
+      },
+      {
+        "id": "93d18e3a-e3b3-4c1a-b172-216d8d3c5dbf",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "DEFROST_STARTED",
+        "title": "Оттайка начата",
+        "message": "Линия: УЧ-Линия 2",
+        "entityType": "DEFROST_EVENT",
+        "entityId": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:55.873Z"
+      },
+      {
+        "id": "9646eda3-8708-4b87-b00b-6ea20c1a984b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "f94efe82-3b48-4a2a-a4a1-6a993b506fd2",
+        "type": "WASH_OKK_REVIEW_CREATED",
+        "title": "ОКК по мойке",
+        "message": "APPROVED: Учебный контроль ОКК пройден",
+        "entityType": "WASH_OKK_REVIEW",
+        "entityId": "b34a99e8-052a-4aed-8ee4-e3716320478b",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:47.828Z"
+      },
+      {
+        "id": "96e00468-c7f2-4c27-b49b-351b245afb41",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "WASH_OKK_REVIEW_CREATED",
+        "title": "ОКК по мойке",
+        "message": "APPROVED: Учебный контроль ОКК пройден",
+        "entityType": "WASH_OKK_REVIEW",
+        "entityId": "b34a99e8-052a-4aed-8ee4-e3716320478b",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:47.834Z"
+      },
+      {
+        "id": "9a0c72cc-84bc-4565-9d05-7b097821fc2d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": "2026-09-26T20:29:02.537Z",
+        "createdAt": "2026-09-26T20:28:54.723Z"
+      },
+      {
+        "id": "9c4466b4-3a15-4d89-aa37-f3074be38405",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "f94efe82-3b48-4a2a-a4a1-6a993b506fd2",
+        "type": "WASH_ISSUE_CREATED",
+        "title": "Проблема в мойке",
+        "message": "Учебная проверка остатка загрязнения",
+        "entityType": "WASH_ISSUE",
+        "entityId": "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:44.731Z"
+      },
+      {
+        "id": "9d1075eb-9684-4e85-b4e5-78bd89731782",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Нужен УЧ — Двигатель",
+        "entityType": "TASK",
+        "entityId": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "readAt": "2026-09-26T21:11:35.711Z",
+        "createdAt": "2026-09-26T21:11:34.457Z"
+      },
+      {
+        "id": "9d43e7e9-b575-4b54-8e64-140bd3a0ec94",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка механика FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "readAt": "2026-09-26T20:07:26.370Z",
+        "createdAt": "2026-09-26T20:07:23.258Z"
+      },
+      {
+        "id": "9e683831-72b6-4c71-ae89-048b8d2130a6",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "5ab7bbc5-84a0-44c1-abae-ba28a55e5a12",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.665Z"
+      },
+      {
+        "id": "9e85e3fd-1d47-45ad-bf6d-e227d391de1c",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "userId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "type": "ORDER_REQUEST_CREATED",
+        "title": "Новая заявка на заказ",
+        "message": "Учебный двигатель",
+        "entityType": "ORDER_REQUEST",
+        "entityId": "26d5c8c5-c9b1-483a-820e-0917c37f6e95",
+        "readAt": "2026-09-26T20:13:21.002Z",
+        "createdAt": "2026-09-26T20:13:20.035Z"
+      },
+      {
+        "id": "a10b6336-033a-4d6b-b554-e4c6d63d727f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "WASH_CONTROL_ITEM_CREATED",
+        "title": "Контроль мойки создан",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:45.998Z"
+      },
+      {
+        "id": "a535cc75-8097-42ae-8a5a-accc4b522552",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.892Z"
+      },
+      {
+        "id": "a56f59cc-303a-4353-9c9e-fd46a9638b27",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "type": "SHIFT_RETURN_REQUESTED",
+        "title": "Запрос возврата на смену",
+        "message": "Учебный-Работник-01 Тестовый: УЧ T1: готов вернуться",
+        "entityType": "SHIFT_RETURN_REQUEST",
+        "entityId": "e3c6c4ab-b016-4a98-87a9-35fdb557d2b3",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:06:26.421Z"
+      },
+      {
+        "id": "a5d88151-3697-4297-b3a4-d3d03c4c7e77",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.804Z"
+      },
+      {
+        "id": "a839fc1d-8500-4ff8-b4ed-0cc3f68e8703",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка электрика FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "readAt": "2026-09-26T20:07:31.933Z",
+        "createdAt": "2026-09-26T20:07:28.583Z"
+      },
+      {
+        "id": "a97942ee-94f9-4d6d-ab5d-a6eecf392cfe",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "TASK_DONE",
+        "title": "Заявка закрыта",
+        "message": "Учебная проверка сантехника FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:07:48.082Z"
+      },
+      {
+        "id": "aec2aa59-0bab-47ea-bf91-e10d09baae13",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "32be9b5b-3e13-420b-abbe-808707a60afa",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.644Z"
+      },
+      {
+        "id": "af5a686b-cb84-4dd9-8256-33c6f2033f05",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "SHIFT_RETURN_REQUESTED",
+        "title": "Запрос возврата на смену",
+        "message": "Учебный-Работник-01 Тестовый: УЧ T1: готов вернуться",
+        "entityType": "SHIFT_RETURN_REQUEST",
+        "entityId": "e3c6c4ab-b016-4a98-87a9-35fdb557d2b3",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:06:26.413Z"
+      },
+      {
+        "id": "b296a943-67f2-4257-8abe-230e9568abf4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "type": "CHECKLIST_CHECK_OVERDUE_1",
+        "title": "Проверка чек-листа просрочена",
+        "message": "УЧЕБНЫЙ — Контроль окончания смены · Срок: 26.09, 23:47",
+        "entityType": "CHECKLIST_RUN_CHECK",
+        "entityId": "5bbe619c-92fe-4c40-a99f-5f52d68fa185",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:50:04.902Z"
+      },
+      {
+        "id": "b3001347-0814-4ae3-bb39-882b8a87c554",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "WASH_OKK_REVIEW_CREATED",
+        "title": "ОКК по мойке",
+        "message": "APPROVED: Учебный контроль ОКК пройден",
+        "entityType": "WASH_OKK_REVIEW",
+        "entityId": "b34a99e8-052a-4aed-8ee4-e3716320478b",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:47.813Z"
+      },
+      {
+        "id": "b4a378ba-c122-404f-9eb7-de52a36b7c20",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "УЧ T1 — проверка Учебный-Руководитель-01 Тестовый",
+        "entityType": "TASK",
+        "entityId": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "readAt": "2026-09-26T21:37:20.325Z",
+        "createdAt": "2026-09-26T21:37:19.115Z"
+      },
+      {
+        "id": "b7aea0e6-2e49-407e-bf79-78c234fc4b14",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.605Z"
+      },
+      {
+        "id": "b8dde0ca-1801-436b-bd63-3bff6fdeca20",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "ORDER_REQUEST_CREATED",
+        "title": "Новая заявка на заказ",
+        "message": "Учебный двигатель",
+        "entityType": "ORDER_REQUEST",
+        "entityId": "26d5c8c5-c9b1-483a-820e-0917c37f6e95",
+        "readAt": "2026-09-26T20:13:21.002Z",
+        "createdAt": "2026-09-26T20:13:20.023Z"
+      },
+      {
+        "id": "bb4a7b81-5743-42b1-8207-c6349d3de876",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "type": "WASH_MINI_TASK_DONE",
+        "title": "Мини-задание мойки выполнено",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.767Z"
+      },
+      {
+        "id": "bc0fdc93-71c2-48c7-99bf-d903ab5f2363",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "УЧ T1 — проверка Учебный-Руководитель-01 Тестовый",
+        "entityType": "TASK",
+        "entityId": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "readAt": "2026-09-26T21:37:20.325Z",
+        "createdAt": "2026-09-26T21:37:19.132Z"
+      },
+      {
+        "id": "bfaf0e0b-6d5b-4a3e-a51a-84f8d36cc77d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "SHIFT_RETURN_REQUESTED",
+        "title": "Запрос возврата на смену",
+        "message": "Учебный-Работник-01 Тестовый: УЧ T1: первый запрос возврата",
+        "entityType": "SHIFT_RETURN_REQUEST",
+        "entityId": "6ed85584-1696-4e4e-b4bd-78cfed220554",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:06:25.413Z"
+      },
+      {
+        "id": "c04fc6e5-b5b7-4dde-8013-86ed2e64da47",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.750Z"
+      },
+      {
+        "id": "c1223fb8-1c76-4cdc-b6bb-f2896a967761",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "type": "WASH_ISSUE_CREATED",
+        "title": "Проблема в мойке",
+        "message": "Учебная проверка остатка загрязнения",
+        "entityType": "WASH_ISSUE",
+        "entityId": "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:44.703Z"
+      },
+      {
+        "id": "c25a3b3e-82bc-4fdd-af55-0e921c021d41",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "type": "WASH_ISSUE_CREATED",
+        "title": "Проблема в мойке",
+        "message": "Учебная проверка остатка загрязнения",
+        "entityType": "WASH_ISSUE",
+        "entityId": "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:44.773Z"
+      },
+      {
+        "id": "c4f49492-fbaf-4890-94a1-5760fb9668d7",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "ORDER_REQUEST_CREATED",
+        "title": "Новая заявка на заказ",
+        "message": "Учебный двигатель",
+        "entityType": "ORDER_REQUEST",
+        "entityId": "26d5c8c5-c9b1-483a-820e-0917c37f6e95",
+        "readAt": "2026-09-26T20:13:21.002Z",
+        "createdAt": "2026-09-26T20:13:20.054Z"
+      },
+      {
+        "id": "c9a96531-826d-4830-915a-79bc7dc6d442",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка механика FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "readAt": "2026-09-26T20:07:26.370Z",
+        "createdAt": "2026-09-26T20:07:23.225Z"
+      },
+      {
+        "id": "d050f45e-563f-4bbd-8aa5-a414095c6a5b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "WASH_OKK_REVIEW_CREATED",
+        "title": "ОКК по мойке",
+        "message": "APPROVED: Учебный контроль ОКК пройден",
+        "entityType": "WASH_OKK_REVIEW",
+        "entityId": "b34a99e8-052a-4aed-8ee4-e3716320478b",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:47.821Z"
+      },
+      {
+        "id": "d64a7a9b-ad76-48e1-9daf-525a33efce13",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "SHIFT_LOG_IMPORTANT_CREATED",
+        "title": "Важная запись пересменки",
+        "message": "УЧ T1 — обычная запись производства",
+        "entityType": "SHIFT_LOG",
+        "entityId": "398762a8-590a-4b00-bae4-b64413e8f039",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:43:34.949Z"
+      },
+      {
+        "id": "da2dda97-c1ce-4470-af3a-9bb6a0b97d6f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.797Z"
+      },
+      {
+        "id": "dd1c526b-3984-4b46-a414-2fcb8d7b7590",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "type": "WASH_ISSUE_CREATED",
+        "title": "Проблема в мойке",
+        "message": "Учебная проверка остатка загрязнения",
+        "entityType": "WASH_ISSUE",
+        "entityId": "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:44.814Z"
+      },
+      {
+        "id": "e00440f6-20e3-4efe-bb55-b83a0dc6d8fb",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "WASH_ISSUE_CREATED",
+        "title": "Проблема в мойке",
+        "message": "Учебная проверка остатка загрязнения",
+        "entityType": "WASH_ISSUE",
+        "entityId": "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:44.756Z"
+      },
+      {
+        "id": "e087e439-d1a6-4171-8eb6-568df2f96b0d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "DEFROST_STARTED",
+        "title": "Оттайка начата",
+        "message": "Линия: УЧ-Линия 2",
+        "entityType": "DEFROST_EVENT",
+        "entityId": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:55.880Z"
+      },
+      {
+        "id": "e13c01c7-61e5-46f3-92ee-62efcdbb0769",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "f2242297-6c2d-4cdc-a25b-330647f64d28",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.782Z"
+      },
+      {
+        "id": "e6da7b63-878a-48a1-adbd-ed49a781733c",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3255174d-6b6f-47eb-ab79-9e14d180e648",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.865Z"
+      },
+      {
+        "id": "ebcac41f-e08f-4827-8c85-6213eabc2d94",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "type": "WASH_CONTROL_ITEM_CREATED",
+        "title": "Контроль мойки создан",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:45.991Z"
+      },
+      {
+        "id": "edef54cb-b203-40f8-a62f-c347447dd4b3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "ORDER_REQUEST_CLOSED",
+        "title": "Заявка на заказ закрыта",
+        "message": "Учебный двигатель: ORDERED",
+        "entityType": "ORDER_REQUEST",
+        "entityId": "26d5c8c5-c9b1-483a-820e-0917c37f6e95",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:13:21.020Z"
+      },
+      {
+        "id": "ef3d7174-bf98-4621-aa92-1db9b3514895",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "TASK_DONE",
+        "title": "Заявка закрыта",
+        "message": "Учебная проверка холодильной службы FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:07:37.365Z"
+      },
+      {
+        "id": "ef46ac18-fe25-4cfd-9a68-81c7ac2a97e2",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка КИПиА FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "readAt": "2026-09-26T20:07:42.634Z",
+        "createdAt": "2026-09-26T20:07:39.487Z"
+      },
+      {
+        "id": "f0b741e9-d1ec-45d8-a101-34d7a1e784ac",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "393fe669-5b68-4f49-85e3-c36e55451c9f",
+        "type": "ANNOUNCEMENT_IMPORTANT_CREATED",
+        "title": "Важное объявление",
+        "message": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "entityType": "ANNOUNCEMENT",
+        "entityId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:28:54.587Z"
+      },
+      {
+        "id": "f3a1a715-1247-4134-a907-2dd336b8a1ba",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка механика FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "readAt": "2026-09-26T20:07:26.370Z",
+        "createdAt": "2026-09-26T20:07:23.239Z"
+      },
+      {
+        "id": "f6d8e49c-dd00-4b89-811e-b02692dc48c6",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "type": "WASH_CONTROL_ITEM_CREATED",
+        "title": "Контроль мойки создан",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:45.982Z"
+      },
+      {
+        "id": "f896b4d3-4f7f-4eb0-a855-ca7623fcc98c",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "type": "DEFROST_STARTED",
+        "title": "Оттайка начата",
+        "message": "Линия: УЧ-Линия 2",
+        "entityType": "DEFROST_EVENT",
+        "entityId": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:55.888Z"
+      },
+      {
+        "id": "f920cc1f-2003-4648-81e7-c9477a12c30b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "type": "TASK_DONE",
+        "title": "Заявка закрыта",
+        "message": "Нужен УЧ — Двигатель",
+        "entityType": "TASK",
+        "entityId": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "readAt": null,
+        "createdAt": "2026-09-26T21:11:35.719Z"
+      },
+      {
+        "id": "f9fbb5b5-69bd-4e2b-9967-476fd4722990",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "SHIFT_RETURN_REQUESTED",
+        "title": "Запрос возврата на смену",
+        "message": "Учебный-Работник-01 Тестовый: УЧ T1: первый запрос возврата",
+        "entityType": "SHIFT_RETURN_REQUEST",
+        "entityId": "6ed85584-1696-4e4e-b4bd-78cfed220554",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:06:25.432Z"
+      },
+      {
+        "id": "fb83da40-545c-4b18-ab77-70b8a5c814a5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "Учебная проверка сантехника FACTORY01 T1",
+        "entityType": "TASK",
+        "entityId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "readAt": "2026-09-26T20:07:48.073Z",
+        "createdAt": "2026-09-26T20:07:44.810Z"
+      },
+      {
+        "id": "fc225491-abe3-4c2d-b800-6b0a8404c32a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "TASK_CREATED",
+        "title": "Новая заявка",
+        "message": "УЧ T1 — проверка Учебный-Руководитель-01 Тестовый",
+        "entityType": "TASK",
+        "entityId": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "readAt": "2026-09-26T21:37:20.325Z",
+        "createdAt": "2026-09-26T21:37:19.163Z"
+      },
+      {
+        "id": "fd784ab3-af02-47a1-96be-72a866de0a25",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "type": "WASH_MINI_TASK_DONE",
+        "title": "Мини-задание мойки выполнено",
+        "message": "Проверить учебную контрольную точку",
+        "entityType": "WASH_CONTROL_ITEM",
+        "entityId": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "readAt": null,
+        "createdAt": "2026-09-26T20:16:46.743Z"
+      }
+    ],
+    "lineEvent": [
+      {
+        "id": "050ad490-228c-452c-95dc-231610985e19",
+        "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "WORK",
+        "comment": "Учебная репетиция T1: WORK",
+        "downtimeReason": null,
+        "confirmedEndAt": "2026-09-26T20:02:58.588Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:02:58.588Z"
+      },
+      {
+        "id": "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "STOP",
+        "comment": "Учебная репетиция T1: STOP",
+        "downtimeReason": "TECHNICAL",
+        "confirmedEndAt": null,
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:14:40.888Z"
+      },
+      {
+        "id": "1dc67455-70b2-4a7c-aea6-c2ff0133f894",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "WORK",
+        "comment": "Учебная репетиция T1: WORK",
+        "downtimeReason": null,
+        "confirmedEndAt": "2026-09-26T20:02:56.975Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:02:56.975Z"
+      },
+      {
+        "id": "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "43c38377-80b3-4256-89ab-40f896104510",
+        "status": "PAUSE",
+        "comment": "Учебная репетиция T1: PAUSE",
+        "downtimeReason": "TECHNICAL",
+        "confirmedEndAt": "2026-09-26T21:37:31.104Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T21:37:29.955Z"
+      },
+      {
+        "id": "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+        "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "STOP",
+        "comment": "Учебная репетиция T1: STOP",
+        "downtimeReason": "TECHNICAL",
+        "confirmedEndAt": null,
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T21:39:55.510Z"
+      },
+      {
+        "id": "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "STOP",
+        "comment": "Учебная репетиция T1: STOP",
+        "downtimeReason": "TECHNICAL",
+        "confirmedEndAt": null,
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:53:51.848Z"
+      },
+      {
+        "id": "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "PAUSE",
+        "comment": "Учебная репетиция T1: PAUSE",
+        "downtimeReason": "TECHNICAL",
+        "confirmedEndAt": "2026-09-26T20:14:39.766Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:14:38.602Z"
+      },
+      {
+        "id": "63cf2706-97da-40a0-899b-bc87fb232d40",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "status": "WORK",
+        "comment": "Учебная репетиция T1: WORK",
+        "downtimeReason": null,
+        "confirmedEndAt": "2026-09-26T21:37:17.630Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T21:37:17.630Z"
+      },
+      {
+        "id": "6c6a398e-3dbc-4b7e-bf89-f177d59dcf70",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "WORK",
+        "comment": "Учебная репетиция T1: WORK",
+        "downtimeReason": null,
+        "confirmedEndAt": "2026-09-26T20:02:59.322Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:02:59.322Z"
+      },
+      {
+        "id": "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "STOP",
+        "comment": "Учебная репетиция T1: STOP",
+        "downtimeReason": "TECHNICAL",
+        "confirmedEndAt": "2026-09-26T20:53:20.657Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:16:54.171Z"
+      },
+      {
+        "id": "86c9ab2b-e37b-4df7-be15-af3f1f21b1fd",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "WORK",
+        "comment": "Учебная репетиция T1: WORK",
+        "downtimeReason": null,
+        "confirmedEndAt": "2026-09-26T20:14:39.766Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:14:39.766Z"
+      },
+      {
+        "id": "9c9e0896-28f2-4e99-afc9-e1a8996b077d",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "WORK",
+        "comment": "Учебная репетиция T1: WORK",
+        "downtimeReason": null,
+        "confirmedEndAt": "2026-09-26T20:02:57.753Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:02:57.753Z"
+      },
+      {
+        "id": "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "status": "PAUSE",
+        "comment": "Учебная репетиция T1: PAUSE",
+        "downtimeReason": "TECHNICAL",
+        "confirmedEndAt": "2026-09-26T21:37:17.630Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T21:37:16.142Z"
+      },
+      {
+        "id": "c7b9f313-06e1-41a4-b18c-950b1e638c02",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "status": "WORK",
+        "comment": "Учебная репетиция T1: WORK",
+        "downtimeReason": null,
+        "confirmedEndAt": "2026-09-26T21:37:24.496Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T21:37:24.496Z"
+      },
+      {
+        "id": "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "status": "PAUSE",
+        "comment": "Учебная репетиция T1: PAUSE",
+        "downtimeReason": "TECHNICAL",
+        "confirmedEndAt": "2026-09-26T21:37:24.496Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T21:37:23.208Z"
+      },
+      {
+        "id": "df7507e8-f2f8-47e6-a2d2-bd88bade93d4",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "43c38377-80b3-4256-89ab-40f896104510",
+        "status": "WORK",
+        "comment": "Учебная репетиция T1: WORK",
+        "downtimeReason": null,
+        "confirmedEndAt": "2026-09-26T21:37:31.104Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T21:37:31.104Z"
+      },
+      {
+        "id": "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "STOP",
+        "comment": "Учебная репетиция T1: STOP",
+        "downtimeReason": "TECHNICAL",
+        "confirmedEndAt": null,
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T21:39:56.905Z"
+      },
+      {
+        "id": "e81b90f0-aa0c-483d-b204-eafdeabf1074",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "createdById": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "status": "WORK",
+        "comment": "Учебная репетиция T1: WORK",
+        "downtimeReason": null,
+        "confirmedEndAt": "2026-09-26T20:53:20.657Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "createdAt": "2026-09-26T20:53:20.657Z"
+      }
+    ],
+    "taskHistory": [
+      {
+        "id": "435bfe17-5bfd-4799-b295-0e0173e92d29",
+        "taskId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "action": "TASK_CREATED",
+        "createdAt": "2026-09-26T20:07:23.216Z"
+      },
+      {
+        "id": "bf851eec-ceae-4f31-8dd5-69ed2d817808",
+        "taskId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "action": "TASK_TAKEN",
+        "createdAt": "2026-09-26T20:07:25.140Z"
+      },
+      {
+        "id": "b6724f0d-b28c-4527-9b44-58d93ad8b744",
+        "taskId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "action": "TASK_COMMENT_CREATED",
+        "createdAt": "2026-09-26T20:07:25.656Z"
+      },
+      {
+        "id": "651abb16-b217-4951-af23-0cfb5fb63018",
+        "taskId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "action": "TASK_DONE",
+        "createdAt": "2026-09-26T20:07:26.359Z"
+      },
+      {
+        "id": "d62d04a0-14aa-4e5f-baec-7ed9e5fc0c7b",
+        "taskId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "action": "TASK_CREATED",
+        "createdAt": "2026-09-26T20:07:28.562Z"
+      },
+      {
+        "id": "9264d2eb-d6cb-4ebf-9cb6-77c46e399109",
+        "taskId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "action": "TASK_TAKEN",
+        "createdAt": "2026-09-26T20:07:30.409Z"
+      },
+      {
+        "id": "08c442d4-ab44-4455-8425-620babfd99c7",
+        "taskId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "action": "TASK_COMMENT_CREATED",
+        "createdAt": "2026-09-26T20:07:31.167Z"
+      },
+      {
+        "id": "7ff28b1d-5d88-40ff-b04d-afa08c126840",
+        "taskId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "action": "TASK_DONE",
+        "createdAt": "2026-09-26T20:07:31.923Z"
+      },
+      {
+        "id": "c7034481-af77-4fd8-a68a-66b4ce68eae7",
+        "taskId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "action": "TASK_CREATED",
+        "createdAt": "2026-09-26T20:07:34.132Z"
+      },
+      {
+        "id": "db9f97c6-c9cc-4a61-b116-0fefc5b6751e",
+        "taskId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "action": "TASK_TAKEN",
+        "createdAt": "2026-09-26T20:07:35.903Z"
+      },
+      {
+        "id": "c370501b-27c0-4be5-b6e5-14b3de25ff43",
+        "taskId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "action": "TASK_COMMENT_CREATED",
+        "createdAt": "2026-09-26T20:07:36.660Z"
+      },
+      {
+        "id": "2f8e5e9c-6f55-4dd5-9ed3-3e056940db75",
+        "taskId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "action": "TASK_DONE",
+        "createdAt": "2026-09-26T20:07:37.348Z"
+      },
+      {
+        "id": "12d6cc18-9d0f-49b6-8ffc-ea3c455812ef",
+        "taskId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "action": "TASK_CREATED",
+        "createdAt": "2026-09-26T20:07:39.455Z"
+      },
+      {
+        "id": "4fecaffd-eb17-4677-99e8-a0181e323335",
+        "taskId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "action": "TASK_TAKEN",
+        "createdAt": "2026-09-26T20:07:41.235Z"
+      },
+      {
+        "id": "c422b2a5-7bd8-4b9e-90e5-15a0f04b9adb",
+        "taskId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "action": "TASK_COMMENT_CREATED",
+        "createdAt": "2026-09-26T20:07:41.872Z"
+      },
+      {
+        "id": "535452bd-aa53-455e-b2d4-b23c0d75bd9a",
+        "taskId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "action": "TASK_DONE",
+        "createdAt": "2026-09-26T20:07:42.625Z"
+      },
+      {
+        "id": "91d6055d-ce7a-46e4-896a-4485395850cc",
+        "taskId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "action": "TASK_CREATED",
+        "createdAt": "2026-09-26T20:07:44.805Z"
+      },
+      {
+        "id": "0cffb895-bc5c-4863-8c57-5dd230dca8e0",
+        "taskId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "action": "TASK_TAKEN",
+        "createdAt": "2026-09-26T20:07:46.621Z"
+      },
+      {
+        "id": "db31b2b6-4e38-4f51-bf3f-845ad9a710db",
+        "taskId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "action": "TASK_COMMENT_CREATED",
+        "createdAt": "2026-09-26T20:07:47.370Z"
+      },
+      {
+        "id": "9903cca4-abc9-40f1-87ed-5936164df79a",
+        "taskId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "action": "TASK_DONE",
+        "createdAt": "2026-09-26T20:07:48.064Z"
+      },
+      {
+        "id": "b8994d4e-701f-4a6a-a6ee-16a8dd8aeffa",
+        "taskId": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "action": "TASK_CREATED",
+        "createdAt": "2026-09-26T21:11:34.448Z"
+      },
+      {
+        "id": "2bae8bb4-a357-4634-a49f-5861184b4d72",
+        "taskId": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "action": "TASK_TAKEN",
+        "createdAt": "2026-09-26T21:11:35.059Z"
+      },
+      {
+        "id": "9628d2d8-b820-42b2-8535-3bb34bbf5dca",
+        "taskId": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "action": "TASK_DONE",
+        "createdAt": "2026-09-26T21:11:35.699Z"
+      },
+      {
+        "id": "1f258669-12fc-4911-bdac-131ddf56c234",
+        "taskId": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "action": "TASK_CREATED",
+        "createdAt": "2026-09-26T21:37:19.099Z"
+      },
+      {
+        "id": "eb3572dd-7ac9-4592-b9f9-5556bd769f19",
+        "taskId": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "action": "TASK_TAKEN",
+        "createdAt": "2026-09-26T21:37:19.635Z"
+      },
+      {
+        "id": "9721b329-f132-40d3-b2e4-7ed6500a6870",
+        "taskId": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "action": "TASK_DONE",
+        "createdAt": "2026-09-26T21:37:20.304Z"
+      },
+      {
+        "id": "f300c33c-d10d-4745-af46-02a7921de02f",
+        "taskId": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "action": "TASK_CREATED",
+        "createdAt": "2026-09-26T21:37:25.993Z"
+      },
+      {
+        "id": "1cc8c316-298a-47b8-b6fb-a8e6ec9fbff7",
+        "taskId": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "action": "TASK_TAKEN",
+        "createdAt": "2026-09-26T21:37:26.545Z"
+      },
+      {
+        "id": "e889ec24-4980-4d60-b39a-5b0707294eaa",
+        "taskId": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "action": "TASK_DONE",
+        "createdAt": "2026-09-26T21:37:27.205Z"
+      }
+    ],
+    "taskDepartmentRecipient": [
+      {
+        "id": "fb9f7ebc-4b15-45bb-933a-1a3259c748d8",
+        "taskId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+        "active": true
+      },
+      {
+        "id": "cc4d15f6-e5f3-4ba9-b5f6-f2a1ee82651c",
+        "taskId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+        "active": true
+      },
+      {
+        "id": "07254de4-e7e9-45a7-9959-468e435e7fe5",
+        "taskId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "departmentId": "f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8",
+        "active": true
+      },
+      {
+        "id": "efbbfc50-2556-43bb-8faf-8eba1972cd66",
+        "taskId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+        "active": true
+      },
+      {
+        "id": "212c81b4-5d23-4623-8e0f-8cd91d56011e",
+        "taskId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "departmentId": "6cdab967-9071-47cc-ab50-29d8a22b34fb",
+        "active": true
+      },
+      {
+        "id": "de6a2fc7-338a-4924-b146-8e5bd679a614",
+        "taskId": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+        "active": true
+      },
+      {
+        "id": "58a34784-edcf-466a-8884-2391c3f47265",
+        "taskId": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+        "active": true
+      },
+      {
+        "id": "b5b3b99a-83d1-41a4-9baf-cdf1a876981e",
+        "taskId": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "departmentId": "78218e97-dc2e-4c5e-ac34-61bec98713bd",
+        "active": true
+      }
+    ],
+    "taskAssignee": [
+      {
+        "id": "eb7d9fea-b5c6-4ca2-80f6-a4f08b487fb7",
+        "taskId": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "active": true
+      },
+      {
+        "id": "41016dfa-647f-4eed-a8c2-5887b812a131",
+        "taskId": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "active": true
+      },
+      {
+        "id": "377b1535-a963-4e21-b0d6-3e5094324c6b",
+        "taskId": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "active": true
+      },
+      {
+        "id": "fa172e8f-9908-4f69-bae2-161435bdb96b",
+        "taskId": "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "active": true
+      },
+      {
+        "id": "800d9622-d1de-452a-a362-b81548690a7d",
+        "taskId": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "userId": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "active": true
+      },
+      {
+        "id": "75634049-5da6-4310-8feb-e512c0243be6",
+        "taskId": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "active": true
+      },
+      {
+        "id": "963135a9-62ee-45cc-945d-6fac9d0fda7e",
+        "taskId": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "active": true
+      },
+      {
+        "id": "295f815c-54a6-4295-9562-84fcec4aa826",
+        "taskId": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "active": true
+      }
+    ],
+    "department": [
+      {
+        "id": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+        "factoryId": null,
+        "scope": "GLOBAL",
+        "name": "УЧ — Механики",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "faa32c69-e185-4969-a545-ba884986045f",
+        "factoryId": null,
+        "scope": "GLOBAL",
+        "name": "УЧ — Электрики",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8",
+        "factoryId": null,
+        "scope": "GLOBAL",
+        "name": "УЧ — Холодильная служба",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "b6f3bd41-6820-4137-a28d-c4335f245751",
+        "factoryId": null,
+        "scope": "GLOBAL",
+        "name": "УЧ — КИПиА",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "6cdab967-9071-47cc-ab50-29d8a22b34fb",
+        "factoryId": null,
+        "scope": "GLOBAL",
+        "name": "УЧ — Сантехники",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "78218e97-dc2e-4c5e-ac34-61bec98713bd",
+        "factoryId": null,
+        "scope": "GLOBAL",
+        "name": "УЧ — Технологи",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "8d971982-067d-4610-bdfe-ac8b8c82fad8",
+        "factoryId": null,
+        "scope": "GLOBAL",
+        "name": "УЧ — Другие службы",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "scope": "LOCAL",
+        "name": "УЧ — Производство T1",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "scope": "LOCAL",
+        "name": "УЧ — ОКК T1",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "scope": "LOCAL",
+        "name": "УЧ — Склад T1",
+        "isActive": true,
+        "deletedAt": null
+      },
+      {
+        "id": "75c6a132-651c-4d98-8505-0ce4380c0470",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "scope": "LOCAL",
+        "name": "УЧ — Руководство T1",
+        "isActive": true,
+        "deletedAt": null
+      }
+    ],
+    "template": [
+      {
+        "id": "c67eead8-1401-4ac5-a937-ac6ac7e9b0dd",
+        "name": "УЧЕБНЫЙ — Чистота производственного участка"
+      },
+      {
+        "id": "6333dbcc-cec1-48d0-b1ca-d53a0d1dbf05",
+        "name": "УЧЕБНЫЙ — Проверка линии перед запуском"
+      },
+      {
+        "id": "ca0d11ea-93a2-4cc3-a8d8-f23915e3bf6f",
+        "name": "УЧЕБНЫЙ — Контроль окончания смены"
+      }
+    ],
+    "check": [
+      {
+        "id": "0d2dd300-010e-44b3-9ec3-d0f874de7453",
+        "runId": "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+        "status": "CLOSED",
+        "dueAt": "2026-09-26T20:25:59.427Z",
+        "startedAt": "2026-09-26T20:25:59.427Z",
+        "completedAt": "2026-09-26T20:26:03.575Z"
+      },
+      {
+        "id": "68be739c-178a-4bf9-a1af-222b14cda799",
+        "runId": "3c9899a3-4f1b-46c5-ae33-40468065103d",
+        "status": "CLOSED",
+        "dueAt": "2026-09-26T20:27:02.046Z",
+        "startedAt": "2026-09-26T20:27:02.046Z",
+        "completedAt": "2026-09-26T20:27:06.589Z"
+      },
+      {
+        "id": "7cc775c7-e61c-4be8-a662-74ec28f65a94",
+        "runId": "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+        "status": "CLOSED",
+        "dueAt": "2026-09-26T20:47:37.041Z",
+        "startedAt": "2026-09-26T20:47:37.041Z",
+        "completedAt": "2026-09-26T20:50:57.774Z"
+      },
+      {
+        "id": "746cdddf-8c94-4846-b89f-dcb6a96aa4c7",
+        "runId": "fe49f6ab-b260-4bba-b66a-98371214989b",
+        "status": "CLOSED",
+        "dueAt": "2026-09-26T20:47:37.516Z",
+        "startedAt": "2026-09-26T20:47:37.516Z",
+        "completedAt": "2026-09-26T20:51:00.276Z"
+      },
+      {
+        "id": "5bbe619c-92fe-4c40-a99f-5f52d68fa185",
+        "runId": "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+        "status": "CLOSED",
+        "dueAt": "2026-09-26T20:47:38.150Z",
+        "startedAt": "2026-09-26T20:47:38.150Z",
+        "completedAt": "2026-09-26T20:51:02.948Z"
+      },
+      {
+        "id": "1a18bdb2-385f-4ced-9fcf-8fa3403f0874",
+        "runId": "98d9dcfd-3d52-400e-89ba-936654bdc8a9",
+        "status": "CLOSED",
+        "dueAt": "2026-09-26T21:01:08.817Z",
+        "startedAt": "2026-09-26T21:01:08.817Z",
+        "completedAt": "2026-09-26T21:01:10.667Z"
+      },
+      {
+        "id": "1cb05944-9688-4680-920d-c88bef95bc78",
+        "runId": "9fab8b3c-6b6c-48a0-925f-6c6e9692a76f",
+        "status": "CLOSED",
+        "dueAt": "2026-09-26T21:03:22.215Z",
+        "startedAt": "2026-09-26T21:03:22.215Z",
+        "completedAt": "2026-09-26T21:03:24.109Z"
+      }
+    ],
+    "washIssue": [
+      {
+        "id": "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7",
+        "washSessionId": "1ac06d5b-b2d2-4a3f-b0d3-0bfee8c08647",
+        "title": "Учебная проверка остатка загрязнения",
+        "message": "Контрольная отметка FACTORY01 T1",
+        "status": "RESOLVED",
+        "isResolved": true,
+        "createdAt": "2026-09-26T20:16:44.564Z",
+        "resolvedAt": "2026-09-26T20:16:45.323Z"
+      }
+    ],
+    "washControlItem": [
+      {
+        "id": "fd8e2907-cdf9-40fa-8c1b-6fb067601442",
+        "washSessionId": "1ac06d5b-b2d2-4a3f-b0d3-0bfee8c08647",
+        "title": "Проверить учебную контрольную точку",
+        "description": "FACTORY01 T1 контроль результата",
+        "type": "MINI_TASK",
+        "status": "DONE",
+        "createdAt": "2026-09-26T20:16:45.818Z",
+        "doneAt": "2026-09-26T20:16:46.527Z",
+        "deletedAt": null
+      }
+    ],
+    "accessDenied": [
+      {
+        "id": "d776abcb-6d84-4ed6-8cfe-d06cb54c5607",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "860bfae4-4c5f-4198-9972-6c9ebd652d1b",
+        "createdAt": "2026-09-26T21:20:32.925Z"
+      },
+      {
+        "id": "a97e0ce6-7351-4c5b-a15f-a965c9e7c477",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:48:41.732Z"
+      },
+      {
+        "id": "a69378f2-6c06-4b98-8d07-5583ba6be376",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:48:45.401Z"
+      },
+      {
+        "id": "2ce1c22f-1690-4638-88b2-36be8a57073b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "f94efe82-3b48-4a2a-a4a1-6a993b506fd2",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:48:58.552Z"
+      },
+      {
+        "id": "91b98ef9-c2b2-45a9-a202-24c2bec8bbd0",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:04.977Z"
+      },
+      {
+        "id": "160e6b88-955a-40d1-9457-9c2133202182",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "23280f41-9fac-4bb8-8cc2-4c59219ca803",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:14.650Z"
+      },
+      {
+        "id": "a06da0df-4720-48ca-9a5e-bb508d7ee986",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:48:48.668Z"
+      },
+      {
+        "id": "cf67ed81-0bc9-4a7a-a9fd-2f9ca6fc0c4f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:48:51.951Z"
+      },
+      {
+        "id": "1955ff7e-57d0-42f1-b2f6-8f27662875d4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "393fe669-5b68-4f49-85e3-c36e55451c9f",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:31.519Z"
+      },
+      {
+        "id": "f4073e6b-ea55-40bf-8e30-243ecf95e15a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:53:46.700Z"
+      },
+      {
+        "id": "9f2bcf24-2ade-4a36-8a87-7510233e8238",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "f2242297-6c2d-4cdc-a25b-330647f64d28",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:21.327Z"
+      },
+      {
+        "id": "9414a899-cdd7-4b55-8d4f-f1dab627d2e5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "100d35e3-cae5-49ee-915d-a5c7bde00855",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:24.612Z"
+      },
+      {
+        "id": "69b45f58-7ed2-47db-8297-0844af5a3d4d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T21:22:39.315Z"
+      },
+      {
+        "id": "3982bb00-a6ff-43ab-bf89-d6428b8254e9",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T21:22:39.331Z"
+      },
+      {
+        "id": "16e4c0c3-6673-4195-9f08-c3330a556052",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T21:22:41.341Z"
+      },
+      {
+        "id": "a0d43cf9-a1ea-4763-b24b-38aafeed7977",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T21:22:41.353Z"
+      },
+      {
+        "id": "07cab728-44a3-4c91-afc9-b28c34665197",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "de90b361-73fc-4c05-80b5-13dc628d270c",
+        "createdAt": "2026-09-26T21:22:44.458Z"
+      },
+      {
+        "id": "486f8ce2-16b5-45ee-965f-8d18fb6113f5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:48:55.234Z"
+      },
+      {
+        "id": "9784e748-2c7b-4e2d-bc71-c5d8330bae16",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:01.786Z"
+      },
+      {
+        "id": "2f9f836a-572d-443d-bb54-d2e1135b5a3b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:11.421Z"
+      },
+      {
+        "id": "ac584cbd-3a98-4ceb-bed2-ca5bf9223841",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "596f6f50-cfba-4cf4-a43e-82225e3a708d",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:17.953Z"
+      },
+      {
+        "id": "9a15fe17-e73d-45a4-a865-d77103b46e78",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:55:34.612Z"
+      },
+      {
+        "id": "65f6f3a1-1c0a-4c37-8b3b-257d059e19d5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:08.176Z"
+      },
+      {
+        "id": "27356844-7001-4013-8661-ef19515ce077",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "32be9b5b-3e13-420b-abbe-808707a60afa",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:27.983Z"
+      },
+      {
+        "id": "5c30d958-f309-47e5-b57b-bf1ef55566f7",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+        "entityId": "people.skills.manage",
+        "createdAt": "2026-09-26T20:53:48.768Z"
+      },
+      {
+        "id": "53016fa8-714b-4bbe-8faf-91004082ff96",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3255174d-6b6f-47eb-ab79-9e14d180e648",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:35.023Z"
+      },
+      {
+        "id": "6caf85ba-1fd0-4e8e-b54e-e4e1081f0b35",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "5ab7bbc5-84a0-44c1-abae-ba28a55e5a12",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:38.596Z"
+      },
+      {
+        "id": "41fe3a21-85a2-4831-a1f5-414cd38bc31e",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "e8ba2d30-0bbb-4e58-bc4b-3a38aa7012ce",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:42.001Z"
+      },
+      {
+        "id": "d855e44b-57b9-4ef4-9845-a9a5eb3f849e",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:51.960Z"
+      },
+      {
+        "id": "f24d9239-f256-4914-8df9-979e3b633dd6",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:50:04.951Z"
+      },
+      {
+        "id": "6f3a601a-ddd4-4981-8011-8126bd4d2caa",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "e13945c9-26e7-4bc2-bc4c-6de8ea61d944",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:50:11.496Z"
+      },
+      {
+        "id": "9e3d3e9a-77ff-4283-84f9-653f4c31c804",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:50:14.702Z"
+      },
+      {
+        "id": "8d379a4a-030e-4fd9-97da-728df2a5ef8e",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:31:24.092Z"
+      },
+      {
+        "id": "b9836f41-7bf6-4af4-bae0-9167aebd7dde",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "5bf79301-8f09-4342-9d51-d1fa58b3465a",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:45.356Z"
+      },
+      {
+        "id": "52e9632f-b6af-4892-81c9-8e44f2e1886d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:58.427Z"
+      },
+      {
+        "id": "03235890-f3d6-47ac-a168-3f44a7d740c1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:50:01.676Z"
+      },
+      {
+        "id": "93835534-9d1c-444b-9cce-74fb17c12ca4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "532a459e-a032-49a7-a80a-bd0d4f076830",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:50:17.938Z"
+      },
+      {
+        "id": "97798ee6-ec6b-4fd0-ab7f-eaa8a936b79b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:31:40.474Z"
+      },
+      {
+        "id": "3ec4c3ff-bd66-41da-8383-617916013a18",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "entityId": "shift-log.archive.read|shift-log.manage",
+        "createdAt": "2026-09-26T21:35:30.441Z"
+      },
+      {
+        "id": "2eb21755-0f20-4620-8421-684bc9c14be6",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:31:32.560Z"
+      },
+      {
+        "id": "390c2915-2b4c-42f7-84d9-47ed7f5dde96",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:32:19.332Z"
+      },
+      {
+        "id": "b1729fd4-7ed4-4a46-a769-30ee49fa30dc",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "createdAt": "2026-09-26T21:32:47.592Z"
+      },
+      {
+        "id": "bb817c2d-0bde-4289-8c02-4246e9eb247d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:33:04.779Z"
+      },
+      {
+        "id": "b7d8d9e7-2b94-44ba-a5e1-6502df9cadba",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "entityId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "createdAt": "2026-09-26T21:33:05.893Z"
+      },
+      {
+        "id": "fc2a2a00-c05e-49ac-b9d9-5d53b1c5dea3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:48.586Z"
+      },
+      {
+        "id": "046d3df5-5fbd-41a3-aaa8-8472eebe757b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:32:08.506Z"
+      },
+      {
+        "id": "a48bbd3f-59d2-4759-87e8-aa55f055f0f5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:49:55.179Z"
+      },
+      {
+        "id": "a04b885d-5110-4593-9751-c90630546d64",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T19:50:08.269Z"
+      },
+      {
+        "id": "90cacbb1-ce0d-4d2c-9602-e5f8fd286362",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:31:47.592Z"
+      },
+      {
+        "id": "fb264ff0-82d0-4f0f-8e35-1f643c105738",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "entityId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "createdAt": "2026-09-26T21:33:04.750Z"
+      },
+      {
+        "id": "648a287c-a929-4af1-8410-872a7645d060",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "23280f41-9fac-4bb8-8cc2-4c59219ca803",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T21:56:38.272Z"
+      },
+      {
+        "id": "fe6834ac-aece-4f4b-952b-0b10ec534b4d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:31:54.738Z"
+      },
+      {
+        "id": "286663e8-6724-45f4-b949-b3bc8d08c2bc",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+        "entityId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "createdAt": "2026-09-26T20:53:48.809Z"
+      },
+      {
+        "id": "3060d636-d07f-4acb-aa44-e3c7b9542048",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:31:59.179Z"
+      },
+      {
+        "id": "357d6267-8145-4e44-8670-95a74c0618cb",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "shift-log.archive.read|shift-log.manage",
+        "createdAt": "2026-09-26T21:35:40.086Z"
+      },
+      {
+        "id": "253ab792-dfcd-45f5-930b-f0da16a92f1d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "entityId": "shift-log.archive.read|shift-log.manage",
+        "createdAt": "2026-09-26T21:35:50.353Z"
+      },
+      {
+        "id": "940c723b-8454-4c18-bd2c-169193997c5c",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:32:03.321Z"
+      },
+      {
+        "id": "829f4b24-2926-4ce8-99f2-19c8e7550b91",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:32:13.727Z"
+      },
+      {
+        "id": "74ea2481-88cd-40df-b09c-bc385d024dc2",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "entityId": "shift-log.archive.read|shift-log.manage",
+        "createdAt": "2026-09-26T21:35:26.248Z"
+      },
+      {
+        "id": "e3d1035d-b2b2-481b-9546-c5b1c3fce799",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:56:33.543Z"
+      },
+      {
+        "id": "075df7bb-5ee7-44c8-b07c-86938dd6fa45",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:05.912Z"
+      },
+      {
+        "id": "c99823e7-07e3-49a3-930c-9da80e15c9e9",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:18.042Z"
+      },
+      {
+        "id": "f1989262-ef59-42af-b83a-de8c5bb584ab",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:03.726Z"
+      },
+      {
+        "id": "236c83f4-092e-4540-843b-77f2f31f9d7c",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:21.502Z"
+      },
+      {
+        "id": "2af6bf20-080c-4255-b8f4-a8350d063df9",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:12.894Z"
+      },
+      {
+        "id": "54344c80-9272-4335-9495-a7c2b66ba761",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "52972bea-77d6-437b-ad83-8fcc109d7ce7",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:16.341Z"
+      },
+      {
+        "id": "9832aa83-2129-47c0-8adf-90472685d303",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:32:24.381Z"
+      },
+      {
+        "id": "e19528bb-dd23-4588-99c6-31a81ebb705a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:32:29.496Z"
+      },
+      {
+        "id": "4f10652f-8eaa-4cc8-9406-1c68808f7fd1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "createdAt": "2026-09-26T21:32:46.347Z"
+      },
+      {
+        "id": "ec487aa8-ee4e-4347-a3a6-01d4d784ab1e",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T21:32:46.411Z"
+      },
+      {
+        "id": "33c48190-da6d-4205-8dd8-aff4c055d751",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "33e87a41-4dd0-47e9-bd89-b092647eb790",
+        "entityId": "shift-log.archive.read|shift-log.manage",
+        "createdAt": "2026-09-26T21:34:41.135Z"
+      },
+      {
+        "id": "dd20b441-b4c2-499a-b22b-572e89ee1902",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "entityId": "shift-log.archive.read|shift-log.manage",
+        "createdAt": "2026-09-26T21:35:35.173Z"
+      },
+      {
+        "id": "9eb11f4a-92d0-4487-a66a-2efc7ddd3dd4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:09.288Z"
+      },
+      {
+        "id": "4e208227-b572-44f1-a778-c1814e90e84b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:11.131Z"
+      },
+      {
+        "id": "c358c4fb-15a0-4944-bd50-78236a856327",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:23.236Z"
+      },
+      {
+        "id": "77a26f57-5778-4a65-939e-720bcbc137b2",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:01.999Z"
+      },
+      {
+        "id": "6844ec76-1fb1-4fbc-ad48-fd0854eada8b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:07.615Z"
+      },
+      {
+        "id": "c5d07e11-ed8c-4c38-966a-0d7ea1f89a1a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:14.603Z"
+      },
+      {
+        "id": "7f5945d0-4b03-4719-bab5-4963fe6a1d53",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:19.762Z"
+      },
+      {
+        "id": "162e008e-d5d2-4600-a2fe-5c839900f0d7",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "entityId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "createdAt": "2026-09-26T20:01:24.346Z"
+      },
+      {
+        "id": "4d795f30-0e87-46f6-9f4d-44f2579db754",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "39c3b03c-ebdc-4e33-acf2-cccdc458894a",
+        "entityId": "admin.overview.read",
+        "createdAt": "2026-09-26T20:01:24.895Z"
+      },
+      {
+        "id": "d9a756f4-2889-4886-9069-5d3bf238c993",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "createdAt": "2026-09-26T20:01:20.897Z"
+      },
+      {
+        "id": "c0dc6d04-9dbe-465c-9021-cf7ea0f61ed7",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+        "entityId": "shift-log.archive.read|shift-log.manage",
+        "createdAt": "2026-09-26T21:35:45.533Z"
+      },
+      {
+        "id": "a5e26134-7e3f-4715-bbb4-26b5a622e26e",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "entityId": "shift-log.archive.read|shift-log.manage",
+        "createdAt": "2026-09-26T21:35:55.148Z"
+      },
+      {
+        "id": "c6c5ce7e-6bcb-44e5-84aa-fcc3a46aee7d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "9a9f2fbb-648e-4fad-97a4-3a6465cc96ff",
+        "entityId": "shift-log.archive.read|shift-log.manage",
+        "createdAt": "2026-09-26T21:36:00.398Z"
+      },
+      {
+        "id": "8d6188ea-59e8-49ab-9627-2b82e99ea9bb",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "createdAt": "2026-09-26T20:14:30.922Z"
+      },
+      {
+        "id": "f21378bb-2640-4d50-bf3e-887cdbf857a6",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "createdAt": "2026-09-26T20:11:29.942Z"
+      },
+      {
+        "id": "3a42fa8e-ebdd-411b-9bc2-41ddc8a90766",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "createdAt": "2026-09-26T20:12:56.540Z"
+      },
+      {
+        "id": "9c963503-c299-455d-af8b-3f8401eaf676",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "orders.take",
+        "createdAt": "2026-09-26T20:13:23.599Z"
+      },
+      {
+        "id": "8e9a4675-a38f-4428-b9db-5a8c1d6c5748",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "entityId": "orders.read",
+        "createdAt": "2026-09-26T20:13:23.620Z"
+      },
+      {
+        "id": "8e63e2e6-ae31-451c-8ca1-6896f53d065d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "orders.take",
+        "createdAt": "2026-09-26T20:14:52.582Z"
+      },
+      {
+        "id": "430b2155-16d6-447b-86d6-49c6c9714bf9",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "orders.take",
+        "createdAt": "2026-09-26T21:11:29.198Z"
+      },
+      {
+        "id": "38ee45df-6c44-4fc7-8293-2833bea89417",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "orders.read",
+        "createdAt": "2026-09-26T21:11:29.179Z"
+      },
+      {
+        "id": "76334e4e-535a-4e59-b9db-b0998c55fe12",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "entityId": "orders.read",
+        "createdAt": "2026-09-26T20:14:52.603Z"
+      },
+      {
+        "id": "a0ae9acf-0d9f-4b69-84a2-1318b5215296",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "orders.read",
+        "createdAt": "2026-09-26T21:11:30.600Z"
+      },
+      {
+        "id": "25ea7d2c-cb31-4d0a-91db-70a53cdfee19",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+        "entityId": "defrost.manage",
+        "createdAt": "2026-09-26T20:16:55.257Z"
+      },
+      {
+        "id": "3d4bf566-0e3a-4acb-a68a-1a9bbc77abde",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:15:15.575Z"
+      },
+      {
+        "id": "697592b1-4f50-4338-9af3-1bcc05b6b025",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:15:15.593Z"
+      },
+      {
+        "id": "d1379d77-d6c1-4ec0-96ab-0f464eae8390",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:15:15.629Z"
+      },
+      {
+        "id": "cb733ce9-fc22-416f-a9cf-926c4c18ea6a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:15:15.644Z"
+      },
+      {
+        "id": "ffbcfe1d-5c32-4f53-a709-88e1817028d1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "entityId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "createdAt": "2026-09-26T21:15:30.937Z"
+      },
+      {
+        "id": "50d90aa2-a200-4aad-992d-4f8193c2b6e5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "orders.take",
+        "createdAt": "2026-09-26T21:11:30.625Z"
+      },
+      {
+        "id": "f951820c-c949-4393-9dfd-6fc20f58f4d6",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "entityId": "stock.manage",
+        "createdAt": "2026-09-26T20:25:13.339Z"
+      },
+      {
+        "id": "27720a13-a20e-427c-841e-606df730a27c",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:14:13.872Z"
+      },
+      {
+        "id": "1463df47-ac00-426a-a00b-b4c5eebbfb38",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:14:13.887Z"
+      },
+      {
+        "id": "8a2e4b78-6da0-4602-96d5-ff93e2416712",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:14:13.926Z"
+      },
+      {
+        "id": "892da5d2-fecc-4e67-9996-d72d4a0758f9",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:14:13.941Z"
+      },
+      {
+        "id": "c23b6421-8025-410f-9cda-784335d45812",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "entityId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "createdAt": "2026-09-26T21:15:19.830Z"
+      },
+      {
+        "id": "25f837ad-8f02-4bc7-bcd4-817fe0a8f274",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "3d30ebd1-4957-491d-a1b9-cf92a54b2805",
+        "createdAt": "2026-09-26T20:30:13.163Z"
+      },
+      {
+        "id": "a56681ac-b78b-44f2-88c0-8439e7393f22",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "3d30ebd1-4957-491d-a1b9-cf92a54b2805",
+        "createdAt": "2026-09-26T20:30:13.185Z"
+      },
+      {
+        "id": "7209fecc-29d0-47cf-a571-1cd67ea2445a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "3d30ebd1-4957-491d-a1b9-cf92a54b2805",
+        "createdAt": "2026-09-26T20:30:13.233Z"
+      },
+      {
+        "id": "a7d908d6-d160-441d-ba71-a0b5649dea72",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "8c9aabed-95b7-4842-bc16-3ffe2c661965",
+        "createdAt": "2026-09-26T20:30:25.396Z"
+      },
+      {
+        "id": "281e22e6-89a5-4cf5-b27a-bf412a908511",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "8c9aabed-95b7-4842-bc16-3ffe2c661965",
+        "createdAt": "2026-09-26T20:30:25.416Z"
+      },
+      {
+        "id": "a4605a3c-f403-40d9-8490-b65e784a38c5",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "8c9aabed-95b7-4842-bc16-3ffe2c661965",
+        "createdAt": "2026-09-26T20:30:25.465Z"
+      },
+      {
+        "id": "20a07563-9427-4855-8dd1-6a718cd75fed",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "checklists.runs.read|checklists.runs.self",
+        "createdAt": "2026-09-26T20:36:35.826Z"
+      },
+      {
+        "id": "80d5c669-8969-4dac-92fe-fe518284f46d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "checklists.runs.read|checklists.runs.self",
+        "createdAt": "2026-09-26T20:38:06.086Z"
+      },
+      {
+        "id": "fba54cd7-faa5-4ab6-82d2-f2bd70c0a689",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:19:50.610Z"
+      },
+      {
+        "id": "c5424fc0-b7f6-470d-a03c-d35e5f18e5a8",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:19:50.636Z"
+      },
+      {
+        "id": "4f29155a-c543-41ee-8115-7197cc35a88b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:19:50.671Z"
+      },
+      {
+        "id": "9f2b0e9e-01e6-435c-930a-71ed226bb952",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "5616d66a-916c-4948-888d-a71415a6d9b4",
+        "createdAt": "2026-09-26T21:19:50.687Z"
+      },
+      {
+        "id": "3816db7d-29f7-4f6e-ae3c-9b1d535c673f",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "entityId": "8bf45570-0a5a-4292-a7bd-5a7ce37208f2",
+        "createdAt": "2026-09-26T21:15:19.875Z"
+      },
+      {
+        "id": "dbced7c7-7e0a-499d-8e9c-d92af273d27d",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "de90b361-73fc-4c05-80b5-13dc628d270c",
+        "createdAt": "2026-09-26T20:41:58.855Z"
+      },
+      {
+        "id": "bc412feb-d03e-4c37-9aa7-bb97fdc32872",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "createdAt": "2026-09-26T21:20:24.518Z"
+      },
+      {
+        "id": "58d3f0ae-d6b4-4f7b-9e2b-39567792df61",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+        "entityId": "de90b361-73fc-4c05-80b5-13dc628d270c",
+        "createdAt": "2026-09-26T20:41:58.893Z"
+      },
+      {
+        "id": "39c906af-5543-436f-957e-e6749e627468",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "entityId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+        "createdAt": "2026-09-26T21:20:32.888Z"
+      },
+      {
+        "id": "5506c979-b11e-4806-930b-20d5d6dae090",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T20:43:25.715Z"
+      },
+      {
+        "id": "701da6fc-e229-4799-8cee-e8ed94e5fbed",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T20:43:25.736Z"
+      },
+      {
+        "id": "14aa0095-78ea-4311-82b6-2925d50860a3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T20:43:25.778Z"
+      },
+      {
+        "id": "aa1929d3-9e2a-47e1-9dba-456884391184",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T20:43:27.087Z"
+      },
+      {
+        "id": "ed43a145-b29c-4a4c-a85d-a3946a442574",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T20:43:27.099Z"
+      },
+      {
+        "id": "cf0addf3-5b84-4494-a94e-0297245b3970",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+        "entityId": "chats.access",
+        "createdAt": "2026-09-26T20:43:27.114Z"
+      }
+    ]
+  },
+  "api": {
+    "operations/overview": {
+      "generatedAt": "2026-09-27T16:07:44.819Z",
+      "period": {
+        "start": "2026-09-19T21:00:00.000Z",
+        "end": "2026-09-27T21:00:00.000Z",
+        "endExclusive": "2026-09-27T21:00:00.000Z",
+        "asOf": "2026-09-27T16:07:44.819Z",
+        "days": 8,
+        "capped": false,
+        "label": "20.09.2026 — 27.09.2026"
+      },
+      "summary": {
+        "totalLostMinutes": 4599,
+        "totalLostLabel": "76 ч 39 мин",
+        "downtimeCount": 9,
+        "averageDowntimeMinutes": 511,
+        "medianDowntimeMinutes": 36,
+        "p90DowntimeMinutes": 1193,
+        "openDowntimeCount": 4,
+        "preliminary": true,
+        "activeLines": 4,
+        "worstLine": {
+          "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+          "lineName": "УЧ-Линия 1",
+          "status": "STOP",
+          "lostMinutes": 1193,
+          "lostLabel": "19 ч 53 мин",
+          "downtimeCount": 2,
+          "averageDowntimeMinutes": 597,
+          "medianDowntimeMinutes": 0,
+          "maxDowntimeMinutes": 1193,
+          "downtimeSharePercent": 10.6,
+          "cleanWorkMinutes": 10035,
+          "currentOpenDowntime": {
+            "eventId": "10782695-321f-46c3-b0be-96d7eb4e8684",
+            "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+            "lineName": "УЧ-Линия 1",
+            "status": "STOP",
+            "startAt": "2026-09-26T20:14:40.888Z",
+            "endAt": "2026-09-27T16:07:44.819Z",
+            "durationMinutes": 1193,
+            "durationLabel": "19 ч 53 мин",
+            "reasonLabel": "Техническая неисправность",
+            "comment": "Учебная репетиция T1: STOP",
+            "isOpen": true,
+            "isClipped": false,
+            "hasCorrection": false,
+            "linkedTasks": [],
+            "relationHint": "Продолжается"
+          },
+          "downtimesWithoutComment": 0,
+          "linkedTasks": 0,
+          "openTasks": 0,
+          "planCompletionPercent": null,
+          "planCompletionLabel": "Недостаточно данных"
+        },
+        "urgentOpenTasks": 0,
+        "overdueLongTasks": 0,
+        "tasksTotal": 8,
+        "tasksOpen": 0,
+        "tasksCompleted": 8,
+        "averageResponseMinutes": 0,
+        "medianResponseMinutes": 0,
+        "p90ResponseMinutes": 0,
+        "maxResponseMinutes": 0,
+        "averageExecutionMinutes": 0,
+        "medianExecutionMinutes": 0,
+        "p90ExecutionMinutes": 0,
+        "maxExecutionMinutes": 0,
+        "averageResolutionMinutes": 0,
+        "medianResolutionMinutes": 0,
+        "p90ResolutionMinutes": 0,
+        "maxResolutionMinutes": 0,
+        "tenMinuteDailyEffect": {
+          "dailyMinutes": 10,
+          "workdaysInPeriod": 5,
+          "potentialMinutes": 50,
+          "yearlyMinutes": 50,
+          "yearlyLabel": "50 мин",
+          "text": "За выбранный период можно вернуть до 50 мин, сокращая подтверждённые простои максимум на 10 минут в каждый будний день."
+        }
+      },
+      "weakSpots": [
+        {
+          "key": "line-loss",
+          "severity": "CRITICAL",
+          "title": "Главная потеря времени",
+          "text": "УЧ-Линия 1: 19 ч 53 мин за выбранный период, простоев: 2.",
+          "detail": "На линии есть открытый простой."
+        },
+        {
+          "key": "repeated-problem",
+          "severity": "WARNING",
+          "title": "Повторяющаяся проблема",
+          "text": "Техническая неисправность: повторов 2, линия УЧ-Линия 1.",
+          "detail": "Суммарное влияние: 19 ч 53 мин."
+        },
+        {
+          "key": "data-quality",
+          "severity": "INFO",
+          "title": "Качество данных",
+          "text": "Незавершённые простои: 4.",
+          "detail": "Это не скрывается: руководителю важно видеть ограничения расчёта."
+        }
+      ],
+      "lineEvents": {
+        "stop": 5,
+        "pause": 4,
+        "work": 9,
+        "downtimeLinkedTasks": 0
+      },
+      "quality": {
+        "okkDefects": 0,
+        "stockDefects": 0,
+        "stockDefectQuantity": 0,
+        "returns": 0
+      },
+      "checklists": {
+        "started": 7,
+        "active": 0,
+        "runsCompleted": 7,
+        "checksCompleted": 0,
+        "checksOverdue": 0,
+        "manuallyClosed": 7,
+        "shiftClosed": 0
+      },
+      "wash": {
+        "active": 0,
+        "completed": 1,
+        "issues": 1,
+        "openIssues": 0,
+        "miniTasks": 1,
+        "miniTasksDone": 1
+      },
+      "lines": [
+        {
+          "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+          "lineName": "УЧ-Линия 1",
+          "status": "STOP",
+          "lostMinutes": 1193,
+          "lostLabel": "19 ч 53 мин",
+          "downtimeCount": 2,
+          "averageDowntimeMinutes": 597,
+          "medianDowntimeMinutes": 0,
+          "maxDowntimeMinutes": 1193,
+          "downtimeSharePercent": 10.6,
+          "cleanWorkMinutes": 10035,
+          "currentOpenDowntime": {
+            "eventId": "10782695-321f-46c3-b0be-96d7eb4e8684",
+            "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+            "lineName": "УЧ-Линия 1",
+            "status": "STOP",
+            "startAt": "2026-09-26T20:14:40.888Z",
+            "endAt": "2026-09-27T16:07:44.819Z",
+            "durationMinutes": 1193,
+            "durationLabel": "19 ч 53 мин",
+            "reasonLabel": "Техническая неисправность",
+            "comment": "Учебная репетиция T1: STOP",
+            "isOpen": true,
+            "isClipped": false,
+            "hasCorrection": false,
+            "linkedTasks": [],
+            "relationHint": "Продолжается"
+          },
+          "downtimesWithoutComment": 0,
+          "linkedTasks": 0,
+          "openTasks": 0,
+          "planCompletionPercent": null,
+          "planCompletionLabel": "Недостаточно данных"
+        },
+        {
+          "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+          "lineName": "УЧ-Линия 2",
+          "status": "STOP",
+          "lostMinutes": 1190,
+          "lostLabel": "19 ч 50 мин",
+          "downtimeCount": 2,
+          "averageDowntimeMinutes": 595,
+          "medianDowntimeMinutes": 36,
+          "maxDowntimeMinutes": 1154,
+          "downtimeSharePercent": 10.6,
+          "cleanWorkMinutes": 10038,
+          "currentOpenDowntime": {
+            "eventId": "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+            "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+            "lineName": "УЧ-Линия 2",
+            "status": "STOP",
+            "startAt": "2026-09-26T20:53:51.848Z",
+            "endAt": "2026-09-27T16:07:44.819Z",
+            "durationMinutes": 1154,
+            "durationLabel": "19 ч 14 мин",
+            "reasonLabel": "Техническая неисправность",
+            "comment": "Учебная репетиция T1: STOP",
+            "isOpen": true,
+            "isClipped": false,
+            "hasCorrection": false,
+            "linkedTasks": [],
+            "relationHint": "Продолжается"
+          },
+          "downtimesWithoutComment": 0,
+          "linkedTasks": 0,
+          "openTasks": 0,
+          "planCompletionPercent": null,
+          "planCompletionLabel": "Недостаточно данных"
+        },
+        {
+          "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+          "lineName": "УЧ-Линия 4",
+          "status": "STOP",
+          "lostMinutes": 1108,
+          "lostLabel": "18 ч 28 мин",
+          "downtimeCount": 4,
+          "averageDowntimeMinutes": 277,
+          "medianDowntimeMinutes": 0,
+          "maxDowntimeMinutes": 1108,
+          "downtimeSharePercent": 9.9,
+          "cleanWorkMinutes": 10120,
+          "currentOpenDowntime": {
+            "eventId": "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+            "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+            "lineName": "УЧ-Линия 4",
+            "status": "STOP",
+            "startAt": "2026-09-26T21:39:56.905Z",
+            "endAt": "2026-09-27T16:07:44.819Z",
+            "durationMinutes": 1108,
+            "durationLabel": "18 ч 28 мин",
+            "reasonLabel": "Техническая неисправность",
+            "comment": "Учебная репетиция T1: STOP",
+            "isOpen": true,
+            "isClipped": false,
+            "hasCorrection": false,
+            "linkedTasks": [],
+            "relationHint": "Продолжается"
+          },
+          "downtimesWithoutComment": 0,
+          "linkedTasks": 0,
+          "openTasks": 0,
+          "planCompletionPercent": null,
+          "planCompletionLabel": "Недостаточно данных"
+        },
+        {
+          "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+          "lineName": "УЧ-Линия 3",
+          "status": "STOP",
+          "lostMinutes": 1108,
+          "lostLabel": "18 ч 28 мин",
+          "downtimeCount": 1,
+          "averageDowntimeMinutes": 1108,
+          "medianDowntimeMinutes": 1108,
+          "maxDowntimeMinutes": 1108,
+          "downtimeSharePercent": 9.9,
+          "cleanWorkMinutes": 10120,
+          "currentOpenDowntime": {
+            "eventId": "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+            "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+            "lineName": "УЧ-Линия 3",
+            "status": "STOP",
+            "startAt": "2026-09-26T21:39:55.510Z",
+            "endAt": "2026-09-27T16:07:44.819Z",
+            "durationMinutes": 1108,
+            "durationLabel": "18 ч 28 мин",
+            "reasonLabel": "Техническая неисправность",
+            "comment": "Учебная репетиция T1: STOP",
+            "isOpen": true,
+            "isClipped": false,
+            "hasCorrection": false,
+            "linkedTasks": [],
+            "relationHint": "Продолжается"
+          },
+          "downtimesWithoutComment": 0,
+          "linkedTasks": 0,
+          "openTasks": 0,
+          "planCompletionPercent": null,
+          "planCompletionLabel": "Недостаточно данных"
+        }
+      ],
+      "downtimeReasons": [
+        {
+          "reason": "TECHNICAL",
+          "reasonLabel": "Техническая неисправность",
+          "count": 9,
+          "totalMinutes": 4599,
+          "totalLabel": "76 ч 39 мин",
+          "averageMinutes": 511
+        }
+      ],
+      "downtimes": [
+        {
+          "eventId": "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+          "lineName": "УЧ-Линия 1",
+          "status": "STOP",
+          "startAt": "2026-09-26T20:14:40.888Z",
+          "endAt": "2026-09-27T16:07:44.819Z",
+          "durationMinutes": 1193,
+          "durationLabel": "19 ч 53 мин",
+          "reasonLabel": "Техническая неисправность",
+          "comment": "Учебная репетиция T1: STOP",
+          "isOpen": true,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Продолжается"
+        },
+        {
+          "eventId": "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+          "lineName": "УЧ-Линия 2",
+          "status": "STOP",
+          "startAt": "2026-09-26T20:53:51.848Z",
+          "endAt": "2026-09-27T16:07:44.819Z",
+          "durationMinutes": 1154,
+          "durationLabel": "19 ч 14 мин",
+          "reasonLabel": "Техническая неисправность",
+          "comment": "Учебная репетиция T1: STOP",
+          "isOpen": true,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Продолжается"
+        },
+        {
+          "eventId": "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+          "lineName": "УЧ-Линия 4",
+          "status": "STOP",
+          "startAt": "2026-09-26T21:39:56.905Z",
+          "endAt": "2026-09-27T16:07:44.819Z",
+          "durationMinutes": 1108,
+          "durationLabel": "18 ч 28 мин",
+          "reasonLabel": "Техническая неисправность",
+          "comment": "Учебная репетиция T1: STOP",
+          "isOpen": true,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Продолжается"
+        },
+        {
+          "eventId": "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+          "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+          "lineName": "УЧ-Линия 3",
+          "status": "STOP",
+          "startAt": "2026-09-26T21:39:55.510Z",
+          "endAt": "2026-09-27T16:07:44.819Z",
+          "durationMinutes": 1108,
+          "durationLabel": "18 ч 28 мин",
+          "reasonLabel": "Техническая неисправность",
+          "comment": "Учебная репетиция T1: STOP",
+          "isOpen": true,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Продолжается"
+        },
+        {
+          "eventId": "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+          "lineName": "УЧ-Линия 2",
+          "status": "STOP",
+          "startAt": "2026-09-26T20:16:54.171Z",
+          "endAt": "2026-09-26T20:53:20.657Z",
+          "durationMinutes": 36,
+          "durationLabel": "36 мин",
+          "reasonLabel": "Техническая неисправность",
+          "comment": "Учебная репетиция T1: STOP",
+          "isOpen": false,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Завершён"
+        },
+        {
+          "eventId": "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+          "lineName": "УЧ-Линия 4",
+          "status": "PAUSE",
+          "startAt": "2026-09-26T21:37:16.142Z",
+          "endAt": "2026-09-26T21:37:17.630Z",
+          "durationMinutes": 0,
+          "durationLabel": "0 мин",
+          "reasonLabel": "Техническая неисправность",
+          "comment": "Учебная репетиция T1: PAUSE",
+          "isOpen": false,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Завершён"
+        },
+        {
+          "eventId": "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+          "lineName": "УЧ-Линия 4",
+          "status": "PAUSE",
+          "startAt": "2026-09-26T21:37:23.208Z",
+          "endAt": "2026-09-26T21:37:24.496Z",
+          "durationMinutes": 0,
+          "durationLabel": "0 мин",
+          "reasonLabel": "Техническая неисправность",
+          "comment": "Учебная репетиция T1: PAUSE",
+          "isOpen": false,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Завершён"
+        },
+        {
+          "eventId": "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+          "lineName": "УЧ-Линия 4",
+          "status": "PAUSE",
+          "startAt": "2026-09-26T21:37:29.955Z",
+          "endAt": "2026-09-26T21:37:31.104Z",
+          "durationMinutes": 0,
+          "durationLabel": "0 мин",
+          "reasonLabel": "Техническая неисправность",
+          "comment": "Учебная репетиция T1: PAUSE",
+          "isOpen": false,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Завершён"
+        },
+        {
+          "eventId": "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+          "lineName": "УЧ-Линия 1",
+          "status": "PAUSE",
+          "startAt": "2026-09-26T20:14:38.602Z",
+          "endAt": "2026-09-26T20:14:39.766Z",
+          "durationMinutes": 0,
+          "durationLabel": "0 мин",
+          "reasonLabel": "Техническая неисправность",
+          "comment": "Учебная репетиция T1: PAUSE",
+          "isOpen": false,
+          "isClipped": false,
+          "hasCorrection": false,
+          "linkedTasks": [],
+          "relationHint": "Завершён"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494",
+          "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+          "downtimeEventId": null,
+          "lineName": "УЧ-Линия 4",
+          "title": "УЧ T1 — проверка Учебный-Технолог-01 Тестовый",
+          "status": "DONE",
+          "statusLabel": "Завершена",
+          "type": "URGENT",
+          "typeLabel": "Срочная",
+          "createdAt": "2026-09-26T21:37:25.969Z",
+          "takenAt": "2026-09-26T21:37:26.534Z",
+          "doneAt": "2026-09-26T21:37:27.199Z",
+          "deadlineAt": null,
+          "responseMinutes": 0,
+          "responseLabel": "0 мин",
+          "firstActionMinutes": 0,
+          "executionMinutes": 0,
+          "executionLabel": "0 мин",
+          "resolutionMinutes": 0,
+          "resolutionLabel": "0 мин",
+          "currentStatusMinutes": 1110,
+          "overdueLong": false,
+          "redirectCount": 0,
+          "downtimeLinked": false,
+          "downtimeContext": false,
+          "downtimeRelationLabel": "Связь с простоем не подтверждена",
+          "departmentRecipients": [
+            {
+              "departmentId": "78218e97-dc2e-4c5e-ac34-61bec98713bd",
+              "departmentName": "УЧ — Технологи"
+            }
+          ],
+          "assigneeName": "Сотрудник",
+          "noAssignee": false
+        },
+        {
+          "id": "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+          "downtimeEventId": null,
+          "lineName": "УЧ-Линия 4",
+          "title": "УЧ T1 — проверка Учебный-Руководитель-01 Тестовый",
+          "status": "DONE",
+          "statusLabel": "Завершена",
+          "type": "URGENT",
+          "typeLabel": "Срочная",
+          "createdAt": "2026-09-26T21:37:19.072Z",
+          "takenAt": "2026-09-26T21:37:19.619Z",
+          "doneAt": "2026-09-26T21:37:20.298Z",
+          "deadlineAt": null,
+          "responseMinutes": 0,
+          "responseLabel": "0 мин",
+          "firstActionMinutes": 0,
+          "executionMinutes": 0,
+          "executionLabel": "0 мин",
+          "resolutionMinutes": 0,
+          "resolutionLabel": "0 мин",
+          "currentStatusMinutes": 1110,
+          "overdueLong": false,
+          "redirectCount": 0,
+          "downtimeLinked": false,
+          "downtimeContext": false,
+          "downtimeRelationLabel": "Связь с простоем не подтверждена",
+          "departmentRecipients": [
+            {
+              "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+              "departmentName": "УЧ — Руководство T1"
+            }
+          ],
+          "assigneeName": "Сотрудник",
+          "noAssignee": false
+        },
+        {
+          "id": "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+          "downtimeEventId": null,
+          "lineName": "УЧ-Линия 1",
+          "title": "Нужен УЧ — Двигатель",
+          "status": "DONE",
+          "statusLabel": "Завершена",
+          "type": "LONG",
+          "typeLabel": "Долгая",
+          "createdAt": "2026-09-26T21:11:34.422Z",
+          "takenAt": "2026-09-26T21:11:35.037Z",
+          "doneAt": "2026-09-26T21:11:35.694Z",
+          "deadlineAt": "2026-09-28T21:11:00.000Z",
+          "responseMinutes": 0,
+          "responseLabel": "0 мин",
+          "firstActionMinutes": 0,
+          "executionMinutes": 0,
+          "executionLabel": "0 мин",
+          "resolutionMinutes": 0,
+          "resolutionLabel": "0 мин",
+          "currentStatusMinutes": 1136,
+          "overdueLong": false,
+          "redirectCount": 0,
+          "downtimeLinked": false,
+          "downtimeContext": true,
+          "downtimeRelationLabel": "Создана в период простоя",
+          "departmentRecipients": [
+            {
+              "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+              "departmentName": "УЧ — Механики"
+            }
+          ],
+          "assigneeName": "Сотрудник",
+          "noAssignee": false
+        },
+        {
+          "id": "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+          "downtimeEventId": null,
+          "lineName": "УЧ-Линия 1",
+          "title": "Учебная проверка сантехника FACTORY01 T1",
+          "status": "DONE",
+          "statusLabel": "Завершена",
+          "type": "URGENT",
+          "typeLabel": "Срочная",
+          "createdAt": "2026-09-26T20:07:44.790Z",
+          "takenAt": "2026-09-26T20:07:46.608Z",
+          "doneAt": "2026-09-26T20:07:48.058Z",
+          "deadlineAt": null,
+          "responseMinutes": 0,
+          "responseLabel": "0 мин",
+          "firstActionMinutes": 0,
+          "executionMinutes": 0,
+          "executionLabel": "0 мин",
+          "resolutionMinutes": 0,
+          "resolutionLabel": "0 мин",
+          "currentStatusMinutes": 1200,
+          "overdueLong": false,
+          "redirectCount": 0,
+          "downtimeLinked": false,
+          "downtimeContext": false,
+          "downtimeRelationLabel": "Связь с простоем не подтверждена",
+          "departmentRecipients": [
+            {
+              "departmentId": "6cdab967-9071-47cc-ab50-29d8a22b34fb",
+              "departmentName": "УЧ — Сантехники"
+            }
+          ],
+          "assigneeName": "Сотрудник",
+          "noAssignee": false
+        },
+        {
+          "id": "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+          "downtimeEventId": null,
+          "lineName": "УЧ-Линия 4",
+          "title": "Учебная проверка КИПиА FACTORY01 T1",
+          "status": "DONE",
+          "statusLabel": "Завершена",
+          "type": "LONG",
+          "typeLabel": "Долгая",
+          "createdAt": "2026-09-26T20:07:39.441Z",
+          "takenAt": "2026-09-26T20:07:41.224Z",
+          "doneAt": "2026-09-26T20:07:42.622Z",
+          "deadlineAt": "2026-09-28T20:07:00.000Z",
+          "responseMinutes": 0,
+          "responseLabel": "0 мин",
+          "firstActionMinutes": 0,
+          "executionMinutes": 0,
+          "executionLabel": "0 мин",
+          "resolutionMinutes": 0,
+          "resolutionLabel": "0 мин",
+          "currentStatusMinutes": 1200,
+          "overdueLong": false,
+          "redirectCount": 0,
+          "downtimeLinked": false,
+          "downtimeContext": false,
+          "downtimeRelationLabel": "Связь с простоем не подтверждена",
+          "departmentRecipients": [
+            {
+              "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+              "departmentName": "УЧ — КИПиА"
+            }
+          ],
+          "assigneeName": "Сотрудник",
+          "noAssignee": false
+        },
+        {
+          "id": "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+          "downtimeEventId": null,
+          "lineName": "УЧ-Линия 3",
+          "title": "Учебная проверка холодильной службы FACTORY01 T1",
+          "status": "DONE",
+          "statusLabel": "Завершена",
+          "type": "URGENT",
+          "typeLabel": "Срочная",
+          "createdAt": "2026-09-26T20:07:34.107Z",
+          "takenAt": "2026-09-26T20:07:35.891Z",
+          "doneAt": "2026-09-26T20:07:37.342Z",
+          "deadlineAt": null,
+          "responseMinutes": 0,
+          "responseLabel": "0 мин",
+          "firstActionMinutes": 0,
+          "executionMinutes": 0,
+          "executionLabel": "0 мин",
+          "resolutionMinutes": 0,
+          "resolutionLabel": "0 мин",
+          "currentStatusMinutes": 1200,
+          "overdueLong": false,
+          "redirectCount": 0,
+          "downtimeLinked": false,
+          "downtimeContext": false,
+          "downtimeRelationLabel": "Связь с простоем не подтверждена",
+          "departmentRecipients": [
+            {
+              "departmentId": "f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8",
+              "departmentName": "УЧ — Холодильная служба"
+            }
+          ],
+          "assigneeName": "Сотрудник",
+          "noAssignee": false
+        },
+        {
+          "id": "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+          "downtimeEventId": null,
+          "lineName": "УЧ-Линия 2",
+          "title": "Учебная проверка электрика FACTORY01 T1",
+          "status": "DONE",
+          "statusLabel": "Завершена",
+          "type": "LONG",
+          "typeLabel": "Долгая",
+          "createdAt": "2026-09-26T20:07:28.541Z",
+          "takenAt": "2026-09-26T20:07:30.395Z",
+          "doneAt": "2026-09-26T20:07:31.918Z",
+          "deadlineAt": "2026-09-28T20:07:00.000Z",
+          "responseMinutes": 0,
+          "responseLabel": "0 мин",
+          "firstActionMinutes": 0,
+          "executionMinutes": 0,
+          "executionLabel": "0 мин",
+          "resolutionMinutes": 0,
+          "resolutionLabel": "0 мин",
+          "currentStatusMinutes": 1200,
+          "overdueLong": false,
+          "redirectCount": 0,
+          "downtimeLinked": false,
+          "downtimeContext": false,
+          "downtimeRelationLabel": "Связь с простоем не подтверждена",
+          "departmentRecipients": [
+            {
+              "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+              "departmentName": "УЧ — Электрики"
+            }
+          ],
+          "assigneeName": "Сотрудник",
+          "noAssignee": false
+        },
+        {
+          "id": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+          "downtimeEventId": null,
+          "lineName": "УЧ-Линия 1",
+          "title": "Учебная проверка механика FACTORY01 T1",
+          "status": "DONE",
+          "statusLabel": "Завершена",
+          "type": "URGENT",
+          "typeLabel": "Срочная",
+          "createdAt": "2026-09-26T20:07:23.180Z",
+          "takenAt": "2026-09-26T20:07:25.126Z",
+          "doneAt": "2026-09-26T20:07:26.355Z",
+          "deadlineAt": null,
+          "responseMinutes": 0,
+          "responseLabel": "0 мин",
+          "firstActionMinutes": 0,
+          "executionMinutes": 0,
+          "executionLabel": "0 мин",
+          "resolutionMinutes": 0,
+          "resolutionLabel": "0 мин",
+          "currentStatusMinutes": 1200,
+          "overdueLong": false,
+          "redirectCount": 0,
+          "downtimeLinked": false,
+          "downtimeContext": false,
+          "downtimeRelationLabel": "Связь с простоем не подтверждена",
+          "departmentRecipients": [
+            {
+              "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+              "departmentName": "УЧ — Механики"
+            }
+          ],
+          "assigneeName": "Сотрудник",
+          "noAssignee": false
+        }
+      ],
+      "departments": [
+        {
+          "departmentId": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+          "departmentName": "УЧ — Механики",
+          "received": 2,
+          "taken": 2,
+          "closed": 2,
+          "open": 0,
+          "overdue": 0,
+          "averageResponseMinutes": 0,
+          "medianResponseMinutes": 0,
+          "maxResponseMinutes": 0,
+          "averageResolutionMinutes": 0,
+          "medianResolutionMinutes": 0,
+          "maxResolutionMinutes": 0,
+          "onTimePercent": 100,
+          "redirects": 0,
+          "repeatedLineTasks": 2
+        },
+        {
+          "departmentId": "78218e97-dc2e-4c5e-ac34-61bec98713bd",
+          "departmentName": "УЧ — Технологи",
+          "received": 1,
+          "taken": 1,
+          "closed": 1,
+          "open": 0,
+          "overdue": 0,
+          "averageResponseMinutes": 0,
+          "medianResponseMinutes": 0,
+          "maxResponseMinutes": 0,
+          "averageResolutionMinutes": 0,
+          "medianResolutionMinutes": 0,
+          "maxResolutionMinutes": 0,
+          "onTimePercent": 100,
+          "redirects": 0,
+          "repeatedLineTasks": 0
+        },
+        {
+          "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+          "departmentName": "УЧ — Руководство T1",
+          "received": 1,
+          "taken": 1,
+          "closed": 1,
+          "open": 0,
+          "overdue": 0,
+          "averageResponseMinutes": 0,
+          "medianResponseMinutes": 0,
+          "maxResponseMinutes": 0,
+          "averageResolutionMinutes": 0,
+          "medianResolutionMinutes": 0,
+          "maxResolutionMinutes": 0,
+          "onTimePercent": 100,
+          "redirects": 0,
+          "repeatedLineTasks": 0
+        },
+        {
+          "departmentId": "6cdab967-9071-47cc-ab50-29d8a22b34fb",
+          "departmentName": "УЧ — Сантехники",
+          "received": 1,
+          "taken": 1,
+          "closed": 1,
+          "open": 0,
+          "overdue": 0,
+          "averageResponseMinutes": 0,
+          "medianResponseMinutes": 0,
+          "maxResponseMinutes": 0,
+          "averageResolutionMinutes": 0,
+          "medianResolutionMinutes": 0,
+          "maxResolutionMinutes": 0,
+          "onTimePercent": 100,
+          "redirects": 0,
+          "repeatedLineTasks": 0
+        },
+        {
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "departmentName": "УЧ — КИПиА",
+          "received": 1,
+          "taken": 1,
+          "closed": 1,
+          "open": 0,
+          "overdue": 0,
+          "averageResponseMinutes": 0,
+          "medianResponseMinutes": 0,
+          "maxResponseMinutes": 0,
+          "averageResolutionMinutes": 0,
+          "medianResolutionMinutes": 0,
+          "maxResolutionMinutes": 0,
+          "onTimePercent": 100,
+          "redirects": 0,
+          "repeatedLineTasks": 0
+        },
+        {
+          "departmentId": "f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8",
+          "departmentName": "УЧ — Холодильная служба",
+          "received": 1,
+          "taken": 1,
+          "closed": 1,
+          "open": 0,
+          "overdue": 0,
+          "averageResponseMinutes": 0,
+          "medianResponseMinutes": 0,
+          "maxResponseMinutes": 0,
+          "averageResolutionMinutes": 0,
+          "medianResolutionMinutes": 0,
+          "maxResolutionMinutes": 0,
+          "onTimePercent": 100,
+          "redirects": 0,
+          "repeatedLineTasks": 0
+        },
+        {
+          "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+          "departmentName": "УЧ — Электрики",
+          "received": 1,
+          "taken": 1,
+          "closed": 1,
+          "open": 0,
+          "overdue": 0,
+          "averageResponseMinutes": 0,
+          "medianResponseMinutes": 0,
+          "maxResponseMinutes": 0,
+          "averageResolutionMinutes": 0,
+          "medianResolutionMinutes": 0,
+          "maxResolutionMinutes": 0,
+          "onTimePercent": 100,
+          "redirects": 0,
+          "repeatedLineTasks": 0
+        }
+      ],
+      "repeatedProblems": [
+        {
+          "key": "downtime:9125a431-9d33-47d2-8763-08889bc2ab52:TECHNICAL",
+          "title": "Техническая неисправность",
+          "source": "Простои",
+          "lineName": "УЧ-Линия 1",
+          "departmentName": null,
+          "count": 2,
+          "relatedIds": [
+            "10782695-321f-46c3-b0be-96d7eb4e8684",
+            "4c3b17a5-15ad-4701-a90d-3ddaf0270785"
+          ],
+          "totalMinutes": 1193,
+          "totalLabel": "19 ч 53 мин"
+        },
+        {
+          "key": "downtime:40ce951f-bf4e-4692-b5a1-7334001b0a08:TECHNICAL",
+          "title": "Техническая неисправность",
+          "source": "Простои",
+          "lineName": "УЧ-Линия 2",
+          "departmentName": null,
+          "count": 2,
+          "relatedIds": [
+            "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+            "6e6b5563-6f35-4740-bdad-e4dfa3eb4674"
+          ],
+          "totalMinutes": 1190,
+          "totalLabel": "19 ч 50 мин"
+        },
+        {
+          "key": "downtime:9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a:TECHNICAL",
+          "title": "Техническая неисправность",
+          "source": "Простои",
+          "lineName": "УЧ-Линия 4",
+          "departmentName": null,
+          "count": 4,
+          "relatedIds": [
+            "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+            "aa971061-8a07-4bb7-8f7f-fa708317040f",
+            "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+            "28d43c88-99b3-437d-9d65-1a833a6ef6ff"
+          ],
+          "totalMinutes": 1108,
+          "totalLabel": "18 ч 28 мин"
+        }
+      ],
+      "dataQuality": {
+        "status": "Требует проверки",
+        "warnings": [
+          {
+            "code": "OPEN_DOWNTIME",
+            "label": "Незавершённые простои",
+            "count": 4
+          }
+        ]
+      },
+      "filterOptions": {
+        "lines": [
+          {
+            "id": "9125a431-9d33-47d2-8763-08889bc2ab52",
+            "name": "УЧ-Линия 1",
+            "status": "STOP"
+          },
+          {
+            "id": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+            "name": "УЧ-Линия 2",
+            "status": "STOP"
+          },
+          {
+            "id": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+            "name": "УЧ-Линия 3",
+            "status": "STOP"
+          },
+          {
+            "id": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+            "name": "УЧ-Линия 4",
+            "status": "STOP"
+          }
+        ],
+        "departments": [
+          {
+            "id": "8d971982-067d-4610-bdfe-ac8b8c82fad8",
+            "name": "УЧ — Другие службы"
+          },
+          {
+            "id": "b6f3bd41-6820-4137-a28d-c4335f245751",
+            "name": "УЧ — КИПиА"
+          },
+          {
+            "id": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+            "name": "УЧ — Механики"
+          },
+          {
+            "id": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+            "name": "УЧ — ОКК T1"
+          },
+          {
+            "id": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+            "name": "УЧ — Производство T1"
+          },
+          {
+            "id": "75c6a132-651c-4d98-8505-0ce4380c0470",
+            "name": "УЧ — Руководство T1"
+          },
+          {
+            "id": "6cdab967-9071-47cc-ab50-29d8a22b34fb",
+            "name": "УЧ — Сантехники"
+          },
+          {
+            "id": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+            "name": "УЧ — Склад T1"
+          },
+          {
+            "id": "78218e97-dc2e-4c5e-ac34-61bec98713bd",
+            "name": "УЧ — Технологи"
+          },
+          {
+            "id": "f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8",
+            "name": "УЧ — Холодильная служба"
+          },
+          {
+            "id": "faa32c69-e185-4969-a545-ba884986045f",
+            "name": "УЧ — Электрики"
+          }
+        ],
+        "taskScopes": [
+          {
+            "value": "all",
+            "label": "Все заявки"
+          },
+          {
+            "value": "open",
+            "label": "Только открытые"
+          },
+          {
+            "value": "overdue",
+            "label": "Просроченные долгие заявки"
+          },
+          {
+            "value": "downtimeLinked",
+            "label": "Созданы из простоя"
+          },
+          {
+            "value": "downtimeContext",
+            "label": "В период простоя"
+          },
+          {
+            "value": "withoutDowntime",
+            "label": "Без связи с простоем"
+          }
+        ]
+      },
+      "drilldown": {
+        "downtimeList": "/ops/operations/downtimes",
+        "taskList": "/ops/operations/tasks",
+        "lineList": "/ops/operations/lines",
+        "departmentList": "/ops/operations/departments",
+        "repeatedProblems": "/ops/operations/repeated-problems"
+      },
+      "limitations": [
+        "История включения линии в смену учитывается только по достоверным событиям и текущим line state; если line event отсутствует, время работы не выдумывается.",
+        "Заявка считается созданной из простоя только при явной связи lineStatusEventId. Совпадение по времени показывается отдельно как контекст.",
+        "Финансовые потери не считаются: в системе нет достоверной стоимости минуты простоя.",
+        "Медиана и p90 считаются методом ближайшего ранга по завершённым временным интервалам в минутах."
+      ]
+    },
+    "overview": {
+      "activeTasksCount": 0,
+      "overdueLongTasksCount": 0,
+      "activeWashCount": 0,
+      "washIssuesCount": 0,
+      "activeDefrostCount": 0,
+      "lowStockItemsCount": 0,
+      "openOrderRequestsCount": 0,
+      "activeImportantShiftLogsCount": 0,
+      "unreadNotificationsCount": 90,
+      "checklistAutoClosedCount": 0,
+      "recentAccessDeniedCount": 131,
+      "generatedAt": "2026-09-27T16:07:44.870Z",
+      "scope": {
+        "currentLabel": "Текущее состояние",
+        "periodLabel": "20.09.2026 — 27.09.2026",
+        "periodMetrics": [
+          "checklistAutoClosedCount",
+          "recentAccessDeniedCount"
+        ]
+      }
+    },
+    "module-summary": [
+      {
+        "module": "Tasks",
+        "count": 8,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "Wash",
+        "count": 1,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "Checklists",
+        "count": 7,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "Orders",
+        "count": 1,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "OKK",
+        "count": 0,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "Stock",
+        "count": 0,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "Returns",
+        "count": 0,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "ShiftLog",
+        "count": 0,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "Defrost",
+        "count": 1,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "Notifications",
+        "count": 122,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      },
+      {
+        "module": "Auth/access",
+        "count": 131,
+        "scope": "PERIOD",
+        "scopeLabel": "За выбранный период: 20.09.2026 — 27.09.2026"
+      }
+    ]
+  },
+  "actor": {
+    "id": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+    "role": "ADMIN",
+    "departmentId": null
+  }
+}

@@ -1,0 +1,160 @@
+✔ nearest-rank empty/single/odd/even/duplicates [] (1.4577ms)
+✔ nearest-rank empty/single/odd/even/duplicates [9] (0.2099ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4,100] (0.2129ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4] (0.2636ms)
+✔ nearest-rank empty/single/odd/even/duplicates [2,2,2,9] (0.208ms)
+✔ missing phase is not zero; negative duration rejected (0.3189ms)
+✖ invalid/empty/reversed explicit range is rejected {"dateFrom":"invalid"} (3.6787ms)
+✖ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-02-31"} (1.3673ms)
+✖ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31","dateTo":"2026-08-30"} (1.4272ms)
+✖ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31T08:00:00+03:00","dateTo":"2026-08-31T08:00:00+03:00"} (1.1577ms)
+✔ calendar period Moscow half-open and 93-day cap remain (2.3893ms)
+✖ department on-time denominator does not subtract still-open overdue tasks (1.2056ms)
+✖ time-only downtime context excludes exact interval end (1.8603ms)
+✖ shift clipping intersects an interval, not only its starting label (3.2661ms)
+✔ open interval clipped to asOf, independent lines not merged (1.5138ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 8
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 474.8144
+
+✖ failing tests:
+
+test at backend\scripts\ops-01.test.cjs:6:184
+✖ invalid/empty/reversed explicit range is rejected {"dateFrom":"invalid"} (3.6787ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\ops-01.test.cjs:6:275)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /период|дат|диапазон/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at backend\scripts\ops-01.test.cjs:6:184
+✖ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-02-31"} (1.3673ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\ops-01.test.cjs:6:275)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /период|дат|диапазон/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at backend\scripts\ops-01.test.cjs:6:184
+✖ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31","dateTo":"2026-08-30"} (1.4272ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\ops-01.test.cjs:6:275)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /период|дат|диапазон/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at backend\scripts\ops-01.test.cjs:6:184
+✖ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31T08:00:00+03:00","dateTo":"2026-08-31T08:00:00+03:00"} (1.1577ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\ops-01.test.cjs:6:275)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /период|дат|диапазон/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at backend\scripts\ops-01.test.cjs:8:1
+✖ department on-time denominator does not subtract still-open overdue tasks (1.2056ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 100
+  
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\ops-01.test.cjs:8:426)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 100,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at backend\scripts\ops-01.test.cjs:9:1
+✖ time-only downtime context excludes exact interval end (1.8603ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\ops-01.test.cjs:9:421)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at backend\scripts\ops-01.test.cjs:10:1
+✖ shift clipping intersects an interval, not only its starting label (3.2661ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  20 !== 10
+  
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\ops-01.test.cjs:10:434)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 20,
+    expected: 10,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

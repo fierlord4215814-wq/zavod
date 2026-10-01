@@ -1,0 +1,34 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260921-vhdx-ssh\before\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\final-report.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\final-report.md', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-vhdx-ssh\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+index e032a3c4..225f779a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-vhdx-ssh\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+@@ -1,4 +1,26 @@
+-# MASTER R5 — актуальный результат21.09: генератор10/10, guest channel блокирован
++# MASTER R5 — актуальный результат21.09 22:29: диагностический Hyper-V→SSH путь остановлен на UAC
++
++MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_DIAGNOSTIC_BOOT. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. PHYSICAL_PHONE=PENDING. FINAL_STOP=STOP.
++
++Новое поручение ff30e7d9 выполнено до конкретной approval-границы, не до интеграционной приёмки. Capture/VMConnect/restart не повторялись; пользователь подтвердил прежний перезапуск Codex. Существующий generator уже исправлен и имеет10/10 host synthetic PASS из сохранённого run-04; устаревшие7PASS/3BLOCKED в новой инструкции сверены с evidence и не приняты за актуальный итог. Generator, pure helper, product/build/harness и старые evidence не менялись.
++
++Подготовлен ограниченный self-hash/native-token/single-use Hyper-V helper: fresh exact GUID/BIOS/soleVHDX/firmware/DVD/network/jobs/controllers/resources → только при Off извлечь две ownISO → existingVHDX first → один Start-VM → bounded read-only observations. При Running — без power/media changes. Отдельный non-admin probe предназначен только для10.243.53.2:22 с проверкой своего интерфейса и классификацией transport error; не принимает host key и не выполняет authentication. **Оба operational helpers не запускались; parser/source review не runtime proof.**
++
++Единственный штатный UAC завершился **21.09.2026 22:29:35.1476716+03:00**, exact native error: **«Операция была отменена пользователем»**. Caller session30272 exit1; elevated PID/helper-start/token отсутствуют. Причина отмены человеком/таймаутом UNKNOWN. Повтор/другой privileged channel не предпринимался. [Неизменённый raw receipt](attempts/20260921-vhdx-ssh/uac-failure.json).
++
++Результат диагностической загрузки: **NOT_RUN_UAC_CANCELLED**, Start-VM0/firmware0/DVD0. Результат SSH: **NOT_RUN_UAC_CANCELLED**, новых connect/auth attempts0. Fresh VM state не получен: currentUNKNOWN, last independently observedOff16:09 — прежняя история. Прежний WSAEACCES не переименован в SSH failure; client public key fingerprint не считается server host key. Guest repair/isolation/own PostgreSQL/actual stack NOT_RUN. Рабочая PostgreSQL/service/.env/uploads/business data/protected history не читались и не менялись.
++
++Все пять gates — MI-SEC-01, MI-PUB-01, MI-R2-ORD-01, MI-R2-CHAT-ATT-01, UI-SWEEP-036 — **0 новых live cases / NOT_RUN_UAC_CANCELLED_DIAGNOSTIC_BOOT**.32journeys/1407edges:0newreal. Original0631286→1213OPEN/UNKNOWN;036ordinary≠handover/archivepermissions не функциональная причина063.014/050/replay/publication решения сохраняются, автоматический OKK→Task не создавался. Finaltypes/builds/Prisma/productregression NOT_RUN, productfixes0. Main954/957semanticcontrols/0P0/1P1/10P2 — retained history, не новая приёмка; основной sweep paused, phonepending.
++
++В этой дельте только scoped infrastructure helper sources и repo reports/metadata; никаких product edits, новых dependencies, fixture writes или screenshots. Dirty worktree сохранён; retained215product/config132build72harness/6mainmatrices/6olderZIP проверены. Все ранее сохранённые screenshot-пакеты остаются по прежним путям в `native-evidence-index.md`; новых кадров0. Current own launcher завершён, elevated helper не стартовал; состояние прежнейVM не перепроверялось. Working cleanup UNKNOWN_NOT_INSPECTED. Library/accountmemory NOT_WRITTEN.
++
++Следующий минимальный шаг — **новое явное разрешение пользователя на одну штатную UAC-попытку и готовность подтвердить системное окно**. Не запускать нынешний single-use launcher повторно поверх request/failure. Diagnostic boot allowance не использован; после разрешения новый scoped receipt и fresh guards, затем вся исходная программа1–9 без сокращений. Нельзя rebootWindows/Force/TurnOff/Reset/reinstall/DISM/oldqueue/security changes. [Точный resume](resume-prompt.txt).
++
++[Дельта/evidence](attempts/20260921-vhdx-ssh/result.md) · [Runtime](attempts/20260921-vhdx-ssh/environment-runtime-receipt.json) · [Единый review ZIP](zavod-master-r5-vhdx-ssh-20260921.zip) · [SHA/размер/full-entry readback](attempts/20260921-vhdx-ssh/package-receipt.json). Новый ZIP создаётся один раз на этой внешней границе; прежние шесть не перезаписываются. Ниже — сохранённые исторические результаты, включая устаревший pendingrestart, не актуальные указания.
++
++---
++
++## Исторический результат21.09 после17:00: генератор10/10, guest channel блокирован
+ 
+ MASTER_R5_STATUS=BLOCKED_TOOL_CAPABILITY. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. PHYSICAL_PHONE=PENDING. FINAL_STOP=STOP. Последнее повторное поручение4576acc6 сохранено в `attempts/20260921-channel-recheck/continuation-request.txt`; новых бизнес-функций/нового sweep/R6 нет.
+ 

@@ -1,0 +1,95 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\D069-before\\frontend\\src\\App.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+index de35576e..d0dd72eb 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\D069-before\\frontend\\src\\App.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+@@ -29,6 +29,9 @@ import { connectWs } from './ws/client';
+ import { hasDirtyMobileForm, hasDirtyMobileForms, installMobileBackCoordinator, leaveStandaloneApp, useMobileBackLayer } from './navigation/mobile-back';
+ import { useBodyScrollLock } from './hooks/useBodyScrollLock';
+ import { isStandalonePwa } from './utils/pwa-runtime';
++import { observePwaInstall } from './utils/pwa-install';
++import { PwaInstallButton } from './components/PwaInstallButton';
++import { DeviceAccessPanel } from './components/DeviceAccessPanel';
+ import { roleLabel } from './labels';
+ import { AppTheme, applyAppTheme, persistAppTheme, readAppTheme } from './theme';
+ import {
+@@ -78,7 +81,10 @@ type MeResponse = {
+ };
+ 
+ type DirtyNavigation =
+-  | { kind: 'screen'; next: Screen; remember: boolean }
++  | { kind: 'screen'; next: Screen; remember: boolean; taskIntent?: {
++      id: string; context: string; epoch: number; source: Screen;
++      returnValue?: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn;
++    } }
+   | { kind: 'exit' };
+ 
+ const screens = SCREEN_DEFINITIONS;
+@@ -200,6 +206,7 @@ export default function App() {
+     tasksAttentionCount,
+   } = useAppStore();
+   const [screen, setScreen] = useState<Screen>('Shift');
++  useEffect(observePwaInstall, []);
+   const [theme, setTheme] = useState<AppTheme>(readAppTheme);
+   const [themeStorageNotice, setThemeStorageNotice] = useState<string | null>(null);
+   const screenHistoryRef = useRef<Screen[]>(['Shift']);
+@@ -362,6 +369,7 @@ export default function App() {
+   useEffect(() => {
+     setPendingTask(null);
+     setTaskReturn(null);
++    setDirtyNavigation(null);
+     // Legacy unscoped intents must never survive login/factory changes or reload.
+     try { window.localStorage.removeItem('zavod.taskHighlightId'); } catch { /* Optional storage. */ }
+   }, [navigationContextKey, navigationPermissionsKey]);
+@@ -615,7 +623,18 @@ export default function App() {
+       const detail = (event as CustomEvent<{ screen?: Screen; userId?: string; taskId?: string; taskReturn?: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn }>).detail;
+       if (detail?.screen) {
+         if (detail.screen === 'Tasks' && detail.taskId && navigationContextKey
+-          && visibleScreens.some((item) => item.id === 'Tasks') && !hasDirtyMobileForms()) {
++          && visibleScreens.some((item) => item.id === 'Tasks')) {
++          if (hasDirtyMobileForms()) {
++            // Keep the complete intent in the existing confirmation, not in a
++            // prematurely active target that Stay or a context change could replay.
++            setDirtyNavigation({ kind: 'screen', next: 'Tasks', remember: true, taskIntent: {
++              id: detail.taskId, context: navigationContextKey, epoch: asyncContextEpoch.current,
++              source: screen, returnValue: detail.taskReturn,
++            } });
++            setMobileMoreOpen(false);
++            setMobileSheetView('sections');
++            return;
++          }
+           setPendingTask({ id: detail.taskId, context: navigationContextKey, epoch: asyncContextEpoch.current });
+           setTaskReturn(detail.taskReturn ? { screen, context: navigationContextKey, value: detail.taskReturn } : null);
+         }
+@@ -1227,11 +1246,13 @@ export default function App() {
+                   <div className="section-subhead">
+                     <span><NavIcon name="archive" /></span>
+                     <div>
+-                      <strong>PWA и офлайн</strong>
++                      <strong>Установка приложения</strong>
+                       <p>Приложение можно установить на телефон. Для сохранения действий требуется связь с сервером.</p>
+                     </div>
+                   </div>
++                  <PwaInstallButton />
+                 </section>
++                <DeviceAccessPanel />
+               </div>
+             ) : (
+               <>
+@@ -1330,7 +1351,16 @@ export default function App() {
+             const action = dirtyNavigation;
+             setDirtyNavigation(null);
+             if (action.kind === 'exit') leaveStandaloneApp();
+-            else openScreen(action.next, action.remember, true);
++            else {
++              const intent = action.taskIntent;
++              if (intent) {
++                if (intent.context !== navigationContextKey || intent.epoch !== asyncContextEpoch.current
++                  || !visibleScreens.some((item) => item.id === 'Tasks')) return;
++                setPendingTask({ id: intent.id, context: intent.context, epoch: intent.epoch });
++                setTaskReturn(intent.returnValue ? { screen: intent.source, context: intent.context, value: intent.returnValue } : null);
++              }
++              openScreen(action.next, action.remember, true, Boolean(intent));
++            }
+           }}
+         />
+       ) : null}

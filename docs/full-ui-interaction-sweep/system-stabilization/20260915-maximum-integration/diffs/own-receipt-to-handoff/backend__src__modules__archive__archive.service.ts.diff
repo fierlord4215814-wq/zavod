@@ -1,0 +1,22 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\E042-before\\backend\\src\\modules\\archive\\archive.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\archive\\archive.service.ts"
+index d1356126..3288ab48 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\E042-before\\backend\\src\\modules\\archive\\archive.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\archive\\archive.service.ts"
+@@ -21,6 +21,7 @@ import {
+ import {
+   hasPhysicalFieldFixtureMarker,
+   hasPilotFixtureMarker,
++  hasRuntimeFixtureMarker,
+   isDiagnosticFixtureActor,
+   isPilotFixtureUser,
+   isRuntimeVisibleWashSession,
+@@ -1570,8 +1571,7 @@ export class ArchiveService {
+ 
+   private isArchiveFixture(actorId: string | null | undefined, ...values: Array<unknown>) {
+     return isDiagnosticFixtureActor(actorId)
+-      || hasPilotFixtureMarker(...values)
+-      || hasPhysicalFieldFixtureMarker(...values);
++      || hasRuntimeFixtureMarker(...values);
+   }
+ 
+   private async withHumanLabels(items: ArchiveItem[]) {

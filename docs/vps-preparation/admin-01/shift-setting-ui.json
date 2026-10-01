@@ -1,0 +1,33 @@
+{
+  "status": "PASS_WILL_BE_RULE_UI_HTTP_SQL_RETURN_FLAG_PARTIAL",
+  "returnFlagScope": "OFF suppresses action. ON is still false because this own user is AVAILABLE, not OFF_SHIFT. Positive return-request lifecycle NOT_VERIFIED by this receipt.",
+  "original": {
+    "willBeCancelRequiresComment": true,
+    "returnRequestEnabled": true
+  },
+  "returnOff": false,
+  "returnOn": false,
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Выбрать смену', exact: true })\u001b[22m\n",
+  "ui": "Учебная площадка C ADMIN01\n\nЗавод\n\nОнлайн · Работник Приёмочный У.\nСмена\n\nВаша смена и текущее назначение.\n\n≡\nВ работе\n0\nНа мойке: 0\n●\nЛюди на смене\n0\nⅡ\nПростой\n0\nНа производственных линиях:\n0 из 0\nТекущая смена · Учебная площадка C ADMIN01\n26.09.2026 · День · 08:00–20:00\nВыбрать смену\n⌄\nНет новых событий\nЛинии в работе\n0\nРаботающих линий сейчас нет\nПовременщики\n0\nПозиции повременщиков пока не настроены\nЛинии на мойке\n0\nЛиний на мойке сейчас нет\nОстановленные линии\n1\nЛиния настройки C\nОстановлена\nЛюди 0/1\nОсновной состав C\nПодробнее\nМоя смена\n0\nНа текущей смене пока нет сотрудников.\nСмена\nИстория смен\nЛюди\nОттайка\nВозвраты на производство\nОбъявления\nАрхив\nУведомления\nСообщить об ошибке\nНастройки",
+  "restored": true,
+  "returnEligibility": "AVAILABLE",
+  "willBeId": "295fb74f-8730-4e32-8f18-7ec729c88fc7",
+  "beforeCancel": {
+    "canStartShift": true,
+    "canEndShift": false,
+    "canMarkWillBe": true,
+    "canCancelWillBe": true,
+    "canRequestReturn": false
+  },
+  "before": {
+    "allowedCanCancel": true,
+    "httpRequests": 0,
+    "ui": true
+  },
+  "sql": {
+    "id": "295fb74f-8730-4e32-8f18-7ec729c88fc7",
+    "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+    "userId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+    "status": "CANCELLED"
+  }
+}

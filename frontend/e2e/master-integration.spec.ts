@@ -1,0 +1,256 @@
+import { expect, test, Page } from '@playwright/test';
+import { isolate, json, linkedReplies, open, shot, records, save, unknown, errors, network, permissions, taskRow, person } from './helpers/frontend-series';
+import { installEvidenceHooks } from './helpers/frontend-series';
+installEvidenceHooks();
+
+const imageBytes=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=','base64');
+const attachment={id:'memory-evidence-image',originalName:'Осмотр узла.png',mimeType:'image/png',sizeBytes:68};
+
+test('Journey J14 036 ordinary comment differs from immutable handover and archive never writes receipt',async({page})=>{
+  const log={id:'memory-log',title:'Передача оборудования',text:'Комментарий отдела: проверить датчик',factoryId:'series-factory',departmentId:'series-department',departmentName:'Механики',logDate:'2026-09-15',shiftLabel:'Ночь',status:'ACTIVE',isImportant:true,comments:[{id:'memory-comment',text:'Отдельный комментарий к записи',attachments:[]}],attachments:[attachment]};
+  let archived=false;
+  await isolate(page,{role:'TECH_MECHANIC',granted:['shift-log.read','shift-log.archive.read','notifications.read'],replies:async(r,p)=>{
+    if(p==='/shift-log'){await json(r,[log]);return true;}
+    if(p==='/shift-log/archive'){await json(r,[{...log,status:'ARCHIVED'}]);return true;}
+    if(p==='/shift-log/memory-log'){await json(r,log);return true;}
+    if(p==='/shift-log/memory-log/read'&&r.request().method()==='POST'){await json(r,{ok:true});return true;}
+    if(p==='/shift-log/archive/memory-log'){archived=true;await json(r,{...log,status:'ARCHIVED',archiveReadOnly:true,handover:{snapshot:{authorName:'Мастер смены',comment:'Следующей смене: проверить защиту',counts:{total:0},sections:{lines:[],washes:[],tasks:[]}}}});return true;}
+    if(p==='/attachments/memory-evidence-image/file'){await r.fulfill({contentType:'image/png',body:imageBytes});return true;}
+    return false;
+  }});await page.setViewportSize({width:390,height:844});await page.goto('/');await open(page,'Пересменка');
+  await page.locator('.shift-log-card').click();await expect(page.getByRole('dialog')).toContainText('Комментарий отдела: проверить датчик');await expect.poll(()=>network.filter(n=>n.path==='/shift-log/memory-log/read').length).toBe(1);await page.goBack();
+  await page.locator('.segmented-control').getByRole('button',{name:'Архив',exact:true}).click();await page.locator('.shift-log-card').click();
+  await expect(page.getByRole('dialog')).toContainText('Следующей смене: проверить защиту');await expect(page.getByRole('dialog')).toContainText('Отдельный комментарий к записи');await expect(page.getByRole('dialog')).toContainText('только просмотр');
+  for(const label of ['Комментарий','Файл','Закрыть важное'])await expect(page.getByRole('dialog').getByRole('button',{name:label,exact:true})).toHaveCount(0);
+  await page.getByRole('dialog').getByRole('button',{name:'Открыть',exact:true}).click();await expect(page.locator('.attachment-large-preview')).toBeVisible();await page.goBack();await expect(page.getByRole('dialog')).toContainText('Неизменяемый снимок');
+  await shot(page,'J14-036-archive-readonly',{state:'ordinary-and-handover-comments-are-distinct'});await page.goBack();expect(archived).toBe(true);expect(network.filter(n=>n.method==='POST')).toHaveLength(1);expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+test('Journey J29 report validation failed create then failed file retry retains one entity and draft',async({page})=>{
+  let creates=0,uploads=0,failCreate=true,failFile=true;const operationIds:string[]=[];
+  await isolate(page,{role:'MASTER',replies:async(r,p)=>{
+    if(p==='/error-reports'&&r.request().method()==='POST'){creates++;await json(r,failCreate?{message:'Сервис временно недоступен'}:{ok:true,id:'memory-report',message:'Создано',report:{id:'memory-report',title:'Не работает кнопка',section:'Смена',description:'Проверить переход к оборудованию',status:'NEW',createdAt:'2026-09-15T00:00:00Z'}},failCreate?503:201);return true;}
+    if(p==='/attachments/upload'&&r.request().method()==='POST'){uploads++;const body=r.request().postData()||'';operationIds.push(body.match(/name="operationId"\r\n\r\n([^\r]+)/)?.[1]||'missing');expect(body).toContain('memory-report');await json(r,failFile?{message:'Файл временно не принимается'}:{...attachment,entityType:'ERROR_REPORT',entityId:'memory-report'},failFile?503:201);return true;}
+    return linkedReplies(r,p);
+  }});await page.goto('/');await expect(page.getByRole('button',{name:'Отправить администратору',exact:true})).toBeDisabled();
+  await page.getByLabel('Тема',{exact:true}).fill('Не работает кнопка');await page.getByLabel('Описание',{exact:true}).fill('Проверить переход к оборудованию');
+  await page.getByRole('button',{name:'Добавить вложение',exact:true}).click();await page.locator('.attachment-source-list input[type=file]').nth(1).setInputFiles({name:'Осмотр.png',mimeType:'image/png',buffer:imageBytes});
+  await page.getByRole('button',{name:'Отправить администратору',exact:true}).click();await expect(page.locator('.error-state').first()).toContainText('Ошибка сервера. Повторите позже.');await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('Не работает кнопка');expect(uploads).toBe(0);
+  failCreate=false;await page.getByRole('button',{name:'Отправить администратору',exact:true}).click();await expect(page.locator('.attachment-upload-feedback')).toContainText('Не удалось загрузить файл');expect(creates).toBe(2);await expect(page.locator('.attachment-preview')).toContainText('Осмотр.png');
+  failFile=false;await page.locator('.attachment-upload-feedback').getByRole('button',{name:'Повторить',exact:true}).click();await expect(page.locator('.success-state')).toContainText('Ошибка отправлена');expect(creates).toBe(2);expect(uploads).toBe(2);expect(operationIds[0]).not.toBe('missing');expect(operationIds[1]).toBe(operationIds[0]);await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('');
+  await shot(page,'J29-report-memory-retry',{state:'memory-only-no-real-report-upload'});expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+test('Journey J32 one shell source task media Back notification factory modal dirty theme return',async({page})=>{
+  let readAt:string|null=null;
+  await isolate(page,{replies:async(r,p)=>{
+    const factory=r.request().headers()['x-factory-id']||'series-factory';
+    if(p==='/auth/me'){await json(r,me(factory));return true;}
+    if(p==='/tasks/series-task'){await json(r,{...taskRow,attachments:[attachment]});return true;}
+    if(p==='/attachments/memory-evidence-image/file'){await r.fulfill({contentType:'image/png',body:imageBytes});return true;}
+    if(p==='/notifications'){await json(r,[{id:'memory-notice',factoryId:factory,sourceRoute:'tasks',title:'Проверка связи',message:'Связанное оборудование',severity:'INFO',createdAt:'2026-09-15T00:00:00Z',readAt}]);return true;}
+    if(p==='/notifications/unread-count'){await json(r,{count:readAt?0:1});return true;}
+    if(p==='/notifications/memory-notice/read'){readAt='2026-09-15T00:01:00Z';await json(r,{ok:true});return true;}
+    return linkedReplies(r,p);
+  }});await page.setViewportSize({width:1440,height:720});await page.goto('/');await open(page,'Люди');await page.locator('.people-compact-row').first().click();await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();
+  await expect(page.getByRole('dialog')).toContainText(taskRow.description);await page.getByRole('dialog').getByRole('button',{name:'Открыть',exact:true}).click();await expect(page.locator('.attachment-large-preview')).toBeVisible();
+  await page.goBack();await expect(page.getByRole('dialog')).toContainText(taskRow.description);await page.goBack();await page.goBack();await expect(page.locator('.profile-card')).toBeVisible();await page.goBack();
+  await open(page,'Уведомления');await page.locator('.notification-card').getByRole('button',{name:'Открыть',exact:true}).click();await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible();await page.goBack();await expect(page.locator('.notification-card')).toContainText('прочитано');
+  await switchFactory(page);await expect(page.getByRole('dialog')).toHaveCount(0);await open(page,'Заявки');await page.getByRole('button',{name:'Создать заявку',exact:true}).click();await page.getByLabel('Описание',{exact:true}).fill('Черновик второй площадки');await page.getByLabel('Описание',{exact:true}).blur();await page.goBack();await expect(page.getByText('Изменения не сохранены',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Остаться',exact:true}).click();await expect(page.getByLabel('Описание',{exact:true})).toHaveValue('Черновик второй площадки');
+  await page.getByRole('button',{name:'Отмена',exact:true}).click();await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();await open(page,'Сообщить');await page.getByLabel('Тема',{exact:true}).fill('Тема сохраняется');
+  const mutations=network.filter(n=>n.method&&n.method!=='GET').length;await page.locator('.nav-settings-button').click();await page.getByRole('button',{name:'Серая',exact:true}).click();await page.setViewportSize({width:360,height:640});await page.goBack();await page.goBack();
+  await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('Тема сохраняется');await expect(page.locator('html')).toHaveAttribute('data-theme','gray');expect(network.filter(n=>n.method&&n.method!=='GET')).toHaveLength(mutations);
+  await page.reload();await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('Тема сохраняется');await shot(page,'J32-one-shell-final',{state:'same-app-sequence-then-explicit-reload'});expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+test('Master task detail readonly capability matches action sheet and never advertises forbidden writes',async({page})=>{
+  await isolate(page,{role:'TECH_MECHANIC',replies:linkedReplies});await page.goto('/');await open(page,'Люди');
+  await page.locator('.people-compact-row').first().click();await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();
+  await expect(page.getByRole('dialog')).toContainText(taskRow.description);
+  for(const name of ['Добавить комментарий','Взять в работу','Завершить заявку','Передать'])await expect(page.getByRole('dialog').getByRole('button',{name,exact:true})).toHaveCount(0);
+  expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+test('Master 069 install shared settings login cancellation acceptance event and reload',async({page})=>{
+  await isolate(page,{replies:linkedReplies});
+  await page.addInitScript(()=>{
+    (window as any).installCalls=0;
+    (window as any).offerInstall=(outcome:string)=>{
+      const event=Object.assign(new Event('beforeinstallprompt',{cancelable:true}),{prompt:async()=>{(window as any).installCalls++;},userChoice:Promise.resolve({outcome})});window.dispatchEvent(event);
+    };
+  });
+  await page.setViewportSize({width:390,height:844});await page.goto('/');await page.getByRole('button',{name:'Ещё',exact:true}).click();await page.getByRole('button',{name:'Настройки',exact:true}).click();
+  await page.getByRole('button',{name:'Установить приложение',exact:true}).click();
+  await expect(page.locator('.pwa-install-control')).toContainText('Если такого пункта нет');
+  await page.evaluate(()=>(window as any).offerInstall('dismissed'));
+  await page.getByRole('button',{name:'Установить приложение',exact:true}).click();await expect(page.getByRole('button',{name:'Установка отменена',exact:true})).toBeVisible();
+  expect(await page.evaluate(()=>(window as any).installCalls)).toBe(1);
+  await page.getByRole('button',{name:'Выйти из аккаунта',exact:true}).click();
+  await expect(page.locator('#login-phone')).toBeVisible();await expect(page.getByRole('button',{name:'Установка отменена',exact:true})).toBeVisible();
+  await page.evaluate(()=>(window as any).offerInstall('accepted'));await page.getByRole('button',{name:'Установить приложение',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Запрос установки принят',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Приложение установлено',exact:true})).toHaveCount(0);
+  await page.evaluate(()=>window.dispatchEvent(new Event('appinstalled')));await expect(page.getByRole('button',{name:'Приложение установлено',exact:true})).toBeDisabled();
+  await shot(page,'069-login-install-event',{state:'event-isolated-not-physical-install'});
+  await page.reload();await expect(page.getByRole('button',{name:'Установить приложение',exact:true})).toBeVisible();
+  expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+test('Master 069 separate media gestures success denial and late stream cleanup',async({page})=>{
+  await isolate(page,{replies:linkedReplies});
+  await page.addInitScript(()=>{
+    (window as any).mediaCalls=[];(window as any).trackStops=0;
+    Object.defineProperty(navigator.mediaDevices,'getUserMedia',{value:async(constraints)=>{
+      (window as any).mediaCalls.push(constraints);
+      if((window as any).denyMedia)throw new DOMException('','NotAllowedError');
+      if((window as any).holdMedia)await new Promise(resolve=>(window as any).releaseMedia=resolve);
+      return {getTracks:()=>[{stop:()=>{(window as any).trackStops++;}}]};
+    }});
+  });await page.goto('/');await page.locator('.nav-settings-button').click();
+  expect(await page.evaluate(()=>(window as any).mediaCalls)).toEqual([]);
+  await page.getByRole('button',{name:'Проверить микрофон',exact:true}).click();await expect(page.locator('.device-access-panel')).toContainText('Пробный поток остановлен');
+  expect(await page.evaluate(()=>(window as any).mediaCalls)).toEqual([{audio:true,video:false}]);
+  await page.evaluate(()=>(window as any).denyMedia=true);await page.getByRole('button',{name:'Проверить камеру',exact:true}).click();await expect(page.locator('.device-access-panel')).toContainText('Доступ не предоставлен');
+  await page.evaluate(()=>{(window as any).denyMedia=false;(window as any).holdMedia=true;});
+  await page.getByRole('button',{name:'Проверить камеру',exact:true}).click();await expect.poll(()=>page.evaluate(()=>Boolean((window as any).releaseMedia))).toBe(true);
+  await page.goBack();await expect(page.locator('.device-access-panel')).toHaveCount(0);await page.evaluate(()=>(window as any).releaseMedia());
+  await expect.poll(()=>page.evaluate(()=>(window as any).trackStops)).toBe(2);
+  expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+test('Master 063 manager future night profile returns selected date panel search',async({page})=>{
+  const next={shiftDate:'2026-09-17',targetShiftDate:'2026-09-17',shiftType:'NIGHT',label:'Ночная смена'};
+  await isolate(page,{role:'MASTER',replies:async(route,p)=>{
+    if(p==='/shift/timeline'){await json(route,{current:{...next,shiftDate:'2026-09-15',targetShiftDate:'2026-09-15',shiftType:'DAY'},next:{...next,shiftDate:'2026-09-15',targetShiftDate:'2026-09-15'},future:[{...next,shiftDate:'2026-09-16',targetShiftDate:'2026-09-16',shiftType:'DAY'},next],past:[]});return true;}
+    if(p==='/shift/future'){const q=new URL(route.request().url()).searchParams;await json(route,{targetShiftDate:q.get('targetShiftDate')||'2026-09-15',shiftType:q.get('shiftType')||'NIGHT',willBe:[{id:'will-be',userId:person.id,displayName:person.displayName,status:'WILL_BE'}],contractorSubmissions:[],plannedLines:[],plannedNonLineAssignments:[],counts:{willBe:1,cancelled:0,removed:0,contractorItems:0,plannedLines:0,plannedSlots:0,plannedAssignments:0,plannedNonLineAssignments:0,confirmedUnassigned:1,assignedUnconfirmed:0,deficit:0,surplus:1}});return true;}
+    return linkedReplies(route,p);
+  }});
+  await page.setViewportSize({width:390,height:844});await page.goto('/');await open(page,'Смена');
+  await page.locator('.shift-selector-compact').click();await page.getByRole('button',{name:/Будущая смена 2/}).click();
+  await page.getByRole('button',{name:/Подтвердили «Я буду»/}).click();
+  await page.locator('#future-planning-search').fill('Сервисов');
+  await page.locator('#future-planning-search').blur();
+  await page.locator('.future-planning-panel').getByRole('button',{name:'Профиль',exact:true}).click();
+  await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();await expect(page.getByRole('dialog')).toContainText(taskRow.description);
+  await page.goBack();await page.goBack();await expect(page.locator('.profile-card')).toBeVisible();
+  await page.goBack();
+  await shot(page,'063-manager-future-return',{state:'real-manager-future-night-parent-search'});
+  await expect(page.locator('#future-planning-search')).toHaveValue('Сервисов');
+  await expect(page.locator('.shift-selector-compact')).toContainText('17.09.2026');
+  await expect(page.locator('.shift-selector-compact')).toContainText('Ночь');
+  expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+const factories = [
+  {id:'series-factory',name:'Изолированный завод',role:'ADMIN',isGuest:false},
+  {id:'series-second',name:'Вторая площадка',role:'ADMIN',isGuest:false},
+];
+const me = (factory: string) => ({userId:'series-user',selectedFactoryId:factory,role:'ADMIN',isAdmin:true,isGuest:false,permissions,availableFactories:factories,displayName:'Проверка интерфейса'});
+async function switchFactory(page: Page) {
+  await page.locator('.nav-settings-button').click();
+  await page.getByRole('button',{name:'Сменить завод',exact:true}).click();
+  await page.getByRole('button',{name:/Вторая площадка/}).click();
+  await expect(page.locator('.brand-name')).toHaveText('Вторая площадка');
+}
+for (const gate of ['read','unread','authority'] as const) {
+  test(`Master 044 ${gate} response after factory switch stays cancelled`, async ({page}) => {
+    let armed=false, release:(()=>void)|undefined, delivered=false;
+    await isolate(page,{replies:async(route,p)=>{
+      const factory=route.request().headers()['x-factory-id']||'series-factory';
+      const held=armed&&factory==='series-factory'&&((gate==='read'&&p==='/notifications/late/read')||(gate==='unread'&&p==='/notifications/unread-count')||(gate==='authority'&&p==='/auth/me'));
+      if(held){armed=false;await new Promise<void>(resolve=>{release=resolve;});}
+      if(p==='/auth/me'){await json(route,me(factory));if(held)delivered=true;return true;}
+      if(p==='/notifications/unread-count'){await json(route,{count:factory==='series-factory'?7:0});if(held)delivered=true;return true;}
+      if(p==='/notifications/late/read'){await json(route,{ok:true});if(held)delivered=true;return true;}
+      if(p==='/notifications'){await json(route,[{id:'late',factoryId:'series-factory',sourceRoute:'tasks',title:'Заявка требует внимания',message:'Проверка позднего ответа',severity:'WARNING',createdAt:'2026-09-15T00:00:00Z',readAt:null}]);return true;}
+      return linkedReplies(route,p);
+    }});
+    await page.setViewportSize({width:1440,height:720});await page.goto('/');await open(page,'Уведомления');
+    await expect(page.locator('.notification-card')).toBeVisible();armed=true;
+    await page.locator('.notification-card').getByRole('button',{name:'Открыть',exact:true}).click();
+    await expect.poll(()=>Boolean(release)).toBe(true);
+    await switchFactory(page);
+    const beforeRelease=network.length;
+    release!();await expect.poll(()=>delivered).toBe(true);
+    await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
+    await shot(page,`044-${gate}-late`,{state:'late-after-factory-change',gate});
+    records.push({gate,requestsAfterRelease:network.slice(beforeRelease)});save();
+    await expect(page.locator('.brand-name')).toHaveText('Вторая площадка');
+    await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeHidden();
+    expect(network.slice(beforeRelease).filter(r=>r.factory==='series-factory'&&r.path==='/auth/me')).toEqual([]);
+    expect(unknown).toEqual([]);expect(errors).toEqual([]);
+  });
+}
+
+test('Master 044 last distinct notification intent wins reversed authority responses',async({page})=>{
+  let armed=false,release:(()=>void)|undefined,authorities=0;
+  await isolate(page,{replies:async(route,p)=>{
+    if(p==='/auth/me') {if(armed&&++authorities===1)await new Promise<void>(resolve=>{release=resolve;});await json(route,me('series-factory'));return true;}
+    if(/^\/notifications\/(first|second)\/read$/.test(p)){await json(route,{ok:true});return true;}
+    return linkedReplies(route,p);
+  }});await page.goto('/');await expect(page.locator('.brand-name')).toBeVisible();armed=true;
+  // Genuine browser/SW callback protocol; no direct access to React internals.
+  await page.evaluate(()=>window.dispatchEvent(new CustomEvent('zavod:notification-navigation',{detail:{notificationId:'first',factoryId:'series-factory',sourceRoute:'tasks'}})));
+  await expect.poll(()=>Boolean(release)).toBe(true);
+  await page.evaluate(()=>navigator.serviceWorker.dispatchEvent(new MessageEvent('message',{data:{type:'ZAVOD_NOTIFICATION_NAVIGATION',intent:{notificationId:'second',factoryId:'series-factory',sourceRoute:'people'}}})));
+  await expect(page.getByRole('heading',{name:'Люди',exact:true})).toBeVisible();
+  release!();await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
+  await shot(page,'044-reversed-authority',{state:'latest-source-must-remain'});
+  await expect(page.getByRole('heading',{name:'Люди',exact:true})).toBeVisible();
+  expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+test('Master 063 authorized detail outside board300 uses existing guarded endpoint',async({page})=>{
+  await isolate(page,{replies:async(route,p)=>{
+    if(p==='/tasks/board'){await json(route,{NEW:[],IN_PROGRESS:[],LONG:[],DONE:[]});return true;}
+    return linkedReplies(route,p);
+  }});await page.goto('/');await open(page,'Люди');
+  await page.locator('.people-compact-row').first().click();
+  await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();
+  await shot(page,'063-board-excludes-authorized-target',{state:'board-is-not-authority-for-detail'});
+  await expect(page.getByRole('dialog')).toContainText(taskRow.description);
+  expect(network.filter(r=>r.path==='/tasks/series-task')).toHaveLength(1);
+  await page.goBack();await expect(page.getByRole('dialog')).toBeHidden();
+  await page.goBack();await expect(page.locator('.profile-card')).toBeVisible();
+  expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+test('Master 063 guarded detail errors preserve honest denial and explicit retry',async({page})=>{
+  let status=403,details=0;
+  await isolate(page,{replies:async(route,p)=>{
+    if(p==='/tasks/series-task'){details++;await json(route,status===200?taskRow:{message:'Доступ к заявке сейчас запрещён.'},status);return true;}
+    return linkedReplies(route,p);
+  }});await page.goto('/');
+  for(const failure of [401,403,404,409,503]) {
+    status=failure;await open(page,'Люди');await page.locator('.people-compact-row').first().click();
+    await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();
+    await expect(page.locator('.error-state')).toContainText('Связанная заявка недоступна.');
+    await expect(page.getByRole('dialog')).toBeHidden();
+    const attempts=details;status=200;
+    await page.getByRole('button',{name:'Повторить открытие заявки',exact:true}).click();
+    await expect(page.getByRole('dialog')).toContainText(taskRow.description);expect(details).toBe(attempts+1);
+    await page.goBack();await page.goBack();await expect(page.locator('.profile-card')).toBeVisible();
+    await page.goBack();await open(page,'Сообщить');
+  }
+  expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});
+
+test('Master 063 pending detail cancelled by Back and new target wins reversed replies',async({page})=>{
+  let held=true,release:(()=>void)|undefined;
+  await isolate(page,{replies:async(route,p)=>{
+    if(p==='/tasks/series-task'){if(held)await new Promise<void>(resolve=>{release=resolve;});await json(route,taskRow);return true;}
+    if(p==='/tasks/second-task'){await json(route,{...taskRow,id:'second-task',title:'Второе обращение',description:'Второе обращение'});return true;}
+    return linkedReplies(route,p);
+  }});await page.goto('/');await open(page,'Люди');await page.locator('.people-compact-row').first().click();
+  await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();await expect.poll(()=>Boolean(release)).toBe(true);
+  await page.goBack();await expect(page.locator('.profile-card')).toBeVisible();release!();held=false;
+  await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
+  await expect(page.locator('.profile-card')).toBeVisible();await expect(page.locator('.task-detail-panel')).toBeHidden();
+  held=true;release=undefined;await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();await expect.poll(()=>Boolean(release)).toBe(true);
+  // Address the existing navigation protocol explicitly; this is a bounded race schedule, not another source-control census row.
+  await page.evaluate(()=>window.dispatchEvent(new CustomEvent('zavod:navigate',{detail:{screen:'Tasks',taskId:'second-task'}})));
+  await expect(page.getByRole('dialog')).toContainText('Второе обращение');release!();
+  await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
+  await expect(page.getByRole('dialog')).toContainText('Второе обращение');
+  expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});

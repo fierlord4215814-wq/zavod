@@ -1,0 +1,25 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+index 0933beb7..5fe7a8f8 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+@@ -1,8 +1,18 @@
+ # MASTER R5 — recoverable checkpoint
+ 
+-MASTER_R5_STATUS=BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS. EXECUTION_STATUS=WAITING_OWN_HELPER_STATE_AND_GUEST_CONSOLE. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO.
++MASTER_R5_STATUS=WAITING_GUEST_READ_ONLY_DIAGNOSTICS. EXECUTION_STATUS=WAITING_MANUAL_GUEST_SHELL. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO.
+ 
+-## Текущий checkpoint — 20.09.2026 16:34+03
++## Текущий checkpoint — 20.09.2026, source-first late command 3
++
++Последняя завершённая операция: точное воспроизведение выражения из `attempts/20260920-vm-control/create-seed-media.ps1:50`, SHA3964a3d034f5e97f3cd9d0c621699519ed5de4da9a73f099973e7121a9104a9a. PowerShell создаёт 5 argv вместо 3; программа для `sh -c` обрывается на незакрытой кавычке. Host `sh -n -c` (ТОЛЬКО синтаксис, payload НЕ исполнялся) дал exit2/unmatched quote; вариант с двумя скобками — 3 argv/exit0. Это подтверждённый дефект provisioning source, не продукта. Candidate NOT_APPLIED: генератор, seed и guest не менялись.
++
++Пользователь наблюдал в VMConnect успешные post-install/OpenSSH/cloud-init/late0–2 и exit2 late3/install_fail. Это USER_OBSERVED; гостевые config/stderr/target ещё не прочитаны. Direct own private user-data read denied Windows ACL, не «файл отсутствует»; обходов/нового UAC нет. Нельзя объявить base Ubuntu bootable или commands0–2 independently verified. Прежде всего рассмотреть завершение существующего гостя, переустановка не обоснована.
++
++Новые сохранённые runtime receipts:000006 result18:03:32 COMPLETED, но VMState2=Running; terminal18:03:33 EXITED_VM_AND_EVIDENCE_PRESERVED/deadlineReached. PID9056 сейчас отсутствует.000007 безresult, не считать исполненным. Fresh Hyper-V jobs ещё не сверены. Новых helper/VM operations нет; прежнее «helper ещё жив» ниже — история.
++
++Незавершённая операция: привязать source defect к actual `/autoinstall.yaml`/stderr и проверить `/target`, proof marker, users/sudoers, boot/package/finalization state. Точка восстановления: **один ручной шаг Help → Enter shell в уже открытой own VMConnect, снимок только появившегося приглашения, без команд**. После него определить точный read-only guest diagnostic. До этого никаких reboot/shutdown/retry/reinstall/VM/VHDX/seed изменений; учитывать `shutdown: poweroff` в source перед любым будущим завершением installer. [Полная диагностика](attempts/20260920-late-command3-diagnosis/diagnosis.md), exact argv/parse receipts в той же attempt. Product/tests/live/newjourneys0; main6matrices и4старыхZIP byte-verified unchanged. Рабочую DB/service/env/uploads/history не читали и не трогали. STOP_AT_REQUIRED_MANUAL_GUEST_OBSERVATION.
++
++## Исторический checkpoint — 20.09.2026 16:34+03
+ 
+ Последняя завершённая операция: bounded read-only observer PID8296 штатно завершён; собственный не подключившийся viewer9616 после accessibility error observation закрыт обычным Alt+F4, PID отсутствует. VM была Running16:26:38, guest screen UNVERIFIED. Thumbnail actual lengths614404/153604 приexpected614400/153600, API0; guard не ослаблялся. VMConnect non-admin access denied; screenshot через computer-use дважды failed SetIsBorderRequired0x80004002. Ни наличие viewer, ни accessibility error не доказывают состояние Ubuntu.
+ 

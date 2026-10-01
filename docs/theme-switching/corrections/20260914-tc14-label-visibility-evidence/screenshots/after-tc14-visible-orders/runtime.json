@@ -1,0 +1,514 @@
+{
+  "phase": "after",
+  "batch": "20260914-tc14-label-visibility-evidence",
+  "screenshots": [
+    {
+      "file": "desktop-gray-orders-tabs-visible.png",
+      "capturedAt": "2026-09-14T10:06:55.594Z",
+      "productStyleFingerprint": "a11237e29ee59a56356218c13289686c55eda6cf236a34716bc35d2eca124eb7",
+      "harnessFingerprint": "62f28fb8286f29f68918f4d5b0f0846d517fd04ef388e03ff6dbd34e914e394d",
+      "theme": "gray",
+      "width": 1440,
+      "overflowX": 0,
+      "bodyBackground": "rgba(0, 0, 0, 0)",
+      "textColor": "rgb(32, 40, 47)",
+      "role": "Admin",
+      "selectedTheme": "gray",
+      "oldReviewId": "TC14-IMG-0060",
+      "sourceRelativePath": "screenshots/after-controls/desktop-gray-orders-tabs.png",
+      "state": "tc14-orders-tabs-visible",
+      "visibilityStatus": "VERIFIED_VISIBLE",
+      "scrollMethod": "scrollIntoView-center"
+    },
+    {
+      "file": "desktop-light-orders-tabs-visible.png",
+      "capturedAt": "2026-09-14T10:06:56.521Z",
+      "productStyleFingerprint": "a11237e29ee59a56356218c13289686c55eda6cf236a34716bc35d2eca124eb7",
+      "harnessFingerprint": "62f28fb8286f29f68918f4d5b0f0846d517fd04ef388e03ff6dbd34e914e394d",
+      "theme": "light",
+      "width": 1440,
+      "overflowX": 0,
+      "bodyBackground": "rgba(0, 0, 0, 0)",
+      "textColor": "rgb(36, 32, 26)",
+      "role": "Admin",
+      "selectedTheme": "light",
+      "oldReviewId": "TC14-IMG-0064",
+      "sourceRelativePath": "screenshots/after-controls/desktop-light-orders-tabs.png",
+      "state": "tc14-orders-tabs-visible",
+      "visibilityStatus": "VERIFIED_VISIBLE",
+      "scrollMethod": "scrollIntoView-center"
+    },
+    {
+      "file": "desktop-dark-orders-tabs-visible.png",
+      "capturedAt": "2026-09-14T10:06:57.397Z",
+      "productStyleFingerprint": "a11237e29ee59a56356218c13289686c55eda6cf236a34716bc35d2eca124eb7",
+      "harnessFingerprint": "62f28fb8286f29f68918f4d5b0f0846d517fd04ef388e03ff6dbd34e914e394d",
+      "theme": "dark",
+      "width": 1440,
+      "overflowX": 0,
+      "bodyBackground": "rgba(0, 0, 0, 0)",
+      "textColor": "rgb(247, 248, 251)",
+      "role": "Admin",
+      "selectedTheme": "dark",
+      "oldReviewId": "TC14-IMG-0068",
+      "sourceRelativePath": "screenshots/after-controls/desktop-dark-orders-tabs.png",
+      "state": "tc14-orders-tabs-visible",
+      "visibilityStatus": "VERIFIED_VISIBLE",
+      "scrollMethod": "scrollIntoView-center"
+    }
+  ],
+  "apiReads": [
+    "/auth/me",
+    "/auth/me",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/shift/people",
+    "/lines",
+    "/work-areas",
+    "/shift/timeline",
+    "/lines/downtime-reasons",
+    "/health",
+    "/shift-log/handover/previous",
+    "/shift-log/handover/availability",
+    "/shift/people",
+    "/lines",
+    "/work-areas",
+    "/shift/timeline",
+    "/lines/downtime-reasons",
+    "/health",
+    "/shift-log/handover/previous",
+    "/shift-log/handover/availability",
+    "/orders/summary",
+    "/orders/items",
+    "/orders/requests",
+    "/orders/summary",
+    "/orders/items",
+    "/orders/requests",
+    "/directory/departments",
+    "/directory/departments",
+    "/orders/items",
+    "/orders/requests",
+    "/orders/items",
+    "/orders/requests",
+    "/auth/me",
+    "/auth/me",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/shift/people",
+    "/lines",
+    "/work-areas",
+    "/shift/timeline",
+    "/lines/downtime-reasons",
+    "/health",
+    "/shift-log/handover/previous",
+    "/shift-log/handover/availability",
+    "/shift/people",
+    "/lines",
+    "/work-areas",
+    "/shift/timeline",
+    "/lines/downtime-reasons",
+    "/health",
+    "/shift-log/handover/previous",
+    "/shift-log/handover/availability",
+    "/orders/summary",
+    "/orders/items",
+    "/orders/requests",
+    "/orders/summary",
+    "/orders/items",
+    "/orders/requests",
+    "/directory/departments",
+    "/directory/departments",
+    "/orders/items",
+    "/orders/requests",
+    "/orders/items",
+    "/orders/requests",
+    "/auth/me",
+    "/auth/me",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/auth/assignment-request",
+    "/orders/summary",
+    "/orders/items",
+    "/orders/requests",
+    "/orders/summary",
+    "/orders/items",
+    "/orders/requests",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/directory/departments",
+    "/directory/departments",
+    "/orders/items",
+    "/orders/requests",
+    "/orders/items",
+    "/orders/requests"
+  ],
+  "apiWrites": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response",
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response",
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response"
+  ],
+  "requestFailures": [],
+  "isolatedFixtureWrites": [],
+  "computedStyles": [],
+  "visibilityChecks": [
+    {
+      "caseId": "TC14-IMG-0060-visible",
+      "scrollMethod": "scrollIntoView-center",
+      "role": "Admin",
+      "selectedTheme": "gray",
+      "width": 1440,
+      "oldReviewId": "TC14-IMG-0060",
+      "sourceRelativePath": "screenshots/after-controls/desktop-gray-orders-tabs.png",
+      "text": "ОстаткиЗаявки на заказАрхив",
+      "rect": {
+        "x": 213,
+        "y": 422.13690185546875,
+        "width": 1014,
+        "height": 50,
+        "right": 1227,
+        "bottom": 472.13690185546875
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "effectiveClip": {
+        "left": 0,
+        "top": 0,
+        "right": 1440,
+        "bottom": 843.78125
+      },
+      "clippingAncestors": [
+        {
+          "tag": "DIV",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -267,
+            "width": 1440,
+            "height": 1110.78125
+          }
+        },
+        {
+          "tag": "BODY",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -267,
+            "width": 1440,
+            "height": 1110.78125
+          }
+        },
+        {
+          "tag": "HTML",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 267,
+          "rect": {
+            "x": 0,
+            "y": -267,
+            "width": 1440,
+            "height": 1110.78125
+          }
+        }
+      ],
+      "fullyInsideClip": true,
+      "hitTestClear": true,
+      "fullyVisible": true,
+      "points": [
+        {
+          "x": 219,
+          "y": 428.13690185546875,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1221,
+          "y": 428.13690185546875,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 720,
+          "y": 447.13690185546875,
+          "topTag": "BUTTON",
+          "topClass": "",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 219,
+          "y": 466.13690185546875,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1221,
+          "y": 466.13690185546875,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        }
+      ]
+    },
+    {
+      "caseId": "TC14-IMG-0064-visible",
+      "scrollMethod": "scrollIntoView-center",
+      "role": "Admin",
+      "selectedTheme": "light",
+      "width": 1440,
+      "oldReviewId": "TC14-IMG-0064",
+      "sourceRelativePath": "screenshots/after-controls/desktop-light-orders-tabs.png",
+      "text": "ОстаткиЗаявки на заказАрхив",
+      "rect": {
+        "x": 213,
+        "y": 422.45538330078125,
+        "width": 1014,
+        "height": 50,
+        "right": 1227,
+        "bottom": 472.45538330078125
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "effectiveClip": {
+        "left": 0,
+        "top": 0,
+        "right": 1440,
+        "bottom": 843.78125
+      },
+      "clippingAncestors": [
+        {
+          "tag": "DIV",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -267,
+            "width": 1440,
+            "height": 1110.78125
+          }
+        },
+        {
+          "tag": "BODY",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -267,
+            "width": 1440,
+            "height": 1110.78125
+          }
+        },
+        {
+          "tag": "HTML",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 267,
+          "rect": {
+            "x": 0,
+            "y": -267,
+            "width": 1440,
+            "height": 1110.78125
+          }
+        }
+      ],
+      "fullyInsideClip": true,
+      "hitTestClear": true,
+      "fullyVisible": true,
+      "points": [
+        {
+          "x": 219,
+          "y": 428.45538330078125,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1221,
+          "y": 428.45538330078125,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 720,
+          "y": 447.45538330078125,
+          "topTag": "BUTTON",
+          "topClass": "",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 219,
+          "y": 466.45538330078125,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1221,
+          "y": 466.45538330078125,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        }
+      ]
+    },
+    {
+      "caseId": "TC14-IMG-0068-visible",
+      "scrollMethod": "scrollIntoView-center",
+      "role": "Admin",
+      "selectedTheme": "dark",
+      "width": 1440,
+      "oldReviewId": "TC14-IMG-0068",
+      "sourceRelativePath": "screenshots/after-controls/desktop-dark-orders-tabs.png",
+      "text": "ОстаткиЗаявки на заказАрхив",
+      "rect": {
+        "x": 213,
+        "y": 421.78125,
+        "width": 1014,
+        "height": 50,
+        "right": 1227,
+        "bottom": 471.78125
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "effectiveClip": {
+        "left": 0,
+        "top": 0,
+        "right": 1440,
+        "bottom": 843.78125
+      },
+      "clippingAncestors": [
+        {
+          "tag": "DIV",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -267,
+            "width": 1440,
+            "height": 1110.78125
+          }
+        },
+        {
+          "tag": "BODY",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -267,
+            "width": 1440,
+            "height": 1110.78125
+          }
+        },
+        {
+          "tag": "HTML",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 267,
+          "rect": {
+            "x": 0,
+            "y": -267,
+            "width": 1440,
+            "height": 1110.78125
+          }
+        }
+      ],
+      "fullyInsideClip": true,
+      "hitTestClear": true,
+      "fullyVisible": true,
+      "points": [
+        {
+          "x": 219,
+          "y": 427.78125,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1221,
+          "y": 427.78125,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 720,
+          "y": 446.78125,
+          "topTag": "BUTTON",
+          "topClass": "",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 219,
+          "y": 465.78125,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1221,
+          "y": 465.78125,
+          "topTag": "DIV",
+          "topClass": "premium-segmented-control orders-stock-tabs",
+          "targetOwnsHit": true
+        }
+      ]
+    }
+  ]
+}

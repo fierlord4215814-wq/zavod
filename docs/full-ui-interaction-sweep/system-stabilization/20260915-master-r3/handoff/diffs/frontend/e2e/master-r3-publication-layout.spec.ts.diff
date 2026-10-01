@@ -1,0 +1,13 @@
+--- /dev/null
++++ frontend/e2e/master-r3-publication-layout.spec.ts
+@@ -0,0 +1,10 @@
++import {test,expect} from '@playwright/test';
++import {isolate,linkedReplies,open,shot,before,errors,unknown,installEvidenceHooks} from './helpers/frontend-series';
++installEvidenceHooks();
++for(const theme of ['dark','gray','light'])for(const width of [1440,360,390,430])test(`R3-C4 empty announcement factual copy ${theme} ${width}`,async({page})=>{
++ await isolate(page,{role:'MASTER',theme,socket:()=>{},replies:linkedReplies});await page.setViewportSize({width,height:width===360?640:844});await page.goto('/');await open(page,'Объявления');
++ await expect(page.getByRole('heading',{name:'Новых объявлений нет.',exact:true})).toBeVisible();
++ if(!before){await expect(page.getByText('Все важные сообщения уже прочитаны.',{exact:false})).toHaveCount(0);await expect(page.getByText('Новых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.',{exact:true})).toBeVisible();}
++ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await shot(page,`C4-empty-${before?'before':'after'}-${theme}-${width}`,{family:'announcement empty state',scope:'text only; expired unread is not acknowledged'});expect(errors).toEqual([]);expect(unknown).toEqual([]);
++});
++

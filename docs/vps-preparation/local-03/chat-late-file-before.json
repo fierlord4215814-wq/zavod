@@ -1,0 +1,33 @@
+{
+  "attempt": "before",
+  "proof": "real HTTP response held, never fabricated; own group only",
+  "actors": {
+    "owner": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+    "member": "ea6cbf8e-fd24-4f90-a876-13d99c8f3d73"
+  },
+  "chatId": "784dd8cb-7857-440f-b647-0f688c25693e",
+  "title": "Учебный поздний ответ LOCAL03 before",
+  "messageId": "3e41ddb3-b293-4af4-aa4e-5fe10ad73af0",
+  "fileId": "ea4c3999-28d3-4419-ae74-5a1554255084",
+  "uploadRetrySameId": true,
+  "range": {
+    "status": 200,
+    "contentRange": null,
+    "acceptRanges": null,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813",
+    "verdict": "CHARACTERIZED_200_FULL_BODY_NO_RANGE_CONTRACT"
+  },
+  "abort": {
+    "status": 200,
+    "point": "after headers, before application body consumption",
+    "error": "AbortError"
+  },
+  "newContextRetry": {
+    "status": 200,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813"
+  },
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /^Чаты(?:\\s*\\d+)?$/ }).last()\u001b[22m\n",
+  "finallyArchive": 200
+}

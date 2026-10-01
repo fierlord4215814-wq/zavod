@@ -1,0 +1,132 @@
+{
+  "name": "Учебный расходный фильтр LOCAL03",
+  "roles": {
+    "MASTER": {
+      "request": {
+        "quantity": 1,
+        "comment": "Учебный расход 1 LOCAL03",
+        "operationId": "04f8c25b-5b66-41de-851a-d0fb8483693b"
+      },
+      "http": 201,
+      "secondUiMs": 356,
+      "quantity": 2,
+      "status": "PASS"
+    },
+    "TECHNOLOG": {
+      "request": {
+        "quantity": 1,
+        "comment": "Учебный расход 2 LOCAL03",
+        "operationId": "6e8090e6-e6ee-4225-ad28-bdddaaac26f7"
+      },
+      "http": 201,
+      "secondUiMs": 364,
+      "quantity": 1,
+      "status": "PASS"
+    },
+    "OKK": {
+      "request": {
+        "quantity": 1,
+        "comment": "Учебный расход 3 LOCAL03",
+        "operationId": "1587dffb-caae-463f-90f1-441b0731e791"
+      },
+      "http": 201,
+      "secondUiMs": 319,
+      "quantity": 0,
+      "status": "PASS"
+    }
+  },
+  "error": "Expected values to be strictly equal:\n\n403 !== 201\n",
+  "uiB": "Завод LOCAL-01\n\nЗавод\n\nОнлайн · Руководство Пользователь +.\n12\nЗаказы / Остатки\n\nНеснижаемый запас критичных позиций и заявки на пополнение. Это не складской учёт и не 1С.\n\nНИЖЕ МИНИМУМА\n0\nКРИТИЧНО / НЕТ\n0\nОТКРЫТЫЕ ЗАЯВКИ\n0\nПОЗИЦИИ\n0\nОстатки\nЗаявки на заказ\nАрхив\nПоиск и фильтры\nВсе доступные позиции\nДля работы с остатками нужен назначенный отдел.\n+ Новая позиция\nАктивных позиций остатков пока нет.\nНовая позиция остатка\nНаименование\nКатегория\nСклад / зона хранения\nМинимальный остаток\nТекущий остаток\nЕдиница измерения\nНе выбрано\nшт\nкг\nг\nм\nсм\nл\nмл\nупак.\nкороб\nрулон\nпара\nКомментарий\nДобавьте вложение. На телефоне камера и системный выбор открываются отдельными кнопками.\nСделать фото\nДобавить фото\nДобавить файл\nДля работы с остатками нужен назначенный отдел.\nОтмена\nСохранить\nСмена\nЛюди\nЛинии\nЗаявки\nМойка\nОКК\nНекондиция\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\n12\nСтатистика / Аудит\nСообщить об ошибке\nНастройки",
+  "temporaryDepartments": [
+    {
+      "role": "MANAGEMENT",
+      "uid": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+      "original": {
+        "id": "70ba05aa-058d-47b7-9be0-a5227a1dea50",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "factoryName": "Завод LOCAL-01",
+        "role": "MANAGEMENT",
+        "departmentId": null,
+        "departmentName": null,
+        "jobTitleId": null,
+        "jobTitleName": null,
+        "companyId": null,
+        "companyName": null,
+        "isGuest": false,
+        "isActive": true
+      },
+      "restored": true
+    },
+    {
+      "role": "MASTER",
+      "uid": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+      "original": {
+        "id": "10bf7ef5-3c6b-4ba7-bb9d-c2d47d351cac",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "factoryName": "Завод LOCAL-01",
+        "role": "MASTER",
+        "departmentId": null,
+        "departmentName": null,
+        "jobTitleId": null,
+        "jobTitleName": null,
+        "companyId": null,
+        "companyName": null,
+        "isGuest": false,
+        "isActive": true
+      },
+      "restored": true
+    },
+    {
+      "role": "TECHNOLOG",
+      "uid": "e3cd816e-6ee4-481f-8325-2d3bc52bf152",
+      "original": {
+        "id": "725acba8-f785-4376-a7f9-f7547f7b2977",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "factoryName": "Завод LOCAL-01",
+        "role": "TECHNOLOG",
+        "departmentId": null,
+        "departmentName": null,
+        "jobTitleId": null,
+        "jobTitleName": null,
+        "companyId": null,
+        "companyName": null,
+        "isGuest": false,
+        "isActive": true
+      },
+      "restored": true
+    }
+  ],
+  "id": "a70e6da5-41e5-4263-8267-b4d75bd110cf",
+  "requestId": "9586a848-bfe8-4313-9616-9818680fd26f",
+  "requestClosed": true,
+  "archived": true,
+  "sql": {
+    "item": {
+      "id": "a70e6da5-41e5-4263-8267-b4d75bd110cf",
+      "currentQuantity": 0,
+      "archivedAt": "2026-09-25T06:52:47.698Z",
+      "movements": [
+        {
+          "id": "bad86769-c2fb-43b0-9c3c-33e44fedadbe",
+          "type": "TAKE",
+          "quantity": 1
+        },
+        {
+          "id": "c1bf66c1-059d-409d-8e3c-7a1be2b25c5a",
+          "type": "TAKE",
+          "quantity": 1
+        },
+        {
+          "id": "fec0034a-a723-4ec8-8427-01c42c0da7fb",
+          "type": "TAKE",
+          "quantity": 1
+        }
+      ]
+    },
+    "request": {
+      "id": "9586a848-bfe8-4313-9616-9818680fd26f",
+      "status": "ORDERED"
+    }
+  },
+  "status": "PASS_FOUR_ORDERS_UI_ROLE_FAMILIES"
+}

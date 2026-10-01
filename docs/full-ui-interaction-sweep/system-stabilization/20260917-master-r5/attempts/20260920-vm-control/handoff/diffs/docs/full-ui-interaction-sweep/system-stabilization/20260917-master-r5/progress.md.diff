@@ -1,0 +1,46 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+index 01a3d0eb..1ac7d84c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+@@ -1,6 +1,40 @@
+ # MASTER R5 — recoverable checkpoint
+ 
+-MASTER_R5_STATUS=WAITING_MANUAL_REBOOT. EXECUTION_STATUS=STOPPED_AT_REBOOT_BOUNDARY. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO.
++MASTER_R5_STATUS=BLOCKED_CONSOLE_OBSERVATION_PERMISSION. EXECUTION_STATUS=GRACEFUL_OWN_SHUTDOWN_UNVERIFIED_HANDOFF. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO.
++
++## Safe handoff checkpoint — 20.09.2026 08:55+03
++
++Последняя завершённая операция: clean source tar337files/338entries full readback (6,896,128bytes/SHAeb829db148e8a2067dcf9e0cb9ad9ce8e63b361f8a13fade5f67fb7a9f973016), НЕ transfer/guest execution. Единственный own guest SSH22 probe10.243.53.2 timeout, authentication0. Дополнительное read-only observer UAC разрешение ещё не получено, launcher НЕ запускался. Рабочая PostgreSQL/service/env/uploads/history не читались. Новых app/DB/fixtures/tests0.
++
++Незавершённая операция: request00000608:48 обычный Stop-VM безForce/TurnOff; на08:55 terminal отсутствует. EXIT_COORDINATOR000007 queued, также безterminal. Own helper PID9056 действительно ещё работает; last confirmed VM state Running08:34. **Текущий Off/stop не доказан, SHUTDOWN_PENDING_UNVERIFIED; не PASS и не STOPPED.** Force kill/poweroff не делать. Восьмичасовой loop deadline helper не гарантирует прерывание синхронного Stop-VM; этот lifecycle limitation явно остаётся переданным. Точка восстановления: после разрешения read-only observer проверить exact own VM/console/остановку, не запускать duplicate coordinator/VM поверх pending operation. Then Ubuntu/transfer/isolation→original stages3–9. Финальный runtime status только по attempts/20260920-vm-control/environment-runtime-receipt.json; новая ZIP unique, оба прежних сохранены. Основной sweep остаётся PAUSED_BY_USER / NOT_ACCEPTED.
++
++## Current checkpoint — 20.09.2026 08:42+03
++
++Полный Ubuntu ISO4,080,486,400bytes реально собран после exact HTTP206 tail; SHA25697f3d7ffb032c3eb3b23d2c8be9cc76e60c2c1f2c0146ba5ba9fe01cafae0fd8 совпал с официальной signed metadata. Partial19.09/tail20.09 сохранены, download session41415 exit0 завершён. Own seed ISO создан (guest-only key/private media вне evidence, в review не включать). Ограниченный helper PID9056 actualElevated=true подключил оба verified media и включил own VM99a158da-c247-422c-ae11-109485a92b1f08:34; VMStateRunning/4GiB assigned подтверждены, app/bootstrap/fixtures отсутствуют. Не приравнивать powered-on VM к установленному гостю.
++
++Результаты000004/000005 CAPTURE: «VM thumbnail failed:0»; returned success code не сопровождён ожидаемым RGB565 размером, raw image не получен. Это HARNESS/OBSERVATION failure, не отказ Ubuntu. Прямая non-admin read-only попытка не вернула VM object; Windows ComputerUse list_windows не нашёл открытого VMConnect, UI input не выполнялся. Слепое yes/partition confirmation НЕ отправлялось. Подготовлен отдельный bounded read-only observer; **ещё НЕ запущен**, требуется один дополнительный scoped visible UAC approval, вопрос пользователю отправлен. Его первый C# encoder preflight выявил missing GdiPlus reference до UAC; заменён на PowerShell/.NET encoder, parser0. Old helper/scripts/results не менялись. Prep proxy подготовлен, НЕ запущен; host listeners не добавлены. Следующая операция только после ответа: approved read-only observer → фактическая консоль → штатная установка собственного guest → transfer/isolation. Если пользователь не разрешает, сохранить/штатно остановить только proven-own runtime и handoff, не обходить права.
++
++## Renewed explicit UAC approval — 20.09.2026
++
++Пользователь явно ответил «Да, разрешаю; готов подтвердить UAC» на один новый scoped VM-control запуск. Named attempt `attempts/20260920-vm-control/`; прежние отменённые receipts/guards19.09 неизменны. Fresh read-only host08:25: boot20.09 08:03:28.500+03, DEP/HypervisorPresent=true, vmms Running, RAMfree9,026,576,384bytes/diskfree50,506,760,192bytes. DISM не повторялся. Limited visible helper PID9056 actualTokenElevated=true создал ровно одну собственную Gen2 VM99a158da-c247-422c-ae11-109485a92b1f,2CPU/4GiBfixed/16GiBdynamic VHDX, secureboot, autostartNothing/checkpointsOFF; VM пока OFF. Собственный Internal switch/private10.243.53.0/30 без NAT/firewall/policy changes. Actual receipts: vm-control-before.json/vm-created.json. Это VM provision, НЕ guest/isolation/live PASS.
++
++Последняя завершённая операция: создание собственной VM в выключенном состоянии08:26. Следующая: безопасное докачивание отдельного ISO tail без изменения старого partial, полный bytes/hash, seed/Ubuntu boot. Download19.09 завершился curl28timeout1800001ms, partial3,665,735,933из4,080,486,400bytes сохранён; active download больше нет. Старый handoff ZIP после cancellation ещё НЕ был собран; финальный единый отчёт/пакет отражает результат текущего разрешённого продолжения. Рабочая PostgreSQL/service/env/uploads/history не исследовались. Гость/DB/apps/fixtures/tests ещё NOT_RUN; main sweep на паузе.
++
++Ниже20:05 checkpoint19.09 сохранён как история, его UAC blocker снят новым явным разрешением и actual elevated helper; прежняя ошибка не удалена.
++
++## Immediate checkpoint — 19.09.2026 20:05+03, VM-control UAC cancelled
++
++Последняя завершённая операция: launcher `post-reboot-20260919/start-vm-control.ps1`, caller session39187 exit1; Windows вернула «Операция была отменена пользователем» в19:57:24+03. Exact receipt: `attempts/20260918-hyperv-ubuntu24/post-reboot-20260919/vm-control-uac-failure.json`. PID helper / actual elevated-token proof / VM-created receipt не получены. VM provision и следующие guest/live этапы NOT_RUN, не PASS. Повторный UAC и обход другим launcher запрещены без нового явного разрешения. Успешный DISM19.09 не повторялся; новый boot19.09 19:09:05 и работающий Hyper-V подтверждены отдельно.
++
++Незавершённая независимая операция: ранее начатая загрузка официального Ubuntu ISO, caller session30254; на20:05 существует собственный `.iso.part` размером1,753,374,720bytes, full-file hash ещё НЕ подтверждён. Сохраняется доступный результат уже запущенной загрузки, новые provision/tests/builds не запускаются. Подготовленные VM/seed scripts имеют только статическую проверку синтаксиса, runtime UNVERIFIED. Рабочая PostgreSQL/service/.env/uploads/history не опрашивались; новых DB/fixtures/app processes нет.
++
++Точка восстановления: этот же R5, stage2 после подтверждённого post-reboot host check; сначала новое явное разрешение на один штатный UAC для ограниченного управления собственной VM. Старый UAC receipt/launcher guard не перезаписывать. Затем актуальные ресурсы и полный ISO hash, Gen2/guest/transfer/isolation; пять live gates, journeys и UI063 остаются впереди. Сейчас только отчёт/retention/new review ZIP и STOP_AT_UAC_BOUNDARY.
++
++## Current continuation — 19.09.2026 after user manual reboot
++
++Пользователь явно сообщил о ручной перезагрузке и продолжении того же R5. Новый boot19.09 19:09:05+03 подтверждён; HypervisorPresent=true, DEP=true, vmms Running, все7features enabled, Hyper-V module доступен. Saved post-reboot observation19:41: freeRAM9,377,431,552bytes/freeDisk53,842,927,616bytes. CPU capability flags после старта hypervisor reported false не повод менять BIOS: Microsoft указывает, что requirements скрыты на работающем hypervisor. DISM НЕ повторялся. Get-VMHost из non-elevated token отказал в доступе; для ограниченного управления собственной VM потребуется штатный visible UAC, не изменение policies.
++
++`attempts/20260918-hyperv-ubuntu24/post-reboot-20260919/baseline.json`:0product/build/harness drift,6parentmatrices unchanged, все163entries предыдущего reboot ZIP и сам ZIP сохранены;15existing docs snapshots взяты до обновления. Следующий шаг: официальный Ubuntu ISO download/fullhash в новом собственном runtime path, scoped Gen2 VM provision, реальный transfer round-trip и независимая isolation proof до bootstrap. Backend/PG/fixtures/tests пока NOT_RUN; рабочая PostgreSQL/.env/uploads/history не читаются/не меняются. История reboot boundary ниже не является текущей командой останавливаться или повторять installer.
+ 
+ ## Immediate recovery checkpoint — 19.09.2026, DISM exit3010
+ 

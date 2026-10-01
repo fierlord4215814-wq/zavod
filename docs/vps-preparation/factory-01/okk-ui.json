@@ -1,0 +1,584 @@
+{
+  "name": "Учебная партия ОКК FACTORY01 T1",
+  "id": "588b6d3e-f722-47ec-b055-5752cc2a3375",
+  "createSecondUiMs": 413,
+  "fileId": "5b5cf7c0-6d66-4eb4-a081-5d077287893a",
+  "fileSha": "187831fababd4a8ad140839319a6ceaae74bc9a2c2532aca0248f6fb8dc0ef32",
+  "photoSecondUiMs": 206,
+  "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Выдать часть', exact: true })\u001b[22m\n",
+  "errorText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n4\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nОКК\n\nЗабракованная продукция, выполнение решений, архив и вложения.\n\nАктивные записи\n1\nАрхив\n0\nНовый брак\nАктивные записи\n1\n26.09.2026\nУчебная партия ОКК FACTORY01 T1\nУЧ-Линия 3 · Учебное повреждение упаковки\nЗабраковано\nОсталось: 10 гофры\nИз исходных 10 · выдано 0\nОткрыть",
+  "release": true,
+  "marked": true,
+  "done": true,
+  "sql": {
+    "id": "588b6d3e-f722-47ec-b055-5752cc2a3375",
+    "status": "COMPLETED",
+    "productName": "Учебная партия ОКК FACTORY01 T1",
+    "article": "УЧ-ОКК-T1",
+    "defectQuantity": "10 гофры",
+    "completionMark": "Учебная упаковка проверена",
+    "archivedAt": "2026-09-26T20:24:48.874Z"
+  },
+  "http": [
+    {
+      "path": "/api/auth/login",
+      "method": "POST",
+      "status": 201,
+      "at": 1790454284800
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285052
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285107
+    },
+    {
+      "path": "/api/notifications/unread-count",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285130
+    },
+    {
+      "path": "/api/auth/assignment-request",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285131
+    },
+    {
+      "path": "/api/chats",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285136
+    },
+    {
+      "path": "/api/announcements/current",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285142
+    },
+    {
+      "path": "/api/tasks",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285142
+    },
+    {
+      "path": "/api/people",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285161
+    },
+    {
+      "path": "/api/people",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285308
+    },
+    {
+      "path": "/api/people",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454285463
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286658
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286660
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286670
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286732
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286732
+    },
+    {
+      "path": "/api/attachments/5b5cf7c0-6d66-4eb4-a081-5d077287893a/file",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287002
+    },
+    {
+      "path": "/api/okk/588b6d3e-f722-47ec-b055-5752cc2a3375/partial-release",
+      "method": "POST",
+      "status": 201,
+      "at": 1790454287510
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287540
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287540
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287555
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287577
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287581
+    },
+    {
+      "path": "/api/attachments/5b5cf7c0-6d66-4eb4-a081-5d077287893a/file",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287600
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287683
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287697
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287699
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287717
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287723
+    },
+    {
+      "path": "/api/okk/588b6d3e-f722-47ec-b055-5752cc2a3375/completion",
+      "method": "POST",
+      "status": 201,
+      "at": 1790454288117
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288143
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288147
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288162
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288181
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288186
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288282
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288286
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288298
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288318
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288325
+    },
+    {
+      "path": "/api/attachments/5b5cf7c0-6d66-4eb4-a081-5d077287893a/file",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288349
+    },
+    {
+      "path": "/api/okk/588b6d3e-f722-47ec-b055-5752cc2a3375/full-complete",
+      "method": "POST",
+      "status": 201,
+      "at": 1790454288883
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288902
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288905
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288918
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288936
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288942
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289050
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289052
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289078
+    },
+    {
+      "path": "/api/attachments/5b5cf7c0-6d66-4eb4-a081-5d077287893a/file",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289095
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289103
+    },
+    {
+      "path": "/api/directory/users",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289110
+    }
+  ],
+  "readerHttp": [
+    {
+      "path": "/api/auth/login",
+      "method": "POST",
+      "status": 201,
+      "at": 1790454286210
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286284
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286393
+    },
+    {
+      "path": "/api/tasks",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286403
+    },
+    {
+      "path": "/api/auth/assignment-request",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286403
+    },
+    {
+      "path": "/api/notifications/unread-count",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286403
+    },
+    {
+      "path": "/api/chats",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286403
+    },
+    {
+      "path": "/api/announcements/current",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286404
+    },
+    {
+      "path": "/api/shift/settings",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286445
+    },
+    {
+      "path": "/api/work-areas",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286456
+    },
+    {
+      "path": "/api/lines/downtime-reasons",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286456
+    },
+    {
+      "path": "/api/shift/return-requests",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286456
+    },
+    {
+      "path": "/api/health",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286457
+    },
+    {
+      "path": "/api/shift/timeline",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286457
+    },
+    {
+      "path": "/api/shift-log/handover/previous",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286477
+    },
+    {
+      "path": "/api/shift-log/handover/availability",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286482
+    },
+    {
+      "path": "/api/shift/people",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286484
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286505
+    },
+    {
+      "path": "/api/shift/return-requests",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286564
+    },
+    {
+      "path": "/api/shift/settings",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286565
+    },
+    {
+      "path": "/api/shift/timeline",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286682
+    },
+    {
+      "path": "/api/work-areas",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286682
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286700
+    },
+    {
+      "path": "/api/shift/people",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286700
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286714
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286716
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454286727
+    },
+    {
+      "path": "/api/attachments/5b5cf7c0-6d66-4eb4-a081-5d077287893a/file",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287057
+    },
+    {
+      "path": "/api/attachments/5b5cf7c0-6d66-4eb4-a081-5d077287893a/file",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287077
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287690
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287700
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454287758
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288287
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288294
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454288310
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289050
+    },
+    {
+      "path": "/api/okk",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289051
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289064
+    },
+    {
+      "path": "/api/attachments/5b5cf7c0-6d66-4eb4-a081-5d077287893a/file",
+      "method": "GET",
+      "status": 200,
+      "at": 1790454289095
+    }
+  ],
+  "frames": [
+    "connected",
+    "quantity_release_updated",
+    "okk_updated"
+  ],
+  "status": "PASS_UI_CREATE_PHOTO_RELEASE_COMPLETE_ARCHIVE"
+}

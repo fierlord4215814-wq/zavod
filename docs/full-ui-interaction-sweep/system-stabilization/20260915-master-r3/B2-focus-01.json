@@ -1,0 +1,54 @@
+{
+  "startedAt": "2026-09-15T19:45:14.525Z",
+  "expected": [
+    {
+      "title": "R3-B2 exact F-form-tail-02 actual focus first Back then pristine close",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 15,
+      "id": "8afc1346199d"
+    },
+    {
+      "title": "R3-B2 untouched form real Back closes after explicit normal blur",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 32,
+      "id": "b78d737ab980"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-B2 exact F-form-tail-02 actual focus first Back then pristine close",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 15,
+      "id": "8afc1346199d",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 0,
+      "errors": [
+        "Error: Build failed with 2 errors:\nerror: Cannot read directory \"../../..\": Access is denied.\nerror: Could not resolve \"C:\\\\Users\\\\79164\\\\Documents\\\\work\\\\frontend\\\\e2e\\\\helpers\\\\components.tsx\""
+      ],
+      "attachments": [
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\B2-focus-01\\runner-artifacts\\master-r3-form-back-R3-B2--5f4b3-st-Back-then-pristine-close\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-B2 untouched form real Back closes after explicit normal blur",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 32,
+      "id": "b78d737ab980",
+      "status": "skipped",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 0,
+      "errors": [],
+      "attachments": []
+    }
+  ],
+  "finishedAt": "2026-09-15T19:45:15.385Z",
+  "status": "failed",
+  "listOnly": false
+}

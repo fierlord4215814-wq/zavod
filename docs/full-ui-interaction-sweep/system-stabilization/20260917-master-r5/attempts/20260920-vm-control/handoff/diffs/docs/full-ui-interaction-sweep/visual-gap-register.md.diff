@@ -1,0 +1,26 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+index dc9c6df2..089640af 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+@@ -1,6 +1,20 @@
+ # Full UI Interaction Sweep — gap register
+ 
+-## Current source layer — MASTER R5 checkpoint, 19.09.2026
++## Current source layer — MASTER R5 VM checkpoint, 20.09.2026
++
++MASTER_R5_STATUS=BLOCKED_CONSOLE_OBSERVATION_PERMISSION; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. ENV-C1 частично продвинут: fresh boot/Hyper-V/DEP/resources, новый approved UAC actual admin token, одна Gen2 VM/собственный16GiBdisk/internal link, full official ISOhash/clean source byteproof. **ENV-C1 не закрыт**: actual guest console/install/isolation/transfer/stack NOT_RUN/UNVERIFIED. Capture helper дважды отказал на image-size guard despite return0, причина raw format UNKNOWN; отдельный read-only observer требует нового explicit UAC approval, ещё NOT_RUN. Graceful ownVMshutdown08:48 пока безterminal, PID9056alive08:55; Off/stopUNVERIFIED, noForce. Это environment/harness/lifecycle boundaries, не новые product findings/P-counts.
++
++Все5live gates0;32journeys/1407edges0newreal;036P1 live-pending, distinct ordinary/handover иarchivepermissions не причина063.063P2 original1286→1213UNKNOWN безновыхtraces.014/050/replay/publication не решены;THV06/FS15 не задвоены. Product fixes0/6parentmatrices unchanged, historicalP0/P1/P2=0/1/10 и954/957 не новая приёмка. Рабочая DB/service/env/uploads/history untouched. [Полный результат](system-stabilization/20260917-master-r5/final-report.md), [точка восстановления](system-stabilization/20260917-master-r5/resume-prompt.txt).
++
++## Historical layer19.09 — superseded by20.09 VM checkpoint
++
++## Current source layer — MASTER R5 post-reboot UAC boundary, 19.09.2026
++
++MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_VM_PROVISION; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. ENV-C1 host substep подтверждён: manual boot19.09 19:09:05, HypervisorPresent/DEP=true, vmms Running/7features Enabled, достаточные ресурсы19:41. DISM не повторялся. Новый VM-control UAC19:57 отменён; helper PID/elevated token/VM отсутствуют, повтор без нового разрешения запрещён. ENV-C1 целиком НЕ закрыт: actual guest/isolation/stack ещё NOT_RUN. Это environment blocker, не новый product finding/P-count.
++
++MI-SEC-01/MI-PUB-01/MI-R2-ORD-01/MI-R2-CHAT-ATT-01/UI-SWEEP-036: live0/NOT_RUN_UAC_BOUNDARY, source/isolated history сохранена.036 P1 ordinary≠handover/archive-only/19bindings остаётся live-pending;063 P2 original1286→1213UNKNOWN, не функционально зависим от036.014/050/replay/publication решения не утверждались, THV06/FS15 не задвоены. Исторические6matrices/954of957/P0=0/P1=1/P2=10 без новой приёмки, product fixes0. Working DB/service/env/uploads/history не исследовались; main sweep/phone/Stage68/Load/public не запускались. [Текущий результат](system-stabilization/20260917-master-r5/final-report.md), [решения](system-stabilization/20260917-master-r5/decision-queue.md), [следующая точка](system-stabilization/20260917-master-r5/resume-prompt.txt).
++
++## Historical R5 source layer BEFORE manual reboot, 19.09.2026 — superseded
+ 
+ MASTER_R5_STATUS=WAITING_MANUAL_REBOOT; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. [R5 result](system-stabilization/20260917-master-r5/final-report.md), [единая очередь решений](system-stabilization/20260917-master-r5/decision-queue.md), [resume](system-stabilization/20260917-master-r5/resume-prompt.txt). Это environment checkpoint, не новый whole-system sweep и не новый product finding/P-count.
+ 

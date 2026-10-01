@@ -1,0 +1,223 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\src\\screens\\PeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\PeopleScreen.tsx"
+index 3b762d42..c0cfc5b6 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\src\\screens\\PeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\PeopleScreen.tsx"
+@@ -118,10 +118,18 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+   const [photoFile, setPhotoFile] = useState<File | null>(null);
+   const [skillsOpen, setSkillsOpen] = useState(false);
+   const [loading, setLoading] = useState(false);
++  const [listLoading, setListLoading] = useState(true);
++  const [listReady, setListReady] = useState(false);
++  const [profileLoading, setProfileLoading] = useState(false);
++  const listGeneration = React.useRef(0);
++  const profileGeneration = React.useRef(0);
++  const busy = loading || profileLoading;
+   const [errorText, setErrorText] = useState<string | null>(null);
+   const [noticeText, setNoticeText] = useState<string | null>(null);
+ 
+   const closeProfile = () => {
++    profileGeneration.current += 1;
++    setProfileLoading(false);
+     setProfile(null);
+     setPasswordResetCapability(null);
+     setPhotoFile(null);
+@@ -130,16 +138,29 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+   useBodyScrollLock(Boolean(profile));
+   const returnProfileOpened = React.useRef(false);
+   const returnScrollRestored = React.useRef(false);
++  const returnScrollCancelled = React.useRef(false);
++  useEffect(() => {
++    const cancelPendingReturn = (event: Event) => {
++      if (event instanceof KeyboardEvent && !['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) return;
++      if (returnProfileOpened.current && !document.body.classList.contains('app-scroll-locked')) returnScrollCancelled.current = true;
++    };
++    for (const name of ['pointerdown', 'wheel', 'touchmove', 'keydown']) window.addEventListener(name, cancelPendingReturn, { passive: true });
++    return () => {
++      listGeneration.current += 1;
++      profileGeneration.current += 1;
++      for (const name of ['pointerdown', 'wheel', 'touchmove', 'keydown']) window.removeEventListener(name, cancelPendingReturn);
++    };
++  }, []);
+   useEffect(() => {
+     if (profile) { returnProfileOpened.current = true; return; }
+-    if (!taskReturn || taskReturn.pageTop === undefined || loading || !returnProfileOpened.current || returnScrollRestored.current) return;
++    if (!taskReturn || taskReturn.pageTop === undefined || listLoading || !listReady || !returnProfileOpened.current || returnScrollRestored.current || returnScrollCancelled.current) return;
+     const frame = requestAnimationFrame(() => {
+-      if (document.body.classList.contains('app-scroll-locked')) return;
++      if (returnScrollCancelled.current || document.body.classList.contains('app-scroll-locked')) return;
+       window.scrollTo({ top: taskReturn.pageTop, left: 0, behavior: 'auto' });
+       returnScrollRestored.current = true;
+     });
+     return () => cancelAnimationFrame(frame);
+-  }, [profile, loading, taskReturn]);
++  }, [profile, listLoading, listReady, taskReturn]);
+   useMobileBackLayer(Boolean(profile) && !modal, closeProfile, 720);
+ 
+   const canManageSkills = Boolean(currentUser?.isAdmin || currentUser?.permissions.includes('people.skills.manage'));
+@@ -161,7 +182,9 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+   );
+ 
+   const load = async () => {
+-    setLoading(true);
++    const generation = ++listGeneration.current;
++    setListLoading(true);
++    setListReady(false);
+     setErrorText(null);
+     try {
+       const params = new URLSearchParams();
+@@ -170,18 +193,28 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+         apiClient.get<PeopleResponse>(`/people?${params.toString()}`),
+         isStoreView ? apiClient.get<TimeArea[]>('/work-areas').catch(() => []) : Promise.resolve([]),
+       ]);
++      if (generation !== listGeneration.current) return;
+       setPeople(data.people);
+       setTimeAreas(areaRows.filter((area) => area.assignmentKind === 'TIME'));
+-      if (canManageSkills) setLines(await apiClient.get<Line[]>('/lines'));
++      if (canManageSkills) {
++        const nextLines = await apiClient.get<Line[]>('/lines');
++        if (generation !== listGeneration.current) return;
++        setLines(nextLines);
++      }
++      setListReady(true);
+     } catch (error) {
++      if (generation !== listGeneration.current) return;
+       setPeople([]);
+       setErrorText(error instanceof Error ? error.message : 'Не удалось загрузить список людей.');
+     } finally {
+-      setLoading(false);
++      if (generation === listGeneration.current) setListLoading(false);
+     }
+   };
+ 
+-  useEffect(() => { void load(); }, [shiftFilter, isStoreView]);
++  useEffect(() => {
++    void load();
++    return () => { listGeneration.current += 1; };
++  }, [shiftFilter, isStoreView]);
+ 
+   const filtered = useMemo(() => {
+     const roles = roleFilters[categoryFilter];
+@@ -197,7 +230,8 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+   }, [categoryFilter, people, shiftFilter]);
+ 
+   const openProfile = async (userId: string) => {
+-    setLoading(true);
++    const generation = ++profileGeneration.current;
++    setProfileLoading(true);
+     setErrorText(null);
+     setNoticeText(null);
+     if (profile?.id !== userId) setSkillsOpen(false);
+@@ -208,12 +242,14 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+           ? apiClient.get<PasswordResetCapability>(`/admin/users/${userId}/password-reset/preview`).catch(() => null)
+           : Promise.resolve(null),
+       ]);
++      if (generation !== profileGeneration.current) return;
+       setProfile(nextProfile);
+       setPasswordResetCapability(resetCapability);
+     } catch (error) {
++      if (generation !== profileGeneration.current) return;
+       setErrorText(error instanceof Error ? error.message : 'Не удалось открыть профиль.');
+     } finally {
+-      setLoading(false);
++      if (generation === profileGeneration.current) setProfileLoading(false);
+     }
+   };
+ 
+@@ -418,7 +454,7 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+         <section className="card" data-testid="store-time-areas">
+           <div className="section-subhead"><h3>Повременщики</h3><span>{timeAreas.length}</span></div>
+           <div className="section-stack">
+-            {!loading && !timeAreas.length ? <div className="empty-state compact">Позиции повременщиков пока не настроены</div> : null}
++            {!listLoading && !timeAreas.length ? <div className="empty-state compact">Позиции повременщиков пока не настроены</div> : null}
+             {timeAreas.map((area) => {
+               const actual = area.shortageSummary?.reduce((sum, item) => sum + item.actual, 0) ?? 0;
+               const planned = area.shortageSummary?.reduce((sum, item) => sum + item.plannedCount, 0) ?? 0;
+@@ -487,11 +523,12 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+ 
+       {errorText ? <div className="empty-state error-state">{errorText}</div> : null}
+       {noticeText ? <div className="empty-state success-state" role="status">{noticeText}</div> : null}
+-      {loading ? <div className="empty-state compact">Загрузка людей...</div> : null}
++      {listLoading ? <div className="empty-state compact">Загрузка людей...</div> : null}
++      {profileLoading ? <span className="visually-hidden" role="status">Загрузка профиля...</span> : null}
+ 
+       <div className="section-subhead compact-heading people-current-list-heading"><h3>Текущий список</h3><span>{filtered.length}</span></div>
+       <div className="section-stack">
+-        {!filtered.length && !loading ? <div className="empty-state">Людей в доступной области пока нет.</div> : null}
++        {!filtered.length && !listLoading ? <div className="empty-state">Людей в доступной области пока нет.</div> : null}
+         {filtered.map((person) => (
+           <button className={`card people-compact-row ${person.onShift ? 'on-shift' : 'off-shift'}`} key={person.userId} type="button" onClick={() => void openProfile(person.userId)}>
+             <ProfilePhoto photo={person.profilePhoto} userId={person.userId} displayName={person.displayName} size="small" />
+@@ -542,8 +579,8 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+                     />
+                   </label>
+                   {photoFile ? <span className="profile-photo-caption selected-file">{photoFile.name}</span> : null}
+-                  {photoFile ? <button className="primary-button compact-action" disabled={loading} type="button" onClick={() => void uploadProfilePhoto()}>Загрузить</button> : null}
+-                  {profile.profilePhoto ? <button className="secondary-button compact-action danger" disabled={loading} type="button" onClick={() => void deleteProfilePhoto()}>Удалить</button> : null}
++                  {photoFile ? <button className="primary-button compact-action" disabled={busy} type="button" onClick={() => void uploadProfilePhoto()}>Загрузить</button> : null}
++                  {profile.profilePhoto ? <button className="secondary-button compact-action danger" disabled={busy} type="button" onClick={() => void deleteProfilePhoto()}>Удалить</button> : null}
+                 </div>
+               ) : null}
+             </div>
+@@ -653,7 +690,7 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+                     </div>
+                     <button
+                       className="secondary-button danger"
+-                      disabled={loading || passwordResetCapability.passwordResetRequired}
++                      disabled={busy || passwordResetCapability.passwordResetRequired}
+                       type="button"
+                       onClick={() => setModal('password-reset')}
+                     >
+@@ -674,7 +711,7 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+ 
+       {modal === 'skill' ? (
+         <ActionModal
+-          busy={loading}
++          busy={busy}
+           dirty={Boolean(lineId)}
+           fields={skillFields}
+           title="Добавить навык"
+@@ -694,7 +731,7 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+ 
+       {modal === 'edit-skill' && selectedSkill ? (
+         <ActionModal
+-          busy={loading}
++          busy={busy}
+           description="Автоматическое начисление остаётся основным. Здесь руководитель может исправить подтверждённую ошибку учёта."
+           fields={[
+             { name: 'experienceCount', label: 'Фактический опыт', type: 'number', required: true, defaultValue: selectedSkill.experienceCount },
+@@ -709,7 +746,7 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+ 
+       {modal === 'note' ? (
+         <ActionModal
+-          busy={loading}
++          busy={busy}
+           fields={[
+             { name: 'text', label: 'Заметка', type: 'textarea', required: true },
+             {
+@@ -729,7 +766,7 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+ 
+       {modal === 'edit-note' && selectedNote ? (
+         <ActionModal
+-          busy={loading}
++          busy={busy}
+           fields={[{ name: 'text', label: 'Заметка', type: 'textarea', required: true, defaultValue: selectedNote.text }]}
+           title="Изменить заметку"
+           confirmLabel="Сохранить"
+@@ -740,7 +777,7 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+ 
+       {modal === 'delete-note' && selectedNote ? (
+         <ActionModal
+-          busy={loading}
++          busy={busy}
+           title="Удалить заметку"
+           description="Заметка будет скрыта, физическое удаление не выполняется."
+           confirmLabel="Удалить"
+@@ -751,7 +788,7 @@ export function PeopleScreen({ taskReturn }: { taskReturn?: PeopleTaskReturn } =
+ 
+       {modal === 'password-reset' && profile ? (
+         <ActionModal
+-          busy={loading}
++          busy={busy}
+           title="Сбросить пароль"
+           description={`Действующие сессии сотрудника «${profile.displayName}» завершатся. При следующем входе он задаст новый пароль без старого.`}
+           fields={[{ name: 'reason', label: 'Причина', type: 'textarea', required: true }]}

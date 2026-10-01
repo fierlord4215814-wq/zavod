@@ -1,0 +1,32 @@
+
+> frontend@1.0.0 vps-prep:auth-recovery-e2e
+> playwright test e2e/vps-prep-01-auth-recovery.spec.ts --config=playwright.vps-prep.config.ts --project=desktop-edge --project=mobile-360-edge
+
+[WebServer] (node:3832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] The CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] (node:8700) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] The CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.
+
+Running 4 tests using 1 worker
+
+(node:14280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [desktop-edge] › e2e\vps-prep-01-auth-recovery.spec.ts:23:5 › recovery login requires the one-time credential and password setup returns to ordinary login (1.3s)
+  ok 2 [desktop-edge] › e2e\vps-prep-01-auth-recovery.spec.ts:114:5 › admin reset consumer shows only the current credential in memory and supports explicit reissue (2.6s)
+(node:6428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 [mobile-360-edge] › e2e\vps-prep-01-auth-recovery.spec.ts:23:5 › recovery login requires the one-time credential and password setup returns to ordinary login (1.6s)
+  ok 4 [mobile-360-edge] › e2e\vps-prep-01-auth-recovery.spec.ts:114:5 › admin reset consumer shows only the current credential in memory and supports explicit reissue (2.6s)
+
+  4 passed (16.8s)

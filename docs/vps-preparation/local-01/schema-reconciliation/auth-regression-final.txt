@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": 4,
+  "results": [
+    "late login cannot receive usable new-epoch authority after verified old password",
+    "stale changePassword cannot overwrite completed admin reset",
+    "only one concurrent password change can commit from one credential snapshot",
+    "same-millisecond password change advances the auth epoch"
+  ]
+}

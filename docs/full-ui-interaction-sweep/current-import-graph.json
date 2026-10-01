@@ -1,0 +1,1318 @@
+{
+  "entry": "frontend/src/main.tsx",
+  "files": [
+    "frontend/src/App.tsx",
+    "frontend/src/api/attachments.ts",
+    "frontend/src/api/client.ts",
+    "frontend/src/api/operation.ts",
+    "frontend/src/components/ActionModal.tsx",
+    "frontend/src/components/AdminConfirmDialog.tsx",
+    "frontend/src/components/AppConfirmDialog.tsx",
+    "frontend/src/components/AttachmentInputButton.tsx",
+    "frontend/src/components/AttachmentPicker.tsx",
+    "frontend/src/components/AttachmentPreviewList.tsx",
+    "frontend/src/components/AttachmentUploadFeedback.tsx",
+    "frontend/src/components/ChecklistItemEditor.tsx",
+    "frontend/src/components/CommentBox.tsx",
+    "frontend/src/components/CommentThread.tsx",
+    "frontend/src/components/CompactPeoplePicker.tsx",
+    "frontend/src/components/GuestAssignmentRequestCard.tsx",
+    "frontend/src/components/HelpTooltip.tsx",
+    "frontend/src/components/PeopleSearchPanel.tsx",
+    "frontend/src/components/PremiumShell.tsx",
+    "frontend/src/components/ProfilePhoto.tsx",
+    "frontend/src/components/QuantityRelease.tsx",
+    "frontend/src/components/attachment-files.ts",
+    "frontend/src/hooks/useBodyScrollLock.ts",
+    "frontend/src/labels.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/navigation/mobile-back.ts",
+    "frontend/src/navigation/permissions.ts",
+    "frontend/src/notifications/browser-notifications.ts",
+    "frontend/src/screens/AdminConfigScreen.tsx",
+    "frontend/src/screens/AnnouncementsScreen.tsx",
+    "frontend/src/screens/ArchiveScreen.tsx",
+    "frontend/src/screens/BugReportScreen.tsx",
+    "frontend/src/screens/ChatsScreen.tsx",
+    "frontend/src/screens/ChecklistsScreen.tsx",
+    "frontend/src/screens/DefrostScreen.tsx",
+    "frontend/src/screens/FactorySelectScreen.tsx",
+    "frontend/src/screens/GuestHomeScreen.tsx",
+    "frontend/src/screens/NotificationsScreen.tsx",
+    "frontend/src/screens/OkkScreen.tsx",
+    "frontend/src/screens/OpsAuditScreen.tsx",
+    "frontend/src/screens/OrdersStockScreen.tsx",
+    "frontend/src/screens/PeopleScreen.tsx",
+    "frontend/src/screens/ReturnsScreen.tsx",
+    "frontend/src/screens/ShiftLogScreen.tsx",
+    "frontend/src/screens/ShiftPeopleScreen.tsx",
+    "frontend/src/screens/SituationScreen.tsx",
+    "frontend/src/screens/StockScreen.tsx",
+    "frontend/src/screens/TasksScreen.tsx",
+    "frontend/src/screens/WashScreen.tsx",
+    "frontend/src/store/app.store.ts",
+    "frontend/src/styles.css",
+    "frontend/src/utils/factory-time.ts",
+    "frontend/src/utils/pilot-ui.ts",
+    "frontend/src/utils/pwa-runtime.ts",
+    "frontend/src/ws/client.ts"
+  ],
+  "edges": [
+    {
+      "from": "frontend/src/main.tsx",
+      "specifier": "./App",
+      "to": "frontend/src/App.tsx"
+    },
+    {
+      "from": "frontend/src/main.tsx",
+      "specifier": "./styles.css",
+      "to": "frontend/src/styles.css"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./navigation/permissions",
+      "to": "frontend/src/navigation/permissions.ts"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/AdminConfigScreen",
+      "to": "frontend/src/screens/AdminConfigScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/FactorySelectScreen",
+      "to": "frontend/src/screens/FactorySelectScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/NotificationsScreen",
+      "to": "frontend/src/screens/NotificationsScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/OpsAuditScreen",
+      "to": "frontend/src/screens/OpsAuditScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/OkkScreen",
+      "to": "frontend/src/screens/OkkScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/ReturnsScreen",
+      "to": "frontend/src/screens/ReturnsScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/OrdersStockScreen",
+      "to": "frontend/src/screens/OrdersStockScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/ChecklistsScreen",
+      "to": "frontend/src/screens/ChecklistsScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/DefrostScreen",
+      "to": "frontend/src/screens/DefrostScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/ChatsScreen",
+      "to": "frontend/src/screens/ChatsScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/AnnouncementsScreen",
+      "to": "frontend/src/screens/AnnouncementsScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/ArchiveScreen",
+      "to": "frontend/src/screens/ArchiveScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/BugReportScreen",
+      "to": "frontend/src/screens/BugReportScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./components/AppConfirmDialog",
+      "to": "frontend/src/components/AppConfirmDialog.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/GuestHomeScreen",
+      "to": "frontend/src/screens/GuestHomeScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/PeopleScreen",
+      "to": "frontend/src/screens/PeopleScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/ShiftLogScreen",
+      "to": "frontend/src/screens/ShiftLogScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/ShiftPeopleScreen",
+      "to": "frontend/src/screens/ShiftPeopleScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/SituationScreen",
+      "to": "frontend/src/screens/SituationScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/StockScreen",
+      "to": "frontend/src/screens/StockScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/TasksScreen",
+      "to": "frontend/src/screens/TasksScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./screens/WashScreen",
+      "to": "frontend/src/screens/WashScreen.tsx"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./ws/client",
+      "to": "frontend/src/ws/client.ts"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./utils/pwa-runtime",
+      "to": "frontend/src/utils/pwa-runtime.ts"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/App.tsx",
+      "specifier": "./notifications/browser-notifications",
+      "to": "frontend/src/notifications/browser-notifications.ts"
+    },
+    {
+      "from": "frontend/src/notifications/browser-notifications.ts",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/ws/client.ts",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../api/operation",
+      "to": "frontend/src/api/operation.ts"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/WashScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/components/PremiumShell.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/components/PremiumShell.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/components/AttachmentPreviewList.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/components/AttachmentPreviewList.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/components/AttachmentPreviewList.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/components/AttachmentPreviewList.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/components/AttachmentPreviewList.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/api/client.ts",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/components/AttachmentPicker.tsx",
+      "specifier": "./AttachmentInputButton",
+      "to": "frontend/src/components/AttachmentInputButton.tsx"
+    },
+    {
+      "from": "frontend/src/components/AttachmentPicker.tsx",
+      "specifier": "./attachment-files",
+      "to": "frontend/src/components/attachment-files.ts"
+    },
+    {
+      "from": "frontend/src/components/AttachmentPicker.tsx",
+      "specifier": "./PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/components/attachment-files.ts",
+      "specifier": "./AttachmentInputButton",
+      "to": "frontend/src/components/AttachmentInputButton.tsx"
+    },
+    {
+      "from": "frontend/src/components/ActionModal.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/components/ActionModal.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/components/ActionModal.tsx",
+      "specifier": "./AppConfirmDialog",
+      "to": "frontend/src/components/AppConfirmDialog.tsx"
+    },
+    {
+      "from": "frontend/src/components/AppConfirmDialog.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/components/AppConfirmDialog.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/api/attachments.ts",
+      "specifier": "./operation",
+      "to": "frontend/src/api/operation.ts"
+    },
+    {
+      "from": "frontend/src/api/attachments.ts",
+      "specifier": "./client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../api/operation",
+      "to": "frontend/src/api/operation.ts"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../components/CommentBox",
+      "to": "frontend/src/components/CommentBox.tsx"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../components/CommentThread",
+      "to": "frontend/src/components/CommentThread.tsx"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../utils/factory-time",
+      "to": "frontend/src/utils/factory-time.ts"
+    },
+    {
+      "from": "frontend/src/screens/TasksScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/components/CommentBox.tsx",
+      "specifier": "./AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/StockScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/StockScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/StockScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/StockScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/StockScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/StockScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/StockScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/StockScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/SituationScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/SituationScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/SituationScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/SituationScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/SituationScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/SituationScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/SituationScreen.tsx",
+      "specifier": "../utils/factory-time",
+      "to": "frontend/src/utils/factory-time.ts"
+    },
+    {
+      "from": "frontend/src/screens/SituationScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../components/ProfilePhoto",
+      "to": "frontend/src/components/ProfilePhoto.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../components/PeopleSearchPanel",
+      "to": "frontend/src/components/PeopleSearchPanel.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../utils/factory-time",
+      "to": "frontend/src/utils/factory-time.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/components/PeopleSearchPanel.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/components/ProfilePhoto.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/components/ProfilePhoto.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/components/ProfilePhoto.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/ShiftLogScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../components/ProfilePhoto",
+      "to": "frontend/src/components/ProfilePhoto.tsx"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../components/PeopleSearchPanel",
+      "to": "frontend/src/components/PeopleSearchPanel.tsx"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/PeopleScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/GuestHomeScreen.tsx",
+      "specifier": "../components/GuestAssignmentRequestCard",
+      "to": "frontend/src/components/GuestAssignmentRequestCard.tsx"
+    },
+    {
+      "from": "frontend/src/components/GuestAssignmentRequestCard.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/components/GuestAssignmentRequestCard.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/components/GuestAssignmentRequestCard.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/components/GuestAssignmentRequestCard.tsx",
+      "specifier": "./PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/BugReportScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/BugReportScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/BugReportScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/BugReportScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/BugReportScreen.tsx",
+      "specifier": "../components/AttachmentUploadFeedback",
+      "to": "frontend/src/components/AttachmentUploadFeedback.tsx"
+    },
+    {
+      "from": "frontend/src/screens/BugReportScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/BugReportScreen.tsx",
+      "specifier": "../labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/screens/BugReportScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/BugReportScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/components/AttachmentUploadFeedback.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/ArchiveScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/ArchiveScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ArchiveScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/ArchiveScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ArchiveScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ArchiveScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/ArchiveScreen.tsx",
+      "specifier": "../utils/factory-time",
+      "to": "frontend/src/utils/factory-time.ts"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../components/AttachmentInputButton",
+      "to": "frontend/src/components/AttachmentInputButton.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../components/AppConfirmDialog",
+      "to": "frontend/src/components/AppConfirmDialog.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../components/CompactPeoplePicker",
+      "to": "frontend/src/components/CompactPeoplePicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../components/attachment-files",
+      "to": "frontend/src/components/attachment-files.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChatsScreen.tsx",
+      "specifier": "../utils/pwa-runtime",
+      "to": "frontend/src/utils/pwa-runtime.ts"
+    },
+    {
+      "from": "frontend/src/screens/DefrostScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/DefrostScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/DefrostScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/DefrostScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../components/AppConfirmDialog",
+      "to": "frontend/src/components/AppConfirmDialog.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../components/ChecklistItemEditor",
+      "to": "frontend/src/components/ChecklistItemEditor.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/ChecklistsScreen.tsx",
+      "specifier": "../utils/factory-time",
+      "to": "frontend/src/utils/factory-time.ts"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/OrdersStockScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/ReturnsScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/ReturnsScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/ReturnsScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ReturnsScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ReturnsScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ReturnsScreen.tsx",
+      "specifier": "../components/QuantityRelease",
+      "to": "frontend/src/components/QuantityRelease.tsx"
+    },
+    {
+      "from": "frontend/src/screens/ReturnsScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/ReturnsScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/ReturnsScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/components/QuantityRelease.tsx",
+      "specifier": "../api/operation",
+      "to": "frontend/src/api/operation.ts"
+    },
+    {
+      "from": "frontend/src/components/QuantityRelease.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/components/QuantityRelease.tsx",
+      "specifier": "./PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../api/attachments",
+      "to": "frontend/src/api/attachments.ts"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../components/ActionModal",
+      "to": "frontend/src/components/ActionModal.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../components/AttachmentPicker",
+      "to": "frontend/src/components/AttachmentPicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../components/AttachmentPreviewList",
+      "to": "frontend/src/components/AttachmentPreviewList.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../components/QuantityRelease",
+      "to": "frontend/src/components/QuantityRelease.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../hooks/useBodyScrollLock",
+      "to": "frontend/src/hooks/useBodyScrollLock.ts"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/OkkScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/OpsAuditScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/OpsAuditScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/OpsAuditScreen.tsx",
+      "specifier": "../utils/factory-time",
+      "to": "frontend/src/utils/factory-time.ts"
+    },
+    {
+      "from": "frontend/src/screens/NotificationsScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/NotificationsScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/NotificationsScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/FactorySelectScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/FactorySelectScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/FactorySelectScreen.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    },
+    {
+      "from": "frontend/src/screens/FactorySelectScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/FactorySelectScreen.tsx",
+      "specifier": "../labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/screens/FactorySelectScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../api/client",
+      "to": "frontend/src/api/client.ts"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../api/operation",
+      "to": "frontend/src/api/operation.ts"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../components/AdminConfirmDialog",
+      "to": "frontend/src/components/AdminConfirmDialog.tsx"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../components/CompactPeoplePicker",
+      "to": "frontend/src/components/CompactPeoplePicker.tsx"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../components/HelpTooltip",
+      "to": "frontend/src/components/HelpTooltip.tsx"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../components/PremiumShell",
+      "to": "frontend/src/components/PremiumShell.tsx"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../labels",
+      "to": "frontend/src/labels.ts"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../navigation/permissions",
+      "to": "frontend/src/navigation/permissions.ts"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../store/app.store",
+      "to": "frontend/src/store/app.store.ts"
+    },
+    {
+      "from": "frontend/src/screens/AdminConfigScreen.tsx",
+      "specifier": "../utils/pilot-ui",
+      "to": "frontend/src/utils/pilot-ui.ts"
+    },
+    {
+      "from": "frontend/src/components/AdminConfirmDialog.tsx",
+      "specifier": "../navigation/mobile-back",
+      "to": "frontend/src/navigation/mobile-back.ts"
+    }
+  ],
+  "unresolvedImports": []
+}

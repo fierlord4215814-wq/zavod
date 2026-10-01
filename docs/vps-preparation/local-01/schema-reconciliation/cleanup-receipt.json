@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-23",
+  "scope": "new owned synthetic PostgreSQL 18.3 cluster only",
+  "dataDirectoryVerifiedBeforeDrop": "C:/Users/79164/AppData/Local/Zavod-Local01-Tests/sql-schema-525b88422120/pgdata",
+  "identityVerifiedBeforeDrop": {
+    "role": "local01_schema_admin",
+    "address": "127.0.0.1",
+    "port": 15434,
+    "postgresPid": 6808
+  },
+  "harnessDatabases": {
+    "attempted": 5,
+    "remaining": 0,
+    "status": "PASS",
+    "source": "integration-full-final.txt cleanup object"
+  },
+  "catalogDatabase": "zavod_schema_catalog_525b88422120",
+  "catalogDrop": "DROP DATABASE succeeded after cluster identity readback",
+  "databaseReadbackBeforeStop": "SELECT COUNT(*) FROM pg_database WHERE datname LIKE 'zavod_%' returned 0",
+  "serverStop": "pg_ctl stop -m fast succeeded; subsequent pg_ctl status: no server running (exit 3)",
+  "retained": "Only the newly created private test directory remains; prior retained test directory was not touched. No credentials or database files are packed."
+}

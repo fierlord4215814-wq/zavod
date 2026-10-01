@@ -1,0 +1,24 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\I-source-updates-before\\docs\\full-ui-interaction-sweep\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+index 0578d94d..532355f0 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\I-source-updates-before\\docs\\full-ui-interaction-sweep\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+@@ -1,6 +1,18 @@
+ # Full UI Interaction Sweep — progress
+ 
+-## Current continuation — MASTER R3, 15.09.2026, IN_PROGRESS
++## Current source result — MASTER R3, 16.09.2026
++
++EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. Отдельная серия R3 завершила доступный объём A–H: MASTER_R3_STATUS=PARTIAL_WITH_EXPLICIT_BLOCKERS. [Итог](system-stabilization/20260915-master-r3/final-report.md), [причины и границы](system-stabilization/20260915-master-r3/root-result-matrix.md), [единый пакет/entrypoint](system-stabilization/20260915-master-r3/INDEX.md). После package readback — остановка для внешнего review, не продолжение sweep.
++
++Собственные source fixes: People/App/body-lock lifecycle и late revoke/ABA API; ActionModal unavailable/typed drafts; immutable Wash/stock/quantity replay inputs; same-attempt Wash/Defrost/Checklist keys; no duplicate future-plan fanout; factual announcement empty text.13 product +34 test/support исходных owners, before/after/own diffs byte-verified в current source-delta-manifest-v2. Старые накопленные dirty changes не приписаны R3. Product33318c278635e56d75458df104bb99a412fb0bd7868de6f52337c3d477783e3c, buildf78d0ddaf5e5cabe57f8cfd005d8bf2b7a4d016df705de214da89cf2f055a308.
++
++Current H:489 backend +3 WS +2 type-contract;165 unique browser cases PASS/retries0. Все прежние425/82/3/2 retained, обе сборки/strict React23→0/offline Prisma validate PASS. First browser execution:163PASS/1ENVFAIL/1HARNESSFAIL; affected21-case branch recheckedPASS, raw results сохранены.128 native frames просмотрены, включая84/84 final visual/profile targets; остальные captures не объявлены reviewed.
++
++Исходный UI-0631286→1213 остаётся UNKNOWN; другие причинные races исправлены. Pristine настоящий Back подтверждает existing focus-first, не Cancel. UI-036 по-прежнему isolated proven/live pending и не причина063.014 exact parent provenance,050 broad PILOT alternatives, durable replay kind/input, cross-window/publication policy,5live gates и физический телефон остаются в [общей очереди решений](system-stabilization/20260915-master-r3/decision-queue.md). Никакой migration/DB/backend/real API/WS/Cloudflare не запускались; own staticPID556 штатно остановлен, listener5173 отсутствует. Real fixture cleanup UNKNOWN; Library PERSISTENCE_PENDING.
++
++Шесть parent matrices неизменны:957 semantic controls/954 historicalPASS/3FAIL;284 surfaces; исторические P0=0/P1=1/P2=10 НЕ переприняты. Tests/PNG не добавлены к control count. Main UI Sweep остаётся на паузе.
++
++## Historical opening — MASTER R3, 15.09.2026, IN_PROGRESS (superseded above)
+ 
+ EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. Новое явное поручение R3 разрешает всю конечную серию A–I, заменяя R2 STOP только в этом scope: [план](system-stabilization/20260915-master-r3/execution-plan.md), [checkpoint](system-stabilization/20260915-master-r3/progress.md). Current G2 product/build и65handoff after owners совпали; R2 не принят внешним review и не реализуется заново. Исторические954/957/P-levels не повышаются. БД/backend/Nest/liveAPI/WS/physical по-прежнему запрещены; static loopback frontend и fail-closed IPC/memory разрешены. Worktree/old raw evidence сохранены; source edits R3 пока отсутствуют. Следующий шаг внутриR3 — causal063/pristineBack и оставшиеся связанные контракты, не новый весь UI Sweep.
+ 

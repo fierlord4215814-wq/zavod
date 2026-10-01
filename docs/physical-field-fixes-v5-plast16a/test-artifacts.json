@@ -1,0 +1,143 @@
+{
+  "plast": "16A",
+  "marker": "__PFFV5_P16A_1787794489736-bb23c0__",
+  "runId": "1787794489736-bb23c0",
+  "startedAt": "2026-08-27T01:34:49.736Z",
+  "status": "PASS",
+  "discovery": {
+    "migrations": "not-needed",
+    "canonicalModels": [
+      "Line",
+      "LinePosition",
+      "LineStaffingTemplate",
+      "Assignment",
+      "PlannedLineAssignment",
+      "ChecklistTemplate",
+      "ChecklistRun",
+      "Task",
+      "AuditLog"
+    ]
+  },
+  "baseline": {
+    "hash": "f0a913bb8ffce5bf486764ad595d38a7eeb3435f68d6d29a9590dcd371fab742",
+    "activeMarkerInventory": {
+      "ACTIVE_P16A_LINES": 0,
+      "ACTIVE_P16A_POSITIONS": 0,
+      "ACTIVE_P16A_STAFFING_TEMPLATES": 0,
+      "ACTIVE_P16A_ASSIGNMENTS": 0,
+      "ACTIVE_P16A_FUTURE_PLAN_REFS": 0,
+      "ACTIVE_P16A_DOWNTIMES": 0,
+      "ACTIVE_P16A_TASKS": 0,
+      "ACTIVE_P16A_CHECKLIST_TEMPLATES": 0,
+      "ACTIVE_P16A_CHECKLIST_OWNERSHIPS": 0,
+      "ACTIVE_P16A_CHECKLIST_OCCURRENCES": 0,
+      "ACTIVE_P16A_TEST_ARTIFACTS": 0
+    }
+  },
+  "consumers": {
+    "admin": true,
+    "shiftDetail": "0/2",
+    "slotFirst": 2,
+    "personFirst": true,
+    "futurePicker": true,
+    "requestPicker": true,
+    "checklistPicker": true
+  },
+  "idempotency": {
+    "duplicateStartEvents": 0,
+    "taskSameId": true
+  },
+  "rbac": {
+    "workerAdminMutationStatus": 403,
+    "crossFactoryStatus": 403,
+    "normalAdminFixtureTaskVisible": false
+  },
+  "checklist": {
+    "completedOccurrences": 1,
+    "numericAnswer": 5.5,
+    "textAnswer": true
+  },
+  "downtimeTask": {
+    "linked": true,
+    "type": "URGENT",
+    "completed": true,
+    "downtimeClosed": true
+  },
+  "archive": {
+    "taskDetail": true,
+    "checklistDetail": true,
+    "historicalLabelsAfterCleanup": true
+  },
+  "statistics": {
+    "lineFilter": true,
+    "checklistDelta": {
+      "started": 1,
+      "checksCompleted": 1,
+      "manuallyClosed": 1
+    }
+  },
+  "audit": {
+    "markerRows": 17,
+    "labels": [
+      "Линия создана",
+      "Позиция линии создана",
+      "Штатный шаблон создан",
+      "Шаблон чек-листа создан",
+      "Шаблон чек-листа перенесён в архив",
+      "Штатный шаблон отключён",
+      "Позиция линии отключена",
+      "Линия отключена"
+    ]
+  },
+  "cleanup": {
+    "inventory": {
+      "ACTIVE_P16A_LINES": 0,
+      "ACTIVE_P16A_POSITIONS": 0,
+      "ACTIVE_P16A_STAFFING_TEMPLATES": 0,
+      "ACTIVE_P16A_ASSIGNMENTS": 0,
+      "ACTIVE_P16A_FUTURE_PLAN_REFS": 0,
+      "ACTIVE_P16A_DOWNTIMES": 0,
+      "ACTIVE_P16A_TASKS": 0,
+      "ACTIVE_P16A_CHECKLIST_TEMPLATES": 0,
+      "ACTIVE_P16A_CHECKLIST_OWNERSHIPS": 0,
+      "ACTIVE_P16A_CHECKLIST_OCCURRENCES": 0,
+      "ACTIVE_P16A_TEST_ARTIFACTS": 0
+    },
+    "activeUi": true,
+    "preexisting": {
+      "beforeHash": "f0a913bb8ffce5bf486764ad595d38a7eeb3435f68d6d29a9590dcd371fab742",
+      "afterHash": "f0a913bb8ffce5bf486764ad595d38a7eeb3435f68d6d29a9590dcd371fab742",
+      "PREEXISTING_ENTITIES_DELETED": 0,
+      "PREEXISTING_ENTITIES_UNINTENTIONALLY_MODIFIED": 0
+    },
+    "PHYSICAL_DELETES": 0
+  },
+  "widths": {
+    "360": 0,
+    "390": 0,
+    "430": 0
+  },
+  "screenshots": [
+    "01-new-line-shift-390.png",
+    "02-new-checklist-available-390.png",
+    "04-statistics-dynamic-line.png",
+    "03-marker-archive-detail.png",
+    "05-audit-create-cleanup.png",
+    "06-post-cleanup-active-ui-390.png"
+  ],
+  "errors": [],
+  "directDatabaseWrites": 0,
+  "physicalDeletes": 0,
+  "migrationCreated": false,
+  "xlsx": {
+    "path": "C:\\Users\\79164\\Documents\\work\\docs\\physical-field-fixes-v5-plast16a\\marker-checklist-and-line.xlsx",
+    "sheets": [
+      "__PFFV5_P16A_1787794489736-bb23",
+      "Комментарии",
+      "Параметры"
+    ],
+    "numericCell": true,
+    "filteredByLineAndTemplate": true
+  },
+  "finishedAt": "2026-08-27T01:36:04.576Z"
+}

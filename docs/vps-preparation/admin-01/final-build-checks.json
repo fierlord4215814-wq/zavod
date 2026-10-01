@@ -1,0 +1,125 @@
+{
+  "runs": [
+    {
+      "name": "backend-build",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0
+    },
+    {
+      "name": "frontend-typecheck",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0
+    },
+    {
+      "name": "admin01",
+      "exit": 0,
+      "tests": 14,
+      "pass": 14,
+      "fail": 0
+    },
+    {
+      "name": "admin-hierarchy-scope",
+      "exit": 0,
+      "tests": 67,
+      "pass": 67,
+      "fail": 0
+    },
+    {
+      "name": "task-orders",
+      "exit": 0,
+      "tests": 12,
+      "pass": 12,
+      "fail": 0
+    },
+    {
+      "name": "checklists",
+      "exit": 0,
+      "tests": 7,
+      "pass": 7,
+      "fail": 0
+    },
+    {
+      "name": "chat-security",
+      "exit": 0,
+      "tests": 20,
+      "pass": 20,
+      "fail": 0
+    },
+    {
+      "name": "wash-defrost",
+      "exit": 0,
+      "tests": 36,
+      "pass": 36,
+      "fail": 0
+    },
+    {
+      "name": "notifications-publication",
+      "exit": 0,
+      "tests": 68,
+      "pass": 68,
+      "fail": 0
+    },
+    {
+      "name": "shift-people",
+      "exit": 0,
+      "tests": 4,
+      "pass": 4,
+      "fail": 0
+    },
+    {
+      "name": "shared-contracts",
+      "exit": 1,
+      "tests": 14,
+      "pass": 13,
+      "fail": 1
+    },
+    {
+      "name": "shared-contracts-current-scope",
+      "exit": 1,
+      "tests": 14,
+      "pass": 13,
+      "fail": 1
+    },
+    {
+      "name": "shared-contracts-current-owners",
+      "exit": 0,
+      "tests": 13,
+      "pass": 13,
+      "fail": 0
+    },
+    {
+      "name": "checklist-draft",
+      "exit": 0,
+      "tests": 5,
+      "pass": 5,
+      "fail": 0
+    },
+    {
+      "name": "foundation-auth",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0
+    },
+    {
+      "name": "frontend-build",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0
+    }
+  ],
+  "startedAt": "2026-09-26T16:23:56.969Z",
+  "status": "PASS_CURRENT_TARGETED_SCOPE_WITH_RETAINED_LEGACY_J20_FAILURE",
+  "error": "shared-contracts-current-scope\n\n1 !== 0\n",
+  "retainedLegacyFailure": {
+    "name": "shared-contracts",
+    "case": "J20",
+    "reason": "Historical owner omits canonical chats.access and member role is WORKER, explicitly forbidden since LOCAL02. Test unchanged, failure retained; current chat-policy/R2-chain/Admin live proofs are separate. The other 13 shared cases run unchanged."
+  },
+  "finishedAt": "2026-09-26T16:31:11.669Z"
+}

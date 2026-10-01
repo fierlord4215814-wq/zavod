@@ -1,0 +1,166 @@
+{
+  "at": "2026-09-20T13:44:59.388Z",
+  "observationAt": "2026-09-20T16:42:36.7229500+03:00",
+  "status": "BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS",
+  "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+  "lastActualVmObservation": {
+    "at": "2026-09-20T16:26:38.6967893+03:00",
+    "vm": {
+      "Name": "99A158DA-C247-422C-AE11-109485A92B1F",
+      "ElementName": "Zavod-Master-R5-Ubuntu24",
+      "EnabledState": 2,
+      "RequestedState": 5,
+      "OperationalStatus": [
+        2
+      ],
+      "StatusDescriptions": [
+        "Работает нормально"
+      ],
+      "HealthState": 5,
+      "ProcessID": 8664
+    },
+    "jobs": []
+  },
+  "currentVmState": "NOT_FRESHLY_OBSERVED_LAST_PROVEN_RUNNING",
+  "currentVmOffProven": false,
+  "coordinator": {
+    "pid": 9056,
+    "hasExited": false,
+    "exists": true,
+    "name": "pwsh",
+    "start": "2026-09-20T08:26:22.4640876+03:00",
+    "commandLineProof": "old-helper-identity.json",
+    "commandLineProofAt": "2026-09-20T16:26:34.3841576+03:00",
+    "scriptSha256": "4f22e068a0d5f20a68a8b2070e89646424dea17a5dc62f1ecf996814e5beec9e",
+    "executionLine": "UNKNOWN"
+  },
+  "shutdown": {
+    "request": "000006",
+    "status": "PENDING_EXECUTION_AND_COMPLETION_UNVERIFIED",
+    "result": null,
+    "associatedHyperVJobs": [],
+    "emptyJobsDoesNotProveCancellation": true,
+    "force": false,
+    "turnOff": false
+  },
+  "coordinatorExit": {
+    "request": "000007",
+    "status": "QUEUED_UNVERIFIED",
+    "result": null
+  },
+  "oldTerminalExists": false,
+  "queue": [
+    {
+      "sha256": "101d76f27749bbfe7eba763e3afd532fdab6ceceafc6e546eb25a2f36e41d675",
+      "exists": true,
+      "name": "000006.request.json",
+      "data": {
+        "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+        "operation": "SHUTDOWN"
+      }
+    },
+    {
+      "sha256": null,
+      "exists": false,
+      "name": "000006.result.json",
+      "data": null
+    },
+    {
+      "sha256": "531d9ecf05a4fda1e24956ebd0db10bbfb73b56316a94b14543911c1ac2ab5ef",
+      "exists": true,
+      "name": "000007.request.json",
+      "data": {
+        "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+        "operation": "EXIT_COORDINATOR"
+      }
+    },
+    {
+      "sha256": null,
+      "exists": false,
+      "name": "000007.result.json",
+      "data": null
+    }
+  ],
+  "observer": {
+    "pid": 8296,
+    "actualTokenElevated": true,
+    "terminal": {
+      "at": "2026-09-20T16:26:38.7176183+03:00",
+      "message": null,
+      "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+      "status": "READ_ONLY_OBSERVER_COMPLETED_VM_UNCHANGED",
+      "pid": 8296,
+      "hostGuestMutations": false
+    },
+    "processAbsent": true,
+    "consentedUacConsumed": true
+  },
+  "viewer": {
+    "pid": 9616,
+    "processAbsent": true,
+    "observation": {
+      "scope": "OWN_VM_VIEWER_ONLY_NOT_GUEST_INSTALLATION_PROOF",
+      "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+      "viewerPid": 9616,
+      "launch": "vmconnect-launch.json; normal launch, no RunAs requested",
+      "returnedWindow": {
+        "app": "process:C:\\Windows\\System32\\vmconnect.exe",
+        "id": 1310932,
+        "title": "Подключение к виртуальной машине"
+      },
+      "capture": {
+        "attempts": 2,
+        "error": "SetIsBorderRequired failed: Интерфейс не поддерживается (0x80004002)",
+        "recovery": "Refreshed window selection and retried once according to computer-use guidance; no further capture implementation",
+        "validFrames": 0,
+        "guestConsoleViewed": false
+      },
+      "accessibilityTextObserved": "Произошла ошибка при попытке найти виртуальную машину \"Zavod-Master-R5-Ubuntu24\" на компьютере \"localhost\". У вас нет разрешения на выполнение этой задачи. Обратитесь к администратору политики авторизации для компьютера \"localhost\".",
+      "initialCloseAttempt": {
+        "action": "Click own access-denied dialog OK",
+        "result": "coordinate input geometry is unavailable",
+        "followup": "Fresh accessibility observation still showed the same access-denied dialog"
+      },
+      "normalClose": {
+        "action": "Alt+F4 targeted only the freshly observed viewer error dialog",
+        "inputNotSentToGuest": true,
+        "atMostBy": "2026-09-20T16:34:07.5700126+03:00",
+        "process9616AbsentInSubsequentCheck": true
+      },
+      "enhancedSessionOrResourcesConnected": false,
+      "guestInputActions": 0,
+      "otherWindowsScreenshotted": false,
+      "oldControllerModified": false,
+      "oldQueueModified": false,
+      "next": "Need observed own helper wait/prompt state and native guest console; user asked for last helper lines and a manual VMConnect-only frame. No new mutating controller while PID9056/old operations unresolved."
+    }
+  },
+  "newMutatingControllerStarted": false,
+  "conditionalControllerUacUsed": false,
+  "guestInputActions": 0,
+  "guestInstall": "UNVERIFIED_NO_CONSOLE",
+  "guestTransfer": "NOT_RUN",
+  "canaryRoundTrip": "NOT_RUN",
+  "isolationProof": "NOT_RUN",
+  "appStack": "NOT_RUN",
+  "ownAppsDbFixtures": [],
+  "ownFixtureCleanup": "N_A_NONE_CREATED",
+  "workingRuntimeDataCleanup": "UNKNOWN_NOT_INSPECTED",
+  "workingDbAccessed": false,
+  "workingDataEnvUploadsChanged": false,
+  "freeDiskBytes": 44870172672,
+  "disMRepeated": false,
+  "hostRestartRequested": false,
+  "systemSettingsChangesThisContinuation": [],
+  "proxyStarted": false,
+  "forceOrKill": false,
+  "nativeCaptured": 0,
+  "nativeViewed": 0,
+  "accessibilityErrorRead": true,
+  "uiSkill": "computer-use: capture unsupported error retained, selected own viewer only, no terminal automation",
+  "userInputNeeded": [
+    "Last lines of verified old helper, without input/closing/Force",
+    "Manual native frame of only own VMConnect opened as administrator, no enhanced resources or guest input"
+  ],
+  "boundary": "Do not start installation or a second mutating controller until old queue and operation are safely reconciled; preserve VM and all evidence."
+}

@@ -1,0 +1,103 @@
+{
+  "startedAt": "2026-09-15T20:47:07.946Z",
+  "expected": [
+    {
+      "title": "R3-E Task UI serializes create take complete through actual authority controllers receivers readers",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 5,
+      "id": "acc10fa58cd3"
+    },
+    {
+      "title": "R3-C4 actual publication expired UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "b4ca9597497f"
+    },
+    {
+      "title": "R3-C4 actual publication future UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "25e5c1527d5a"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-E Task UI serializes create take complete through actual authority controllers receivers readers",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 5,
+      "id": "acc10fa58cd3",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3677,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"direction\": \"reply\",\u001b[39m\n\u001b[31m+     \"id\": 3,\u001b[39m\n\u001b[31m+     \"message\": \"UNMOCKED_IPC_ROUTE GET /tasks\",\u001b[39m\n\u001b[31m+     \"ok\": false,\u001b[39m\n\u001b[31m+     \"status\": 500,\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-task-publication-03\\runner-artifacts\\master-r3-bridge-R3-E-Task-bdb91-ntrollers-receivers-readers\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-task-publication-03\\runner-artifacts\\master-r3-bridge-R3-E-Task-bdb91-ntrollers-receivers-readers\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C4 actual publication expired UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "b4ca9597497f",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 17768,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByText('Все важные сообщения уже прочитаны.')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Все важные сообщения уже прочитаны.')\u001b[22m\n\u001b[2m    20 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-task-publication-03\\runner-artifacts\\master-r3-bridge-R3-C4-act-28cf9-does-not-become-ACK-success\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-task-publication-03\\runner-artifacts\\master-r3-bridge-R3-C4-act-28cf9-does-not-become-ACK-success\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C4 actual publication future UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "25e5c1527d5a",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 17840,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByText('Все важные сообщения уже прочитаны.')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Все важные сообщения уже прочитаны.')\u001b[22m\n\u001b[2m    20 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-task-publication-03\\runner-artifacts\\master-r3-bridge-R3-C4-act-019f7-does-not-become-ACK-success\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-task-publication-03\\runner-artifacts\\master-r3-bridge-R3-C4-act-019f7-does-not-become-ACK-success\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T20:47:51.636Z",
+  "status": "failed",
+  "listOnly": false
+}

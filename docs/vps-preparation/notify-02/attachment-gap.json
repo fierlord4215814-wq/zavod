@@ -1,0 +1,40 @@
+{
+  "status": "PROVEN_CANONICAL_ADMIN_GUEST_ATTACHMENT_BYPASS_NOT_FIXED_OUTSIDE_NOTIFY02",
+  "canonicalState": {
+    "grant": 201,
+    "access": {
+      "role": "ADMIN",
+      "isGuest": true,
+      "isActive": true
+    }
+  },
+  "checks": [
+    {
+      "path": "/orders/requests/26471e64-e2be-4ff2-9975-be4038ba4d67",
+      "http": 403,
+      "bytes": 102,
+      "sha256": "dd0db0100094e3325c5a75982e8288639569bf55a936a63ac5d99095a4b66eb9"
+    },
+    {
+      "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216",
+      "http": 200,
+      "bytes": 586,
+      "sha256": "7b6fcf003b0843530390f386953699cc9b33e627fedb9ebc6edda4b7f85c576b"
+    },
+    {
+      "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216/file",
+      "http": 200,
+      "bytes": 1496,
+      "sha256": "841102c37fb2cd90848574ea7c349aca8a26913693bc8b1bf9d045abfe574944"
+    },
+    {
+      "path": "/notifications",
+      "http": 403,
+      "bytes": 102,
+      "sha256": "dd0db0100094e3325c5a75982e8288639569bf55a936a63ac5d99095a4b66eb9"
+    }
+  ],
+  "owner": "backend/src/modules/attachments/attachments.service.ts:assertPermission",
+  "ownerSha256": "d36cc45b2c7e836bce9466779b8ddf97826caea88d0ae12af99c889a0bc6b7e4",
+  "originalAccessRestored": true
+}

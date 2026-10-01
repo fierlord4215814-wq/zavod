@@ -1,0 +1,20 @@
+--- /dev/null
++++ backend/scripts/master-r2-handover-fixture.cjs
+@@ -0,0 +1,17 @@
++require('./master-offline-guard.cjs');require('reflect-metadata');
++const {memory,strict,copy}=require('./master-r2-memory.cjs');
++const {ShiftLogService}=require('../dist/modules/shift-log/shift-log.service');
++const {ShiftLogController}=require('../dist/modules/shift-log/shift-log.controller');
++function handoverFixture(){
++  const m=memory(),user={userId:'series-user',selectedFactoryId:'series-factory',departmentId:'series-department',role:'MASTER',isAdmin:false,isGuest:false,permissions:['shift.current.read','shift.current.manage','shift-log.read','shift-log.create','shift-log.comment','shift-log.archive.read','shift-log.manage','lines.read','tasks.read','wash.read','notifications.read']};
++  const account={id:user.userId,firstName:'Мария',lastName:'Сменная',blockedAt:null,deletedAt:null,passwordResetRequired:false},department={id:user.departmentId,factoryId:user.selectedFactoryId,name:'Механики',scope:'FACTORY',isActive:true,deletedAt:null},access={id:'handover-access',factoryId:user.selectedFactoryId,userId:user.userId,isActive:true,isGuest:false,role:user.role,departmentId:user.departmentId,user:account};
++  const logs=[],comments=[],reads=[],lines=[{id:'handover-line',factoryId:user.selectedFactoryId,name:'Линия упаковки',status:'WORK',deletedAt:null,deactivatedAt:null,shiftWorkPlans:[],events:[]}];
++  m.data.department=m.model('department',[department]);m.data.user=m.model('user',[account]);m.data.userFactoryAccess=m.model('userFactoryAccess',[access],{includes:['user'],compounds:['userId_factoryId']});
++  m.data.line=m.model('line',lines,{includes:['shiftWorkPlans','events']});m.data.task=m.model('task',[],{includes:['line','assignedTo','takenBy','departmentRecipients','assignees']});m.data.washSession=m.model('washSession',[],{includes:['line']});m.data.shiftSession=m.model('shiftSession',[]);
++  m.data.shiftLog=m.model('shiftLog',logs,{includes:['comments','reads'],defaults:{status:'ACTIVE',isDeleted:false},enrich:r=>({...r,comments:comments.filter(c=>c.logId===r.id&&!c.deletedAt),reads:reads.filter(c=>c.logId===r.id)})});
++  m.data.shiftLogComment=m.model('shiftLogComment',comments);m.data.shiftLogRead=m.model('shiftLogRead',reads,{compounds:['logId_userId']});
++  const service=new ShiftLogService({db:m.db},m.audit,m.attachments,strict({})),controller=new ShiftLogController(service);
++  return {...m,user,account,access,department,lines,logs,comments,reads,service,controller};
++}
++module.exports={handoverFixture};
++

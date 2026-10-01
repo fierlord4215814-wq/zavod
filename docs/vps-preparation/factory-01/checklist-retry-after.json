@@ -1,0 +1,33 @@
+{
+  "status": "PASS_LOST_RESPONSE_UI_RETRY_ONE_ATTACHMENT",
+  "runId": "9fab8b3c-6b6c-48a0-925f-6c6e9692a76f",
+  "rowId": "248d66ed-d387-4b26-8659-ca714319e177",
+  "firstServerCommit": {
+    "status": 201,
+    "id": "57082589-ca21-4fd4-a8dd-aa9eabbaf8a6"
+  },
+  "interrupted": {
+    "rowStatus": "PENDING",
+    "files": [
+      "57082589-ca21-4fd4-a8dd-aa9eabbaf8a6"
+    ],
+    "retainedSelection": 0
+  },
+  "retry": {
+    "requests": [
+      {
+        "status": 201,
+        "id": "57082589-ca21-4fd4-a8dd-aa9eabbaf8a6"
+      },
+      {
+        "status": 201,
+        "id": "57082589-ca21-4fd4-a8dd-aa9eabbaf8a6"
+      }
+    ],
+    "files": [
+      "57082589-ca21-4fd4-a8dd-aa9eabbaf8a6"
+    ],
+    "deduplicated": true
+  },
+  "closed": true
+}

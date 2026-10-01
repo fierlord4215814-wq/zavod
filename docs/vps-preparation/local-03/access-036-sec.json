@@ -1,0 +1,317 @@
+{
+  "states": [
+    {
+      "state": "guest",
+      "denied": {
+        "/shift-log/archive": 403,
+        "/shift-log/archive/f78cb509-994f-4d65-9219-e9d9f57bd21f": 403,
+        "/shift-log?archive=true&includeClosed=true": 403,
+        "/shift-log/handover/availability": 403,
+        "/shift-log/handover/summary": 403,
+        "/shift-log/handover/previous": 403,
+        "/attachments/f6f300a3-d667-4ff1-bac2-8dfcc8b191d1": 403,
+        "/attachments/f6f300a3-d667-4ff1-bac2-8dfcc8b191d1/file": 403
+      },
+      "identity": {
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "role": "MASTER",
+        "departmentId": null,
+        "jobTitleId": null,
+        "companyId": null,
+        "isGuest": true,
+        "isActive": true
+      },
+      "replay": 403,
+      "ui": "Завод LOCAL-01\n\nЗавод\n\nОнлайн · Мастер Пользователь +.\nПрава доступа изменились. Данные будут обновлены.\nГлавная\nСообщить об ошибке\nГлавная\n\nЗдесь показан статус доступа к выбранному заводу.\n\nСТАТУС ДОСТУПА\n\nВы вошли как Гость\n\nРабочая роль ещё не назначена. Отправьте одну заявку ответственному руководителю.\n\nОжидает назначения\nПодать заявку на назначение",
+      "protectedLogGone": true,
+      "restored": {
+        "access": {
+          "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+          "role": "MASTER",
+          "departmentId": null,
+          "jobTitleId": null,
+          "companyId": null,
+          "isGuest": false,
+          "isActive": true
+        },
+        "blockedAt": null,
+        "globalRole": "MASTER"
+      },
+      "restoredReplay": {
+        "status": 201,
+        "id": "34866f79-c8b3-4f03-a3f2-4b984b14d021",
+        "resultStatus": "DONE"
+      }
+    },
+    {
+      "state": "blocked",
+      "denied": {
+        "/shift-log/archive": 403,
+        "/shift-log/archive/f78cb509-994f-4d65-9219-e9d9f57bd21f": 403,
+        "/shift-log?archive=true&includeClosed=true": 403,
+        "/shift-log/handover/availability": 403,
+        "/shift-log/handover/summary": 403,
+        "/shift-log/handover/previous": 403,
+        "/attachments/f6f300a3-d667-4ff1-bac2-8dfcc8b191d1": 403,
+        "/attachments/f6f300a3-d667-4ff1-bac2-8dfcc8b191d1/file": 403
+      },
+      "identity": {
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "role": "MASTER",
+        "departmentId": null,
+        "jobTitleId": null,
+        "companyId": null,
+        "isGuest": false,
+        "isActive": true
+      },
+      "replay": 403,
+      "ui": "Завод\n\nВход, первый запуск и выбор завода\n\nТелефон\nПароль\nВойти\n\nЕсли администратор выдал временный код, введите его в поле пароля. Код одноразовый и имеет ограниченный срок действия.\n\nРегистрация\nУстановить приложение\nДоступ ещё не назначен\n\nДля этого пользователя пока нет активного завода или рабочей роли.\n\nПосле назначения доступа здесь появится выбор завода, а внутри приложения откроются рабочие разделы.\n\nОбратитесь к мастеру, руководителю или администратору.",
+      "protectedLogGone": true,
+      "restored": {
+        "access": {
+          "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+          "role": "MASTER",
+          "departmentId": null,
+          "jobTitleId": null,
+          "companyId": null,
+          "isGuest": false,
+          "isActive": true
+        },
+        "blockedAt": null,
+        "globalRole": "MASTER"
+      },
+      "restoredReplay": {
+        "status": 201,
+        "id": "34866f79-c8b3-4f03-a3f2-4b984b14d021",
+        "resultStatus": "DONE"
+      }
+    },
+    {
+      "state": "revoked",
+      "denied": {
+        "/shift-log/archive": 403,
+        "/shift-log/archive/f78cb509-994f-4d65-9219-e9d9f57bd21f": 403,
+        "/shift-log?archive=true&includeClosed=true": 403,
+        "/shift-log/handover/availability": 403,
+        "/shift-log/handover/summary": 403,
+        "/shift-log/handover/previous": 403,
+        "/attachments/f6f300a3-d667-4ff1-bac2-8dfcc8b191d1": 403,
+        "/attachments/f6f300a3-d667-4ff1-bac2-8dfcc8b191d1/file": 403
+      },
+      "identity": {
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "role": "MASTER",
+        "departmentId": null,
+        "jobTitleId": null,
+        "companyId": null,
+        "isGuest": false,
+        "isActive": false
+      },
+      "replay": 403,
+      "ui": "Завод\n\nВход, первый запуск и выбор завода\n\nТелефон\nПароль\nВойти\n\nЕсли администратор выдал временный код, введите его в поле пароля. Код одноразовый и имеет ограниченный срок действия.\n\nРегистрация\nУстановить приложение\nДоступ ещё не назначен\n\nДля этого пользователя пока нет активного завода или рабочей роли.\n\nПосле назначения доступа здесь появится выбор завода, а внутри приложения откроются рабочие разделы.\n\nОбратитесь к мастеру, руководителю или администратору.",
+      "protectedLogGone": true,
+      "restored": {
+        "access": {
+          "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+          "role": "MASTER",
+          "departmentId": null,
+          "jobTitleId": null,
+          "companyId": null,
+          "isGuest": false,
+          "isActive": true
+        },
+        "blockedAt": null,
+        "globalRole": "MASTER"
+      },
+      "restoredReplay": {
+        "status": 201,
+        "id": "34866f79-c8b3-4f03-a3f2-4b984b14d021",
+        "resultStatus": "DONE"
+      }
+    }
+  ],
+  "scope": [
+    {
+      "department": "original",
+      "archive": 409,
+      "file": 403
+    },
+    {
+      "department": "archive own",
+      "archive": 200,
+      "file": 200,
+      "sha": "e07f7d943de198c551d2e1efbaa9d399135c5001279413151e9d7413331da8ac"
+    },
+    {
+      "department": "other own C1 department",
+      "list": 403,
+      "archive": 409,
+      "file": 403
+    }
+  ],
+  "logId": "f78cb509-994f-4d65-9219-e9d9f57bd21f",
+  "fileId": "f6f300a3-d667-4ff1-bac2-8dfcc8b191d1",
+  "taskId": "34866f79-c8b3-4f03-a3f2-4b984b14d021",
+  "original": {
+    "globalRole": "MASTER",
+    "blockedAt": null,
+    "access": {
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "role": "MASTER",
+      "departmentId": null,
+      "jobTitleId": null,
+      "companyId": null,
+      "isGuest": false,
+      "isActive": true
+    }
+  },
+  "permissions": [
+    "announcements.create",
+    "announcements.read",
+    "assignments.manage",
+    "chats.access",
+    "chats.read",
+    "chats.write",
+    "checklists.runs.read",
+    "checklists.runs.self",
+    "checklists.templates.read",
+    "defrost.calendar.read",
+    "defrost.read",
+    "factory.read",
+    "lines.manage",
+    "lines.read",
+    "notifications.read",
+    "okk.read",
+    "orders.read",
+    "orders.request",
+    "orders.take",
+    "people.phone.read",
+    "people.profile.read",
+    "people.read",
+    "people.recommendations.manage",
+    "people.skills.manage",
+    "people.skills.read",
+    "returns.publication.read",
+    "returns.read",
+    "shift-log.comment",
+    "shift-log.create",
+    "shift-log.manage",
+    "shift-log.read",
+    "shift.current.manage",
+    "shift.current.read",
+    "shift.future.manage",
+    "shift.future.read",
+    "shift.past.read",
+    "shift.return.manage",
+    "tasks.comment",
+    "tasks.create",
+    "tasks.done",
+    "tasks.manage",
+    "tasks.read",
+    "tasks.read-receipts.read",
+    "tasks.redirect",
+    "tasks.take",
+    "wash.control.create",
+    "wash.control.manage",
+    "wash.issue.create",
+    "wash.issue.resolve",
+    "wash.manage",
+    "wash.message.create",
+    "wash.read"
+  ],
+  "beforeTask": {
+    "task": {
+      "id": "34866f79-c8b3-4f03-a3f2-4b984b14d021",
+      "status": "DONE",
+      "description": "Учебная согласованность LOCAL03 lock-rollback",
+      "version": 3
+    },
+    "history": [
+      {
+        "id": "4b301116-e14b-4ca7-93e7-1ce4e8cd8196",
+        "action": "TASK_TAKEN"
+      },
+      {
+        "id": "7518b12b-8a24-45ee-a3b6-c294bdc35961",
+        "action": "TASK_DONE"
+      },
+      {
+        "id": "a9016c9e-db84-44b6-8b14-60359976d196",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "audit": [
+      {
+        "id": "8f08ee2f-a793-4145-b7b1-9842d1d6a847",
+        "action": "TASK_DONE"
+      },
+      {
+        "id": "9790085b-d602-4aea-8a48-1d48c8549537",
+        "action": "TASK_CREATED"
+      },
+      {
+        "id": "caae9736-014e-40bf-9dc5-c9c70f860d59",
+        "action": "TASK_TAKEN"
+      }
+    ],
+    "notifications": [
+      {
+        "id": "28bb2559-a2c7-4bc2-b5eb-e458e308859b",
+        "type": "TASK_DONE",
+        "userId": "7a7ad710-31ef-49a0-b41d-7293c80e0400"
+      },
+      {
+        "id": "bd9f8a8c-1ffa-4a5e-b59e-d54970a75d98",
+        "type": "TASK_CREATED",
+        "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032"
+      }
+    ]
+  },
+  "departmentId": "3dc3713a-aa2b-4b23-89d8-7b6bb01d3cc8",
+  "beforeLog": {
+    "id": "f78cb509-994f-4d65-9219-e9d9f57bd21f",
+    "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+    "departmentId": "3dc3713a-aa2b-4b23-89d8-7b6bb01d3cc8",
+    "shiftSessionId": null,
+    "createdById": "10c314c0-4fe5-44fe-ba11-02ea45b31fd8",
+    "closedById": null,
+    "title": "Передача сведений по учебному отделу ОКК",
+    "text": "Учебный лабораторный узел проверен, результат передан следующей смене.",
+    "logDate": "2026-09-24T12:25:08.717Z",
+    "shiftLabel": "День",
+    "isImportant": false,
+    "importantUntil": null,
+    "status": "ARCHIVED",
+    "createdAt": "2026-09-24T12:25:08.723Z",
+    "updatedAt": "2026-09-24T12:25:08.814Z",
+    "editedAt": null,
+    "closedAt": null,
+    "isDeleted": true,
+    "deletedAt": "2026-09-24T12:25:08.814Z",
+    "reads": [],
+    "comments": []
+  },
+  "beforeReceiptAudit": [],
+  "missing": 409,
+  "readOnly": {
+    "GET /shift-log/f78cb509-994f-4d65-9219-e9d9f57bd21f/reads": 409,
+    "PATCH /shift-log/f78cb509-994f-4d65-9219-e9d9f57bd21f": 409,
+    "POST /shift-log/f78cb509-994f-4d65-9219-e9d9f57bd21f/close-important": 409,
+    "POST /shift-log/f78cb509-994f-4d65-9219-e9d9f57bd21f/archive": 409,
+    "DELETE /attachments/f6f300a3-d667-4ff1-bac2-8dfcc8b191d1": 403
+  },
+  "finalRestore": {
+    "access": {
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "role": "MASTER",
+      "departmentId": null,
+      "jobTitleId": null,
+      "companyId": null,
+      "isGuest": false,
+      "isActive": true
+    },
+    "blockedAt": null,
+    "globalRole": "MASTER"
+  },
+  "status": "PASS_BOUNDED_036_ACCESS_AND_SEC_STALE_REPLAY"
+}

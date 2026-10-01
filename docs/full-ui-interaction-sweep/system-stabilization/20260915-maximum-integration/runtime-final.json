@@ -1,0 +1,23 @@
+{
+  "recordedAtUtc": "2026-09-15T03:30:36Z",
+  "liveRuntimeStarted": false,
+  "postgresql": "NOT_STARTED_NOT_CONNECTED_NOT_STOPPED_BY_THIS_BATCH",
+  "backend": "NO_BOOTSTRAP; compile and fail-closed in-memory contract imports only",
+  "cloudflare": "NOT_STARTED",
+  "preview": {
+    "pid": 17760,
+    "sessionId": 98905,
+    "port": 5173,
+    "bind": "127.0.0.1",
+    "commandVerifiedBeforeStop": "node ../node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 5173 --strictPort",
+    "stop": "Ctrl+C sent to own original execution session; terminal exit1 without error output",
+    "verification": "CIM PID17760 absent;5173 listeners0 after stop",
+    "status": "STOPPED"
+  },
+  "testRunners": "All saved named runs terminal; no test runner left running by this batch",
+  "realFixtureCleanup": "UNKNOWN_NO_DB_CONNECTION",
+  "isolatedFixtures": "Memory repositories/intercepted browser DTOs/fake device APIs only; no persisted business rows created",
+  "powerSettings": "UNCHANGED; no keep-awake",
+  "processScope": "No PostgreSQL/other-user processes or blanket node.exe termination",
+  "readOnlyPidVerification": "Initial restricted CIM access denied; authorized elevated read-only inspection succeeded. No service start requested."
+}

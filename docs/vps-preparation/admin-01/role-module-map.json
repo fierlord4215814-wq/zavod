@@ -1,0 +1,332 @@
+{
+  "status": "SOURCE_ONLY_CURRENT_DEFAULT_EFFECTIVE_CAPABILITY_PROJECTION",
+  "owners": [
+    "backend/prisma/system-foundation.cjs",
+    "backend/src/common/effective-permissions.ts",
+    "frontend/src/navigation/permissions.ts"
+  ],
+  "screenRoles": [
+    {
+      "screen": "home",
+      "label": "Главная",
+      "defaultEligibleRoles": [],
+      "guest": true
+    },
+    {
+      "screen": "shift",
+      "label": "Смена",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "WORKER",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "CONTRACTOR",
+        "CONTRACTOR_LEAD"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "shift-history",
+      "label": "История смен",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "WORKER",
+        "CONTRACTOR",
+        "CONTRACTOR_LEAD"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "people",
+      "label": "Люди",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "WORKER",
+        "OKK",
+        "STORE",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG",
+        "CONTRACTOR",
+        "CONTRACTOR_LEAD",
+        "OTHER"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "admin",
+      "label": "Админка",
+      "defaultEligibleRoles": [
+        "ADMIN"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "situation",
+      "label": "Линии",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "OKK",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "tasks",
+      "label": "Заявки",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "OKK",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "wash",
+      "label": "Мойка",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "OKK",
+        "TECHNOLOG"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "okk",
+      "label": "ОКК",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "OKK"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "stock",
+      "label": "Некондиция",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "orders",
+      "label": "Заказы / Остатки",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "OKK",
+        "STORE",
+        "TECHNOLOG"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "checklists",
+      "label": "Чек-листы",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "OKK",
+        "TECHNOLOG"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "defrost",
+      "label": "Оттайка",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "WORKER",
+        "TECH_HOLOD",
+        "TECHNOLOG"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "returns",
+      "label": "Возвраты на производство",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "WORKER",
+        "OKK",
+        "STORE",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG",
+        "CONTRACTOR",
+        "CONTRACTOR_LEAD",
+        "OTHER"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "log",
+      "label": "Пересменка / Журнал",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "OKK",
+        "STORE",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "chats",
+      "label": "Чаты",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "OKK",
+        "STORE",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG",
+        "CONTRACTOR_LEAD",
+        "OTHER"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "announcements",
+      "label": "Объявления",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "WORKER",
+        "OKK",
+        "STORE",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG",
+        "CONTRACTOR_LEAD",
+        "OTHER"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "archive",
+      "label": "Архив",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "WORKER",
+        "OKK",
+        "STORE",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG",
+        "CONTRACTOR_LEAD",
+        "OTHER"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "notifications",
+      "label": "Уведомления",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "WORKER",
+        "OKK",
+        "STORE",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "ops",
+      "label": "Статистика / Аудит",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT"
+      ],
+      "guest": false
+    },
+    {
+      "screen": "report",
+      "label": "Сообщить об ошибке",
+      "defaultEligibleRoles": [
+        "ADMIN",
+        "MANAGEMENT",
+        "MASTER",
+        "WORKER",
+        "OKK",
+        "STORE",
+        "TECH_KIPIA",
+        "TECH_HOLOD",
+        "TECH_ELECTRIC",
+        "TECH_MECHANIC",
+        "TECH_SANTECHNIK",
+        "TECHNOLOG",
+        "CONTRACTOR",
+        "CONTRACTOR_LEAD",
+        "OTHER"
+      ],
+      "guest": true
+    }
+  ],
+  "limits": "Menu entry only; service guards, membership, department, active UFA, blocked and overrides still apply. Not role completeness PASS."
+}

@@ -1,0 +1,834 @@
+{
+  "status": "PASS_FULL_ZIP_ENTRY_BYTE_SHA_READBACK",
+  "atUtc": "2026-09-26T23:59:06.4473389Z",
+  "zip": "docs/vps-preparation/task-notify-01/review-pack-task-notify01-20260927.zip",
+  "bytes": 1052262,
+  "sha256": "78f52dcfe002ab11def845921f0731f1e5f495b48891a7fc706f6cc6f7e01e38",
+  "entryCount": 164,
+  "fullStreamReadback": true,
+  "duplicateOrUnexpectedEntries": 0,
+  "finalSourceIdentity": "60271ecdbcae243efb80101c6cf0ce0d1fc50b17fd0b3b3da2bdb79b9f8ab1f0",
+  "manifestIncluded": true,
+  "entries": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 10980,
+      "sha256": "03a3475330d35029e243ec9cbef7aa70d58c9b9c434bb88c495ae6fba029ac65"
+    },
+    {
+      "path": "backend/package.json",
+      "bytes": 19657,
+      "sha256": "9e6b0b3d41aa0c2caa0ada8f790ae40d69a88510ccbff1bb5254737897b65790"
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "bytes": 85485,
+      "sha256": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e"
+    },
+    {
+      "path": "backend/scripts/master-offline-contract.test.js",
+      "bytes": 5934,
+      "sha256": "25bdc5f1ba91f619ea64c7fa1bdbf2198c4269f0d238d3da2b0fda7923706fdf"
+    },
+    {
+      "path": "backend/scripts/master-offline-guard.cjs",
+      "bytes": 1165,
+      "sha256": "81b4b5873bad42ed6b1176055ed2f95794626ac355065b514b8f7361c37530ef"
+    },
+    {
+      "path": "backend/scripts/master-r2-authority-fixture.cjs",
+      "bytes": 1632,
+      "sha256": "1cdf950d1f374a5026cf099dc46edd592e6971c8dc950306fcc26413921ee88d"
+    },
+    {
+      "path": "backend/scripts/master-r2-memory.cjs",
+      "bytes": 7539,
+      "sha256": "5085724fef7b46dd0157aa462c67cee48ae88b81fde362ad48ea8f1a98c7a98b"
+    },
+    {
+      "path": "backend/scripts/master-r2-replay.test.js",
+      "bytes": 19664,
+      "sha256": "3bdd467d4d6797a75384eb1ade327c78044a60619ef5a1919c9a9bcda43795ac"
+    },
+    {
+      "path": "backend/scripts/master-r2-task-chain.test.js",
+      "bytes": 5655,
+      "sha256": "45070859c6a9a0ec60e4fc095d8c8a1e4c8783ae7b17cbf5814919319333184c"
+    },
+    {
+      "path": "backend/scripts/master-r2-task-fixture.cjs",
+      "bytes": 7761,
+      "sha256": "db77fdd2f268163829f37b5830b7274f60cc172f634c017081b7e4dfa7c26224"
+    },
+    {
+      "path": "backend/scripts/master-stateful-chain.test.js",
+      "bytes": 14543,
+      "sha256": "6eb9bfe0502ed27bab8fa76089152ac8fa3ae47e3a852709cc9b737750705737"
+    },
+    {
+      "path": "backend/scripts/master-task-replay-boundary.test.js",
+      "bytes": 2706,
+      "sha256": "a8bc60c59efed1b24ff8b30a187d549d336559536589300cb5a05867ec4410ad"
+    },
+    {
+      "path": "backend/scripts/task-notify-01.test.cjs",
+      "bytes": 5075,
+      "sha256": "a1057d38e25118bc6c561b7cc79a31faf2f97aa4c76c20051a06c47d40dd7da9"
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-regression.js",
+      "bytes": 25059,
+      "sha256": "95b0d801decc9decbedcd8314505c78e736fa5fa0b3d5ca5696cd3e508aee817"
+    },
+    {
+      "path": "backend/src/common/operation-lock.ts",
+      "bytes": 3656,
+      "sha256": "f8743cbfd930e85a7de2c544aaae01a3bfd0041bfec64ba61dbd120d92dae21f"
+    },
+    {
+      "path": "backend/src/common/task-visibility.ts",
+      "bytes": 723,
+      "sha256": "bbcd1557f14ee3d9795349638c7f5bc4d35ec3567c3b848e50de35cca5d69702"
+    },
+    {
+      "path": "backend/src/common/user-context.service.ts",
+      "bytes": 7492,
+      "sha256": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993"
+    },
+    {
+      "path": "backend/src/modules/announcements/announcements.service.ts",
+      "bytes": 44004,
+      "sha256": "dff3e2cd004dc6a70975af2b839ae5a752780f6a98d3e4ecb9ddd6ee4b2c7a57"
+    },
+    {
+      "path": "backend/src/modules/defrost/defrost.service.ts",
+      "bytes": 33514,
+      "sha256": "d96dcce89cc671ac992c8b02444e3f102eccf33300f2a492c665b04a9d5adc9a"
+    },
+    {
+      "path": "backend/src/modules/notifications/notifications.controller.ts",
+      "bytes": 1633,
+      "sha256": "9153610c9d4a897cd6d570b05c9369881441b6a05705688591654375d1e1251f"
+    },
+    {
+      "path": "backend/src/modules/notifications/notifications.module.ts",
+      "bytes": 587,
+      "sha256": "1ff01575b949a92081b764f7d3d149dee07b0739d125daf4ba5b4e90bd1c305f"
+    },
+    {
+      "path": "backend/src/modules/notifications/notifications.service.ts",
+      "bytes": 44243,
+      "sha256": "88311ab43445d2d9db8ed97b7cde501493682e732212d9274350293f6c45dacc"
+    },
+    {
+      "path": "backend/src/modules/orders/orders.service.ts",
+      "bytes": 49985,
+      "sha256": "a6abdc6da6e83a06997c9287cd79bfa1a0f8807e63190463f80b558330f63741"
+    },
+    {
+      "path": "backend/src/modules/returns/returns.service.ts",
+      "bytes": 19891,
+      "sha256": "ce5edfcc7c21e0af920b011e54effbe07238b8f0590f79b715940303d599210f"
+    },
+    {
+      "path": "backend/src/modules/stock/stock.service.ts",
+      "bytes": 9198,
+      "sha256": "bc0b20dd3ecacd212821d7082f3e741300cf4a985fd45a5d3ccf1f67e97a3793"
+    },
+    {
+      "path": "backend/src/modules/task/task.controller.ts",
+      "bytes": 5595,
+      "sha256": "58613a8e25e780ea72e0f976251c1e9c63e7a665f0beef7b688d3219d1fffbd3"
+    },
+    {
+      "path": "backend/src/modules/task/task.service.ts",
+      "bytes": 46852,
+      "sha256": "327160a3596e8c178d2c1e237e0cb496f5808ded83f6d0e5bb92b48ad2cace49"
+    },
+    {
+      "path": "backend/src/modules/wash/wash.service.ts",
+      "bytes": 77577,
+      "sha256": "4d976aa566e8e24355fae2e74617bfba791e391afb35aafc5c8e978bc0806466"
+    },
+    {
+      "path": "backend/src/push/push.service.ts",
+      "bytes": 3569,
+      "sha256": "bb7cf620782e01cc82c4230dbc293585839490073020db39caca7462f681a051"
+    },
+    {
+      "path": "backend/src/ws/events.ts",
+      "bytes": 2574,
+      "sha256": "ec808816942dea183e2bf5fd1aede93665950454ffbebb15818be5f2bc27369f"
+    },
+    {
+      "path": "backend/src/ws/ws.service.ts",
+      "bytes": 8398,
+      "sha256": "4092266082348f1321f9f42db070fcee03f19020a5a9b6723f65c67ba99762a7"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "bytes": 244621,
+      "sha256": "0ae953f97e60d9170460483048763a62c7def7b633e2010778a6c945a19645cc"
+    },
+    {
+      "path": "docs/v1-completion-goal.md",
+      "bytes": 22214,
+      "sha256": "098fd6d70cc48397c786745ad66f268b674e8fae8858feed0ffc770ce41db883"
+    },
+    {
+      "path": "docs/vps-preparation/admin-01/harness.cjs",
+      "bytes": 3099,
+      "sha256": "5d0947f543265883e238123b03d670e8be86694b8aa21341ecca08fc600d876e"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/five-gate-delta-matrix.md",
+      "bytes": 7088,
+      "sha256": "00e59095890d3b5505b6cb3c0409c28580bb517c284bdd8cc2c8455503d592ed"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/harness.cjs",
+      "bytes": 2865,
+      "sha256": "2295a6a95abbf0068230bfba20ab8fe5f3a974310eb8667b38323385671af042"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/manual-review.md",
+      "bytes": 8390,
+      "sha256": "32724e9a02feaf528763e506e201af060afb56e3d41210c9f6f3d7ec36e79e2f"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/own-runtime.cjs",
+      "bytes": 2160,
+      "sha256": "28890eef491fa20e022966bb41171742bcc7b59eede792e608ed89ff827f55e1"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/pair.cjs",
+      "bytes": 6193,
+      "sha256": "abf35f52805b0bea4102a3e0592a6d257968d3a1ab3fa70e1138999406612660"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/plan.md",
+      "bytes": 18860,
+      "sha256": "57728e738e27d1e7320f3fbfbb59e3d5b95eca23075e06dae2b2ce3c74809361"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/report.md",
+      "bytes": 22813,
+      "sha256": "b66364ffad8d5182d3f7b4b3e5fc786acf7f4c9281729a6278642fa074638921"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-230405-095.json",
+      "bytes": 1107,
+      "sha256": "013d34c204aa93c64f7274a7faa9874ae50a3fc20f87923233ab2b259b920086"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-230443-445.json",
+      "bytes": 1110,
+      "sha256": "8530f16d0b7fd6ed22701f74fe811b37d76bd97950d4f960792e627897cc7231"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-230953-332.json",
+      "bytes": 1523,
+      "sha256": "d43c81edb908848fa2d6140d9f870d2237c8f79cb97ae4652f4a6d9ec4d59739"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-231204-979.json",
+      "bytes": 1525,
+      "sha256": "a446927d88111259b1f915c2c814a4c3dbfaea76215dd5521efbca81f606f459"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-232701-930.json",
+      "bytes": 1525,
+      "sha256": "97b455feecb1d7ab24628d814e8424847ffc847ebaa92cb1016bab075ccd84e7"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-233104-617.json",
+      "bytes": 1526,
+      "sha256": "6017779b3d82abcd66b02f341288d96ef046921048f14796bbeeaa48f78b77c0"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-233153-763.json",
+      "bytes": 1526,
+      "sha256": "a8b7133a619e0c10873796f5b471b1cf0ccc59988b29ce8b146f1e7ca4520ee7"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-233336-564.json",
+      "bytes": 1526,
+      "sha256": "2dd053d65c000ec86da2d4da1679f850d585df49fa711068cb78c29dc8709494"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-233836-062.json",
+      "bytes": 1526,
+      "sha256": "4bd45b30a39164dfc5001111b7831ef1fb40bf22ccc1767afc8a0577f7efc6ef"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260926-234810-339.json",
+      "bytes": 1518,
+      "sha256": "819025d42a19a27d2f0de65a73be4584feb65c5b3113ceb792b1a806c704c6ff"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/stand.ps1",
+      "bytes": 6398,
+      "sha256": "e4c14cd043240420010eaa341c334201c0b99464e03c122d31a82a3b00452203"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/structure.json",
+      "bytes": 18635,
+      "sha256": "5b3f1031c126b7a590be461959f190f85d226f81cc2059e859f9b3e231177de7"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/users.json",
+      "bytes": 25747,
+      "sha256": "443405c5b79cf66785c38d46b10f71a606247dc24f1a0e41cf1a55bcae060145"
+    },
+    {
+      "path": "docs/vps-preparation/handoff.md",
+      "bytes": 64787,
+      "sha256": "0e64d2eec6cbcec6a3231c7eba587a365e2ac183279ca184199355cfbe2b066b"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/plan.md",
+      "bytes": 52502,
+      "sha256": "7ae7d9a6ceffd9302c4ddef398ab832dc0c6e884c67609fdcc85b7a6e78a1629"
+    },
+    {
+      "path": "docs/vps-preparation/local-02/files.cjs",
+      "bytes": 2415,
+      "sha256": "acf4dd2dc75d9243fe85c8628597a3bd608d8d59a718a1886ec307cfeb1d088c"
+    },
+    {
+      "path": "docs/vps-preparation/local-02/harness.cjs",
+      "bytes": 3470,
+      "sha256": "b32f0c20f10d6cb0e2555b47ddab45ef0428537ca8293e64511e01552e679ae5"
+    },
+    {
+      "path": "docs/vps-preparation/local-02/own-db.cjs",
+      "bytes": 1422,
+      "sha256": "c94b9a6576332e5c9d9c2956a41e8e17cb9e49a4a5dcd735efa56348923b765f"
+    },
+    {
+      "path": "docs/vps-preparation/local-03/frontend-preview.cjs",
+      "bytes": 579,
+      "sha256": "7f25283b2c5c7ac36a2c16ba9f8436759c413dff596de3f3923191dd80c03e0a"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/acl-readback.json",
+      "bytes": 2139,
+      "sha256": "dd6e819f74562e205827c1dda8ec56ed2e9bfb52e7dff8d87b8e05621ff92d85"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/acl-readback.ps1",
+      "bytes": 1388,
+      "sha256": "b112a38083239b0602c99f653ce152d351e48019d40e67c76c287ff5002c20e9"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/baseline.cjs",
+      "bytes": 1719,
+      "sha256": "90eebf866cca2525f1a575c5e476657dd0d1fd664c65f523b95fd3d4152635d2"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before-return.json",
+      "bytes": 10239,
+      "sha256": "7fa2ee87bf66db4ab4ba8a2f3de4b46352e5027cf964cbd7d8e60b261007e06e"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before.json",
+      "bytes": 11758,
+      "sha256": "e84cb591092b1206454f17a8418c9d813ae0bf9012e3674c587562d30c8ac567"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/App.tsx",
+      "bytes": 72008,
+      "sha256": "078f01c1193ea1d90f5aa4d7905383bb4c89ccb190cbf54f7707f285777d7fd6"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/prisma/schema.prisma",
+      "bytes": 85485,
+      "sha256": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/common/operation-lock.ts",
+      "bytes": 3656,
+      "sha256": "f8743cbfd930e85a7de2c544aaae01a3bfd0041bfec64ba61dbd120d92dae21f"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/common/task-visibility.ts",
+      "bytes": 723,
+      "sha256": "bbcd1557f14ee3d9795349638c7f5bc4d35ec3567c3b848e50de35cca5d69702"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/common/user-context.service.ts",
+      "bytes": 7492,
+      "sha256": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/modules/notifications/notifications.controller.ts",
+      "bytes": 1633,
+      "sha256": "9153610c9d4a897cd6d570b05c9369881441b6a05705688591654375d1e1251f"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/modules/notifications/notifications.module.ts",
+      "bytes": 587,
+      "sha256": "1ff01575b949a92081b764f7d3d149dee07b0739d125daf4ba5b4e90bd1c305f"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/modules/notifications/notifications.service.ts",
+      "bytes": 42682,
+      "sha256": "8f67978ed1c3f7a184c883f41b276d08dfd9d312160b3d8604b17de70d76bf6c"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/modules/task/task.controller.ts",
+      "bytes": 5595,
+      "sha256": "58613a8e25e780ea72e0f976251c1e9c63e7a665f0beef7b688d3219d1fffbd3"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/modules/task/task.service.ts",
+      "bytes": 46348,
+      "sha256": "3bf85d8719c3823419804d859c8f748687cec90a68c16f9db33a46fba1c3a523"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/push/push.service.ts",
+      "bytes": 3569,
+      "sha256": "bb7cf620782e01cc82c4230dbc293585839490073020db39caca7462f681a051"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/ws/events.ts",
+      "bytes": 2574,
+      "sha256": "ec808816942dea183e2bf5fd1aede93665950454ffbebb15818be5f2bc27369f"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/backend/src/ws/ws.service.ts",
+      "bytes": 8398,
+      "sha256": "4092266082348f1321f9f42db070fcee03f19020a5a9b6723f65c67ba99762a7"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/frontend/src/screens/NotificationsScreen.tsx",
+      "bytes": 8780,
+      "sha256": "c5801ade30916a08591a3932331aedd78f75eef3c5d765d5e3f4e5889805fd05"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/frontend/src/screens/TasksScreen.tsx",
+      "bytes": 48287,
+      "sha256": "05b144e97dd7153bdc652dba53fe6cecc35b0e8cc477f9a9653fc85f5e4db5d0"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/before/master-r2-task-fixture.cjs",
+      "bytes": 7381,
+      "sha256": "03941c8126b914f8913fc00e12c813fb958b7bc33211817c6ab8236b59a613bd"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/build-2026-09-26T23-22-01-307Z.json",
+      "bytes": 660,
+      "sha256": "5cefa1c11854cbb29455832dc860fecb13995a5681a831f76e05b0626ca6fe44"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/build.cjs",
+      "bytes": 1853,
+      "sha256": "390d1aa957d796a6f34c487c7592d29f7dad400a0125d2be1ee5cc96c3289776"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/checks/2026-09-26T23-40-03-381Z/backend-build.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/checks/2026-09-26T23-40-03-381Z/backend-task-notification-replay.txt",
+      "bytes": 9427,
+      "sha256": "efefddf06147953d5211ec449409e02ef348722939c4f93006da790fa549de47"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/checks/2026-09-26T23-40-03-381Z/controlled-generate.txt",
+      "bytes": 1187,
+      "sha256": "7a36e41483b1ca3da3af2d8ec09e1e1c16458092914d1d5942eee025de4fb1b8"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/checks/2026-09-26T23-40-03-381Z/foundation-auth.txt",
+      "bytes": 4850,
+      "sha256": "462b78875e33a34dfc647376a2d5e38a405f2b274fcb651d4729d4d76deb97ff"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/checks/2026-09-26T23-40-03-381Z/frontend-source-navigation-ws.txt",
+      "bytes": 998,
+      "sha256": "d32e98c79f80940de469825049322448883f7abb472dad4b4df0f2bed881993e"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/checks/2026-09-26T23-40-03-381Z/frontend-typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/checks/2026-09-26T23-40-03-381Z/prisma-validate.txt",
+      "bytes": 96,
+      "sha256": "57a95d6fed0c8565ccec14844a8dfddf60c99bc53587cd2cb974240ddedfb340"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/checks/2026-09-26T23-40-03-381Z/strict-diff.txt",
+      "bytes": 25,
+      "sha256": "198913094e3f41610eb893459ab65a3c79991b65d4ef5fcb8c325ebe52ebf1ed"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/close-failed-ui.cjs",
+      "bytes": 1007,
+      "sha256": "9768b66392231e6dfbec87c52d65acc8b6b4f1fca53b7ff50bbb75d961460fd8"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/close-sql-ui-observation.cjs",
+      "bytes": 896,
+      "sha256": "43c4f73866b552ca83c4dd9bee5c2d573e01085b8e0011ccb4c15f8bc8951c69"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/copy.cjs",
+      "bytes": 2403,
+      "sha256": "1ccde957bfe9837b288763cad81e1ca94e83355df87d995b382168b66fb688f5"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/copy.json",
+      "bytes": 46451,
+      "sha256": "f71c62ae1c07c88ff92b3b7e24a1d21569412515c9d0363f37f954297968e15a"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/failed-ui-task-closed-2026-09-26T23-30-08-387Z.json",
+      "bytes": 1043,
+      "sha256": "60fa8e9e68ae8f22808f1afa485f51f556cce8ccae3b9a37b3a558d8d8961a81"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/failed-ui-task-closed.json",
+      "bytes": 245,
+      "sha256": "bca8a89971e9130c2a996abe8500b9404c07fafbc53ec2abc7abcc236e65b5f6"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/fault-before.cjs",
+      "bytes": 2568,
+      "sha256": "73b956f500491df654ac3d222bfff991fc087caaa1834bf505f9f9d200b65180"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/fault-before.json",
+      "bytes": 1955,
+      "sha256": "e541a6319a660c05e490d7554faae143079b16b3e7c07b434ff33713bd3db701"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/final-checks.cjs",
+      "bytes": 3933,
+      "sha256": "cf1ebb5d79147593bf98c7e0ce54ece3f042c1009346436f0a80c0d3eaf0072f"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/final-checks.json",
+      "bytes": 11563,
+      "sha256": "f930561318c6ade9614e5e5457af7389712553eb31d6ae852b823bc1f6d629fe"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/final-master-exact-source.png",
+      "bytes": 198110,
+      "sha256": "b43b81e776c76e9fc608178126f1837a8bb7e4052e7e524021ecc5d501e8dcf5"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/final-state.cjs",
+      "bytes": 2961,
+      "sha256": "b7447be846f47dbb7d9eec001c2c221ef8fd21ca17592890f1b29b9dd2253cad"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/final-state.json",
+      "bytes": 10269,
+      "sha256": "dd8dce4dc7295ee146d6f11c94cd610e6403fea53f74bdd5245d30cd16ab025c"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/final-tech_kipia-exact-source.png",
+      "bytes": 114141,
+      "sha256": "499165784d923c9c8d15867d982d0356bda489658fd4f0cb993fe6f683976530"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/final-ui-readback.cjs",
+      "bytes": 1649,
+      "sha256": "d82504f4476a1292421998aa6c204624debf5cdfca73337f92ff711a5e86fba1"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/final-ui-readback.json",
+      "bytes": 509,
+      "sha256": "0a6d60413390b5d5c29208711141a5473ea0ef5a26b17f2f117c2e21c6df25fb"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/live.cjs",
+      "bytes": 2839,
+      "sha256": "9e3ffe91c1233e2cdfd790791a49f2f6b05a01304ade69b8b5c1474655a63d1f"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/logs/2026-09-26T23-19-58-324Z/backend-build.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/logs/2026-09-26T23-19-58-324Z/frontend-typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/logs/2026-09-26T23-22-01-307Z/backend-build.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/logs/2026-09-26T23-22-01-307Z/frontend-build.txt",
+      "bytes": 729,
+      "sha256": "2208d162b1594caaa70e6805fd015d43d4cc0f8519f96d549c96fb75d8c8397f"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/logs/2026-09-26T23-22-01-307Z/frontend-typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/lost-second-ui.cjs",
+      "bytes": 2653,
+      "sha256": "a58da32372126a4814b6c5c4baeb9927bbf53c6fcd4baea85e4547b9c663a3da"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/lost-second-ui.json",
+      "bytes": 1429,
+      "sha256": "28cc6df9ecc20d02e0a0524e12300af32c52e8230c973435f31e7197f105f014"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/navigation-before.cjs",
+      "bytes": 1654,
+      "sha256": "7db35e413e0d2f5975c2077083a3d63cf3c60dffbbdb20f41155d6c3ff8d72d4"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/navigation-before.json",
+      "bytes": 1821,
+      "sha256": "477b1a67100838d9b0fc50ec16bcd7cc2c02c14584a09b8a071e2facd4f5064e"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/navigation-before.png",
+      "bytes": 180000,
+      "sha256": "d0bf581254569230c0e9d4a606e3f56bf944d96866adfa1c5d5ff9b266ff40c7"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/own.cjs",
+      "bytes": 615,
+      "sha256": "187ab813b62683f93212a4d4c86eb77ea0dba633f22cfba006b7e37b0718e583"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/plan.md",
+      "bytes": 3465,
+      "sha256": "a808e5d66725b37720ea97c13659da30a5a011d0020f035c2bbc8bd9123024c2"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/product-and-test-diff.patch",
+      "bytes": 17503,
+      "sha256": "94808bbac436011d248f1849b638f7acfb0d3f0aeea630bf92308e7a0d43d712"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/recipients.cjs",
+      "bytes": 6423,
+      "sha256": "18bbd9faab5a3cf14d768d1a15eca95b5f0dcdaffb72b490b8bd97bdc9fc03da"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/recipients.json",
+      "bytes": 18892,
+      "sha256": "74c51eb23b4b64256518d494d12fb5b0b867b0f79f610ecc6311f0ae1551b683"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/report.md",
+      "bytes": 25184,
+      "sha256": "09fb6460dc56dab4a7a8b09d47fa0e61f59b23664ba6fe2bd45741c426accf61"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/restart-final-pending.json",
+      "bytes": 1489,
+      "sha256": "9e953b2d63427e9393658a83badb74acd90bd8f337316fc176ea7eeadabae199"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/restart-final.json",
+      "bytes": 1285,
+      "sha256": "c72333db438b65b640c4e3058862be585e00429011b42eed4336423ab657a36f"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/restart-pending.json",
+      "bytes": 1443,
+      "sha256": "1cbf8311a84f602097245398089db89c9608f69157234e1a9ccaa9102fd83e26"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/restart.cjs",
+      "bytes": 1621,
+      "sha256": "dadd533ce7607ea3c3b758c5740448e126524f6cc9306f1bd160655caede4478"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/restart.json",
+      "bytes": 1258,
+      "sha256": "ac4e520c8328e1be0d6b353c7cfc0fa65efd66d1db34020814f5bc21218f5e45"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/retry.cjs",
+      "bytes": 3522,
+      "sha256": "d0949b6e9b30e0d3fa47d7eb832eb792a3a86c0fc51a1c9b8fbbc21e4c142eb8"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/retry.json",
+      "bytes": 4575,
+      "sha256": "06a1730a34ecb947c71511058fe1a10cf18543eed9e0a56f45cdd0998dddc66c"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/review-external-references.json",
+      "bytes": 62418,
+      "sha256": "81c1ec3e81435f63624cdceaf43838022788cceea28d9d590d75da6081294785"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/review-pack-manifest.json",
+      "bytes": 31542,
+      "sha256": "1330c46efbf013487ab1a0c2fd1338603c2ffcd417fe3e037e8142298fbafac5"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/review-pack.ps1",
+      "bytes": 3990,
+      "sha256": "ec444390c804ed369feaf64568c6161f99e0ae88315eebfea2e84c51d8e4da8b"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/review-package-checks.json",
+      "bytes": 606,
+      "sha256": "bbac8b6e159a6e4e6c43de266f2acf8378553cefb4142af2047fd2e403088d20"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/review-preflight.cjs",
+      "bytes": 12237,
+      "sha256": "73427cdefeb7b4282a90afd56c2161625b9733f4fe1fddd99b2ba5040126aa39"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/security.cjs",
+      "bytes": 7496,
+      "sha256": "3613c19a0da015267a66e8c7d7da29631e95f50e8593906923673aa498385c7d"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/security.json",
+      "bytes": 4645,
+      "sha256": "9be1cdee4bd4eccf4230f7ab96a5da5f84e11ada7271ac37dc3d806955a7910b"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/similar-patterns.md",
+      "bytes": 4997,
+      "sha256": "64bdb889c1bf8f07dceec4d23fe41bd984a504e00e68a7b11397503643de053d"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/source-checks.cjs",
+      "bytes": 2769,
+      "sha256": "0d645d84f8c1af0f84bfc74fcc015d54fe7cc7a3d2d9215d23dd98118caa6228"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/source-checks.json",
+      "bytes": 5759,
+      "sha256": "d4d652fb0ea992cca4ba7d54b07f5c89bde3ffef32689a42139954293ea9eac9"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/sql-faults-final-ui.json",
+      "bytes": 12886,
+      "sha256": "d87d42c6b5a421872fed77990df4b759e38fcd03fdc37ac1ea6293e8b470e24e"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/sql-faults.cjs",
+      "bytes": 6979,
+      "sha256": "ec8b4c9c9cb37cd3ed391a39928787cfd7cf12cb37e82519ceed5d499b1450b0"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/sql-faults.json",
+      "bytes": 11918,
+      "sha256": "b0af8afc48ac5034a909a84b8fc734e54ae7338f8b98ef6fbc6a6d36343569f2"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/sql-ui-waiter-observation.json",
+      "bytes": 454,
+      "sha256": "a114eff74fe24e8ae17641004d7b9818a2c50077fed61f3c53cccd317db2424d"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/transport-before-publication.ndjson",
+      "bytes": 357,
+      "sha256": "b5b2f2a4bde276bd01c2abb0c262485f92197f99408a821acf5fff3e588c83ac"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/transport-fault.cjs",
+      "bytes": 2301,
+      "sha256": "f9d025ced207b52fae1bdbbe4bb0ec923eec615a90725a41d9738f941b4da7df"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/transport-push.ndjson",
+      "bytes": 82,
+      "sha256": "aad72386b907cdd5f51692d40abc3000313128843878a73d70cc4a5b6d713d2d"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/transport-ws.ndjson",
+      "bytes": 161,
+      "sha256": "02637cccade2cc9eb551702907fdb9b7b8821b514ae87f0ce37c0d2489428a97"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/ui-before-publication-observation-2026-09-26T23-30-08-387Z.json",
+      "bytes": 2634,
+      "sha256": "7929b24b6331f612785424e6cff120a2e5fb1bd38fa988efc75e46650a9d0290"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/ui-before-publication-reconnect-only-observation.json",
+      "bytes": 1549,
+      "sha256": "1b1193ca7a43e1388560bf4a237481f5e9ddeccb156efd6a041808fff5a2474e"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/ui-before-publication.json",
+      "bytes": 1966,
+      "sha256": "d283a44665e0ff73874bded92894c744906ee1697ea7079c64cb9d035f80d089"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/ui-normal.json",
+      "bytes": 1723,
+      "sha256": "cf706ad1af595ad45adcf50028c1d862036120468c9db438515567e1827cc1ec"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/ui-push.json",
+      "bytes": 1952,
+      "sha256": "d1e9d68b03ef2a6429f751a9e8bd9f2a614428170e6281435bf51dd24f265dd8"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/ui-ws.json",
+      "bytes": 1951,
+      "sha256": "de1d7669a522ae5a072dc54fa199c32cc0723b6079c53ff31f38b0c5064b0660"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/ui.cjs",
+      "bytes": 7165,
+      "sha256": "82516ddb97606db613ece7506a74197a584ffcb03a61e3ca68e9d780e5738622"
+    },
+    {
+      "path": "frontend/package.json",
+      "bytes": 11486,
+      "sha256": "25cd2438cf96e2609e44a507db29d2de9707f0b4512b1e336d5acec0869ca117"
+    },
+    {
+      "path": "frontend/scripts/master-ws-contract.test.cjs",
+      "bytes": 5135,
+      "sha256": "a7a0264cdd96b4ca147abf15f5540ed5392b6004d7cc847f2c381b1bfc7ac967"
+    },
+    {
+      "path": "frontend/scripts/task-notify-navigation.test.cjs",
+      "bytes": 3438,
+      "sha256": "8a6223171fa0165932c67c7796d493f9367b1da2936d2546adfdd23593aab9ed"
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "bytes": 72671,
+      "sha256": "224459582c2e077dfb90f0dd648af78bd803e4c4c6127b5748fe3f7b5761def5"
+    },
+    {
+      "path": "frontend/src/notifications/browser-notifications.ts",
+      "bytes": 3482,
+      "sha256": "2ae15ee56d692db1fb0592b73847f54319060e805381350ecb7d53aa146b43c1"
+    },
+    {
+      "path": "frontend/src/screens/NotificationsScreen.tsx",
+      "bytes": 8780,
+      "sha256": "c5801ade30916a08591a3932331aedd78f75eef3c5d765d5e3f4e5889805fd05"
+    },
+    {
+      "path": "frontend/src/screens/TasksScreen.tsx",
+      "bytes": 48287,
+      "sha256": "05b144e97dd7153bdc652dba53fe6cecc35b0e8cc477f9a9653fc85f5e4db5d0"
+    },
+    {
+      "path": "package.json",
+      "bytes": 5624,
+      "sha256": "a199ad4d4f4a6bb03c398fdb09da288c489c5ce460c5f83b65d016213a30b5d6"
+    }
+  ]
+}

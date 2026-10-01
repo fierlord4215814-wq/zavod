@@ -1,0 +1,318 @@
+{
+  "productFingerprint": "0b2bd805f1eb468accfe99e9d9c58bc21d2fdbfe0c57c1763b20af6a618b8de4",
+  "ownerSha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+  "bindings": [
+    {
+      "row": 610,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:184",
+      "semanticKey": "480d4ca37bdb0f41:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Активные",
+      "expected": "() => setTab('active')",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        190
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 611,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:185",
+      "semanticKey": "3946488d811f6827:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Важные",
+      "expected": "() => setTab('important')",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        191
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 612,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:186",
+      "semanticKey": "4147e44f63a9ee76:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Архив",
+      "expected": "() => setTab('archive')",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "ISOLATED_BROWSER_J14_BOUNDED",
+      "currentBindingLines": [
+        192
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 613,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:190",
+      "semanticKey": "e5dd0eb2e2961c4a:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Поиск и фильтры",
+      "expected": "openFilters",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        156,
+        196
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 614,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:192",
+      "semanticKey": "035a0cc84447f918:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Новая запись",
+      "expected": "() => setModal('create')",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-draft + shift-log-create-outcome-isolated; runtime-shift-log-draft.json and runtime-shift-log-create-outcome-isolated.json; open/native required/draft/stay/discard/nested Back plus controlled Russian 409 with retained values, exact retry payload, created card/detail after reload and browser Back on desktop/360/390/430. All create/read writes were browser-intercepted; backend persistence/RBAC/audit are not inferred; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        198
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 615,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:202",
+      "semanticKey": "6cf389eb60d005f2:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Сбросить",
+      "expected": "() => setFilterDraft({ search: '', dateFrom: '', dateTo: '', departmentId: '', shiftLabel: '' })",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        208
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 616,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:203",
+      "semanticKey": "d5e4acff3f0589d9:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Показать",
+      "expected": "() => { setFilters(filterDraft); setFilterOpen(false); }",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        209
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 617,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:208",
+      "semanticKey": "4642f3a703989906:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Текст записи",
+      "expected": "(event) => setFilterDraft((current) => ({ ...current, search: event.target.value }))",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        214
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 618,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:209",
+      "semanticKey": "df902dfc8d19eac4:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "input:date @209",
+      "expected": "(event) => setFilterDraft((current) => ({ ...current, dateFrom: event.target.value }))",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        215
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 619,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:210",
+      "semanticKey": "5415ffe1e8b45c7b:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "input:date @210",
+      "expected": "(event) => setFilterDraft((current) => ({ ...current, dateTo: event.target.value }))",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        216
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 620,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:213",
+      "semanticKey": "253fc7a5576ad50c:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Все смены День Ночь",
+      "expected": "(event) => setFilterDraft((current) => ({ ...current, shiftLabel: event.target.value }))",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        219
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 621,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:222",
+      "semanticKey": "81fef9c095b494f8:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Все отделы",
+      "expected": "(event) => setFilterDraft((current) => ({ ...current, departmentId: event.target.value }))",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-filters; runtime-shift-log-filters.json; ADMIN tabs/query/result/reopen/reset/draft Back; NIGHT option and one department, not every option or role; detail/read/mutations NOT exercised; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        228
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 622,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:235",
+      "semanticKey": "32bc2da5e7934049:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "· ·",
+      "expected": "() => void openLog(log)",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-detail-actions-isolated; runtime-shift-log-detail-actions-isolated.json; exact detail/read, UI close, comment, attachment cancel/upload, important-close draft and LIFO browser Back handlers ran on desktop/360/390/430. Upload survived reload in the isolated browser read model; all writes were intercepted, so backend persistence/RBAC/audit are not inferred and UI-SWEEP-036 remains bounded; all four widths",
+      "currentProof": "ISOLATED_BROWSER_J14_BOUNDED",
+      "currentBindingLines": [
+        241
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 623,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:256",
+      "semanticKey": "d18ad761a3a2584c:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Закрыть окно",
+      "expected": "() => setSelected(null)",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-detail-actions-isolated; runtime-shift-log-detail-actions-isolated.json; exact detail/read, UI close, comment, attachment cancel/upload, important-close draft and LIFO browser Back handlers ran on desktop/360/390/430. Upload survived reload in the isolated browser read model; all writes were intercepted, so backend persistence/RBAC/audit are not inferred and UI-SWEEP-036 remains bounded; all four widths",
+      "currentProof": "ISOLATED_BROWSER_J14_BOUNDED",
+      "currentBindingLines": [
+        57,
+        262
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 624,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:293",
+      "semanticKey": "5dfe18cfed45f0f8:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Комментарий",
+      "expected": "() => setModal('comment')",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-comment-close-outcome-isolated; runtime-shift-log-comment-close-outcome-isolated.json; the exact comment action reached a controlled Russian 409, retained its value and displayed the error in the active form, then retried with the exact payload and survived browser-memory reload on desktop/360/390/430. Writes/read model were browser-intercepted; backend persistence/RBAC/audit/idempotency are not inferred; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        300
+      ],
+      "noWriteArchive": "Archive capability branch hides write controls; actual service negative gates remain in036 test",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 625,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:294",
+      "semanticKey": "189b45fa5c597da3:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Файл",
+      "expected": "() => setModal('attachment')",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-attachment-rejection-isolated; runtime-shift-log-attachment-rejection-isolated.json; the exact attachment action reached a controlled Russian 409, kept the selected file and displayed the error in the active dialog, then retried with exact multipart entity context, survived browser-memory reload and restored the list through browser Back on desktop/360/390/430. Uploads/read model were browser-intercepted; backend storage/authority/audit/idempotency are not inferred; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        301
+      ],
+      "noWriteArchive": "Archive capability branch hides write controls; actual service negative gates remain in036 test",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 626,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:295",
+      "semanticKey": "ae4a1ef48d616f46:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Закрыть важное",
+      "expected": "() => setModal('close-important')",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-comment-close-outcome-isolated; runtime-shift-log-comment-close-outcome-isolated.json; the exact close-important action reached a controlled Russian 409, retained its reason and displayed the error in the active form, then retried with the exact payload, moved the entry to the browser-memory archive, survived reload and restored the archive list through browser Back on desktop/360/390/430. Writes/read model were browser-intercepted; backend persistence/RBAC/audit/idempotency are not inferred; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        302
+      ],
+      "noWriteArchive": "Archive capability branch hides write controls; actual service negative gates remain in036 test",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 627,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:340",
+      "semanticKey": "e4d669cfd8e0536b:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Отмена",
+      "expected": "() => setModal(null)",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-detail-actions-isolated; runtime-shift-log-detail-actions-isolated.json; exact detail/read, UI close, comment, attachment cancel/upload, important-close draft and LIFO browser Back handlers ran on desktop/360/390/430. Upload survived reload in the isolated browser read model; all writes were intercepted, so backend persistence/RBAC/audit are not inferred and UI-SWEEP-036 remains bounded; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        58,
+        326,
+        333,
+        337,
+        347
+      ],
+      "noWriteArchive": "N/A",
+      "parentAcceptance": "UNCHANGED"
+    },
+    {
+      "row": 628,
+      "legacyId": "frontend/src/screens/ShiftLogScreen.tsx:341",
+      "semanticKey": "4854129a5ac6097d:1",
+      "source": "frontend/src/screens/ShiftLogScreen.tsx",
+      "control": "Загрузить",
+      "expected": "() => void uploadForLog()",
+      "historicalResult": "PASS",
+      "historicalEvidence": "frontend/e2e/full-ui-interaction-sweep.spec.ts shift-log-attachment-rejection-isolated; runtime-shift-log-attachment-rejection-isolated.json; two exact browser-intercepted upload attempts prove the rejected visible state, retained selection, successful retry, attachment result, reload and browser Back at desktop/360/390/430. Backend storage/authority/audit/idempotency and physical file chooser/camera are not inferred; all four widths",
+      "currentProof": "STATIC_HANDLER_MATCH_NOT_NEW_PASS",
+      "currentBindingLines": [
+        348
+      ],
+      "noWriteArchive": "Archive capability branch hides write controls; actual service negative gates remain in036 test",
+      "parentAcceptance": "UNCHANGED"
+    }
+  ],
+  "total": 19,
+  "unmatched": []
+}

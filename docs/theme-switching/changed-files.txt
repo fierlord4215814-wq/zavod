@@ -1,0 +1,31 @@
+PRODUCT_FILES_CHANGED_BY_THIS_GOAL
+frontend/index.html
+frontend/src/App.tsx
+frontend/src/styles.css
+frontend/src/theme.ts
+
+TARGETED_TEST_FILE
+frontend/e2e/three-themes.spec.ts
+
+EVIDENCE_AND_REPORT_FILES
+docs/theme-switching/progress.md
+docs/theme-switching/theme-map.md
+docs/theme-switching/theme-coverage.csv
+docs/theme-switching/final-report.md
+docs/theme-switching/changed-files.txt
+docs/theme-switching/affected-files-before.csv
+docs/theme-switching/affected-files-after.csv
+docs/theme-switching/dark-comparison.csv
+docs/theme-switching/zip-manifest.csv
+docs/theme-switching/create-contact-sheets.ps1
+docs/theme-switching/screenshots/**
+docs/theme-switching/evidence-zips/**
+
+EXPLICITLY_NOT_CHANGED_BY_THIS_GOAL
+frontend/src/main.tsx (task-baseline SHA-256 equals current SHA-256)
+backend/**
+backend/.env and all .env files
+backend/prisma/** and all schema/migrations
+uploads/**
+database contents
+existing UI Sweep screenshots/evidence

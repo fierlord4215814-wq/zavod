@@ -1,0 +1,79 @@
+{
+  "oldRun": "4076edfd-d406-4168-9e71-20d608a4521d",
+  "templateId": "2b03de2f-b23e-4e82-b4ff-f7f970f78645",
+  "newReference": "9964669a-d854-43f7-9965-643861ab67a9",
+  "runId": "9ccd5fdb-122f-49c9-b352-dabb081567f9",
+  "secondUiStart": true,
+  "interruptedBeforeServerCommit": true,
+  "result": "b3629766-df65-483c-bd78-cf3c7cb9a3d8",
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-checklist-run-id=\"9ccd5fdb-122f-49c9-b352-dabb081567f9\"]').getByRole('button', { name: /Продолжить|Открыть/ })\u001b[22m\n",
+  "ui": "Завод LOCAL-01\n\nЗавод\n\nОнлайн · ОКК Пользователь +.\n9\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\n\nОТДЕЛОВОЙ КОНТРОЛЬ\n\nЧек-листы\n\nТекущие проверки, сроки и выполнение по вашему отделу.\n\n✓\nВ работе\n0\n+\nДоступные\n4\n▤\nАрхив\n7\nВ работе\n0\nСейчас у вас нет чек-листов в работе.\nНачать новый чек-лист",
+  "shortCloseRejectedObservation": "24Sep real UI rejected missing required points, recorded in report and tool transcript",
+  "readbackAt": "2026-09-25T05:14:17.841Z",
+  "observedAutoClosed": true,
+  "files": [
+    {
+      "id": "52ea4828-db6b-450e-b2bb-b386e59196ad",
+      "sha256": "56dd0b5f47d0357f587538af617917ed7dffe8c79629cafb8a1bbfeacaf52270"
+    },
+    {
+      "id": "9964669a-d854-43f7-9965-643861ab67a9",
+      "sha256": "18984e63efe58b19dfe953c23189478fd7a55215533ed5afbd2f7c79431020b8"
+    },
+    {
+      "id": "b3629766-df65-483c-bd78-cf3c7cb9a3d8",
+      "sha256": "c85ea7c5c0f6a58d3f858094af9c5200ae5ae07ad8bd563ce1b46701973cc13c"
+    }
+  ],
+  "sql": {
+    "id": "9ccd5fdb-122f-49c9-b352-dabb081567f9",
+    "status": "AUTO_CLOSED",
+    "closeReason": "Закрыт автоматически — не завершён. Заполнено 1 из 10.",
+    "closedAt": "2026-09-25T05:14:14.819Z",
+    "rows": [
+      {
+        "status": "PENDING",
+        "referenceAttachmentId": "076be873-d019-4ab9-b43f-7577eb5766a3"
+      },
+      {
+        "status": "PENDING",
+        "referenceAttachmentId": "21bd859a-3cf4-4b3d-8d9b-b3f6b986709b"
+      },
+      {
+        "status": "PENDING",
+        "referenceAttachmentId": "66294251-d7ce-40b9-b5df-a83ddd549548"
+      },
+      {
+        "status": "PENDING",
+        "referenceAttachmentId": "754e53cc-a341-490d-af77-784985d3e281"
+      },
+      {
+        "status": "PENDING",
+        "referenceAttachmentId": "aa7486ae-f67e-4a20-9f64-97b178ccac03"
+      },
+      {
+        "status": "PENDING",
+        "referenceAttachmentId": "ef31723a-1ec9-49e7-9eb5-339b714175f6"
+      },
+      {
+        "status": "PENDING",
+        "referenceAttachmentId": "184e7872-ece0-4146-87f4-37c5490853b9"
+      },
+      {
+        "status": "PENDING",
+        "referenceAttachmentId": "f562fda3-c481-4009-b2a2-a6e79492ef25"
+      },
+      {
+        "status": "PENDING",
+        "referenceAttachmentId": "30d71177-b2f3-401c-b167-411632119c99"
+      },
+      {
+        "status": "OK",
+        "referenceAttachmentId": "9964669a-d854-43f7-9965-643861ab67a9"
+      }
+    ]
+  },
+  "status": "PASS_REFERENCE_INTEGRATION_SMALL_RUN_AUTO_CLOSED_INCOMPLETE",
+  "secondUiCloseMs": null,
+  "closeWitness": "backend was stopped during the unobserved interval; this is resumed-backend readback, not proof of running at 21:00 or of no-F5 closure"
+}

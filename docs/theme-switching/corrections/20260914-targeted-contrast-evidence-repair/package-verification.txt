@@ -1,0 +1,14 @@
+Delivery package verification
+=============================
+
+Path: docs/theme-switching/evidence-zips/20260914-targeted-contrast-correction.zip
+Bytes: 74726830
+SHA-256: 834B9DA4A1C9E747A072AE3E3DC507D32117CDE2E6052D8163CDF5F10DC92BBA
+Entries: 332
+Original PNG entries: 300
+Manifest rows verified by streaming SHA-256: 331 / 331 PASS
+Forbidden path matches (.env, cookies, storageState, DB, uploads): 0
+Sensitive value matches (tokens, password hashes, DB URLs, bearer/cookie values, storageState assignments): 0
+Ephemeral Vite HMR query values in two runtime logs were redacted before packaging; the diagnostic message class and count remain intact.
+
+This fingerprint file is intentionally stored beside the ZIP rather than inside it so the package hash is not self-referential.

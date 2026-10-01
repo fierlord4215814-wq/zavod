@@ -1,0 +1,177 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-before\\frontend\\src\\screens\\TasksScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\TasksScreen.tsx"
+index 68ca6958..8cfc5ca2 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-before\\frontend\\src\\screens\\TasksScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\TasksScreen.tsx"
+@@ -138,7 +138,26 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+   const [lines, setLines] = useState<LineOption[]>([]);
+   const [settings, setSettings] = useState<TaskSettings | null>(null);
+   const [archive, setArchive] = useState<TaskArchive | null>(null);
+-  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
++  const [selectedTask, commitSelectedTask] = useState<Task | null>(null);
++  const selectedTaskRef = useRef<Task | null>(null);
++  const detailSequence = useRef(0);
++  const detailPendingId = useRef<string | null>(null);
++  const loadSequence = useRef(0);
++  const mounted = useRef(true);
++  const [failedTargetId, setFailedTargetId] = useState<string | null>(null);
++  const setSelectedTask = (task: Task | null) => {
++    if (!task) {
++      detailSequence.current += 1;
++      detailPendingId.current = null;
++      setBusy(false);
++    }
++    selectedTaskRef.current = task;
++    commitSelectedTask(task);
++  };
++  useEffect(() => {
++    mounted.current = true;
++    return () => { mounted.current = false; loadSequence.current += 1; detailSequence.current += 1; };
++  }, []);
+   const [actionTask, setActionTask] = useState<Task | null>(null);
+   const [archiveOpen, setArchiveOpen] = useState(false);
+   const [modal, setModal] = useState<ModalMode>(null);
+@@ -241,6 +260,8 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+   };
+ 
+   const load = async (options?: { silent?: boolean }) => {
++    const sequence = ++loadSequence.current;
++    const isCurrent = () => mounted.current && sequence === loadSequence.current;
+     if (!options?.silent) setLoading(true);
+     if (!options?.silent) setErrorText(null);
+     try {
+@@ -250,13 +271,12 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+         apiClient.get<Candidate[]>(`/tasks/assignee-candidates${candidateSearch.trim() ? `?query=${encodeURIComponent(candidateSearch.trim())}` : ''}`).catch(() => []),
+         apiClient.get<{ lines?: LineOption[] }>('/archive/options').catch(() => ({ lines: [] })),
+       ]);
++      if (!isCurrent()) return;
+       setBoard(boardData);
+       setBoardLoaded(true);
+       const visibleTasks = [...boardData.NEW, ...boardData.IN_PROGRESS, ...boardData.LONG, ...boardData.DONE];
+       appStore.setTasks(visibleTasks);
+-      if (selectedTask && !visibleTasks.some((task) => task.id === selectedTask.id)) {
+-        setSelectedTask(null);
+-      }
++      // A bounded board page is not the authority for an already opened detail.
+       const nextSignature = boardSignature(boardData);
+       if (boardSignatureRef.current && nextSignature !== boardSignatureRef.current) {
+         setLiveStatus('Обновлено: появились изменения в заявках');
+@@ -265,11 +285,14 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+       setDepartments(departmentData);
+       setCandidates(candidateData);
+       setLines(archiveOptions.lines ?? []);
+-      if (currentUser?.isAdmin) setSettings(await apiClient.get<TaskSettings>('/admin/task-settings'));
++      if (currentUser?.isAdmin) {
++        const nextSettings = await apiClient.get<TaskSettings>('/admin/task-settings');
++        if (isCurrent()) setSettings(nextSettings);
++      }
+     } catch (error) {
+-      if (!options?.silent) setErrorText(errorMessage(error, 'Не удалось загрузить заявки'));
++      if (isCurrent() && !options?.silent) setErrorText(errorMessage(error, 'Не удалось загрузить заявки'));
+     } finally {
+-      if (!options?.silent) setLoading(false);
++      if (isCurrent() && !options?.silent) setLoading(false);
+     }
+   };
+ 
+@@ -277,19 +300,28 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+ 
+   useEffect(() => {
+     if (!targetTaskId || !boardLoaded) return;
+-    const target = [...board.NEW, ...board.IN_PROGRESS, ...board.LONG, ...board.DONE]
+-      .find((task) => task.id === targetTaskId);
+     onTargetConsumed?.();
+-    if (target) setSelectedTask(target);
+-    else setErrorText('Связанная заявка недоступна в текущем списке. Возможно, она закрыта или доступ изменился.');
++    // Same guarded detail/read endpoint as an ordinary card. Never infer denial from board limit300.
++    void openDetail({ id: targetTaskId }, true);
+   }, [targetTaskId, boardLoaded, board, onTargetConsumed]);
+ 
++  const refreshSelectedDetail = async () => {
++    if (detailPendingId.current) return;
++    const selected = selectedTaskRef.current;
++    if (!selected) return;
++    const sequence = ++detailSequence.current;
++    try {
++      const detail = await apiClient.get<Task>(`/tasks/${encodeURIComponent(selected.id)}`);
++      if (mounted.current && sequence === detailSequence.current && selectedTaskRef.current?.id === selected.id) setSelectedTask(detail);
++    } catch (error) {
++      if (mounted.current && sequence === detailSequence.current) setErrorText(errorMessage(error, 'Не удалось обновить заявку'));
++    }
++  };
++
+   useEffect(() => {
+     const timer = window.setInterval(() => {
+       void load({ silent: true });
+-      if (selectedTask?.id) {
+-        void apiClient.get<Task>(`/tasks/${selectedTask.id}`).then(setSelectedTask).catch(() => undefined);
+-      }
++      void refreshSelectedDetail();
+     }, TASK_REFRESH_INTERVAL_MS);
+     return () => window.clearInterval(timer);
+   }, [selectedTask?.id, candidateSearch]);
+@@ -298,9 +330,7 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+     const refreshFromRealtime = () => {
+       setLiveStatus('Обновлено в реальном времени');
+       void load({ silent: true });
+-      if (selectedTask?.id) {
+-        void apiClient.get<Task>(`/tasks/${selectedTask.id}`).then(setSelectedTask).catch(() => undefined);
+-      }
++      void refreshSelectedDetail();
+     };
+     window.addEventListener('zavod:task-updated', refreshFromRealtime);
+     return () => window.removeEventListener('zavod:task-updated', refreshFromRealtime);
+@@ -362,15 +392,26 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+     return [...filteredBoard.NEW, ...filteredBoard.IN_PROGRESS, ...filteredBoard.LONG];
+   }, [filteredBoard, quickFilter]);
+ 
+-  const openDetail = async (task: Task) => {
++  const openDetail = async (task: Pick<Task, 'id'>, linked = false) => {
++    const sequence = ++detailSequence.current;
++    detailPendingId.current = task.id;
++    const isCurrent = () => mounted.current && sequence === detailSequence.current;
+     setBusy(true);
+     setErrorText(null);
++    setFailedTargetId(null);
+     try {
+-      setSelectedTask(await apiClient.get<Task>(`/tasks/${task.id}`));
++      const detail = await apiClient.get<Task>(`/tasks/${encodeURIComponent(task.id)}`);
++      if (isCurrent()) setSelectedTask(detail);
+     } catch (error) {
+-      setErrorText(errorMessage(error, 'Не удалось открыть заявку'));
++      if (isCurrent()) {
++        setErrorText(`${linked ? 'Связанная заявка недоступна. ' : ''}${errorMessage(error, 'Не удалось открыть заявку')}`);
++        if (linked) setFailedTargetId(task.id);
++      }
+     } finally {
+-      setBusy(false);
++      if (isCurrent()) {
++        detailPendingId.current = null;
++        setBusy(false);
++      }
+     }
+   };
+ 
+@@ -459,6 +500,8 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+ 
+       {loading ? <div className="empty-state">Загружаю заявки...</div> : null}
+       {errorText ? <div className="empty-state error-state">{errorText}</div> : null}
++      {failedTargetId ? <button className="secondary-button" type="button" disabled={busy} onClick={() => void openDetail({ id: failedTargetId }, true)}>Повторить открытие заявки</button> : null}
++      {!boardLoaded && !loading ? <button className="secondary-button" type="button" onClick={() => void load()}>Повторить загрузку</button> : null}
+       <PremiumKpiStrip
+         className="task-kpi-grid"
+         items={kpiFilters.map((item) => ({
+@@ -694,10 +737,10 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+             />
+             <div className="modal-actions">
+               <button className="secondary-button" type="button" onClick={() => setSelectedTask(null)}>Закрыть окно</button>
+-              {selectedTask.status !== 'DONE' ? <button className="secondary-button" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('comment'); }}>Добавить комментарий</button> : null}
+-              {selectedTask.status === 'NEW' ? <button className="primary-button" type="button" disabled={busy} onClick={() => void takeTask(selectedTask)}>Взять в работу</button> : null}
+-              {selectedTask.status !== 'DONE' ? <button className="primary-button danger" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('done'); }}>Завершить заявку</button> : null}
+-              {selectedTask.status !== 'DONE' ? <button className="secondary-button" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('redirect'); }}>Передать</button> : null}
++              {selectedTask.status !== 'DONE' && canComment ? <button className="secondary-button" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('comment'); }}>Добавить комментарий</button> : null}
++              {selectedTask.status === 'NEW' && canTake ? <button className="primary-button" type="button" disabled={busy} onClick={() => void takeTask(selectedTask)}>Взять в работу</button> : null}
++              {selectedTask.status !== 'DONE' && canDone ? <button className="primary-button danger" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('done'); }}>Завершить заявку</button> : null}
++              {selectedTask.status !== 'DONE' && canRedirect ? <button className="secondary-button" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('redirect'); }}>Передать</button> : null}
+               <button className="primary-button" type="button" onClick={() => void openDetail(selectedTask)} disabled={busy}>Обновить</button>
+             </div>
+           </div>

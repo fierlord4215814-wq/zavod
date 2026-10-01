@@ -1,0 +1,19 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-quality-replay-before\\backend\\src\\modules\\okk\\okk.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\okk\\okk.service.ts"
+index 4bd208e0..66e71886 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-quality-replay-before\\backend\\src\\modules\\okk\\okk.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\okk\\okk.service.ts"
+@@ -364,9 +364,11 @@ export class OkkService {
+     const processed = await tx.processedOperation.findUnique({
+       where: { userId_operationId: { userId: user.userId, operationId } },
+     });
+-    if (!processed?.resultKey) return null;
+-    const existing = await tx.okkRecord.findFirst({ where: { id: processed.resultKey, factoryId: user.selectedFactoryId } });
+-    return existing ? this.enrichRecord(existing, new Map()) : null;
++    if (!processed) return null;
++    if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите список.');
++    const existing = await tx.okkRecord.findFirst({ where: { id: processed.resultKey, factoryId: user.selectedFactoryId, createdById: user.userId, deletedAt: null } });
++    if (!existing) throw new ConflictError('Результат действия больше недоступен. Обновите список.');
++    return this.enrichRecord(existing, new Map());
+   }
+ 
+   private async findAssignedMaster(tx: Prisma.TransactionClient, factoryId: string) {

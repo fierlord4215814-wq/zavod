@@ -1,0 +1,30 @@
+{
+  "status": "PASS_C1_RETURNED_READY_PRIOR_COUNTS_UNCHANGED",
+  "atUtc": "2026-09-26T17:06:17.122Z",
+  "identity": {
+    "database": "zavod_local01_c0",
+    "port": 15436,
+    "data_directory": "C:/Users/79164/AppData/Local/Zavod-Local01-Functional/run-20260924-0b9b24e0/pgdata"
+  },
+  "counts": {
+    "users": 17,
+    "activeAccesses": 17,
+    "activeLines": 1,
+    "activeSessions": 0
+  },
+  "factories": [
+    {
+      "id": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "code": "local01-a",
+      "isActive": true
+    },
+    {
+      "id": "7e9fa429-61a5-48a7-8c23-bdfda0a34bdf",
+      "code": "local01-temp-b",
+      "isActive": false
+    }
+  ],
+  "version": "LOCAL03-20260924-C1",
+  "ready": true,
+  "limits": "Count/factory readback only, not a new full C1 acceptance or full database byte comparison; own C databases retain audit/history separately."
+}

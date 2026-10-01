@@ -1,0 +1,172 @@
+{
+  "startedAt": "2026-09-15T21:43:33.134Z",
+  "expected": [
+    {
+      "title": "R3-B2 actual App auth-context revoke invalidates People draft and Back owner",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 5,
+      "id": "25a7c6aa9f94"
+    },
+    {
+      "title": "R3-C5 response committed before revoke cannot trigger stale People follow-up reads",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 22,
+      "id": "80914e803e96"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 immediate causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "04ea8a3283d1"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 profile-after-layout causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "a6d34e451120"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-people-after-unlock causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "4da2d68a7f00"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-after-people causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "b96b6a2c55b9"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-frame-before-close causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "3e7f75984f05"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-frame-after-close causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "dedafe783b2f"
+    },
+    {
+      "title": "R3-B profile refresh response after real Back does not reopen closed profile",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 48,
+      "id": "d3bff0345373"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-B2 actual App auth-context revoke invalidates People draft and Back owner",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 5,
+      "id": "25a7c6aa9f94",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3110,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-C5 response committed before revoke cannot trigger stale People follow-up reads",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 22,
+      "id": "80914e803e96",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2583,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 immediate causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "04ea8a3283d1",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3503,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 profile-after-layout causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "a6d34e451120",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3421,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-people-after-unlock causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "4da2d68a7f00",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3127,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-after-people causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "b96b6a2c55b9",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2325,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-frame-before-close causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "3e7f75984f05",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3128,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-frame-after-close causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "dedafe783b2f",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3170,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-B profile refresh response after real Back does not reopen closed profile",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 48,
+      "id": "d3bff0345373",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2936,
+      "errors": [],
+      "attachments": []
+    }
+  ],
+  "finishedAt": "2026-09-15T21:44:02.150Z",
+  "status": "passed",
+  "listOnly": false
+}

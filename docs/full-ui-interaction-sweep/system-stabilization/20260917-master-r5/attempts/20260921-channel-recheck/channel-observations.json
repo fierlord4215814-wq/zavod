@@ -1,0 +1,22 @@
+{
+  "status": "BLOCKED_TOOL_CAPABILITY",
+  "date": "2026-09-21",
+  "source": "Current turn supported node_repl Sky outputs and bounded read-only CIM; no reconstructed guest screen",
+  "skill": "computer-use26.915.31945",
+  "host": {"observedAt": "2026-09-21T17:00:33.911111+03:00", "boot": "2026-09-20T20:26:33.500517+03:00", "freeRamBytes": 8375816192, "freeDiskBytes": 43946455040},
+  "initialVmconnectProcesses": 0,
+  "createdDialog": {"pid": 14364, "start": "2026-09-21T17:00:57.905609+03:00", "windowId": 525662, "title": "Подключение к виртуальной машине", "specificGuestConnected": false},
+  "captureAttempts": 2,
+  "captureError": "SetIsBorderRequired failed: Интерфейс не поддерживается (0x80004002)",
+  "accessibility": {"available": true, "type": "Native ConnectionDialog only", "message": "У вас нет разрешения на выполнение этой задачи. Обратитесь к администратору политики авторизации для компьютера localhost.", "guestOutput": false},
+  "close": {"method": "Alt_L+F4 on observed owned dialog", "initialImmediateWindowStillPresent": true, "subsequentWindowAbsent": true, "pidAbsentAt": "2026-09-21T17:03:51.7924069+03:00", "forced": false},
+  "newUacAttempts": 0,
+  "newVmStateOperations": 0,
+  "guestInputs": 0,
+  "newSshProbes": 0,
+  "newValidScreenshots": 0,
+  "vmState": "NOT_REQUERIED; last actual Off receipt 16:09 in previous attempt",
+  "userRestartAnswer": "PENDING; not inferred from renewed message or missing viewer",
+  "workingDbOrServiceRead": false,
+  "securityOrNetworkChanges": false
+}

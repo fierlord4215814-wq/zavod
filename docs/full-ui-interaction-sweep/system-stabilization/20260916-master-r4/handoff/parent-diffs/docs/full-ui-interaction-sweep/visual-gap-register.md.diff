@@ -1,0 +1,24 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\J-parent-before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+index a1e23abf..7a1cff0c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\J-parent-before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+@@ -1,6 +1,18 @@
+ # Full UI Interaction Sweep — gap register
+ 
+-## Current source layer — MASTER R3, 16.09.2026
++## Current source layer — MASTER R4, 16.09.2026
++
++MASTER_R4_STATUS=PARTIAL_WITH_EXPLICIT_BLOCKERS; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. [Current roots](system-stabilization/20260916-master-r4/root-result-matrix.md), [полный результат](system-stabilization/20260916-master-r4/final-report.md), [review index](system-stabilization/20260916-master-r4/INDEX.md) дополняют и уточняют прежний source layer, не стирая историю.
++
++R3-REV-C01: SOURCE_FIXED / CLIENT_AND_ACTUAL_APP_ISOLATED_PROVEN / REAL_STACK_PENDING. Причина: HTTP business refusal обходил снятие прежнего connectivity notice; плюс ложное «действие не сохранено» при потере ответа. Existing client/App owners исправлены, ordering/epoch guards сохранены. New55 client и12 actual-App cases,36finalnative VIEWED; no CSS masking. Severity отдельно не назначалась и к historicalP-count не прибавлялась.
++
++MI-SEC-01, MI-PUB-01, MI-R2-ORD-01, MI-R2-CHAT-ATT-01 и UI-SWEEP-036: прежние SOURCE_FIXED/ISOLATED_PROVEN сохранены, retained corpus повторён; LIVE_TEST_STACK у каждого0cases/NOT_RUN_ENV_C1. Новый технически confined runtime не найден, working PostgreSQL не запускалась/не читалась.036 P1 остаётся live-pending; distinct ordinary/handover comments не потеря данных.19binding AST map не равен19индивидуальных PASS.
++
++063 P2 original73px остаётся STILL_UNEXPLAINED_WITH_LIMITS, не CLOSED по зелёному повтору других races. Функциональной зависимости от036 нет.014 P2 BLOCKED_FACT и050 P2/MI-CLS требуют отдельного исторического target/receipt; ready bounded spec без connection adapter не объявлена живым extractor. Replay durablekind/input/legacy/time и expired/future publication — отдельные решения, не новые функции. J03 one controlled maintenance разрешён R4 только после C1–C4, сейчас NOT_RUN; J15 autoOKKTask CONTRACT_ABSENT. Physical Android/PWA/media/keyboard PENDING.
++
++Final549Node/177browser unique PASS, обе сборки/strictReact/offlineschema PASS. Raw intermediate failures retained, capture0 readiness correction повторена на всём177-case affected наборе; product/CSS не менялся. Основные954/957/P0=0/P1=1/P2=10 и шесть matrices unchanged/not reaccepted. THV06 menu wrapping и FS15 history actions — существующие findings, не дубликаты. Ownruntime STOPPED_VERIFIED; Library PERSISTENCE_PENDING. После пакета — STOP.
++
++## Previous source layer — MASTER R3, 16.09.2026
+ 
+ MASTER_R3_STATUS=PARTIAL_WITH_EXPLICIT_BLOCKERS. [Root/result matrix](system-stabilization/20260915-master-r3/root-result-matrix.md), [evidence и финальный отчёт](system-stabilization/20260915-master-r3/final-report.md), [консолидированный остаток](system-stabilization/20260915-master-r3/decision-queue.md) — current semantic layer. Исторические findings ниже сохранены; main sweep PAUSED_BY_USER / NOT_ACCEPTED, MAIN_FULL_SWEEP_RESUMED=NO.
+ 

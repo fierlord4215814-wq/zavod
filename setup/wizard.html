@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Установка Завод</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111827;
+      --panel: #172033;
+      --panel-2: #1f2a44;
+      --text: #f8fafc;
+      --muted: #b7c2d6;
+      --line: #34435f;
+      --blue: #3b82f6;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    main {
+      width: min(1040px, calc(100vw - 24px));
+      margin: 0 auto;
+      padding: 24px 0 40px;
+    }
+    h1 { margin: 0 0 8px; font-size: 30px; }
+    h2 { margin: 0 0 12px; font-size: 20px; }
+    p { color: var(--muted); line-height: 1.5; }
+    .shell {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .steps, .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+    }
+    .steps { padding: 12px; }
+    .step-button {
+      width: 100%;
+      text-align: left;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .step-button.active {
+      background: var(--panel-2);
+      border-color: var(--blue);
+      color: var(--text);
+    }
+    .card { padding: 18px; min-height: 560px; }
+    .hidden { display: none; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #0f172a;
+      color: var(--text);
+      border-radius: 8px;
+      padding: 11px 12px;
+      font-size: 15px;
+    }
+    input:focus {
+      outline: 2px solid rgba(59, 130, 246, 0.55);
+      border-color: var(--blue);
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    button.primary, button.secondary, button.success {
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 11px 14px;
+      cursor: pointer;
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    button.primary { background: var(--blue); }
+    button.success { background: var(--green); }
+    button.secondary { background: #334155; border-color: #475569; }
+    button:disabled { opacity: .55; cursor: not-allowed; }
+    .check {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      background: rgba(15, 23, 42, 0.55);
+    }
+    .ok { color: var(--green); font-weight: 800; }
+    .bad { color: var(--red); font-weight: 800; }
+    .warn { color: var(--yellow); font-weight: 800; }
+    .mono {
+      font-family: Consolas, "Courier New", monospace;
+      overflow-wrap: anywhere;
+    }
+    .note {
+      border: 1px solid rgba(245, 158, 11, .55);
+      background: rgba(245, 158, 11, .12);
+      border-radius: 8px;
+      padding: 12px;
+      color: #fde68a;
+      margin: 12px 0;
+    }
+    @media (max-width: 720px) {
+      main { width: min(100vw - 16px, 520px); padding-top: 12px; }
+      .shell { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: auto; padding: 14px; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Установка «Завод»</h1>
+    <p>Технический мастер для сисадмина: проверяет Docker, порты, папки, создаёт production-конфиг, запускает сервисы и проверяет здоровье системы.</p>
+    <div class="shell">
+      <nav class="steps" id="steps"></nav>
+      <section class="card">
+        <div id="step-0">
+          <h2>1. Проверка окружения</h2>
+          <p>Перед установкой нужен Docker Desktop с Docker Compose. Мастер не меняет бизнес-данные и не создаёт пользователей или заводы.</p>
+          <label>Путь к docker.exe, если Docker не найден автоматически<input id="dockerExePath" placeholder="Например: C:\Program Files\Docker\Docker\resources\bin\docker.exe" /></label>
+          <div id="environment"></div>
+          <div class="actions"><button class="primary" onclick="loadEnvironment()">Проверить окружение</button><button class="secondary" onclick="nextStep()">Далее</button></div>
+        </div>
+        <div id="step-1" class="hidden">
+          <h2>2. Адрес сервера и порты</h2>
+          <div class="grid">
+             <label>IP или домен сервера<input id="serverAddress" /></label>
+             <label>Порт backend<input id="backendPort" type="number" min="1" max="65535" /></label>
+             <label>Порт frontend<input id="frontendPort" type="number" min="1" max="65535" /></label>
+             <label>Внешний HTTPS-адрес приложения<input id="publicFrontendUrl" placeholder="https://factory.example" /></label>
+             <label>Внешний HTTPS-адрес API<input id="publicApiUrl" placeholder="https://factory.example/api" /></label>
+           </div>
+           <div class="note">Для публичного доступа обязательны оба адреса с одним доверенным HTTPS origin. Без них допускается только частная проверка на 127.0.0.1 или localhost.</div>
+          <div class="actions"><button class="secondary" onclick="prevStep()">Назад</button><button class="secondary" onclick="nextStep()">Далее</button></div>
+        </div>
+        <div id="step-2" class="hidden">
+          <h2>3. Папки данных</h2>
+          <div class="grid">
+            <label>Данные PostgreSQL<input id="dbDataDir" /></label>
+            <label>Uploads / вложения<input id="uploadsDir" /></label>
+            <label>Backup<input id="backupsDir" /></label>
+            <label>Папка для сообщений об ошибках<input id="errorReportsExportPath" /></label>
+            <label>Логи<input id="logsDir" /></label>
+          </div>
+          <div class="note">Сюда будут сохраняться копии сообщений об ошибках: текст, данные автора и вложенные фото/файлы. Просмотр в приложении при этом остаётся. Не выбирайте временные папки или папки синхронизации без отдельной политики backup.</div>
+          <div class="actions"><button class="secondary" onclick="prevStep()">Назад</button><button class="secondary" onclick="nextStep()">Далее</button></div>
+        </div>
+        <div id="step-3" class="hidden">
+          <h2>4. Проверка настроек</h2>
+          <p>Проверяем доступность Docker, свободные порты и права записи в папки. Ничего не запускаем до кнопки «Установить».</p>
+          <div id="validation"></div>
+          <div class="actions"><button class="secondary" onclick="prevStep()">Назад</button><button class="primary" onclick="validate()">Проверить</button><button class="secondary" onclick="nextStep()">Далее</button></div>
+        </div>
+        <div id="step-4" class="hidden">
+          <h2>5. Подготовка установки</h2>
+          <p>Будут созданы новый runtime-конфиг и технические секреты, собраны образы, запущена только БД, затем применены миграции и системная основа. Первый администратор создаётся отдельно.</p>
+          <div class="note">Секреты не показываются в этом окне. Не отправляйте папку runtime и backup в чат или репозиторий.</div>
+          <div id="configWarning"></div>
+          <div id="deploy"></div>
+          <div class="actions"><button class="secondary" onclick="prevStep()">Назад</button><button class="success" onclick="deploy()">Подготовить установку</button></div>
+        </div>
+        <div id="step-5" class="hidden">
+          <h2>6. Готово</h2>
+          <div id="summary"></div>
+          <div class="actions"><button class="secondary" onclick="window.location.reload()">Начать заново</button></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>
+    const labels = ['Окружение', 'Адрес и порты', 'Папки', 'Проверка', 'Установка', 'Готово'];
+    let current = 0;
+    let existingRuntimeConfig = false;
+    function renderSteps() {
+      const root = document.getElementById('steps');
+      root.innerHTML = labels.map((label, index) => `<button class="step-button ${index === current ? 'active' : ''}" onclick="showStep(${index})">${index + 1}. ${label}</button>`).join('');
+    }
+    function showStep(index) {
+      current = Math.max(0, Math.min(labels.length - 1, index));
+      labels.forEach((_, i) => document.getElementById(`step-${i}`).classList.toggle('hidden', i !== current));
+      renderSteps();
+    }
+    function nextStep() { showStep(current + 1); }
+    function prevStep() { showStep(current - 1); }
+    function values() {
+      return {
+         serverAddress: document.getElementById('serverAddress').value,
+         publicFrontendUrl: document.getElementById('publicFrontendUrl').value,
+         publicApiUrl: document.getElementById('publicApiUrl').value,
+        backendPort: Number(document.getElementById('backendPort').value),
+        frontendPort: Number(document.getElementById('frontendPort').value),
+        dbDataDir: document.getElementById('dbDataDir').value,
+        uploadsDir: document.getElementById('uploadsDir').value,
+        backupsDir: document.getElementById('backupsDir').value,
+        errorReportsExportPath: document.getElementById('errorReportsExportPath').value,
+        logsDir: document.getElementById('logsDir').value,
+        dockerExePath: document.getElementById('dockerExePath').value,
+      };
+    }
+    function checksHtml(checks) {
+      return checks.map(item => `<div class="check"><div class="${item.ok ? 'ok' : 'bad'}">${item.ok ? 'OK' : 'Ошибка'}</div><div><strong>${item.name}</strong><br><span class="mono">${item.details || ''}</span></div></div>`).join('');
+    }
+    async function api(url, options = {}) {
+      const response = await fetch(url, { headers: { 'Content-Type': 'application/json' }, ...options });
+      return response.json();
+    }
+    async function loadDefaults() {
+      const { defaults, configExists, envExists } = await api('/api/defaults');
+      existingRuntimeConfig = Boolean(configExists || envExists);
+      for (const [key, value] of Object.entries(defaults)) {
+        const input = document.getElementById(key);
+        if (input) input.value = value;
+      }
+      document.getElementById('configWarning').innerHTML = existingRuntimeConfig
+        ? `<div class="note"><strong>Runtime-конфиг уже существует.</strong><br>Мастер установки его не заменит. Для повторного запуска используйте start; для обновления — update с проверенным backup.</div>`
+        : '';
+      await loadEnvironment();
+    }
+    async function loadEnvironment() {
+      const env = await api('/api/environment', { method: 'POST', body: JSON.stringify(values()) });
+      document.getElementById('environment').innerHTML = checksHtml([
+        { name: 'Docker', ok: env.dockerFound, details: env.dockerVersion },
+        { name: 'Docker Compose', ok: env.composeFound, details: env.composeVersion },
+      ]);
+    }
+    async function validate() {
+      const result = await api('/api/validate', { method: 'POST', body: JSON.stringify(values()) });
+      document.getElementById('validation').innerHTML = checksHtml(result.checks);
+    }
+    async function deploy() {
+      const target = document.getElementById('deploy');
+      target.innerHTML = '<p class="warn">Идёт установка. Окно не закрывать.</p>';
+      const result = await api('/api/deploy', { method: 'POST', body: JSON.stringify(values()) });
+      if (!result.ok) {
+        target.innerHTML = `<p class="bad">${result.message || 'Установка не выполнена'}</p>${checksHtml(result.checks || [])}`;
+        return;
+      }
+      document.getElementById('summary').innerHTML = `
+        <p class="ok">${result.message}</p>
+        ${result.firstAdminRequired ? '<p>Далее оператор создаёт первого администратора через защищённый файл и команду bootstrap. До этого приложение не принимает запросы.</p>' : '<p>Внутренняя проверка готовности backend: /ready.</p>'}
+        <p>Runtime config: <span class="mono">${result.config.runtimeDir}</span></p>
+        <p>HTTP-порты привязаны к 127.0.0.1. Публичный доступ будет подготовлен отдельным HTTPS-этапом.</p>
+      `;
+      showStep(5);
+    }
+    renderSteps();
+    loadDefaults();
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-return-before\\frontend\\e2e\\helpers\\frontend-series.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\frontend-series.ts"
+index 3e450f57..a9792a3f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-return-before\\frontend\\e2e\\helpers\\frontend-series.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\frontend-series.ts"
+@@ -25,7 +25,7 @@ export const errors: string[] = [];
+ export const unknown: string[] = [];
+ const identities = new WeakMap<Page,string>();
+ export const json = (route: Route, body: unknown, status = 200) => route.fulfill({status, contentType:'application/json', body:JSON.stringify(body)});
+-type Options = { role?: 'ADMIN' | 'WORKER' | 'TECH_MECHANIC'; theme?: string; screen?: string; socket?: (socket: WebSocketRoute)=>void; replies?: (route: Route, pathname: string) => Promise<boolean> };
++type Options = { role?: 'ADMIN' | 'WORKER' | 'TECH_MECHANIC' | 'MASTER'; granted?: string[]; theme?: string; screen?: string; socket?: (socket: WebSocketRoute)=>void; replies?: (route: Route, pathname: string) => Promise<boolean> };
+ 
+ // DTOs reused from the established shift-readonly-profile-and-history-choice fixture.
+ const shiftCard = (type: string) => ({key:`2026-09-07:${type}:self`,shiftDate:'2026-09-07',shiftType:type,shiftTypeLabel:type==='DAY'?'День':'Ночь',title:type==='DAY'?'Дневная смена 7 сентября':'Ночная смена 7 сентября',masterLabel:'Мастер смены',masters:['Мастер смены'],peopleCount:1,lineCount:1,downtimeCount:0,taskCount:0,washCount:0,importantShiftLogs:0,readOnly:true});
+@@ -44,7 +44,7 @@ export async function isolate(page: Page, options: Options = {}) {
+     if (url.origin !== 'http://127.0.0.1:5173' || method !== 'GET') {
+       unknown.push(`${method} ${url.origin}${p}`); return route.abort('blockedbyclient');
+     }
+-    if (p === '/auth/me') return json(route,{userId:'series-user',selectedFactoryId:'series-factory',role:options.role||'ADMIN',departmentId:'series-department',permissions:options.role==='WORKER'?['shift.self.read','tasks.read','notifications.read']:permissions,isAdmin:!options.role||options.role==='ADMIN',isGuest:false,displayName:'Проверка интерфейса',availableFactories:[{id:'series-factory',name:'Изолированный завод',role:options.role||'ADMIN',isGuest:false}]});
++    if (p === '/auth/me') return json(route,{userId:'series-user',selectedFactoryId:'series-factory',role:options.role||'ADMIN',departmentId:'series-department',permissions:options.granted??(options.role==='WORKER'?['shift.self.read','tasks.read','notifications.read']:permissions),isAdmin:!options.role||options.role==='ADMIN',isGuest:false,displayName:'Проверка интерфейса',availableFactories:[{id:'series-factory',name:'Изолированный завод',role:options.role||'ADMIN',isGuest:false}]});
+     if (p === '/notifications/push/status') return json(route,{available:false,publicKey:null,reason:'Изолированная проверка',activeSubscriptions:0});
+     if (p === '/health') return json(route,{status:'ok'});
+     if (p === '/auth/assignment-request') return json(route,{status:'WAITING_ASSIGNMENT',request:null,options:{assignments:[]}});

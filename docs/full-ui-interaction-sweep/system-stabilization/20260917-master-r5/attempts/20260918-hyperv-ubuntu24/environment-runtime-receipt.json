@@ -1,0 +1,81 @@
+{
+  "at": "2026-09-19T11:20:49.551Z",
+  "status": "WAITING_MANUAL_REBOOT_NOT_LIVE_ACCEPTANCE",
+  "installerResultAt": "2026-09-19T14:05:30.8694037+03:00",
+  "caller": {
+    "session": 19189,
+    "exitCode": 0
+  },
+  "installer": {
+    "pid": 51652,
+    "exitCode": 3010,
+    "actualTokenElevated": true,
+    "command": "C:\\Windows\\System32\\Dism.exe /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V /FeatureName:Microsoft-Hyper-V-Management-PowerShell /All /NoRestart /English /LogPath:\"C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\native-dism-01\\dism.log\"",
+    "coordinatorSha256": "c0475258d39583de368b6e08e2416eba2ec89872e6e2cec30eef2569b918080d",
+    "changedFeatures": [
+      {
+        "name": "Microsoft-Hyper-V-All",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "name": "Microsoft-Hyper-V",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "name": "Microsoft-Hyper-V-Tools-All",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "name": "Microsoft-Hyper-V-Management-PowerShell",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "name": "Microsoft-Hyper-V-Hypervisor",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "name": "Microsoft-Hyper-V-Services",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "name": "Microsoft-Hyper-V-Management-Clients",
+        "before": 2,
+        "after": 1
+      }
+    ],
+    "unexpectedFeatures": [],
+    "completed": true
+  },
+  "beforeBoot": "2026-09-16T20:09:27.2462490+03:00",
+  "hypervisorPresent": false,
+  "freeDiskBytes": 41331564544,
+  "freeRamBytesBeforeInstall": 8705605632,
+  "restartRequirement": "REQUIRED_EXACT_EXIT_3010_AND_DISM_LOG",
+  "automaticHostReboot": false,
+  "executionPolicyChanged": false,
+  "vmCreated": false,
+  "isoDownloaded": false,
+  "guestIdentity": null,
+  "transferRoundTrip": "NOT_RUN",
+  "isolationProof": "NOT_RUN_NO_GUEST",
+  "appStack": "NOT_RUN",
+  "ownAppProcesses": [],
+  "syntheticFixtures": [],
+  "databases": [],
+  "ownCleanup": "N_A_NONE_CREATED",
+  "workingRuntimeAndCleanup": "UNKNOWN_NOT_INSPECTED",
+  "workingDbAccessed": false,
+  "workingDataEnvUploadsChanged": false,
+  "evidence": [
+    "native-dism-01/request.json",
+    "native-dism-01/process-start.json",
+    "native-dism-01/result.json",
+    "native-dism-01/dism.log"
+  ]
+}

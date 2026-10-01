@@ -1,0 +1,40 @@
+{
+  "attempt": "late-after-lead",
+  "proof": "real HTTP response held, never fabricated; own group only",
+  "actors": {
+    "owner": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+    "member": "3287708e-d87b-4376-b406-d42343441e08",
+    "memberRole": "CONTRACTOR_LEAD"
+  },
+  "chatId": "bc30101b-d8e9-4029-a7ce-77c7389158d7",
+  "title": "Учебный поздний ответ LOCAL03 late-after-lead",
+  "messageId": "50355727-da0b-47c3-86bd-6aebcad6b0ac",
+  "fileId": "b22d773c-b96f-460a-a6ee-542ee3ec26ab",
+  "uploadRetrySameId": true,
+  "range": {
+    "status": 200,
+    "contentRange": null,
+    "acceptRanges": null,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813",
+    "verdict": "CHARACTERIZED_200_FULL_BODY_NO_RANGE_CONTRACT"
+  },
+  "abort": {
+    "status": 200,
+    "point": "after headers, before application body consumption",
+    "error": "AbortError"
+  },
+  "newContextRetry": {
+    "status": 200,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813"
+  },
+  "invitedUiMessage": "b406f70c-366e-445e-aeac-f60f88a26a5c",
+  "invitedSecondUiMs": 161,
+  "invitedUiButtons": {
+    "create": 0,
+    "directory": 0
+  },
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.messenger-dialog-header').getByRole('button', { name: 'Обновить', exact: true })\u001b[22m\n",
+  "finallyArchive": 200
+}

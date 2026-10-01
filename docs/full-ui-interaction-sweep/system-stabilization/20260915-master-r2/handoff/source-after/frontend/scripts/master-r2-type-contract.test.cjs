@@ -1,0 +1,32 @@
+// Executes the real TS module graph and real React SSR hooks; no app server or network.
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),ts=require('typescript');
+const React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
+function graph() {
+  const cache=new Map(),local=new Map(),session=new Map();
+  const storage=map=>({getItem:k=>map.get(k)??null,setItem:(k,v)=>map.set(k,String(v)),removeItem:k=>map.delete(k),key:i=>[...map.keys()][i]??null,get length(){return map.size;}});
+  const window={localStorage:storage(local),sessionStorage:storage(session)};
+  const load=file=>{
+    file=path.resolve(file);if(cache.has(file))return cache.get(file).exports;
+    assert.ok(file.startsWith(path.resolve(__dirname,'../src')+path.sep));
+    const module={exports:{}};cache.set(file,module);
+    const source=ts.transpileModule(fs.readFileSync(file,'utf8'),{fileName:file,compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,jsx:ts.JsxEmit.ReactJSX}}).outputText;
+    const requireSource=id=>{if(id==='react')return React;if(!id.startsWith('.'))throw Error(`UNMOCKED_IMPORT ${id}`);return load(path.resolve(path.dirname(file),id+'.ts'));};
+    vm.runInNewContext(source,{exports:module.exports,module,require:requireSource,window,navigator:{onLine:false},fetch:()=>{throw Error('NETWORK_FORBIDDEN');},setInterval:()=>{throw Error('TIMER_FORBIDDEN');},console}, {filename:file});
+    return module.exports;
+  };
+  return {load:name=>load(path.resolve(__dirname,'../src',name)),window};
+}
+test('R2-D legacy sync entrypoint is exactly the canonical retry owner',()=>{
+  const f=graph(),legacy=f.load('offline/sync-engine.ts'),canonical=f.load('offline/sync.ts');
+  assert.equal(legacy.syncPendingActions,canonical.syncPendingActions);
+});
+test('R2-D legacy hook reads canonical factory and setter preserves context invalidation',()=>{
+  const f=graph(),{appStore}=f.load('store/app.store.ts'),{useShiftStore}=f.load('store/shift-store.ts');
+  let setter;
+  function Probe(){const value=useShiftStore();setter=value.setFactory;const selected=useShiftStore(s=>s.factoryId);assert.equal(selected,value.factoryId);return React.createElement('span',null,selected);}
+  assert.equal(renderToStaticMarkup(React.createElement(Probe)),'<span></span>');
+  f.window.sessionStorage.setItem('zavod.pendingTaskId','memory-only');setter('factory-a');
+  assert.equal(appStore.getState().selectedFactoryId,'factory-a');assert.equal(f.window.sessionStorage.getItem('zavod.pendingTaskId'),null);
+  assert.equal(renderToStaticMarkup(React.createElement(Probe)),'<span>factory-a</span>');
+  appStore.selectFactory('factory-b');assert.equal(renderToStaticMarkup(React.createElement(Probe)),'<span>factory-b</span>');
+});

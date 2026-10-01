@@ -1,0 +1,77 @@
+✔ stock invalidation is opaque and current factory/capability scoped (2.982ms)
+✔ stock create commit emits once, processed retry emits nothing, rollback emits nothing (4.5763ms)
+✔ returns invalidation is opaque and current factory/capability scoped (0.3813ms)
+✔ returns create commit emits once, processed retry emits nothing, rollback emits nothing (1.4009ms)
+✔ J02 J25 real Admin create config Directory consumers deny duplicate foreign deactivate restore (8.3058ms)
+✔ J05 actual Line PAUSE preserves factual assignment STOP closes it without touching future plan (3.5292ms)
+✔ J03 actual Shift timeline factory midnight projection planning and past permission contracts are read-only (6.9179ms)
+✔ J12 actual periodic Checklist pause resume close keeps occurrences and reason line guards (2.4727ms)
+✔ J15 J17 OKK actual release and publication readers agree through partial final replay denial (5.3121ms)
+✔ J15 J17 RETURN actual release and publication readers agree through partial final replay denial (2.4343ms)
+✔ J16 StockDefect current issue archive same record and scoped negative (1.8099ms)
+✔ J18 actual stock movements threshold list detail retry and STORE request boundary (4.0227ms)
+✔ J11 actual Defrost start end calendar line invalidation and forbidden WORK or Wash overlap (2.7178ms)
+✔ J10 actual Wash request take start comment completion preserves linked request and participant history (8.7188ms)
+✔ J01 J02 actual UserContext resolves UFA role overrides blocked revoked guest and factory deactivation (1.39ms)
+✔ J19 publication ack report archive identity; archive capability=false (4.0006ms)
+✔ J19 publication ack report archive identity; archive capability=true KNOWN_NEGATIVE_MI-PUB-01 (1.0039ms)
+✖ J20 actual custom chat membership message reply edit delete reaction poll and unread chain (0.7694ms)
+✔ R2-A quality OKK actual create resolver visible-archived (3.3937ms)
+✔ R2-A quality OKK actual create resolver not-processed (0.2006ms)
+✔ R2-A quality OKK actual create resolver null-result (0.7094ms)
+✔ R2-A quality OKK actual create resolver missing-entity (0.227ms)
+✔ R2-A quality OKK actual create resolver foreign (0.1894ms)
+✔ R2-A quality OKK actual create resolver other-author (0.198ms)
+✔ R2-A quality OKK actual create resolver deleted (0.2538ms)
+✔ R2-A quality Returns actual create resolver visible-archived (0.2859ms)
+✔ R2-A quality Returns actual create resolver not-processed (0.6617ms)
+✔ R2-A quality Returns actual create resolver null-result (0.8618ms)
+✔ R2-A quality Returns actual create resolver missing-entity (0.5343ms)
+✔ R2-A quality Returns actual create resolver foreign (0.4623ms)
+✔ R2-A quality Returns actual create resolver other-author (0.2825ms)
+✔ R2-A quality Returns actual create resolver deleted (0.2652ms)
+✔ R2-A quality Stock actual create resolver visible-archived (0.423ms)
+✔ R2-A quality Stock actual create resolver not-processed (0.1474ms)
+✔ R2-A quality Stock actual create resolver null-result (0.1865ms)
+✔ R2-A quality Stock actual create resolver missing-entity (0.1884ms)
+✔ R2-A quality Stock actual create resolver foreign (0.1905ms)
+✔ R2-A quality Stock actual create resolver other-author (0.2076ms)
+✔ R2-A quality Stock actual create resolver deleted (0.349ms)
+✔ R2-A quality Report actual create resolver visible-archived (0.5443ms)
+✔ R2-A quality Report actual create resolver not-processed (0.169ms)
+✔ R2-A quality Report actual create resolver null-result (0.3998ms)
+✔ R2-A quality Report actual create resolver missing-entity (0.238ms)
+✔ R2-A quality Report actual create resolver foreign (0.3081ms)
+✔ R2-A quality Report actual create resolver other-author (0.2479ms)
+✔ R3-E-J15 OKK immutable release retry denies changed quantity (15.1947ms)
+✔ R3-E-J15 OKK immutable release retry denies changed comment (1.6242ms)
+✔ R3-E-J15 RETURN immutable release retry denies changed quantity (1.1296ms)
+✔ R3-E-J15 RETURN immutable release retry denies changed comment (1.4621ms)
+✔ R3-E-J15 actual OKK create partial3 remaining7 final replay same history archive Audit Ops IDs (15.7196ms)
+ℹ tests 50
+ℹ suites 0
+ℹ pass 49
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1219.9104
+
+✖ failing tests:
+
+test at backend\scripts\master-domain-contracts.test.js:165:1
+✖ J20 actual custom chat membership message reply edit delete reaction poll and unread chain (0.7694ms)
+  ForbiddenException: Чаты недоступны.
+      at ChatsService.assertChatAccess (C:\Users\79164\Documents\work\backend\dist\modules\chats\chats.service.js:1618:19)
+      at ChatsService.create (C:\Users\79164\Documents\work\backend\dist\modules\chats\chats.service.js:98:14)
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\master-domain-contracts.test.js:176:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    response: { code: 'FORBIDDEN', message: 'Чаты недоступны.' },
+    status: 403,
+    options: {}
+  }

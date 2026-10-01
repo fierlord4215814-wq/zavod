@@ -1,0 +1,8 @@
+{
+  "label": "repeat upgrade schema drift",
+  "command": "prisma migrate diff --from-schema-datasource <isolated schema> --to-schema-datamodel <isolated schema> --exit-code",
+  "prisma": "6.0.0",
+  "exitCode": 0,
+  "stdout": "No difference detected.\n\n",
+  "stderr": ""
+}

@@ -1,0 +1,13 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\src\\common\\quantity-release.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\common\\quantity-release.service.ts"
+index 2dc55414..487855d1 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\src\\common\\quantity-release.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\common\\quantity-release.service.ts"
+@@ -109,6 +109,8 @@ export class QuantityReleaseService {
+           || existing.sourceType !== sourceType
+           || existing.sourceId !== sourceId
+           || existing.actorId !== user.userId
++          || !this.requestedQuantity(input.quantity, sourceType === QuantityReleaseSourceType.RETURN, existing.unit).eq(existing.quantity)
++          || existing.comment !== comment
+         ) {
+           throw new ConflictError('Идентификатор операции уже использован для другого действия.');
+         }

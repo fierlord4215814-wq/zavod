@@ -1,0 +1,465 @@
+{
+  "status": "PASS_T1_5_ITEMS_UI_MOVES_RACE_IMMUTABLE_SCOPE_HISTORY",
+  "items": [
+    {
+      "name": "Учебный двигатель",
+      "id": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+      "initial": 10,
+      "minimum": 5,
+      "createUI": 201,
+      "secondUiCreateMs": 271
+    },
+    {
+      "name": "Учебный подшипник",
+      "id": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+      "initial": 10,
+      "minimum": 5,
+      "createUI": 201,
+      "secondUiCreateMs": 216
+    },
+    {
+      "name": "Учебный датчик",
+      "id": "4566242f-ef9f-4405-ba74-59d3f0a71ba3",
+      "initial": 10,
+      "minimum": 5,
+      "createUI": 201,
+      "secondUiCreateMs": 328
+    },
+    {
+      "name": "Учебный ремкомплект",
+      "id": "53a110c1-7b54-429e-86b7-19c0fef4eb8f",
+      "initial": 10,
+      "minimum": 5,
+      "createUI": 201,
+      "secondUiCreateMs": 340
+    },
+    {
+      "name": "Учебный расходник",
+      "id": "ee220699-aafe-48a8-a18d-28925f6eac07",
+      "initial": 10,
+      "minimum": 5,
+      "createUI": 201,
+      "secondUiCreateMs": 228
+    }
+  ],
+  "operations": [
+    {
+      "key": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab-take",
+      "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+      "mode": "take",
+      "body": {
+        "quantity": 3,
+        "comment": "УЧ T1: take 3",
+        "operationId": "aaa07047-0134-4ebd-8f36-24193dcc06c2"
+      },
+      "uiStatus": 201,
+      "quantity": 7,
+      "secondUiMs": 401
+    },
+    {
+      "key": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab-restock",
+      "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+      "mode": "restock",
+      "body": {
+        "quantity": 3,
+        "comment": "УЧ T1: restock 3",
+        "operationId": "0045c862-d33c-4d8e-86c2-5facd9c8d1bb"
+      },
+      "uiStatus": 201,
+      "quantity": 10,
+      "secondUiMs": 400
+    },
+    {
+      "key": "910736c5-3b05-4e72-8cb5-394bd2a1668a-take",
+      "itemId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+      "mode": "take",
+      "body": {
+        "quantity": 2,
+        "comment": "УЧ T1: take 2",
+        "operationId": "748b707b-7f5f-4a40-a184-c9ee7ceafc50"
+      },
+      "uiStatus": 201,
+      "quantity": 8,
+      "secondUiMs": 337
+    },
+    {
+      "key": "910736c5-3b05-4e72-8cb5-394bd2a1668a-restock",
+      "itemId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+      "mode": "restock",
+      "body": {
+        "quantity": 1,
+        "comment": "УЧ T1: restock 1",
+        "operationId": "aaa5823d-6ed1-4c1e-a256-c7e6caaa61cc"
+      },
+      "uiStatus": 201,
+      "quantity": 9,
+      "secondUiMs": 330
+    }
+  ],
+  "immutableDeny": {
+    "retry": 201,
+    "changed": [
+      {
+        "mode": "take",
+        "status": 409,
+        "message": "Этот идентификатор уже использован с другими данными. Обновите остатки."
+      },
+      {
+        "mode": "take",
+        "status": 409,
+        "message": "Этот идентификатор уже использован с другими данными. Обновите остатки."
+      },
+      {
+        "mode": "restock",
+        "status": 409,
+        "message": "Результат действия больше недоступен. Обновите остатки."
+      }
+    ],
+    "movementsUnchanged": 1
+  },
+  "concurrent": {
+    "mechanism": "two normal browser-authenticated HTTP requests",
+    "statuses": [
+      201,
+      409
+    ],
+    "bodies": [
+      {
+        "quantity": 7,
+        "comment": "УЧ T1: конкурентный расход1",
+        "operationId": "34f26a2f-9e88-49b6-acd1-3a97ab12d9ee"
+      },
+      {
+        "quantity": 7,
+        "comment": "УЧ T1: конкурентный расход2",
+        "operationId": "ede5ef07-490c-413b-acb0-ce5d7fde064d"
+      }
+    ],
+    "secondUiMs": 155
+  },
+  "uiA": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Администратор Учебный А.\n4\nЗаявка на заказ закрыта\nЗаказы / Остатки\n\nНеснижаемый запас критичных позиций и заявки на пополнение. Это не складской учёт и не 1С.\n\nНИЖЕ МИНИМУМА\n1\nКРИТИЧНО / НЕТ\n0\nОТКРЫТЫЕ ЗАЯВКИ\n0\nПОЗИЦИИ\n5\nОстатки\nЗаявки на заказ\nАрхив\nПоиск и фильтры\nВсе доступные позиции\n+ Новая позиция\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный двигатель\n3 шт\nМало\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный датчик\n10 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный подшипник\n9 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный расходник\n10 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный ремкомплект\n10 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nСмена\nИстория смен\nЛюди\nАдминка\nАдминистрирование\nЛинии\nЗаявки\nМойка\nОКК\nНекондиция\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\n4\nСтатистика / Аудит\nСообщить об ошибке\nНастройки",
+  "uiW": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Склад Учебный-Кладовщик-01 Т.\nНовая заявка на заказ\nЛюди\nЧаты\nЗаказы / Остатки\nВозвраты на производство\nЕщё\nЗаказы / Остатки\n\nНеснижаемый запас критичных позиций и заявки на пополнение. Это не складской учёт и не 1С.\n\nНИЖЕ МИНИМУМА\n1\nКРИТИЧНО / НЕТ\n0\nОТКРЫТЫЕ ЗАЯВКИ\n0\nПОЗИЦИИ\n5\nОстатки\nЗаявки на заказ\nПоиск и фильтры\nВсе доступные позиции\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный двигатель\n3 шт\nМало\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный датчик\n10 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный подшипник\n9 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный расходник\n10 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный ремкомплект\n10 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее",
+  "previousErrors": [
+    "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').getByRole('button', { name: 'Заказать', exact: true })\u001b[22m\n",
+    "Expected values to be strictly equal:\n\n403 !== 409\n"
+  ],
+  "request": "26d5c8c5-c9b1-483a-820e-0917c37f6e95",
+  "requestClosed": true,
+  "denials": {
+    "workerTake": 403,
+    "wrongDepartmentItem": 403,
+    "otherFactory": 409
+  },
+  "archived": true,
+  "archiveUI": {
+    "role": "ADMIN",
+    "read": true,
+    "storeArchiveMenuAbsent": true
+  },
+  "sql": {
+    "movements": [
+      {
+        "id": "a5f6f7ab-38bd-4ce2-baef-6f267ab89716",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "TAKE",
+        "quantity": 3,
+        "beforeQuantity": 10,
+        "afterQuantity": 7,
+        "comment": "УЧ T1: take 3",
+        "createdAt": "2026-09-26T20:09:56.448Z"
+      },
+      {
+        "id": "5ec632c3-5b91-4d4d-af46-be3bfe923dfd",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "RESTOCK",
+        "quantity": 3,
+        "beforeQuantity": 7,
+        "afterQuantity": 10,
+        "comment": "УЧ T1: restock 3",
+        "createdAt": "2026-09-26T20:09:57.703Z"
+      },
+      {
+        "id": "ee3425a3-3044-44bf-94ea-fc103c7c81e1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "TAKE",
+        "quantity": 7,
+        "beforeQuantity": 10,
+        "afterQuantity": 3,
+        "comment": "УЧ T1: конкурентный расход1",
+        "createdAt": "2026-09-26T20:09:58.315Z"
+      },
+      {
+        "id": "1c095912-dfee-4efb-9a66-664f83b29828",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "TAKE",
+        "quantity": 2,
+        "beforeQuantity": 10,
+        "afterQuantity": 8,
+        "comment": "УЧ T1: take 2",
+        "createdAt": "2026-09-26T20:09:59.137Z"
+      },
+      {
+        "id": "c10436d2-e34c-401f-ad91-5bbdabb80295",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "RESTOCK",
+        "quantity": 1,
+        "beforeQuantity": 8,
+        "afterQuantity": 9,
+        "comment": "УЧ T1: restock 1",
+        "createdAt": "2026-09-26T20:10:00.265Z"
+      }
+    ],
+    "processed": [
+      {
+        "id": "4435b731-d949-4838-bf9a-a68afbf974dc",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "operationId": "aaa07047-0134-4ebd-8f36-24193dcc06c2",
+        "resultKey": "a5f6f7ab-38bd-4ce2-baef-6f267ab89716"
+      },
+      {
+        "id": "65f74833-525a-4d98-b067-e7e91ac4b703",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "operationId": "0045c862-d33c-4d8e-86c2-5facd9c8d1bb",
+        "resultKey": "5ec632c3-5b91-4d4d-af46-be3bfe923dfd"
+      },
+      {
+        "id": "9288a658-9f0a-463f-b01c-e175fd1ad2ed",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "operationId": "34f26a2f-9e88-49b6-acd1-3a97ab12d9ee",
+        "resultKey": "ee3425a3-3044-44bf-94ea-fc103c7c81e1"
+      },
+      {
+        "id": "ddca8e77-8457-41f5-930f-00099892d063",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "operationId": "748b707b-7f5f-4a40-a184-c9ee7ceafc50",
+        "resultKey": "1c095912-dfee-4efb-9a66-664f83b29828"
+      },
+      {
+        "id": "ada0e5f8-2224-45fa-ac2a-54109479c540",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "operationId": "aaa5823d-6ed1-4c1e-a256-c7e6caaa61cc",
+        "resultKey": "c10436d2-e34c-401f-ad91-5bbdabb80295"
+      }
+    ],
+    "audit": [
+      {
+        "id": "8cf1e34c-f3cf-44f5-b8a8-62a98cc6b7ee",
+        "action": "ORDER_ITEM_CREATED",
+        "entityId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "details": {
+          "newValue": {
+            "name": "Учебный двигатель",
+            "unit": "шт",
+            "category": "Учебные технические позиции",
+            "isActive": true,
+            "archivedAt": null,
+            "description": "Синтетический запас; не норматив рабочего склада",
+            "minThreshold": 5,
+            "currentQuantity": 10,
+            "storageLocation": "УЧ T1 — учебный склад"
+          }
+        },
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "5626011f-a136-4e55-826c-bb28ebea3850",
+        "action": "ORDER_ITEM_CREATED",
+        "entityId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "details": {
+          "newValue": {
+            "name": "Учебный подшипник",
+            "unit": "шт",
+            "category": "Учебные технические позиции",
+            "isActive": true,
+            "archivedAt": null,
+            "description": "Синтетический запас; не норматив рабочего склада",
+            "minThreshold": 5,
+            "currentQuantity": 10,
+            "storageLocation": "УЧ T1 — учебный склад"
+          }
+        },
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "8a34e02e-d71a-4c70-af9e-f084a75e1c85",
+        "action": "ORDER_ITEM_CREATED",
+        "entityId": "4566242f-ef9f-4405-ba74-59d3f0a71ba3",
+        "details": {
+          "newValue": {
+            "name": "Учебный датчик",
+            "unit": "шт",
+            "category": "Учебные технические позиции",
+            "isActive": true,
+            "archivedAt": null,
+            "description": "Синтетический запас; не норматив рабочего склада",
+            "minThreshold": 5,
+            "currentQuantity": 10,
+            "storageLocation": "УЧ T1 — учебный склад"
+          }
+        },
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "f5db9358-849e-47c5-ab26-f0d0c1f9d39b",
+        "action": "ORDER_ITEM_CREATED",
+        "entityId": "53a110c1-7b54-429e-86b7-19c0fef4eb8f",
+        "details": {
+          "newValue": {
+            "name": "Учебный ремкомплект",
+            "unit": "шт",
+            "category": "Учебные технические позиции",
+            "isActive": true,
+            "archivedAt": null,
+            "description": "Синтетический запас; не норматив рабочего склада",
+            "minThreshold": 5,
+            "currentQuantity": 10,
+            "storageLocation": "УЧ T1 — учебный склад"
+          }
+        },
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "7f048cab-b05c-4442-89b2-b13884b583d2",
+        "action": "ORDER_ITEM_CREATED",
+        "entityId": "ee220699-aafe-48a8-a18d-28925f6eac07",
+        "details": {
+          "newValue": {
+            "name": "Учебный расходник",
+            "unit": "шт",
+            "category": "Учебные технические позиции",
+            "isActive": true,
+            "archivedAt": null,
+            "description": "Синтетический запас; не норматив рабочего склада",
+            "minThreshold": 5,
+            "currentQuantity": 10,
+            "storageLocation": "УЧ T1 — учебный склад"
+          }
+        },
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "1b63a72e-aed1-4ee1-a86d-0da5cc6e2302",
+        "action": "ORDER_ITEM_TAKEN",
+        "entityId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "details": {
+          "unit": "шт",
+          "comment": "УЧ T1: take 3",
+          "quantity": 3,
+          "movementId": "a5f6f7ab-38bd-4ce2-baef-6f267ab89716",
+          "afterQuantity": 7,
+          "beforeQuantity": 10
+        },
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "fff0576f-716a-4727-ab0b-73acf4f018bb",
+        "action": "ORDER_ITEM_RESTOCKED",
+        "entityId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "details": {
+          "unit": "шт",
+          "comment": "УЧ T1: restock 3",
+          "quantity": 3,
+          "movementId": "5ec632c3-5b91-4d4d-af46-be3bfe923dfd",
+          "afterQuantity": 10,
+          "beforeQuantity": 7
+        },
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "2a0dec89-1639-4d7c-abfd-1b475cd84f3b",
+        "action": "ORDER_ITEM_TAKEN",
+        "entityId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "details": {
+          "unit": "шт",
+          "comment": "УЧ T1: конкурентный расход1",
+          "quantity": 7,
+          "movementId": "ee3425a3-3044-44bf-94ea-fc103c7c81e1",
+          "afterQuantity": 3,
+          "beforeQuantity": 10
+        },
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "eff12a56-b09e-43b2-8a56-dde1623a4551",
+        "action": "ORDER_STOCK_BELOW_THRESHOLD",
+        "entityId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "details": {
+          "unit": "шт",
+          "minThreshold": 5,
+          "afterQuantity": 3,
+          "beforeQuantity": 10,
+          "notificationTodo": true
+        },
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "27424d3a-a949-4bf3-8c94-ca5da15e7918",
+        "action": "ORDER_ITEM_TAKEN",
+        "entityId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "details": {
+          "unit": "шт",
+          "comment": "УЧ T1: take 2",
+          "quantity": 2,
+          "movementId": "1c095912-dfee-4efb-9a66-664f83b29828",
+          "afterQuantity": 8,
+          "beforeQuantity": 10
+        },
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "9924d49d-709a-4e17-919b-49b72cba2204",
+        "action": "ORDER_ITEM_RESTOCKED",
+        "entityId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "details": {
+          "unit": "шт",
+          "comment": "УЧ T1: restock 1",
+          "quantity": 1,
+          "movementId": "c10436d2-e34c-401f-ad91-5bbdabb80295",
+          "afterQuantity": 9,
+          "beforeQuantity": 8
+        },
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      },
+      {
+        "id": "bbe87bc4-37e1-4362-92fc-539d33be6cfd",
+        "action": "ORDER_ITEM_ARCHIVED",
+        "entityId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "details": {
+          "comment": "УЧ T1: приёмочный цикл завершён, история сохранена"
+        },
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      }
+    ],
+    "notifications": [
+      {
+        "id": "20adf52c-0381-4d78-9a52-2c319f906b34",
+        "type": "ORDER_STOCK_BELOW_THRESHOLD",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "entityId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+      }
+    ]
+  }
+}

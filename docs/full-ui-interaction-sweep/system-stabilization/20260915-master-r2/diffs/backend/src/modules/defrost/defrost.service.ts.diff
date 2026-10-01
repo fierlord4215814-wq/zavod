@@ -1,0 +1,42 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-defrost-line-replay-before\\backend\\src\\modules\\defrost\\defrost.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\defrost\\defrost.service.ts"
+index c65dd623..000ac848 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-defrost-line-replay-before\\backend\\src\\modules\\defrost\\defrost.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\defrost\\defrost.service.ts"
+@@ -248,7 +248,7 @@ export class DefrostService {
+         if (processed) {
+           if (!processed.resultKey) throw new ConflictError('Операция завершена без результата.');
+           const existing = await tx.defrostEvent.findFirst({
+-            where: { id: processed.resultKey, factoryId, lineId, eventType: DEFROST_EVENT_TYPE },
++            where: { id: processed.resultKey, factoryId, lineId, eventType: DEFROST_EVENT_TYPE, startedById: user.userId },
+           });
+           if (existing) return existing;
+           throw new ConflictError('Операция уже использована для другого действия.');
+@@ -328,8 +328,9 @@ export class DefrostService {
+         });
+         if (processed) {
+           if (!processed.resultKey) throw new ConflictError('Операция завершена без результата.');
++          if (processed.resultKey !== id) throw new ConflictError('Операция уже использована для другого действия.');
+           const existing = await tx.defrostEvent.findFirst({
+-            where: { id: processed.resultKey, factoryId, lineId: event.lineId, eventType: DEFROST_EVENT_TYPE },
++            where: { id: processed.resultKey, factoryId, lineId: event.lineId, eventType: DEFROST_EVENT_TYPE, endedById: user.userId },
+           });
+           if (existing) return existing;
+           throw new ConflictError('Операция уже использована для другого действия.');
+@@ -395,7 +396,7 @@ export class DefrostService {
+       if (processed) {
+         if (!processed.resultKey) throw new ConflictError('Операция завершена без результата.');
+         const existing = await this.prisma.db.defrostEvent.findFirst({
+-          where: { id: processed.resultKey, factoryId, lineId, eventType: DEFROST_EVENT_TYPE },
++          where: { id: processed.resultKey, factoryId, lineId, eventType: DEFROST_EVENT_TYPE, endedById: user.userId },
+         });
+         if (existing) return this.serialize(existing);
+         throw new ConflictError('Операция уже использована для другого действия.');
+@@ -427,7 +428,7 @@ export class DefrostService {
+         if (processed) {
+           if (!processed.resultKey) throw new ConflictError('Операция завершена без результата.');
+           const existing = await tx.defrostEvent.findFirst({
+-            where: { id: processed.resultKey, factoryId, lineId, eventType: SHOCK_CHAMBER_BLOWN_EVENT_TYPE },
++            where: { id: processed.resultKey, factoryId, lineId, eventType: SHOCK_CHAMBER_BLOWN_EVENT_TYPE, startedById: user.userId },
+           });
+           if (existing) return existing;
+           throw new ConflictError('Операция уже использована для другого действия.');

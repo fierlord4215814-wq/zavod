@@ -1,0 +1,78 @@
+{
+  "status": "PASS_T1_ACTIVE_ALL_USERS_ACTIVE_SAFE_IDLE_HISTORY_RETAINED",
+  "steps": [
+    {
+      "line": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+      "action": "STOP_UI"
+    },
+    {
+      "line": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+      "action": "STOP_UI"
+    },
+    {
+      "actor": "WORKER",
+      "session": "9e87e4da-1725-4ded-9e80-cf7b97606848",
+      "action": "self-end existing HTTP; no new UI button",
+      "status": 201
+    },
+    {
+      "actor": "WORKER02",
+      "session": "228bd01b-53ee-493a-990a-88da64b69171",
+      "action": "self-end existing HTTP; no new UI button",
+      "status": 201
+    },
+    {
+      "actor": "WORKER04",
+      "session": "2fff40fd-b674-438d-8deb-a014773dc762",
+      "action": "self-end existing HTTP; no new UI button",
+      "status": 201
+    },
+    {
+      "actor": "WORKER05",
+      "session": "d09dcefe-a9cd-4c07-ad26-de6ff8aca925",
+      "action": "self-end existing HTTP; no new UI button",
+      "status": 201
+    },
+    {
+      "actor": "WORKER07",
+      "session": "5d48354b-656c-4288-ae4f-0a588748d7a7",
+      "action": "self-end existing HTTP; no new UI button",
+      "status": 201
+    },
+    {
+      "actor": "WORKER08",
+      "session": "e7160719-b50a-49b1-950a-f243d8f4fc06",
+      "action": "self-end existing HTTP; no new UI button",
+      "status": 201
+    },
+    {
+      "actor": "WORKER10",
+      "session": "f7bf75bd-16ca-452c-86d9-251da6d627db",
+      "action": "self-end existing HTTP; no new UI button",
+      "status": 201
+    },
+    {
+      "actor": "WORKER11",
+      "session": "86c2e463-59e2-4f42-8e12-64ff28adf32a",
+      "action": "self-end existing HTTP; no new UI button",
+      "status": 201
+    },
+    {
+      "actor": "CONTRACTOR",
+      "session": "0f119cd6-d097-42dc-88e6-ebd8a845f3fb",
+      "action": "self-end existing HTTP; no new UI button",
+      "status": 201
+    }
+  ],
+  "state": {
+    "assignments": 0,
+    "sessions": 0,
+    "tasks": 0,
+    "runs": 0,
+    "factory": {
+      "isActive": true
+    },
+    "blocked": 0,
+    "inactiveAccess": 0
+  }
+}

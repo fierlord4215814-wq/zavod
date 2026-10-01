@@ -1,0 +1,73 @@
+{
+  "appStack": "NOT_RUN",
+  "interfaceIndex": 62,
+  "bios": [
+    {
+      "BIOSGUID": "D00FD8A4-6628-433C-BD34-00A7CB7DD174",
+      "VirtualSystemIdentifier": "99A158DA-C247-422C-AE11-109485A92B1F"
+    }
+  ],
+  "actualTokenElevated": true,
+  "network": {
+    "prefix": "10.243.53.0/30",
+    "guestIp": "10.243.53.2",
+    "hostIp": "10.243.53.1"
+  },
+  "name": "Zavod-Master-R5-Ubuntu24",
+  "hostReboot": false,
+  "state": {
+    "vm": {
+      "Name": "Zavod-Master-R5-Ubuntu24",
+      "Id": "99a158da-c247-422c-ae11-109485a92b1f",
+      "State": 3,
+      "Generation": 2,
+      "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\Zavod-Master-R5-Ubuntu24",
+      "MemoryStartup": 4294967296,
+      "MemoryAssigned": 0,
+      "ProcessorCount": 2,
+      "AutomaticStartAction": 2,
+      "AutomaticStopAction": 4,
+      "CheckpointType": 2,
+      "AutomaticCheckpointsEnabled": false
+    },
+    "network": [
+      {
+        "Name": "Сетевой адаптер",
+        "Id": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\A9CAAB35-DFFE-45A9-A54A-A5F1321594DA",
+        "MacAddress": "025A56051901",
+        "SwitchName": "Zavod-R5-Internal-20260920",
+        "SwitchId": "afaaea6b-1d7e-4ec7-beb2-5c7bf8750beb",
+        "Status": null
+      }
+    ],
+    "at": "2026-09-20T08:26:31.9984633+03:00",
+    "freeRamBytes": 8706318336.0,
+    "disks": [
+      {
+        "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\ubuntu24.vhdx",
+        "ControllerType": 1,
+        "ControllerNumber": 0,
+        "ControllerLocation": 0
+      }
+    ],
+    "freeDiskBytes": 50495201280
+  },
+  "switchId": "afaaea6b-1d7e-4ec7-beb2-5c7bf8750beb",
+  "switchName": "Zavod-R5-Internal-20260920",
+  "switchType": "Internal",
+  "pid": 9056,
+  "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+  "vhdGeometry": {
+    "Size": 17179869184,
+    "FileSize": 4194304,
+    "VhdType": 3,
+    "VhdFormat": 3,
+    "ParentPath": ""
+  },
+  "mac": "025A56051901",
+  "noNatFirewallPolicyChanges": true,
+  "runtime": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24",
+  "isolationProof": "NOT_RUN_PREPARATION_LINK_CONNECTED",
+  "vhd": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\ubuntu24.vhdx",
+  "at": "2026-09-20T08:26:31.5890962+03:00"
+}

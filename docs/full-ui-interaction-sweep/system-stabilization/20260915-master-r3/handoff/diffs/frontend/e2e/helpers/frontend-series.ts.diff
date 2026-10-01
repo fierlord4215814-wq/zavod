@@ -1,0 +1,42 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\E-browser-identity-before\\frontend\\e2e\\helpers\\frontend-series.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\frontend-series.ts"
+index a9792a3f..2ba2eeb7 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\E-browser-identity-before\\frontend\\e2e\\helpers\\frontend-series.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\frontend-series.ts"
+@@ -25,7 +25,7 @@ export const errors: string[] = [];
+ export const unknown: string[] = [];
+ const identities = new WeakMap<Page,string>();
+ export const json = (route: Route, body: unknown, status = 200) => route.fulfill({status, contentType:'application/json', body:JSON.stringify(body)});
+-type Options = { role?: 'ADMIN' | 'WORKER' | 'TECH_MECHANIC' | 'MASTER'; granted?: string[]; theme?: string; screen?: string; socket?: (socket: WebSocketRoute)=>void; replies?: (route: Route, pathname: string) => Promise<boolean> };
++type Options = { role?: 'ADMIN' | 'WORKER' | 'TECH_MECHANIC' | 'MASTER'; identity?: {userId:string;factoryId:string}; granted?: string[]; theme?: string; screen?: string; socket?: (socket: WebSocketRoute)=>void; replies?: (route: Route, pathname: string) => Promise<boolean> };
+ 
+ // DTOs reused from the established shift-readonly-profile-and-history-choice fixture.
+ const shiftCard = (type: string) => ({key:`2026-09-07:${type}:self`,shiftDate:'2026-09-07',shiftType:type,shiftTypeLabel:type==='DAY'?'День':'Ночь',title:type==='DAY'?'Дневная смена 7 сентября':'Ночная смена 7 сентября',masterLabel:'Мастер смены',masters:['Мастер смены'],peopleCount:1,lineCount:1,downtimeCount:0,taskCount:0,washCount:0,importantShiftLogs:0,readOnly:true});
+@@ -65,7 +65,7 @@ export async function isolate(page: Page, options: Options = {}) {
+     unknown.push(`${method} ${p}${url.search}`);
+     return json(route,{message:'UNKNOWN_REQUEST_BLOCKED'},501);
+   });
+-  await page.addInitScript(({theme,screen}) => {
++  await page.addInitScript(({theme,screen,identity}) => {
+     // Playwright's block mode does not implement a registration response. Supply the
+     // browser contract explicitly; no service worker/network/cache is actually started.
+     const registration = Object.assign(new EventTarget(), {waiting:null,installing:null,active:null,scope:location.origin+'/',update:async()=>undefined,unregister:async()=>true});
+@@ -74,14 +74,14 @@ export async function isolate(page: Page, options: Options = {}) {
+     if (!sessionStorage.getItem('series-initialized')) {
+       localStorage.clear(); sessionStorage.clear();
+       localStorage.setItem('zavod.authToken','isolated-series-token');
+-      localStorage.setItem('zavod.devUserId','series-user');
+-      localStorage.setItem('zavod.selectedFactoryId','series-factory');
++      localStorage.setItem('zavod.devUserId',identity.userId);
++      localStorage.setItem('zavod.selectedFactoryId',identity.factoryId);
+       localStorage.setItem('zavod.appearanceTheme',theme);
+-      sessionStorage.setItem('zavod.session.route.series-user.series-factory',screen);
+-      localStorage.setItem('zavod.quick-nav.series-user.series-factory',JSON.stringify(['Report','Situation','Tasks','ShiftHistory']));
++      sessionStorage.setItem(`zavod.session.route.${identity.userId}.${identity.factoryId}`,screen);
++      localStorage.setItem(`zavod.quick-nav.${identity.userId}.${identity.factoryId}`,JSON.stringify(['Report','Situation','Tasks','ShiftHistory']));
+       sessionStorage.setItem('series-initialized','1');
+     }
+-  },{theme:options.theme||'dark',screen:options.screen||'Report'});
++  },{theme:options.theme||'dark',screen:options.screen||'Report',identity:options.identity??{userId:'series-user',factoryId:'series-factory'}});
+ }
+ 
+ export async function shot(page: Page, name: string, metadata: object = {}) {

@@ -1,0 +1,20 @@
+✔ active direct-chat member keeps normal read and write (1.3961ms)
+✔ revoked factory access cannot use retained direct-chat membership (0.2304ms)
+✔ revoked owner cannot manage a retained custom-chat membership (0.219ms)
+✔ WORKER: defaults, stale grants, ALLOW, retained membership and author cannot enable chat (2.2852ms)
+✔ CONTRACTOR: defaults, stale grants, ALLOW, retained membership and author cannot enable chat (0.1602ms)
+✔ CONTRACTOR_LEAD eligibility preserves explicit membership but does not grant factory directory (0.3209ms)
+✔ chat WS fanout respects capability and factory; ADMIN keeps canonical authority (4787.5664ms)
+✔ R2-E-J20 actual ownership message reader attachment controller revoke retry delete restore chain (25.5429ms)
+✔ R2-E-J20 removedAt active flags cannot override canonical denied chat attachment getMetadata (3.0622ms)
+✔ R2-E-J20 removedAt active flags cannot override canonical denied chat attachment getFile (1.6574ms)
+✔ R2-E-J20 leftAt active flags cannot override canonical denied chat attachment getMetadata (1.7164ms)
+✔ R2-E-J20 leftAt active flags cannot override canonical denied chat attachment getFile (1.5445ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11637.5205

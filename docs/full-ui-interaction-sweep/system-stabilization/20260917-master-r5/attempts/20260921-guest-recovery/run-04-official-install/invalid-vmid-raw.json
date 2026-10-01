@@ -1,0 +1,15 @@
+{
+  "exe": "C:/Users/79164/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe",
+  "args": [
+    "-NoProfile",
+    "-File",
+    "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\emit-command-fixture.ps1",
+    "-VmId",
+    "invalid\"; printf forbidden"
+  ],
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "stdout": "",
+  "stderr": "New-R5LateCommands: C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\emit-command-fixture.ps1:6\r\nLine |\r\n   6 |  $r5Fixed=New-R5LateCommands -VmId $r5Vm.vmId\r\n     |                                    ~~~~~~~~~~\r\n     | Cannot validate argument on parameter 'VmId'. The argument \"invalid\"; printf forbidden\" does not match the\r\n     | \"^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\" pattern. Supply an argument that\r\n     | matches \"^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\" and try the command\r\n     | again.\r\n"
+}

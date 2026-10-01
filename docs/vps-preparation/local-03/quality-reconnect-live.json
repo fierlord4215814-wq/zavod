@@ -1,0 +1,23 @@
+{
+  "transport": "real connectToServer, intentional browser-side WebSocket close, no fabricated messages",
+  "missedWhileDisconnected": true,
+  "recoveredUiMs": 1850,
+  "initialConnected": 1,
+  "finalConnected": 2,
+  "frames": [
+    {
+      "at": 1790269091211,
+      "type": "connected"
+    },
+    {
+      "at": 1790269093451,
+      "type": "connected"
+    }
+  ],
+  "sql": {
+    "id": "492e52f7-3710-487f-a211-3ba1e4e9383b",
+    "quantity": 13,
+    "status": "ON_STOCK"
+  },
+  "status": "PASS_REAL_WS_RECONNECT_UI_HTTP_SQL"
+}

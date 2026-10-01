@@ -1,0 +1,549 @@
+{
+  "status": "PRODUCT_FOREIGN_PERSONAL_NOTICE_EXPOSED",
+  "checks": [
+    {
+      "endpoint": "overview",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "overview",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "overview",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "endpoint": "module-summary",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "module-summary",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "module-summary",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "endpoint": "events",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "events",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "events",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "endpoint": "audit",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "audit",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "audit",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/overview",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/overview",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/overview",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/lines",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/lines",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/lines",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/downtimes",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/downtimes",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/downtimes",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/tasks",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/tasks",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/tasks",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/departments",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/departments",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/departments",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/repeated-problems",
+      "actor": "ADMIN",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/repeated-problems",
+      "actor": "MANAGEMENT",
+      "http": 200
+    },
+    {
+      "endpoint": "operations/repeated-problems",
+      "actor": "WORKER",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "overview",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "module-summary",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "events",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "audit",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "operations/overview",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "operations/lines",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "operations/downtimes",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "operations/tasks",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "operations/departments",
+      "http": 403
+    },
+    {
+      "state": "ADMIN+guest",
+      "endpoint": "operations/repeated-problems",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "overview",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "module-summary",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "events",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "audit",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "operations/overview",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "operations/lines",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "operations/downtimes",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "operations/tasks",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "operations/departments",
+      "http": 403
+    },
+    {
+      "state": "revoked",
+      "endpoint": "operations/repeated-problems",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "overview",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "module-summary",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "events",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "audit",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "operations/overview",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "operations/lines",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "operations/downtimes",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "operations/tasks",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "operations/departments",
+      "http": 403
+    },
+    {
+      "state": "blocked",
+      "endpoint": "operations/repeated-problems",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "overview",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "module-summary",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "events",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "audit",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "operations/overview",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "operations/lines",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "operations/downtimes",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "operations/tasks",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "operations/departments",
+      "http": 403
+    },
+    {
+      "state": "deleted",
+      "endpoint": "operations/repeated-problems",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "overview",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "module-summary",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "events",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "audit",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "operations/overview",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "operations/lines",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "operations/downtimes",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "operations/tasks",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "operations/departments",
+      "http": 403
+    },
+    {
+      "state": "stale-auth",
+      "endpoint": "operations/repeated-problems",
+      "http": 403
+    },
+    {
+      "endpoint": "overview",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "module-summary",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "events",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "audit",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/overview",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/lines",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/downtimes",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/tasks",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/departments",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/repeated-problems",
+      "actor": "WORKER",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "overview",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "module-summary",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "events",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "audit",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/overview",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/lines",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/downtimes",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/tasks",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/departments",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "endpoint": "operations/repeated-problems",
+      "actor": "MANAGEMENT",
+      "state": "foreign-selected",
+      "http": 403
+    },
+    {
+      "state": "query-substitution-selected-context-preserved",
+      "suffix": "&factoryId",
+      "http": 200
+    },
+    {
+      "state": "query-substitution-selected-context-preserved",
+      "suffix": "&lineId",
+      "http": 200
+    },
+    {
+      "state": "query-substitution-selected-context-preserved",
+      "suffix": "&departmentId",
+      "http": 200
+    }
+  ],
+  "foreignNotice": {
+    "id": "6ea5bb8e-03e0-4172-a09d-244a895640df",
+    "foreignFactoryId": "948b0ca9-93cd-470f-9e88-45f86eb90dbe",
+    "before": 90,
+    "after": 91,
+    "eventExposed": true,
+    "moduleCount": 19
+  },
+  "flagsRestored": true
+}

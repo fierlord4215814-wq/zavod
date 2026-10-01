@@ -1,0 +1,95 @@
+{
+  "version": "LOCAL03-20260926-RESTORE",
+  "roles": {
+    "ADMIN": {
+      "login": 200,
+      "checklist10": 10,
+      "journalArchive": 200,
+      "orderArchive": 200,
+      "archivedChat": 200
+    },
+    "MASTER": {
+      "login": 200,
+      "task": 200,
+      "wash": 200
+    },
+    "STORE": {
+      "login": 200,
+      "order": 200,
+      "hiddenDirectChat": 200
+    },
+    "OKK": {
+      "login": 200,
+      "archivedRecord": "331b93bc-2dfe-4f1d-afb8-70e7086f44af"
+    },
+    "WORKER": {
+      "login": 200,
+      "shift": 200,
+      "returns": 200
+    },
+    "OTHER": {
+      "login": 200,
+      "deniedFiles": 5
+    }
+  },
+  "files": [
+    {
+      "role": "ADMIN",
+      "kind": "reference",
+      "id": "52ea4828-db6b-450e-b2bb-b386e59196ad",
+      "sha256": "56dd0b5f47d0357f587538af617917ed7dffe8c79629cafb8a1bbfeacaf52270",
+      "bytes": 1502
+    },
+    {
+      "role": "ADMIN",
+      "kind": "result",
+      "id": "2cc6390c-adbd-40f6-a723-7c4e546402e6",
+      "sha256": "2f0c57f1f7fe5e31888ff5961ed70000c3ca70a4f0798fb73b39c540351c4aa5",
+      "bytes": 1505
+    },
+    {
+      "role": "MASTER",
+      "kind": "TASK",
+      "id": "fe140f8c-63bd-408e-b5bd-0b614dc246bb",
+      "sha256": "97e805ca5994c88a3dbeff8e34685c0433add92fa8dbc0a1ba5f03f05861a0ff",
+      "bytes": 1405
+    },
+    {
+      "role": "STORE",
+      "kind": "CHAT",
+      "id": "ae66aefd-01f2-42f2-ba16-5f4e436488e0",
+      "sha256": "fefbe2f007b3b667e5eb7048db917042945ebd25c6f715eb4c2d6dac464da4eb",
+      "bytes": 1521
+    },
+    {
+      "role": "OKK",
+      "kind": "OKK",
+      "id": "8bab5383-febc-4ddb-888c-45b07cddb27b",
+      "sha256": "9b071a6c41e43df9e4d4eeedc523e49a5d500bb7603465de1370b2972c022302",
+      "bytes": 1497
+    }
+  ],
+  "denied": [
+    {
+      "id": "52ea4828-db6b-450e-b2bb-b386e59196ad",
+      "status": 403
+    },
+    {
+      "id": "2cc6390c-adbd-40f6-a723-7c4e546402e6",
+      "status": 403
+    },
+    {
+      "id": "fe140f8c-63bd-408e-b5bd-0b614dc246bb",
+      "status": 403
+    },
+    {
+      "id": "ae66aefd-01f2-42f2-ba16-5f4e436488e0",
+      "status": 403
+    },
+    {
+      "id": "8bab5383-febc-4ddb-888c-45b07cddb27b",
+      "status": 403
+    }
+  ],
+  "status": "PASS_RESTORED_REAL_USERS_HTTP_UI_GUARDED_FILES"
+}

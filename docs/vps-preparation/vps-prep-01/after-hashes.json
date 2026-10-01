@@ -1,0 +1,178 @@
+{
+  "capturedAt": "2026-09-23T00:38:42.2722019+03:00",
+  "workspace": "C:\\Users\\79164\\Documents\\work",
+  "note": "Targeted post-change hashes only. Working .env, DB, uploads and secrets were not read.",
+  "files": [
+    {
+      "path": "backend/package.json",
+      "sha256": "fda1238718ba32537f4db6c332f5005d3e11ca9ffd172853fe4c2571b80d8344",
+      "bytes": 19493
+    },
+    {
+      "path": "backend/prisma/migrations/migration_lock.toml",
+      "sha256": "1db17a8d051aa136110736752c5e1f8b7ed92b6ea8e803112fbbe2497047c210",
+      "bytes": 24
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "sha256": "16e8f460f5d5370e3c24e9dd58ea7d394b082a691e5ea620dacac06969491e52",
+      "bytes": 83697
+    },
+    {
+      "path": "backend/prisma/seed.js",
+      "sha256": "5c31b9c512ad2d3f91bbcf0ea314c931f262b6eb9f807a311ecdcbc62b634266",
+      "bytes": 22612
+    },
+    {
+      "path": "backend/prisma/system-foundation.cjs",
+      "sha256": "78f4d8ab4d144f20b7ec1bc5c5086cd9a69d4ff264b445536c083cc972990cdf",
+      "bytes": 21746
+    },
+    {
+      "path": "backend/prisma/migrations/20260620122500_vps_prep_permission_catalog/migration.sql",
+      "sha256": "e1578b5758fc27b59c92d3e97420592aa9e9915ae1e6a87803adf529d133674d",
+      "bytes": 9328
+    },
+    {
+      "path": "backend/prisma/migrations/20260922190000_vps_prep_01_auth_recovery/migration.sql",
+      "sha256": "993d50fa8d126fac2b483a123158cc8b5c15ad6725fd98542e05dfb85854d293",
+      "bytes": 819
+    },
+    {
+      "path": "backend/src/common/password.ts",
+      "sha256": "d2759188ddb6c07241377631ea7fa421b76b182b028f0b34010d2f08221836ed",
+      "bytes": 3030
+    },
+    {
+      "path": "backend/src/common/recovery-credential.ts",
+      "sha256": "6c58c5b57d52d0a3227199f0535d6774475be535f768a2fc35b0bd3c6bae2f60",
+      "bytes": 1440
+    },
+    {
+      "path": "backend/src/common/system-foundation.ts",
+      "sha256": "9b50c698700090f67ca991b5f077bc98630d607f5928e912113f4a875bd07fdb",
+      "bytes": 2922
+    },
+    {
+      "path": "backend/src/common/first-admin-bootstrap.ts",
+      "sha256": "e78070be817a0dee92e44f893d16525744a70f37da1927b3860e0233c492e668",
+      "bytes": 7632
+    },
+    {
+      "path": "backend/src/cli/apply-system-foundation.ts",
+      "sha256": "319202e128870261fd00d2ed5f82821e8f69bf53349cba79f6c3211c7a7a8817",
+      "bytes": 1227
+    },
+    {
+      "path": "backend/src/cli/bootstrap-first-admin.ts",
+      "sha256": "3672dbdff8bedd53ea334610b90a824cd22bd3b7f6bc8d2392c8e9383e1eb4ee",
+      "bytes": 4621
+    },
+    {
+      "path": "backend/src/modules/auth/auth.service.ts",
+      "sha256": "e90bac52d939865567f26635edc4b3e7b020023c817b077db3684a99107f55d5",
+      "bytes": 31950
+    },
+    {
+      "path": "backend/src/modules/admin/admin.service.ts",
+      "sha256": "e880fe7cb22065a38239dcf413cd9663446f1b72660c32ab2e01b8b5f4cb6806",
+      "bytes": 320134
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-regression.js",
+      "sha256": "ad2a8bd26a204f5d69fd0cebe8413a4098c04b6137e6f51a31a750d19e5359a4",
+      "bytes": 23391
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-postgres-integration.js",
+      "sha256": "714d251747cefd7904b1cbff676350c378e4bcb6e5fd39b7ab7607a71d003e35",
+      "bytes": 25431
+    },
+    {
+      "path": "frontend/package.json",
+      "sha256": "25cd2438cf96e2609e44a507db29d2de9707f0b4512b1e336d5acec0869ca117",
+      "bytes": 11486
+    },
+    {
+      "path": "frontend/src/screens/FactorySelectScreen.tsx",
+      "sha256": "6c78c1838a76653a6a986fa1284421cd19402c0d533b3f63e1425e78c95cde9b",
+      "bytes": 20468
+    },
+    {
+      "path": "frontend/src/screens/PeopleScreen.tsx",
+      "sha256": "07ea795b3bfa44888777421b45c0a7f49a04dd1e11494b630a33384081cc1930",
+      "bytes": 41255
+    },
+    {
+      "path": "frontend/e2e/vps-prep-01-auth-recovery.spec.ts",
+      "sha256": "479df0945b3a1974a48be7e5fc2255474dc7aaba38670e4f22834c2c8da71e10",
+      "bytes": 9775
+    },
+    {
+      "path": "frontend/playwright.vps-prep.config.ts",
+      "sha256": "ccdc8d6b3503795e8945fba0a464841c5148e44ffd33c01bbaf4ff46d19c7630",
+      "bytes": 1123
+    },
+    {
+      "path": "docs/vps-preparation/handoff.md",
+      "sha256": "ea0d7f599992bb479207e2a8fa75f5552bc443194e6f242ba1cc9c6308862388",
+      "bytes": 28405
+    },
+    {
+      "path": "docs/vps-preparation/source-first-server-plan.md",
+      "sha256": "10ea92718c17eb3466ca7a30b9eca23c1204f2aa9eaa285dd6b6ff4fe2fcee96",
+      "bytes": 40272
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/progress.md",
+      "sha256": "40740d082185bc450a9df1d6eba6ee06b3f35e035b701e38234daac2a389f184",
+      "bytes": 6204
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/review-report.md",
+      "sha256": "d8ad3826be433713654c740c04e922cf3b1d37b518cfbde80a5463473e815394",
+      "bytes": 4737
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/review-pack/README.md",
+      "sha256": "66125d668259f806292df038a1c66b04b4eac236fcde64e116ce831791104d5f",
+      "bytes": 691
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/review-pack/change-diff.md",
+      "sha256": "599b0ed3ced657558549304dbec75801eb5da36b34fb92b2eae88931a5fd7f84",
+      "bytes": 3010
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/review-pack/test-results.md",
+      "sha256": "616f502e373294ccbf6e7ec3b2fa85d75d4ca87bf97f1446fa69abbbdbdcd083",
+      "bytes": 2118
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/review-pack/operator-runbook.md",
+      "sha256": "c3445a2f50b2627d4b822f6350c319eee4134dcfb87c688addd2e73d6f5f196a",
+      "bytes": 4159
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "sha256": "cfd5775aca0318007b9ca5df3ef0ce6bf571313466e311c91fec0e49182e4cae",
+      "bytes": 229121
+    }
+  ],
+  "preExistingMigrations": {
+    "baselineCount": 53,
+    "changedCount": 0,
+    "changedPaths": []
+  },
+  "verification": {
+    "backendBuild": "PASS",
+    "frontendTypecheck": "PASS",
+    "frontendBuild": "PASS_WITH_NONBLOCKING_CHUNK_WARNING",
+    "targetedRegression": "PASS_37_OF_37",
+    "prismaValidateGenerate": "PASS_ISOLATED_SCHEMA_COPY",
+    "browserRecoveryCases": "PASS_4_OF_4_DESKTOP_AND_MOBILE",
+    "disposablePostgresIntegration": "NOT_RUN_ENVIRONMENT",
+    "workingDataChanged": "NO",
+    "vpsDeployment": "NOT_STARTED"
+  }
+}

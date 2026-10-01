@@ -1,0 +1,41 @@
+{
+  "startedAt": "2026-09-16T17:34:15.383Z",
+  "expected": [
+    {
+      "title": "R4 C01 actual App network to403 to200 gray 390",
+      "file": "frontend/e2e/master-r4-connectivity.spec.ts",
+      "line": 4,
+      "id": "8e1df9f2ba53"
+    }
+  ],
+  "results": [
+    {
+      "title": "R4 C01 actual App network to403 to200 gray 390",
+      "file": "frontend/e2e/master-r4-connectivity.spec.ts",
+      "line": 4,
+      "id": "8e1df9f2ba53",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2228,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\evidence\\B-browser-red-03\\runner-artifacts\\master-r4-connectivity-R4--02ce6-etwork-to403-to200-gray-390\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\evidence\\B-browser-red-03\\runner-artifacts\\master-r4-connectivity-R4--02ce6-etwork-to403-to200-gray-390\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-16T17:34:19.028Z",
+  "status": "failed",
+  "listOnly": false
+}

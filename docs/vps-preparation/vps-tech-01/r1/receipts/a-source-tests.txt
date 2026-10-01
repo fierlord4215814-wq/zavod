@@ -1,0 +1,20 @@
+COMMAND=node --test setup/vps-tech-01-r1.test.cjs
+EXIT_CODE=0
+
+✔ A1 public origin is explicit, HTTPS/same-origin and CORS is emitted; private loopback remains explicit (50.643ms)
+✔ A1 actual backend CORS function fails closed in production and retains dev-only permissive contract (56.7791ms)
+✔ A2 backup stops and confirms owned writers before dump, validates then publishes, restoring original state (89.7648ms)
+✔ A2 failure paths never publish a valid partial; stopped app stays stopped (144.3367ms)
+✔ A3 legacy restore refuses before commands; same identity and nonempty target refuse before mutation (173.1893ms)
+✔ A3 independent restore uses only target command identity and retains target routing/secrets in a fake runner (131.7849ms)
+✔ A4 update retains exact old image IDs and release identity across fake build failure and success (1526.8223ms)
+✔ A4 wrong release refuses before commands; fake start failure retains previous image tags (1022.3495ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3499.3129
+

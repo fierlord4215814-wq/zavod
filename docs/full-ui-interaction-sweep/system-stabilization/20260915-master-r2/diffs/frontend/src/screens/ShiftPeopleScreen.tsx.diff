@@ -1,0 +1,56 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+index 7ead8c03..e0765c7c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+@@ -372,7 +372,7 @@ type PastShiftDetail = {
+     peopleCount: number;
+     assignedCount?: number;
+     requiredCount?: number;
+-    operationalState?: 'RUNNING' | 'DOWNTIME' | 'WASH' | 'STOPPED' | 'UNKNOWN';
++    operationalState?: 'RUNNING' | 'DOWNTIME' | 'WASH' | 'DEFROST' | 'STOPPED' | 'UNKNOWN';
+     operationalStateDataStatus?: 'AVAILABLE' | 'MISSING';
+     staffingDataStatus?: 'AVAILABLE' | 'MISSING';
+     selectedComposition?: { id: string; name: string } | null;
+@@ -424,7 +424,7 @@ type LineDashboard = {
+   latestDefrost?: Array<{ id: string; status: string; startAt: string; endAt?: string | null; durationSeconds?: number | null }>;
+   recentEvents: Array<{
+     id: string;
+-    status: string;
++    status: 'WORK' | 'PAUSE' | 'STOP';
+     humanTitle?: string | null;
+     actorName?: string | null;
+     occurredAt?: string | null;
+@@ -490,7 +490,7 @@ type AssignmentBoard = {
+   shortage: ShortageItem[] | null;
+ };
+ 
+-type PlanningBoard = AssignmentBoard & {
++type PlanningBoard = Omit<AssignmentBoard, 'candidates' | 'slots'> & {
+   shiftDate: string;
+   shiftType: string;
+   statusLabel: string;
+@@ -502,7 +502,7 @@ type PlanningBoard = AssignmentBoard & {
+     plannedAssignmentId?: string | null;
+     isBusyNow?: boolean;
+   }>;
+-  slots: Array<AssignmentBoard['slots'][number] & {
++  slots: Array<Omit<AssignmentBoard['slots'][number], 'assignment'> & {
+     assignment: ({ id: string; userId: string; displayName: string; startedAt?: string; createdAt?: string; profilePhoto?: Attachment | null } | null);
+   }>;
+ };
+@@ -5754,6 +5754,7 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+       {profile ? (
+         <div className="modal-backdrop" role="dialog" aria-modal="true">
+           <div className="modal-card profile-card">
++            <div className="profile-card-body">
+             <div className="profile-hero profile-hero-rich">
+               <div className="profile-title-panel profile-title-panel-with-photo">
+                 <ProfilePhoto photo={profile.profilePhoto} userId={profile.id} displayName={profile.displayName} size="large" />
+@@ -5835,6 +5836,7 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+               <div className="position-row"><div><strong>Рекомендации</strong><span>{profile.sections.recommendations}</span></div></div>
+               {profile.sections.comments ? <div className="position-row"><div><strong>Комментарии</strong><span>{profile.sections.comments}</span></div></div> : null}
+             </div>
++            </div>
+             <div className="modal-actions">
+               <button className="secondary-button" type="button" onClick={() => setProfile(null)}>Закрыть</button>
+               <button className="primary-button" type="button" onClick={() => void openProfile(profile.id)} disabled={busy}>Обновить</button>

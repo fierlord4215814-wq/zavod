@@ -1,0 +1,20 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260921-visible-uac-diagnostic-boot\before\docs\full-ui-interaction-sweep\progress.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\progress.md', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+index 86587916..a60c9794 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+@@ -1,10 +1,10 @@
+ # Full UI Interaction Sweep — progress
+ 
+-## Current source result — MASTER R5 VHDX→SSH, 21.09.2026 22:29
++## Current source result — MASTER R5 visibleUAC/DVD guard, 21.09.2026 23:11
+ 
+-EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO; MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_DIAGNOSTIC_BOOT. Разрешён один diagnostic boot прежнего VHDX через Hyper-V→SSH. Единственный scoped UAC22:29:35 отменён; helper не запущен, freshVM/network/config/boot/SSH NOT_RUN. Codex restart USER_CONFIRMED; capture retries0. Generator уже corrected/10hostPASS, неизменён; guest repair не выполнен. CurrentVM UNKNOWN/lastOff16:09 исторический; старый helper завершён, reused9056 не трогать. Нужны новое явное согласие на один UAC и подтверждение системного окна; не повторять отмену автоматически. [Текущий полный отчёт](system-stabilization/20260917-master-r5/final-report.md), [evidence](system-stabilization/20260917-master-r5/attempts/20260921-vhdx-ssh/result.md).
++EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO; MASTER_R5_STATUS=BLOCKED_DVD_READBACK_GUARD_NEW_UAC_REQUIRED. Новая visibleUAC успешна, actualadmin/helper11600 подтверждены. FreshVM Off/soleVHDX/BIOS/network/jobs/controllers checked. VHDX-first/SecureBoot подтверждены; DVD-eject commands выполнены, но no-media readback не пройден (cachedobject hypothesis, providerstateUNKNOWN), поэтому Start-VM0/SSH0. Helper завершился; нужен новый scopedUAC для независимогоCIMreadback. Generator10hostPASS notrerun/product0. [Отчёт](system-stabilization/20260917-master-r5/final-report.md), [evidence](system-stabilization/20260917-master-r5/attempts/20260921-visible-uac-diagnostic-boot/result.md).
+ 
+-Все5live gates0,32journeys0newreal, original063OPEN, productfixes/builds/tests0; main954/957/P0/P1/P2=0/1/10 не переприняты. Working DB/service/env/uploads/history не трогались; physicalPENDING. Main6matrices/6previousZIP сохранены; новый пакет указан в current INDEX. Ниже исторические результаты, не текущие команды.
++Все5live gates0,32journeys0newreal, original063OPEN, productfixes/builds/tests0; main954/957/P0/P1/P2=0/1/10 не переприняты. Working DB/service/env/uploads/history не трогались; physicalPENDING. Main6matrices/7previousZIP сохранены; новый пакет указан в current INDEX. Ниже исторические результаты, не текущие команды.
+ 
+ ## Historical source result — MASTER R5 guest recovery, 21.09.2026
+ 

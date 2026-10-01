@@ -1,0 +1,59 @@
+# MASTER R5 —22.09.2026: UAC отменён системой, новый helper не стартовал
+
+MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_PROVIDER_READBACK. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. PHYSICAL_PHONE=PENDING. FINAL_STOP=STOP.
+
+## Фактический результат этого продолжения
+
+Новая authority c056b875 разрешила одну штатную visible UAC для fresh provider DVD readback и условной единственной загрузки существующего VHDX. Источники и подготовленный candidate прочитаны, прежние receipts не перезаписаны. Новая именованная attempt — `attempts/20260922-provider-dvd-boot/`.
+
+В07:53:17.0718830+03 launcher9548 запросил UAC для Microsoft PowerShell и нового scoped helper. В**07:55:19.8839519+03** Start-Process вернул **«Операция была отменена пользователем»**; полный исходный текст и время в [uac-failure.json](uac-failure.json). Причина — действие человека, истечение ожидания или другая причина — **UNKNOWN**. Формулировка Windows не доказывает, кто отменил запрос. Session40422 завершилась exit1. Автоматического повтора не было.
+
+**Helper не наблюдался запущенным:** uac-start/helper-invoked/helper-start/administrator-token отсутствуют; boot-request/VM observations тоже отсутствуют. Read-only process check07:56:08 не нашёл launcher9548 или matching helper. Реальный administrator token не получен. Поэтому новых Hyper-V/provider/DVD/firmware/Start-VM/SSH/guest действий **0**, а не failed product assertions. Рабочая PostgreSQL/service/env/uploads/business/history не читались.
+
+## Что подготовлено и проверено
+
+В новой attempt доUAC адресно доработан прежний candidate, не создан новый управляющий framework:
+
+- exact GUID → current Msvm_SettingsDefineState → System:Realized/Gen2/BIOS; snapshot/default не принимаются;
+- полная цепочка CPU/memory/SCSI/soleHDD/twoDVD → media allocations, parent/address/HostResource; ошибки запроса отличены от успешной пустой выборки;
+- fresh provider и заново полученные typed VM/DVD/firmware должны согласоваться; итоговые решения не используют старый $r5Vm;
+- already-emptyDVD не извлекаются повторно; already-firstVHDX не переставляется; guards/controller/jobs проверяются до actions и Start;
+- bounded read-only диагностика в том же approved execution при расхождении; timeoutStart не считается отменой и не вызывает второй Start.
+
+[Source review/API references](helper-review.md), [подготовленный helper](diagnostic-boot.ps1). Installed cmdlet metadata проверены; unexecuted parameter Start-VM исправлен на реальный Name доUAC. Helper SHA256 `9ffbc1c506c541288f2794a0fde54d42f5d93aff66eddf256ca99ba1a649aef8`.
+
+**7/7 новых host synthetic guard checks PASS**, parser0: complete-emptyDVD, mounted-own, queryerror, emptycomponents, missingDVD, foreignmedia, snapshot. [Raw result](guard-checks.json). Проверяются выделенные функции с подставленными CIM results, **без реальных VM calls**. Это не actual provider readback, не Ubuntu/изоляция, не product/live controls. Operational helper и подготовленный bounded non-admin SSH probe **NOT_EXECUTED**.
+
+## Сохранённые результаты до этого продолжения
+
+Предыдущий21.09 23:11 UAC был успешным: helper11600 actualElevated, fresh exactVM Off/BIOS/Gen2/sole16GiBVHDX/internalnetwork/jobs/controllers. VHDX-first/SecureBoot подтверждены тогда; два eject-cmdlet вызваны, но прежний object readback оставил ISOpaths. Start-VM не вызван. [Предыдущий result](../20260921-visible-uac-diagnostic-boot/result.md). **Эти наблюдения не новые current checks22.09.** Actual DVD state и cache-vs-no-op остаются UNKNOWN, последнее VMOff —21.09 23:11:11; currentVM не опрошена. Повреждение/неустановленность Ubuntu не доказаны.
+
+Generator command_3 уже исправлен ранее:5argv/unmatchedquote → whole3argv/fail-fast/real-proof. Сохранённые10/10 host synthetic PASS, `run-04-official-install`, не запускались повторно и не относятся к новым7checks. Actual seed/guest не регенерированы/не восстановлены. Commands0–2 success — прежнее пользовательское наблюдение, независимая гостевая проверка впереди.
+
+Product/config215, build132, harness72 и6mainmatrices совпали с baseline; productFP `6ae29f473c26b5d0dbe657f52c32cfebaff3c198abd5bb177eedf81e0ab1cfdc`, buildFP `f5e0e44ff087abc892424d61761ccf2a2fbca0cbe5f295754356a75bd4e16e2d`. Новых product/schema/dependency/build изменений0.16existingowners отслеживаются separately before/after/diffs, включая unchanged generator; вся накопленная dirty tree не приписывается этой attempt.
+
+## Интеграционное покрытие и остаток
+
+Каждый gate — **0 / NOT_RUN_UAC_CANCELLED_PROVIDER_READBACK**:
+
+| Gate | Что ещё требуется на настоящем отдельном стеке |
+|---|---|
+| MI-SEC-01 | replay/commit-loss/current authority/двеSQLconnections/locks/rollback/downstream readers |
+| MI-PUB-01 | audience/ACKconcurrency/timestamp/Audit/Notifications/WS/personal archive |
+| MI-R2-ORD-01 | TAKE3из10/retry/RESTOCK/contested2TAKE7/movements/readers |
+| MI-R2-CHAT-ATT-01 | private file bytes/range/abort/revoke/late context/real WS |
+| UI-SWEEP-036 | ordinary comment ≠ immutable handover, archive/permissions/files/write-free reads/19bindings |
+
+32journeys/1407edges — **0 новых real journeys**. Original063 — MASTER low-height People→profile→task→Back3, source1286→1213 (73px), **OPEN/UNKNOWN**;036 не функциональная зависимость063.014provenance/050exactfixtures и replay/publication решения не выдуманы. AutoOKK→Task не добавлялся. Final types/builds/Prisma/productregression/screenshots — NOT_RUN. Historical549Node/177browser не перепройдены и не объявленыR5PASS.
+
+Main paused matrices остаются прежними:954PASS/957semanticcontrols (956legacyIDs),3FAIL063;284surfaces=231partial+49revalidation+2unreachable+2no-current;Back1623=1614PASS+4FAIL+4component+1physical;Text2754=2711PASS+35FAIL+8NOTRUN. Historical P0/P1/P2=0/1/10, **не новая приёмка**. Скриншоты/пакеты по прежним путям в `native-evidence-index.md` сохранены; новых valid кадров0,8olderZIP неизменны. Phone/PWA/media physical pending, не запускались.
+
+## Runtime, сохранность и продолжение
+
+Новый elevated helper/VM boot/SSH/auth/guest writer/PG/backend/frontend/browser/proxy не стартовали. Только baseline/host guard checks/launcher/evidence scripts; текущих собственных серверов не создано. Working cleanup/data status UNKNOWN_NOT_INSPECTED. Предыдущие host synthetic fixtures сохранены, новых application fixtures0. VHDX/ISO/seed/private keys не удалялись/не менялись. DISM/VM creation/capture/old queue/security/network/power/reset/cleanup/commit/push не выполнялись. SOURCE_SYNC=REPO_LOCAL_ONLY; Library/account memory NOT_WRITTEN.
+
+**Точка продолжения:** новое явное разрешение на одну native visible UAC и готовность подтвердить системное окно; затем новая именованная attempt, не обход single-use guard/повтор текущего launcher. Сначала fresh current provider configuration и полнота DVD topology; Off/условный eject/guards/одинStart, Running без media/power change; bounded SSH и independently verified server host key. Клиентский fingerprint не serverkey.
+
+Дальше весь исходныйR5 stages1–9: guest actual OS/root/disks/logs/proof/users0–2/packages/boot/finalization → только недостающий nondestructive recovery без /target-/run-assumptions и fabricated proof → canary/clean source/deps → закрытие prep connections → независимая isolation proof → own emptyPG/existing migrations/reviewed fixtures → actual main/AppModule/auth/guards/Prisma/files/Audit/Notifications/WS/timersOFF → все5gates → applicable journeys → original063 → единая final regression/visuals → reportZIP/STOP. Никакого дополнительного разрешения на каждый обычный этап не требуется, но новый UAC сейчас сам является внешней границей.
+
+[Полный отчёт](../../final-report.md) · [Runtime](environment-runtime-receipt.json) · [Own delta](source-delta-manifest.json) · [Resume](../../resume-prompt.txt) · [Новый единый review ZIP](../../zavod-master-r5-provider-readback-20260922.zip) · [SHA/size/full-entry readback](package-receipt.json). Старые ZIP не перезаписываются; полноту нового ZIP доказывает receipt, не этот текст.

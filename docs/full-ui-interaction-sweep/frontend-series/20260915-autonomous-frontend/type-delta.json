@@ -1,0 +1,930 @@
+{
+  "beforeCount": 90,
+  "afterCount": 92,
+  "introduced": [
+    {
+      "file": "frontend/src/App.tsx",
+      "code": 2339,
+      "message": "Property 'getBoundingClientRect' does not exist on type 'unknown'."
+    },
+    {
+      "file": "frontend/src/App.tsx",
+      "code": 2322,
+      "message": "Type '{ key: string; targetTaskId: any; onTargetConsumed: () => any; }' is not assignable to type '{ targetTaskId?: string; onTargetConsumed?: () => void; }'.   Property 'key' does not exist on type '{ targetTaskId?: string; onTargetConsumed?: () => void; }'."
+    }
+  ],
+  "before": [
+    {
+      "file": "frontend/src/components/AttachmentInputButton.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown[]' is not assignable to parameter of type 'File[]'.   Type '{}' is missing the following properties from type 'File': lastModified, name, webkitRelativePath, size, and 6 more."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"camera\"; multiple: false; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"photo\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"video\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"file\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"camera\"; multiple: false; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"photo\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"video\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"file\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPreviewList.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/components/GuestAssignmentRequestCard.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; }' but required in type 'PremiumActionRowProps'."
+    },
+    {
+      "file": "frontend/src/components/QuantityRelease.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; footer: any; onClose: () => void; open: boolean; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: boolean; title: string; eyebrow: string; onClose: () => void; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => void; footer: any; className: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; className: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; className: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: boolean; title: any; eyebrow: string; description: string; onClose: () => void; className: string; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: boolean; title: any; description: any; onClose: () => void; className: string; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ key: any; attachments: Attachment[]; showTitle: false; }' is not assignable to type 'Props'.   Property 'key' does not exist on type 'Props'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2339,
+      "message": "Property 'operationId' does not exist on type 'ChatMessage'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: any; mode: \"photo\"; onFiles: (items: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: any; mode: \"video\"; onFiles: (items: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: any; mode: \"camera\"; multiple: false; onFiles: (items: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: any; mode: \"file\"; onFiles: (items: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2339,
+      "message": "Property 'userId' does not exist on type 'ChecklistRun'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2339,
+      "message": "Property 'length' does not exist on type 'unknown'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; eyebrow: string; footer: any; onClose: () => any; open: true; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: any; eyebrow: string; open: boolean; title: any; onClose: () => void; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; eyebrow: string; open: boolean; title: string; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; eyebrow: string; footer: any; onClose: () => any; open: true; title: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; eyebrow: string; footer: any; onClose: () => void; open: true; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/FactorySelectScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; closeLabel: string; description: string; onClose: () => any; open: any; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ item: any; key: any; }' is not assignable to type '{ item: OpsEvent; }'.   Property 'key' does not exist on type '{ item: OpsEvent; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ label: string; value: any; detail: any; key: any; }' is not assignable to type '{ label: string; value: string | number; detail?: string; }'.   Property 'key' does not exist on type '{ label: string; value: string | number; detail?: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; eyebrow: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: boolean; title: any; eyebrow: string; description: string; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/OrdersStockScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/OrdersStockScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ canClose: boolean; key: any; onCloseNoNeed: () => void; onCloseOrdered: () => void; onOpen: () => any; request: any; }' is not assignable to type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'.   Property 'key' does not exist on type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'."
+    },
+    {
+      "file": "frontend/src/screens/OrdersStockScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ canClose: false; key: any; onOpen: () => any; request: any; }' is not assignable to type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'.   Property 'key' does not exist on type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'."
+    },
+    {
+      "file": "frontend/src/screens/OrdersStockScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ canClose: false; key: any; request: any; }' is not assignable to type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'.   Property 'key' does not exist on type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'."
+    },
+    {
+      "file": "frontend/src/screens/PeopleScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftLogScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftLogScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2739,
+      "message": "Type '{ WORK: string; PAUSE: string; STOP: string; }' is missing the following properties from type 'Record<LineStatus, string>': PLAN, PLANNING"
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2739,
+      "message": "Type '{ WORK: string; PAUSE: string; STOP: string; }' is missing the following properties from type 'Record<LineStatus, string>': PLAN, PLANNING"
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2339,
+      "message": "Property 'companyName' does not exist on type 'ShiftPerson'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; eyebrow: string; footer: any; onClose: () => any; open: true; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; open: any; title: string; description: any; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/TasksScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/TasksScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/store/app.store.ts",
+      "code": 2300,
+      "message": "Duplicate identifier 'companyId'."
+    },
+    {
+      "file": "frontend/src/store/app.store.ts",
+      "code": 2300,
+      "message": "Duplicate identifier 'companyName'."
+    },
+    {
+      "file": "frontend/src/store/app.store.ts",
+      "code": 2300,
+      "message": "Duplicate identifier 'companyId'."
+    },
+    {
+      "file": "frontend/src/store/app.store.ts",
+      "code": 2300,
+      "message": "Duplicate identifier 'companyName'."
+    }
+  ],
+  "after": [
+    {
+      "file": "frontend/src/App.tsx",
+      "code": 2339,
+      "message": "Property 'getBoundingClientRect' does not exist on type 'unknown'."
+    },
+    {
+      "file": "frontend/src/App.tsx",
+      "code": 2322,
+      "message": "Type '{ key: string; targetTaskId: any; onTargetConsumed: () => any; }' is not assignable to type '{ targetTaskId?: string; onTargetConsumed?: () => void; }'.   Property 'key' does not exist on type '{ targetTaskId?: string; onTargetConsumed?: () => void; }'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentInputButton.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown[]' is not assignable to parameter of type 'File[]'.   Type '{}' is missing the following properties from type 'File': lastModified, name, webkitRelativePath, size, and 6 more."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"camera\"; multiple: false; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"photo\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"video\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"file\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"camera\"; multiple: false; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"photo\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"video\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPicker.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: boolean; mode: \"file\"; onFiles: (files: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/components/AttachmentPreviewList.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/components/GuestAssignmentRequestCard.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; }' but required in type 'PremiumActionRowProps'."
+    },
+    {
+      "file": "frontend/src/components/QuantityRelease.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; footer: any; onClose: () => void; open: boolean; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: boolean; title: string; eyebrow: string; onClose: () => void; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; }' but required in type 'HelpTooltipProps'."
+    },
+    {
+      "file": "frontend/src/screens/AdminConfigScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ helpTitle: string; helpText: string; }' but required in type '{ children: React.ReactNode; helpTitle: string; helpText: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => void; footer: any; className: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; className: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; className: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: boolean; title: any; eyebrow: string; description: string; onClose: () => void; className: string; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: boolean; title: any; description: any; onClose: () => void; className: string; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ArchiveScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ key: any; attachments: Attachment[]; showTitle: false; }' is not assignable to type 'Props'.   Property 'key' does not exist on type 'Props'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2339,
+      "message": "Property 'operationId' does not exist on type 'ChatMessage'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: any; mode: \"photo\"; onFiles: (items: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: any; mode: \"video\"; onFiles: (items: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: any; mode: \"camera\"; multiple: false; onFiles: (items: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChatsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; disabled: any; mode: \"file\"; onFiles: (items: File[]) => void; }' but required in type 'AttachmentInputButtonProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2339,
+      "message": "Property 'userId' does not exist on type 'ChecklistRun'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2339,
+      "message": "Property 'length' does not exist on type 'unknown'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; eyebrow: string; footer: any; onClose: () => any; open: true; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: any; eyebrow: string; open: boolean; title: any; onClose: () => void; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; eyebrow: string; open: boolean; title: string; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; eyebrow: string; footer: any; onClose: () => any; open: true; title: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; eyebrow: string; footer: any; onClose: () => void; open: true; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/FactorySelectScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; closeLabel: string; description: string; onClose: () => any; open: any; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ title: string; empty: string; }' but required in type '{ title: string; empty: string; children: React.ReactNode; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ item: any; key: any; }' is not assignable to type '{ item: OpsEvent; }'.   Property 'key' does not exist on type '{ item: OpsEvent; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ label: string; value: any; detail: any; key: any; }' is not assignable to type '{ label: string; value: string | number; detail?: string; }'.   Property 'key' does not exist on type '{ label: string; value: string | number; detail?: string; }'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; eyebrow: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/OpsAuditScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: boolean; title: any; eyebrow: string; description: string; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/OrdersStockScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/OrdersStockScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ canClose: boolean; key: any; onCloseNoNeed: () => void; onCloseOrdered: () => void; onOpen: () => any; request: any; }' is not assignable to type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'.   Property 'key' does not exist on type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'."
+    },
+    {
+      "file": "frontend/src/screens/OrdersStockScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ canClose: false; key: any; onOpen: () => any; request: any; }' is not assignable to type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'.   Property 'key' does not exist on type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'."
+    },
+    {
+      "file": "frontend/src/screens/OrdersStockScreen.tsx",
+      "code": 2322,
+      "message": "Type '{ canClose: false; key: any; request: any; }' is not assignable to type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'.   Property 'key' does not exist on type '{ request: OrderRequest; canClose: boolean; onOpen?: () => void; onCloseOrdered?: () => void; onCloseNoNeed?: () => void; }'."
+    },
+    {
+      "file": "frontend/src/screens/PeopleScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftLogScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftLogScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2739,
+      "message": "Type '{ WORK: string; PAUSE: string; STOP: string; }' is missing the following properties from type 'Record<LineStatus, string>': PLAN, PLANNING"
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2739,
+      "message": "Type '{ WORK: string; PAUSE: string; STOP: string; }' is missing the following properties from type 'Record<LineStatus, string>': PLAN, PLANNING"
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2339,
+      "message": "Property 'companyName' does not exist on type 'ShiftPerson'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; description: string; eyebrow: string; footer: any; onClose: () => any; open: true; title: string; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ className: string; open: any; title: string; description: any; onClose: () => any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/screens/TasksScreen.tsx",
+      "code": 2345,
+      "message": "Argument of type 'unknown' is not assignable to parameter of type 'string'."
+    },
+    {
+      "file": "frontend/src/screens/TasksScreen.tsx",
+      "code": 2741,
+      "message": "Property 'children' is missing in type '{ open: any; title: string; description: string; onClose: () => any; footer: any; }' but required in type 'PremiumSheetProps'."
+    },
+    {
+      "file": "frontend/src/store/app.store.ts",
+      "code": 2300,
+      "message": "Duplicate identifier 'companyId'."
+    },
+    {
+      "file": "frontend/src/store/app.store.ts",
+      "code": 2300,
+      "message": "Duplicate identifier 'companyName'."
+    },
+    {
+      "file": "frontend/src/store/app.store.ts",
+      "code": 2300,
+      "message": "Duplicate identifier 'companyId'."
+    },
+    {
+      "file": "frontend/src/store/app.store.ts",
+      "code": 2300,
+      "message": "Duplicate identifier 'companyName'."
+    }
+  ]
+}

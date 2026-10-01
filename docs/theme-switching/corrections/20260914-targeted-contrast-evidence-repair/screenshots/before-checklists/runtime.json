@@ -1,0 +1,123 @@
+{
+  "phase": "before",
+  "batch": "20260914-targeted-contrast-evidence-repair",
+  "screenshots": [
+    {
+      "file": "desktop-gray-checklists-filled.png",
+      "theme": "gray",
+      "width": 1440,
+      "overflowX": 0,
+      "bodyBackground": "rgba(0, 0, 0, 0)",
+      "textColor": "rgb(32, 40, 47)",
+      "role": "Admin",
+      "selectedTheme": "gray",
+      "state": "checklists-filled"
+    },
+    {
+      "file": "desktop-gray-checklists-real-checkbox.png",
+      "theme": "gray",
+      "width": 1440,
+      "overflowX": 0,
+      "bodyBackground": "rgba(0, 0, 0, 0)",
+      "textColor": "rgb(32, 40, 47)",
+      "role": "Admin",
+      "selectedTheme": "gray",
+      "state": "checklists-real-checkbox"
+    }
+  ],
+  "apiReads": [
+    "/auth/me",
+    "/auth/me",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/shift/people",
+    "/lines",
+    "/work-areas",
+    "/shift/timeline",
+    "/lines/downtime-reasons",
+    "/health",
+    "/shift-log/handover/previous",
+    "/shift-log/handover/availability",
+    "/shift/people",
+    "/lines",
+    "/work-areas",
+    "/shift/timeline",
+    "/lines/downtime-reasons",
+    "/health",
+    "/shift-log/handover/previous",
+    "/shift-log/handover/availability",
+    "/checklists/workspace",
+    "/checklists/templates/library",
+    "/checklists/workspace",
+    "/checklists/templates/library",
+    "/directory/departments",
+    "/directory/departments",
+    "/directory/lines",
+    "/directory/lines",
+    "/directory/users",
+    "/directory/users",
+    "/checklists/archive",
+    "/checklists/archive",
+    "/checklists/archive/by-template",
+    "/checklists/archive/by-template"
+  ],
+  "apiWrites": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response"
+  ],
+  "requestFailures": [],
+  "isolatedFixtureWrites": [],
+  "computedStyles": [
+    {
+      "caseId": "checklists-section-heading",
+      "role": "Admin",
+      "selectedTheme": "gray",
+      "width": 1440,
+      "selector": ".checklists-screen .section-subhead h3",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "borderColor": "rgb(255, 255, 255)",
+      "opacity": "1",
+      "disabled": null,
+      "ariaPressed": null,
+      "text": "В работе",
+      "rect": {
+        "x": 213,
+        "y": 460.328125,
+        "width": 72.3125,
+        "height": 22
+      }
+    },
+    {
+      "caseId": "checklists-real-checkbox",
+      "role": "Admin",
+      "selectedTheme": "gray",
+      "width": 1440,
+      "selector": ".checklist-archive-filters .checkbox-row",
+      "color": "rgb(32, 40, 47)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "borderColor": "rgb(32, 40, 47)",
+      "opacity": "1",
+      "disabled": null,
+      "ariaPressed": null,
+      "text": "Только отклонения",
+      "rect": {
+        "x": 824,
+        "y": 537.546875,
+        "width": 188,
+        "height": 44
+      }
+    }
+  ]
+}

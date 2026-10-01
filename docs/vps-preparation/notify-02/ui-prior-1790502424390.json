@@ -1,0 +1,29 @@
+{
+  "status": "IN_PROGRESS",
+  "noF5": true,
+  "steps": [
+    {
+      "event": "ORDER_REQUEST_CREATED",
+      "http": 201,
+      "secondUiMs": 394,
+      "badge": 13
+    },
+    {
+      "event": "ORDER_REQUEST_CLOSED",
+      "http": 201,
+      "secondUiMs": 414,
+      "badge": 13
+    },
+    {
+      "event": "ORDER_STOCK_BELOW_THRESHOLD",
+      "http": 201,
+      "secondUiMs": 371,
+      "badge": 14
+    }
+  ],
+  "orderId": "36e2860c-8bea-4e10-a2ee-538c90c0d088",
+  "orderNavigation": "existing section navigation; exact source independently HTTP200",
+  "itemId": "c1fc214a-a627-4f45-a432-1ae08d450ba3",
+  "taskId": "05d31c01-8021-483d-bee9-216010a0dd56",
+  "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').filter({ has: getByRole('heading', { name: 'Учебная передача — надёжность уведомлений 1790502334151', exact: true }) }).getByRole('button', { name: 'Передать заявку', exact: true })\u001b[22m\n"
+}

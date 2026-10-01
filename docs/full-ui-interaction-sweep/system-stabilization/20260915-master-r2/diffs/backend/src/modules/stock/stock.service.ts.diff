@@ -1,0 +1,19 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-quality-replay-before\\backend\\src\\modules\\stock\\stock.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\stock\\stock.service.ts"
+index d1d7d656..c54698a6 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-quality-replay-before\\backend\\src\\modules\\stock\\stock.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\stock\\stock.service.ts"
+@@ -139,9 +139,11 @@ export class StockService {
+     const processed = await tx.processedOperation.findUnique({
+       where: { userId_operationId: { userId: user.userId, operationId } },
+     });
+-    if (!processed?.resultKey) return null;
+-    const existing = await tx.stockDefect.findFirst({ where: { id: processed.resultKey, factoryId: user.selectedFactoryId } });
+-    return existing ? this.serialize(existing) : null;
++    if (!processed) return null;
++    if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите список.');
++    const existing = await tx.stockDefect.findFirst({ where: { id: processed.resultKey, factoryId: user.selectedFactoryId, createdById: user.userId, deletedAt: null } });
++    if (!existing) throw new ConflictError('Результат действия больше недоступен. Обновите список.');
++    return this.serialize(existing);
+   }
+ 
+   private positiveQuantity(value: unknown) {

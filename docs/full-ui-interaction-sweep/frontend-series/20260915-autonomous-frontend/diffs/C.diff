@@ -1,0 +1,198 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-before\\frontend\\src\\App.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-after\\frontend\\src\\App.tsx"
+index a32c9b4b..24353e1b 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-before\\frontend\\src\\App.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-after\\frontend\\src\\App.tsx"
+@@ -227,6 +227,7 @@ export default function App() {
+   const [pushStatus, setPushStatus] = useState<PushStatus | null>(null);
+   const [pendingNotificationIntent, setPendingNotificationIntent] = useState<NotificationNavigationIntent | null>(null);
+   const [pendingNotificationScreen, setPendingNotificationScreen] = useState<Screen | null>(null);
++  const notificationNavigationInFlight = useRef(new Map<string, Promise<void>>());
+   const [pendingTask, setPendingTask] = useState<{ id: string; context: string } | null>(null);
+   const [taskReturn, setTaskReturn] = useState<{ screen: Screen; context: string; value: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn } | null>(null);
+   useMobileBackLayer(mobileMoreOpen, () => {
+@@ -469,7 +470,7 @@ export default function App() {
+     if (target) openScreen(target.id);
+   };
+ 
+-  const openNotificationSource = async (intent: NotificationNavigationIntent) => {
++  const navigateNotificationSource = async (intent: NotificationNavigationIntent) => {
+     const sourceRoute = intent.sourceRoute?.trim() ?? '';
+     const sourceFactoryId = intent.factoryId?.trim() || selectedFactoryId;
+     if (!sourceRoute || !sourceFactoryId) throw new Error('Источник уведомления сейчас недоступен.');
+@@ -484,6 +485,10 @@ export default function App() {
+         body: '{}',
+         headers: targetHeaders,
+       });
++      if (sourceFactoryId === selectedFactoryId) {
++        const unread = await apiClient.request<{ count: number }>('/notifications/unread-count', { headers: targetHeaders }).catch(() => null);
++        if (unread) appStore.setNotificationsUnreadCount(unread.count);
++      }
+     }
+ 
+     const me = await apiClient.request<MeResponse>('/auth/me', { headers: targetHeaders });
+@@ -521,6 +526,15 @@ export default function App() {
+     setPendingNotificationScreen(targetDefinition.id);
+   };
+ 
++  const openNotificationSource = (intent: NotificationNavigationIntent) => {
++    const key = JSON.stringify([currentUser?.userId, intent.factoryId || selectedFactoryId, intent.notificationId, intent.sourceRoute]);
++    const inFlight = notificationNavigationInFlight.current.get(key);
++    if (inFlight) return inFlight;
++    const operation = navigateNotificationSource(intent).finally(() => notificationNavigationInFlight.current.delete(key));
++    notificationNavigationInFlight.current.set(key, operation);
++    return operation;
++  };
++
+   appBackRef.current = () => {
+     const history = screenHistoryRef.current;
+     if (history.length > 1) {
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-before\\frontend\\src\\screens\\NotificationsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-after\\frontend\\src\\screens\\NotificationsScreen.tsx"
+index 76e428f6..48361de1 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-before\\frontend\\src\\screens\\NotificationsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-after\\frontend\\src\\screens\\NotificationsScreen.tsx"
+@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
+ import { apiClient } from '../api/client';
+ import { PremiumKpiStrip, PremiumSectionHeader } from '../components/PremiumShell';
+ import { appStore, NotificationItem, useAppStore } from '../store/app.store';
++import { notificationNavigationIntent, NotificationNavigationIntent } from '../notifications/browser-notifications';
+ 
+ const entityLabels: Record<string, string> = {
+   TASK: 'Заявка',
+@@ -32,7 +33,7 @@ function groupNotifications(items: NotificationItem[]) {
+ }
+ 
+ type Props = {
+-  onOpenSource?: (item: NotificationItem) => Promise<void>;
++  onOpenSource?: (intent: NotificationNavigationIntent) => Promise<void>;
+ };
+ 
+ export function NotificationsScreen({ onOpenSource }: Props) {
+@@ -98,7 +99,7 @@ export function NotificationsScreen({ onOpenSource }: Props) {
+     setErrorText(null);
+     setNoticeText(null);
+     try {
+-      await onOpenSource(item);
++      await onOpenSource(notificationNavigationIntent(item));
+     } catch (error) {
+       setErrorText(error instanceof Error ? error.message : 'Источник уведомления сейчас недоступен.');
+     } finally {
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-before\\frontend\\src\\notifications\\browser-notifications.ts" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-after\\frontend\\src\\notifications\\browser-notifications.ts"
+index 7b6fd4f8..b54eb1aa 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-before\\frontend\\src\\notifications\\browser-notifications.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-after\\frontend\\src\\notifications\\browser-notifications.ts"
+@@ -15,6 +15,10 @@ export type NotificationNavigationIntent = {
+ 
+ export const NOTIFICATION_NAVIGATION_EVENT = 'zavod:notification-navigation';
+ 
++export function notificationNavigationIntent(item: NotificationItem): NotificationNavigationIntent {
++  return { notificationId: item.id, factoryId: item.factoryId ?? null, sourceRoute: item.sourceRoute ?? null };
++}
++
+ export function dispatchNotificationNavigation(intent: NotificationNavigationIntent) {
+   window.dispatchEvent(new CustomEvent(NOTIFICATION_NAVIGATION_EVENT, { detail: intent }));
+ }
+@@ -92,19 +96,11 @@ export async function signalImportantNotification(item: NotificationItem) {
+       tag: item.id,
+       icon: '/pwa-icon-192.png',
+       badge: '/pwa-icon-192.png',
+-      data: {
+-        notificationId: item.id,
+-        factoryId: item.factoryId ?? null,
+-        sourceRoute: item.sourceRoute ?? null,
+-      },
++      data: notificationNavigationIntent(item),
+     });
+     notification.onclick = () => {
+       window.focus();
+-      dispatchNotificationNavigation({
+-        notificationId: item.id,
+-        factoryId: item.factoryId ?? null,
+-        sourceRoute: item.sourceRoute ?? null,
+-      });
++      dispatchNotificationNavigation(notificationNavigationIntent(item));
+       notification.close();
+     };
+   }
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-before\\frontend\\e2e\\frontend-series.spec.ts" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-after\\frontend\\e2e\\frontend-series.spec.ts"
+index 4d59e576..4df37e7a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-before\\frontend\\e2e\\frontend-series.spec.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\C-after\\frontend\\e2e\\frontend-series.spec.ts"
+@@ -262,3 +262,78 @@ test('Series B delayed board missing target and one-shot reload',async({page})=>
+   await page.goBack(); await open(page,'Заявки'); await expect(page.getByRole('dialog')).toBeHidden();
+   expect(unknown).toEqual([]); expect(errors).toEqual([]);
+ });
++
++test('Series C internal notification read count and Back',async({page})=>{
++  test.setTimeout(60000);
++  let readAt: string|null=null; const reads: string[]=[];
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/notifications') {await json(route,[{id:'series-notice',factoryId:'series-factory',sourceRoute:'tasks',title:'Заявка требует внимания',message:'Проверить датчик линии',severity:'WARNING',createdAt:'2026-09-15T00:00:00Z',readAt}]);return true;}
++    if(p==='/notifications/unread-count') {await json(route,{count:readAt?0:1});return true;}
++    if(p==='/notifications/series-notice/read'&&route.request().method()==='POST') {reads.push(route.request().headers()['x-factory-id']);readAt='2026-09-15T00:10:00Z'; await json(route,{ok:true});return true;}
++    return linkedReplies(route,p);
++  }});
++  await page.goto('/');
++  for(const width of [1440,390,360,430]) {
++    await page.setViewportSize({width,height:844});
++    readAt=null; await open(page,'Уведомления');
++    const card=page.locator('.notification-card'); await expect(card).toContainText('не прочитано');
++    await shot(page,`C-${width}-before-open`,{state:'unread-internal'});
++    const n=reads.length; await card.getByRole('button',{name:'Открыть',exact:true}).click();
++    await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible();
++    expect(reads.length-n).toBe(before?0:1);
++    await page.goBack(); await expect(card).toBeVisible();
++    await expect(card).toContainText(before?'не прочитано':'прочитано');
++    if(!before) await expect(card.getByRole('button',{name:'Отметить прочитанным'})).toBeHidden();
++    await shot(page,`C-${width}-returned`,{state:'back-to-feed',reads:[...reads]});
++    await open(page,'Заявки');
++  }
++  expect(reads.every(x=>x==='series-factory')).toBe(true);
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series C error retry duplicate adapters and foreign denial',async({page})=>{
++  test.setTimeout(60000);
++  let readAt: string|null=null; let fail=true; let reads=0;
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/notifications') {await json(route,[{id:'series-notice',factoryId:'series-factory',sourceRoute:'tasks',title:'Проверка повторов',message:'Сохранить источник',severity:'WARNING',createdAt:'2026-09-15T00:00:00Z',readAt},{id:'no-source',title:'Источник удалён',message:'Событие без перехода',severity:'INFO',createdAt:'2026-09-15T00:00:00Z',readAt:null,sourceRoute:null}]);return true;}
++    if(p==='/notifications/unread-count') {await json(route,{count:readAt?1:2});return true;}
++    if(p==='/notifications/series-notice/read'&&route.request().method()==='POST') {
++      reads++;
++      if(route.request().headers()['x-factory-id']==='foreign-factory') {await json(route,{message:'Доступ к заводу больше не действует.'},403);return true;}
++      if(fail) {await json(route,{message:'Не удалось отметить уведомление. Повторите.'},503);return true;}
++      await new Promise(r=>setTimeout(r,120)); readAt='2026-09-15T00:10:00Z'; await json(route,{ok:true});return true;
++    }
++    return linkedReplies(route,p);
++  }});
++  await page.setViewportSize({width:390,height:844}); await page.goto('/');
++  await open(page,'Уведомления');
++  const card=page.locator('.notification-card').filter({hasText:'Проверка повторов'});
++  await expect(page.locator('.notification-card').filter({hasText:'Источник удалён'}).getByRole('button',{name:'Открыть',exact:true})).toBeHidden();
++  await card.getByRole('button',{name:'Открыть',exact:true}).click();
++  await expect(page.locator('.error-state')).toContainText('Ошибка сервера. Повторите позже.');
++  await expect(card).toContainText('не прочитано'); expect(reads).toBe(1);
++  await shot(page,'C-error-no-false-read',{state:'POST503-stays-unread'});
++  fail=false; await card.getByRole('button',{name:'Открыть',exact:true}).click();
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible(); expect(reads).toBe(2);
++  await page.goBack(); await expect(card).toBeVisible();
++  await card.getByRole('button',{name:'Открыть',exact:true}).click();
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible(); expect(reads).toBe(3);
++  await page.goBack(); await expect(card).toBeVisible();
++  await page.evaluate(()=>{
++    const detail={notificationId:'series-notice',factoryId:'series-factory',sourceRoute:'tasks'};
++    window.dispatchEvent(new CustomEvent('zavod:notification-navigation',{detail}));
++    navigator.serviceWorker.dispatchEvent(new MessageEvent('message',{data:{type:'ZAVOD_NOTIFICATION_NAVIGATION',intent:detail}}));
++  });
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible(); expect(reads).toBe(4);
++  await page.goBack(); await expect(card).toBeVisible();
++  await page.evaluate(()=>window.dispatchEvent(new CustomEvent('zavod:notification-navigation',{detail:{notificationId:'series-notice',factoryId:'foreign-factory',sourceRoute:'tasks'}})));
++  await expect(page.getByText('Доступ к заводу больше не действует.',{exact:false})).toBeVisible();
++  await expect(page.locator('.brand-name')).toHaveText('Изолированный завод');
++  expect(network.filter(x=>x.path?.startsWith('/tasks')&&x.factory==='foreign-factory')).toEqual([]);
++  await shot(page,'C-foreign-denied',{state:'intercepted403-no-foreign-tasks'});
++  await page.goto('/?notificationId=series-notice&notificationFactory=series-factory&notificationRoute=tasks');
++  await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible();
++  expect(reads).toBe(6); expect(new URL(page.url()).search).toBe('');
++  await page.reload(); await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible(); expect(reads).toBe(6);
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});

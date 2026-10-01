@@ -1,0 +1,275 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C044-before\\frontend\\src\\App.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+index c11153f0..d0dd72eb 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C044-before\\frontend\\src\\App.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+@@ -29,6 +29,9 @@ import { connectWs } from './ws/client';
+ import { hasDirtyMobileForm, hasDirtyMobileForms, installMobileBackCoordinator, leaveStandaloneApp, useMobileBackLayer } from './navigation/mobile-back';
+ import { useBodyScrollLock } from './hooks/useBodyScrollLock';
+ import { isStandalonePwa } from './utils/pwa-runtime';
++import { observePwaInstall } from './utils/pwa-install';
++import { PwaInstallButton } from './components/PwaInstallButton';
++import { DeviceAccessPanel } from './components/DeviceAccessPanel';
+ import { roleLabel } from './labels';
+ import { AppTheme, applyAppTheme, persistAppTheme, readAppTheme } from './theme';
+ import {
+@@ -78,7 +81,10 @@ type MeResponse = {
+ };
+ 
+ type DirtyNavigation =
+-  | { kind: 'screen'; next: Screen; remember: boolean }
++  | { kind: 'screen'; next: Screen; remember: boolean; taskIntent?: {
++      id: string; context: string; epoch: number; source: Screen;
++      returnValue?: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn;
++    } }
+   | { kind: 'exit' };
+ 
+ const screens = SCREEN_DEFINITIONS;
+@@ -200,6 +206,7 @@ export default function App() {
+     tasksAttentionCount,
+   } = useAppStore();
+   const [screen, setScreen] = useState<Screen>('Shift');
++  useEffect(observePwaInstall, []);
+   const [theme, setTheme] = useState<AppTheme>(readAppTheme);
+   const [themeStorageNotice, setThemeStorageNotice] = useState<string | null>(null);
+   const screenHistoryRef = useRef<Screen[]>(['Shift']);
+@@ -226,9 +233,33 @@ export default function App() {
+   const [deviceError, setDeviceError] = useState<string | null>(null);
+   const [pushStatus, setPushStatus] = useState<PushStatus | null>(null);
+   const [pendingNotificationIntent, setPendingNotificationIntent] = useState<NotificationNavigationIntent | null>(null);
+-  const [pendingNotificationScreen, setPendingNotificationScreen] = useState<Screen | null>(null);
++  const [pendingNotificationScreen, setPendingNotificationScreen] = useState<{ screen: Screen; epoch: number } | null>(null);
+   const notificationNavigationInFlight = useRef(new Map<string, Promise<void>>());
+-  const [pendingTask, setPendingTask] = useState<{ id: string; context: string } | null>(null);
++  const notificationNavigationSequence = useRef(0);
++  const asyncContextEpoch = useRef(0);
++  const contextIdentity = () => {
++    const state = appStore.getState();
++    return JSON.stringify([state.currentUser?.userId, state.selectedFactoryId, state.authToken, state.authStatus,
++      state.currentUser?.role, state.currentUser?.isGuest, state.currentUser?.departmentId,
++      [...(state.currentUser?.permissions ?? [])].sort()]);
++  };
++  // Subscribe synchronously to store transitions: a factory/user round trip must also cancel old work.
++  useLayoutEffect(() => {
++    let identity = contextIdentity();
++    const unsubscribe = appStore.subscribe(() => {
++      const next = contextIdentity();
++      if (next === identity) return;
++      identity = next;
++      asyncContextEpoch.current += 1;
++      notificationNavigationInFlight.current.clear();
++    });
++    return () => {
++      unsubscribe();
++      asyncContextEpoch.current += 1;
++      notificationNavigationInFlight.current.clear();
++    };
++  }, []);
++  const [pendingTask, setPendingTask] = useState<{ id: string; context: string; epoch: number } | null>(null);
+   const [taskReturn, setTaskReturn] = useState<{ screen: Screen; context: string; value: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn } | null>(null);
+   useMobileBackLayer(mobileMoreOpen, () => {
+     if (quickSlotPickerIndex !== null) setQuickSlotPickerIndex(null);
+@@ -328,6 +359,7 @@ export default function App() {
+   const navigationContextKey = currentUser && selectedFactoryId
+     ? `${currentUser.userId}.${selectedFactoryId}`
+     : '';
++  const navigationPermissionsKey = JSON.stringify([currentUser?.role, [...(currentUser?.permissions ?? [])].sort()]);
+   const homeScreen = useMemo(() => {
+     if (currentUser?.isGuest || !quickPreferenceConfigured) return roleDefaultHomeScreen;
+     const allowed = new Set(visibleScreens.map((item) => item.id));
+@@ -337,9 +369,10 @@ export default function App() {
+   useEffect(() => {
+     setPendingTask(null);
+     setTaskReturn(null);
++    setDirtyNavigation(null);
+     // Legacy unscoped intents must never survive login/factory changes or reload.
+     try { window.localStorage.removeItem('zavod.taskHighlightId'); } catch { /* Optional storage. */ }
+-  }, [navigationContextKey]);
++  }, [navigationContextKey, navigationPermissionsKey]);
+   const shellRef = useRef<HTMLElement>(null);
+ 
+   useLayoutEffect(() => {
+@@ -470,7 +503,7 @@ export default function App() {
+     if (target) openScreen(target.id);
+   };
+ 
+-  const navigateNotificationSource = async (intent: NotificationNavigationIntent) => {
++  const navigateNotificationSource = async (intent: NotificationNavigationIntent, isCurrent: () => boolean) => {
+     const sourceRoute = intent.sourceRoute?.trim() ?? '';
+     const sourceFactoryId = intent.factoryId?.trim() || selectedFactoryId;
+     if (!sourceRoute || !sourceFactoryId) throw new Error('Источник уведомления сейчас недоступен.');
+@@ -485,13 +518,16 @@ export default function App() {
+         body: '{}',
+         headers: targetHeaders,
+       });
++      if (!isCurrent()) return;
+       if (sourceFactoryId === selectedFactoryId) {
+         const unread = await apiClient.request<{ count: number }>('/notifications/unread-count', { headers: targetHeaders }).catch(() => null);
++        if (!isCurrent()) return;
+         if (unread) appStore.setNotificationsUnreadCount(unread.count);
+       }
+     }
+ 
+     const me = await apiClient.request<MeResponse>('/auth/me', { headers: targetHeaders });
++    if (!isCurrent()) return;
+     const factoryAllowed = !me.isGuest
+       && me.selectedFactoryId === sourceFactoryId
+       && me.availableFactories.some((factory) => factory.id === sourceFactoryId);
+@@ -510,7 +546,7 @@ export default function App() {
+         selectedFactoryId: me.selectedFactoryId,
+         authStatus: 'ready',
+       });
+-      setPendingNotificationScreen(targetDefinition.id);
++      setPendingNotificationScreen({ screen: targetDefinition.id, epoch: asyncContextEpoch.current });
+       return;
+     }
+ 
+@@ -523,14 +559,23 @@ export default function App() {
+       selectedFactoryId: me.selectedFactoryId,
+       authStatus: 'ready',
+     });
+-    setPendingNotificationScreen(targetDefinition.id);
++    setPendingNotificationScreen({ screen: targetDefinition.id, epoch: asyncContextEpoch.current });
+   };
+ 
+   const openNotificationSource = (intent: NotificationNavigationIntent) => {
+     const key = JSON.stringify([currentUser?.userId, intent.factoryId || selectedFactoryId, intent.notificationId, intent.sourceRoute]);
+     const inFlight = notificationNavigationInFlight.current.get(key);
+     if (inFlight) return inFlight;
+-    const operation = navigateNotificationSource(intent).finally(() => notificationNavigationInFlight.current.delete(key));
++    // Latest distinct intent wins; the same pending intent joins its current operation.
++    notificationNavigationInFlight.current.clear();
++    const epoch = asyncContextEpoch.current;
++    const sequence = ++notificationNavigationSequence.current;
++    const isCurrent = () => epoch === asyncContextEpoch.current && sequence === notificationNavigationSequence.current;
++    const operation = navigateNotificationSource(intent, isCurrent).catch((error) => {
++      if (isCurrent()) throw error;
++    }).finally(() => {
++      if (notificationNavigationInFlight.current.get(key) === operation) notificationNavigationInFlight.current.delete(key);
++    });
+     notificationNavigationInFlight.current.set(key, operation);
+     return operation;
+   };
+@@ -578,8 +623,19 @@ export default function App() {
+       const detail = (event as CustomEvent<{ screen?: Screen; userId?: string; taskId?: string; taskReturn?: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn }>).detail;
+       if (detail?.screen) {
+         if (detail.screen === 'Tasks' && detail.taskId && navigationContextKey
+-          && visibleScreens.some((item) => item.id === 'Tasks') && !hasDirtyMobileForms()) {
+-          setPendingTask({ id: detail.taskId, context: navigationContextKey });
++          && visibleScreens.some((item) => item.id === 'Tasks')) {
++          if (hasDirtyMobileForms()) {
++            // Keep the complete intent in the existing confirmation, not in a
++            // prematurely active target that Stay or a context change could replay.
++            setDirtyNavigation({ kind: 'screen', next: 'Tasks', remember: true, taskIntent: {
++              id: detail.taskId, context: navigationContextKey, epoch: asyncContextEpoch.current,
++              source: screen, returnValue: detail.taskReturn,
++            } });
++            setMobileMoreOpen(false);
++            setMobileSheetView('sections');
++            return;
++          }
++          setPendingTask({ id: detail.taskId, context: navigationContextKey, epoch: asyncContextEpoch.current });
+           setTaskReturn(detail.taskReturn ? { screen, context: navigationContextKey, value: detail.taskReturn } : null);
+         }
+         openScreen(detail.screen, true, false, Boolean(detail.screen === 'Tasks' && detail.taskId && !hasDirtyMobileForms()));
+@@ -640,8 +696,12 @@ export default function App() {
+   }, [authStatus, hasSelectedFactory, pendingNotificationIntent, selectedFactoryId]);
+ 
+   useEffect(() => {
+-    if (!pendingNotificationScreen || !visibleScreens.some((item) => item.id === pendingNotificationScreen)) return;
+-    const target = pendingNotificationScreen;
++    if (!pendingNotificationScreen) return;
++    if (pendingNotificationScreen.epoch !== asyncContextEpoch.current || !visibleScreens.some((item) => item.id === pendingNotificationScreen.screen)) {
++      setPendingNotificationScreen(null);
++      return;
++    }
++    const target = pendingNotificationScreen.screen;
+     setPendingNotificationScreen(null);
+     openScreen(target);
+   }, [pendingNotificationScreen, visibleScreens]);
+@@ -679,7 +739,12 @@ export default function App() {
+       return;
+     }
+ 
++    let cancelled = false;
++    let counterSequence = 0;
++    const epoch = asyncContextEpoch.current;
++    const isCurrent = () => !cancelled && epoch === asyncContextEpoch.current;
+     const refreshAppCounters = async () => {
++      const sequence = ++counterSequence;
+       const visibleCodes = new Set(visibleScreens.map((item) => item.code));
+       const [notifications, announcements, chats, tasks] = await Promise.all([
+         visibleCodes.has('notifications') ? apiClient.get<{ count: number }>('/notifications/unread-count').catch(() => ({ count: 0 })) : Promise.resolve({ count: 0 }),
+@@ -687,6 +752,7 @@ export default function App() {
+         visibleCodes.has('chats') ? apiClient.get<Array<{ unreadCount?: number }>>('/chats').catch(() => []) : Promise.resolve([]),
+         visibleCodes.has('tasks') ? apiClient.get<Array<{ status?: string }>>('/tasks?includeDone=false').catch(() => []) : Promise.resolve([]),
+       ]);
++      if (!isCurrent() || sequence !== counterSequence) return;
+       appStore.setNotificationsUnreadCount(Number(notifications.count) || 0);
+       appStore.setAnnouncementsUnreadCount(Number(announcements.total) || 0);
+       appStore.setChatsUnreadCount(chats.reduce((sum, chat) => sum + (Number(chat.unreadCount) || 0), 0));
+@@ -714,6 +780,7 @@ export default function App() {
+       onAuthContextChanged: (message) => {
+         setRealtimeMessage(message);
+         void apiClient.get<MeResponse>('/auth/me').then((me) => {
++          if (!isCurrent()) return;
+           const hasFactory = Boolean(me.selectedFactoryId && me.availableFactories.some((factory) => factory.id === me.selectedFactoryId));
+           appStore.setSession({
+             currentUser: toCurrentUser(me),
+@@ -725,6 +792,7 @@ export default function App() {
+         }).catch(() => undefined);
+       },
+       onNotification: (notification) => {
++        if (!isCurrent()) return;
+         setRealtimeMessage(notification.title);
+         window.setTimeout(() => setRealtimeMessage(null), 7000);
+         void signalImportantNotification(notification);
+@@ -736,6 +804,7 @@ export default function App() {
+     window.addEventListener('offline', onStatusChange);
+ 
+     return () => {
++      cancelled = true;
+       ws.close();
+       stopFallbackPolling();
+       window.removeEventListener('online', onStatusChange);
+@@ -996,7 +1065,7 @@ export default function App() {
+       {screen === 'People' && <PeopleScreen taskReturn={taskReturn?.context === navigationContextKey && taskReturn.screen === 'People' ? taskReturn.value as PeopleTaskReturn : undefined} />}
+       {screen === 'Admin' && <AdminConfigScreen />}
+       {screen === 'Situation' && <SituationScreen taskReturn={taskReturn?.context === navigationContextKey && taskReturn.screen === 'Situation' ? taskReturn.value as SituationTaskReturn : undefined} />}
+-      {screen === 'Tasks' && <React.Fragment key={navigationContextKey}><TasksScreen targetTaskId={pendingTask?.context === navigationContextKey ? pendingTask.id : undefined} onTargetConsumed={() => setPendingTask(null)} /></React.Fragment>}
++      {screen === 'Tasks' && <React.Fragment key={`${navigationContextKey}:${currentUser?.role}:${[...(currentUser?.permissions ?? [])].sort().join('|')}`}><TasksScreen targetTaskId={pendingTask?.context === navigationContextKey && pendingTask.epoch === asyncContextEpoch.current ? pendingTask.id : undefined} onTargetConsumed={() => setPendingTask(null)} /></React.Fragment>}
+       {screen === 'Wash' && <WashScreen />}
+       {screen === 'OKK' && <OkkScreen />}
+       {screen === 'Stock' && <StockScreen />}
+@@ -1177,11 +1246,13 @@ export default function App() {
+                   <div className="section-subhead">
+                     <span><NavIcon name="archive" /></span>
+                     <div>
+-                      <strong>PWA и офлайн</strong>
++                      <strong>Установка приложения</strong>
+                       <p>Приложение можно установить на телефон. Для сохранения действий требуется связь с сервером.</p>
+                     </div>
+                   </div>
++                  <PwaInstallButton />
+                 </section>
++                <DeviceAccessPanel />
+               </div>
+             ) : (
+               <>
+@@ -1280,7 +1351,16 @@ export default function App() {
+             const action = dirtyNavigation;
+             setDirtyNavigation(null);
+             if (action.kind === 'exit') leaveStandaloneApp();
+-            else openScreen(action.next, action.remember, true);
++            else {
++              const intent = action.taskIntent;
++              if (intent) {
++                if (intent.context !== navigationContextKey || intent.epoch !== asyncContextEpoch.current
++                  || !visibleScreens.some((item) => item.id === 'Tasks')) return;
++                setPendingTask({ id: intent.id, context: intent.context, epoch: intent.epoch });
++                setTaskReturn(intent.returnValue ? { screen: intent.source, context: intent.context, value: intent.returnValue } : null);
++              }
++              openScreen(action.next, action.remember, true, Boolean(intent));
++            }
+           }}
+         />
+       ) : null}

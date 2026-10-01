@@ -1,0 +1,50 @@
+# The production context is an allow-list. Keep this in sync with the two Dockerfiles
+# and setup/deployment-context.js. A direct `docker compose build` must not send
+# runtime data or arbitrary files from this dirty workspace to the daemon.
+**
+!package.json
+!package-lock.json
+!backend/
+!backend/Dockerfile.production
+!backend/package.json
+!backend/tsconfig.json
+!backend/tsconfig.build.json
+!backend/src/
+!backend/src/**
+!backend/prisma/
+!backend/prisma/schema.prisma
+!backend/prisma/system-foundation.cjs
+!backend/prisma/migrations/
+!backend/prisma/migrations/**
+!frontend/
+!frontend/Dockerfile.production
+!frontend/nginx.production.conf
+!frontend/package.json
+!frontend/tsconfig.json
+!frontend/vite.config.ts
+!frontend/index.html
+!frontend/src/
+!frontend/src/**
+!frontend/public/
+!frontend/public/**
+
+# Defence in depth for accidentally placed private/test material within an
+# allowed source directory. Build staging applies a stricter file allow-list.
+**/.env
+**/.env.*
+**/node_modules/**
+**/dist/**
+**/build/**
+**/coverage/**
+**/test-results/**
+**/playwright-report/**
+**/*.log
+**/*.zip
+**/*.trace
+**/*.map
+**/*.spec.ts
+**/*.spec.tsx
+**/*.test.ts
+**/*.test.tsx
+**/screenshots/**
+**/traces/**

@@ -1,0 +1,106 @@
+{
+  "capturedAt": "2026-09-23T18:32:19.075Z",
+  "purpose": "LOCAL-01 targeted baseline before edits; includes untracked current owners by filesystem bytes; no working .env/DB/uploads read.",
+  "supplementalEarlierBaseline": [
+    {
+      "path": "backend/src/common/system-foundation.ts",
+      "bytes": 2922,
+      "sha256": "9b50c698700090f67ca991b5f077bc98630d607f5928e912113f4a875bd07fdb",
+      "source": "VPS-PREP-02 after-hashes.json; this file was inadvertently omitted from the contemporaneous LOCAL-01 baseline, so its earlier PREP-02 hash is explicitly not represented as a LOCAL-01 capture"
+    }
+  ],
+  "files": [
+    {
+      "path": "backend/src/modules/auth/auth.service.ts",
+      "bytes": 32059,
+      "sha256": "e84b46bed2900ef905d5ccea90cf2f630fad5f64658a6303b88247f0c39b8e2b",
+      "gitTracked": false
+    },
+    {
+      "path": "backend/src/common/auth-token.ts",
+      "bytes": 2401,
+      "sha256": "1ec787a40380ddf9ecebd077cbb1fb7bfe2fc0d4e7f65918d5878e681d495709",
+      "gitTracked": false
+    },
+    {
+      "path": "backend/src/common/user-context.service.ts",
+      "bytes": 7492,
+      "sha256": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993",
+      "gitTracked": false
+    },
+    {
+      "path": "backend/src/common/first-admin-bootstrap.ts",
+      "bytes": 7632,
+      "sha256": "e78070be817a0dee92e44f893d16525744a70f37da1927b3860e0233c492e668",
+      "gitTracked": false
+    },
+    {
+      "path": "backend/src/modules/admin/admin.service.ts",
+      "bytes": 320247,
+      "sha256": "167473fa886f349fbe12122be428c71a4055755780a5ab583fe15b518e6042f5",
+      "gitTracked": false
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-regression.js",
+      "bytes": 24193,
+      "sha256": "2d16e511d2b0abe2ceb958966304a1f6a9146e0e946bdb83aab800c31312cf0f",
+      "gitTracked": false
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-postgres-integration.js",
+      "bytes": 25431,
+      "sha256": "714d251747cefd7904b1cbff676350c378e4bcb6e5fd39b7ab7607a71d003e35",
+      "gitTracked": false
+    },
+    {
+      "path": "setup/storage-contract.js",
+      "bytes": 5638,
+      "sha256": "8304c01eecc561528f7279741efa773368e828f0a22415c7899c892574dd5584",
+      "gitTracked": false
+    },
+    {
+      "path": "setup/zavod-setup.js",
+      "bytes": 46780,
+      "sha256": "0e6ab5fa79a13779f54be330a50e90e4ef1b486ada4d640526ebe352b6874a99",
+      "gitTracked": false
+    },
+    {
+      "path": "setup/vps-prep-02-regression.js",
+      "bytes": 13143,
+      "sha256": "372462c24175a85bc356b29cb9ad5ef5caf1471cc7d6f621f1ae4030b88efc9f",
+      "gitTracked": false
+    },
+    {
+      "path": "setup/vps-prep-02-docker-shim.js",
+      "bytes": 1770,
+      "sha256": "cc2da383335b37203ced82b66a890159eb02b4387d64bdab65854c9e405b1cda",
+      "gitTracked": false
+    },
+    {
+      "path": "docker-compose.production.yml",
+      "bytes": 1732,
+      "sha256": "751179455d0696fc9b5b02c08a7231c2b8fd9df8bf9dae6170aa3102e519bf40",
+      "gitTracked": false
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "bytes": 83697,
+      "sha256": "16e8f460f5d5370e3c24e9dd58ea7d394b082a691e5ea620dacac06969491e52",
+      "gitTracked": true
+    },
+    {
+      "path": "docs/vps-preparation/handoff.md",
+      "bytes": 29954,
+      "sha256": "6fb929f6862d5704cfc1ff4e8cfa6a8af991eb6fc807a1ede7cd8bfe5534f26e",
+      "gitTracked": false
+    }
+  ],
+  "absent": [
+    "docs/vps-preparation/local-01/plan.md",
+    "docs/vps-preparation/local-01/report.md",
+    "docs/vps-preparation/local-01/after-hashes.json",
+    "docs/vps-preparation/local-01/review-pack.zip",
+    "backend/scripts/local-01-auth-regression.js",
+    "setup/local-01-regression.js"
+  ]
+}

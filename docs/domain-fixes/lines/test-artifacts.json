@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "completedAt": "2026-08-31T17:39:56.088Z",
+  "status": "PASS",
+  "marker": "__LINE_FIX_1788197959721__",
+  "migration": "NOT_REQUIRED",
+  "resolved": {
+    "count": 16,
+    "total": 16
+  },
+  "open": {
+    "p0": [],
+    "p1": [],
+    "p2": ["LINE-015"],
+    "p3": ["LINE-016", "LINE-018"]
+  },
+  "results": [
+    {
+      "id": "controlled-backend-audit",
+      "command": "node .codex-runtime/line-domain-audit/lines-domain-audit.js run && recheck",
+      "status": "PASS",
+      "passed": 41,
+      "total": 41,
+      "gaps": 0
+    },
+    {
+      "id": "targeted-backend",
+      "command": "node .codex-runtime/line-domain-fix/targeted-backend.js",
+      "status": "PASS",
+      "passed": 16,
+      "total": 16
+    },
+    {
+      "id": "cohesive-browser-e2e",
+      "command": "node .codex-runtime/line-domain-fix/browser-e2e.js",
+      "status": "PASS",
+      "passed": 31,
+      "total": 31,
+      "viewports": [360, 390, 430, 1440],
+      "timezones": ["Europe/Moscow", "America/Los_Angeles"]
+    },
+    {
+      "id": "line-timeline-regression",
+      "command": "npm.cmd run line:timeline-regression --workspace backend",
+      "status": "PASS",
+      "passed": 34,
+      "total": 34
+    },
+    {
+      "id": "lines-wash-defrost-regression",
+      "command": "npm.cmd run pilot:lines-wash-defrost-regression --workspace backend",
+      "status": "PASS",
+      "passed": 21,
+      "total": 21
+    },
+    {
+      "id": "line-card-detail-regression",
+      "command": "npm.cmd run line-card-detail:regression --workspace backend",
+      "status": "PASS",
+      "passed": 29,
+      "total": 29
+    },
+    {
+      "id": "shift-assignment-capability",
+      "command": "npm.cmd run stage41:line-shift-assignment-regression --workspace backend",
+      "status": "PASS",
+      "passed": 25,
+      "total": 25
+    },
+    {
+      "id": "security-privacy",
+      "command": "npm.cmd run security:privacy-v1-regression --workspace backend",
+      "status": "PASS",
+      "passed": 17,
+      "total": 17
+    },
+    {
+      "id": "realtime-line-smoke",
+      "command": "npm.cmd run physical-field-fixes:v5-plast1-regression --workspace backend",
+      "status": "PASS",
+      "passed": 19,
+      "total": 19
+    },
+    {
+      "id": "backend-build",
+      "command": "npm.cmd run build --workspace backend",
+      "status": "PASS"
+    },
+    {
+      "id": "frontend-build",
+      "command": "npm.cmd run build --workspace frontend",
+      "status": "PASS",
+      "warning": "Known Vite chunk size warning"
+    },
+    {
+      "id": "prisma",
+      "command": "npm.cmd run prisma:validate --workspace backend && npm.cmd exec prisma migrate status --workspace backend",
+      "status": "PASS",
+      "migrations": 53,
+      "upToDate": true
+    },
+    {
+      "id": "product-diff-check",
+      "command": "git diff --check excluding generated node_modules",
+      "status": "PASS"
+    },
+    {
+      "id": "security-ui-scans",
+      "status": "PASS",
+      "browserDialogs": 0,
+      "newMojibake": 0,
+      "publicProtectedFieldLeaks": 0,
+      "publicSecretValueLeaks": 0
+    }
+  ],
+  "cleanup": {
+    "protectedFactoryUnchanged": true,
+    "roleConfigurationUnchanged": true,
+    "productSourceUnchanged": true,
+    "preexistingChanged": 0,
+    "physicalDeletes": 0,
+    "activeMarkerFactories": 0,
+    "activeMarkerDepartments": 0,
+    "activeMarkerUsers": 0,
+    "activeMarkerAccesses": 0,
+    "activeMarkerLines": 0,
+    "activeMarkerAssignments": 0,
+    "openMarkerEvents": 0,
+    "activeMarkerTasks": 0,
+    "activeMarkerWashes": 0,
+    "activeMarkerDefrosts": 0,
+    "protectedHashBefore": "04d5b4c975e45e01368b475bf32769e71038391d0dc30f612ae62d29f136fe10",
+    "protectedHashAfter": "04d5b4c975e45e01368b475bf32769e71038391d0dc30f612ae62d29f136fe10",
+    "sourceHashBefore": "ea1f48f16a79dc3eaffd09b10c96883475e48f0fe55ec102139158ee528f7367",
+    "sourceHashAfter": "ea1f48f16a79dc3eaffd09b10c96883475e48f0fe55ec102139158ee528f7367"
+  },
+  "screenshots": [
+    "01-active-defrost-correct-line-card.png",
+    "02-defrost-valid-action.png",
+    "03-downtime-reason-modal.png",
+    "04-visible-network-error.png",
+    "05-timeline-comment-history.png",
+    "06-mobile-child-layer-back.png"
+  ]
+}

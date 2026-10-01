@@ -1,0 +1,778 @@
+{
+  "status": "PASS_FULL_ZIP_ENTRY_BYTE_SHA_READBACK",
+  "atUtc": "2026-09-27T15:10:04.9914330Z",
+  "zip": "docs/vps-preparation/att-auth-01/review-pack-attauth01-20260927.zip",
+  "bytes": 1051180,
+  "sha256": "5212b9a88a409b7208dc17385bba99c3f1b5dfbb9a535c759e98df29d7b0f680",
+  "entryCount": 153,
+  "fullStreamReadback": true,
+  "duplicateOrUnexpectedEntries": 0,
+  "finalSourceIdentity": "776c522fda1f119756a7f8882ffaa26f3fec345e8ecc45cd4524f177d36ef68c",
+  "entries": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 10980,
+      "sha256": "03a3475330d35029e243ec9cbef7aa70d58c9b9c434bb88c495ae6fba029ac65"
+    },
+    {
+      "path": "backend/package.json",
+      "bytes": 19657,
+      "sha256": "9e6b0b3d41aa0c2caa0ada8f790ae40d69a88510ccbff1bb5254737897b65790"
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "bytes": 85485,
+      "sha256": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e"
+    },
+    {
+      "path": "backend/scripts/att-auth-01-archive.test.cjs",
+      "bytes": 2227,
+      "sha256": "03784bdb57a1271e12ae02a6e7b5cd057d95c768da9814e50625f3e124a6f82f"
+    },
+    {
+      "path": "backend/scripts/att-auth-01.test.cjs",
+      "bytes": 4919,
+      "sha256": "52218eb5fdeca5af0e6b8b6089ff47867d80277abcdff9e6fe4fd83d2e1d1950"
+    },
+    {
+      "path": "backend/scripts/local03-quality-realtime.test.js",
+      "bytes": 3774,
+      "sha256": "cb2f73cdc729e4d33beb8254543664de14a2d7f1ebd6eaecf3d542148499594a"
+    },
+    {
+      "path": "backend/scripts/master-offline-contract.test.js",
+      "bytes": 5934,
+      "sha256": "25bdc5f1ba91f619ea64c7fa1bdbf2198c4269f0d238d3da2b0fda7923706fdf"
+    },
+    {
+      "path": "backend/scripts/master-offline-guard.cjs",
+      "bytes": 1165,
+      "sha256": "81b4b5873bad42ed6b1176055ed2f95794626ac355065b514b8f7361c37530ef"
+    },
+    {
+      "path": "backend/scripts/master-r2-authority-fixture.cjs",
+      "bytes": 1632,
+      "sha256": "1cdf950d1f374a5026cf099dc46edd592e6971c8dc950306fcc26413921ee88d"
+    },
+    {
+      "path": "backend/scripts/master-r2-chat-chain.test.js",
+      "bytes": 4283,
+      "sha256": "2139c63fa934c26961a2ee8eeb5e78b87d334fee4d32b0d2493688bfff8bb889"
+    },
+    {
+      "path": "backend/scripts/master-r2-chat-fixture.cjs",
+      "bytes": 6219,
+      "sha256": "ccfa45b96090e3ca9009d94f033c54e2188f9af5c4ad7e8359fee509e4ce744e"
+    },
+    {
+      "path": "backend/scripts/master-r2-checklist.test.js",
+      "bytes": 8649,
+      "sha256": "6504a9545daca789f85174b0071309b1616c6701f730b197b7b7be5905a51248"
+    },
+    {
+      "path": "backend/scripts/master-r2-handover-fixture.cjs",
+      "bytes": 2696,
+      "sha256": "d59ffc128e14906ff8f34103491394c8ffac591a6cfdce48d242d11ae84742c7"
+    },
+    {
+      "path": "backend/scripts/master-r2-handover.test.js",
+      "bytes": 3795,
+      "sha256": "f57333559ee95be230b4ed37b42aa0fbb10395e3bb49b0014ade821c93ee58a0"
+    },
+    {
+      "path": "backend/scripts/master-r2-memory.cjs",
+      "bytes": 7539,
+      "sha256": "5085724fef7b46dd0157aa462c67cee48ae88b81fde362ad48ea8f1a98c7a98b"
+    },
+    {
+      "path": "backend/scripts/master-r2-orders.test.js",
+      "bytes": 6517,
+      "sha256": "2ef4dedc34fbde4ebdc6d8d7e0bd2930e41ce6d6095efc57427f7c8f175ee151"
+    },
+    {
+      "path": "backend/scripts/master-r2-replay.test.js",
+      "bytes": 19831,
+      "sha256": "d735410880e70f83f6b525757cb9fff7232edc98e0e522e5893626d483110130"
+    },
+    {
+      "path": "backend/scripts/master-r2-task-chain.test.js",
+      "bytes": 5655,
+      "sha256": "45070859c6a9a0ec60e4fc095d8c8a1e4c8783ae7b17cbf5814919319333184c"
+    },
+    {
+      "path": "backend/scripts/master-r2-task-fixture.cjs",
+      "bytes": 8428,
+      "sha256": "bd5e1645f764c237084470f5b7f7ce0314c659b7aacef41b2d1fca44b258819f"
+    },
+    {
+      "path": "backend/scripts/master-stateful-chain.test.js",
+      "bytes": 14543,
+      "sha256": "6eb9bfe0502ed27bab8fa76089152ac8fa3ae47e3a852709cc9b737750705737"
+    },
+    {
+      "path": "backend/scripts/master-task-replay-boundary.test.js",
+      "bytes": 2706,
+      "sha256": "a8bc60c59efed1b24ff8b30a187d549d336559536589300cb5a05867ec4410ad"
+    },
+    {
+      "path": "backend/scripts/notify-02.test.cjs",
+      "bytes": 7807,
+      "sha256": "903c5afd952a6473ed59e34dae8cd3e349371adecc36ed30764875e49f86aaa9"
+    },
+    {
+      "path": "backend/scripts/task-notify-01.test.cjs",
+      "bytes": 5075,
+      "sha256": "a1057d38e25118bc6c561b7cc79a31faf2f97aa4c76c20051a06c47d40dd7da9"
+    },
+    {
+      "path": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "bytes": 8584,
+      "sha256": "d03ea7e81b18d808b23b1748a7672271f68b2d88f4787ae1532abf376e03a58d"
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-regression.js",
+      "bytes": 25059,
+      "sha256": "95b0d801decc9decbedcd8314505c78e736fa5fa0b3d5ca5696cd3e508aee817"
+    },
+    {
+      "path": "backend/src/common/permission.guard.ts",
+      "bytes": 1774,
+      "sha256": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925"
+    },
+    {
+      "path": "backend/src/common/shift-handover.ts",
+      "bytes": 5626,
+      "sha256": "7afed041bdbf16f8b55ad47bfa845c4492250ef96c6ca67f34d0d6a4dcd94d91"
+    },
+    {
+      "path": "backend/src/common/user-context.service.ts",
+      "bytes": 7492,
+      "sha256": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993"
+    },
+    {
+      "path": "backend/src/modules/admin/admin.service.ts",
+      "bytes": 323487,
+      "sha256": "b0ac5f74200267e5cf942af9ab05e1cf275a6af0e92fdb67b36e684c3ceddc67"
+    },
+    {
+      "path": "backend/src/modules/attachments/attachments.controller.ts",
+      "bytes": 1822,
+      "sha256": "ab3b8e362d72f6ae63d090cb80106ee6e89853f9afbd77318914ebaa34633cc6"
+    },
+    {
+      "path": "backend/src/modules/attachments/attachments.service.ts",
+      "bytes": 48805,
+      "sha256": "30942f6ce8b8e4d357dd9003119c464e0773d3dee0e022270e134d277ffb8400"
+    },
+    {
+      "path": "backend/src/modules/attachments/file-storage.service.ts",
+      "bytes": 5948,
+      "sha256": "5cca9ca6935de0aab129d4f5ec84d79bd0aa4b57680584f813530ad656328cf2"
+    },
+    {
+      "path": "backend/src/modules/chats/chat-message-delete-policy.ts",
+      "bytes": 4456,
+      "sha256": "a12b58823c56367e390245bf7d0a0f3181e17aceef26b9c624cc75d0aa59fb7f"
+    },
+    {
+      "path": "backend/src/modules/checklists/checklists.service.ts",
+      "bytes": 145446,
+      "sha256": "c1ea5df0135499813dac4bcfc802f708b841aa17f450674ee56f70d70bdde1c2"
+    },
+    {
+      "path": "backend/src/modules/notifications/notifications.service.ts",
+      "bytes": 47981,
+      "sha256": "cc901eef24fc7e769496b257bb01f7bcb7f98e6188718ae8e1bbd6cbeac8f0bd"
+    },
+    {
+      "path": "backend/src/modules/orders/orders-source-authority.ts",
+      "bytes": 788,
+      "sha256": "a4520de8e237da590492cf6f09f25bb3d5d7ca68f7b140ff82a310b38b5315b8"
+    },
+    {
+      "path": "backend/src/modules/orders/orders.controller.ts",
+      "bytes": 3842,
+      "sha256": "029fab90abe6836ba05ae662fd0362000df2a59262751ad884c36d12423577ef"
+    },
+    {
+      "path": "backend/src/modules/orders/orders.service.ts",
+      "bytes": 50745,
+      "sha256": "9bd03acc2205cfea580374bfea6d20eb54dbc14c83d2ebf97906f61762bedc5c"
+    },
+    {
+      "path": "backend/src/modules/shift-log/shift-log.controller.ts",
+      "bytes": 4196,
+      "sha256": "9358836d47ded7c32c2cf6f82b0958855bdf3fafd3628f196f533481b2569bb0"
+    },
+    {
+      "path": "backend/src/modules/shift-log/shift-log.service.ts",
+      "bytes": 43365,
+      "sha256": "34d5a1d66dad56fa91b45dbea260223608e8f0ac1e549f214283cf1f26c3891e"
+    },
+    {
+      "path": "backend/src/modules/task/task.service.ts",
+      "bytes": 48880,
+      "sha256": "92ebe9f93103cba7822918cf78121f4c0cb068b70e54b388d02c8fa38788b10c"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "bytes": 247896,
+      "sha256": "144eb4b55bc6252a3eda0ef9fa001bec25b6fe032d139af71ff8684038353172"
+    },
+    {
+      "path": "docs/v1-completion-goal.md",
+      "bytes": 22214,
+      "sha256": "098fd6d70cc48397c786745ad66f268b674e8fae8858feed0ffc770ce41db883"
+    },
+    {
+      "path": "docs/vps-preparation/admin-01/harness.cjs",
+      "bytes": 3099,
+      "sha256": "5d0947f543265883e238123b03d670e8be86694b8aa21341ecca08fc600d876e"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/acl-readback.json",
+      "bytes": 2120,
+      "sha256": "1610c373cec1164545d6c9aed2c8e0bb59d150c229cbaeaa4d355fc71e2dc27e"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/acl-readback.ps1",
+      "bytes": 1354,
+      "sha256": "92fe57aacf9e0b36d44c818a35e0dd9a902453233b9716859e3fb63bddab7ff8"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/archive-isolated-after.txt",
+      "bytes": 376,
+      "sha256": "42b93fb969fa53c32e5957b37125451b52769d11c55020d395418038dfc30165"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/archive-isolated-before.txt",
+      "bytes": 1631,
+      "sha256": "9390cec78c5fa17e668913293b0cb7dc4767cbd5453c38a7393a4554ae19fc8f"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/archive-isolated.cjs",
+      "bytes": 474,
+      "sha256": "df07e4f85cfd1c33ffc880a600f57b215a12dc2a46328040d19a7ff06a23b49e"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/authority-matrix.md",
+      "bytes": 11609,
+      "sha256": "f17ae4726f359812f90e67fdf5a0cea2ad0cb99f2c71268f89108afd5df50d85"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/baseline.cjs",
+      "bytes": 2342,
+      "sha256": "d8e85334736b1e5dc6b482bc82bfe44474fb340e45d3284900e35ed0848d82bf"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before-return.json",
+      "bytes": 10219,
+      "sha256": "c51fb18ed0c17f7660de6fc0b97339a3804a903d01c2a6901a361e7e5009ba4f"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before.json",
+      "bytes": 22488,
+      "sha256": "2a60c502b18057f6920f924287fe6e581f7d4b6e5a465e1deaeaceeeb6e70c4e"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/backend/prisma/schema.prisma",
+      "bytes": 85485,
+      "sha256": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/backend/src/common/permission.guard.ts",
+      "bytes": 1774,
+      "sha256": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/backend/src/common/user-context.service.ts",
+      "bytes": 7492,
+      "sha256": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/backend/src/modules/admin/admin.service.ts",
+      "bytes": 323487,
+      "sha256": "b0ac5f74200267e5cf942af9ab05e1cf275a6af0e92fdb67b36e684c3ceddc67"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/backend/src/modules/attachments/attachments.controller.ts",
+      "bytes": 1822,
+      "sha256": "ab3b8e362d72f6ae63d090cb80106ee6e89853f9afbd77318914ebaa34633cc6"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/backend/src/modules/attachments/attachments.service.ts",
+      "bytes": 44881,
+      "sha256": "d36cc45b2c7e836bce9466779b8ddf97826caea88d0ae12af99c889a0bc6b7e4"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/backend/src/modules/attachments/file-storage.service.ts",
+      "bytes": 5948,
+      "sha256": "5cca9ca6935de0aab129d4f5ec84d79bd0aa4b57680584f813530ad656328cf2"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/backend/src/modules/orders/orders.controller.ts",
+      "bytes": 3842,
+      "sha256": "029fab90abe6836ba05ae662fd0362000df2a59262751ad884c36d12423577ef"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/backend/src/modules/orders/orders.service.ts",
+      "bytes": 51079,
+      "sha256": "f18814ef96245cdbee44c9eb4aa7f1e1117aad75ce262c61c942599209b1b1f2"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/docs/vps-preparation/factory-01/stand.ps1",
+      "bytes": 6659,
+      "sha256": "0add8c11fa8aae0c7f4d669f6d026266962b3b6f50a8ff87ed472d4b4f10ba42"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/frontend/src/api/attachment-preview-resource.ts",
+      "bytes": 4623,
+      "sha256": "145ffe9aac2de3901ddf95f785c12e3c369bc6902c89622825819fdb9614cfb8"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/before/frontend/src/components/AttachmentPreviewList.tsx",
+      "bytes": 20688,
+      "sha256": "d21d37652b3c190724a0ab7f4034fde34784d9711b09d0775941f559b7cfa93a"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/checks/2026-09-27T14-56-47-838Z/attachments-security-archive.txt",
+      "bytes": 4540,
+      "sha256": "9f0349ed494995ad997e73bfdd7c2f65895e30e02310441523198421ee8cff3a"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/checks/2026-09-27T14-56-47-838Z/backend-build.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/checks/2026-09-27T14-56-47-838Z/controlled-generate.txt",
+      "bytes": 1197,
+      "sha256": "988aa687a436ca19c86804b545a1b64bef98d5d9bbc38539a01c1cf0fb2c4b77"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/checks/2026-09-27T14-56-47-838Z/foundation-auth.txt",
+      "bytes": 4850,
+      "sha256": "462b78875e33a34dfc647376a2d5e38a405f2b274fcb651d4729d4d76deb97ff"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/checks/2026-09-27T14-56-47-838Z/frontend-navigation-ws.txt",
+      "bytes": 1000,
+      "sha256": "efc36d8fb9a109b1e9fb2ad7e66c70bd70238440eb0a707b8166979d0f9bbcd3"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/checks/2026-09-27T14-56-47-838Z/frontend-typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/checks/2026-09-27T14-56-47-838Z/prisma-validate.txt",
+      "bytes": 96,
+      "sha256": "57a95d6fed0c8565ccec14844a8dfddf60c99bc53587cd2cb974240ddedfb340"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/checks/2026-09-27T14-56-47-838Z/retained-notification-orders-task.txt",
+      "bytes": 14163,
+      "sha256": "103da86deafabfa6d6a9f3e9830e14599a788d05843c8b1cc3154f6f93879b24"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/checks/2026-09-27T14-56-47-838Z/strict-diff.txt",
+      "bytes": 25,
+      "sha256": "198913094e3f41610eb893459ab65a3c79991b65d4ef5fcb8c325ebe52ebf1ed"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/copy.cjs",
+      "bytes": 2970,
+      "sha256": "64166097efab5a655195cefd651deb3c79d1eb6615847cd30ed52ca3cf25647f"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/copy.json",
+      "bytes": 47045,
+      "sha256": "88b5e520605c2fcf20aa6eef79e52000e070bf1c2510c14b34841185fade67d0"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/families-prior-1790520476426.json",
+      "bytes": 8325,
+      "sha256": "ccfe3d282a0121d5b08431dec13cc9c920912570de6457723b6f33e95cec069e"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/families.cjs",
+      "bytes": 7603,
+      "sha256": "af21ee82a50ba9bd3bd66ab24e5ec598ccfaca6e1d46d46ae7754722f7dfd00a"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/families.json",
+      "bytes": 9153,
+      "sha256": "4a2ca1239701489b176d2773196d4d68308aba5e3211c926c2d5786a54c9fcfe"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/final-checks.cjs",
+      "bytes": 4399,
+      "sha256": "b328892ab256c8f74465f34f6889e1440c1faba769fb57d46746ad205d0da490"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/final-checks.json",
+      "bytes": 11787,
+      "sha256": "5a32f4812349627806c708824725028bee860ea49e221ceeb1560955142571cd"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/final-state-error.json",
+      "bytes": 12687,
+      "sha256": "32c7828831dd50ec54581e2146717b8f240afcc077b301a9b9bedcf060625981"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/final-state.cjs",
+      "bytes": 3839,
+      "sha256": "3d4f9fca3cad368882d6012c557d247188c03b466baad72fbd090fbe385667d2"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/final-state.json",
+      "bytes": 10253,
+      "sha256": "662174894e5ed4b69c84eea0ed66b4e0186b2489bc785bf6b74d3d4e7ca9bfb0"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/finish-fixtures.cjs",
+      "bytes": 1340,
+      "sha256": "2b9bb6a2d08167491a2e5e4c38682817f6989073e40fe9953ed10f761d867d17"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/finish-fixtures.json",
+      "bytes": 549,
+      "sha256": "cd09b4efd850a6de1585ee2ba61b0d9c980dc969bffee03bd28083fca51eb799"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/handover-boundary-after.json",
+      "bytes": 890,
+      "sha256": "66785edb7625a63f307b6373bbe067a5e9b3159bc8131286b409bab40ec8eadc"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/handover-boundary-before.json",
+      "bytes": 504,
+      "sha256": "a5c0f350ff4cbbec28ddee491def1b0918c4bd65da3632c181eea3656411e937"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/handover-boundary.cjs",
+      "bytes": 2565,
+      "sha256": "235989b45eebee93878f8135ca04abdb2a79f10e7776d51ecc3e4b838691f496"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/inventory.cjs",
+      "bytes": 998,
+      "sha256": "4279a01d88f7b85a4d92fe740475f3707762aa26a8fe5eeb4dd00f7fc04ff570"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/inventory.json",
+      "bytes": 37394,
+      "sha256": "ab1a9892e45cf17ab472c385745378e1a8bd8725e1b20965c149e544e90d4135"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/isolated-after.json",
+      "bytes": 95,
+      "sha256": "766651ecd9e6bf2523767d162d5a799a006bcae9db84ff2a6af19905e0fd936a"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/isolated-after.txt",
+      "bytes": 1300,
+      "sha256": "7b8b1e705dc75f83d5d19dd1516c20eaf646ff6d2e100ec682d95a292f87743c"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/isolated-before.json",
+      "bytes": 95,
+      "sha256": "009c29220f02f3adce2fb61f57bbcbe61e46443e59dba8f0af0f117a3d27b771"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/isolated-before.txt",
+      "bytes": 8560,
+      "sha256": "9a8477e60e68bedc4dd8bb262d7e40bd3dc1e06eb4f31a8333165db662019be9"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/live-before.cjs",
+      "bytes": 4850,
+      "sha256": "4dcafaf9efd5d948d9b129f45ee17162e3e31c2172a79bf182b84920fcdb9899"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/live-before.json",
+      "bytes": 4159,
+      "sha256": "cd44cb46ecd89a542110d9eb11f7b69bf37f30304207c5a104185c8b28ff363c"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/live.cjs",
+      "bytes": 1774,
+      "sha256": "e9df0968beec08c924220cd950a1673d5554ec06a51ee45808d8aa53c73fe922"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/manifest-redaction.json",
+      "bytes": 125,
+      "sha256": "6fa77774bf4a989dc2e8b4226738ea1823e2260f010cb6e9b9b67d05c1e46e77"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/orders-matrix.cjs",
+      "bytes": 9089,
+      "sha256": "97e1eaa5c8c117ccd0c7d6f5eb437c9a92a8714f6f1ed23493ee579a458b1133"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/orders-matrix.json",
+      "bytes": 33583,
+      "sha256": "d30bfb1c5712b030f813900373a1c3132407d48d0ee363e78492cb4b068e327f"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/own.cjs",
+      "bytes": 612,
+      "sha256": "f017dde5bb5b375f4578c6c740f6f065ff3b2d7cb70948f98b0091bca10b3b5d"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/plan.md",
+      "bytes": 2246,
+      "sha256": "376d24e5f261fcd149ad6fc733d489cfc53d4378978319f8863f3292cd62e2c9"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/product-and-test-diff.patch",
+      "bytes": 18753,
+      "sha256": "f4181783d6245ece227f5cf9dca36ca74b380a6242a18e7337ebc78477f3c591"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/reference-harness-recovery.cjs",
+      "bytes": 1127,
+      "sha256": "581b1d197fe809e838ffd70d40e9e1c331c960c6ec4df5fb33dd78db3e6ebf36"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/reference-harness-recovery.json",
+      "bytes": 365,
+      "sha256": "929b090e673561931b45bfa4c880ab43ed0a22b5b6aa58a600ad0d746291b47c"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/report.md",
+      "bytes": 7639,
+      "sha256": "cc010d6bdd91b6bebc66cfb61a30fcb3a7f3adfd03a28f31a49eadf2b3ece8f4"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/review-external-references.json",
+      "bytes": 21888,
+      "sha256": "a3a00d72054f3753f1198ce7faff2526cc5c6296f518fcf64a2d98ade645ac40"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/review-pack-manifest.json",
+      "bytes": 29040,
+      "sha256": "6eeaf31d6543d7bbafdeb5fad25ea851fd29567e206db0d736ba2ee34deda949"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/review-pack.ps1",
+      "bytes": 3801,
+      "sha256": "aa897d7a7c0590197418a7b1ad74cd229156381eb0d059ae076a298209b9d12f"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/review-package-checks.json",
+      "bytes": 402,
+      "sha256": "e8ebf0cdee524a4da06d9fb91b33cdd482c3bbb059157a4a8020fafb88deab63"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/review-preflight.cjs",
+      "bytes": 8396,
+      "sha256": "44e98dde24ddf001fb0764c4ed3f41f4f4445b0897c0621e1c9d7b962c96c57b"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/run-isolated.cjs",
+      "bytes": 624,
+      "sha256": "4e3ba0bc3e7027ce12ab4c270c5ed6f0c614f6230d5647663b57eafb07391dce"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/sanitize-manifest.cjs",
+      "bytes": 469,
+      "sha256": "f0c618870744a524d8bd7ebc5e4356748f051eb0506096d227560047c4b73056"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/source-binding-after.json",
+      "bytes": 387,
+      "sha256": "4b2399aad343114309adcb967e07ef0212dcfcc17323f49bc134d125971417da"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/source-binding-before.json",
+      "bytes": 371,
+      "sha256": "5d66db1f9d3a08c36de65b872404540c27f159967a504eba707a66f82cb395da"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/source-binding.cjs",
+      "bytes": 1300,
+      "sha256": "830e0b221ba3ec9abc2dac242e0f1f12156eb103e52a4c22f538ae5c29a9b657"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/source-checks.cjs",
+      "bytes": 4117,
+      "sha256": "2f28a909315a22309323327d5a5135f4f1c9608c9713a57b6c234890a2328370"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/source-checks.json",
+      "bytes": 6534,
+      "sha256": "40e9694bc7f2c1d750ee3716e58578f465af5ff6f8b7f2b078f8022a8ee4fd4d"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/ui-after-department-change-390.png",
+      "bytes": 199567,
+      "sha256": "1668fb61a92e00676f5a124fcf3d22add45856775cd3016cbf9ddd254633733c"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/ui-order-file-390.png",
+      "bytes": 86465,
+      "sha256": "7c0d1cdcecdbf86eab7c4726db3304e60c0bd4d68eefc3b616d4e5ae3ad8040f"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/ui-prior-1790520722130.json",
+      "bytes": 1700,
+      "sha256": "973024e1c2c35c9ae48c3e119fe8335a14d083f16bfd18b221bbf7618161327a"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/ui-prior-1790521089602.json",
+      "bytes": 967,
+      "sha256": "6ee9468c3a907470a2e54c2ff190d979d2510a3f4ca07a8b89ef5953ff3f14d5"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/ui-stock-1440.png",
+      "bytes": 96593,
+      "sha256": "5998e80087e826393181d40f2a998fa044fc73abcfe203a243aec439e865c816"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/ui-stock-390.png",
+      "bytes": 47050,
+      "sha256": "6f48c3c22f34aebe461a68ed93f4a493571bc6a8ddb252bf165c245f689ef3c1"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/ui.cjs",
+      "bytes": 8131,
+      "sha256": "fed775fba7e2356da0e7ffe8574e098147f9949c353bad88f57582b6e3426551"
+    },
+    {
+      "path": "docs/vps-preparation/att-auth-01/ui.json",
+      "bytes": 967,
+      "sha256": "2631d1cf21ceacdd21a472c2f8979994a1b4df5c62a47cba7a3f266889ec3616"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/archive-files.json",
+      "bytes": 6109,
+      "sha256": "1b9d0793db85a7b99563f1a2226f09ee078d1cd24add1d522d60f91712ae895e"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/harness.cjs",
+      "bytes": 2865,
+      "sha256": "2295a6a95abbf0068230bfba20ab8fe5f3a974310eb8667b38323385671af042"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/own-runtime.cjs",
+      "bytes": 2160,
+      "sha256": "28890eef491fa20e022966bb41171742bcc7b59eede792e608ed89ff827f55e1"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/pair.cjs",
+      "bytes": 6193,
+      "sha256": "abf35f52805b0bea4102a3e0592a6d257968d3a1ab3fa70e1138999406612660"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260927-143520-037.json",
+      "bytes": 1107,
+      "sha256": "d94ab32507a9ad85b867be7459d2c591e89baa07e40a9f1222be691485bdca1b"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260927-143617-749.json",
+      "bytes": 1112,
+      "sha256": "44ec329107025cafd6a4ded4c049de42dece14273f8c222fac85bfde7773e8d6"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260927-144127-771.json",
+      "bytes": 1525,
+      "sha256": "3481aee93f01f9a9275e0fee709cb25c57819a761f7cef26579c552d928151b2"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260927-145423-196.json",
+      "bytes": 1525,
+      "sha256": "eaf6525af92bfede8d077420e1bceab2ebf29713f594479923876db2d2a1e1c4"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260927-145754-816.json",
+      "bytes": 1525,
+      "sha256": "0e4d961c93018fc84436d7dcda3bb6e45283023b31f9c831fa51e420aeb2a46d"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/runtime-20260927-150113-020.json",
+      "bytes": 1518,
+      "sha256": "b72aabbe30a21c61a5512b538fd02ca2ba502cccaa8a4e2387ef3577e4908091"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/stand.ps1",
+      "bytes": 6709,
+      "sha256": "35d575e8c68fd98d5c8c15a53b7ecef3a95e98d1131b4acdcde91e95dbcec685"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/structure.json",
+      "bytes": 18635,
+      "sha256": "5b3f1031c126b7a590be461959f190f85d226f81cc2059e859f9b3e231177de7"
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/users.json",
+      "bytes": 25747,
+      "sha256": "443405c5b79cf66785c38d46b10f71a606247dc24f1a0e41cf1a55bcae060145"
+    },
+    {
+      "path": "docs/vps-preparation/handoff.md",
+      "bytes": 68535,
+      "sha256": "29bb1ec75f324de8802c1d4e5e84d7b778d4a31bc17454f42d06c9d274d43b55"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/plan.md",
+      "bytes": 54503,
+      "sha256": "7d6cce8976a52cdc8079bbdc4ca94ec989f3e8e3d5d20af17b1379f49823be70"
+    },
+    {
+      "path": "docs/vps-preparation/local-02/files.cjs",
+      "bytes": 2415,
+      "sha256": "acf4dd2dc75d9243fe85c8628597a3bd608d8d59a718a1886ec307cfeb1d088c"
+    },
+    {
+      "path": "docs/vps-preparation/local-02/harness.cjs",
+      "bytes": 3470,
+      "sha256": "b32f0c20f10d6cb0e2555b47ddab45ef0428537ca8293e64511e01552e679ae5"
+    },
+    {
+      "path": "docs/vps-preparation/local-02/own-db.cjs",
+      "bytes": 1422,
+      "sha256": "c94b9a6576332e5c9d9c2956a41e8e17cb9e49a4a5dcd735efa56348923b765f"
+    },
+    {
+      "path": "docs/vps-preparation/notify-02/remaining-gaps.md",
+      "bytes": 6666,
+      "sha256": "ac0cf02d2f0e5816faee120ff0f4d0adb021fc90bdfaab34f1db9e6dd6143299"
+    },
+    {
+      "path": "docs/vps-preparation/notify-02/source-checks.json",
+      "bytes": 9381,
+      "sha256": "5c03ec0723b42d1d339a949965c84a1ae305f09da0e4882bfd876e18f5456f29"
+    },
+    {
+      "path": "frontend/package.json",
+      "bytes": 11486,
+      "sha256": "25cd2438cf96e2609e44a507db29d2de9707f0b4512b1e336d5acec0869ca117"
+    },
+    {
+      "path": "frontend/scripts/master-ws-contract.test.cjs",
+      "bytes": 5135,
+      "sha256": "a7a0264cdd96b4ca147abf15f5540ed5392b6004d7cc847f2c381b1bfc7ac967"
+    },
+    {
+      "path": "frontend/scripts/task-notify-navigation.test.cjs",
+      "bytes": 3438,
+      "sha256": "8a6223171fa0165932c67c7796d493f9367b1da2936d2546adfdd23593aab9ed"
+    },
+    {
+      "path": "frontend/src/api/attachment-preview-resource.ts",
+      "bytes": 4623,
+      "sha256": "145ffe9aac2de3901ddf95f785c12e3c369bc6902c89622825819fdb9614cfb8"
+    },
+    {
+      "path": "frontend/src/components/AttachmentPreviewList.tsx",
+      "bytes": 20688,
+      "sha256": "d21d37652b3c190724a0ab7f4034fde34784d9711b09d0775941f559b7cfa93a"
+    },
+    {
+      "path": "package.json",
+      "bytes": 5624,
+      "sha256": "a199ad4d4f4a6bb03c398fdb09da288c489c5ce460c5f83b65d016213a30b5d6"
+    }
+  ]
+}

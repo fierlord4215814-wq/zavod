@@ -1,0 +1,36 @@
+{
+  "kind": "real shift HTTP -> operational event -> browser Back before People profile debounce",
+  "before": null,
+  "trace": {
+    "events": [
+      {
+        "type": "popstate",
+        "at": 3055.3000000000466
+      }
+    ],
+    "requests": [
+      {
+        "url": "/api/people",
+        "at": 3190.600000000093
+      },
+      {
+        "url": "/api/lines",
+        "at": 3214.1999999999534
+      }
+    ],
+    "profileId": "dcfb2ff4-f5a0-4f1b-a614-85bae72a446f",
+    "eventAt": 3049.600000000093,
+    "detail": {
+      "reason": "shift"
+    },
+    "closedAt": 3055.3000000000466
+  },
+  "closeDeltaMs": 5.699999999953434,
+  "lateProfileRequests": [],
+  "sessionId": "87bdf9ea-6125-4780-91bd-aa47b528d739",
+  "sql": {
+    "status": "ENDED",
+    "endedAt": "2026-09-25T05:31:28.567Z"
+  },
+  "status": "PASS_PENDING_PROFILE_REFRESH_BACK"
+}

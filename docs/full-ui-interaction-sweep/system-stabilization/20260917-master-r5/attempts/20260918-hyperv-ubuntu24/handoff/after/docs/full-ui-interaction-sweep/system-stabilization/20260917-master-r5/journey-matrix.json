@@ -1,0 +1,296 @@
+{
+  "currentContinuation": {"checkpoint": "2026-09-19", "environment": "HYPERV_COMPONENTS_ENABLED_AWAITING_MANUAL_REBOOT", "newRealJourneys": 0, "inheritedProofIsNotR5LiveExecution": true},
+  "count": 32,
+  "edgeDenominator": 1407,
+  "newRealJourneys": 0,
+  "journeys": [
+    {
+      "id": "J01",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Реальные logout/login другого user; задержанные read/count/auth не возвращают старую identity/route. Actual UserContext: blocked/deleted/password-reset/UFA/factory denial",
+      "retainedLimit": "Настоящие auth tokens/middleware/БД не проверялись",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J02",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual effective permission overrides + 387 controller metadata/302 permission-bearing routes; revoke убирает queued/pending task; Admin→Directory deactivate/restore",
+      "retainedLimit": "Не все Admin grant/config mutations доведены через настоящий HTTP во все readers",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J03",
+      "retainedScope": "PARTIAL_ISOLATED",
+      "retainedProof": "Actual Shift timeline на московской полуночи; плановый DTO не мутирует исходник; past edit/guest/inactive denial; future-night UI return",
+      "retainedLimit": "markWillBe→materialized factual/history boundary не запускался; Scheduler запрещён; атомарная материализация требует отдельного разрешённого стенда",
+      "r4Residual": "R4 authorizes one controlled real maintenance call only after C1–C4; NOT_RUN (old blanket prohibition is historical).",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J04",
+      "retainedScope": "PARTIAL_ISOLATED",
+      "retainedProof": "People filter/profile и MASTER future-night panel/date/search → тот же Task → Back; parent DTO перечитан",
+      "retainedLimit": "Все manager/current/planning/work-area nested scroll комбинации и skill-credit rows не прошли отдельные UI journeys",
+      "r4Residual": "Original1286→1213 remains UNKNOWN despite retained isolated PASS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J05",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual Line WORK→PAUSE сохраняет Assignment/ASSIGNED; stale version/foreign deny; STOP закрывает факт, future owner не вызывается, WORK не пересоздаёт факт. Actual Ops clipping 150 минут/границы",
+      "retainedLimit": "Тест positionId=null; skill-credit unique constraint, contested STOP/assignment transaction и полный timeline reader — live/отдельный контракт",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J06",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Один memory Task create/take/done→actual Notifications/board/detail/archive/Ops; duplicate/error/retry и IDs совпадают",
+      "retainedLimit": "MI-SEC-01: take replay возвращает прежнюю factory; negative FAIL не скрыт. Redirect ветвь scoped по source, не полный stateful replay corpus",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J07",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Реальные People/Shift/Lines/timeline writers; guarded detail вне board300; media Back; pending Back, reversed targets, one-shot reload и dirty Stay/confirm",
+      "retainedLimit": "Полный nonzero scroll всех разновидностей parent — J04 partial; live task detail может писать read receipt",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J08",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Internal/browser callback/SW/cold adapter; read-before-source; 401/403/503/retry/dedupe/foreign; current unread/feed/count",
+      "retainedLimit": "Нет серверного exactly-once или доказанной cold native push доставки",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J09",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Factory/logout/new-user/permission changes; reverse read-authority; actual WS old callback/ABA denied; pending Task не открывается поздно",
+      "retainedLimit": "Реальная транспортная доставка и server room membership не проверены",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J10",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual WashRequest NEW→take IN_PROGRESS без session→start session/assignments→comment→complete request DONE, worker AVAILABLE, history сохранена; same op retry",
+      "retainedLimit": "В этой chain settings без обязательного OKK/open issues; эти ветви source/guard reviewed, не новые executed unit guarantees;014 и replay scope отдельно",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J11",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual Defrost WORK/active-wash/start duplicate/comment/foreign/guest/permission deny; start→calendar/detail→end/history/line invalidation, повтор",
+      "retainedLimit": "End не запускает WORK; реальные locking/notification delivery и guarded aggregate/export parity live pending",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J12",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual typed template normalization + periodic pause (WORK deny)→resume→manual early close; occurrence/history IDs сохранены; missing reason/foreign/repeat",
+      "retainedLimit": "Полный start/template/occurrence generation/shift-end auto-close не выполнялся как сквозная service-chain; hooks/maintenance не запускались",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J13",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "10 backend row types/required values/0/ranges/select/photo scope; реальный UI numeric0/text/503/offline→retry/reopen; без unhandled rejection",
+      "retainedLimit": "Камера и сохранённые binary файлы реальные не использовались",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J14",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Immutable snapshot encode/parse отдельно от ordinary comment; реальный ShiftLog ordinary receipt1 vs archive receipt0 + readonly/mediaBack; actual0367groups",
+      "retainedLimit": "Не выполнен live handover submit предыдущей смены и19 HTTP binding proofs; parentP1 не закрыт",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J15",
+      "retainedScope": "PARTIAL_ISOLATED",
+      "retainedProof": "Actual OKK/QuantityRelease partial3/10→remaining7→history/replay→finalarchive; foreign/guest/permission/quantity denial",
+      "retainedLimit": "Нет полного OKK defect→Task→Ops publication live chain; отдельные readers source-only",
+      "r4Residual": "Automatic OKK→Task CONTRACT_ABSENT; existing quantity3+7 path only.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J16",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual StockDefect create/duplicate→issue/comment→archive; foreign/invalid denial; та же quantity/history",
+      "retainedLimit": "Не MinimumStock; realDB/statistics aggregation дополнительно",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J17",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual Return partial/final/history/archive, decimal/fraction boundary, STORE publication без action, same ID/retry",
+      "retainedLimit": "Реальные права/остаток/конкуренция выдач не подтверждены memory transaction",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J18",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual TAKE/RESTOCK→same balance/threshold/history; overtake/comment/foreign/replay deny; STORE restock != request/manage",
+      "retainedLimit": "Полный OrderRequest lifecycle и реальное concurrent decrement не подтверждены",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J19",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Обычная audience create/current/ack/report/archive chain проходит; чужой department/factory deny",
+      "retainedLimit": "MI-PUB-01: наличие archive.read ломает ack видимого active announcement; отдельный отрицательный тест FAIL",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J20",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual Chat group/member/oneOWNER transfer; send/retry/reply/edit/delete/reaction/poll/unread; чужой edit/member/option deny; attachment DTO и soft delete",
+      "retainedLimit": "Voice physical/file delete guard и concurrent membership delivery не исполнены; synthetic preview не доказывает запись голоса",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J21",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual mounted attachment leases: sameid1GET, independent ids/context, last-releaseURL,403404timeout/retry, unmount/Back,4modes и image/audio/video/doc",
+      "retainedLimit": "Строгие backend attachment guards036 offline; реальное хранилище/codec/device/permission revocation live pending",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J22",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Все11 существующих Archive категорий: list/detail403/reopen/Back/search; Tasks/Orders CSV query scope. Actual downtime totals/details/department predicate",
+      "retainedLimit": "Не все категории live aggregate/export parity; CSV downloaded memory DTO, не реальный экспорт",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J23",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Populated Ops filter→точные APIparams; отдельные summary/timeline scopes;503 не zeroPASS/re-entry; actual [from,to) clipping и Task projection",
+      "retainedLimit": "Не финансовая/полная persisted агрегация всех модулей; формулы не менялись",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J24",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual audit secret sanitizer; UI actor/action/object labels и before→after, detail Back, без raw primary ID",
+      "retainedLimit": "Audit source navigation отсутствует в текущем detail (только parent Back), не добавлен; live audit completeness pending",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J25",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual Admin department/line/jobTitle create→same Directory/options IDs; duplicate/foreign/admin deny; deactivate/restore сохраняетID",
+      "retainedLimit": "Factory bootstrap/full config import и template/field mutations всех consumers не исполнялись; backend schema/business meaning не менялся",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J26",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Shared modal/picker/preview priority, repeated Back, Stay/discard, nav blocking hit-test; desktop/mobile low heights and768/769",
+      "retainedLimit": "Нет физического Android system Back и всехlegacy957controls повторно",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J27",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Один App draft/theme→resize/reload предусмотренного scope; Dark/Gray/Light newSettings/Login/task form4widths; unchanged theme owner",
+      "retainedLimit": "Не повторный полный theme sweep; TC14/THV03 selectors сохранены, Ops sample current CSS",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J28",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Shared install2entries, available/cancel/error/accepted/appinstalled; cold standalone/reload; update banner Stay сохраняет draft",
+      "retainedLimit": "Только fake install events/standalone flag navigator; physical install не принят; localStorage install success не используется",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J29",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Реальный Report validation→503create retry→same report upload503 retry withsameoperation→result; файл/черновик сохранены",
+      "retainedLimit": "Ни один report или attachment реально не отправлен",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J30",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Actual WS bounded reconnect/online/coalescing, oldsocket/ABA/revoke denied, guarded timers; Task503/409retry и ChecklistofflineRetry",
+      "retainedLimit": "Server room/auth_context delivery, browser network outage/push ordering live pending; не нагрузочный тест",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J31",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Один actual Task→notification/read/feed/archive/Ops entity; duplicate does not create another task/notice. Wash/Line/Defrost события sameidentity отмечены",
+      "retainedLimit": "Не blanket exactly-once fanout: Defrost replay может повторить adapter calls; real delivery отдельно",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    },
+    {
+      "id": "J32",
+      "retainedScope": "BOUNDED_ISOLATED",
+      "retainedProof": "Один App: People→Task→media→Back→notification→factory→dirtyTaskStay/discard→Reporttheme→reload",
+      "retainedLimit": "Не сумма fresh-App unittests; настоящий backend всё равно отсутствовал",
+      "r4Residual": "Original finite proof limits retained; no actual HTTP auth/SQL/files/real WS.",
+      "r5": "NOT_RUN_ENVIRONMENT_GATE",
+      "source": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/integrated-journeys-matrix.json"
+    }
+  ]
+}

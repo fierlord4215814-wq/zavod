@@ -1,0 +1,45 @@
+✔ OKK attachment uses the existing opaque factory/capability-scoped event (1.9823ms)
+✔ stock invalidation is opaque and current factory/capability scoped (0.3345ms)
+✔ stock create commit emits once, processed retry emits nothing, rollback emits nothing (2.4076ms)
+✔ returns invalidation is opaque and current factory/capability scoped (0.2085ms)
+✔ returns create commit emits once, processed retry emits nothing, rollback emits nothing (0.971ms)
+✔ R2-A quality OKK actual create resolver visible-archived (2.1718ms)
+✔ R2-A quality OKK actual create resolver not-processed (0.3379ms)
+✔ R2-A quality OKK actual create resolver null-result (1.2374ms)
+✔ R2-A quality OKK actual create resolver missing-entity (0.358ms)
+✔ R2-A quality OKK actual create resolver foreign (0.2053ms)
+✔ R2-A quality OKK actual create resolver other-author (0.3947ms)
+✔ R2-A quality OKK actual create resolver deleted (0.5271ms)
+✔ R2-A quality Returns actual create resolver visible-archived (0.4413ms)
+✔ R2-A quality Returns actual create resolver not-processed (0.2679ms)
+✔ R2-A quality Returns actual create resolver null-result (0.5123ms)
+✔ R2-A quality Returns actual create resolver missing-entity (0.2744ms)
+✔ R2-A quality Returns actual create resolver foreign (0.2308ms)
+✔ R2-A quality Returns actual create resolver other-author (0.1332ms)
+✔ R2-A quality Returns actual create resolver deleted (0.1364ms)
+✔ R2-A quality Stock actual create resolver visible-archived (0.2545ms)
+✔ R2-A quality Stock actual create resolver not-processed (0.0749ms)
+✔ R2-A quality Stock actual create resolver null-result (0.086ms)
+✔ R2-A quality Stock actual create resolver missing-entity (0.0849ms)
+✔ R2-A quality Stock actual create resolver foreign (0.1293ms)
+✔ R2-A quality Stock actual create resolver other-author (0.1818ms)
+✔ R2-A quality Stock actual create resolver deleted (0.1154ms)
+✔ R2-A quality Report actual create resolver visible-archived (0.2516ms)
+✔ R2-A quality Report actual create resolver not-processed (0.0652ms)
+✔ R2-A quality Report actual create resolver null-result (0.2504ms)
+✔ R2-A quality Report actual create resolver missing-entity (0.2159ms)
+✔ R2-A quality Report actual create resolver foreign (0.2399ms)
+✔ R2-A quality Report actual create resolver other-author (0.3317ms)
+✔ R3-E-J15 OKK immutable release retry denies changed quantity (13.2414ms)
+✔ R3-E-J15 OKK immutable release retry denies changed comment (1.4361ms)
+✔ R3-E-J15 RETURN immutable release retry denies changed quantity (1.3589ms)
+✔ R3-E-J15 RETURN immutable release retry denies changed comment (1.5561ms)
+✔ R3-E-J15 actual OKK create partial3 remaining7 final replay same history archive Audit Ops IDs (12.1244ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 686.5373

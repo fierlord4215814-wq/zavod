@@ -1,0 +1,41 @@
+{
+  "startedAt": "2026-09-15T20:55:00.506Z",
+  "expected": [
+    {
+      "title": "R3-E Chat actual message attachment preview membership revoke denies new bytes and releases client resource",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 34,
+      "id": "c8f74121b8e6"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-E Chat actual message attachment preview membership revoke denies new bytes and releases client resource",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 34,
+      "id": "c8f74121b8e6",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2763,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"GET /directory/departments\",\u001b[39m\n\u001b[31m+   \"GET /directory/users\",\u001b[39m\n\u001b[31m+ ]\u001b[39m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-chat-05\\runner-artifacts\\master-r3-bridge-R3-E-Chat-3be99-nd-releases-client-resource\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-chat-05\\runner-artifacts\\master-r3-bridge-R3-E-Chat-3be99-nd-releases-client-resource\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T20:55:04.851Z",
+  "status": "failed",
+  "listOnly": false
+}

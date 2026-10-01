@@ -1,0 +1,25 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-related-replay.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-related-replay.test.js"
+index e67f2fbf..08a6f7a2 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-related-replay.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-related-replay.test.js"
+@@ -62,6 +62,20 @@ function shiftFixture() {
+   m.data.contractorShiftSubmissionItem = m.model('contractorShiftSubmissionItem', items, { includes: ['submission', 'contractorUser'], enrich: row => ({ ...row, submission: submissions.find(entry => entry.id === row.submissionId), contractorUser: users.find(entry => entry.id === row.contractorUserId) }) });
+   return { ...m, service, lead, users, accesses, company, submission, item, submissions, items };
+ }
++for(const boundary of ['08:00','20:00','00:00'])for(const action of ['submission','actual-status','current-arrival'])test(`R3-C3 contractor ${action} saved-result across ${boundary} retains existing time policy`,async()=>{
++  const oldMode=process.env.NODE_ENV,oldNow=process.env.ZAVOD_INTERNAL_TEST_NOW;
++  const before=boundary==='08:00'?'2026-09-15T07:59:59+03:00':boundary==='20:00'?'2026-09-15T19:59:59+03:00':'2026-09-15T23:59:59+03:00';
++  const after=boundary==='08:00'?'2026-09-15T08:00:01+03:00':boundary==='20:00'?'2026-09-15T20:00:01+03:00':'2026-09-16T00:00:01+03:00';
++  process.env.NODE_ENV='test';process.env.ZAVOD_INTERNAL_TEST_NOW=before;
++  try{
++    const f=shiftFixture(),resultKey=action==='submission'?f.submission.id:f.item.id;
++    f.operations.push({userId:f.lead.userId,operationId:'r3-contractor-boundary',resultKey});
++    const call=()=>action==='submission'?f.service.createContractorSubmission(f.lead,{contractorUserIds:['related-contractor'],targetShiftDate:f.submission.targetShiftDate.toISOString(),shiftType:f.submission.shiftType,operationId:'r3-contractor-boundary'}):action==='actual-status'?f.service.updateContractorActualStatus(f.lead,f.submission.id,f.item.id,{actualStatus:'ARRIVED',operationId:'r3-contractor-boundary'}):f.service.addContractorCurrentArrival(f.lead,{contractorUserId:'related-contractor',operationId:'r3-contractor-boundary'});
++    assert.equal((await call()).id,resultKey);process.env.ZAVOD_INTERNAL_TEST_NOW=after;
++    if(action==='actual-status'&&boundary!=='00:00')await assert.rejects(call(),denied);else assert.equal((await call()).id,resultKey);
++    assert.equal(f.writes.length,0);assert.equal(f.events.length,0);assert.equal(f.audits.length,0);
++  }finally{if(oldMode===undefined)delete process.env.NODE_ENV;else process.env.NODE_ENV=oldMode;if(oldNow===undefined)delete process.env.ZAVOD_INTERNAL_TEST_NOW;else process.env.ZAVOD_INTERNAL_TEST_NOW=oldNow;}
++});
+ for (const action of ['submission', 'actual-status', 'current-arrival']) for (const scenario of ['positive', 'foreign-result', 'different-company', 'different-worker-or-submission', 'missing-result']) test(`R2-A related Contractor ${action} replay ${scenario}`, async () => {
+   const f = shiftFixture(), foreign = scenario !== 'positive' && scenario !== 'missing-result';
+   let resultKey = action === 'submission' ? f.submission.id : f.item.id;

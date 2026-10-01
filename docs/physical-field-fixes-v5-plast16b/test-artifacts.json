@@ -1,0 +1,243 @@
+{
+  "plast": "16B",
+  "startedAt": "2026-08-27T14:52:00.713Z",
+  "status": "PASS",
+  "timezone": {
+    "before": {
+      "moscow": "DAY/2026-08-13",
+      "losAngeles": "DAY/2026-08-13"
+    }
+  },
+  "boundary20": {
+    "result": {
+      "runs": [
+        {
+          "autoClosed": {
+            "scanned": 0,
+            "closed": 0
+          },
+          "boundary": {
+            "shiftDate": "2026-08-13",
+            "shiftType": "NIGHT",
+            "factories": [
+              {
+                "assignmentsClosed": 0,
+                "sessionsClosed": 0,
+                "planned": 2,
+                "activated": 2,
+                "alreadyHandled": 0,
+                "skipped": 0,
+                "linePlanned": {
+                  "planned": 1,
+                  "activated": 1,
+                  "alreadyHandled": 0,
+                  "skipped": 0
+                },
+                "workAreaPlanned": {
+                  "planned": 1,
+                  "activated": 1,
+                  "alreadyHandled": 0,
+                  "skipped": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "autoClosed": {
+            "scanned": 2,
+            "closed": 2
+          },
+          "boundary": {
+            "shiftDate": "2026-08-13",
+            "shiftType": "NIGHT",
+            "factories": [
+              {
+                "assignmentsClosed": 0,
+                "sessionsClosed": 0,
+                "planned": 2,
+                "activated": 2,
+                "alreadyHandled": 0,
+                "skipped": 0,
+                "linePlanned": {
+                  "planned": 1,
+                  "activated": 1,
+                  "alreadyHandled": 0,
+                  "skipped": 0
+                },
+                "workAreaPlanned": {
+                  "planned": 1,
+                  "activated": 1,
+                  "alreadyHandled": 0,
+                  "skipped": 0
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "checklists": {
+        "scanned": 1,
+        "autoClosed": 0,
+        "reminders": 0
+      }
+    },
+    "currentLinePeople": 1,
+    "plannedWorkerOnly": true,
+    "timeWorkerActivated": true,
+    "unplannedWorkerAbsent": true,
+    "nextFuture": "DAY/2026-08-14",
+    "continuation": {
+      "visibleThrough": "20:29:59",
+      "hiddenAt": "20:30:00"
+    }
+  },
+  "checklist": {
+    "separateRuns": true,
+    "runCount": 2,
+    "dayAutoClose": "21:00:00",
+    "nightAutoClose": "09:00:00"
+  },
+  "boundary08": {
+    "result": {
+      "runs": [
+        {
+          "autoClosed": {
+            "scanned": 0,
+            "closed": 0
+          },
+          "boundary": {
+            "shiftDate": "2026-08-14",
+            "shiftType": "DAY",
+            "factories": [
+              {
+                "assignmentsClosed": 1,
+                "sessionsClosed": 0,
+                "planned": 0,
+                "activated": 0,
+                "alreadyHandled": 0,
+                "skipped": 0,
+                "linePlanned": {
+                  "planned": 0,
+                  "activated": 0,
+                  "alreadyHandled": 0,
+                  "skipped": 0
+                },
+                "workAreaPlanned": {
+                  "planned": 0,
+                  "activated": 0,
+                  "alreadyHandled": 0,
+                  "skipped": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "autoClosed": {
+            "scanned": 2,
+            "closed": 2
+          },
+          "boundary": {
+            "shiftDate": "2026-08-14",
+            "shiftType": "DAY",
+            "factories": [
+              {
+                "assignmentsClosed": 1,
+                "sessionsClosed": 0,
+                "planned": 0,
+                "activated": 0,
+                "alreadyHandled": 0,
+                "skipped": 0,
+                "linePlanned": {
+                  "planned": 0,
+                  "activated": 0,
+                  "alreadyHandled": 0,
+                  "skipped": 0
+                },
+                "workAreaPlanned": {
+                  "planned": 0,
+                  "activated": 0,
+                  "alreadyHandled": 0,
+                  "skipped": 0
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "checklists": {
+        "scanned": 1,
+        "autoClosed": 0,
+        "reminders": 0
+      }
+    },
+    "people": 0,
+    "sameDowntime": true,
+    "sameTask": true,
+    "sameWash": true,
+    "oldWashPersonClosed": true
+  },
+  "clients": {
+    "oneFingerScroll": {
+      "x": 195,
+      "y": 633,
+      "maxScroll": 980,
+      "before": 0,
+      "after": 195
+    },
+    "moscowTimezone": true,
+    "losAngelesTimezone": true,
+    "offlineReconnectWithoutReload": true,
+    "refresh": true,
+    "relogin": true,
+    "secondSession": true,
+    "websocketConnected": true,
+    "convergenceMechanism": "WebSocket invalidation proof in backend regression plus bounded polling/online refresh in browser route"
+  },
+  "multiDay": {
+    "at": "2026-08-16T20:31:00+03:00",
+    "lineStatus": "WORK",
+    "people": 0,
+    "required": 2,
+    "stalePlans": 0,
+    "staleChecklists": 0,
+    "continuation": false
+  },
+  "cleanup": {
+    "inventory": {
+      "ACTIVE_P16B_LINES": 0,
+      "ACTIVE_P16B_POSITIONS": 0,
+      "ACTIVE_P16B_STAFFING_TEMPLATES": 0,
+      "ACTIVE_P16B_CURRENT_ASSIGNMENTS": 0,
+      "ACTIVE_P16B_WASH_ASSIGNMENTS": 0,
+      "ACTIVE_P16B_PLANNED_LINE_ASSIGNMENTS": 0,
+      "ACTIVE_P16B_PLANNED_SHIFT_ASSIGNMENTS": 0,
+      "ACTIVE_P16B_FUTURE_PLANS": 0,
+      "ACTIVE_P16B_CHECKLIST_TEMPLATES": 0,
+      "ACTIVE_P16B_CHECKLIST_RUNS": 0,
+      "ACTIVE_P16B_CHECKLIST_OCCURRENCES": 0,
+      "ACTIVE_P16B_TASKS": 0,
+      "ACTIVE_P16B_DOWNTIMES": 0,
+      "ACTIVE_P16B_WASHES": 0,
+      "ACTIVE_P16B_ACCESSES": 0,
+      "ACTIVE_P16B_FACTORIES": 0,
+      "ACTIVE_P16B_USERS": 0,
+      "ACTIVE_P16B_TEST_ARTIFACTS": 0
+    },
+    "factory4Unchanged": true
+  },
+  "screenshots": [
+    "01-day-current-future-night-plan-390.png",
+    "02-night-planned-people-390.png",
+    "03-continuation-indicator-390.png",
+    "04-downtime-task-after-0800-handover-390.png",
+    "05-wash-across-boundary-390.png",
+    "06-post-cleanup-active-shift-430.png"
+  ],
+  "factory4HashBefore": "89d02c3a93198d602de081731480ccbdeb52f54638ad901100d60913f205183c",
+  "factory4HashAfter": "89d02c3a93198d602de081731480ccbdeb52f54638ad901100d60913f205183c",
+  "physicalDeletes": 0,
+  "migration": "NOT_REQUIRED",
+  "finishedAt": "2026-08-27T14:52:45.822Z"
+}

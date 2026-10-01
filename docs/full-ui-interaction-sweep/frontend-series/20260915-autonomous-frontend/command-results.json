@@ -1,0 +1,700 @@
+[
+  {
+    "run": "A-after-01",
+    "tests": [
+      {
+        "test": "Series A navigation geometry and history end controls",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "A-before-01",
+    "tests": [
+      {
+        "test": "Series A navigation geometry and history end controls",
+        "status": "failed",
+        "error": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.bottom-nav button, .mobile-quick-nav button').filter({ hasText: 'История смен' }).filter({ visible: true }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" class=\"nav-button \">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"mobile-sheet-backdrop\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"mobile-sheet-backdrop\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div class=\"mobile-sheet-backdrop\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      }
+    ],
+    "unknown": [
+      "GET /auth/assignment-request",
+      "GET /shift/people?includeAll=false",
+      "GET /work-areas",
+      "GET /shift/timeline",
+      "GET /lines/downtime-reasons",
+      "GET /health",
+      "GET /shift/people?includeAll=false",
+      "GET /work-areas",
+      "GET /shift/timeline",
+      "GET /lines/downtime-reasons",
+      "GET /health",
+      "GET /shift/people?includeAll=false",
+      "GET /work-areas",
+      "GET /shift/timeline",
+      "GET /lines/downtime-reasons",
+      "GET /health",
+      "GET /shift/people?includeAll=false",
+      "GET /work-areas",
+      "GET /shift/timeline",
+      "GET /lines/downtime-reasons",
+      "GET /health",
+      "GET /shift/people?includeAll=false",
+      "GET /work-areas",
+      "GET /shift/timeline",
+      "GET /lines/downtime-reasons",
+      "GET /health",
+      "GET /shift/people?includeAll=false",
+      "GET /work-areas",
+      "GET /shift/timeline",
+      "GET /lines/downtime-reasons",
+      "GET /health"
+    ],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "A-before-02",
+    "tests": [
+      {
+        "test": "Series A navigation geometry and history end controls",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "A-restricted-01",
+    "tests": [
+      {
+        "test": "Series A restricted navigation short page and long settings sheet",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "B-after-01",
+    "tests": [
+      {
+        "test": "Series B real linked sources exact target and parent Back",
+        "status": "failed",
+        "error": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.person-card').filter({ hasText: 'Сервисов' }).getByRole('button', { name: /Сервисов/ }).first()\u001b[22m\n"
+      }
+    ],
+    "unknown": [],
+    "errors": [
+      "Cannot read properties of undefined (reading 'tag')"
+    ],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "B-after-02",
+    "tests": [
+      {
+        "test": "Series B real linked sources exact target and parent Back",
+        "status": "failed",
+        "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Посмотреть заявку/ }).first()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Посмотреть заявку/ }).first()\u001b[22m\n"
+      }
+    ],
+    "unknown": [],
+    "errors": [
+      "Cannot read properties of undefined (reading 'tag')"
+    ],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "B-after-03",
+    "tests": [
+      {
+        "test": "Series B real linked sources exact target and parent Back",
+        "status": "failed",
+        "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Открыть заявку/ }).first()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Открыть заявку/ }).first()\u001b[22m\n"
+      }
+    ],
+    "unknown": [],
+    "errors": [
+      "Cannot read properties of undefined (reading 'tag')"
+    ],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "B-after-04",
+    "tests": [
+      {
+        "test": "Series B real linked sources exact target and parent Back",
+        "status": "failed",
+        "error": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.line-card').getByRole('button', { name: 'Линия фасовки', exact: true }).first()\u001b[22m\n"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "B-after-05",
+    "tests": [
+      {
+        "test": "Series B real linked sources exact target and parent Back",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "B-before-01",
+    "tests": [
+      {
+        "test": "Series B real linked sources exact target and parent Back",
+        "status": "failed",
+        "error": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.people-list button, .people-row').filter({ hasText: 'Сервисов' }).first()\u001b[22m\n"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "B-before-02",
+    "tests": [
+      {
+        "test": "Series B real linked sources exact target and parent Back",
+        "status": "failed",
+        "error": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.person-card').filter({ hasText: 'Сервисов' }).getByRole('button', { name: /Сервисов/ }).first()\u001b[22m\n"
+      }
+    ],
+    "unknown": [
+      "GET /shift-log/handover/previous",
+      "GET /shift-log/handover/availability"
+    ],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "B-negative-01",
+    "tests": [
+      {
+        "test": "Series B delayed board missing target and one-shot reload",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "C-after-01",
+    "tests": [
+      {
+        "test": "Series C internal notification read count and Back",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      }
+    ],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "C-before-01",
+    "tests": [
+      {
+        "test": "Series C internal notification read count and Back",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "C-contracts-01",
+    "tests": [
+      {
+        "test": "Series C error retry duplicate adapters and foreign denial",
+        "status": "failed",
+        "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.error-state')\nExpected substring: \u001b[32m\"Не удалось отметить\"\u001b[39m\nReceived string:    \u001b[31m\"Ошибка сервера. Повторите позже.\"\u001b[39m\nTimeout: 8000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('.error-state')\u001b[22m\n\u001b[2m    20 × locator resolved to <div class=\"empty-state error-state\">Ошибка сервера. Повторите позже.</div>\u001b[22m\n\u001b[2m       - unexpected value \"Ошибка сервера. Повторите позже.\"\u001b[22m\n"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      }
+    ],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "C-contracts-02",
+    "tests": [
+      {
+        "test": "Series C error retry duplicate adapters and foreign denial",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "foreign-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      }
+    ],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "C-contracts-03",
+    "tests": [
+      {
+        "test": "Series C error retry duplicate adapters and foreign denial",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "foreign-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      }
+    ],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "D-after-01",
+    "tests": [
+      {
+        "test": "Series D controlled async baseline and real Browser Back",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "D-before-01",
+    "tests": [
+      {
+        "test": "Series D controlled async baseline and real Browser Back",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "D-nested-01",
+    "tests": [
+      {
+        "test": "Series D real nested People number checkbox and reopen",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-context-01",
+    "tests": [
+      {
+        "test": "Series E pending task cannot cross factory switch",
+        "status": "passed"
+      },
+      {
+        "test": "Series E actual browser notification callback on isolated websocket",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [
+      {
+        "method": "POST",
+        "path": "/notifications/series-browser/read",
+        "factory": "series-factory"
+      }
+    ],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-filters-01",
+    "tests": [
+      {
+        "test": "Series E non-default People filters survive linked task return",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-final-D-recheck",
+    "tests": [
+      {
+        "test": "Series D controlled async baseline and real Browser Back",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-final-production-01",
+    "tests": [
+      {
+        "test": "Series A navigation geometry and history end controls",
+        "status": "passed"
+      },
+      {
+        "test": "Series A restricted navigation short page and long settings sheet",
+        "status": "passed"
+      },
+      {
+        "test": "Series B real linked sources exact target and parent Back",
+        "status": "passed"
+      },
+      {
+        "test": "Series B delayed board missing target and one-shot reload",
+        "status": "passed"
+      },
+      {
+        "test": "Series C internal notification read count and Back",
+        "status": "passed"
+      },
+      {
+        "test": "Series C error retry duplicate adapters and foreign denial",
+        "status": "passed"
+      },
+      {
+        "test": "Series D controlled async baseline and real Browser Back",
+        "status": "passed"
+      },
+      {
+        "test": "Series D real nested People number checkbox and reopen",
+        "status": "passed"
+      },
+      {
+        "test": "Series E pending task cannot cross factory switch",
+        "status": "passed"
+      },
+      {
+        "test": "Series E actual browser notification callback on isolated websocket",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "foreign-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-browser/read",
+        "factory": "series-factory"
+      }
+    ],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-final-production-02",
+    "tests": [
+      {
+        "test": "Series D real nested People number checkbox and reopen",
+        "status": "passed"
+      },
+      {
+        "test": "Series E pending task cannot cross factory switch",
+        "status": "passed"
+      },
+      {
+        "test": "Series E actual browser notification callback on isolated websocket",
+        "status": "passed"
+      },
+      {
+        "test": "Series E non-default People filters survive linked task return",
+        "status": "passed"
+      },
+      {
+        "test": "Series E long ordinary page end hit-test and nav text ranges",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [
+      {
+        "method": "POST",
+        "path": "/notifications/series-browser/read",
+        "factory": "series-factory"
+      }
+    ],
+    "realBackendWrites": 0,
+    "warning": "Worker restarted; runtime is final segment. Full statuses in final-browser-02.log."
+  },
+  {
+    "run": "E-long-01",
+    "tests": [
+      {
+        "test": "Series E long ordinary page end hit-test and nav text ranges",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-stable-D-01",
+    "tests": [
+      {
+        "test": "Series D controlled async baseline and real Browser Back",
+        "status": "failed",
+        "error": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.line-card').getByRole('button', { name: 'Простой', exact: true })\u001b[22m\n"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-stable-D-02",
+    "tests": [
+      {
+        "test": "Series D controlled async baseline and real Browser Back",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-stable-evidence-01",
+    "tests": [
+      {
+        "test": "Series B real linked sources exact target and parent Back",
+        "status": "passed"
+      },
+      {
+        "test": "Series C internal notification read count and Back",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/series-notice/read",
+        "factory": "series-factory"
+      }
+    ],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-timeline-01",
+    "tests": [
+      {
+        "test": "Series E affected timeline task writer returns exact selected shift",
+        "status": "failed",
+        "error": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.line-timeline-list').getByRole('button', { name: 'Открыть источник', exact: true })\u001b[22m\n"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  },
+  {
+    "run": "E-timeline-02",
+    "tests": [
+      {
+        "test": "Series E affected timeline task writer returns exact selected shift",
+        "status": "passed"
+      }
+    ],
+    "unknown": [],
+    "errors": [],
+    "interceptedMutationAttempts": [],
+    "realBackendWrites": 0
+  }
+]

@@ -1,0 +1,128 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\src\\screens\\WashScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\WashScreen.tsx"
+index 3a6daf81..0c973694 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\src\\screens\\WashScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\WashScreen.tsx"
+@@ -155,6 +155,13 @@ export function WashScreen() {
+   const [errorText, setErrorText] = useState<string | null>(null);
+   const [loading, setLoading] = useState(false);
+   const [modal, setModal] = useState<WashModal>(null);
++  const formAttempt = React.useRef<{ payload: string; operationId: string } | null>(null);
++  const startInFlight = React.useRef(false);
++  const formOperationId = (action: string, input: unknown) => {
++    const payload = JSON.stringify([action, input]);
++    if (formAttempt.current?.payload !== payload) formAttempt.current = { payload, operationId: createOperationId(`wash-${action}`) };
++    return formAttempt.current.operationId;
++  };
+   const [files, setFiles] = useState<File[]>([]);
+   const [reviewRating, setReviewRating] = useState('');
+   const [washStartType, setWashStartType] = useState<'LINE' | 'OTHER'>('LINE');
+@@ -250,6 +257,8 @@ export function WashScreen() {
+   };
+ 
+   const resetModal = () => {
++    if (startInFlight.current) return;
++    formAttempt.current = null;
+     setModal(null);
+     setFiles([]);
+     setReviewRating('');
+@@ -679,7 +688,8 @@ export function WashScreen() {
+               setLoading(true);
+               setErrorText(null);
+               try {
+-                const message = await apiClient.post<{ id: string }>(`/wash/${current.id}/message`, { message: String(values.message), operationId: createOperationId('wash-message') });
++                const input = { message: String(values.message) };
++                const message = await apiClient.post<{ id: string }>(`/wash/${current.id}/message`, { ...input, operationId: formOperationId('message', [current.id, input]) });
+                 await uploadAttachments('WASH_MESSAGE', message.id, files);
+                 resetModal();
+                 await reloadDetail(current.id);
+@@ -702,11 +712,11 @@ export function WashScreen() {
+             ]}
+             onCancel={resetModal}
+             onSubmit={async (values) => {
+-              const issue = await apiClient.post<{ id: string }>(`/wash/${current.id}/issues`, {
++              const input = {
+                 title: String(values.title),
+                 description: String(values.description),
+-                operationId: createOperationId('wash-issue'),
+-              });
++              };
++              const issue = await apiClient.post<{ id: string }>(`/wash/${current.id}/issues`, { ...input, operationId: formOperationId('issue', [current.id, input]) });
+               await uploadAttachments('WASH_ISSUE', issue.id, files);
+               resetModal();
+               await reloadDetail(current.id);
+@@ -831,7 +841,7 @@ export function WashScreen() {
+               setLoading(true);
+               setErrorText(null);
+               try {
+-                await apiClient.post(`/wash/${current.id}/complete`, { operationId: createOperationId('wash-complete') });
++                await apiClient.post(`/wash/${current.id}/complete`, { operationId: formOperationId('complete', current.id) });
+                 resetModal();
+                 closeDetail();
+                 await loadWash();
+@@ -933,7 +943,7 @@ export function WashScreen() {
+               const targetType = String(values.targetType || 'LINE');
+               if (targetType === 'LINE' && !values.lineId) throw new Error('Выберите линию.');
+               if (targetType === 'OTHER' && String(values.objectName || '').trim().length < 2) throw new Error('Укажите объект мойки.');
+-              const request = await apiClient.post<WashRequest>('/wash/requests', {
++              const input = {
+                 targetType,
+                 lineId: targetType === 'LINE' ? String(values.lineId) : undefined,
+                 objectName: targetType === 'OTHER' ? String(values.objectName).trim() : undefined,
+@@ -941,8 +951,8 @@ export function WashScreen() {
+                 priority: String(values.priority || 'NORMAL'),
+                 dueAt: values.dueAt ? new Date(String(values.dueAt)).toISOString() : undefined,
+                 comment: String(values.comment || '').trim() || undefined,
+-                operationId: createOperationId('wash-request-create'),
+-              });
++              };
++              const request = await apiClient.post<WashRequest>('/wash/requests', { ...input, operationId: formOperationId('request-create', input) });
+               await uploadAttachments('WASH_CONTROL_ITEM', request.id, files);
+               resetModal();
+               await loadWash();
+@@ -963,6 +973,7 @@ export function WashScreen() {
+             className="modal-card wash-start-modal premium-deep-form"
+             onSubmit={(event) => {
+               event.preventDefault();
++              if (startInFlight.current) return;
+               void (async () => {
+                 setErrorText(null);
+                 if (washStartType === 'LINE' && !washStartLineId) {
+@@ -973,18 +984,24 @@ export function WashScreen() {
+                   setErrorText('Укажите, что нужно помыть.');
+                   return;
+                 }
++                startInFlight.current = true;
++                setLoading(true);
+                 try {
+-                  await apiClient.post('/wash/start', {
++                  const input = {
+                     targetType: washStartType,
+                     lineId: washStartType === 'LINE' ? washStartLineId : undefined,
+                     objectName: washStartType === 'OTHER' ? washStartObjectName.trim() : undefined,
+                     objectDescription: washStartType === 'OTHER' ? washStartObjectDescription.trim() : undefined,
+-                    operationId: createOperationId('wash-start'),
+-                  });
++                  };
++                  await apiClient.post('/wash/start', { ...input, operationId: formOperationId('start', input) });
++                  startInFlight.current = false;
+                   resetModal();
+                   await loadWash();
+                 } catch (error) {
+                   setErrorText(error instanceof Error ? error.message : 'Не удалось начать мойку.');
++                } finally {
++                  startInFlight.current = false;
++                  setLoading(false);
+                 }
+               })();
+             }}
+@@ -1024,8 +1041,8 @@ export function WashScreen() {
+             )}
+             {errorText ? <div className="empty-state error-state compact">{errorText}</div> : null}
+             <div className="modal-actions">
+-              <button className="primary-button" type="submit">Начать мойку</button>
+-              <button className="secondary-button" type="button" onClick={resetModal}>Отмена</button>
++              <button className="primary-button" type="submit" disabled={loading}>Начать мойку</button>
++              <button className="secondary-button" type="button" disabled={loading} onClick={resetModal}>Отмена</button>
+             </div>
+           </form>
+         </div>

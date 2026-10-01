@@ -1,0 +1,501 @@
+{
+  "status": "PASS_SCOPED_SOURCE_IDENTITY_SCANS_PRIOR_ARTIFACTS_57",
+  "atUtc": "2026-09-26T22:04:06.599Z",
+  "baseline": "e89c2bb4cc781ce01253d7574b608c558f0c1fd12c114473577387cda9fe1375",
+  "productFixes": 3,
+  "changedProductFiles": [
+    "frontend/src/screens/AdminConfigScreen.tsx",
+    "frontend/src/screens/ChecklistsScreen.tsx"
+  ],
+  "files": [
+    {
+      "path": "backend/src/modules/employee/employee.service.ts",
+      "before": "a7ffa47df2b25efca9211ed0fa915f8cede52fc7167c2e7105cc10fb92e19872",
+      "after": "a7ffa47df2b25efca9211ed0fa915f8cede52fc7167c2e7105cc10fb92e19872"
+    },
+    {
+      "path": "backend/src/modules/assignment/assignment.controller.ts",
+      "before": "7530260a3ac06651c1d504d4287b3208245c7b920e8695b533ead9cb415d1ba1",
+      "after": "7530260a3ac06651c1d504d4287b3208245c7b920e8695b533ead9cb415d1ba1"
+    },
+    {
+      "path": "backend/src/modules/shift/shift.service.ts",
+      "before": "35bfc17642d4e391dd751d041a5f3da353541a206b01a0cd5e70dfe747824750",
+      "after": "35bfc17642d4e391dd751d041a5f3da353541a206b01a0cd5e70dfe747824750"
+    },
+    {
+      "path": "backend/src/modules/shift/shift.controller.ts",
+      "before": "03d5692205ec97d8c3ae4ced3ff2273907715e929fd392cdfe55309c4ac41c6b",
+      "after": "03d5692205ec97d8c3ae4ced3ff2273907715e929fd392cdfe55309c4ac41c6b"
+    },
+    {
+      "path": "backend/src/common/shift-attendance.ts",
+      "before": "a782ce698b4947c17730bedbd4cae95f2c398939fe928631d7572c7534b46a1a",
+      "after": "a782ce698b4947c17730bedbd4cae95f2c398939fe928631d7572c7534b46a1a"
+    },
+    {
+      "path": "backend/src/common/shift-session.ts",
+      "before": "57b6d52dded7bdcbbb1157b47e4a915a7ec607115d60e59a46c0fa78dfbbec82",
+      "after": "57b6d52dded7bdcbbb1157b47e4a915a7ec607115d60e59a46c0fa78dfbbec82"
+    },
+    {
+      "path": "backend/src/common/shift-time.ts",
+      "before": "34778d267de92279b8fd5d08495b5821f6548a360c132f8a66bb391c96602c9f",
+      "after": "34778d267de92279b8fd5d08495b5821f6548a360c132f8a66bb391c96602c9f"
+    },
+    {
+      "path": "backend/src/common/operation-lock.ts",
+      "before": "f8743cbfd930e85a7de2c544aaae01a3bfd0041bfec64ba61dbd120d92dae21f",
+      "after": "f8743cbfd930e85a7de2c544aaae01a3bfd0041bfec64ba61dbd120d92dae21f"
+    },
+    {
+      "path": "backend/src/common/assignment-eligibility.ts",
+      "before": "5fb055b2b66536683c4567df8955a2800609d4c832fa421ce8ae193c11c66386",
+      "after": "5fb055b2b66536683c4567df8955a2800609d4c832fa421ce8ae193c11c66386"
+    },
+    {
+      "path": "backend/src/common/user-context.service.ts",
+      "before": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993",
+      "after": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993"
+    },
+    {
+      "path": "backend/src/common/user-context.middleware.ts",
+      "before": "5ae55d4255f9da2b9de26c15b30152b5a609c68846fc9d6b0ab787706888e75d",
+      "after": "5ae55d4255f9da2b9de26c15b30152b5a609c68846fc9d6b0ab787706888e75d"
+    },
+    {
+      "path": "backend/src/common/effective-permissions.ts",
+      "before": "1abf62bd12838284b11c5afde39a0aa05986821cb50264653073144d19bdc17b",
+      "after": "1abf62bd12838284b11c5afde39a0aa05986821cb50264653073144d19bdc17b"
+    },
+    {
+      "path": "backend/src/common/permission.guard.ts",
+      "before": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925",
+      "after": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925"
+    },
+    {
+      "path": "backend/src/common/permissions.ts",
+      "before": "191a3350f6df52ceac627371e5ef53a4cf7275aa670d0e2f09fc4645360fff6b",
+      "after": "191a3350f6df52ceac627371e5ef53a4cf7275aa670d0e2f09fc4645360fff6b"
+    },
+    {
+      "path": "backend/src/common/audit.service.ts",
+      "before": "d207a3078d4109237ae8a7ad2a282b8e84f7fdf52fbfb532a9e8998932bbedd4",
+      "after": "d207a3078d4109237ae8a7ad2a282b8e84f7fdf52fbfb532a9e8998932bbedd4"
+    },
+    {
+      "path": "backend/src/common/audit-presentation.ts",
+      "before": "6d5242826ffcc238fbfcc1507432ee713f37f80fe3dc69561a4ce102a01b816c",
+      "after": "6d5242826ffcc238fbfcc1507432ee713f37f80fe3dc69561a4ce102a01b816c"
+    },
+    {
+      "path": "backend/src/shift/employee-state.policy.ts",
+      "before": "4836587a3fcaf91047bf8cce53dc1a480443b7905b36bd2cb26472756814c0a0",
+      "after": "4836587a3fcaf91047bf8cce53dc1a480443b7905b36bd2cb26472756814c0a0"
+    },
+    {
+      "path": "backend/src/modules/people/assignment-close.ts",
+      "before": "40342f717b93abcc326d61a45804ea63c6c8fb80e9a7f0e629252c748a6068d3",
+      "after": "40342f717b93abcc326d61a45804ea63c6c8fb80e9a7f0e629252c748a6068d3"
+    },
+    {
+      "path": "backend/src/modules/people/people.service.ts",
+      "before": "dea7ebc1164718acf2dd8c6cd7d2c71cc000eede76b1fa43ed2af1c0bc257685",
+      "after": "dea7ebc1164718acf2dd8c6cd7d2c71cc000eede76b1fa43ed2af1c0bc257685"
+    },
+    {
+      "path": "backend/src/modules/line/line.service.ts",
+      "before": "40930307a3dc31b4d8dcb06a55f41e78ff6ce33daa663b411b0e965553af9b7d",
+      "after": "40930307a3dc31b4d8dcb06a55f41e78ff6ce33daa663b411b0e965553af9b7d"
+    },
+    {
+      "path": "backend/src/modules/wash/wash.service.ts",
+      "before": "4d976aa566e8e24355fae2e74617bfba791e391afb35aafc5c8e978bc0806466",
+      "after": "4d976aa566e8e24355fae2e74617bfba791e391afb35aafc5c8e978bc0806466"
+    },
+    {
+      "path": "backend/src/modules/notifications/notifications.service.ts",
+      "before": "8f67978ed1c3f7a184c883f41b276d08dfd9d312160b3d8604b17de70d76bf6c",
+      "after": "8f67978ed1c3f7a184c883f41b276d08dfd9d312160b3d8604b17de70d76bf6c"
+    },
+    {
+      "path": "backend/src/modules/shift-log/shift-log.service.ts",
+      "before": "34d5a1d66dad56fa91b45dbea260223608e8f0ac1e549f214283cf1f26c3891e",
+      "after": "34d5a1d66dad56fa91b45dbea260223608e8f0ac1e549f214283cf1f26c3891e"
+    },
+    {
+      "path": "backend/src/modules/shift-log/shift-log.controller.ts",
+      "before": "9358836d47ded7c32c2cf6f82b0958855bdf3fafd3628f196f533481b2569bb0",
+      "after": "9358836d47ded7c32c2cf6f82b0958855bdf3fafd3628f196f533481b2569bb0"
+    },
+    {
+      "path": "backend/src/modules/shift-log/shift-log.module.ts",
+      "before": "7461be663086f7645c207d77a8fce3e836438048b08b76c0a3d76a8e5f0df42b",
+      "after": "7461be663086f7645c207d77a8fce3e836438048b08b76c0a3d76a8e5f0df42b"
+    },
+    {
+      "path": "backend/src/modules/attachments/attachments.service.ts",
+      "before": "d36cc45b2c7e836bce9466779b8ddf97826caea88d0ae12af99c889a0bc6b7e4",
+      "after": "d36cc45b2c7e836bce9466779b8ddf97826caea88d0ae12af99c889a0bc6b7e4"
+    },
+    {
+      "path": "backend/src/ws/events.ts",
+      "before": "ec808816942dea183e2bf5fd1aede93665950454ffbebb15818be5f2bc27369f",
+      "after": "ec808816942dea183e2bf5fd1aede93665950454ffbebb15818be5f2bc27369f"
+    },
+    {
+      "path": "backend/src/ws/ws.service.ts",
+      "before": "4092266082348f1321f9f42db070fcee03f19020a5a9b6723f65c67ba99762a7",
+      "after": "4092266082348f1321f9f42db070fcee03f19020a5a9b6723f65c67ba99762a7"
+    },
+    {
+      "path": "frontend/src/ws/client.ts",
+      "before": "3882659a98ad6bd0971bf3881967831c225130552cb53fb7ba6d5864a9479c26",
+      "after": "3882659a98ad6bd0971bf3881967831c225130552cb53fb7ba6d5864a9479c26"
+    },
+    {
+      "path": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "before": "758f9d25a50257b685d5547dc060d4cdc00cbdbf5d05d8fa4c1f1429efb42950",
+      "after": "758f9d25a50257b685d5547dc060d4cdc00cbdbf5d05d8fa4c1f1429efb42950"
+    },
+    {
+      "path": "frontend/src/screens/ShiftLogScreen.tsx",
+      "before": "11c5b56e474891e54d1ee94628886448084de110437bfb08516b035d1f39db54",
+      "after": "11c5b56e474891e54d1ee94628886448084de110437bfb08516b035d1f39db54"
+    },
+    {
+      "path": "frontend/src/screens/AdminConfigScreen.tsx",
+      "before": "5ff414743bb8260c1db389f6a0433bc98400ee556d02aef384b3fb5ac60790ea",
+      "after": "2a2735fc688ceb90ae62f1626dabb5f16a0e169efa185c417aecf1d3b39803f3"
+    },
+    {
+      "path": "frontend/src/navigation/permissions.ts",
+      "before": "d4ecc86c430cccbd65eede8ccc0fd70af0318ec9ba06fd42a192fbc93d5fd4b5",
+      "after": "d4ecc86c430cccbd65eede8ccc0fd70af0318ec9ba06fd42a192fbc93d5fd4b5"
+    },
+    {
+      "path": "backend/src/modules/admin/admin.service.ts",
+      "before": "b0ac5f74200267e5cf942af9ab05e1cf275a6af0e92fdb67b36e684c3ceddc67",
+      "after": "b0ac5f74200267e5cf942af9ab05e1cf275a6af0e92fdb67b36e684c3ceddc67"
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "before": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e",
+      "after": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e"
+    },
+    {
+      "path": "backend/prisma/system-foundation.cjs",
+      "before": "43052d4c571efc624ae53ea49f8999ad657fdfd999734025abae7e4a30d23c98",
+      "after": "43052d4c571efc624ae53ea49f8999ad657fdfd999734025abae7e4a30d23c98"
+    },
+    {
+      "path": "backend/scripts/admin01-settings-consumers.test.js",
+      "before": "b0d0ae3205303659df0d58b0eb3fd610e09ed01f07d264e1fce98dbf77e79699",
+      "after": "b0d0ae3205303659df0d58b0eb3fd610e09ed01f07d264e1fce98dbf77e79699"
+    },
+    {
+      "path": "backend/scripts/master-r2-wash-lifecycle.test.js",
+      "before": "9b4a4c5d4c8f2b9678b77865fdc68d070fc05fd92712828fe916f222a04b69b6",
+      "after": "9b4a4c5d4c8f2b9678b77865fdc68d070fc05fd92712828fe916f222a04b69b6"
+    },
+    {
+      "path": "backend/scripts/master-r2-position.test.js",
+      "before": "3431d4faeda00855713611a7db32ab5c552ee57bb9c12490f007f454afdb27e7",
+      "after": "3431d4faeda00855713611a7db32ab5c552ee57bb9c12490f007f454afdb27e7"
+    },
+    {
+      "path": "backend/scripts/master-domain-contracts.test.js",
+      "before": "c26622a47c733dfcdb8530293c6b3a70e73355aa55da4a5966af372926f09e39",
+      "after": "c26622a47c733dfcdb8530293c6b3a70e73355aa55da4a5966af372926f09e39"
+    },
+    {
+      "path": "backend/scripts/admin02-attendance.test.js",
+      "before": "f65eeaa4d5a867925d0cdd8af5c59f96e438a9f6358e835dfaed8f8e1091a11f",
+      "after": "f65eeaa4d5a867925d0cdd8af5c59f96e438a9f6358e835dfaed8f8e1091a11f"
+    },
+    {
+      "path": "frontend/src/screens/ChecklistsScreen.tsx",
+      "before": "5e00788ddccafa9c172ea264346b5ebc2ad8f7e1d3c1efdcf22ce863f09fdf19",
+      "after": "1efe1eb7e85737014cdfb175c23b519ff4c0129e587322c636e29d28b48364f1"
+    }
+  ],
+  "tests": [
+    {
+      "path": "frontend/scripts/factory01-admin-profile.test.cjs",
+      "sha256": "ef2f602f06fe6cd575e12b310e0d233057529bbb898887a01686c4540b9b2266"
+    },
+    {
+      "path": "frontend/scripts/factory01-checklist-info.test.cjs",
+      "sha256": "20a2d0f566b42393662536d03fd55f0c7060167ba1346d1020fa8835ea76242b"
+    },
+    {
+      "path": "frontend/scripts/factory01-checklist-upload.test.cjs",
+      "sha256": "24cc816baf8067573301003f56bf73b81b8dc8ae2cab1f244a00bd6e011f3cab"
+    }
+  ],
+  "migrations": [
+    {
+      "name": "20260503000000_initial_current_schema",
+      "sha256": "6e48b3b667842d398bbefc3f76fdb44b88c4a766c54c256007b83e14138b29cf"
+    },
+    {
+      "name": "20260504000000_stage4_line_positions",
+      "sha256": "cfe13c46293e6605da14c4d1da4c5642424be62fd590e406611f241532d4fa42"
+    },
+    {
+      "name": "20260505000000_stage8_attachments_foundation",
+      "sha256": "06469cac7aefebdf1a84784529e948b4e1a355511fea9f4064c9c98f2abc94b6"
+    },
+    {
+      "name": "20260505010000_stage7_admin_foundation",
+      "sha256": "f4f68c724c9aa6d01bfdec7b92e0a6cbaccaa19567aa4b23c0bfea9b19850317"
+    },
+    {
+      "name": "20260505020000_stage8_attachment_operation_id",
+      "sha256": "e11585ae26511005fb682f8f065cc4f81e35606f8c8591640d628b101e7bbdb3"
+    },
+    {
+      "name": "20260506000000_stage9_shift_operations",
+      "sha256": "3159db41cb1d95ace47051d8f9e859e23605f5f35ed319e6d3a75ce8b53d49a8"
+    },
+    {
+      "name": "20260506010000_stage10_tasks_technical_services",
+      "sha256": "530097273846180777abd7caf3d97ea4f3c63dadc325cd526b5ce1aff4e9f9aa"
+    },
+    {
+      "name": "20260506020000_stage11_wash_process_foundation",
+      "sha256": "65b4f30562503b013622ea1e87204ff1bdd769633f8624fad409ee46298c72e2"
+    },
+    {
+      "name": "20260506030000_stage115_simple_internal_auth",
+      "sha256": "33877b5c6244dd9661f88654fb098ed93824a837e0b37e64a242c7ffcd85eb59"
+    },
+    {
+      "name": "20260511080000_stage12_orders_minimum_stock",
+      "sha256": "89ff54282dda1f50dd5763a1787fe6571f14150ac1c49bdc21b18434aac7fa54"
+    },
+    {
+      "name": "20260511100000_stage13_checklists",
+      "sha256": "b2dab643c55b9329400d9095a4176c58dfa18dd0c89c2f305eeab65285d1a733"
+    },
+    {
+      "name": "20260511110000_stage14_shift_log_hardening",
+      "sha256": "914c1eb4d8266584f611534996815eefd6ccd4eaf0873e7406bf593e9a223fd4"
+    },
+    {
+      "name": "20260511120000_stage15_defrost_hardening",
+      "sha256": "6a4101690fffb9a050125111d7860884ea9579b8cd69b35977103e4773916a69"
+    },
+    {
+      "name": "20260511130000_stage17_notifications",
+      "sha256": "4f82e111d8b6a349f086b9e03f72041f7657d75cdb352d58021eb30e01abb332"
+    },
+    {
+      "name": "20260512170000_stage23_chats",
+      "sha256": "36c86650515632ca07e343a42db0ac2481fd96f1b68cf15da762c7bbad6bf583"
+    },
+    {
+      "name": "20260515130000_stage24_announcements",
+      "sha256": "073ad1461730fdbf781f012916b0a4bddf3146a6e162a0a44bc483b4a546c267"
+    },
+    {
+      "name": "20260515140000_stage25_people_profile_skills",
+      "sha256": "6b50832d262e4f048dd07cd7568ee37b79603db2f4ec364fcff39c97954262ce"
+    },
+    {
+      "name": "20260517120000_stage26_line_skills_okk_table",
+      "sha256": "1c7a6e39c6bfbdca39432bea6e3d7b9954bada95294c874f93ccd92f93b277be"
+    },
+    {
+      "name": "20260517130000_stage27_store_returns_work_areas",
+      "sha256": "682c4269818c994613c69aea36bb63d6f51f5f476ddc5747af97732ec3ec53f1"
+    },
+    {
+      "name": "20260520140000_stage40b_downtime_task_analytics",
+      "sha256": "53f46c6e35f71b173a0c37839aabfee605b7848f77a6d3ad12ae5f730bcd1e27"
+    },
+    {
+      "name": "20260521141000_stage41_line_shift_assignment",
+      "sha256": "9af70245d8d6af5ce25545a25243a18853bd036366d7337c9ca875d344c552d8"
+    },
+    {
+      "name": "20260521173000_stage44_checklist_builder_guided_run",
+      "sha256": "efe7664eb5e64009e7f9164ded318b097f50cddb403820e4bd534b917fb0d922"
+    },
+    {
+      "name": "20260524180000_stage48_shift_timeline_planning",
+      "sha256": "33f9e563c5a2377897bc4f7bb97c2de6f3b8172ff802ae09bf2a63b59c31ebeb"
+    },
+    {
+      "name": "20260525120000_stage50_checklist_library_assignment_archive",
+      "sha256": "d79a316bc6d1dc6e2c3b9d5aa62e7863f3c0dc67fcbd6a36509d519b8c405638"
+    },
+    {
+      "name": "20260603120000_stage56_admin_configurability",
+      "sha256": "a1c709fa5b3a57ae3799ac1ffcc2846aa7680e3d0cd27152f02df1ee70c1d0d6"
+    },
+    {
+      "name": "20260603130000_stage56a_internal_messenger_direct",
+      "sha256": "4fb8e75b86c1d0a9bf475af9f5cd43def248dd44934962fdb7c3f05580aa3ae3"
+    },
+    {
+      "name": "20260604160000_stage60_admin_safety_recovery",
+      "sha256": "a75d985c445d40963d2f59d2213f6653d75e85b5f0c71c6747c15ece4aa612c0"
+    },
+    {
+      "name": "20260618120000_future_shift_non_line_assignments",
+      "sha256": "707a9ecb6887b6f0f2849ad9e8695ac23632625afeba0b66b5016a8a774687c5"
+    },
+    {
+      "name": "20260618183000_checklist_periodic_lifecycle",
+      "sha256": "9a7de1b899c4968c17e256bc89fb9d9e2461fe3700cd00e0e8c32a04207e4fcf"
+    },
+    {
+      "name": "20260620120000_stock_defect_name_unit",
+      "sha256": "550563e5b56a53cda9abb015d7e30e22d476c67e16283de68838e86796ad4bc0"
+    },
+    {
+      "name": "20260620122500_vps_prep_permission_catalog",
+      "sha256": "e1578b5758fc27b59c92d3e97420592aa9e9915ae1e6a87803adf529d133674d"
+    },
+    {
+      "name": "20260620123000_master_okk_read_permission",
+      "sha256": "e8ee50cdca892b625035fbdd3314a2ecdb689223f761c1ca3baf77b34d5ca572"
+    },
+    {
+      "name": "20260620150000_shift_log_date_shift",
+      "sha256": "de95a7428cbbc616c97355f0843ba2a116c9860c60bcbd57d2a5cd5b14394202"
+    },
+    {
+      "name": "20260621120000_chat_reactions_error_reports",
+      "sha256": "8277f2c567a777ba6ec6ca17701a0333edab999ed0505c78f65a8218e42594e8"
+    },
+    {
+      "name": "20260621160000_orders_item_category_storage",
+      "sha256": "3dfba601d75fac9c83de6fb9a0b17879b4ba88f6f268f50a482ecb0304895555"
+    },
+    {
+      "name": "20260629120000_job_title_hierarchy",
+      "sha256": "4db1b7ff3917539acca41389b6855f89bdfc59dc961ef770267881b70d361c3f"
+    },
+    {
+      "name": "20260702120000_push_subscriptions",
+      "sha256": "08caf597115f1c6a035d4b3afd73322d53bf9aa57eda31542efcdac40ab4d69c"
+    },
+    {
+      "name": "20260704120000_chat_simple_polls",
+      "sha256": "80862e7f89b1a13090a8d0eafc148c4b228db2483af8e73957ebd89d96d44bd6"
+    },
+    {
+      "name": "20260705120000_defrost_event_type",
+      "sha256": "77659c1897015cee7f2f72c9fa74a3f6f9d0ae35578bebc481395a6fc809b598"
+    },
+    {
+      "name": "20260708090000_wash_other_target",
+      "sha256": "0e08203ecb47c134e5d7b7823f66ec72263699fb7c3a4d50e5a58ae827dcc0d6"
+    },
+    {
+      "name": "20260717120000_mobile_pilot_org_identity",
+      "sha256": "64754c9500f368cc9c5b74d6e453e660f06e709e7977b7f041df5d111869caab"
+    },
+    {
+      "name": "20260718003000_mobile_pilot_rbac_matrix_followup",
+      "sha256": "1a86d23303eb503b7cb5e4e99873c05a0b7fd04c5ffc1161d4ced818787e9b1c"
+    },
+    {
+      "name": "20260718010000_mobile_pilot_technolog_lines_read",
+      "sha256": "66adac9a3b1db00d4e936b7181e28606d91194c347d95db687557267583b9ed4"
+    },
+    {
+      "name": "20260718143000_mobile_pilot_shift_assignment_unification",
+      "sha256": "9bec3eef507193561dc0e0ccbec1ef66688284732ce9b455366fcac461aa10de"
+    },
+    {
+      "name": "20260718180000_mobile_pilot_handover_wash_requests",
+      "sha256": "994816b4748f7a343dec51d5715d7d2157dd24a09d273c0ea350b0208de7c8d0"
+    },
+    {
+      "name": "20260718193000_mobile_pilot_department_processes",
+      "sha256": "9f13e648740dd228dfcdb89f57fa90941abfbfc2645a5ed88727de2c0dfbdac2"
+    },
+    {
+      "name": "20260724120000_physical_field_fixes_v3_skill_credits",
+      "sha256": "802a4ae24629dc732c36dbdbcd381c7a7097e586a6529c76b0b765105ba8f834"
+    },
+    {
+      "name": "20260727090000_physical_fixes_v4_shift_duration",
+      "sha256": "036e68a297203438fdac189306b5b3b5410917e0836e4da4749c398fabdcb9b9"
+    },
+    {
+      "name": "20260727120000_physical_fixes_v4_chat_membership",
+      "sha256": "36871a41fa1b4c9a8ec5e3d2ccdfd0fbfbd81b8df4434b3bc00432d4ea3d6251"
+    },
+    {
+      "name": "20260728110000_physical_fixes_v4_publication_feeds",
+      "sha256": "beb77af50f5a461b525846b2ce4bda2a01097b0a0c476533617274e04cfd22c6"
+    },
+    {
+      "name": "20260808120000_physical_field_fixes_v5_plast2_default_template",
+      "sha256": "05745a8ea913e7809b70ee1f0f887bf49144f97d4a7d7cedb1df344ca4e6bc15"
+    },
+    {
+      "name": "20260809120000_physical_field_fixes_v5_plast5_announcements",
+      "sha256": "b3285c02cf84347c7f44aaf07456ff0d89cad75902466e828676afc692baa357"
+    },
+    {
+      "name": "20260809150000_physical_field_fixes_v5_plast6_partial_release",
+      "sha256": "092703298a03d8638fd32b1c755b6ec632984cc90e0cc491f460c62867d3964d"
+    },
+    {
+      "name": "20260828120000_p17b_identity_effective_capabilities",
+      "sha256": "4682ab87bb217431def5a3f6528052543d9a1d29a747edecedc5fbbdaf42afc0"
+    },
+    {
+      "name": "20260922190000_vps_prep_01_auth_recovery",
+      "sha256": "993d50fa8d126fac2b483a123158cc8b5c15ad6725fd98542e05dfb85854d293"
+    },
+    {
+      "name": "20260923193000_local01_schema_contract_reconciliation",
+      "sha256": "5492af7f4dbfc56203a0830bd070edb215401051fcc0363fdc37034d67454f00"
+    },
+    {
+      "name": "20260924190000_local02_chat_and_checklist_reference",
+      "sha256": "99392096542f2da993f9d4e6bd56adeec14c3167f981d2c91f96d696b078af7e"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "admin-01/review-pack-admin01-20260926.zip",
+      "bytes": 4959395,
+      "sha256": "c3d25078d8826e53cfff6913da2e457a17fd452dd63009ccb638f2d9116e5194",
+      "unchanged": true
+    },
+    {
+      "path": "admin-02/review-pack-admin02-20260926.zip",
+      "bytes": 7083984,
+      "sha256": "fddc3faa6b8a21d494016a64102fc85d749629aa7f065843a1621d23add1efe0",
+      "unchanged": true
+    }
+  ],
+  "scans": {
+    "browserDialogsIntroduced": false,
+    "secretOrStorageOutputIntroduced": false,
+    "replacementUnicodeIntroduced": false,
+    "testAuthBypassIntroduced": false,
+    "visibleEnglishPlaceholderIntroduced": false
+  },
+  "scanBoundary": "added lines in two exact FACTORY01 source deltas, not a new whole-repository audit",
+  "frontendAssets": [
+    {
+      "name": "index-BqrqMXfq.js",
+      "bytes": 1144274,
+      "sha256": "0c90d519a842a0305de9cea6d9dd49f53ae559911b95c4feebf84c0767d37130"
+    },
+    {
+      "name": "index-iuCOMHyM.css",
+      "bytes": 359260,
+      "sha256": "0b462bee06f070196773a919b79fad1a48534dfefa0b5d5b8b1345f2fb35906b"
+    }
+  ],
+  "identity": "8bb4c5894ae5eaea9d9457f66fe00beddcf3730f7bc2206386995b36cd0911a7"
+}

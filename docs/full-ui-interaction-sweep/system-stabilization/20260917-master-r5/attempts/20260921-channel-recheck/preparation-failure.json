@@ -1,0 +1,12 @@
+{
+  "status": "ENV_DOWNLOAD_FAILURE",
+  "script": "prepare-host-checks.ps1",
+  "operation": "HttpClient GetStringAsync GPL-3.0.txt",
+  "httpStatus": 403,
+  "baselineSaved": true,
+  "utilityDownloaded": false,
+  "newProgramExecuted": false,
+  "productExecuted": false,
+  "guestTouched": false,
+  "note": "Prior ordinary Invoke-WebRequest for this public GNU license returned200. No security settings, credentials, certificate validation or protection were changed. Original failure retained."
+}

@@ -1,0 +1,17 @@
+{
+  "status": "IN_PROGRESS",
+  "checks": [
+    {
+      "name": "HTTP_DEFAULT_TRUE_EMPTY_COMMENT",
+      "status": 409,
+      "message": "Укажите комментарий для отправки домой."
+    },
+    {
+      "name": "UI_STALE_DECISION_REAL_409",
+      "status": 409,
+      "message": "Запрос уже решён или недоступен. Обновите экран.",
+      "oneDecisionAudit": true
+    }
+  ],
+  "error": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').filter({ has: getByRole('heading', { name: 'Вернуть на смену', exact: true }) }).getByText(/Нет доступа к этому действию/) to be visible\u001b[22m\n"
+}

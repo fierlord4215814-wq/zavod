@@ -1,0 +1,27 @@
+TC14 task-owned source changes
+===============================
+
+PRODUCT
+frontend/src/styles.css
+  start SHA-256: 01AD09437159036198ED3DED733BA224E8DA1FDEB52F7263E494851753DCC92B
+  final SHA-256: A11237E29EE59A56356218C13289686C55EDA6CF236A34716BC35D2ECA124EB7
+  change: one Gray/Light direct non-checkbox modal form-label foreground rule
+
+EVIDENCE HARNESS
+frontend/e2e/three-themes.spec.ts
+  start SHA-256: E31D666BAD11D3134E0B3F7F5F6B806856FA4BA5649C7AEBF5B2F0841C047CEA
+  final SHA-256: 62F28FB8286F29F68918F4D5B0F0846D517FD04EF388E03FF6DBD34E914E394D
+  change: TC14-only label/evidence runs, capture fingerprints and visibility geometry/hit-test records
+
+DOCUMENTATION / EVIDENCE
+docs/theme-switching/corrections/20260914-tc14-label-visibility-evidence/
+docs/theme-switching/progress.md (append-only pointer)
+docs/theme-switching/verification-summary.md (append-only pointer)
+docs/full-ui-interaction-sweep/progress.md (pause-preserving pointer only)
+
+UNCHANGED FINGERPRINTS
+frontend/src/App.tsx  4FFD326E93059DDF45E3E0EABC872628EE9180BEA228731DE9EDF59D4E2DDAAC
+frontend/src/theme.ts 9F57F204E4840A1D7C97DFCB7A00FD4338D05D60E3AF7D7756FD390438B8EC34
+frontend/index.html   5F71C93252EF1BCDD851814BC6C9070DAC18259C28888D5C1D21D4B2485CC841
+
+No .env, uploads, backend, schema, database or business data change belongs to TC14.

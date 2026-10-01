@@ -1,0 +1,41 @@
+{
+  "startedAt": "2026-09-15T20:21:50.192Z",
+  "expected": [
+    {
+      "title": "R3-C2 actual Wash request retry retains operation ID within one form attempt",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 4,
+      "id": "e80e80b1c0b0"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-C2 actual Wash request retry retains operation ID within one form attempt",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 4,
+      "id": "e80e80b1c0b0",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2653,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"65d7143d-2ea8-4b09-a54f-d4b4fee442b1\"\u001b[39m\nReceived: \u001b[31m\"09608643-9411-4ab7-9b94-307c457bf35f\"\u001b[39m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-ui-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-b721b--ID-within-one-form-attempt\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-wash-ui-red-01\\runner-artifacts\\master-r3-wash-retry-R3-C2-b721b--ID-within-one-form-attempt\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T20:21:54.421Z",
+  "status": "failed",
+  "listOnly": false
+}

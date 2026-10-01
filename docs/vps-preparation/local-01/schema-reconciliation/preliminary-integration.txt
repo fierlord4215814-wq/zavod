@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "prisma": "6.0.0",
+  "databaseCount": 4,
+  "summary": [
+    {
+      "route": "fresh",
+      "migration": "PASS",
+      "drift": "PASS",
+      "foundation": "PASS",
+      "bootstrap": "PASS",
+      "authAndRecoverySql": "PASS",
+      "httpWs": {
+        "ready": "PASS",
+        "login": "PASS",
+        "httpRevocation": "PASS",
+        "websocketHandshakeAndRevocation": "PASS",
+        "nondefaultFactoryRegistration": "PASS"
+      },
+      "cleanCounts": {
+        "factories": 1,
+        "users": 1,
+        "accesses": 1,
+        "audits": 1
+      }
+    },
+    {
+      "route": "synthetic-upgrade",
+      "oldChecksums": "PASS",
+      "additiveMigration": "PASS",
+      "drift": "PASS",
+      "adminPolicyPreserved": "PASS",
+      "nonemptyBootstrapRefused": "PASS"
+    },
+    {
+      "route": "bootstrap-concurrency",
+      "clients": 2,
+      "created": 1,
+      "differentCredentialRefused": 1
+    },
+    {
+      "route": "bootstrap-rollback",
+      "failpoint": "after-user",
+      "partialRows": 0
+    }
+  ],
+  "schemaDriftFindings": []
+}

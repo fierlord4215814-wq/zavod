@@ -1,0 +1,22 @@
+✔ chat metadata rejects whitespace title before write (2.0569ms)
+✔ chat metadata trims title, preserves shape and records exact audit (0.7459ms)
+✔ archiving without title does not clear the existing title (0.2653ms)
+✔ Admin createLine: same existing scoped invalidation only after commit (3.3054ms)
+✔ Admin updateLine: same existing scoped invalidation only after commit (2.1771ms)
+✔ Admin createPosition: same existing scoped invalidation only after commit (1.0629ms)
+✔ Admin updatePosition: same existing scoped invalidation only after commit (1.6786ms)
+✔ factory edit is same-factory ADMIN only; name/code/audit, no access mutation (2.0166ms)
+✔ factory empty/invalid/duplicate code rejects without commit or audit (0.7807ms)
+✔ failed line transaction cannot emit success invalidation (0.3891ms)
+✔ checklist workspace discloses pause form rule, not administrative settings (20.4645ms)
+✔ self shift cancel capability is not the comment requirement; disabled permission stays denied (1.654ms)
+✔ task board includes only current form hints for non-admin readers, keeps four lanes (0.8507ms)
+✔ order summary exposes only operational form hints, without requiring full settings read (0.8653ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1504.857

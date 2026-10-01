@@ -1,0 +1,904 @@
+{
+  "kind": "EXPLICIT_RETAINED_EXTERNAL_REFERENCE_INDEX",
+  "note": "Historical links from plan/handoff/gap register are retained references, not new proof. Missing historical paths are not accepted evidence. Current ADMIN01 primary receipts are included. ZIP/readback are adjacent generated outputs.",
+  "entries": [
+    {
+      "path": "backend/.env.example",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ]
+    },
+    {
+      "path": "backend/Dockerfile.production",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 661,
+      "sha256": "a222bb8675ed24edf4f7870127d61dc2bf1ef49f2fe948f92417d020ce0cf436"
+    },
+    {
+      "path": "backend/prisma/migrations",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ]
+    },
+    {
+      "path": "backend/prisma/seed.js",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 22612,
+      "sha256": "5c31b9c512ad2d3f91bbcf0ea314c931f262b6eb9f807a311ecdcbc62b634266"
+    },
+    {
+      "path": "backend/scripts/stage68-backup-create.js",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 16708,
+      "sha256": "47ce2a34e6e2ebaae7bb622b1e1f428fcb54e004fc857facea8f155005fbab71"
+    },
+    {
+      "path": "backend/src/cli/apply-system-foundation.ts",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 1227,
+      "sha256": "319202e128870261fd00d2ed5f82821e8f69bf53349cba79f6c3211c7a7a8817"
+    },
+    {
+      "path": "backend/src/cli/bootstrap-first-admin.ts",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 4621,
+      "sha256": "3672dbdff8bedd53ea334610b90a824cd22bd3b7f6bc8d2392c8e9383e1eb4ee"
+    },
+    {
+      "path": "docker-compose.production.yml",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 1732,
+      "sha256": "751179455d0696fc9b5b02c08a7231c2b8fd9df8bf9dae6170aa3102e519bf40"
+    },
+    {
+      "path": "docs/backup-restore.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 1302,
+      "sha256": "50abcb8621b74eb2a3190b35550c1541c376819cadf2da1c988ad8a1f66d81b2"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/back-matrix.csv",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 604792,
+      "sha256": "9e14f757949b5c90590354778a0e6ce5880e56e390a0caf3f54119ac2b4a4e16"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/coverage-checkpoint.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 47108,
+      "sha256": "8bb4f8f9ccd55a7c38ae317e9c984ad9dfe73b9725e15c442bcc1ad2851d2c8b"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/frontend-series/20260915-autonomous-frontend/final-report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 10897,
+      "sha256": "d8ccd16bfbadabf77c280df29d7ce9cb3efec64753f6c683ea32f20ffeec4221"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/frontend-series/20260915-autonomous-frontend/root-result-matrix.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 4667,
+      "sha256": "11f812c049fa2ee85e84d702e2d86dd55a6175de68eccb54e6008f1bca5ee34b"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/interaction-matrix.csv",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 566670,
+      "sha256": "4caec98a7cd58bc9cc5a22413fc328f8aa41e257c6e99273c9e50ece315cd60a"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/progress.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 822074,
+      "sha256": "3bec85a9c6db4f137b57a2a100e8cfc654d628bb04ae00d1b55e33d05a80c0de"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/surface-reconciliation.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 327435,
+      "sha256": "ece668f3f6ceca62837757efa1f0d34b2973131105c8078b40eddf355e8b1af3"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/decision-queue.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 8033,
+      "sha256": "4af0953ed2a71a4a72e677399f66992e7aa762331b91ccef3efc51c95a1adfe8"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/final-report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 16660,
+      "sha256": "598550d334c73a3b9c4ad495a7b3f91ffc8a8ded47d53431b71a3ada50a39222"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/INDEX.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 6395,
+      "sha256": "ed85db9e98698563c7040548f284abe875c78fcc61425457dd607a08a1a401cd"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/root-result-matrix.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 8665,
+      "sha256": "d6e4cddc098192c3d4faa0d33bc66968d9c598fa907bfe1551b4699d041a208f"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/decision-queue.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 10376,
+      "sha256": "32b046e54fd3f7e79ce7a5ddf65aa5d4e3649ebfa8bd6180eb18dd6d8055fd51"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/final-report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 18007,
+      "sha256": "38b9fd5d35bb41e32573656b4fecf22517d5ea4585f48513ecb145cf4f904ae6"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/INDEX.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 6293,
+      "sha256": "611ca097022e81d8fcd9e70e46d2e50b510c46e885ebb17ab27618f5a1b7ea54"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/root-result-matrix.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 5642,
+      "sha256": "6a56d11d4928d2f09a61fdb7ff3dc22cd61ccb3427467046ccbe23a561f006cb"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-maximum-integration/decision-queue.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 5808,
+      "sha256": "99ec61126711406ba017a086c0a12b380463d3332af3b86a73144591f440858d"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-maximum-integration/final-report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 18170,
+      "sha256": "997800601f5db05080837015c359c93c84bce9923998f6d30f67d2a9c85e7635"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-maximum-integration/root-result-matrix.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 6826,
+      "sha256": "69cd1d82d6e47c51256ccb417a2b99a36b9f969337e61b76c288c03ec362ffaa"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/final-report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 14304,
+      "sha256": "6e16aeac596c52469bbfa3a9b82bf7be9e79268ddfab98ff7c39d9c6cac2b057"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/INDEX.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 2616,
+      "sha256": "dd47c4aa2673bdb0515e3bbec7c36ce81048f977d227b50e33ee11b214e8f7a6"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/root-result-matrix.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 2848,
+      "sha256": "e7765e69344ca6c36664d528a44428048f37d0844075a0200536ab9ac090cfc5"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-late-command3-diagnosis/diagnosis.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 11750,
+      "sha256": "e546520d0a2531e80ae078d08544e4be5272fa62c90d7459b6f6ea7588a54d22"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260921-visible-uac-diagnostic-boot/result.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 9506,
+      "sha256": "8385ea0055d1f10920e294fc1fcdaf1e2e13ad301ce08c3c6442f7ced3ea9f83"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260922-provider-dvd-boot/result.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 10355,
+      "sha256": "6c6024bc5d334a17244dfb6d0d80da79183ba196d84e6c57d5bdbd445196b58e"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 12946,
+      "sha256": "5e0126aa76f07ef59423ff2e7e5c4527f87abeb13daecfc27394e8a905850935"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 102400,
+      "sha256": "8c3311bf5a787eccc7469ce8d1b4f6e987d6a389ebe323fede094ced4e6b43db"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 11461,
+      "sha256": "45e2ea022398367e540d31325a86830e38310d4fb1543da938bf699e0a27ba42"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 7385,
+      "sha256": "cd6e4f861f3231bfca5ab82d2fe90f6b443e5be9208e1f928f82cf33d8197182"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/native-evidence-index.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 1354,
+      "sha256": "fb1ca7a6bd5379648a92a90b6e12aced874b6a2acd9db538705e03067e94a26d"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 36131,
+      "sha256": "2b2f9d84819d4e32b27a42ff4dd8d33b13d6afb6a0b109c37409212032fd0b17"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/text-integrity-matrix.csv",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 627712,
+      "sha256": "9914e5cf738ff5e79b75b9982dfebaf1bea5c4a51858bb280d1d90b95f76826e"
+    },
+    {
+      "path": "docs/theme-switching/final-report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 14430,
+      "sha256": "590ec1d33ed8374a8eeb632f0b97252fc3ace33d31b6943e10959b1a6bf9ef94"
+    },
+    {
+      "path": "docs/vps-preparation/admin-01/review-pack-admin01-20260926.zip",
+      "classification": "ADJACENT_ARCHIVE_OR_POST_PACK_READBACK",
+      "existsAtPackageTime": false,
+      "referencedFrom": [
+        "docs/vps-preparation/admin-01/report.md",
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md"
+      ]
+    },
+    {
+      "path": "docs/vps-preparation/admin-01/review-pack-readback.json",
+      "classification": "ADJACENT_ARCHIVE_OR_POST_PACK_READBACK",
+      "existsAtPackageTime": false,
+      "referencedFrom": [
+        "docs/vps-preparation/admin-01/README-review.md",
+        "docs/vps-preparation/admin-01/report.md",
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md"
+      ]
+    },
+    {
+      "path": "docs/vps-preparation/local-01/before-hashes.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 3700,
+      "sha256": "fe0d5c8d49dff8812382511b3bb0fa78c664ce49cb40bbc8fad05101438b0701"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/c1-036-reconciliation.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 10108,
+      "sha256": "25bf699036308234ba684bb78de1d7d6eb9da0dd62bd90dd893e51932945d71c"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/c1-sec-task-replay.cjs",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 3025,
+      "sha256": "7e4beaa90fc5062614df17c37ff788ae615f9788b4f29e9652d56a8c22c17d9a"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/linux-reboot-checkpoint.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 4795,
+      "sha256": "31d246d44cce8d73eff7d27d4fa77207ccc96e86d52958332e8541f38883c930"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 75862,
+      "sha256": "76dc39845775ba5896fb700ac1cf8fb99bf63d47bc1873ec1dbc38c5a5041d70"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/review-pack-20260924-final-v2-readback.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 1052,
+      "sha256": "5dfeeaf37d23031aad39b2219d53144fdf9e1f06142b4f9005fe2a8e3b49bebd"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/review-pack-20260924-local01-final-v2.zip",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 341330,
+      "sha256": "7c26b4eafb992e8bc732ee91460b29c445693113544f22c52ecf369d54fdf5a1"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/review-pack.zip",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 181885,
+      "sha256": "26d0d8258f2ccfaf49d8fb314731d3686c3a0be6bafe0173a47bcb742c5fd7e3"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/after-hashes.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 6566,
+      "sha256": "61a43259e8f9031e8bb1968db0910366e4205aff1ac2ef7ece5e17bda6b0c8af"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/before-hashes.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 1324,
+      "sha256": "85a4810bfb2d8aa98629916e3b70ad042c83801d54718d7c5974d361a2ecd4ae"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/catalog-after.txt",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 9509,
+      "sha256": "b67619a88afd8d87b1876935cc608bba3029f2b6f0a59c3945c76b79c9375bac"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/catalog-before.txt",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 9220,
+      "sha256": "3f3833b2d9d8e920d78e5151e8e3ad5127e8e2c6c325d755756efaea2f5ef53e"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/constraint-probes-final.txt",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 1989,
+      "sha256": "070c585f62c4176a043a24362682b7d4f2728a3704dea46aa8188d3d8300e7ea"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/fresh-diff.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 271,
+      "sha256": "c7203e27f4eca4e33a129c99dbf3bfef5b50b8da5ad3aba0677fa473c79ad177"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/integration-full-final.txt",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 48189,
+      "sha256": "174a2b33be8ac262e8003c959278f291a7e7737a61ef1fc6c43f3cd2c06c46c9"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/review-pack-readback.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 6724,
+      "sha256": "258a6ef24b84da17a0bd8ec30f42a39caeb5aed65c3207ee97f62017fcb87ef3"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/review-pack.zip",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 82666,
+      "sha256": "08017d7c6e39122693b68cda464d1180d82e86ae21eb81b6996c102a60b5ea7f"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/upgrade-diff.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 273,
+      "sha256": "9795a6d667ec8c094305cb22dc3898c3da14870554d43df6c9b9fd7cd574a14e"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/wsl-network-checkpoint.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 19125,
+      "sha256": "80cb8ea475da192cf50cf05f44e3c14c72be077cad4d92f63d4a90123d1dfb4c"
+    },
+    {
+      "path": "docs/vps-preparation/local-02/report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 16030,
+      "sha256": "2bde8116750c2ca4d2cf79f4d0971483589c3fb8c98ee65ea83597a5bdfd6049"
+    },
+    {
+      "path": "docs/vps-preparation/local-02/review-pack-local02-20260924.zip",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 2337677,
+      "sha256": "b67d0548d78963120713e891bf55e0f95fc25c458ce9a97dfbf1b1ebfa01ce64"
+    },
+    {
+      "path": "docs/vps-preparation/local-02/review-pack-readback.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 21357,
+      "sha256": "90ab9e9b20797e9476b4ca7daa70358ccd3e05162370438074f3acac29d425fa"
+    },
+    {
+      "path": "docs/vps-preparation/local-03/final-integrity.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 7146,
+      "sha256": "782ef0363656d3b8f7f875a5e84c98c90fc91ab13ffe59c263bfe7766b860164"
+    },
+    {
+      "path": "docs/vps-preparation/local-03/final-live-state.json",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 454,
+      "sha256": "c8920bc6b6db3903460a7762fb6cd830c34dee69c10e9ddb16e01727f6459041"
+    },
+    {
+      "path": "docs/vps-preparation/local-03/five-gate-matrix.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 6342,
+      "sha256": "66a9b07ca53de2f4c8b120ff6713c66968e6a2d76345db1d8fb55caad9f88370"
+    },
+    {
+      "path": "docs/vps-preparation/local-03/report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 37716,
+      "sha256": "40891b0747eea906a9c30655c2bce62df8580299d73453345bf8f357dc385874"
+    },
+    {
+      "path": "docs/vps-preparation/local-03/role-matrix.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md",
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 7954,
+      "sha256": "da19d7243d6bc7ec75a6dbe4fd9e82455879d764b9e5ce516e7fcabd4dd79532"
+    },
+    {
+      "path": "docs/vps-preparation/local-03/stop-stand.ps1",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/local-01/plan.md"
+      ],
+      "bytes": 2533,
+      "sha256": "a9da53e0608103843902106997ef0fd36942bedd97c5478972291b8024ce2524"
+    },
+    {
+      "path": "docs/vps-preparation/new-chat-prompt.txt",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 1612,
+      "sha256": "25326149dfae66cf1b7b38ad5d9d38630fa254814867d7aca4a945b51b712a11"
+    },
+    {
+      "path": "docs/vps-preparation/source-first-server-plan.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 40992,
+      "sha256": "bce692d469d9f48ecc992b886762250acb77207426716b03a19af11a969c2455"
+    },
+    {
+      "path": "docs/vps-preparation/source-update-delta.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 1579,
+      "sha256": "b8c31c0abcaa151e81db3688b0a998b83e75c7a881e8448a63c5f047664b4385"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/progress.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 6719,
+      "sha256": "96d4f8b9e481db40bd47e7ac71abb3e615daa0975011371d248260965db68c3d"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/review-pack/operator-runbook.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 4159,
+      "sha256": "c3445a2f50b2627d4b822f6350c319eee4134dcfb87c688addd2e73d6f5f196a"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/review-pack/README.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 691,
+      "sha256": "66125d668259f806292df038a1c66b04b4eac236fcde64e116ce831791104d5f"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/review-report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md",
+        "docs/full-ui-interaction-sweep/visual-gap-register.md"
+      ],
+      "bytes": 5156,
+      "sha256": "c86d7ebbbfd80a36eb422d4f3bf7ff0260af83c11a15c7fb0950d4ce1fac201a"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-02/operator-runbook.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 6385,
+      "sha256": "533af0fea48ccd100c42834c85ca9d3cc9e195593bbc549414f596222ac1eba0"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-02/pending-runtime.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 2541,
+      "sha256": "016003915a01454b6285e9a4ca7ec49cd6fa098ae635c687e5ba113661f83d1c"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-02/progress.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 8738,
+      "sha256": "8a3a5893dad770a306aa7194d2446e08695436fe2f098531ada4f03e1410bb91"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-02/review-report.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 3049,
+      "sha256": "82dd21b09392ddf0fec3d71f8e5cfbc7a770eb1196ebdf2265992f4fa92e7a47"
+    },
+    {
+      "path": "frontend/Dockerfile.production",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 576,
+      "sha256": "c9d743aa726c122bddaae60892fe672a60866e4ba76e6ef782a25ddb6836a79e"
+    },
+    {
+      "path": "frontend/nginx.production.conf",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 316,
+      "sha256": "b8e71fbf84141c17edb02c08c4eb937e9b9f179cbb5e1a9783309625ec621fc9"
+    },
+    {
+      "path": "README_ДЛЯ_СИСАДМИНА.md",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 8760,
+      "sha256": "614609db020473de0bad7f2f454ca989bc2a00f5dbf7a459a07fee6d750bc9d9"
+    },
+    {
+      "path": "setup/restore.html",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 4517,
+      "sha256": "0515e05b697d5ec14fe418df79cfa9937627020600fa910cb0c3c239a3cbd2ee"
+    },
+    {
+      "path": "setup/wizard.html",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 13335,
+      "sha256": "c46b1fd8ef9811dd4019007f1a7f46d1c96aa268cae8375be0a4860560fb81b1"
+    },
+    {
+      "path": "setup/zavod-setup.js",
+      "classification": "RETAINED_EXTERNAL_NOT_NEW_ADMIN01_PROOF",
+      "existsAtPackageTime": true,
+      "referencedFrom": [
+        "docs/vps-preparation/handoff.md"
+      ],
+      "bytes": 54374,
+      "sha256": "e4b50e68ce55e245b205c341b35fdb3eef481861c2ca7f38b6e636ba369e1bed"
+    }
+  ]
+}

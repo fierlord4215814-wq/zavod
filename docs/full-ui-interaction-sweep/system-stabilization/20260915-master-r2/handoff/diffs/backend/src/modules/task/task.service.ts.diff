@@ -1,0 +1,106 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-replay-before\\backend\\src\\modules\\task\\task.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+index 2a07bcc9..ad45cb98 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-replay-before\\backend\\src\\modules\\task\\task.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+@@ -84,12 +84,12 @@ export class TaskService {
+       const processed = await tx.processedOperation.findUnique({
+         where: { userId_operationId: { userId: actor.userId, operationId: params.operationId } },
+       });
+-      if (processed?.resultKey) {
+-        const existing = await tx.task.findFirst({
+-          where: { id: processed.resultKey, createdById: actor.userId },
+-          include: this.taskInclude(),
+-        });
+-        if (!existing) throw new ConflictError('Идентификатор действия уже использован для другой операции. Обновите экран.');
++      if (processed) {
++        if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++        const existing = await this.loadReplayTaskTx(tx, processed.resultKey, actor);
++        if (existing.createdById !== actor.userId || existing.operationId !== params.operationId) {
++          throw new ConflictError('Идентификатор действия уже использован для другой операции. Обновите экран.');
++        }
+         return { task: this.serializeTask(existing), changed: false };
+       }
+ 
+@@ -245,10 +245,10 @@ export class TaskService {
+       const processed = await tx.processedOperation.findUnique({
+         where: { userId_operationId: { userId: user.userId, operationId } },
+       });
+-      if (processed?.resultKey) {
++      if (processed) {
++        if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
+         if (processed.resultKey !== taskId) throw new ConflictError('Идентификатор действия уже использован для другой операции. Обновите экран.');
+-        const existing = await tx.task.findUnique({ where: { id: processed.resultKey }, include: this.taskInclude() });
+-        if (!existing) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++        const existing = await this.loadReplayTaskTx(tx, processed.resultKey, user);
+         return { task: this.serializeTask(existing), changed: false };
+       }
+       const task = await tx.task.findFirst({ where: { id: taskId, factoryId: user.selectedFactoryId, deletedAt: null }, include: this.taskInclude() });
+@@ -303,10 +303,10 @@ export class TaskService {
+       const processed = await tx.processedOperation.findUnique({
+         where: { userId_operationId: { userId: user.userId, operationId } },
+       });
+-      if (processed?.resultKey) {
++      if (processed) {
++        if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
+         if (processed.resultKey !== taskId) throw new ConflictError('Идентификатор действия уже использован для другой операции. Обновите экран.');
+-        const existing = await tx.task.findUnique({ where: { id: processed.resultKey }, include: this.taskInclude() });
+-        if (!existing) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++        const existing = await this.loadReplayTaskTx(tx, processed.resultKey, user);
+         return { task: this.serializeTask(existing), changed: false };
+       }
+       const task = await tx.task.findFirst({ where: { id: taskId, factoryId: user.selectedFactoryId, deletedAt: null }, include: this.taskInclude() });
+@@ -383,13 +383,10 @@ export class TaskService {
+         const processed = await tx.processedOperation.findUnique({
+           where: { userId_operationId: { userId: user.userId, operationId: body.operationId } },
+         });
+-        if (processed?.resultKey) {
++        if (processed) {
++          if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
+           if (processed.resultKey !== taskId) throw new ConflictError('Идентификатор действия уже использован для другой операции. Обновите экран.');
+-          const existing = await tx.task.findFirst({
+-            where: { id: taskId, factoryId: user.selectedFactoryId, deletedAt: null },
+-            include: this.taskInclude(),
+-          });
+-          if (!existing) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          const existing = await this.loadReplayTaskTx(tx, taskId, user);
+           return { task: this.serializeTask(existing), changed: false };
+         }
+       }
+@@ -466,13 +463,15 @@ export class TaskService {
+       await lockOperationKeys(tx, [operationLockKey.task(taskId), operationLockKey.processedOperation(user.userId, operationId)]);
+       const task = await tx.task.findFirst({ where: { id: taskId, factoryId: user.selectedFactoryId, deletedAt: null }, include: this.taskInclude() });
+       if (!task) throw new ConflictError('Заявка не найдена');
+-      if (!this.canActOnTask(user, task)) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет прав комментировать заявку' });
++      if (!this.canSeeTask(user, task)) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к заявке' });
+       const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } });
+-      if (processed?.resultKey) {
+-        const existing = await tx.taskComment.findFirst({ where: { id: processed.resultKey, taskId } });
++      if (processed) {
++        if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++        const existing = await tx.taskComment.findFirst({ where: { id: processed.resultKey, taskId, userId: user.userId, deletedAt: null } });
+         if (!existing) throw new ConflictError('Идентификатор действия уже использован для другой операции. Обновите экран.');
+         return { comment: existing, factoryId: task.factoryId, createdById: task.createdById, status: task.status, changed: false };
+       }
++      if (!this.canActOnTask(user, task)) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет прав комментировать заявку' });
+       const comment = await tx.taskComment.create({ data: { taskId, userId: user.userId, message: message.trim() } });
+       await tx.processedOperation.create({ data: { userId: user.userId, operationId, resultKey: comment.id } });
+       await this.writeHistoryTx(tx, taskId, user.userId, 'TASK_COMMENT_CREATED', null, { commentId: comment.id }, message.trim());
+@@ -768,6 +767,18 @@ export class TaskService {
+     } satisfies Prisma.TaskInclude;
+   }
+ 
++  private async loadReplayTaskTx(tx: Prisma.TransactionClient, taskId: string, user: UserContext) {
++    // Recheck current read authority, not initial status/assignees changed by the
++    // committed action. The existing endpoint capability guards stay in force.
++    const task = await tx.task.findFirst({
++      where: { id: taskId, factoryId: user.selectedFactoryId, deletedAt: null },
++      include: this.taskInclude(),
++    });
++    if (!task) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++    if (!this.canSeeTask(user, task)) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к заявке' });
++    return task;
++  }
++
+   private canSeeTask(user: UserContext, task: any) {
+     return canReadTask(user, task);
+   }

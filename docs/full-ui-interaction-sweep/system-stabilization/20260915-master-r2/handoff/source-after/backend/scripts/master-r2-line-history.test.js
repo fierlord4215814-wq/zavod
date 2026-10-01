@@ -1,0 +1,20 @@
+require('./master-offline-guard.cjs');require('reflect-metadata');
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {memory,strict}=require('./master-r2-memory.cjs');
+const {LineService}=require('../dist/modules/line/line.service');
+const {factoryShiftWindow}=require('../dist/common/shift-time');
+for(const kind of ['DEFROST','WASH','WORK','DOWNTIME','STOP'])test(`R2-E-J05 historical ${kind} terminal interval agrees with state and duration`,async()=>{
+  const m=memory(),user={userId:'history-manager',selectedFactoryId:'history-factory',role:'MASTER',isAdmin:false,isGuest:false,permissions:['lines.read','people.read']};
+  const target={targetShiftDate:new Date('2026-09-14'),shiftType:'DAY'},window=factoryShiftWindow({shiftDate:'2026-09-14',shiftType:'DAY'});
+  const line={id:'history-line',factoryId:user.selectedFactoryId,name:'Упаковка',status:'STOP',createdAt:new Date('2025-01-01'),updatedAt:new Date('2025-01-01'),deletedAt:null,deactivatedAt:null,version:0};
+  const start=new Date(+window.from+3600000);
+  m.data.line=m.model('line',[line]);m.data.lineEvent=m.model('lineEvent',[{id:'history-event',factoryId:user.selectedFactoryId,lineId:line.id,status:kind==='WORK'?'WORK':kind==='DOWNTIME'?'PAUSE':'STOP',createdAt:window.from,comment:'Рабочее состояние'}]);
+  m.data.assignment=m.model('assignment',[],{includes:['line','position','user']});m.data.lineShiftWorkPlan=m.model('lineShiftWorkPlan',[],{includes:['line','staffingTemplate','rows']});
+  m.data.washSession=m.model('washSession',kind==='WASH'?[{id:'history-wash',factoryId:user.selectedFactoryId,lineId:line.id,createdAt:start,completedAt:null,deletedAt:null,status:'IN_PROGRESS',startedById:user.userId,startedBy:{id:user.userId},issues:[],controlItems:[],okkReviews:[]}]:[],{includes:['line','startedBy','issues','controlItems','okkReviews']});
+  m.data.defrostEvent=m.model('defrostEvent',kind==='DEFROST'?[{id:'history-defrost',factoryId:user.selectedFactoryId,lineId:line.id,eventType:'DEFROST',startAt:start,endAt:null,startedById:user.userId,startedBy:{id:user.userId},status:'ACTIVE'}]:[],{includes:['line','startedBy','endedBy']});
+  const service=new LineService({db:m.db},m.ws,m.audit,strict({}));
+  const result=await service.historicalShiftReadModel(user,target),record=result.lines[0];assert.equal(record.timeline.at(-1).kind,kind==='STOP'?'STOPPED':kind);
+  assert.equal(record.operationalState,{DEFROST:'DEFROST',WASH:'WASH',WORK:'RUNNING',DOWNTIME:'DOWNTIME',STOP:'STOPPED'}[kind]);
+  if(kind==='DEFROST')assert.equal(record.stateDurations.defrostMs,+window.to-start);
+  assert.equal(m.writes.length,0);assert.equal((await service.historicalShiftReadModel({...user,selectedFactoryId:'foreign'},target)).lines.length,0);
+});

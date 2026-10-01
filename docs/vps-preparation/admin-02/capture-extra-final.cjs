@@ -1,0 +1,3 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'../../..'),out=path.join(__dirname,'before-extra-final.json');assert(!fs.existsSync(out));
+const rows=['backend/scripts/master-r2-position.test.js','backend/scripts/master-domain-contracts.test.js'].map(relative=>{const b=fs.readFileSync(path.join(root,relative)),dest=path.join(__dirname,'before',relative);assert(!fs.existsSync(dest));fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,b);return{path:relative,sha256:crypto.createHash('sha256').update(b).digest('hex'),bytes:b.length};});fs.writeFileSync(out,JSON.stringify(rows,null,2));console.log('PASS_FINAL_TEST_BASELINES');

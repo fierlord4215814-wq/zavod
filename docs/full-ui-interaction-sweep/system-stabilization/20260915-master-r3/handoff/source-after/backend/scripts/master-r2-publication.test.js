@@ -1,0 +1,109 @@
+require('./master-offline-guard.cjs'); require('reflect-metadata');
+const { test } = require('node:test'), assert = require('node:assert/strict');
+const { strict, copy, memory, denied } = require('./master-r2-memory.cjs');
+const { Prisma } = require('@prisma/client');
+const { AnnouncementsService } = require('../dist/modules/announcements/announcements.service');
+const { AnnouncementsController } = require('../dist/modules/announcements/announcements.controller');
+const { NotificationsService } = require('../dist/modules/notifications/notifications.service');
+const { PermissionGuard } = require('../dist/common/permission.guard');
+const { Reflector } = require('@nestjs/core');
+const { UserContextService } = require('../dist/common/user-context.service');
+const {fixture}=require('./master-r2-publication-fixture.cjs');
+for (const archiveCapability of [false, true]) for (const priority of ['NORMAL', 'IMPORTANT']) for (const state of ['current', 'future', 'expired', 'archived', 'archived-future', 'deleted']) test(`R2-B publication state=${state} priority=${priority} archive.read=${archiveCapability}`, async () => {
+  const f = fixture(archiveCapability, state, priority), canEntity = state === 'current' || (state.startsWith('archived') && archiveCapability);
+  const current = await f.controller.current(f.user); assert.equal(current.total, state === 'current' ? 1 : 0);
+  const list = await f.controller.list(f.user, {}); assert.equal(list.length, state === 'current' ? 1 : 0);
+  const archiveOnly = await f.controller.list(f.user, { includeArchive: 'true' });
+  assert.equal(archiveOnly.length, archiveCapability ? Number(state.startsWith('archived')) : Number(state === 'current'));
+  if (!canEntity) {
+    const before = f.attachmentsCalls.length;
+    await assert.rejects(f.controller.detail(f.user, f.row.id), denied); await assert.rejects(f.controller.acknowledge(f.user, f.row.id), denied);
+    assert.equal(f.attachmentsCalls.length, before); assert.equal(f.reads.length, 0); assert.equal(f.notice.readAt, null); return;
+  }
+  const detail = await f.controller.detail(f.user, f.row.id); assert.equal(detail.id, f.row.id); assert.equal(detail.attachments[0].originalName, 'Регламент.txt');
+  const ack = await f.controller.acknowledge(f.user, f.row.id), replay = await f.controller.markRead(f.user, f.row.id);
+  assert.equal(ack.announcementId, f.row.id); assert.equal(replay.id, ack.id); assert.equal(f.reads.length, 1); assert.ok(f.notice.readAt);
+  assert.equal((await f.controller.current(f.user)).total, 0); assert.equal((await f.controller.unread(f.user)).length, 0);
+  const personal = await f.controller.archiveList(f.user, {}); assert.equal(personal[0].id, f.row.id); assert.ok(personal[0].acknowledgedAt);
+  const report = await f.controller.ackReport(f.user, f.row.id); assert.deepEqual(report.totals, { all: 1, acknowledged: 1, pending: 0 });
+  assert.equal((await f.notification.unreadCount(f.user)).count, 0); assert.equal((await f.notification.list(f.user))[0].entityId, f.row.id);
+  assert.equal(f.audits.filter(item => item.action === 'ANNOUNCEMENT_ACKNOWLEDGED').length, 1);
+});
+for (const archive of [false, true]) for (const scenario of ['global', 'factory-wide', 'selected-multiple', 'wrong-department', 'inactive-audience', 'foreign-factory', 'guest', 'blocked', 'deleted', 'no-capability']) test(`R2-B audience ${scenario} archive.read=${archive}`, async () => {
+  const f = fixture(archive), allowed = ['global', 'factory-wide', 'selected-multiple'].includes(scenario);
+  if (scenario === 'global') { f.row.factoryId = null; f.row.departmentId = null; }
+  if (scenario === 'factory-wide') f.row.departmentId = null;
+  if (scenario === 'selected-multiple') { f.row.departmentId = 'another-department'; f.row.audienceDepartments = [{ departmentId: f.user.departmentId, isActive: true }, { departmentId: 'second-department', isActive: true }]; }
+  if (scenario === 'inactive-audience') { f.row.departmentId = 'another-department'; f.row.audienceDepartments = [{ departmentId: f.user.departmentId, isActive: false }]; }
+  if (scenario === 'wrong-department') f.user.departmentId = 'other-department';
+  if (scenario === 'foreign-factory') f.user.selectedFactoryId = 'other-factory';
+  if (scenario === 'guest') f.user.isGuest = true;
+  if (scenario === 'blocked') f.account.blockedAt = new Date();
+  if (scenario === 'deleted') f.account.deletedAt = new Date();
+  if (scenario === 'no-capability') f.user.permissions = [];
+  const guard = new PermissionGuard(new Reflector(), f.audit);
+  // /ack intentionally has no coarse decorator: actual service visibility, not a fake true guard, is decisive.
+  assert.equal(await guard.canActivate({ getClass: () => AnnouncementsController, getHandler: () => AnnouncementsController.prototype.acknowledge, switchToHttp: () => ({ getRequest: () => ({ user: f.user, method: 'POST', url: '/announcements/publication-announcement/ack' }) }) }), true);
+  if (allowed) { assert.equal((await f.controller.detail(f.user, f.row.id)).id, f.row.id); assert.equal((await f.controller.acknowledge(f.user, f.row.id)).announcementId, f.row.id); }
+  else {
+    await assert.rejects(f.controller.detail(f.user, f.row.id), denied); await assert.rejects(f.controller.acknowledge(f.user, f.row.id), denied);
+    assert.equal(f.reads.length, 0); assert.equal(f.notice.readAt, null); assert.equal(f.attachmentsCalls.length, 0);
+  }
+});
+test('R2-B actual concurrent acknowledgement uses unique result and never duplicates acknowledgement/audit', async () => {
+  const f = fixture(false);
+  const results = await Promise.all([f.controller.acknowledge(f.user, f.row.id), f.controller.acknowledge(f.user, f.row.id)]);
+  assert.equal(results[0].id, results[1].id); assert.equal(f.reads.length, 1); assert.equal(f.audits.filter(item => item.action === 'ANNOUNCEMENT_ACKNOWLEDGED').length, 1);
+  assert.equal((await f.controller.current(f.user)).total, 0); assert.equal((await f.notification.unreadCount(f.user)).count, 0);
+});
+test('R2-B read-store 503 never becomes UI acknowledgement or notification success', async () => {
+  const f = fixture(false); f.rejectRead();
+  await assert.rejects(f.controller.acknowledge(f.user, f.row.id), error => error.getStatus?.() === 503);
+  assert.equal(f.reads.length, 0); assert.equal(f.notice.readAt, null); assert.equal((await f.controller.current(f.user)).total, 1);
+});
+test('R2-B notification failure after committed read recovers on replay with one read and one audit', async () => {
+  const f = fixture(false); f.rejectNotice();
+  await assert.rejects(f.controller.acknowledge(f.user, f.row.id), error => error.getStatus?.() === 503);
+  assert.equal(f.reads.length, 1); assert.equal(f.notice.readAt, null);
+  const replay = await f.controller.acknowledge(f.user, f.row.id); assert.equal(replay.id, f.reads[0].id); assert.equal(f.reads.length, 1); assert.ok(f.notice.readAt);
+  assert.equal(f.audits.filter(item => item.action === 'ANNOUNCEMENT_ACKNOWLEDGED').length, 1);
+});
+for (const scenario of ['other-authorized-factory', 'revoked', 'factory-disabled', 'factory-deleted', 'identity-blocked', 'identity-deleted', 'capability-revoked']) test(`R2-B actual current UserContext denies old acknowledgement after ${scenario}`, async () => {
+  const f = fixture(true), first = await f.controller.acknowledge(f.user, f.row.id);
+  const access = { ...f.access, companyId: null, factory: { isActive: true, deletedAt: null } }, secondAccess = { ...copy(access), factoryId: 'second-authorized-factory' };
+  const grants = [...f.user.permissions], entries = [access, secondAccess];
+  f.account.passwordResetRequired = false; f.account.permissionOverrides = [];
+  f.data.user = strict({ findUnique: async ({ where, include }) => {
+    assert.equal(where.id, f.account.id);
+    if (!include) return copy(f.account);
+    assert.equal(include.factoryAccess.where.isActive, true);
+    return { ...copy(f.account), factoryAccess: entries.filter(entry => entry.isActive && entry.factoryId === include.factoryAccess.where.factoryId).map(copy) };
+  } }, 'actual-context.user');
+  f.data.rolePermission = strict({ findMany: async () => grants.map(permissionCode => ({ permissionCode })) }, 'actual-context.permissions');
+  if (scenario === 'revoked') access.isActive = false;
+  if (scenario === 'factory-disabled') access.factory.isActive = false;
+  if (scenario === 'factory-deleted') access.factory.deletedAt = new Date();
+  if (scenario === 'identity-blocked') f.account.blockedAt = new Date();
+  if (scenario === 'identity-deleted') f.account.deletedAt = new Date();
+  if (scenario === 'capability-revoked') f.account.permissionOverrides = [{ factoryId: access.factoryId, permissionCode: 'announcements.read', effect: 'DENY' }];
+  const previous = [process.env.DISABLE_DB, process.env.DEV_MODE]; process.env.DISABLE_DB = 'false'; process.env.DEV_MODE = 'false';
+  let current;
+  try { current = await new UserContextService({ db: f.db }).resolveForFactory(f.user.userId, scenario === 'other-authorized-factory' ? secondAccess.factoryId : access.factoryId); }
+  finally { ['DISABLE_DB', 'DEV_MODE'].forEach((key, index) => { if (previous[index] === undefined) delete process.env[key]; else process.env[key] = previous[index]; }); }
+  if (scenario === 'other-authorized-factory') { assert.equal(current.isGuest, false); assert.ok(current.permissions.includes('announcements.read')); }
+  const before = copy(f.writes);
+  await assert.rejects(f.controller.acknowledge(current, f.row.id), denied); await assert.rejects(f.controller.detail(current, f.row.id), denied);
+  assert.equal(f.reads.length, 1); assert.equal(f.reads[0].id, first.id); assert.deepEqual(f.writes, before);
+});
+for(const archive of [false,true])for(const state of ['expired','future','archived','archived-future','deleted'])test(`R3-C4 saved ACK current state ${state} archive=${archive}`,async()=>{
+ const f=fixture(archive,'current','IMPORTANT');const first=await f.controller.acknowledge(f.user,f.row.id),writes=f.writes.length,audits=f.audits.length;
+ if(state==='expired')f.row.visibleUntil=new Date(Date.now()-1000);
+ if(state.includes('future'))f.row.visibleFrom=new Date(Date.now()+86400000);
+ if(state.startsWith('archived'))f.row.archivedAt=new Date();
+ if(state==='deleted')f.row.deletedAt=new Date();
+ if(archive&&state.startsWith('archived'))assert.equal((await f.controller.acknowledge(f.user,f.row.id)).id,first.id);else await assert.rejects(f.controller.acknowledge(f.user,f.row.id),denied);
+ assert.equal(f.reads.length,1);assert.equal(f.reads[0].id,first.id);assert.equal(f.writes.length,writes);
+ // A denied replay deliberately adds a security audit, not another ACK.
+ assert.equal(f.audits.filter(row=>row.action==='ANNOUNCEMENT_ACKNOWLEDGED').length,1);
+ assert.equal(f.audits.length,audits+(archive&&state.startsWith('archived')?0:1));
+});

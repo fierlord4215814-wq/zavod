@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-19",
+  "source": "Actual exec result chunk bbc45c, exit1, package-reboot.ps1 line25",
+  "classification": "EVIDENCE_PACKAGER_ALLOWLIST_FILENAME_NOT_PRODUCT_TEST",
+  "message": "Unreviewed file type: attempts/20260918-hyperv-ubuntu24/public-metadata/ubuntu-SHA256SUMS",
+  "newZipExistedAfterFailure": false,
+  "newManifestExistedAfterFailure": false,
+  "newReceiptExistedAfterFailure": false,
+  "correction": "Read actual public checksum file; permit its exact ubuntu-SHA256SUMS name in addition to SHA256SUMS. All sensitive-path, file-type, content-scan and full ZIP readback guards remain.",
+  "supersedingEvidence": "package-manifest.json pins final packager and added error receipt. source-delta-manifest.json additionsAtCollection was collected before this packaging-only correction.",
+  "productChanged": false,
+  "installerRepeated": false,
+  "productTestsExecuted": false
+}

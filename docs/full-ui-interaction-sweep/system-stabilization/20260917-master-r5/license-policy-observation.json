@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-17",
+  "windowsProduct": "Windows(R), Professional edition",
+  "licenseStatus": 1,
+  "method": "Get-CimInstance SoftwareLicensingProduct filtered Name Windows% AND LicenseStatus=1; selected only Name,LicenseStatus; no product keys requested or exported",
+  "queryTerminalExitCode": 0,
+  "executionPolicies": {"MachinePolicy":"Undefined","UserPolicy":"Undefined","Process":"Undefined","CurrentUser":"Undefined","LocalMachine":"RemoteSigned"},
+  "policyChanged": false,
+  "licensingBasis": "Microsoft Windows Sandbox edition/license table includes Windows Pro. This is installed activation metadata and official feature entitlement, not a legal audit of the user's license provenance.",
+  "paidTermsOrSubscriptionAccepted": false
+}

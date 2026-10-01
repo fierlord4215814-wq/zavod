@@ -1,0 +1,80 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\src\\App.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+index d0dd72eb..024af424 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\src\\App.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+@@ -237,6 +237,7 @@ export default function App() {
+   const notificationNavigationInFlight = useRef(new Map<string, Promise<void>>());
+   const notificationNavigationSequence = useRef(0);
+   const asyncContextEpoch = useRef(0);
++  const navigationScrollFrame = useRef<number | null>(null);
+   const contextIdentity = () => {
+     const state = appStore.getState();
+     return JSON.stringify([state.currentUser?.userId, state.selectedFactoryId, state.authToken, state.authStatus,
+@@ -251,11 +252,14 @@ export default function App() {
+       if (next === identity) return;
+       identity = next;
+       asyncContextEpoch.current += 1;
++      if (navigationScrollFrame.current !== null) cancelAnimationFrame(navigationScrollFrame.current);
++      navigationScrollFrame.current = null;
+       notificationNavigationInFlight.current.clear();
+     });
+     return () => {
+       unsubscribe();
+       asyncContextEpoch.current += 1;
++      if (navigationScrollFrame.current !== null) cancelAnimationFrame(navigationScrollFrame.current);
+       notificationNavigationInFlight.current.clear();
+     };
+   }, []);
+@@ -415,7 +419,11 @@ export default function App() {
+     const initial = allowed.has(saved) ? saved : initialHome;
+     screenHistoryRef.current = [initial];
+     setScreen(initial);
+-    window.requestAnimationFrame(() => {
++    if (navigationScrollFrame.current !== null) cancelAnimationFrame(navigationScrollFrame.current);
++    const epoch = asyncContextEpoch.current;
++    navigationScrollFrame.current = window.requestAnimationFrame(() => {
++      navigationScrollFrame.current = null;
++      if (epoch !== asyncContextEpoch.current || document.body.classList.contains('app-scroll-locked')) return;
+       const top = Number(safeSessionGet(`${SESSION_SCROLL_PREFIX}.${navigationContextKey}.${initial}`)) || 0;
+       window.scrollTo({ top, left: 0, behavior: 'auto' });
+     });
+@@ -478,7 +486,8 @@ export default function App() {
+       return;
+     }
+     if (navigationContextKey) {
+-      safeSessionSet(`${SESSION_SCROLL_PREFIX}.${navigationContextKey}.${screen}`, String(window.scrollY));
++      const pageTop = document.body.style.position === 'fixed' ? -(parseFloat(document.body.style.top) || 0) : window.scrollY;
++      safeSessionSet(`${SESSION_SCROLL_PREFIX}.${navigationContextKey}.${screen}`, String(pageTop));
+       safeSessionSet(`${SESSION_ROUTE_PREFIX}.${navigationContextKey}`, next);
+     }
+     if (!linkedTaskNavigation) setPendingTask(null);
+@@ -490,7 +499,11 @@ export default function App() {
+     setScreen(next);
+     setMobileMoreOpen(false);
+     setMobileSheetView('sections');
+-    window.requestAnimationFrame(() => {
++    if (navigationScrollFrame.current !== null) cancelAnimationFrame(navigationScrollFrame.current);
++    const epoch = asyncContextEpoch.current;
++    navigationScrollFrame.current = window.requestAnimationFrame(() => {
++      navigationScrollFrame.current = null;
++      if (epoch !== asyncContextEpoch.current || document.body.classList.contains('app-scroll-locked')) return;
+       const top = navigationContextKey
+         ? Number(safeSessionGet(`${SESSION_SCROLL_PREFIX}.${navigationContextKey}.${next}`)) || 0
+         : 0;
+@@ -1059,6 +1072,8 @@ export default function App() {
+         </button>
+       </div> : null}
+ 
++      {/* Local forms/read state belong to this authority/session generation. */}
++      <React.Fragment key={asyncContextEpoch.current}>
+       {screen === 'Home' && <GuestHomeScreen />}
+       {screen === 'Shift' && <ShiftPeopleScreen taskReturn={taskReturn?.context === navigationContextKey && taskReturn.screen === 'Shift' ? taskReturn.value as ShiftTaskReturn : undefined} />}
+       {screen === 'ShiftHistory' && <ShiftPeopleScreen mode="history" />}
+@@ -1080,6 +1095,7 @@ export default function App() {
+       {screen === 'Notifications' && <NotificationsScreen onOpenSource={openNotificationSource} />}
+       {screen === 'Ops' && <OpsAuditScreen />}
+       {screen === 'Report' && <BugReportScreen />}
++      </React.Fragment>
+ 
+       <nav className="bottom-nav" aria-label="Основная навигация">
+         {visibleScreens.map((item) => (

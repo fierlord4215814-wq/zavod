@@ -1,0 +1,34 @@
+✔ audit retains exact action and denial predicates; module uses displayed classifier (4.5129ms)
+✔ audit module includes secondary prefixes and still intersects exact action (34.0946ms)
+✔ audit stable snapshot clamps selected period and factory stays canonical (3.0772ms)
+✔ audit scans beyond first 800 before search/page; stable two-field order (59.7773ms)
+✔ personal notice predicate is also bounded to selected or global factory (0.47ms)
+✔ ADMIN guest denied list and foreign detail; active guest owner still reads own text (10.1974ms)
+✔ revoked owner denied current source read (0.4429ms)
+✔ status change retains actor and refreshes existing file export (1.5351ms)
+✔ canonical random UUID route is not fixture text; explicit fixture names stay hidden (8.0686ms)
+✔ nearest-rank empty/single/odd/even/duplicates [] (1.8276ms)
+✔ nearest-rank empty/single/odd/even/duplicates [9] (0.2746ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4,100] (0.7275ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4] (0.3258ms)
+✔ nearest-rank empty/single/odd/even/duplicates [2,2,2,9] (0.2152ms)
+✔ missing phase is not zero; negative duration rejected (0.2511ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"invalid"} (3.1181ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-02-31"} (2.8161ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31","dateTo":"2026-08-30"} (4.8673ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31T08:00:00+03:00","dateTo":"2026-08-31T08:00:00+03:00"} (1.1945ms)
+✔ calendar period Moscow half-open and 93-day cap remain (10.9738ms)
+✔ department on-time denominator does not subtract still-open overdue tasks (0.8897ms)
+✔ time-only downtime context excludes exact interval end (3.1433ms)
+✔ shift clipping intersects an interval, not only its starting label (4.4611ms)
+✔ open interval clipped to asOf, independent lines not merged (2.3506ms)
+✔ 100% sent remains uploading, done only after successful server response (189.8461ms)
+✔ lost response at 100% never emits done and preserves supplied logical operation ID (19.8497ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 771.2989

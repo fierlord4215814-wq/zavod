@@ -1,0 +1,66 @@
+{
+  "status": "PASS_UI_ORDER_SETTINGS5_CONSUMERS_AUDIT_SQL",
+  "name": "Учебный материал настроек ADMIN01",
+  "original": {
+    "defaultUnit": "шт",
+    "restockRequiresComment": false,
+    "takeRequiresComment": true,
+    "archiveRequiresComment": false,
+    "lowStockNotificationsEnabled": true
+  },
+  "defaultUnitSeen": "кг",
+  "id": "ca2c36d3-795c-4e0a-b608-9885834b807e",
+  "takeCommentRequiredSeen": false,
+  "before": {
+    "defaultUnitExpected": "кг",
+    "defaultUnitActual": "шт",
+    "settingTakeRequiresComment": false,
+    "uiRequired": true
+  },
+  "restored": true,
+  "secondUiMs": 1095,
+  "notifications": {
+    "offBefore": 0,
+    "offAfter": 0,
+    "onAfter": 1
+  },
+  "movements": true,
+  "denials": {
+    "restock": {
+      "status": 409,
+      "message": "Укажите комментарий к пополнению."
+    },
+    "take": {
+      "status": 409,
+      "message": "Укажите комментарий к расходу."
+    },
+    "archive": {
+      "status": 409,
+      "message": "Укажите причину архивации."
+    }
+  },
+  "archived": true,
+  "sql": {
+    "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+    "unit": "кг",
+    "currentQuantity": 2,
+    "archivedAt": "2026-09-26T15:32:21.190Z",
+    "movements": [
+      {
+        "type": "TAKE",
+        "quantity": 2,
+        "comment": "Без комментария"
+      },
+      {
+        "type": "RESTOCK",
+        "quantity": 2,
+        "comment": "Пополнение"
+      },
+      {
+        "type": "TAKE",
+        "quantity": 2,
+        "comment": "Без комментария"
+      }
+    ]
+  }
+}

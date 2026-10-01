@@ -1,0 +1,61 @@
+{
+  "status": "PASS_FINAL_CLEAN_ADMIN_UI_CREATE_READ_EDIT_DEACTIVATE_AUDIT",
+  "ws": [
+    "connected",
+    "connected",
+    "connected"
+  ],
+  "setPassword": true,
+  "firstLoginNormal": true,
+  "factoryId": "dab94090-619c-46f4-91cf-cc48f3b22002",
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.admin-row').filter({ has: getByText('Учебная настройка ADMIN01 smoke', { exact: true }) }).getByRole('button', { name: 'Изменить отдел', exact: true })\u001b[22m\n",
+  "hiddenFixture": {
+    "id": "bdad5b71-0f03-4bfe-9c8d-3919bbb0f1b4",
+    "code": "admin01-smoke",
+    "mechanism": "Audited HTTP cleanup; technical smoke label filtered by current runtime policy",
+    "status": 200
+  },
+  "departmentId": "67d2c53c-88e7-41b7-aad3-c6e117f0c251",
+  "edited": true,
+  "deactivated": true,
+  "sql": {
+    "name": "Учебная настройка ADMIN01 — проверена",
+    "isActive": false,
+    "scope": "LOCAL",
+    "factoryId": "dab94090-619c-46f4-91cf-cc48f3b22002"
+  },
+  "audit": [
+    {
+      "action": "DEPARTMENT_CREATED",
+      "userId": "cf41653c-9d91-48d6-85d5-215f04b59caa",
+      "factoryId": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "entityId": "67d2c53c-88e7-41b7-aad3-c6e117f0c251",
+      "createdAt": "2026-09-26T16:36:09.141Z"
+    },
+    {
+      "action": "DEPARTMENT_UPDATED",
+      "userId": "cf41653c-9d91-48d6-85d5-215f04b59caa",
+      "factoryId": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "entityId": "67d2c53c-88e7-41b7-aad3-c6e117f0c251",
+      "createdAt": "2026-09-26T16:36:09.707Z"
+    },
+    {
+      "action": "DEPARTMENT_DEACTIVATED",
+      "userId": "cf41653c-9d91-48d6-85d5-215f04b59caa",
+      "factoryId": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "entityId": "67d2c53c-88e7-41b7-aad3-c6e117f0c251",
+      "createdAt": "2026-09-26T16:36:11.626Z"
+    }
+  ],
+  "emptyBusiness": {
+    "shiftSession": 0,
+    "assignment": 0,
+    "task": 0,
+    "chat": 0,
+    "announcement": 0,
+    "checklistRun": 0,
+    "attachment": 0,
+    "washSession": 0,
+    "defrostEvent": 0
+  }
+}

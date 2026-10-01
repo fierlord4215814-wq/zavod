@@ -1,0 +1,124 @@
+{
+  "status": "PASS_TARGETED_SOURCE_UI_SECURITY_CHECKS",
+  "atUtc": "2026-09-26T18:55:54.053Z",
+  "identity": "e89c2bb4cc781ce01253d7574b608c558f0c1fd12c114473577387cda9fe1375",
+  "checks": [
+    {
+      "path": "backend/src/modules/employee/employee.service.ts",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/src/modules/shift/shift.service.ts",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/src/modules/shift/shift.controller.ts",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/src/common/shift-attendance.ts",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/src/common/operation-lock.ts",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/src/modules/line/line.service.ts",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/src/modules/wash/wash.service.ts",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "frontend/src/screens/ShiftLogScreen.tsx",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "frontend/src/screens/AdminConfigScreen.tsx",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/src/modules/admin/admin.service.ts",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/scripts/admin01-settings-consumers.test.js",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/scripts/admin01-settings-consumers.test.js",
+      "kind": "node-syntax",
+      "pass": true
+    },
+    {
+      "path": "backend/scripts/master-r2-wash-lifecycle.test.js",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/scripts/master-r2-wash-lifecycle.test.js",
+      "kind": "node-syntax",
+      "pass": true
+    },
+    {
+      "path": "backend/scripts/master-r2-position.test.js",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/scripts/master-r2-position.test.js",
+      "kind": "node-syntax",
+      "pass": true
+    },
+    {
+      "path": "backend/scripts/master-domain-contracts.test.js",
+      "kind": "diff-whitespace",
+      "pass": true
+    },
+    {
+      "path": "backend/scripts/master-domain-contracts.test.js",
+      "kind": "node-syntax",
+      "pass": true
+    },
+    {
+      "path": "backend/scripts/admin02-attendance.test.js",
+      "kind": "node-syntax",
+      "pass": true
+    },
+    {
+      "kind": "browser-prompt-alert-confirm",
+      "pass": true
+    },
+    {
+      "kind": "raw-html-or-eval",
+      "pass": true
+    },
+    {
+      "kind": "test-auth-bypass",
+      "pass": true
+    },
+    {
+      "kind": "physical-delete-or-reset",
+      "pass": true
+    }
+  ],
+  "scope": "Only ADMIN02 added lines and changed test syntax, not a new whole-project audit; dynamic guards/UI proven separately."
+}

@@ -1,0 +1,22 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-legacy-before\\frontend\\src\\offline\\sync-engine.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\offline\\sync-engine.ts"
+index 517a4343..fd75586a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-legacy-before\\frontend\\src\\offline\\sync-engine.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\offline\\sync-engine.ts"
+@@ -1,14 +1,3 @@
+-import { offlineDb } from './db';
+-
+-export async function syncPendingActions() {
+-  const pending = await offlineDb.outbox.where('status').equals('pending').toArray();
+-  for (const action of pending) {
+-    // LWW strategy with server-side version/timestamp conflict resolution.
+-    await fetch(action.endpoint, {
+-      method: action.method,
+-      headers: { 'Content-Type': 'application/json' },
+-      body: JSON.stringify(action.payload),
+-    });
+-    await offlineDb.outbox.update(action.id!, { status: 'sent' });
+-  }
+-}
++// Compatibility entrypoint for the old prototype. Keep one queue/identity/retry
++// owner; the obsolete Dexie-style offlineDb no longer exists.
++export { syncPendingActions } from './sync';

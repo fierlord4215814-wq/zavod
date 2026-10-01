@@ -1,0 +1,13 @@
+{
+  "capturedAt": "2026-09-23",
+  "purpose": "Targeted LOCAL-01 schema reconciliation baseline before this continuation; previous untracked source retained; no working DB/.env/uploads read.",
+  "files": [
+    {"path":"backend/prisma/schema.prisma","bytes":83697,"sha256":"16e8f460f5d5370e3c24e9dd58ea7d394b082a691e5ea620dacac06969491e52"},
+    {"path":"backend/scripts/vps-prep-01-postgres-integration.js","bytes":36749,"sha256":"40415a72b75956090be19055c8ebb0faa0f8af8494343b19eaf341cbc4efc9b0"},
+    {"path":"docs/vps-preparation/local-01/plan.md","bytes":6293,"sha256":"188e8f721ad5dd63d176ff9d8c4eb0db9760396e844b6d4d28d93a47a1127bcf"},
+    {"path":"docs/vps-preparation/local-01/report.md","bytes":12252,"sha256":"c91c6b144a81af449945884ca5cdea5dfefe0d12e36318c770fb8b568ec0e037"},
+    {"path":"docs/vps-preparation/handoff.md","bytes":31525,"sha256":"93dbd275860a9ad4e940894e3215a91fc915a80943d81d7a4e20bcae3c3e86f5"},
+    {"path":"setup/local-01-package-review.ps1","bytes":5665,"sha256":"12e2cf73593e0d54a1d322fb0aa53b1b8043296c0676d643be35ecf07272ae46"}
+  ],
+  "absent": ["backend/prisma/migrations/20260923193000_local01_schema_contract_reconciliation/migration.sql", "docs/vps-preparation/local-01/schema-reconciliation/after-hashes.json", "docs/vps-preparation/local-01/schema-reconciliation/review-pack.zip"]
+}

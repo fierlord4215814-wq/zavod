@@ -1,0 +1,38 @@
+{
+  "status": "PASS_CURRENT_FILTER_BACK_ARCHIVE_NEGATIVE_BINDINGS",
+  "id": "398762a8-590a-4b00-bae4-b64413e8f039",
+  "denials": {
+    "POST /shift-log/398762a8-590a-4b00-bae4-b64413e8f039/comment": 409,
+    "POST /shift-log/398762a8-590a-4b00-bae4-b64413e8f039/read": 409,
+    "GET /shift-log/398762a8-590a-4b00-bae4-b64413e8f039/reads": 409,
+    "PATCH /shift-log/398762a8-590a-4b00-bae4-b64413e8f039": 409,
+    "POST /shift-log/398762a8-590a-4b00-bae4-b64413e8f039/close-important": 409,
+    "DELETE /attachments/6dfc6e60-7076-469a-89d4-d09b925b71d2": 403,
+    "upload": 403
+  },
+  "filteredBack": [
+    {
+      "iteration": 1,
+      "filterRetained": "«УЧ T1 — обычная запись производства»",
+      "readOnly": true
+    },
+    {
+      "iteration": 2,
+      "filterRetained": "«УЧ T1 — обычная запись производства»",
+      "readOnly": true
+    },
+    {
+      "iteration": 3,
+      "filterRetained": "«УЧ T1 — обычная запись производства»",
+      "readOnly": true
+    }
+  ],
+  "filteredBackScope": "Three real browser Back/open cycles on current filtered archive; not asserted historical linked-modal Back×3 geometry.",
+  "noNormalQueryBypass": true,
+  "scope": {
+    "otherDepartment": 409,
+    "otherFactory": 409,
+    "otherFactoryFile": 403
+  },
+  "noReadWriteReceiptCounterSideEffects": true
+}

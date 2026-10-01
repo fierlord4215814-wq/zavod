@@ -1,0 +1,18 @@
+{
+  "phase": "after",
+  "checks": [
+    {
+      "type": "ORDER_REQUEST",
+      "source": 200,
+      "mismatchedMetadataReturned": false,
+      "directMetadata": 403
+    },
+    {
+      "type": "MINIMUM_STOCK_ITEM",
+      "source": 200,
+      "mismatchedMetadataReturned": false,
+      "directMetadata": 403
+    }
+  ],
+  "status": "PASS_INTERNAL_METADATA_MATCHES_SELECTED_SOURCE_FACTORY"
+}

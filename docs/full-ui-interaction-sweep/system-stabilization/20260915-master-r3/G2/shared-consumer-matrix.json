@@ -1,0 +1,869 @@
+{
+  "modals": [
+    {
+      "owner": "frontend/src/screens/ArchiveScreen.tsx",
+      "line": 508,
+      "tag": "ActionModal",
+      "attributes": "title=\"Уточнить время простоя\" description={`${correctionTarget.title}. Старое и новое значение сохранятся в аудите.`} fields={[{ name: 'correctedStartAt', label: 'Фактическое начало', type: 'datetime-local', required: true }, { name: 'correctedEndAt', label: 'Фактическое окончание', type: 'datetime-local', required: true }, { name: 'comment', label: 'Комментарий', type: 'textarea', required: true }]} confirmLabel=\"Сохранить уточнение\" onCancel={() => setCorrectionTarget(null)} onSubmit={submitCorrection}",
+      "sourceSha256": "511ea5e171a0ba8e17f34bb5326d7b6ce2dec462e85010a76ecb822bdf57da60",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "internal-pending-latch",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 2999,
+      "tag": "ActionModal",
+      "attributes": "busy={loading}\n          cancelLabel=\"Отмена\"\n          className=\"checklist-item-editor-modal\"\n          confirmLabel=\"Сохранить\"\n          dirty={JSON.stringify(templateBuilder.editorDraft) !== JSON.stringify(templateBuilder.editorInitialDraft)}\n          errorText={errorText}\n          onCancel={() => {\n            setTemplateBuilder({ ...templateBuilder, editorIndex: null, editorDraft: null, editorInitialDraft: null });\n            setErrorText(null);\n          }}\n          onSubmit={() => commitBuilderEditor()}\n          title={templateBuilder.editorIndex !== null && templateBuilder.editorIndex >= 0 ? 'Редактирование пункта' : 'Новый пункт'}",
+      "sourceSha256": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "parent-owned/no-fields",
+        "external-busy",
+        "parent-dirty"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 3048,
+      "tag": "ActionModal",
+      "attributes": "busy={loading}\n          cancelLabel=\"Отмена\"\n          confirmLabel={\n            modal.mode === 'start'\n              ? 'Взять в работу'\n              : modal.mode === 'close'\n                ? isPeriodicChecklistRun(modal.run) ? 'Завершить чек-лист полностью' : 'Завершить чек-лист'\n                : modal.mode === 'resume'\n                  ? 'Возобновить'\n                  : modal.mode === 'archive-row' || modal.mode === 'archive-template'\n                    ? 'Подтвердить'\n                    : 'Сохранить'\n          }\n          errorText={errorText}\n          fields={\n            modal.mode === 'pause'\n              ? [{ name: 'reason', label: 'Причина паузы', type: 'textarea', required: true }]\n              : modal.mode === 'close'\n                ? [{\n                    name: 'comment',\n                    label: isPeriodicChecklistRun(modal.run) ? 'Причина досрочного завершения' : 'Причина завершения',\n                    type: 'textarea',\n                    required: true,\n                  }]\n                : modal.mode === 'edit-template'\n                  ? templateFields(modal.template)\n                  : modal.mode === 'create-template'\n                    ? templateFields()\n                    : []\n          }\n          onCancel={() => {\n            setFilesByRow({});\n            setStandaloneRowDraft(null);\n            setModal(null);\n          }}\n          onSubmit={submitModal}\n          title={modal.title}",
+      "sourceSha256": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/OkkScreen.tsx",
+      "line": 330,
+      "tag": "ActionModal",
+      "attributes": "title=\"Новый брак\" fields={createFields} busy={busy} errorText={errorText} confirmLabel=\"Создать\" onCancel={() => setModal(null)} onSubmit={createRecord}",
+      "sourceSha256": "fdabe8ae6d459c674076c2b53b37353b158de5d709af225d65721ff85b2b9866",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/OkkScreen.tsx",
+      "line": 331,
+      "tag": "ActionModal",
+      "attributes": "title=\"Отметить выполнение\" fields={completionFields} busy={busy} errorText={errorText} confirmLabel=\"Сохранить\" onCancel={() => setModal(null)} onSubmit={markCompletion}",
+      "sourceSha256": "fdabe8ae6d459c674076c2b53b37353b158de5d709af225d65721ff85b2b9866",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/OkkScreen.tsx",
+      "line": 333,
+      "tag": "ActionModal",
+      "attributes": "title=\"Полностью завершить запись\"\n          description=\"После подтверждения запись будет скрыта из активного списка и останется в архиве.\"\n          busy={busy}\n          errorText={errorText}\n          confirmLabel=\"Подтвердить\"\n          onCancel={() => setModal(null)}\n          onSubmit={async () => {\n            if (await postAction(activeId, 'full-complete')) {\n              setModal(null);\n              setActiveId(null);\n            }\n          }}",
+      "sourceSha256": "fdabe8ae6d459c674076c2b53b37353b158de5d709af225d65721ff85b2b9866",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "parent-owned/no-fields",
+        "external-busy",
+        "field-dirty"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/OrdersStockScreen.tsx",
+      "line": 603,
+      "tag": "ActionModal",
+      "attributes": "busy={loading}\n          confirmLabel={modal.mode === 'restore' ? 'Восстановить' : 'Сохранить'}\n          errorText={errorText}\n          fields={modalFields()}\n          onCancel={() => { setModal(null); setModalOperationId(''); }}\n          onSubmit={(values) => runAction(values)}\n          title={modal.title}",
+      "sourceSha256": "bd74e6145d3c87a18ff0883510fd89b57cbe4c11f52480b7f97469e85e03e685",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 713,
+      "tag": "ActionModal",
+      "attributes": "busy={busy}\n          dirty={Boolean(lineId)}\n          fields={skillFields}\n          title=\"Добавить навык\"\n          confirmLabel=\"Добавить\"\n          onCancel={() => { setModal(null); setLineId(''); }}\n          onSubmit={createSkill}",
+      "sourceSha256": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "parent-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 733,
+      "tag": "ActionModal",
+      "attributes": "busy={busy}\n          description=\"Автоматическое начисление остаётся основным. Здесь руководитель может исправить подтверждённую ошибку учёта.\"\n          fields={[\n            { name: 'experienceCount', label: 'Фактический опыт', type: 'number', required: true, defaultValue: selectedSkill.experienceCount },\n            { name: 'isActive', label: 'Навык активен', type: 'checkbox', defaultValue: true },\n          ]}\n          title=\"Изменить навык\"\n          confirmLabel=\"Сохранить\"\n          onCancel={() => { setModal(null); setSelectedSkill(null); }}\n          onSubmit={updateSkill}",
+      "sourceSha256": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 748,
+      "tag": "ActionModal",
+      "attributes": "busy={busy}\n          fields={[\n            { name: 'text', label: 'Заметка', type: 'textarea', required: true },\n            {\n              name: 'visibility',\n              label: 'Видимость',\n              type: 'select',\n              defaultValue: 'MANAGEMENT',\n              options: [{ label: 'Руководство', value: 'MANAGEMENT' }, { label: 'Только администратор', value: 'ADMIN' }],\n            },\n          ]}\n          title=\"Заметка руководства\"\n          confirmLabel=\"Сохранить\"\n          onCancel={() => setModal(null)}\n          onSubmit={createNote}",
+      "sourceSha256": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 768,
+      "tag": "ActionModal",
+      "attributes": "busy={busy}\n          fields={[{ name: 'text', label: 'Заметка', type: 'textarea', required: true, defaultValue: selectedNote.text }]}\n          title=\"Изменить заметку\"\n          confirmLabel=\"Сохранить\"\n          onCancel={() => setModal(null)}\n          onSubmit={updateNote}",
+      "sourceSha256": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 779,
+      "tag": "ActionModal",
+      "attributes": "busy={busy}\n          title=\"Удалить заметку\"\n          description=\"Заметка будет скрыта, физическое удаление не выполняется.\"\n          confirmLabel=\"Удалить\"\n          onCancel={() => setModal(null)}\n          onSubmit={deleteNote}",
+      "sourceSha256": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "parent-owned/no-fields",
+        "external-busy",
+        "field-dirty"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 790,
+      "tag": "ActionModal",
+      "attributes": "busy={busy}\n          title=\"Сбросить пароль\"\n          description={`Действующие сессии сотрудника «${profile.displayName}» завершатся. При следующем входе он задаст новый пароль без старого.`}\n          fields={[{ name: 'reason', label: 'Причина', type: 'textarea', required: true }]}\n          confirmLabel=\"Сбросить пароль\"\n          onCancel={() => setModal(null)}\n          onSubmit={resetPassword}",
+      "sourceSha256": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 315,
+      "tag": "ActionModal",
+      "attributes": "busy={loading}\n          errorText={errorText}\n          fields={[\n            { name: 'title', label: 'Заголовок' },\n            { name: 'logDate', label: 'Дата', type: 'date', defaultValue: todayKey(), required: true },\n            { name: 'shiftLabel', label: 'Смена', type: 'select', options: [{ label: 'День', value: 'День' }, { label: 'Ночь', value: 'Ночь' }], defaultValue: 'День', required: true },\n            { name: 'text', label: 'Комментарий к смене', type: 'textarea', required: true },\n            ...(currentUser?.isAdmin ? [{ name: 'departmentId', label: 'Отдел', type: 'select' as const, options: departmentOptions, defaultValue: currentUser.departmentId ?? '', required: true }] : []),\n            ...(canImportant ? [{ name: 'isImportant', label: 'Важная запись', type: 'checkbox' as const }] : []),\n          ]}\n          onCancel={() => setModal(null)}\n          onSubmit={submitModal}\n          title=\"Новая запись\"",
+      "sourceSha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 333,
+      "tag": "ActionModal",
+      "attributes": "busy={loading} errorText={errorText} fields={[{ name: 'text', label: 'Комментарий', type: 'textarea', required: true }]} onCancel={() => setModal(null)} onSubmit={submitModal} title=\"Комментарий\"",
+      "sourceSha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 337,
+      "tag": "ActionModal",
+      "attributes": "busy={loading} errorText={errorText} fields={[{ name: 'comment', label: 'Комментарий закрытия', type: 'textarea', required: true }]} onCancel={() => setModal(null)} onSubmit={submitModal} title=\"Закрыть важное уведомление\"",
+      "sourceSha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/SituationScreen.tsx",
+      "line": 913,
+      "tag": "ActionModal",
+      "attributes": "title={pendingAction.mode === 'start' || pendingAction.status === 'WORK' ? 'Вернуть в работу' : `Изменить статус: ${statusMeta[pendingAction.status].label}`}\n          description={`${pendingAction.line.name}. ${statusDescription(pendingAction.mode === 'start' ? 'WORK' : pendingAction.status)}`}\n          fields={[\n            {\n              name: 'effectiveMode',\n              label: 'Время события',\n              type: 'select',\n              defaultValue: 'NOW',\n              required: true,\n              options: [\n                { label: 'Сейчас', value: 'NOW' },\n                { label: 'Указать фактическое время', value: 'CUSTOM' },\n              ],\n            },\n            {\n              name: 'effectiveAt',\n              label: 'Фактическое время',\n              type: 'datetime-local',\n              defaultValue: factoryDateTimeInput(serverNowIso),\n            },\n            ...(pendingAction.mode !== 'start' && (pendingAction.status === 'PAUSE' || pendingAction.status === 'STOP') ? [{\n              name: 'downtimeReason',\n              label: 'Причина простоя',\n              type: 'select' as const,\n              required: true,\n              defaultValue: downtimeReasons[0]?.value ?? '',\n              options: downtimeReasons,\n            }] : []),\n            {\n              name: 'comment',\n              label: 'Комментарий',\n              type: 'textarea',\n              required: pendingAction.mode !== 'start' && (pendingAction.status === 'PAUSE' || pendingAction.status === 'STOP'),\n            },\n          ]}\n          confirmLabel=\"Подтвердить\"\n          busy={actionBusy}\n          errorText={errorText}\n          onCancel={() => setPendingAction(null)}\n          onSubmit={confirmAction}",
+      "sourceSha256": "1415af3c64b91e53871b6ea5924642c29463ff28791cdf95f3fa9efbe7d44b41",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/StockScreen.tsx",
+      "line": 128,
+      "tag": "ActionModal",
+      "attributes": "title=\"Создать некондицию\"\n          fields={[\n            { name: 'name', label: 'Наименование', placeholder: 'Можно оставить пустым' },\n            { name: 'quantity', label: 'Количество', type: 'number', required: true },\n            { name: 'unit', label: 'Единица', type: 'select', required: true, defaultValue: 'штуки', options: unitOptions },\n          ]}\n          busy={busy}\n          errorText={errorText}\n          confirmLabel=\"Создать\"\n          onCancel={() => setModal(null)}\n          onSubmit={async (values) => {\n            setBusy(true);\n            setErrorText(null);\n            try {\n              await apiClient.post('/stock', { name: String(values.name ?? ''), quantity: Number(values.quantity), unit: String(values.unit ?? 'штуки') });\n              setModal(null);\n              await load();\n            } catch (error) {\n              setErrorText(error instanceof Error ? error.message : 'Не удалось создать некондицию.');\n            } finally {\n              setBusy(false);\n            }\n          }}",
+      "sourceSha256": "fa86b6eee8d2463a2f4c504725cfbaab891a19f61a28d1813c916a8b3812a197",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/StockScreen.tsx",
+      "line": 156,
+      "tag": "ActionModal",
+      "attributes": "title=\"Редактировать некондицию\"\n          fields={[\n            { name: 'name', label: 'Наименование', defaultValue: active.name ?? active.productName ?? '' },\n            { name: 'quantity', label: 'Количество', type: 'number', required: true, defaultValue: active.quantity },\n            { name: 'unit', label: 'Единица', type: 'select', required: true, defaultValue: defectUnit(active), options: unitOptions },\n          ]}\n          busy={busy}\n          errorText={errorText}\n          confirmLabel=\"Сохранить\"\n          onCancel={() => setModal(null)}\n          onSubmit={async (values) => {\n            setBusy(true);\n            setErrorText(null);\n            try {\n              await apiClient.patch(`/stock/${active.id}`, { name: String(values.name ?? ''), quantity: Number(values.quantity), unit: String(values.unit ?? 'штуки') });\n              setModal(null);\n              setActiveId(null);\n              await load();\n            } catch (error) {\n              setErrorText(error instanceof Error ? error.message : 'Не удалось обновить некондицию.');\n            } finally {\n              setBusy(false);\n            }\n          }}",
+      "sourceSha256": "fa86b6eee8d2463a2f4c504725cfbaab891a19f61a28d1813c916a8b3812a197",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/StockScreen.tsx",
+      "line": 185,
+      "tag": "ActionModal",
+      "attributes": "title=\"Выдать некондицию\"\n          fields={[{ name: 'comment', label: 'Комментарий выдачи', type: 'textarea', required: true }]}\n          busy={busy}\n          errorText={errorText}\n          confirmLabel=\"Выдать\"\n          onCancel={() => setModal(null)}\n          onSubmit={async (values) => {\n            setBusy(true);\n            setErrorText(null);\n            try {\n              await apiClient.post(`/stock/${activeId}/issue`, { comment: String(values.comment) });\n              setModal(null);\n              setActiveId(null);\n              await load();\n            } catch (error) {\n              setErrorText(error instanceof Error ? error.message : 'Не удалось выдать некондицию.');\n            } finally {\n              setBusy(false);\n            }\n          }}",
+      "sourceSha256": "fa86b6eee8d2463a2f4c504725cfbaab891a19f61a28d1813c916a8b3812a197",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "line": 751,
+      "tag": "ActionModal",
+      "attributes": "busy={busy}\n          errorText={errorText}\n          title=\"Создать заявку\"\n          fields={[\n            { name: 'description', label: 'Описание', type: 'textarea', required: true },\n            { name: 'type', label: 'Тип', type: 'select', required: true, defaultValue: 'URGENT', options: [{ label: 'Срочная', value: 'URGENT' }, { label: 'Долгая', value: 'LONG' }] },\n            { name: 'lineId', label: 'Линия', type: 'select', options: lines.map((line) => ({ label: line.name, value: line.id })) },\n            { name: 'departmentId', label: 'Служба / отдел', type: 'select', options: departments.map((department) => ({ label: department.name, value: department.id })) },\n            { name: 'assigneeUserId', label: 'Конкретный исполнитель', type: 'select', options: candidates.map((candidate) => ({ label: `${candidate.displayName} · ${candidate.role === 'OTHER' && candidate.departmentName ? candidate.departmentName : roleLabel(candidate.role)}`, value: candidate.userId })) },\n            { name: 'deadlineAt', label: 'Дедлайн для долгой заявки', type: 'datetime-local', defaultValue: buildDeadline(settings?.longTaskDefaultDeadlineHours ?? 48) },\n          ]}\n          onCancel={closeTaskModal}\n          onSubmit={async (values) => {\n            if (actionInFlightRef.current) return;\n            actionInFlightRef.current = true;\n            setBusy(true);\n            setErrorText(null);\n            try {\n            const type = String(values.type || 'URGENT').toUpperCase() === 'LONG' ? 'LONG' : 'URGENT';\n            const task = await apiClient.post<Task>('/tasks', {\n              type,\n              description: String(values.description),\n              lineId: values.lineId ? String(values.lineId) : null,\n              departmentRecipientIds: values.departmentId ? [String(values.departmentId)] : [],\n              assigneeUserIds: values.assigneeUserId ? [String(values.assigneeUserId)] : [],\n              deadlineAt: type === 'LONG' ? new Date(String(values.deadlineAt || buildDeadline(settings?.longTaskDefaultDeadlineHours ?? 48))).toISOString() : null,\n              operationId: modalOperationId || createOperationId('task-create'),\n            });\n            if (files.length) await uploadFiles('TASK', task.id, files);\n            setFiles([]);\n            closeTaskModal();\n            await load();\n            await loadArchive();\n            } catch (error) {\n              setErrorText(errorMessage(error, 'Не удалось создать заявку'));\n            } finally {\n              actionInFlightRef.current = false;\n              setBusy(false);\n            }\n          }}",
+      "sourceSha256": "0d95af2589e46f16cc46222e1a73c782b2480da01260df869d9d3574e0f05cf6",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "line": 849,
+      "tag": "ActionModal",
+      "attributes": "busy={busy}\n          errorText={errorText}\n          title=\"Передать заявку\"\n          fields={[\n            { name: 'comment', label: 'Комментарий', type: 'textarea', required: true },\n            { name: 'departmentId', label: 'Новая служба / отдел', type: 'select', options: departments.map((department) => ({ label: department.name, value: department.id })) },\n            { name: 'assigneeUserId', label: 'Новый конкретный исполнитель', type: 'select', options: candidates.map((candidate) => ({ label: `${candidate.displayName} · ${candidate.role === 'OTHER' && candidate.departmentName ? candidate.departmentName : roleLabel(candidate.role)}`, value: candidate.userId })) },\n          ]}\n          onCancel={closeTaskModal}\n          onSubmit={async (values) => {\n            if (actionInFlightRef.current) return;\n            actionInFlightRef.current = true;\n            setBusy(true);\n            setErrorText(null);\n            try {\n            await apiClient.post(`/tasks/${selectedTask.id}/redirect`, {\n              comment: String(values.comment),\n              newDepartmentRecipientIds: values.departmentId ? [String(values.departmentId)] : [],\n              newAssigneeUserIds: values.assigneeUserId ? [String(values.assigneeUserId)] : [],\n              operationId: modalOperationId || createOperationId('task-redirect'),\n            });\n            closeTaskModal();\n            await load();\n            await loadArchive();\n            await openDetail(selectedTask);\n            } catch (error) {\n              setErrorText(errorMessage(error, 'Не удалось передать заявку'));\n            } finally {\n              actionInFlightRef.current = false;\n              setBusy(false);\n            }\n          }}",
+      "sourceSha256": "0d95af2589e46f16cc46222e1a73c782b2480da01260df869d9d3574e0f05cf6",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "line": 886,
+      "tag": "ActionModal",
+      "attributes": "busy={busy}\n          errorText={errorText}\n          title=\"Завершить заявку\"\n          fields={[{ name: 'comment', label: selectedTask.overdue ? 'Комментарий к закрытию просрочки' : 'Комментарий', type: 'textarea', required: Boolean(selectedTask.overdue && selectedTask.type === 'LONG') }]}\n          onCancel={closeTaskModal}\n          onSubmit={async (values) => {\n            if (actionInFlightRef.current) return;\n            actionInFlightRef.current = true;\n            setBusy(true);\n            setErrorText(null);\n            try {\n            await apiClient.post(`/tasks/${selectedTask.id}/complete`, {\n              operationId: modalOperationId || createOperationId('task-done'),\n              comment: String(values.comment || ''),\n            });\n            closeTaskModal();\n            setSelectedTask(null);\n            await load();\n            await loadArchive();\n            } catch (error) {\n              setErrorText(errorMessage(error, 'Не удалось завершить заявку'));\n            } finally {\n              actionInFlightRef.current = false;\n              setBusy(false);\n            }\n          }}",
+      "sourceSha256": "0d95af2589e46f16cc46222e1a73c782b2480da01260df869d9d3574e0f05cf6",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 681,
+      "tag": "ActionModal",
+      "attributes": "busy={loading}\n            errorText={errorText}\n            title=\"Фото или комментарий\"\n            fields={[{ name: 'message', label: 'Комментарий', type: 'textarea', required: true }]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              setLoading(true);\n              setErrorText(null);\n              try {\n                const input = { message: String(values.message) };\n                const message = await apiClient.post<{ id: string }>(`/wash/${current.id}/message`, { ...input, operationId: formOperationId('message', [current.id, input]) });\n                await uploadAttachments('WASH_MESSAGE', message.id, files);\n                resetModal();\n                await reloadDetail(current.id);\n              } catch (error) {\n                setErrorText(error instanceof Error ? error.message : 'Не удалось сохранить комментарий к мойке.');\n              } finally {\n                setLoading(false);\n              }\n            }}",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 707,
+      "tag": "ActionModal",
+      "attributes": "title=\"Проблема мойки\"\n            fields={[\n              { name: 'title', label: 'Коротко что не так', required: true },\n              { name: 'description', label: 'Описание', type: 'textarea', required: true },\n            ]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              const input = {\n                title: String(values.title),\n                description: String(values.description),\n              };\n              const issue = await apiClient.post<{ id: string }>(`/wash/${current.id}/issues`, { ...input, operationId: formOperationId('issue', [current.id, input]) });\n              await uploadAttachments('WASH_ISSUE', issue.id, files);\n              resetModal();\n              await reloadDetail(current.id);\n            }}",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "internal-pending-latch",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 729,
+      "tag": "ActionModal",
+      "attributes": "title=\"Задание по мойке\"\n            fields={[\n              { name: 'title', label: 'Что проверить или домыть', required: true },\n              { name: 'description', label: 'Комментарий', type: 'textarea' },\n              { name: 'type', label: 'Тип', type: 'select', options: [{ value: 'CONTROL', label: 'Контроль' }, { value: 'MINI_TASK', label: 'Мини-задача' }], defaultValue: 'CONTROL' },\n              { name: 'requiresPhoto', label: 'Требовать фото при выполнении', type: 'checkbox' },\n            ]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              const item = await apiClient.post<{ id: string }>(`/wash/${current.id}/control-items`, {\n                title: String(values.title),\n                description: String(values.description || ''),\n                type: String(values.type || 'CONTROL') as 'CONTROL',\n                requiresPhoto: Boolean(values.requiresPhoto),\n              });\n              await uploadAttachments('WASH_CONTROL_ITEM', item.id, files);\n              resetModal();\n              await reloadDetail(current.id);\n            }}",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "internal-pending-latch",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 754,
+      "tag": "ActionModal",
+      "attributes": "busy={loading}\n            errorText={errorText}\n            title=\"ОКК-проверка мойки\"\n            fields={[\n              { name: 'status', label: 'Решение', type: 'select', options: [{ value: 'APPROVED', label: 'Принято' }, { value: 'NEEDS_REWORK', label: 'Нужно домыть' }, { value: 'REJECTED', label: 'Отклонено' }], defaultValue: 'APPROVED', required: true },\n              { name: 'comment', label: 'Комментарий', type: 'textarea', required: true },\n            ]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              setLoading(true);\n              setErrorText(null);\n              try {\n                const review = await apiClient.post<{ id: string }>(`/wash/${current.id}/okk-review`, {\n                  status: String(values.status || 'APPROVED'),\n                  rating: reviewRating ? Number(reviewRating) : undefined,\n                  comment: String(values.comment),\n                });\n                await uploadAttachments('WASH_OKK_REVIEW', review.id, files);\n                resetModal();\n                await reloadDetail(current.id);\n              } catch (error) {\n                setErrorText(error instanceof Error ? error.message : 'Не удалось сохранить проверку ОКК.');\n              } finally {\n                setLoading(false);\n              }\n            }}",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 805,
+      "tag": "ActionModal",
+      "attributes": "title=\"Закрыть проблему\"\n            fields={[{ name: 'comment', label: 'Что сделали', type: 'textarea', required: true }]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              await apiClient.patch(`/wash/issues/${selectedIssueId}/status`, { status: 'RESOLVED', comment: String(values.comment) });\n              resetModal();\n              await reloadDetail(current.id);\n            }}",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "internal-pending-latch",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 817,
+      "tag": "ActionModal",
+      "attributes": "title=\"Выполнить задание\"\n            fields={[{ name: 'comment', label: 'Комментарий', type: 'textarea' }]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              await uploadAttachments('WASH_CONTROL_ITEM', String(selectedControlId), files);\n              await apiClient.patch(`/wash/control-items/${selectedControlId}`, { status: 'DONE', comment: String(values.comment || '') });\n              resetModal();\n              await reloadDetail(current.id);\n            }}",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "internal-pending-latch",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 832,
+      "tag": "ActionModal",
+      "attributes": "busy={loading}\n            className=\"wash-complete-modal\"\n            confirmLabel=\"Завершить мойку\"\n            errorText={errorText}\n            title=\"Завершить мойку\"\n            description=\"Перед завершением проверьте открытые проблемы, задания и решение ОКК. Если правила завода не выполнены, backend вернет понятную ошибку.\"\n            onCancel={resetModal}\n            onSubmit={async () => {\n              setLoading(true);\n              setErrorText(null);\n              try {\n                await apiClient.post(`/wash/${current.id}/complete`, { operationId: formOperationId('complete', current.id) });\n                resetModal();\n                closeDetail();\n                await loadWash();\n              } catch (error) {\n                setErrorText(error instanceof Error ? error.message : 'Не удалось завершить мойку.');\n              } finally {\n                setLoading(false);\n              }\n            }}",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "parent-owned/no-fields",
+        "external-busy",
+        "field-dirty"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 925,
+      "tag": "ActionModal",
+      "attributes": "busy={loading}\n          errorText={errorText}\n          title=\"Новое задание на мойку\"\n          fields={[\n            { name: 'targetType', label: 'Что нужно помыть', type: 'select', defaultValue: 'LINE', required: true, options: [{ value: 'LINE', label: 'Линия' }, { value: 'OTHER', label: 'Другой объект' }] },\n            { name: 'lineId', label: 'Линия', type: 'select', options: [{ value: '', label: 'Не выбрано' }, ...requestLineOptions] },\n            { name: 'objectName', label: 'Другой объект' },\n            { name: 'description', label: 'Описание работ', type: 'textarea', required: true },\n            { name: 'priority', label: 'Приоритет', type: 'select', defaultValue: 'NORMAL', required: true, options: [{ value: 'LOW', label: 'Низкий' }, { value: 'NORMAL', label: 'Обычный' }, { value: 'HIGH', label: 'Высокий' }, { value: 'URGENT', label: 'Срочно' }] },\n            { name: 'dueAt', label: 'Срок', type: 'datetime-local' },\n            { name: 'comment', label: 'Комментарий', type: 'textarea' },\n          ]}\n          onCancel={resetModal}\n          onSubmit={async (values) => {\n            setLoading(true);\n            setErrorText(null);\n            try {\n              const targetType = String(values.targetType || 'LINE');\n              if (targetType === 'LINE' && !values.lineId) throw new Error('Выберите линию.');\n              if (targetType === 'OTHER' && String(values.objectName || '').trim().length < 2) throw new Error('Укажите объект мойки.');\n              const input = {\n                targetType,\n                lineId: targetType === 'LINE' ? String(values.lineId) : undefined,\n                objectName: targetType === 'OTHER' ? String(values.objectName).trim() : undefined,\n                description: String(values.description),\n                priority: String(values.priority || 'NORMAL'),\n                dueAt: values.dueAt ? new Date(String(values.dueAt)).toISOString() : undefined,\n                comment: String(values.comment || '').trim() || undefined,\n              };\n              const request = await apiClient.post<WashRequest>('/wash/requests', { ...input, operationId: formOperationId('request-create', input) });\n              await uploadAttachments('WASH_CONTROL_ITEM', request.id, files);\n              resetModal();\n              await loadWash();\n            } catch (error) {\n              setErrorText(error instanceof Error ? error.message : 'Не удалось создать задание на мойку.');\n            } finally {\n              setLoading(false);\n            }\n          }}",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "typed-draft-default-schema",
+        "external-busy",
+        "field-dirty",
+        "enum/dependent-option-validation"
+      ],
+      "runtimeClasses": "component-contracts + R3 form-back/context/People skills + actual Wash/Checklist/Tasks consumers"
+    }
+  ],
+  "previews": [
+    {
+      "owner": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "line": 382,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={images}\n                focusIndex={activePage}\n                mode=\"focus\"\n                showTitle={false}",
+      "sourceSha256": "0d0674dcec5ec4239f319f595ef7fe376a925443ca8a736125825f2abf8ea730",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "line": 400,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={filesOnly} showTitle={false}",
+      "sourceSha256": "0d0674dcec5ec4239f319f595ef7fe376a925443ca8a736125825f2abf8ea730",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ArchiveScreen.tsx",
+      "line": 500,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={[previewAttachment(attachment)]} showTitle={false}",
+      "sourceSha256": "511ea5e171a0ba8e17f34bb5326d7b6ce2dec462e85010a76ecb822bdf57da60",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ArchiveScreen.tsx",
+      "line": 504,
+      "tag": "AttachmentPreviewList",
+      "attributes": "key={attachmentDetail.id} attachments={[previewAttachment(attachmentDetail)]} showTitle={false}",
+      "sourceSha256": "511ea5e171a0ba8e17f34bb5326d7b6ce2dec462e85010a76ecb822bdf57da60",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/BugReportScreen.tsx",
+      "line": 321,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={selectedReport.attachments ?? []} showEmpty mode=\"grid\" emptyText=\"Вложений нет.\"",
+      "sourceSha256": "21288d1d9ba655559d522365063daece9a229927389467959089620677968026",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ChatsScreen.tsx",
+      "line": 1342,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={message.attachments ?? []} mode=\"inline\"",
+      "sourceSha256": "c961553c2f08bb3391781bc1fb088ef539d423c8ede1cbe03c1430b1ee8943a6",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ChatsScreen.tsx",
+      "line": 1770,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={inlineMedia.media} mode=\"grid\" showEmpty emptyText=\"Медиа пока нет.\"",
+      "sourceSha256": "c961553c2f08bb3391781bc1fb088ef539d423c8ede1cbe03c1430b1ee8943a6",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ChatsScreen.tsx",
+      "line": 1773,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={inlineMedia.files} mode=\"list\" showEmpty emptyText=\"Файлов пока нет.\"",
+      "sourceSha256": "c961553c2f08bb3391781bc1fb088ef539d423c8ede1cbe03c1430b1ee8943a6",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 2422,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={row.attachments ?? []} mode=\"grid\" showEmpty={false}",
+      "sourceSha256": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 2466,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={row.attachments ?? []} mode=\"grid\" showEmpty={false}",
+      "sourceSha256": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 2611,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={currentRow.attachments ?? []} showEmpty={currentRow.requiresPhoto}",
+      "sourceSha256": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/OkkScreen.tsx",
+      "line": 279,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={record.attachments}",
+      "sourceSha256": "fdabe8ae6d459c674076c2b53b37353b158de5d709af225d65721ff85b2b9866",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/OrdersStockScreen.tsx",
+      "line": 570,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={selectedItem.attachments}",
+      "sourceSha256": "bd74e6145d3c87a18ff0883510fd89b57cbe4c11f52480b7f97469e85e03e685",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/OrdersStockScreen.tsx",
+      "line": 597,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={selectedRequest.attachments}",
+      "sourceSha256": "bd74e6145d3c87a18ff0883510fd89b57cbe4c11f52480b7f97469e85e03e685",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/OrdersStockScreen.tsx",
+      "line": 637,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={request.attachments}",
+      "sourceSha256": "bd74e6145d3c87a18ff0883510fd89b57cbe4c11f52480b7f97469e85e03e685",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ReturnsScreen.tsx",
+      "line": 203,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={item.attachments ?? []}",
+      "sourceSha256": "e26a868b08f91b2faa7ec8086aa43f5ccafcf8c87ba9788a55b4fdbc608e84a0",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ReturnsScreen.tsx",
+      "line": 318,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={selected.attachments ?? []}",
+      "sourceSha256": "e26a868b08f91b2faa7ec8086aa43f5ccafcf8c87ba9788a55b4fdbc608e84a0",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 298,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={selected.attachments ?? []}",
+      "sourceSha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 307,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={comment.attachments ?? []}",
+      "sourceSha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/StockScreen.tsx",
+      "line": 232,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={active.attachments}",
+      "sourceSha256": "fa86b6eee8d2463a2f4c504725cfbaab891a19f61a28d1813c916a8b3812a197",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "line": 728,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={selectedTask.attachments}",
+      "sourceSha256": "0d95af2589e46f16cc46222e1a73c782b2480da01260df869d9d3574e0f05cf6",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 395,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={request.attachments ?? []} mode=\"inline\"",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 511,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={current.attachments} mode=\"inline\"",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 561,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={issue.attachments} mode=\"inline\"",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 591,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={item.attachments} mode=\"inline\"",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 621,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={item.attachments} mode=\"inline\"",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 644,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={message.attachments} mode=\"inline\"",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 675,
+      "tag": "AttachmentPreviewList",
+      "attributes": "attachments={review.attachments} mode=\"inline\"",
+      "sourceSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "bindingStatus": "STATIC_COMPATIBILITY_REVIEWED_NOT_INDIVIDUAL_SUBMISSION",
+      "riskClasses": [
+        "pending-resource/context/unmount/back",
+        "actualmetadata-or-adapted-previewDTO"
+      ],
+      "runtimeClasses": "component-contracts resource/denial/retry + R3 Chat actual metadata/file + nested media return"
+    }
+  ],
+  "counts": {
+    "modals": 31,
+    "previews": 28
+  },
+  "priorModalIDs": [
+    "ca5ca0dba8c41db2",
+    "556ff7599857a26e",
+    "8408de4efb26bc3f",
+    "416c8a9ebee39e6a",
+    "320eb729a0865c58",
+    "d93a0281cd3faa06",
+    "2a8dfaff0d5c35d2",
+    "627f149b6d70a172",
+    "dbca6c2bc22fc55e",
+    "80ee4de5b323feb2",
+    "d51f06f244360405",
+    "97c24f343128bc77",
+    "b7475885fc924b31",
+    "99a7e72eb8a53af0",
+    "1715862592d8a5e5",
+    "830d548823a8a73f",
+    "b38fb7f1a5759192",
+    "85da00bc770f1cf8",
+    "a97eedbe481ec315",
+    "38634084338647f2",
+    "e813a6d3bcf80a20",
+    "18b36a484ed26dfc",
+    "d02a9a92fbe58aa8",
+    "4d6bc7c83fa0ab23",
+    "e6543803b9a5031e",
+    "57cddc6cce04f30f",
+    "b0e8c6a550ce0210",
+    "62d1f0190c510f24",
+    "9adc52345107ecf3",
+    "2861a68cec91ea98",
+    "a15e71c8405c4f0a"
+  ],
+  "notClaimed": "59 individual end-to-end submissions/uploads; static binding compatibility plus all distinct risk classes only"
+}

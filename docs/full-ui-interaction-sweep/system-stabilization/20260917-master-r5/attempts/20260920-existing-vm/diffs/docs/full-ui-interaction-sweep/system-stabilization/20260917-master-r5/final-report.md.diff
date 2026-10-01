@@ -1,0 +1,56 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+index 5a5ac54c..b7ac2ae6 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+@@ -1,6 +1,49 @@
+-# MASTER R5 — единый checkpoint20.09.2026: VM создана, наблюдение гостя заблокировано
++# MASTER R5 — единый текущий результат20.09.2026: старая очередь не разрешена
+ 
+-MASTER_R5_STATUS=BLOCKED_CONSOLE_OBSERVATION_PERMISSION. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. Это тот же R5; этап2 частично выполнен,3–8 NOT_RUN. Остановка вызвана необходимостью дополнительного разрешения на read-only VM observer после ошибки собственного capture harness, **не** достижением общей интеграционной приёмки.
++MASTER_R5_STATUS=BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. Тот же R5; stage2 не завершён,3–8 NOT_RUN. Hyper-V готов, существующая VM подтверждена; отсутствие безопасно разрешённой старой очереди запрещает возобновлять установку. Это не достигнутая интеграционная приёмка.
++
++## Последнее продолжение: что действительно выполнено
++
++Поручение ef597b09 разрешило один новый read-only observer UAC; отдельно — просмотр штатного VMConnect и один UAC нового ограниченного контроллера **только если старый завершён и операции сверены**. Baseline `attempts/20260920-existing-vm/baseline.json` до изменений сохранила15owners, hashes двух подготовленных observers/старого controller,3 прежних ZIP и274entries последнего пакета. 215product/config/132build/72harness/6parentmatrices совпали. Накопленные product changes R2/R3/R4 не относятся к этому продолжению.
++
++Подготовленный наблюдатель минимально адаптирован в новой attempt без изменения старых scripts/queue: один проход вместо8hloop; CIM timeout8s; watchdog100s завершает только собственный read-only процесс; per-call start/done; раздельные acquisition/decoding errors и фактические ImageData metadata. Actual observer PID8296 получил elevated token16:26:33, штатно завершился16:26:38; позднее процесс отсутствует. Новые product tests/fixtures/bootstrap0, это диагностика среды, не product PASS.
++
++| Наблюдение | Доказанный результат |
++|---|---|
++| Старый helper | PID9056, start20.09 08:26:22.464087+03, точные signed pwsh/exe, script path и expected SHA совпали; `old-helper-identity.json`. Жив, не завершался принудительно. Thread wait metadata не доказывает конкретную строку/cmdlet/prompt. |
++| Существующая VM | GUID99a158da-c247-422c-ae11-109485a92b1f, BIOSD00FD8A4-6628-433C-BD34-00A7CB7DD174, Gen2, EnabledState2/OperationalStatus2 в16:26:34 и16:26:38. Единственный disk — прежний own ubuntu24.vhdx; два прежних ISO. `vm-state-before/after.json`. |
++| Очередь/Hyper-V | requests000006SHUTDOWN/000007EXIT сохранены, results/terminal/failure отсутствуют. Associated `Msvm_AffectedJobElement` jobs=[] дважды; **это не доказывает отмену/невыполнение/невозможность будущего shutdown**. Execution line старого helper UNKNOWN. |
++| Thumbnail | API0, ImageData present/System.Byte[];640×480→614404bytes приexpected614400,320×240→153604 приexpected153600. Actual head1024×768/32bpp. Нет acquisition exception; decoding не предпринимался, buffer не обрезался/не дополнялся. Причинаextra4bytes UNKNOWN. |
++| Native viewer | Microsoft VMConnect PID9616 открыт обычным запуском только для нашей VM. Accessibility показала точный access denied. Ни guest console, ни enhanced session/resources не открылись. Computer-use screenshot дважды отказал: `SetIsBorderRequired failed: Интерфейс не поддерживается (0x80004002)`. |
++| Завершение новых процессов | Observer8296 завершён с terminal. Попытка clickOK viewer не исполнена (`coordinate input geometry is unavailable`); повторное чтение подтвердило тот же диалог. Обычный Alt+F4 закрывает только host error dialog; PID9616 затем отсутствует. Guest key inputs0. |
++
++Контракт [Microsoft thumbnail API](https://learn.microsoft.com/en-us/windows/win32/hyperv_v2/getvirtualsystemthumbnailimage-msvm-virtualsystemmanagementservice): raw RGB565,0 — успешное завершение,4096 — async. Не интерпретируем0 как API error и не изменяем данные ради guard. После короткой попытки использован штатный viewer, не третья реализация захвата. Навык computer-use обеспечил обращение только к выбранному окну; его capture limitation сохранён отдельно от permission denial и состояния Ubuntu.
++
++## Точная граница и минимальный следующий шаг
++
++Разрешение нового контроллера условное, сейчас условие не выполнено: old9056 жив, старый SHUTDOWN не разрешён. Нельзя запускать второй изменяющий helper, BOOT/KEYS/SHUTDOWN, удалять requests, перезаписывать result или начинать установку с возможным поздним выключением. Force/TurnOff/Reset/kill vmwp/vmms/reboot не применялись. Отсутствие jobs не закрывает этот риск.
++
++Пользователю переданы два конкретных вопроса: последние строки **окна собственного старого helper**, без ввода/закрытия/Force; и снимок **только собственной VMConnect-консоли**, открытой пользователем от администратора, без ввода гостю/enhanced resources. Это нужно для понимания wait/prompt и guest state; догадки «Ubuntu не запустился», «он завис в Stop-VM» или «достаточно kill helper» не выдаются за факт. Один разрешённый observer UAC уже использован, повторного/обходного launcher не запускали.
++
++После фактического разрешения старой очереди и наблюдения гостя продолжить тот же неизменный контракт: не переустанавливать уже установленного гостя; подтвердить exact sole VHDX перед дисковой операцией; actual guest users/mounts/routes/space, небольшой canary round-trip **до** большого payload; dependency/preload closure включая R4 guard; закрыть proxy/forwarding и network, доказать isolation до bootstrap; затем все5gates→32journeys→original063→одна final regression. Ни DISM, ни новую VM/диск/switch/ISO download не повторять.
++
++## Продукт и покрытие: без новых PASS
++
++MI-SEC-01, MI-PUB-01, MI-R2-ORD-01, MI-R2-CHAT-ATT-01, UI-SWEEP-036: каждый0/NOT_RUN_ENVIRONMENT_OLD_QUEUE_AND_CONSOLE_BOUNDARY. Required owners/cases не сокращены. J01–J32/1407edges:0новых real journeys;29bounded-isolated/3partial-isolated — история.036 ordinary≠immutable handover/archive permissions/19bindings и original0631286→1213/73px по-прежнему не закрыты,036 не функциональная причина063. UI014/050/replay/publication/J15 contracts остаются в одной decision-queue.
++
++Product fixes/schema/dependency changes0; builds/strictReact/Prisma/Node/browser/live NOT_RUN.549/177 — только R4 history. Main6matrices неизменны:954PASS/957semantic controls (956legacy IDs),3FAIL063;284surfaces;Back1623=1614PASS/4FAIL/4component/1physical;Text2754=2711PASS/35FAIL/8NOT_RUN;P0/P1/P2=0/1/10 — **не новая приёмка**. New valid native product/guest captures0, viewed0; только accessibility error text прочитан. Старые screenshot packages сохранены, их охват/пути в native-evidence-index.
++
++## Runtime, сохранность, передача
++
++Последний доказанный VM state Running16:26:38; Off не доказан. Текущий точечный процесс/queue snapshot и факт завершения новых helpers — `attempts/20260920-existing-vm/environment-runtime-receipt.json`. VM/VHDX/ISO/seed/private key/internal switch/clean tar сохранены, никаких новых VM/network/policy/DB settings. Новый observer/read-only viewer не изменяли гостя; product/DB/fixtures не создавались, own fixture cleanup=N/A. Working runtime/cleanup UNKNOWN_NOT_INSPECTED; WORKING_DB_ACCESSED=NO; WORKING_DATA_ENV_UPLOADS_CHANGED=NO. Stage68/Load/Cloudflare/physical не запускались, MAIN_UI_SWEEP остаётся на паузе.
++
++Собственная дельта текущего продолжения: docs, bounded diagnostic helpers, receipts; before/after/diffs/final-identities/source-delta/changed-files в `attempts/20260920-existing-vm/`. Новый единый ZIP `zavod-master-r5-existing-vm-observation-20260920.zip`: размер/SHA256/full-entry readback только по `attempts/20260920-existing-vm/package-receipt.json`. Три предыдущих ZIP сохранены по bytes. Не включаются private keys/media, cookies/storageState, .env, working data/uploads, DB, ISO/VHDX/source tar/.git/node_modules. SOURCE_SYNC=REPO_LOCAL_ONLY; Library=NOT_WRITTEN_PERSISTENCE_PENDING. FINAL_STOP=STOP_AT_REQUIRED_RUNTIME_OBSERVATION_BOUNDARY.
++
++---
++
++## История утреннего checkpoint20.09: VM создана, observer ещё не разрешён
++
++Исторический MASTER_R5_STATUS=BLOCKED_CONSOLE_OBSERVATION_PERMISSION ниже заменён результатом16:26; все прежние evidence сохранены.
+ 
+ ## Что завершено в продолжении19–20.09
+ 

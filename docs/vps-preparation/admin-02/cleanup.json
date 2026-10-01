@@ -1,0 +1,739 @@
+{
+  "status": "PASS_36_OWN_USERS_BLOCKED_REVOKED_C_INACTIVE_HISTORY_RETAINED",
+  "steps": [
+    {
+      "method": "POST",
+      "url": "/shift/end",
+      "userId": "f670f7b4-0ffb-437f-8df6-387050bfbefe",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "url": "/shift/end",
+      "userId": "7127a898-1129-4a11-8def-ac96557c2392",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "url": "/wash/f3c60496-2ab4-4bcb-96d7-d0a19b3f75a3/complete",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 201
+    },
+    {
+      "method": "PATCH",
+      "url": "/shift/contractor-submissions/e8f95c15-3f89-4c81-9113-fa9210c2b8df/items/1a65f661-a46d-4174-ab99-40b7de2aecf7",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/status",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/lines/d1a734c2-62e4-4ccf-abeb-963ca78f80e5/status",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/lines/89e9064b-dd21-49f8-8af4-08768a65e563/status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/f670f7b4-0ffb-437f-8df6-387050bfbefe/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/f670f7b4-0ffb-437f-8df6-387050bfbefe/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/f670f7b4-0ffb-437f-8df6-387050bfbefe/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/972b69f5-b703-43ea-97a9-c9ecb2801600/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/972b69f5-b703-43ea-97a9-c9ecb2801600/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/972b69f5-b703-43ea-97a9-c9ecb2801600/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/d19c6f6c-b05f-453e-b47d-eb5b0a9f49e6/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/d19c6f6c-b05f-453e-b47d-eb5b0a9f49e6/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/d19c6f6c-b05f-453e-b47d-eb5b0a9f49e6/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/edcdbf1c-33a4-48b1-8be0-55ac8ed4e76d/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/edcdbf1c-33a4-48b1-8be0-55ac8ed4e76d/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/edcdbf1c-33a4-48b1-8be0-55ac8ed4e76d/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/7127a898-1129-4a11-8def-ac96557c2392/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/7127a898-1129-4a11-8def-ac96557c2392/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/7127a898-1129-4a11-8def-ac96557c2392/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-9902e779-584d-47f6-8949-da9ec9da1785/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-9902e779-584d-47f6-8949-da9ec9da1785/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-9902e779-584d-47f6-8949-da9ec9da1785/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-14cf86de-2432-48f6-a663-87a73fa3f374/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-14cf86de-2432-48f6-a663-87a73fa3f374/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-14cf86de-2432-48f6-a663-87a73fa3f374/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-0c88d08f-a6bd-4660-bd3d-239cec7393b6/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-0c88d08f-a6bd-4660-bd3d-239cec7393b6/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-0c88d08f-a6bd-4660-bd3d-239cec7393b6/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-8d2c0f11-c9e6-4e5c-990e-0d0af478d44d/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-8d2c0f11-c9e6-4e5c-990e-0d0af478d44d/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-8d2c0f11-c9e6-4e5c-990e-0d0af478d44d/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-075ea0e0-d262-4b36-9b24-90491f72cf8d/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-075ea0e0-d262-4b36-9b24-90491f72cf8d/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-075ea0e0-d262-4b36-9b24-90491f72cf8d/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-ba7e31fc-c49c-434f-9cef-fe65e40e344a/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-ba7e31fc-c49c-434f-9cef-fe65e40e344a/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-ba7e31fc-c49c-434f-9cef-fe65e40e344a/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-6320a3b4-2032-4630-9a9c-55e65f32d154/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-6320a3b4-2032-4630-9a9c-55e65f32d154/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-6320a3b4-2032-4630-9a9c-55e65f32d154/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-8173c358-5715-42f9-8186-dbd9afee5496/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-8173c358-5715-42f9-8186-dbd9afee5496/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-8173c358-5715-42f9-8186-dbd9afee5496/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4500e01b-becd-42cd-927b-ad069a859e85/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4500e01b-becd-42cd-927b-ad069a859e85/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4500e01b-becd-42cd-927b-ad069a859e85/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-735f03f1-7823-4398-986c-f5be80428c7b/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-735f03f1-7823-4398-986c-f5be80428c7b/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-735f03f1-7823-4398-986c-f5be80428c7b/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-09cf9ccb-e669-4efb-93ba-10d1539130a7/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-09cf9ccb-e669-4efb-93ba-10d1539130a7/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-09cf9ccb-e669-4efb-93ba-10d1539130a7/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-14079c6b-af41-40eb-bd4f-82319306ae5a/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-14079c6b-af41-40eb-bd4f-82319306ae5a/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-14079c6b-af41-40eb-bd4f-82319306ae5a/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-03c71578-44c4-45d2-b418-1bf48e57a833/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-03c71578-44c4-45d2-b418-1bf48e57a833/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-03c71578-44c4-45d2-b418-1bf48e57a833/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4679ec5c-b6ab-40cf-9227-d04112a56464/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4679ec5c-b6ab-40cf-9227-d04112a56464/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4679ec5c-b6ab-40cf-9227-d04112a56464/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-aeadf376-ba30-4d84-9c08-f9debf1cd17e/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-aeadf376-ba30-4d84-9c08-f9debf1cd17e/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-aeadf376-ba30-4d84-9c08-f9debf1cd17e/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-5d3d3738-858d-4987-ac6d-d69481fd97b3/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-5d3d3738-858d-4987-ac6d-d69481fd97b3/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-5d3d3738-858d-4987-ac6d-d69481fd97b3/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-18c1ab1f-a389-4334-bbba-4732ac07ea15/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-18c1ab1f-a389-4334-bbba-4732ac07ea15/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-18c1ab1f-a389-4334-bbba-4732ac07ea15/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-cec2de52-a0fc-4fdf-987d-6ada80b3acae/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-cec2de52-a0fc-4fdf-987d-6ada80b3acae/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-cec2de52-a0fc-4fdf-987d-6ada80b3acae/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-a56adb65-d275-489c-a0fc-1251f71c7b1d/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-a56adb65-d275-489c-a0fc-1251f71c7b1d/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-a56adb65-d275-489c-a0fc-1251f71c7b1d/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-41c8b42b-6459-477e-8c57-f3f84d4345c0/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-41c8b42b-6459-477e-8c57-f3f84d4345c0/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-41c8b42b-6459-477e-8c57-f3f84d4345c0/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-2f2e8397-0d90-4ee7-b490-83a21537b153/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-2f2e8397-0d90-4ee7-b490-83a21537b153/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-2f2e8397-0d90-4ee7-b490-83a21537b153/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4ea2cd31-d101-459e-9531-d86228b6474c/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4ea2cd31-d101-459e-9531-d86228b6474c/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4ea2cd31-d101-459e-9531-d86228b6474c/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-b0a61f30-4c47-47bf-81d3-525325447e9f/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-b0a61f30-4c47-47bf-81d3-525325447e9f/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-b0a61f30-4c47-47bf-81d3-525325447e9f/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-bff49df5-cd02-462d-8496-9b10a73d67cd/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-bff49df5-cd02-462d-8496-9b10a73d67cd/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-bff49df5-cd02-462d-8496-9b10a73d67cd/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-f3f37eec-640b-4158-ac97-87857f56ec17/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-f3f37eec-640b-4158-ac97-87857f56ec17/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-f3f37eec-640b-4158-ac97-87857f56ec17/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4fa92ae2-80a7-41ab-9dfb-12f7bd4e4246/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4fa92ae2-80a7-41ab-9dfb-12f7bd4e4246/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/a02sql-4fa92ae2-80a7-41ab-9dfb-12f7bd4e4246/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/4fae624e-1727-4da2-a420-3416e6c81965/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/4fae624e-1727-4da2-a420-3416e6c81965/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/4fae624e-1727-4da2-a420-3416e6c81965/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/ce6eeef3-b1c7-43ce-bd33-4578dfd74bed/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/ce6eeef3-b1c7-43ce-bd33-4578dfd74bed/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/ce6eeef3-b1c7-43ce-bd33-4578dfd74bed/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/0d246f44-aca5-4b25-863f-3663da7ceba2/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/0d246f44-aca5-4b25-863f-3663da7ceba2/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/0d246f44-aca5-4b25-863f-3663da7ceba2/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/90784341-5081-44c9-9913-7d51c3bcc4db/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/90784341-5081-44c9-9913-7d51c3bcc4db/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/90784341-5081-44c9-9913-7d51c3bcc4db/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/1cd4ae85-5d5b-43ce-81dc-2f6ca58c6f34/block-status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/1cd4ae85-5d5b-43ce-81dc-2f6ca58c6f34/factory-access",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/users/1cd4ae85-5d5b-43ce-81dc-2f6ca58c6f34/factory-access",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/shift-settings",
+      "factory": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "url": "/admin/factories/f41021f0-eeda-40b3-bfcd-1a35e98d59da/status",
+      "factory": "dab94090-619c-46f4-91cf-cc48f3b22002",
+      "status": 200
+    }
+  ],
+  "target": "zavod_local02_admin02_clean",
+  "before": {
+    "user": 37,
+    "userFactoryAccess": 74,
+    "assignment": 17,
+    "shiftSession": 34,
+    "shiftReturnRequest": 15,
+    "auditLog": 313,
+    "attachment": 1
+  },
+  "final": {
+    "activeAssignments": 0,
+    "activeSessions": 0,
+    "pendingReturns": 0,
+    "activeWashes": 0,
+    "proposedContractors": 0,
+    "ownBlocked": 36,
+    "ownActiveAccess": 0,
+    "Cactive": false
+  },
+  "after": {
+    "user": 37,
+    "userFactoryAccess": 74,
+    "assignment": 17,
+    "shiftSession": 34,
+    "shiftReturnRequest": 15,
+    "auditLog": 432,
+    "attachment": 1
+  },
+  "finishedAt": "2026-09-26T18:39:35.845Z"
+}

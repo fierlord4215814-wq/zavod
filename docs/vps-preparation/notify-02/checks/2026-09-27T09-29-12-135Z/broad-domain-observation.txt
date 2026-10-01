@@ -1,0 +1,41 @@
+✔ J02 J25 real Admin create config Directory consumers deny duplicate foreign deactivate restore (8.9272ms)
+✔ J05 actual Line PAUSE preserves factual assignment STOP closes it without touching future plan (3.9904ms)
+✔ J03 actual Shift timeline factory midnight projection planning and past permission contracts are read-only (10.3977ms)
+✔ J12 actual periodic Checklist pause resume close keeps occurrences and reason line guards (2.4995ms)
+✔ J15 J17 OKK actual release and publication readers agree through partial final replay denial (5.55ms)
+✔ J15 J17 RETURN actual release and publication readers agree through partial final replay denial (2.8065ms)
+✔ J16 StockDefect current issue archive same record and scoped negative (2.4271ms)
+✔ J18 actual stock movements threshold list detail retry and STORE request boundary (5.4441ms)
+✔ J11 actual Defrost start end calendar line invalidation and forbidden WORK or Wash overlap (2.9246ms)
+✔ J10 actual Wash request take start comment completion preserves linked request and participant history (10.3512ms)
+✔ J01 J02 actual UserContext resolves UFA role overrides blocked revoked guest and factory deactivation (1.3519ms)
+✔ J19 publication ack report archive identity; archive capability=false (5.9062ms)
+✔ J19 publication ack report archive identity; archive capability=true KNOWN_NEGATIVE_MI-PUB-01 (1.8087ms)
+✖ J20 actual custom chat membership message reply edit delete reaction poll and unread chain (1.1992ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 999.1473
+
+✖ failing tests:
+
+test at backend\scripts\master-domain-contracts.test.js:171:1
+✖ J20 actual custom chat membership message reply edit delete reaction poll and unread chain (1.1992ms)
+  ForbiddenException: Чаты недоступны.
+      at ChatsService.assertChatAccess (C:\Users\79164\Documents\work\backend\dist\modules\chats\chats.service.js:1619:19)
+      at ChatsService.create (C:\Users\79164\Documents\work\backend\dist\modules\chats\chats.service.js:98:14)
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\master-domain-contracts.test.js:182:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    response: { code: 'FORBIDDEN', message: 'Чаты недоступны.' },
+    status: 403,
+    options: {}
+  }

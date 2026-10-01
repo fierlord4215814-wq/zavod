@@ -1,0 +1,88 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-related-before\\backend\\src\\modules\\employee\\employee.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\employee\\employee.service.ts"
+index 98d9aeb3..dca9eacf 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-related-before\\backend\\src\\modules\\employee\\employee.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\employee\\employee.service.ts"
+@@ -23,6 +23,32 @@ export class EmployeeService {
+     private readonly auditService: AuditService,
+   ) {}
+ 
++  private async loadReplayAssignmentTx(
++    tx: Prisma.TransactionClient,
++    resultKey: string | null,
++    actor: UserContext,
++    target: { userId: string; kind: AssignmentKind | { in: AssignmentKind[] }; lineId?: string; washSessionId?: string; workAreaId?: string },
++  ) {
++    if (!resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++    const previous = await tx.assignment.findFirst({ where: { id: resultKey, factoryId: actor.selectedFactoryId, ...target } });
++    if (!previous) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++    const access = await tx.userFactoryAccess.findUnique({
++      where: { userId_factoryId: { userId: target.userId, factoryId: actor.selectedFactoryId } },
++      include: { user: true },
++    });
++    if (!access || !access.isActive || access.isGuest || access.user.blockedAt || access.user.deletedAt) {
++      throw new ConflictError('Сотрудник недоступен на этом заводе');
++    }
++    // Ended assignments are valid historical results; do not repeat occupancy or state transitions.
++    const visibleTarget = target.lineId
++      ? await tx.line.findFirst({ where: { id: target.lineId, factoryId: actor.selectedFactoryId, deletedAt: null } })
++      : target.workAreaId
++        ? await tx.workArea.findFirst({ where: { id: target.workAreaId, factoryId: actor.selectedFactoryId, deletedAt: null } })
++        : await tx.washSession.findFirst({ where: { id: target.washSessionId, factoryId: actor.selectedFactoryId, deletedAt: null } });
++    if (!visibleTarget) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++    return previous;
++  }
++
+   async assignToLine(
+     userId: string,
+     lineId: string,
+@@ -71,10 +97,7 @@ export class EmployeeService {
+       ]);
+       if (actor && operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: actor.userId, operationId } } });
+-        if (processed?.resultKey) {
+-          const previous = await tx.assignment.findUnique({ where: { id: processed.resultKey } });
+-          if (previous) return previous;
+-        }
++        if (processed) return this.loadReplayAssignmentTx(tx, processed.resultKey, actor, { userId, kind: AssignmentKind.LINE, lineId });
+       }
+       const [lockedUser, lockedLine, activeAssignment] = await Promise.all([
+         tx.user.findUnique({ where: { id: userId } }),
+@@ -349,8 +372,6 @@ export class EmployeeService {
+       if (!wash || (!isDiagnosticFixtureActor(actor.userId) && !isRuntimeVisibleWashSession(wash))) {
+         throw new ConflictError('Выберите активную мойку');
+       }
+-      if (wash.status === WashStatus.DONE) throw new ConflictError('Мойка уже завершена');
+-
+       await lockOperationKeys(tx, [
+         operationLockKey.assignmentUser(actor.selectedFactoryId, userId),
+         operationLockKey.washSession(wash.id),
+@@ -365,14 +386,11 @@ export class EmployeeService {
+         const processed = await tx.processedOperation.findUnique({
+           where: { userId_operationId: { userId: actor.userId, operationId } },
+         });
+-        if (processed?.resultKey) {
+-          const previous = await tx.assignment.findFirst({
+-            where: { id: processed.resultKey, factoryId: actor.selectedFactoryId },
+-          });
+-          if (previous) return previous;
+-        }
++        if (processed) return this.loadReplayAssignmentTx(tx, processed.resultKey, actor, { userId, kind: AssignmentKind.WASH, washSessionId: wash.id });
+       }
+ 
++      if (wash.status === WashStatus.DONE) throw new ConflictError('Мойка уже завершена');
++
+       let [user, activeAssignment, lockedWash] = await Promise.all([
+         tx.user.findUnique({ where: { id: userId } }),
+         tx.assignment.findFirst({ where: { userId, factoryId: actor.selectedFactoryId, endedAt: null } }),
+@@ -533,10 +551,7 @@ export class EmployeeService {
+       ]);
+       if (operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: actor.userId, operationId } } });
+-        if (processed?.resultKey) {
+-          const previous = await tx.assignment.findUnique({ where: { id: processed.resultKey } });
+-          if (previous) return previous;
+-        }
++        if (processed) return this.loadReplayAssignmentTx(tx, processed.resultKey, actor, { userId, kind: { in: [AssignmentKind.WORK_AREA, AssignmentKind.TIME] }, workAreaId: params.workAreaId });
+       }
+       const [user, activeAssignment] = await Promise.all([
+         tx.user.findUnique({ where: { id: userId } }),

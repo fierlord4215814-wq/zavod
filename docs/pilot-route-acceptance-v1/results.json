@@ -1,0 +1,784 @@
+{
+  "schemaVersion": 1,
+  "runId": "PILOT_ROUTE_V1_20260726140227",
+  "startedAt": "2026-07-26T14:02:27.184Z",
+  "completedAt": "2026-07-26T14:03:14.140Z",
+  "durationMs": 46956,
+  "status": "PASS",
+  "migrationNeeded": false,
+  "destructiveOperations": [],
+  "gates": [
+    {
+      "id": "backend-build",
+      "command": "npm.cmd run build --workspace backend",
+      "routes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 8660,
+      "log": "docs/pilot-route-acceptance-v1/logs/backend-build.log",
+      "error": null
+    },
+    {
+      "id": "frontend-build",
+      "command": "npm.cmd run build --workspace frontend",
+      "routes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 3100,
+      "log": "docs/pilot-route-acceptance-v1/logs/frontend-build.log",
+      "error": null
+    },
+    {
+      "id": "prisma-validate",
+      "command": "npm.cmd run prisma:validate --workspace backend",
+      "routes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1075,
+      "log": "docs/pilot-route-acceptance-v1/logs/prisma-validate.log",
+      "error": null
+    },
+    {
+      "id": "prisma-status",
+      "command": "npm.cmd run prisma:migrate:status --workspace backend",
+      "routes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1194,
+      "log": "docs/pilot-route-acceptance-v1/logs/prisma-status.log",
+      "error": null
+    },
+    {
+      "id": "seed-syntax",
+      "command": "node --check backend/prisma/seed.js",
+      "routes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 84,
+      "log": "docs/pilot-route-acceptance-v1/logs/seed-syntax.log",
+      "error": null
+    },
+    {
+      "id": "guest-rbac",
+      "command": "npm.cmd run guest:rbac-menu-regression --workspace backend",
+      "routes": [
+        1,
+        2
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1072,
+      "log": "docs/pilot-route-acceptance-v1/logs/guest-rbac.log",
+      "error": null
+    },
+    {
+      "id": "role-hierarchy",
+      "command": "npm.cmd run role-hierarchy:delegation-regression --workspace backend",
+      "routes": [
+        1,
+        14
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1229,
+      "log": "docs/pilot-route-acceptance-v1/logs/role-hierarchy.log",
+      "error": null
+    },
+    {
+      "id": "shift-assignments",
+      "command": "npm.cmd run stage41:line-shift-assignment-regression --workspace backend",
+      "routes": [
+        2,
+        3,
+        4
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1077,
+      "log": "docs/pilot-route-acceptance-v1/logs/shift-assignments.log",
+      "error": null
+    },
+    {
+      "id": "shift-transition",
+      "command": "npm.cmd run prepilot:shift-transition-archive-regression --workspace backend",
+      "routes": [
+        2,
+        3,
+        9
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 3724,
+      "log": "docs/pilot-route-acceptance-v1/logs/shift-transition.log",
+      "error": null
+    },
+    {
+      "id": "line-timeline",
+      "command": "npm.cmd run line:timeline-regression --workspace backend",
+      "routes": [
+        5,
+        6,
+        7,
+        11,
+        13
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1986,
+      "log": "docs/pilot-route-acceptance-v1/logs/line-timeline.log",
+      "error": null
+    },
+    {
+      "id": "lines-wash-defrost",
+      "command": "npm.cmd run pilot:lines-wash-defrost-regression --workspace backend",
+      "routes": [
+        5,
+        6,
+        7
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1089,
+      "log": "docs/pilot-route-acceptance-v1/logs/lines-wash-defrost.log",
+      "error": null
+    },
+    {
+      "id": "tasks",
+      "command": "npm.cmd run tasks:pilot-ready-regression --workspace backend",
+      "routes": [
+        5
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1146,
+      "log": "docs/pilot-route-acceptance-v1/logs/tasks.log",
+      "error": null
+    },
+    {
+      "id": "shock-chamber",
+      "command": "npm.cmd run defrost:shock-chamber-blow-regression --workspace backend",
+      "routes": [
+        7
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1399,
+      "log": "docs/pilot-route-acceptance-v1/logs/shock-chamber.log",
+      "error": null
+    },
+    {
+      "id": "checklist-workflow",
+      "command": "npm.cmd run checklists:workflow-v1-regression --workspace backend",
+      "routes": [
+        8
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 2507,
+      "log": "docs/pilot-route-acceptance-v1/logs/checklist-workflow.log",
+      "error": null
+    },
+    {
+      "id": "checklist-periodic",
+      "command": "npm.cmd run checklists:periodic-lifecycle-regression --workspace backend",
+      "routes": [
+        8
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1456,
+      "log": "docs/pilot-route-acceptance-v1/logs/checklist-periodic.log",
+      "error": null
+    },
+    {
+      "id": "checklist-department",
+      "command": "npm.cmd run checklists:department-first-v1-regression --workspace backend",
+      "routes": [
+        8
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 2313,
+      "log": "docs/pilot-route-acceptance-v1/logs/checklist-department.log",
+      "error": null
+    },
+    {
+      "id": "shift-handover",
+      "command": "npm.cmd run shift:handover-summary-regression --workspace backend",
+      "routes": [
+        9
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1901,
+      "log": "docs/pilot-route-acceptance-v1/logs/shift-handover.log",
+      "error": null
+    },
+    {
+      "id": "chat",
+      "command": "npm.cmd run chat:mobile-messenger-v1-regression --workspace backend",
+      "routes": [
+        10
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1777,
+      "log": "docs/pilot-route-acceptance-v1/logs/chat.log",
+      "error": null
+    },
+    {
+      "id": "announcements",
+      "command": "npm.cmd run stage52:fullscreen-announcements-regression --workspace backend",
+      "routes": [
+        10
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1757,
+      "log": "docs/pilot-route-acceptance-v1/logs/announcements.log",
+      "error": null
+    },
+    {
+      "id": "notifications",
+      "command": "npm.cmd run notifications:routing-v1-regression --workspace backend",
+      "routes": [
+        10
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 841,
+      "log": "docs/pilot-route-acceptance-v1/logs/notifications.log",
+      "error": null
+    },
+    {
+      "id": "quality-returns",
+      "command": "npm.cmd run stage16:quality-stock-returns-regression --workspace backend",
+      "routes": [
+        11,
+        12
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 989,
+      "log": "docs/pilot-route-acceptance-v1/logs/quality-returns.log",
+      "error": null
+    },
+    {
+      "id": "orders-stock",
+      "command": "npm.cmd run stage12:orders-regression --workspace backend",
+      "routes": [
+        12
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1413,
+      "log": "docs/pilot-route-acceptance-v1/logs/orders-stock.log",
+      "error": null
+    },
+    {
+      "id": "archive",
+      "command": "npm.cmd run stage40a:archive-center-regression --workspace backend",
+      "routes": [
+        13
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1130,
+      "log": "docs/pilot-route-acceptance-v1/logs/archive.log",
+      "error": null
+    },
+    {
+      "id": "downtime-analytics",
+      "command": "npm.cmd run stage40b:downtime-task-analytics-regression --workspace backend",
+      "routes": [
+        5,
+        13
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 918,
+      "log": "docs/pilot-route-acceptance-v1/logs/downtime-analytics.log",
+      "error": null
+    },
+    {
+      "id": "security-privacy",
+      "command": "npm.cmd run security:privacy-v1-regression --workspace backend",
+      "routes": [
+        1,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 776,
+      "log": "docs/pilot-route-acceptance-v1/logs/security-privacy.log",
+      "error": null
+    },
+    {
+      "id": "runtime-hygiene",
+      "command": "npm.cmd run runtime:data-hygiene-v1-regression --workspace backend",
+      "routes": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 1666,
+      "log": "docs/pilot-route-acceptance-v1/logs/runtime-hygiene.log",
+      "error": null
+    },
+    {
+      "id": "release-readiness",
+      "command": "npm.cmd run stage30:release-readiness-regression --workspace backend",
+      "routes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "durationMs": 675,
+      "log": "docs/pilot-route-acceptance-v1/logs/release-readiness.log",
+      "error": null
+    }
+  ],
+  "carriedEvidence": [
+    {
+      "id": "semantic-integrity",
+      "path": "docs/semantic-integrity-red-team-v1/audit-summary.md",
+      "routes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "requiredText": "SEMANTIC_INTEGRITY: PASS",
+      "status": "PASS",
+      "modifiedAt": "2026-07-14T11:58:09.162Z"
+    },
+    {
+      "id": "access-lifecycle",
+      "path": "docs/v1-access-lifecycle-audit.md",
+      "routes": [
+        1,
+        2,
+        14
+      ],
+      "requiredText": "Открытых P0/P1/P2 по access lifecycle после свежего прогона нет.",
+      "status": "PASS",
+      "modifiedAt": "2026-07-01T22:41:35.946Z"
+    },
+    {
+      "id": "live-role-change",
+      "path": "docs/v1-live-role-change-audit.md",
+      "routes": [
+        1,
+        2,
+        14
+      ],
+      "requiredText": "Открытых P0/P1/P2 по live role-change перед ручным пилотом нет.",
+      "status": "PASS",
+      "modifiedAt": "2026-07-01T17:53:56.183Z"
+    },
+    {
+      "id": "people-manual-search-screenshots",
+      "path": "docs/pilot-people-manual-assignment-search-screenshots",
+      "routes": [
+        4
+      ],
+      "requiredFiles": 10,
+      "status": "PASS",
+      "fileCount": 15,
+      "modifiedAt": "2026-07-15T19:18:24.011Z"
+    }
+  ],
+  "routes": [
+    {
+      "id": 1,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "guest-rbac",
+        "role-hierarchy",
+        "security-privacy",
+        "runtime-hygiene",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity",
+        "access-lifecycle",
+        "live-role-change"
+      ],
+      "failures": []
+    },
+    {
+      "id": 2,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "guest-rbac",
+        "shift-assignments",
+        "shift-transition",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity",
+        "access-lifecycle",
+        "live-role-change"
+      ],
+      "failures": []
+    },
+    {
+      "id": 3,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "shift-assignments",
+        "shift-transition",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity"
+      ],
+      "failures": []
+    },
+    {
+      "id": 4,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "shift-assignments",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity",
+        "people-manual-search-screenshots"
+      ],
+      "failures": []
+    },
+    {
+      "id": 5,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "line-timeline",
+        "lines-wash-defrost",
+        "tasks",
+        "downtime-analytics",
+        "runtime-hygiene",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity"
+      ],
+      "failures": []
+    },
+    {
+      "id": 6,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "line-timeline",
+        "lines-wash-defrost",
+        "runtime-hygiene",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity"
+      ],
+      "failures": []
+    },
+    {
+      "id": 7,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "line-timeline",
+        "lines-wash-defrost",
+        "shock-chamber",
+        "runtime-hygiene",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity"
+      ],
+      "failures": []
+    },
+    {
+      "id": 8,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "checklist-workflow",
+        "checklist-periodic",
+        "checklist-department",
+        "runtime-hygiene",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity"
+      ],
+      "failures": []
+    },
+    {
+      "id": 9,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "shift-transition",
+        "shift-handover",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity"
+      ],
+      "failures": []
+    },
+    {
+      "id": 10,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "chat",
+        "announcements",
+        "notifications",
+        "security-privacy",
+        "runtime-hygiene",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity"
+      ],
+      "failures": []
+    },
+    {
+      "id": 11,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "line-timeline",
+        "quality-returns",
+        "security-privacy",
+        "runtime-hygiene",
+        "release-readiness"
+      ],
+      "carriedEvidence": [],
+      "failures": []
+    },
+    {
+      "id": 12,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "quality-returns",
+        "orders-stock",
+        "security-privacy",
+        "runtime-hygiene",
+        "release-readiness"
+      ],
+      "carriedEvidence": [],
+      "failures": []
+    },
+    {
+      "id": 13,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "line-timeline",
+        "archive",
+        "downtime-analytics",
+        "security-privacy",
+        "runtime-hygiene",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity"
+      ],
+      "failures": []
+    },
+    {
+      "id": 14,
+      "status": "PASS",
+      "gates": [
+        "backend-build",
+        "frontend-build",
+        "prisma-validate",
+        "prisma-status",
+        "seed-syntax",
+        "role-hierarchy",
+        "security-privacy",
+        "release-readiness"
+      ],
+      "carriedEvidence": [
+        "semantic-integrity",
+        "access-lifecycle",
+        "live-role-change"
+      ],
+      "failures": []
+    }
+  ],
+  "browser": {
+    "status": "PASS",
+    "command": "npm.cmd run pilot-route-acceptance:v1-e2e --workspace frontend",
+    "exitCode": 0,
+    "completedAt": "2026-07-26T14:17:25.258Z",
+    "screenshots": "docs/pilot-route-acceptance-v1/screenshots"
+  },
+  "physicalPhoneGate": "PENDING"
+}

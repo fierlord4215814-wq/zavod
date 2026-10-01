@@ -1,0 +1,72 @@
+--- /dev/null
++++ frontend/e2e/master-r3-form-back.spec.ts
+@@ -0,0 +1,69 @@
++import {test,expect,Page} from '@playwright/test';
++import fs from 'node:fs';import path from 'node:path';import {buildSync} from 'esbuild';
++import {isolate,errors,unknown,records,save,shot,installEvidenceHooks} from './helpers/frontend-series';
++import {installNavigationTrace,mark,saveTrace} from './helpers/master-r3-trace';
++installEvidenceHooks();
++let code='';
++test.beforeAll(()=>{code=buildSync({entryPoints:[path.resolve(__dirname,'helpers/components.tsx')],bundle:true,write:false,format:'iife',platform:'browser',define:{'import.meta.env.VITE_API_URL':'"/api"','process.env.NODE_ENV':'"production"'},logLevel:'silent'}).outputFiles[0].text;});
++async function host(page:Page){
++ await installNavigationTrace(page);await isolate(page);
++ const css=fs.readdirSync(path.resolve(__dirname,'../dist/assets')).find(f=>f.endsWith('.css'))!;
++ await page.route('**/__component.js',r=>r.fulfill({contentType:'text/javascript',body:code}));
++ await page.route('**/__component',r=>r.fulfill({contentType:'text/html',body:`<!doctype html><html lang="ru"><head><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/assets/${css}"></head><body><div id="root"></div><script src="/__component.js"></script></body></html>`}));
++ await page.goto('/__component#form');
++}
++test('R3-B2 exact F-form-tail-02 actual focus first Back then pristine close',async({page})=>{
++ await host(page);
++ try{
++  await page.getByLabel('Получатель',{exact:true}).selectOption('two');await page.getByRole('button',{name:'Наличие варианта',exact:true}).click();await page.getByRole('button',{name:'Наличие варианта',exact:true}).click();
++  await page.getByRole('button',{name:'Подтвердить',exact:true}).click();
++  expect(JSON.parse(await page.locator('output').innerText())).toEqual({text:'',number:'0',enabled:false,choice:'two',date:'2026-09-15',time:'2026-09-15T20:00',comment:''});
++  await page.getByLabel('Количество',{exact:true}).fill('9');await page.getByLabel('Количество',{exact:true}).fill('0');await page.getByLabel('Включено',{exact:true}).check();await page.getByLabel('Включено',{exact:true}).uncheck();
++  await page.getByLabel('Получатель',{exact:true}).selectOption('');await page.getByLabel('Получатель',{exact:true}).blur();await mark(page,'original-before-back');
++  const active=await page.evaluate(()=>({name:document.activeElement?.getAttribute('name'),type:document.activeElement?.getAttribute('type')}));
++  records.push({originalFocusedControl:active,source:'dispatchMobileBack focus-first before top-layer'});save();
++  expect(active).toEqual({name:'enabled',type:'checkbox'});
++  await page.goBack();await expect(page.getByRole('dialog')).toBeVisible();await expect(page.getByText('Изменения не сохранены',{exact:true})).toHaveCount(0);await mark(page,'first-back-blurred-only');
++  expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('BODY');
++  await page.goBack();await expect(page.getByRole('dialog')).toBeHidden();await mark(page,'second-back-closed-pristine');
++  expect(errors).toEqual([]);expect(unknown).toEqual([]);
++ }finally{await saveTrace(page,'F-form-tail-02 exact sequence');}
++});
++test('R3-B2 untouched form real Back closes after explicit normal blur',async({page})=>{
++ await host(page);
++ try{
++  await expect(page.getByLabel('Название',{exact:true})).toBeFocused();await page.getByRole('heading',{name:'Форма 1',exact:true}).click();
++  expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('BODY');await mark(page,'unfocused-pristine-before-back');
++  await page.goBack();await expect(page.getByRole('dialog')).toBeHidden();await expect(page.getByText('Изменения не сохранены',{exact:true})).toHaveCount(0);
++  await page.getByRole('button',{name:'Открыть форму',exact:true}).click();await expect(page.getByLabel('Название',{exact:true})).toHaveValue('');
++  await shot(page,'B2-pristine-reopen',{actualBrowserBack:true});expect(errors).toEqual([]);expect(unknown).toEqual([]);
++ }finally{await saveTrace(page,'unfocused pristine Back');}
++});
++
++for(const label of ['Название','Комментарий','Получатель','Количество','Включено'])test(`R3-B2 pristine ${label} focused actual Back blurs then closes`,async({page})=>{
++ await host(page);await page.getByLabel(label,{exact:true}).focus();await page.goBack();
++ await expect(page.getByRole('dialog')).toBeVisible();expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('BODY');
++ await page.goBack();await expect(page.getByRole('dialog')).toHaveCount(0);expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++test('R3-C1 permanently removed selection preserved visibly and blocked until explicit replacement',async({page})=>{
++ await host(page);await page.getByLabel('Получатель',{exact:true}).selectOption('two');await page.getByRole('button',{name:'Наличие варианта',exact:true}).click();
++ await expect(page.getByLabel('Получатель',{exact:true})).toHaveValue('two');
++ await expect(page.getByLabel('Получатель',{exact:true}).locator('option:checked')).toContainText('недоступен');
++ await page.getByRole('button',{name:'Подтвердить',exact:true}).click();expect(await page.evaluate(()=>(window as any).submitCalls||0)).toBe(0);
++ await expect(page.locator('.error-state')).toContainText('Получатель');await page.getByLabel('Получатель',{exact:true}).selectOption('');
++ await page.getByRole('button',{name:'Подтвердить',exact:true}).click();expect(JSON.parse(await page.locator('output').innerText()).choice).toBe('');
++ await page.getByRole('button',{name:'Наличие варианта',exact:true}).click();await page.getByLabel('Получатель',{exact:true}).selectOption('two');
++ await page.getByRole('button',{name:'Наличие варианта',exact:true}).click();await page.getByRole('button',{name:'Наличие варианта',exact:true}).click();
++ await expect(page.getByLabel('Получатель',{exact:true})).toHaveValue('two');expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++test('R3-C1 incompatible text checkbox keeps separate drafts without string true conversion',async({page})=>{
++ await host(page);await page.getByLabel('Название',{exact:true}).fill('false');await page.getByRole('button',{name:'Булев тип поля',exact:true}).click();
++ await expect(page.getByLabel('Название',{exact:true})).not.toBeChecked();await page.getByLabel('Название',{exact:true}).check();
++ await page.getByRole('button',{name:'Подтвердить',exact:true}).click();expect(JSON.parse(await page.locator('output').innerText()).text).toBe(true);
++ await page.getByRole('button',{name:'Булев тип поля',exact:true}).click();await expect(page.getByLabel('Название',{exact:true})).toHaveValue('false');
++ await page.getByRole('button',{name:'Подтвердить',exact:true}).click();expect(JSON.parse(await page.locator('output').innerText()).text).toBe('false');
++ await page.getByRole('button',{name:'Булев тип поля',exact:true}).click();await expect(page.getByLabel('Название',{exact:true})).toBeChecked();expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++

@@ -1,0 +1,139 @@
+{
+  "coordinatorTerminalExists": false,
+  "observerUacRequestExists": false,
+  "workingDbServiceQueried": false,
+  "at": "2026-09-20T09:11:21.9628047+03:00",
+  "newForceOrKill": false,
+  "isolation": "NOT_RUN",
+  "guestInstallation": "UNVERIFIED_NO_CONSOLE",
+  "artifacts": [
+    {
+      "lastWrite": "2026-09-20T08:31:50.3209399+03:00",
+      "relative": "ubuntu-24.04.5-live-server-amd64.iso",
+      "bytes": 4080486400,
+      "contentRead": false
+    },
+    {
+      "lastWrite": "2026-09-19T20:13:18.8114455+03:00",
+      "relative": "ubuntu-24.04.5-live-server-amd64.iso.part",
+      "bytes": 3665735933,
+      "contentRead": false
+    },
+    {
+      "lastWrite": "2026-09-20T08:31:26.4584383+03:00",
+      "relative": "ubuntu-24.04.5-live-server-amd64.iso.tail-20260920",
+      "bytes": 414750467,
+      "contentRead": false
+    },
+    {
+      "lastWrite": "2026-09-20T08:47:02.7482339+03:00",
+      "relative": "clean-source-20260920-01.tar",
+      "bytes": 6896128,
+      "contentRead": false
+    },
+    {
+      "lastWrite": "2026-09-20T09:11:21.9622810+03:00",
+      "relative": "vm/ubuntu24.vhdx",
+      "bytes": 4194304,
+      "contentRead": false
+    }
+  ],
+  "workingCleanup": "UNKNOWN_NOT_INSPECTED",
+  "ownAppDbFixtures": [],
+  "queue": [
+    {
+      "name": "000001.request.json",
+      "sha256": "23b2f852ead292c7b1d1152e5847e179f1fc835a7389d67a3b474fbd1a1371c8",
+      "exists": true,
+      "bytes": 80
+    },
+    {
+      "name": "000001.result.json",
+      "sha256": "8076cc5906672d4e23ff5206e158a9c0ea17049f2b61d6d5b01ca3bfed88a66f",
+      "exists": true,
+      "bytes": 368
+    },
+    {
+      "name": "000002.request.json",
+      "sha256": "2ff11328454ce9f7a3f9e0c44cac3e0d581a12f0b39329ba84feab5944284239",
+      "exists": true,
+      "bytes": 67
+    },
+    {
+      "name": "000002.result.json",
+      "sha256": "21254bcf95c0d29e16ca63f36861b34a6af73c9c9575dd043698b6fd6afecf9e",
+      "exists": true,
+      "bytes": 1555
+    },
+    {
+      "name": "000003.request.json",
+      "sha256": "3dc29a08510924177e7d0cfb18900a32429ee1d04bd8027e2dc9ccc877b2aff4",
+      "exists": true,
+      "bytes": 78
+    },
+    {
+      "name": "000003.result.json",
+      "sha256": "1da2178f27e8061a35379d2b65f92b4f19229ae2be619a335fe3be0227091183",
+      "exists": true,
+      "bytes": 344
+    },
+    {
+      "name": "000004.request.json",
+      "sha256": "6c54a90fa9848cdde26ebef2d0cfc28a9831445fce3eb6f5f212b5488589b201",
+      "exists": true,
+      "bytes": 70
+    },
+    {
+      "name": "000004.result.json",
+      "sha256": "09d6f31ee47292ca553a2d65521f2cc0e0030f887569db7b81cd413f3dba19d0",
+      "exists": true,
+      "bytes": 199
+    },
+    {
+      "name": "000005.request.json",
+      "sha256": "6c54a90fa9848cdde26ebef2d0cfc28a9831445fce3eb6f5f212b5488589b201",
+      "exists": true,
+      "bytes": 70
+    },
+    {
+      "name": "000005.result.json",
+      "sha256": "18db685d752c39558015da1b6c0ca0a592a52d3d8f8840754e386d45133bf329",
+      "exists": true,
+      "bytes": 199
+    },
+    {
+      "name": "000006.request.json",
+      "sha256": "101d76f27749bbfe7eba763e3afd532fdab6ceceafc6e546eb25a2f36e41d675",
+      "exists": true,
+      "bytes": 71
+    },
+    {
+      "name": "000006.result.json",
+      "sha256": null,
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "name": "000007.request.json",
+      "sha256": "531d9ecf05a4fda1e24956ebd0db10bbfb73b56316a94b14543911c1ac2ab5ef",
+      "exists": true,
+      "bytes": 79
+    },
+    {
+      "name": "000007.result.json",
+      "sha256": null,
+      "exists": false,
+      "bytes": null
+    }
+  ],
+  "observerStarted": false,
+  "prepProxyStarted": false,
+  "ownCoordinator": {
+    "status": "PRESENT_VERIFY_RECORDED_START_IDENTITY",
+    "hasExited": false,
+    "name": "pwsh",
+    "start": "2026-09-20T08:26:22.4640876+03:00",
+    "pid": 9056
+  },
+  "freeDiskBytes": 45962416128
+}

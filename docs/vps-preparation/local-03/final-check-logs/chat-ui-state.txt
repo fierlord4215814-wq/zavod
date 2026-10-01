@@ -1,0 +1,16 @@
+✔ navigation uses eligibility, not broad read, and still denies guest (80.0878ms)
+✔ pending real-owner detail ignored after list-omission (19.4193ms)
+✔ pending real-owner detail ignored after list-denial (9.9368ms)
+✔ pending real-owner detail ignored after Back (9.5667ms)
+✔ older list omission cannot close a newer open intent (6.8303ms)
+✔ late older list cannot restore a removed row (7.3983ms)
+✔ silent latest list completion releases read spinner while older normal request is pending (10.1703ms)
+✔ silent detail supersession releases its own spinner (7.1531ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 933.803

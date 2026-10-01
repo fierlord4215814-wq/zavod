@@ -1,0 +1,1043 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\employee\\employee.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\employee\\employee.service.ts"
+index dca9eacf..415263cb 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\employee\\employee.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\employee\\employee.service.ts"
+@@ -5,7 +5,7 @@ import { AuditService } from '../../common/audit.service';
+ import { ConflictError } from '../../common/errors/conflict.exception';
+ import { lockOperationKeys, operationLockKey } from '../../common/operation-lock';
+ import { isDiagnosticFixtureActor, isPilotFixtureUser, isPilotVisibleLine, isRuntimeVisibleWashSession, pilotDisplayName } from '../../common/pilot-visibility';
+-import { isSentHomeAwaitingReturn } from '../../common/shift-attendance';
++import { assertAttendanceAccessTx, assertMayAttendTx, assertNoForeignAttendanceTx, isSentHomeAwaitingReturn } from '../../common/shift-attendance';
+ import { buildShiftSessionCreateData } from '../../common/shift-session';
+ import { factoryServerNow, factoryShiftDate, factoryShiftTarget, factoryShiftWindow } from '../../common/shift-time';
+ import { UserContext } from '../../common/user-context.types';
+@@ -82,10 +82,14 @@ export class EmployeeService {
+         select: { id: true, factoryId: true, lineId: true, positionId: true, slotIndex: true },
+       });
+       const initialAssignmentId = initialAssignment?.id ?? null;
++      const initialReplacement = params.replaceAssignmentId
++        ? await tx.assignment.findFirst({ where: { id: params.replaceAssignmentId, factoryId: line.factoryId, lineId, endedAt: null }, select: { userId: true } })
++        : null;
+       const slotIndex = params.slotIndex === undefined || params.slotIndex === null ? null : Number(params.slotIndex);
+       await lockOperationKeys(tx, [
+         operationLockKey.lineLifecycle(lineId),
+         operationLockKey.assignmentUser(line.factoryId, userId),
++        initialReplacement ? operationLockKey.assignmentUser(line.factoryId, initialReplacement.userId) : null,
+         params.positionId && slotIndex !== null
+           ? operationLockKey.assignmentSlot(line.factoryId, lineId, params.positionId, slotIndex)
+           : null,
+@@ -138,6 +142,7 @@ export class EmployeeService {
+         throw new ConflictError('На линию можно назначать только работников и наёмных работников');
+       }
+       await this.assertContractorArrivedTx(tx, access, line.factoryId, userId);
++      await assertMayAttendTx(tx, line.factoryId, userId);
+ 
+       let selectedPosition: { id: string; isExtraSlot: boolean } | null = null;
+       if (params.positionId) {
+@@ -206,11 +211,12 @@ export class EmployeeService {
+           },
+         });
+         if (occupiedSlot && occupiedSlot.userId !== userId) {
+-          if (occupiedSlot.id !== params.replaceAssignmentId) {
++          if (occupiedSlot.id !== params.replaceAssignmentId || occupiedSlot.userId !== initialReplacement?.userId) {
+             throw new ConflictError('Этот слот уже занят. Для замены подтвердите текущего сотрудника в слоте.');
+           }
+           const replacedUser = await tx.user.findUnique({ where: { id: occupiedSlot.userId } });
+           if (replacedUser) {
++            await assertNoForeignAttendanceTx(tx, line.factoryId, occupiedSlot.userId);
+             await this.closeActiveAssignment(tx, occupiedSlot.userId, line.factoryId, actor?.userId ?? null, 'Заменён в слоте линии');
+             assertEmployeeTransition(replacedUser.employeeState, stateForRelease());
+             await this.updateEmployeeState(tx, replacedUser.id, replacedUser.version, stateForRelease());
+@@ -412,6 +418,7 @@ export class EmployeeService {
+         throw new ConflictError('На мойку можно назначать только работников и наёмных работников');
+       }
+       await this.assertContractorArrivedTx(tx, access, actor.selectedFactoryId, userId);
++      await assertMayAttendTx(tx, actor.selectedFactoryId, userId);
+ 
+       if (activeAssignment?.kind === AssignmentKind.WASH && activeAssignment.washSessionId === wash.id) {
+         if (operationId) {
+@@ -486,11 +493,11 @@ export class EmployeeService {
+       await lockOperationKeys(tx, [operationLockKey.assignmentUser(actor.selectedFactoryId, userId)]);
+       const user = await tx.user.findUnique({ where: { id: userId } });
+       if (!user) throw new ConflictError('Сотрудник не найден');
+-      if (user.factoryId !== actor.selectedFactoryId) throw new ConflictError('Сотрудник относится к другому заводу');
+       const access = await tx.userFactoryAccess.findUnique({ where: { userId_factoryId: { userId, factoryId: actor.selectedFactoryId } } });
+       if (!access?.isActive || access.isGuest || user.blockedAt || user.deletedAt) throw new ConflictError('У сотрудника нет активного доступа к этому заводу');
+       if (access.role !== UserRole.WORKER && access.role !== UserRole.CONTRACTOR) throw new ConflictError('На повременную работу можно назначать только работников и наёмных работников');
+       await this.assertContractorArrivedTx(tx, access, actor.selectedFactoryId, userId);
++      await assertMayAttendTx(tx, actor.selectedFactoryId, userId);
+ 
+       await this.ensureNoActiveAssignment(tx, userId, actor.selectedFactoryId);
+       await this.ensureMoveInterval(tx, userId, actor.selectedFactoryId, actor.userId);
+@@ -577,6 +584,7 @@ export class EmployeeService {
+       }
+       await this.assertContractorArrivedTx(tx, access, actor.selectedFactoryId, userId);
+       let position = null;
++      await assertMayAttendTx(tx, actor.selectedFactoryId, userId);
+       if (params.workAreaPositionId) {
+         position = await tx.workAreaPosition.findFirst({
+           where: { id: params.workAreaPositionId, workAreaId: workArea.id, isActive: true, deletedAt: null },
+@@ -733,7 +741,6 @@ export class EmployeeService {
+     const payload = await this.prisma.db.$transaction(async (tx: Prisma.TransactionClient) => {
+       let user = await tx.user.findUnique({ where: { id: userId } });
+       if (!user) throw new ConflictError('Сотрудник не найден');
+-      if (actor && user.factoryId !== actor.selectedFactoryId) throw new ConflictError('Сотрудник относится к другому заводу');
+       const factoryId = actor?.selectedFactoryId ?? user.factoryId;
+       const initialAssignment = await tx.assignment.findFirst({
+         where: { userId, factoryId, endedAt: null },
+@@ -756,14 +763,16 @@ export class EmployeeService {
+       }
+       user = lockedUser;
+ 
+-      await this.closeActiveAssignment(tx, userId, user.factoryId, actor?.userId ?? null);
++      await assertAttendanceAccessTx(tx, factoryId, userId);
++      if (!activeAssignment) throw new ConflictError('У сотрудника нет текущего назначения на этом заводе.');
++      await this.closeActiveAssignment(tx, userId, factoryId, actor?.userId ?? null);
+       assertEmployeeTransition(user.employeeState, stateForRelease());
+       await this.updateEmployeeState(tx, user.id, user.version, stateForRelease());
+ 
+       const payload = { success: true, userId, factoryId };
+       await this.auditService.writeTx(tx, {
+         userId: actor?.userId ?? null,
+-        factoryId: user.factoryId,
++        factoryId,
+         action: 'ASSIGNMENT_RELEASED',
+         entityType: 'User',
+         entityId: userId,
+@@ -776,13 +785,11 @@ export class EmployeeService {
+     return payload;
+   }
+ 
+-  async sendHome(userId: string, actor: UserContext, comment: string) {
+-    if (!comment?.trim()) throw new ConflictError('Укажите комментарий');
+-
++  async sendHome(userId: string, actor: UserContext, comment?: string | null) {
++    const safeComment = comment?.trim() || null;
+     const payload = await this.prisma.db.$transaction(async (tx: Prisma.TransactionClient) => {
+       let user = await tx.user.findUnique({ where: { id: userId } });
+       if (!user) throw new ConflictError('Сотрудник не найден');
+-      if (user.factoryId !== actor.selectedFactoryId) throw new ConflictError('Сотрудник относится к другому заводу');
+       const initialAssignment = await tx.assignment.findFirst({
+         where: { userId, factoryId: actor.selectedFactoryId, endedAt: null },
+         select: { id: true, lineId: true, positionId: true, slotIndex: true },
+@@ -804,7 +811,13 @@ export class EmployeeService {
+       }
+       user = lockedUser;
+ 
+-      await this.closeActiveAssignment(tx, userId, actor.selectedFactoryId, actor.userId, comment.trim());
++      await assertAttendanceAccessTx(tx, actor.selectedFactoryId, userId);
++      const settings = await tx.shiftSettings.findUnique({ where: { factoryId: actor.selectedFactoryId } });
++      if ((settings?.sendHomeRequiresComment ?? true) && !safeComment) throw new ConflictError('Укажите комментарий для отправки домой.');
++      const session = await tx.shiftSession.findFirst({ where: { userId, factoryId: actor.selectedFactoryId, status: ShiftSessionStatus.ACTIVE }, select: { id: true } });
++      if (!activeAssignment && !session) throw new ConflictError('Сотрудник не присутствует на смене этого завода.');
++      if (user.employeeState === EmployeeState.OFF_SHIFT) throw new ConflictError('Сотрудник уже отправлен домой. Обновите экран.');
++      await this.closeActiveAssignment(tx, userId, actor.selectedFactoryId, actor.userId, safeComment ?? undefined);
+       assertEmployeeTransition(user.employeeState, stateForSendHome());
+       await this.updateEmployeeState(tx, user.id, user.version, stateForSendHome());
+ 
+@@ -815,7 +828,7 @@ export class EmployeeService {
+         action: 'EMPLOYEE_SENT_HOME',
+         entityType: 'User',
+         entityId: userId,
+-        details: { targetUserId: userId, comment: comment.trim() },
++        details: { targetUserId: userId, comment: safeComment },
+       });
+ 
+       return payload;
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\shift\\shift.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.service.ts"
+index c002e88e..8db9b20a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\shift\\shift.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.service.ts"
+@@ -16,7 +16,7 @@ import {
+ } from '@prisma/client';
+ import { ForbiddenException, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+ import { AuditService } from '../../common/audit.service';
+-import { isSentHomeAwaitingReturn } from '../../common/shift-attendance';
++import { assertAttendanceAccessTx, assertMayAttendTx, assertNoForeignAttendanceTx, isSentHomeAwaitingReturn, latestSentHomeTx } from '../../common/shift-attendance';
+ import { ConflictError } from '../../common/errors/conflict.exception';
+ import { lockOperationKeys, operationLockKey } from '../../common/operation-lock';
+ import { hasPilotFixtureMarker, isPilotFixtureUser, isPilotVisibleLine, isRuntimeVisibleWashSession, pilotDisplayName } from '../../common/pilot-visibility';
+@@ -68,8 +68,8 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+   async start(user: UserContext) {
+     const session = await this.prisma.db.$transaction(async (tx: Prisma.TransactionClient) => {
+       await lockOperationKeys(tx, [operationLockKey.assignmentUser(user.selectedFactoryId, user.userId)]);
+-      const actor = await tx.user.findUnique({ where: { id: user.userId } });
+-      if (!actor) throw new ConflictError('user not found');
++      const { user: actor } = await assertAttendanceAccessTx(tx, user.selectedFactoryId, user.userId);
++      await assertMayAttendTx(tx, user.selectedFactoryId, user.userId);
+ 
+       const active = await tx.shiftSession.findFirst({
+         where: {
+@@ -78,7 +78,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+           status: ShiftSessionStatus.ACTIVE,
+         },
+       });
+-      if (active) throw new ConflictError('shift already active');
++      if (active) throw new ConflictError('Смена на этом заводе уже начата.');
+ 
+       if (actor.employeeState === EmployeeState.OFF_SHIFT && await isSentHomeAwaitingReturn(tx, user.selectedFactoryId, actor.id)) {
+         throw new ConflictError('Сотрудник отправлен домой. Вернуться на смену можно только через запрос и подтверждение мастера.');
+@@ -124,12 +124,15 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+   }
+ 
+   async settings(user: UserContext) {
+-    return this.getShiftSettings(user.selectedFactoryId);
++    await this.assertRuntimeAccess(user);
++    const settings = await this.getShiftSettings(user.selectedFactoryId);
++    return { sendHomeRequiresComment: settings.sendHomeRequiresComment, willBeCancelRequiresComment: settings.willBeCancelRequiresComment };
+   }
+ 
+   async end(user: UserContext) {
+     const session = await this.prisma.db.$transaction(async (tx: Prisma.TransactionClient) => {
+       await lockOperationKeys(tx, [operationLockKey.assignmentUser(user.selectedFactoryId, user.userId)]);
++      await assertAttendanceAccessTx(tx, user.selectedFactoryId, user.userId);
+       const session = await tx.shiftSession.findFirst({
+         where: {
+           userId: user.userId,
+@@ -138,7 +141,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+         },
+         orderBy: { startedAt: 'desc' },
+       });
+-      if (!session) throw new ConflictError('active shift not found');
++      if (!session) throw new ConflictError('На этом заводе нет активной смены.');
+       return this.closeShiftSessionTx(tx, session, {
+         endedAt: new Date(),
+         endedById: user.userId,
+@@ -316,6 +319,9 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+           select: { id: true, userId: true },
+         })
+         : [];
++      for (const userId of [...new Set(lockedStaleAssignments.map((item) => item.userId))]) {
++        await assertNoForeignAttendanceTx(tx, factoryId, userId);
++      }
+       const closure = lockedStaleAssignments.length
+         ? await closeAssignmentsWithSkillCredit(tx, {
+           where: { id: { in: lockedStaleAssignments.map((assignment) => assignment.id) } },
+@@ -648,6 +654,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+       autoClosed: boolean;
+     },
+   ) {
++    await assertNoForeignAttendanceTx(tx, session.factoryId, session.userId);
+     const updated = await tx.shiftSession.updateMany({
+       where: {
+         id: session.id,
+@@ -1717,10 +1724,12 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+   }
+ 
+   async me(user: UserContext) {
++    await this.assertRuntimeAccess(user);
+     const person = (await this.employeeService.listPeople(user.selectedFactoryId))
+       .find((item) => item.userId === user.userId) ?? null;
+     const shiftSession = await this.current(user);
+-    const [settings, willBe, returnRequest] = await Promise.all([
++    const sentHome = await latestSentHomeTx(this.prisma.db, user.selectedFactoryId, user.userId);
++    const [settings, willBe, returnRequest, latestReturnRequest, awaitingReturn] = await Promise.all([
+       this.getShiftSettings(user.selectedFactoryId),
+       this.prisma.db.shiftWillBe.findFirst({
+         where: {
+@@ -1738,6 +1747,12 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+         },
+         orderBy: { createdAt: 'desc' },
+       }),
++      this.prisma.db.shiftReturnRequest.findFirst({
++        where: { factoryId: user.selectedFactoryId, userId: user.userId, createdAt: { gte: sentHome?.createdAt ?? factoryShiftWindow(factoryShiftTarget()).from } },
++        select: { id: true, status: true, reason: true, createdAt: true, decidedAt: true, decisionComment: true },
++        orderBy: { createdAt: 'desc' },
++      }),
++      isSentHomeAwaitingReturn(this.prisma.db, user.selectedFactoryId, user.userId),
+     ]);
+ 
+     return {
+@@ -1745,13 +1760,14 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+       shiftSession,
+       activeWillBe: willBe,
+       pendingReturnRequest: returnRequest,
+-      formSettings: { willBeCancelRequiresComment: settings.willBeCancelRequiresComment },
++      latestReturnRequest: latestReturnRequest ?? returnRequest,
++      formSettings: { willBeCancelRequiresComment: settings.willBeCancelRequiresComment, sendHomeRequiresComment: settings.sendHomeRequiresComment },
+       allowedActions: {
+-        canStartShift: !shiftSession,
++        canStartShift: !shiftSession && !awaitingReturn,
+         canEndShift: Boolean(shiftSession),
+         canMarkWillBe: user.permissions.includes('shift.self.manage'),
+         canCancelWillBe: Boolean(willBe) && user.permissions.includes('shift.self.manage'),
+-        canRequestReturn: settings.returnRequestEnabled && person?.employeeState === EmployeeState.OFF_SHIFT && !returnRequest,
++        canRequestReturn: settings.returnRequestEnabled && person?.employeeState === EmployeeState.OFF_SHIFT && awaitingReturn && !returnRequest && user.permissions.includes('shift.self.manage'),
+       },
+     };
+   }
+@@ -1886,22 +1902,18 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+   }
+ 
+   async createReturnRequest(user: UserContext, body: { reason?: string | null }) {
+-    const settings = await this.getShiftSettings(user.selectedFactoryId);
+-    if (!settings.returnRequestEnabled) throw new ConflictError('return requests disabled');
+-    if (!body.reason?.trim()) throw new ConflictError('reason is required');
+-    const target = await this.prisma.db.user.findUnique({ where: { id: user.userId } });
+-    if (!target) throw new ConflictError('user not found');
+-    if (target.employeeState !== EmployeeState.OFF_SHIFT) throw new ConflictError('return request is available only after leaving shift');
+-    const existing = await this.prisma.db.shiftReturnRequest.findFirst({
+-      where: { factoryId: user.selectedFactoryId, userId: user.userId, status: ShiftReturnRequestStatus.PENDING },
+-    });
+-    if (existing) throw new ConflictError('return request already pending');
+-    const lastSession = await this.prisma.db.shiftSession.findFirst({
+-      where: { factoryId: user.selectedFactoryId, userId: user.userId },
+-      orderBy: { startedAt: 'desc' },
+-    });
+-
++    if (!body.reason?.trim()) throw new ConflictError('Укажите причину возврата на смену.');
+     const request = await this.prisma.db.$transaction(async (tx) => {
++      await lockOperationKeys(tx, [operationLockKey.assignmentUser(user.selectedFactoryId, user.userId)]);
++      const { user: target } = await assertAttendanceAccessTx(tx, user.selectedFactoryId, user.userId);
++      const settings = await tx.shiftSettings.findUnique({ where: { factoryId: user.selectedFactoryId } });
++      if (settings?.returnRequestEnabled === false) throw new ConflictError('Запросы на возврат на этом заводе отключены.');
++      if (target.employeeState !== EmployeeState.OFF_SHIFT || !(await isSentHomeAwaitingReturn(tx, user.selectedFactoryId, user.userId))) {
++        throw new ConflictError('Запрос доступен только после отправки домой из текущей смены этого завода.');
++      }
++      const existing = await tx.shiftReturnRequest.findFirst({ where: { factoryId: user.selectedFactoryId, userId: user.userId, status: ShiftReturnRequestStatus.PENDING } });
++      if (existing) throw new ConflictError('Запрос на возврат уже ожидает решения мастера.');
++      const lastSession = await tx.shiftSession.findFirst({ where: { factoryId: user.selectedFactoryId, userId: user.userId }, orderBy: { startedAt: 'desc' } });
+       const request = await tx.shiftReturnRequest.create({
+         data: {
+           factoryId: user.selectedFactoryId,
+@@ -1921,36 +1933,54 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+       });
+       return request;
+     });
++    this.wsService.broadcast(WS_EVENTS.SHIFT_UPDATED, { factoryId: user.selectedFactoryId });
+     await this.notificationsService.notifyShiftReturnRequested(request);
+     return request;
+   }
+ 
+   async returnRequests(user: UserContext) {
+-    return this.prisma.db.shiftReturnRequest.findMany({
++    await this.assertRuntimeAccess(user);
++    const requests = await this.prisma.db.shiftReturnRequest.findMany({
+       where: { factoryId: user.selectedFactoryId },
+-      include: { user: true, requestedBy: true, decidedBy: true },
+-      orderBy: [{ status: 'asc' }, { createdAt: 'desc' }],
++      select: {
++        id: true, status: true, reason: true, createdAt: true, decidedAt: true, decisionComment: true,
++        user: { select: { firstName: true, lastName: true, middleName: true,
++          factoryAccess: { where: { factoryId: user.selectedFactoryId, isActive: true, isGuest: false }, select: { role: true, department: { select: { name: true } } }, take: 1 },
++        } },
++      },
++      orderBy: [{ decidedAt: { sort: 'asc', nulls: 'first' } }, { createdAt: 'desc' }],
+       take: 100,
+     });
++    return requests.map(({ user: target, ...request }) => ({
++      ...request, employeeName: pilotDisplayName(target),
++      role: target.factoryAccess[0]?.role ?? null,
++      departmentName: target.factoryAccess[0]?.department?.name ?? null,
++    }));
+   }
+ 
+   async decideReturnRequest(user: UserContext, id: string, body: { status: 'APPROVED' | 'REJECTED'; decisionComment?: string | null }) {
+-    if (body.status === 'REJECTED' && !body.decisionComment?.trim()) throw new ConflictError('decision comment is required');
+-    const request = await this.prisma.db.shiftReturnRequest.findFirst({
++    if (!['APPROVED', 'REJECTED'].includes(body.status)) throw new ConflictError('Выберите решение по запросу.');
++    if (body.status === 'REJECTED' && !body.decisionComment?.trim()) throw new ConflictError('Укажите причину отклонения.');
++    const initial = await this.prisma.db.shiftReturnRequest.findFirst({
+       where: { id, factoryId: user.selectedFactoryId, status: ShiftReturnRequestStatus.PENDING },
+-      include: { user: true },
+     });
+-    if (!request) throw new ConflictError('pending return request not found');
++    if (!initial) throw new ConflictError('Запрос уже решён или недоступен. Обновите экран.');
+ 
+-    return this.prisma.db.$transaction(async (tx) => {
++    const result = await this.prisma.db.$transaction(async (tx) => {
++      await lockOperationKeys(tx, [operationLockKey.assignmentUser(user.selectedFactoryId, initial.userId)]);
++      const request = await tx.shiftReturnRequest.findFirst({ where: { id, factoryId: user.selectedFactoryId, status: ShiftReturnRequestStatus.PENDING } });
++      if (!request) throw new ConflictError('Запрос уже решён другим мастером. Обновите экран.');
++      const { user: target } = await assertAttendanceAccessTx(tx, user.selectedFactoryId, request.userId);
+       if (body.status === 'APPROVED') {
+-        const target = await tx.user.findUnique({ where: { id: request.userId } });
+-        if (!target) throw new ConflictError('user not found');
++        if (target.employeeState !== EmployeeState.OFF_SHIFT || !(await isSentHomeAwaitingReturn(tx, user.selectedFactoryId, target.id, factoryShiftTarget(), request.createdAt))) {
++          throw new ConflictError('Запрос больше не относится к текущей отправке домой. Обновите экран.');
++        }
+         assertEmployeeTransition(target.employeeState, EmployeeState.AVAILABLE);
+-        await tx.user.update({ where: { id: request.userId }, data: { employeeState: EmployeeState.AVAILABLE, version: { increment: 1 } } });
++        const changed = await tx.user.updateMany({ where: { id: target.id, version: target.version }, data: { employeeState: EmployeeState.AVAILABLE, version: { increment: 1 } } });
++        if (changed.count !== 1) throw new ConflictError('Состояние сотрудника уже изменилось. Обновите экран.');
+       }
+-      const updated = await tx.shiftReturnRequest.update({
+-        where: { id },
++      const changed = await tx.shiftReturnRequest.updateMany({
++        where: { id, factoryId: user.selectedFactoryId, status: ShiftReturnRequestStatus.PENDING },
+         data: {
+           status: body.status === 'APPROVED' ? ShiftReturnRequestStatus.APPROVED : ShiftReturnRequestStatus.REJECTED,
+           decidedById: user.userId,
+@@ -1958,6 +1988,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+           decidedAt: new Date(),
+         },
+       });
++      if (changed.count !== 1) throw new ConflictError('Запрос уже решён другим мастером. Обновите экран.');
+       await this.auditService.writeTx(tx, {
+         userId: user.userId,
+         factoryId: user.selectedFactoryId,
+@@ -1966,8 +1997,10 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+         entityId: id,
+         details: { targetUserId: request.userId, decisionComment: body.decisionComment?.trim() || null },
+       });
+-      return updated;
++      return tx.shiftReturnRequest.findUniqueOrThrow({ where: { id } });
+     });
++    this.wsService.broadcast(WS_EVENTS.SHIFT_UPDATED, { factoryId: user.selectedFactoryId });
++    return result;
+   }
+ 
+   async contractorLeadCurrent(user: UserContext) {
+@@ -2207,6 +2240,9 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+         include: { submission: true, contractorUser: true },
+       });
+       if (!item) throw new ConflictError('Работник не найден в плане текущей смены вашей фирмы');
++      const { access: currentAccess } = await assertAttendanceAccessTx(tx, user.selectedFactoryId, item.contractorUserId);
++      if (currentAccess.role !== UserRole.CONTRACTOR || currentAccess.companyId !== scope.company.id) throw new ConflictError('Наёмный работник недоступен или относится к другой фирме');
++      if (actualStatus === ContractorActualStatus.ARRIVED) await assertMayAttendTx(tx, user.selectedFactoryId, item.contractorUserId);
+       if (body.expectedVersion !== undefined && item.version !== Number(body.expectedVersion)) {
+         throw new ConflictError('Статус работника уже изменился. Обновите экран.');
+       }
+@@ -2312,6 +2348,9 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+           return previous;
+         }
+       }
++      const { access: currentAccess } = await assertAttendanceAccessTx(tx, user.selectedFactoryId, contractorUserId);
++      if (currentAccess.role !== UserRole.CONTRACTOR || currentAccess.companyId !== scope.company.id) throw new ConflictError('Наёмный работник недоступен или относится к другой фирме');
++      await assertMayAttendTx(tx, user.selectedFactoryId, contractorUserId);
+       let submission = await tx.contractorShiftSubmission.findFirst({
+         where: {
+           factoryId: user.selectedFactoryId,
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\shift\\shift.controller.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.controller.ts"
+index 25996347..ca1aec45 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\shift\\shift.controller.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.controller.ts"
+@@ -8,7 +8,7 @@ import { ShiftService } from './shift.service';
+ 
+ class SendHomeDto {
+   targetUserId!: string;
+-  comment!: string;
++  comment?: string;
+ }
+ 
+ class LineResultDto {
+@@ -103,6 +103,12 @@ export class ShiftController {
+     return this.shiftService.current(user);
+   }
+ 
++  @Get('settings')
++  @RequirePermission(['assignments.manage', 'shift.self.read', 'shift.return.manage'])
++  async settings(@CurrentUser() user: UserContext) {
++    return this.shiftService.settings(user);
++  }
++
+   @Get('timeline')
+   @RequirePermission(['shift.self.read', 'shift.future.read', 'shift.future.manage'])
+   async timeline(@CurrentUser() user: UserContext) {
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\common\\shift-attendance.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\common\\shift-attendance.ts"
+index acb8010c..ff8f0255 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\common\\shift-attendance.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\common\\shift-attendance.ts"
+@@ -1,24 +1,46 @@
+ import { Prisma, ShiftReturnRequestStatus } from '@prisma/client';
+ import { FactoryShiftTarget, factoryShiftTarget, factoryShiftWindow } from './shift-time';
++import { ConflictError } from './errors/conflict.exception';
++
++// Call inside the transaction AFTER its assignmentUser (person-wide) lock.
++// Never include foreign ids/names in the error or repair foreign rows here.
++export async function assertNoForeignAttendanceTx(tx: Prisma.TransactionClient, factoryId: string, userId: string) {
++  const [assignment, session] = await Promise.all([
++    tx.assignment.findFirst({ where: { userId, factoryId: { not: factoryId }, endedAt: null }, select: { id: true } }),
++    tx.shiftSession.findFirst({ where: { userId, factoryId: { not: factoryId }, status: 'ACTIVE' }, select: { id: true } }),
++  ]);
++  if (assignment || session) throw new ConflictError('У сотрудника есть действующая смена или назначение на другом заводе. Сначала завершите их на той площадке.');
++}
++
++export async function assertAttendanceAccessTx(tx: Prisma.TransactionClient, factoryId: string, userId: string) {
++  const [user, access] = await Promise.all([
++    tx.user.findUnique({ where: { id: userId } }),
++    tx.userFactoryAccess.findUnique({ where: { userId_factoryId: { userId, factoryId } } }),
++  ]);
++  if (!user || user.blockedAt || user.deletedAt || !access?.isActive || access.isGuest) {
++    throw new ConflictError('У сотрудника нет активного доступа к этому заводу.');
++  }
++  await assertNoForeignAttendanceTx(tx, factoryId, userId);
++  return { user, access };
++}
++
++export async function assertMayAttendTx(tx: Prisma.TransactionClient, factoryId: string, userId: string) {
++  await assertNoForeignAttendanceTx(tx, factoryId, userId);
++  if (await isSentHomeAwaitingReturn(tx, factoryId, userId)) {
++    throw new ConflictError('Сотрудник отправлен домой. Вернуться на смену можно только через запрос и подтверждение мастера.');
++  }
++}
+ 
+ export async function isSentHomeAwaitingReturn(
+   tx: Prisma.TransactionClient,
+   factoryId: string,
+   userId: string,
+   target: FactoryShiftTarget = factoryShiftTarget(),
++  requestCreatedAt?: Date,
+ ) {
+   const window = factoryShiftWindow(target);
+-  const sentHome = await tx.auditLog.findFirst({
+-    where: {
+-      factoryId,
+-      action: 'EMPLOYEE_SENT_HOME',
+-      entityType: 'User',
+-      entityId: userId,
+-      createdAt: { gte: window.from, lt: window.to },
+-    },
+-    orderBy: { createdAt: 'desc' },
+-  });
+-  if (!sentHome) return false;
++  const sentHome = await latestSentHomeTx(tx, factoryId, userId, target);
++  if (!sentHome || (requestCreatedAt && (requestCreatedAt < sentHome.createdAt || requestCreatedAt >= window.to))) return false;
+ 
+   const approvedReturn = await tx.shiftReturnRequest.findFirst({
+     where: {
+@@ -31,3 +53,17 @@ export async function isSentHomeAwaitingReturn(
+   });
+   return !approvedReturn;
+ }
++
++export async function latestSentHomeTx(tx: Prisma.TransactionClient, factoryId: string, userId: string, target: FactoryShiftTarget = factoryShiftTarget()) {
++  const window = factoryShiftWindow(target);
++  return tx.auditLog.findFirst({
++    where: {
++      factoryId,
++      action: 'EMPLOYEE_SENT_HOME',
++      entityType: 'User',
++      entityId: userId,
++      createdAt: { gte: window.from, lt: window.to },
++    },
++    orderBy: { createdAt: 'desc' },
++  });
++}
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\common\\operation-lock.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\common\\operation-lock.ts"
+index 1f08e245..943defbd 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\common\\operation-lock.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\common\\operation-lock.ts"
+@@ -11,7 +11,9 @@ export const operationLockKey = {
+   lineLifecycle: (lineId: string) => `line-lifecycle:${lineId}`,
+   shiftBoundary: (factoryId: string, shiftDate: string, shiftType: string) =>
+     `shift-boundary:${factoryId}:${shiftDate}:${shiftType}`,
+-  assignmentUser: (factoryId: string, userId: string) => `assignment-user:${factoryId}:${userId}`,
++  // Factual attendance and employeeState belong to a person, not one UFA.
++  // Keep the call signature; plannedUser below intentionally remains factory scoped.
++  assignmentUser: (_factoryId: string, userId: string) => `assignment-user:${userId}`,
+   assignmentSlot: (factoryId: string, lineId: string, positionId: string, slotIndex: number) =>
+     `assignment-slot:${factoryId}:${lineId}:${positionId}:${slotIndex}`,
+   assignmentWorkAreaSlot: (factoryId: string, workAreaId: string, positionId: string, slotIndex: number) =>
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\line\\line.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\line\\line.service.ts"
+index bfe75dd6..8f9846fc 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\line\\line.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\line\\line.service.ts"
+@@ -12,6 +12,7 @@ import {
+ import { StaffingControlPolicyService } from './staffing-control-policy.service';
+ import { ConflictError } from '../../common/errors/conflict.exception';
+ import { lockOperationKeys, operationLockKey } from '../../common/operation-lock';
++import { assertNoForeignAttendanceTx } from '../../common/shift-attendance';
+ import { dedupePilotLines, hasPilotFixtureMarker, isDiagnosticFixtureActor, isPilotFixtureUser, isPilotVisibleLine, isRuntimeVisibleWashSession, pilotDisplayName } from '../../common/pilot-visibility';
+ import { addFactoryShifts, factoryDateKey, factoryServerNow, factoryShiftDate, factoryShiftTarget, factoryShiftWindow } from '../../common/shift-time';
+ import { canReadTask } from '../../common/task-visibility';
+@@ -2420,6 +2421,9 @@ export class LineService {
+       await lockOperationKeys(tx, context.activeActions.map((action) =>
+         operationLockKey.assignmentUser(user.selectedFactoryId, action.userId)));
+       context = await this.templateActivationContextTx(tx, user, lineId, input);
++      for (const userId of [...new Set(context.activeActions.map((action) => action.userId))]) {
++        await assertNoForeignAttendanceTx(tx, user.selectedFactoryId, userId);
++      }
+       if (input.expectedVersion !== undefined && input.expectedVersion !== null && context.line.version !== Number(input.expectedVersion)) {
+         throw new ConflictError('Состав линии уже изменился. Обновите экран и повторите действие.');
+       }
+@@ -2897,6 +2901,9 @@ export class LineService {
+       if (stopAssignmentUsers.length) {
+         await lockOperationKeys(tx, stopAssignmentUsers.map((assignment) =>
+           operationLockKey.assignmentUser(line.factoryId, assignment.userId)));
++        for (const userId of [...new Set(stopAssignmentUsers.map((assignment) => assignment.userId))]) {
++          await assertNoForeignAttendanceTx(tx, line.factoryId, userId);
++        }
+       }
+ 
+       const updateResult = await tx.line.updateMany({
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\wash\\wash.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\wash\\wash.service.ts"
+index 4db911c6..4b3f655a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\wash\\wash.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\wash\\wash.service.ts"
+@@ -3,6 +3,7 @@ import { AssignmentKind, AttachmentEntityType, EmployeeState, LineStatus, Prisma
+ import { AuditService } from '../../common/audit.service';
+ import { ConflictError } from '../../common/errors/conflict.exception';
+ import { lockOperationKeys, operationLockKey } from '../../common/operation-lock';
++import { assertAttendanceAccessTx, assertMayAttendTx, assertNoForeignAttendanceTx } from '../../common/shift-attendance';
+ import { factoryServerNow } from '../../common/shift-time';
+ import { UserContext } from '../../common/user-context.types';
+ import { PrismaService } from '../../prisma/prisma.service';
+@@ -313,7 +314,11 @@ export class WashService {
+     const target = this.normalizeStartTarget(input);
+     const startedAt = factoryServerNow();
+     const result = await this.prisma.db.$transaction(async (tx: Prisma.TransactionClient) => {
++      const initialWorkers = target.targetType === 'LINE' && target.lineId
++        ? await tx.assignment.findMany({ where: { lineId: target.lineId, ...(selectedFactoryId ? { factoryId: selectedFactoryId } : {}), kind: AssignmentKind.LINE, endedAt: null }, select: { userId: true }, distinct: ['userId'] })
++        : [];
+       await lockOperationKeys(tx, [
++        ...initialWorkers.map((worker) => operationLockKey.assignmentUser(selectedFactoryId ?? '', worker.userId)),
+         operationLockKey.processedOperation(userId, operationId),
+         target.targetType === 'LINE' && target.lineId ? operationLockKey.lineLifecycle(target.lineId) : null,
+       ]);
+@@ -372,6 +377,13 @@ export class WashService {
+           })
+         : [];
+       const workerIds: string[] = workers.map((worker: { userId: string }) => worker.userId);
++      if ([...workerIds].sort().join('|') !== initialWorkers.map((worker) => worker.userId).sort().join('|')) {
++        throw new ConflictError('Состав участников мойки изменился. Обновите экран и повторите действие.');
++      }
++      for (const workerId of workerIds) {
++        await assertAttendanceAccessTx(tx, factoryId, workerId);
++        await assertMayAttendTx(tx, factoryId, workerId);
++      }
+       const shiftSession = await this.findActiveShiftTx(tx, factoryId);
+ 
+       const session = await tx.washSession.create({
+@@ -389,7 +401,7 @@ export class WashService {
+ 
+       if (workerIds.length) {
+         await tx.user.updateMany({
+-          where: { id: { in: workerIds }, factoryId },
++          where: { id: { in: workerIds } },
+           data: { employeeState: EmployeeState.WASHING, version: { increment: 1 } },
+         });
+ 
+@@ -869,6 +881,7 @@ export class WashService {
+       if ([...activeWorkerIds].sort().join('|') !== lockedActiveWorkerIds.join('|')) {
+         throw new ConflictError('Состав участников мойки изменился. Обновите экран и повторите действие.');
+       }
++      for (const workerId of activeWorkerIds) await assertNoForeignAttendanceTx(tx, factoryId, workerId);
+       const settings = await this.ensureSettingsTx(tx, session.factoryId);
+ 
+       if (settings.washCompleteRequiresNoOpenIssues) {
+@@ -1138,6 +1151,7 @@ export class WashService {
+       if (classification !== 'PROVEN_TEST' && classification !== 'PROVEN_PILOT_TEST') {
+         return { changed: false, closedAssignments: 0, releasedUserIds: [] as string[], session: current };
+       }
++      for (const workerId of lockedWorkerIds) await assertNoForeignAttendanceTx(tx, factoryId, workerId);
+ 
+       const completedAt = new Date();
+       const updateResult = await tx.washSession.updateMany({
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+index df27d5a4..f5f29066 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+@@ -4,6 +4,7 @@ import { uploadAttachments } from '../api/attachments';
+ import { apiClient } from '../api/client';
+ import { useRef } from 'react';
+ import { AttachmentPicker } from '../components/AttachmentPicker';
++import { ActionModal } from '../components/ActionModal';
+ import { ProfilePhoto } from '../components/ProfilePhoto';
+ import { PremiumActionItem, PremiumKpiStrip, PremiumSectionHeader, PremiumSheet } from '../components/PremiumShell';
+ import { PeopleSearchPanel, type PeopleSearchContext, type PeopleSearchResult } from '../components/PeopleSearchPanel';
+@@ -112,12 +113,19 @@ type CurrentSlotAction = {
+   assignment: NonNullable<AssignmentBoard['slots'][number]['assignment']>;
+ } | null;
+ 
++type ReturnRequest = {
++  id: string; status: 'PENDING' | 'APPROVED' | 'REJECTED'; reason: string; createdAt: string;
++  decidedAt?: string | null; decisionComment?: string | null;
++  employeeName?: string; role?: keyof typeof roleLabels | null; departmentName?: string | null;
++};
++
+ type ShiftMeResponse = {
+   user: ShiftPerson | null;
+   shiftSession: { id: string; startedAt: string } | null;
+   activeWillBe?: { id: string; targetShiftDate: string; shiftType: string; status: string; comment?: string | null } | null;
+   pendingReturnRequest?: { id: string; status: string; reason: string; createdAt: string } | null;
+-  formSettings?: { willBeCancelRequiresComment: boolean };
++  latestReturnRequest?: ReturnRequest | null;
++  formSettings?: { willBeCancelRequiresComment: boolean; sendHomeRequiresComment?: boolean };
+   allowedActions: {
+     canStartShift: boolean;
+     canEndShift: boolean;
+@@ -816,6 +824,60 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+   const [notNeededReason, setNotNeededReason] = useState('');
+   const [willBeComment, setWillBeComment] = useState('');
+   const [returnReason, setReturnReason] = useState('');
++  const [returnRequests, setReturnRequests] = useState<ReturnRequest[]>([]);
++  const [returnQueueLoading, setReturnQueueLoading] = useState(true);
++  const [returnQueueError, setReturnQueueError] = useState<string | null>(null);
++  const [returnDecision, setReturnDecision] = useState<{ request: ReturnRequest; status: 'APPROVED' | 'REJECTED' } | null>(null);
++  const [returnDecisionError, setReturnDecisionError] = useState<string | null>(null);
++  const [sendHomeRequiresComment, setSendHomeRequiresComment] = useState(true);
++  const refreshReturnQueue = useRef<() => Promise<void>>(async () => undefined);
++  const canManageReturn = Boolean(currentUser?.isAdmin || currentUser?.permissions.includes('shift.return.manage'));
++  const canSendHome = Boolean(currentUser?.isAdmin || currentUser?.permissions.includes('assignments.manage'));
++
++  useEffect(() => {
++    let active = true;
++    let inFlight = false;
++    setReturnRequests([]); setReturnQueueLoading(canManageReturn); setReturnQueueError(null);
++    setReturnDecision(null); setSendHomeRequiresComment(true);
++    const refresh = async () => {
++      if (inFlight) return;
++      inFlight = true;
++      try {
++        const [requests, settings] = await Promise.all([
++          canManageReturn ? apiClient.get<ReturnRequest[]>('/shift/return-requests') : Promise.resolve([]),
++          canSendHome ? apiClient.get<{ sendHomeRequiresComment: boolean }>('/shift/settings') : Promise.resolve(null),
++        ]);
++        if (!active) return;
++        setReturnRequests(requests.filter((request) => request.status === 'PENDING'));
++        if (settings) setSendHomeRequiresComment(settings.sendHomeRequiresComment);
++        setReturnQueueError(null);
++      } catch (error) {
++        if (active) { setReturnRequests([]); setReturnQueueError(errorMessage(error, 'Не удалось обновить запросы на возврат')); }
++      } finally { inFlight = false; if (active) setReturnQueueLoading(false); }
++    };
++    refreshReturnQueue.current = refresh;
++    void refresh();
++    const onRefresh = () => { void refresh(); };
++    const timer = window.setInterval(onRefresh, SHIFT_REFRESH_INTERVAL_MS);
++    window.addEventListener('zavod:operational-data-invalidated', onRefresh);
++    return () => { active = false; window.clearInterval(timer); window.removeEventListener('zavod:operational-data-invalidated', onRefresh); };
++  }, [selectedFactoryId, currentUser?.userId, canManageReturn, canSendHome]);
++
++  const decideReturn = async (values: Record<string, string | boolean>) => {
++    if (!returnDecision || busy) return;
++    const decision = returnDecision;
++    const decisionComment = String(values.decisionComment ?? '').trim();
++    if (decision.status === 'REJECTED' && !decisionComment) { setReturnDecisionError('Укажите причину отклонения'); return; }
++    setBusy(true); setReturnDecisionError(null);
++    try {
++      await apiClient.patch(`/shift/return-requests/${encodeURIComponent(decision.request.id)}`, { status: decision.status, decisionComment: decisionComment || null });
++      setReturnDecision(null);
++      await refreshReturnQueue.current();
++    } catch (error) {
++      setReturnDecisionError(errorMessage(error, 'Не удалось принять решение по запросу'));
++      await refreshReturnQueue.current();
++    } finally { setBusy(false); }
++  };
+   const [handoverView, setHandoverView] = useState<HandoverView | null>(null);
+   const [previousHandover, setPreviousHandover] = useState<HandoverLogResponse | null>(null);
+   const [handoverMode, setHandoverMode] = useState<'prepare' | 'previous' | null>(null);
+@@ -2289,7 +2351,7 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+         showToast(`${shortPersonName(actionUser.userId, actionUser.displayName)} назначен на мойку`);
+       }
+       if (personAction === 'home') {
+-        if (!homeComment.trim()) throw new Error('Комментарий обязателен');
++        if (sendHomeRequiresComment && !homeComment.trim()) throw new Error('Комментарий обязателен');
+         await apiClient.post('/shift/send-home', { targetUserId: actionUser.userId, comment: homeComment.trim() });
+         showToast(`${shortPersonName(actionUser.userId, actionUser.displayName)} отправлен домой`);
+       }
+@@ -3936,7 +3998,44 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+         </section>
+       ) : null}
+ 
+-      {!isManagerView && selfShift?.allowedActions.canRequestReturn ? (
++      {shiftTab === 'current' && canManageReturn ? (
++        <section className="card admin-card wide return-requests" aria-label="Запросы на возврат">
++          <h3>Запросы на возврат</h3>
++          {returnQueueLoading ? <div className="empty-state compact">Загружаем запросы…</div> : null}
++          {returnQueueError ? <p className="error-text" role="alert">{returnQueueError}</p> : null}
++          {!returnQueueLoading && !returnQueueError && !returnRequests.length ? <p>Нет ожидающих запросов</p> : null}
++          {returnRequests.map((request) => (
++            <article className="card section-stack" key={request.id} style={{ minWidth: 0, overflowWrap: 'anywhere' }}>
++              <strong>{request.employeeName || 'Сотрудник'}</strong>
++              <span>{request.departmentName || 'Отдел не указан'} · {request.role ? roleLabels[request.role] : 'Доступ недоступен'}</span>
++              <span>{factoryDateTimeLabel(request.createdAt)} · Ожидает решения</span>
++              <p>{request.reason}</p>
++              <div className="modal-actions">
++                <button type="button" className="primary-button" disabled={busy} onClick={() => { setReturnDecisionError(null); setReturnDecision({ request, status: 'APPROVED' }); }}>Вернуть на смену</button>
++                <button type="button" className="secondary-button" disabled={busy} onClick={() => { setReturnDecisionError(null); setReturnDecision({ request, status: 'REJECTED' }); }}>Отклонить</button>
++              </div>
++            </article>
++          ))}
++        </section>
++      ) : null}
++
++      {returnDecision ? <ActionModal
++        title={returnDecision.status === 'APPROVED' ? 'Вернуть на смену' : 'Отклонить запрос'}
++        description={`${returnDecision.request.employeeName || 'Сотрудник'}: ${returnDecision.request.reason}`}
++        fields={returnDecision.status === 'REJECTED' ? [{ name: 'decisionComment', label: 'Причина отклонения', type: 'textarea', required: true }] : []}
++        confirmLabel={returnDecision.status === 'APPROVED' ? 'Вернуть на смену' : 'Отклонить'}
++        busy={busy} errorText={returnDecisionError} onCancel={() => setReturnDecision(null)} onSubmit={decideReturn}
++      /> : null}
++
++      {shiftTab === 'current' && !isManagerView && selfShift?.latestReturnRequest ? (
++        <section className="card admin-card wide" aria-label="Результат запроса на возврат" aria-live="polite" style={{ overflowWrap: 'anywhere' }}>
++          <h3>Возврат на смену</h3>
++          <p>{selfShift.latestReturnRequest.status === 'PENDING' ? 'Запрос ожидает решения мастера' : selfShift.latestReturnRequest.status === 'REJECTED' ? 'Запрос отклонён. Вы остаётесь вне смены; можно отправить новый запрос.' : 'Возврат одобрен. Вы можете вернуться к работе на этом заводе.'}</p>
++          {selfShift.latestReturnRequest.decisionComment ? <p>{selfShift.latestReturnRequest.decisionComment}</p> : null}
++        </section>
++      ) : null}
++
++      {shiftTab === 'current' && !isManagerView && selfShift?.allowedActions.canRequestReturn ? (
+         <section className="card admin-card wide">
+           <h3>Возврат на смену</h3>
+           <p>Запрос отправляется мастеру. До решения управленческие действия недоступны.</p>
+@@ -4582,7 +4681,7 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+                 setWorkAreaBoard(null);
+                 if (person) openPersonAction(person, 'home');
+               }}>
+-                <div><strong>Отправить домой</strong><span>Требуется подтверждение и комментарий</span></div><span className="tag stop">Домой</span>
++                <div><strong>Отправить домой</strong><span>{sendHomeRequiresComment ? 'Требуется подтверждение и комментарий' : 'Требуется подтверждение; комментарий необязателен'}</span></div><span className="tag stop">Домой</span>
+               </button>
+             </div>
+           </div>
+@@ -5803,7 +5902,9 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+             {personAction === 'home' ? (
+               <>
+                 <p>Отправить сотрудника домой</p>
+-                <textarea value={homeComment} onChange={(event) => setHomeComment(event.target.value)} placeholder="Укажите комментарий" />
++                <label className="field-label">{sendHomeRequiresComment ? 'Комментарий обязателен' : 'Комментарий — необязательно'}
++                  <textarea aria-label="Комментарий при отправке домой" value={homeComment} disabled={busy} onChange={(event) => setHomeComment(event.target.value)} placeholder={sendHomeRequiresComment ? 'Укажите комментарий' : 'Комментарий — необязательно'} />
++                </label>
+               </>
+             ) : null}
+             {personAction === 'release' ? <p>Снять назначение и освободить сотрудника?</p> : null}
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\frontend\\src\\screens\\ShiftLogScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftLogScreen.tsx"
+index d7d85f04..e4ea85ab 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\frontend\\src\\screens\\ShiftLogScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftLogScreen.tsx"
+@@ -1,4 +1,4 @@
+-import React, { useEffect, useMemo, useState } from 'react';
++import React, { useEffect, useMemo, useRef, useState } from 'react';
+ import { uploadAttachments } from '../api/attachments';
+ import { apiClient } from '../api/client';
+ import { ActionModal } from '../components/ActionModal';
+@@ -37,7 +37,7 @@ const handoverSectionLabels: Record<string, { title: string; empty: string }> =
+ const handoverSectionOrder = ['lines', 'washes', 'tasks'] as const;
+ 
+ export function ShiftLogScreen() {
+-  const { currentUser } = useAppStore();
++  const { currentUser, selectedFactoryId } = useAppStore();
+   const [tab, setTab] = useState<Tab>('active');
+   const [logs, setLogs] = useState<ShiftLog[]>([]);
+   const [selected, setSelected] = useState<ShiftLog | null>(null);
+@@ -49,12 +49,23 @@ export function ShiftLogScreen() {
+   const [filterDraft, setFilterDraft] = useState(filters);
+   const [filterOpen, setFilterOpen] = useState(false);
+   const [departments, setDepartments] = useState<DirectoryDepartment[]>([]);
++  const [opening, setOpening] = useState(false);
++  const selectedRef = useRef(selected);
++  selectedRef.current = selected;
++  const loadingRef = useRef(loading);
++  loadingRef.current = loading;
++  const loadSequence = useRef(0);
++  const openSequence = useRef(0);
++  const scope = JSON.stringify([selectedFactoryId, currentUser?.userId, currentUser?.role, currentUser?.departmentId, currentUser?.permissions]);
++  const scopeRef = useRef(scope);
++  scopeRef.current = scope;
++  const closeSelected = () => { openSequence.current += 1; setOpening(false); setSelected(null); };
+ 
+   const canCreate = Boolean(currentUser?.permissions.includes('shift-log.create') || currentUser?.permissions.includes('shift-log.manage'));
+   const canArchive = Boolean(currentUser?.permissions.includes('shift-log.archive.read') || currentUser?.permissions.includes('shift-log.manage'));
+   const canImportant = Boolean(currentUser?.permissions.includes('shift-log.important.manage') || currentUser?.permissions.includes('shift-log.manage') || currentUser?.isAdmin);
+   useBodyScrollLock(Boolean(selected) || modal === 'attachment');
+-  useMobileBackLayer(Boolean(selected) && !modal, () => setSelected(null), 700);
++  useMobileBackLayer((Boolean(selected) || opening) && !modal, closeSelected, 700);
+   useMobileBackLayer(modal === 'attachment', () => setModal(null), 740);
+ 
+   const query = useMemo(() => {
+@@ -67,24 +78,59 @@ export function ShiftLogScreen() {
+     return params.toString();
+   }, [filters, tab]);
+ 
+-  const load = async () => {
+-    setLoading(true);
+-    setErrorText(null);
++  const viewKey = `${scope}:${tab}:${query}`;
++  const viewRef = useRef(viewKey);
++  viewRef.current = viewKey;
++
++  const load = async (silent = false) => {
++    if (silent && loadingRef.current) return;
++    const sequence = ++loadSequence.current;
++    const current = () => viewRef.current === viewKey && sequence === loadSequence.current;
++    if (!silent) { setLoading(true); setErrorText(null); }
+     try {
+       const path = tab === 'archive' ? `/shift-log/archive${query ? `?${query}` : ''}` : `/shift-log${query ? `?${query}` : ''}`;
+-      setLogs(await apiClient.get<ShiftLog[]>(path));
+-      if (currentUser?.isAdmin) {
+-        setDepartments(await apiClient.get<DirectoryDepartment[]>('/directory/departments'));
++      const rows = await apiClient.get<ShiftLog[]>(path);
++      if (!current()) return;
++      setLogs(rows);
++      const selectedId = selectedRef.current?.id;
++      if (silent && selectedId) {
++        try {
++          const detail = await apiClient.get<ShiftLog>(`/shift-log/${tab === 'archive' ? 'archive/' : ''}${selectedId}`);
++          // Polling must not reopen a detail closed with Back or replace another log/draft.
++          if (current()) setSelected((previous) => previous?.id === selectedId ? detail : previous);
++        } catch (error) {
++          if (current()) { setSelected((previous) => previous?.id === selectedId ? null : previous); setModal(null); throw error; }
++        }
++      }
++      if (currentUser?.isAdmin && !silent) {
++        const items = await apiClient.get<DirectoryDepartment[]>('/directory/departments');
++        if (current()) setDepartments(items);
+       }
+     } catch (error) {
+-      setLogs([]);
+-      setErrorText(error instanceof Error ? error.message : 'Не удалось загрузить пересменку');
++      if (current()) { setLogs([]); setErrorText(error instanceof Error ? error.message : 'Не удалось загрузить пересменку'); }
+     } finally {
+-      setLoading(false);
++      if (current() && !silent) setLoading(false);
+     }
+   };
+ 
+-  useEffect(() => { void load(); }, [query, tab]);
++  useEffect(() => {
++    scopeRef.current = scope; viewRef.current = viewKey;
++    closeSelected(); setModal(null); setFiles([]); setLogs([]); setDepartments([]);
++    return () => { scopeRef.current = ''; viewRef.current = ''; openSequence.current += 1; };
++  }, [scope]);
++
++  useEffect(() => {
++    let inFlight = false;
++    const refresh = async () => {
++      if (inFlight) return;
++      inFlight = true;
++      try { await load(true); } finally { inFlight = false; }
++    };
++    void load();
++    const timer = window.setInterval(() => void refresh(), 5000);
++    window.addEventListener('focus', refresh);
++    return () => { window.clearInterval(timer); window.removeEventListener('focus', refresh); loadSequence.current += 1; };
++  }, [query, tab, scope]);
+ 
+   const departmentOptions = useMemo(() => {
+     const seen = new Set<string>();
+@@ -94,14 +140,19 @@ export function ShiftLogScreen() {
+   }, [departments]);
+ 
+   const openLog = async (log: ShiftLog) => {
++    const sequence = ++openSequence.current;
++    const current = () => sequence === openSequence.current && scopeRef.current === scope;
++    setOpening(true);
+     setErrorText(null);
+     try {
+       const archived = tab === 'archive';
+-      setSelected(await apiClient.get<ShiftLog>(`/shift-log/${archived ? 'archive/' : ''}${log.id}`));
++      const detail = await apiClient.get<ShiftLog>(`/shift-log/${archived ? 'archive/' : ''}${log.id}`);
++      if (!current()) return;
++      setSelected(detail);
+       if (!archived) await apiClient.post(`/shift-log/${log.id}/read`, {});
+     } catch (error) {
+-      setErrorText(error instanceof Error ? error.message : 'Не удалось открыть запись пересменки');
+-    }
++      if (current()) setErrorText(error instanceof Error ? error.message : 'Не удалось открыть запись пересменки');
++    } finally { if (current()) setOpening(false); }
+   };
+ 
+   const uploadForLog = async () => {
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\frontend\\src\\screens\\AdminConfigScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+index de70813a..d2cd07dd 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\frontend\\src\\screens\\AdminConfigScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+@@ -635,7 +635,7 @@ const MODULE_SETTINGS = [
+ // Only fields with a current operational consumer are editable. Legacy storage
+ // and reserved flags stay visible, but must not promise an effect they lack.
+ const OPERATIONAL_SETTINGS: Record<string, string[]> = {
+-  shift: ['minAssignmentMoveIntervalMinutes', 'contractorLeadMaxPeoplePerShift', 'returnRequestEnabled', 'willBeCancelRequiresComment'],
++  shift: ['minAssignmentMoveIntervalMinutes', 'contractorLeadMaxPeoplePerShift', 'returnRequestEnabled', 'willBeCancelRequiresComment', 'sendHomeRequiresComment'],
+   tasks: ['longTaskDefaultDeadlineHours', 'longTaskEscalationEnabled', 'longTaskEscalationGraceMinutes', 'taskRedirectRequiresComment', 'taskDoneRequiresComment', 'taskReadReceiptsEnabled'],
+   wash: ['washIssueResolveRequiresPhoto', 'washCompleteRequiresOkkReview', 'washCompleteRequiresNoOpenIssues', 'washMiniTasksEnabled', 'washControlEnabled', 'washOkkReviewEnabled'],
+   defrost: [],
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\admin\\admin.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.service.ts"
+index 13130da0..5d6e4026 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\src\\modules\\admin\\admin.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.service.ts"
+@@ -1006,7 +1006,7 @@ export class AdminService {
+       ...(nextValue.minAssignmentMoveIntervalMinutes < 5 ? ['Пауза между переносами меньше пяти минут ослабляет контроль назначений.'] : []),
+       ...(nextValue.contractorLeadMaxPeoplePerShift > 6 ? ['Лимит бригадира больше шести человек требует осознанного решения для этого завода.'] : []),
+       ...(nextValue.returnRequestEnabled === false ? ['Заявки на возврат на смену для работников и наёмных работников будут отключены.'] : []),
+-      ...(nextValue.sendHomeRequiresComment === false ? ['Переключатель комментария при отправке домой пока не подключён к рабочему действию.'] : []),
++      ...(nextValue.sendHomeRequiresComment === false ? ['Отправка домой будет разрешена без комментария.'] : []),
+     ];
+     return {
+       factoryId: user.selectedFactoryId,
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\scripts\\admin01-settings-consumers.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\admin01-settings-consumers.test.js"
+index 422a31bc..2b571800 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\scripts\\admin01-settings-consumers.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\admin01-settings-consumers.test.js"
+@@ -13,10 +13,12 @@ test('checklist workspace discloses pause form rule, not administrative settings
+ });
+ test('self shift cancel capability is not the comment requirement; disabled permission stays denied',async()=>{
+  for(const requireComment of [false,true])for(const allowed of [false,true]){
+-  const service=new ShiftService({db:{shiftWillBe:{findFirst:async()=>({id:'own'})},shiftReturnRequest:{findFirst:async()=>null}}},{listPeople:async()=>[{userId:'self',employeeState:'OFF_SHIFT'}]},{},{},{},{});
+-  service.current=async()=>null;service.getShiftSettings=async()=>({willBeCancelRequiresComment:requireComment,returnRequestEnabled:true});
++  // ADMIN02: the self read model now revalidates UFA and requires scoped
++  // send-home provenance. OFF_SHIFT alone intentionally no longer grants return.
++  const service=new ShiftService({db:{userFactoryAccess:{findUnique:async()=>({isActive:true,isGuest:false,user:{blockedAt:null,deletedAt:null}})},auditLog:{findFirst:async()=>null},shiftWillBe:{findFirst:async()=>({id:'own'})},shiftReturnRequest:{findFirst:async()=>null}}},{listPeople:async()=>[{userId:'self',employeeState:'OFF_SHIFT'}]},{},{},{},{});
++  service.current=async()=>null;service.getShiftSettings=async()=>({willBeCancelRequiresComment:requireComment,sendHomeRequiresComment:true,returnRequestEnabled:true});
+   const result=await service.me({userId:'self',selectedFactoryId:'scope',permissions:allowed?['shift.self.manage']:[]});
+-  assert.equal(result.allowedActions.canCancelWillBe,allowed);assert.deepEqual(result.formSettings,{willBeCancelRequiresComment:requireComment});assert.equal(result.allowedActions.canRequestReturn,true);
++  assert.equal(result.allowedActions.canCancelWillBe,allowed);assert.deepEqual(result.formSettings,{willBeCancelRequiresComment:requireComment,sendHomeRequiresComment:true});assert.equal(result.allowedActions.canRequestReturn,false);
+  }
+ });
+ test('task board includes only current form hints for non-admin readers, keeps four lanes',async()=>{
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\scripts\\master-r2-wash-lifecycle.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-wash-lifecycle.test.js"
+index 9a635211..cf278a61 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\scripts\\master-r2-wash-lifecycle.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-wash-lifecycle.test.js"
+@@ -9,6 +9,9 @@ function fixture(){
+   const sessions=[],controls=[],messages=[],issues=[],reviews=[],events=[],files=[],notices=[],assignments=[{id:'wash-chain-line-fact',factoryId:user.selectedFactoryId,userId:worker.id,lineId:line.id,positionId:null,kind:'LINE',startedAt:new Date(),endedAt:null,version:0}];
+   m.data.line=m.model('line',[line]);m.data.user=m.model('user',users);m.data.userFactoryAccess=m.model('userFactoryAccess',users.map(u=>({userId:u.id,factoryId:user.selectedFactoryId,role:u.role,isActive:true,isGuest:false,user:u})),{includes:['user'],compounds:['userId_factoryId']});
+   m.data.assignment=m.model('assignment',assignments,{defaults:{endedAt:null}});m.data.shiftSession=m.model('shiftSession',[]);m.data.defrostEvent=m.model('defrostEvent',[]);m.data.attachment=m.model('attachment',files);
++  // ADMIN02 checks canonical send-home provenance before transferring factual
++  // line participants to wash. This fixture has no send-home/return history.
++  m.data.auditLog=m.model('auditLog',[]);m.data.shiftReturnRequest=m.model('shiftReturnRequest',[]);
+   m.data.washMessage=m.model('washMessage',messages);m.data.washEvent=m.model('washEvent',events);m.data.washOkkReview=m.model('washOkkReview',reviews);
+   m.data.washIssue=m.model('washIssue',issues,{includes:['session'],defaults:{isResolved:false,assignedToId:null},enrich:r=>({...r,session:sessions.find(s=>s.id===r.washSessionId)})});
+   m.data.washControlItem=m.model('washControlItem',controls,{includes:['line','createdBy','assignedTo','session'],defaults:{assignedToId:null,washSessionId:null,dueAt:null,comment:null},enrich:r=>({...r,line,createdBy:users.find(u=>u.id===r.createdById),assignedTo:users.find(u=>u.id===r.assignedToId)??null,session:sessions.find(s=>s.id===r.washSessionId)??null})});
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\scripts\\master-r2-position.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-position.test.js"
+index 3e7c7d83..8645fdb9 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\scripts\\master-r2-position.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-position.test.js"
+@@ -10,6 +10,9 @@ for(const extra of [false,true])for(const startedAt of ['2026-09-14T20:59:00Z','
+   const assignment={id:'position-assignment',factoryId:user.selectedFactoryId,userId:'position-worker',lineId:line.id,positionId:'position-slot',kind:'LINE',startedAt:new Date(startedAt),endedAt:null,version:0};
+   const worker={id:assignment.userId,employeeState:'ASSIGNED',version:0},position={id:assignment.positionId,skillFamilyKey:'PACKING',isExtraSlot:extra};
+   const credits=[],skills=[];m.data.line=m.model('line',[line]);m.data.assignment=m.model('assignment',[assignment]);m.data.user=m.model('user',[worker]);m.data.lineEvent=m.model('lineEvent',[]);m.data.washSession=m.model('washSession',[]);m.data.defrostEvent=m.model('defrostEvent',[]);m.data.linePosition=m.model('linePosition',[position]);
++  // ADMIN02: STOP reads foreign factual sessions before changing the global worker state.
++  // This fixture has none; credit/time assertions below remain unchanged.
++  m.data.shiftSession=m.model('shiftSession',[]);
+   m.data.userSkill=m.model('userSkill',skills,{compounds:['factoryId_userId_lineId_positionId_isActive'],defaults:{isActive:true}});
+   // Explicit schema unique tuple and skipDuplicates, not arbitrary success.
+   m.data.userSkillCredit=strict({createMany:async query=>{assert.equal(query.skipDuplicates,true);let count=0;for(const row of query.data){const keys=['factoryId','userId','lineId','positionId','shiftDate','shiftType'];if(credits.some(old=>matches(old,Object.fromEntries(keys.map(k=>[k,row[k]])))))continue;credits.push(copy(row));count++;}return{count};}});
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\scripts\\master-domain-contracts.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-domain-contracts.test.js"
+index 451e5527..a88a21f6 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-02\\before\\backend\\scripts\\master-domain-contracts.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-domain-contracts.test.js"
+@@ -44,6 +44,8 @@ test('J05 actual Line PAUSE preserves factual assignment STOP closes it without
+  const m=memory(),who={...actor,role:'MASTER'},line={id:'memory-line-status',factoryId:who.selectedFactoryId,name:'Упаковка',status:'WORK',version:0,deletedAt:null,deactivatedAt:null},events=[],assignments=[{id:'memory-fact',factoryId:who.selectedFactoryId,lineId:'memory-line-status',userId:'memory-operator',kind:'LINE',positionId:null,startedAt:new Date(),endedAt:null,version:0}],future=[{id:'memory-future-plan',userId:'memory-operator',lineId:'memory-line-status'}],users=[{id:'memory-operator',employeeState:'ASSIGNED',version:0}];
+  m.data.line=bulkModel(m,'line',[line]);m.data.lineEvent=bulkModel(m,'lineEvent',events);m.data.assignment=bulkModel(m,'assignment',assignments);m.data.user=bulkModel(m,'user',users);m.data.washSession=m.model('wash',[]);m.data.defrostEvent=m.model('defrost',[]);
+  // Any call to futureShiftAssignment is deliberately unmocked: STOP has no authority to erase planning.
++ // ADMIN02: STOP also checks for foreign factual sessions; this fixture has none.
++ m.data.shiftSession=m.model('shiftSession',[]);
+  const service=new LineService({db:m.db},m.ws,m.audit,strict({}));await assert.rejects(service.updateStatus(line.id,'PAUSE','Осмотр',{...who,selectedFactoryId:'foreign'}),failStatus(409));await assert.rejects(service.updateStatus(line.id,'PAUSE','',who),failStatus(400));assert.equal(events.length,0);
+  await service.updateStatus(line.id,'PAUSE','Осмотр защиты',who);assert.equal(line.status,'PAUSE');assert.equal(assignments[0].endedAt,null);assert.equal(users[0].employeeState,'ASSIGNED');assert.equal(events.length,1);
+  await assert.rejects(service.updateStatus(line.id,'STOP','Остановка',who,null,{expectedVersion:0}),failStatus(409));assert.equal(assignments[0].endedAt,null);
+@@ -125,6 +127,9 @@ test('J10 actual Wash request take start comment completion preserves linked req
+  const m=memory(),who={...actor,role:'MASTER',permissions:['wash.read','wash.manage']};const line={id:'memory-wash-line',factoryId:who.selectedFactoryId,name:'Линия упаковки',status:'STOP',deletedAt:null,deactivatedAt:null};const worker={id:'memory-wash-worker',factoryId:who.selectedFactoryId,employeeState:'ASSIGNED',version:0,blockedAt:null,deletedAt:null};const manager={id:who.userId,factoryId:who.selectedFactoryId,role:who.role,blockedAt:null,deletedAt:null};const users=[worker,manager],requests=[],sessions=[],messages=[],history=[],assignments=[{id:'memory-line-assignment',factoryId:who.selectedFactoryId,userId:worker.id,lineId:line.id,kind:'LINE',startedAt:new Date(),endedAt:null,version:0}];
+  const withBulk=(name,rows)=>{const base=m.model(name,rows);return strict({...base,updateMany:async({where,data})=>{const matched=rows.filter(r=>matches(r,where));for(const row of matched)await base.update({where:{id:row.id},data});return{count:matched.length};},createMany:async({data})=>{for(const r of data)await base.create({data:{endedAt:null,...r}});return{count:data.length};}});};
+  m.data.line=m.model('line',[line]);m.data.user=withBulk('user',users);m.data.assignment=withBulk('assignment',assignments);m.data.washControlItem=withBulk('control',requests);m.data.washMessage=m.model('message',messages);m.data.washEvent=m.model('washEvent',history);m.data.shiftSession=m.model('shift',[]);m.data.defrostEvent=m.model('defrost',[]);
++ // ADMIN02: transfer to wash now honours canonical sent-home provenance.
++ // No such provenance exists in this fixture; lifecycle expectations stay intact.
++ m.data.auditLog=m.model('auditLog',[]);m.data.shiftReturnRequest=m.model('shiftReturnRequest',[]);
+  m.data.userFactoryAccess=strict({findUnique:async({where})=>where.userId_factoryId.factoryId===who.selectedFactoryId?{isActive:true,isGuest:false,user:manager}:null,findFirst:async({where})=>where.factoryId===who.selectedFactoryId?{isActive:true,isGuest:false}:null});
+  const base=withBulk('washSession',sessions);const enrich=r=>r?{...r,line,assignments:assignments.filter(a=>a.washSessionId===r.id).map(a=>({...a,user:worker})),messages:messages.filter(a=>a.washSessionId===r.id),events:history.filter(a=>a.washSessionId===r.id),issues:[],controlItems:[],okkReviews:[]}:null;
+  m.data.washSession=strict({...base,findUnique:async q=>enrich(await base.findUnique(q)),findFirst:async q=>enrich(await base.findFirst(q)),findMany:async q=>(await base.findMany(q)).map(enrich)});m.data.washSettings=strict({findUnique:async()=>({washCompleteRequiresNoOpenIssues:false,washCompleteRequiresOkkReview:false})});

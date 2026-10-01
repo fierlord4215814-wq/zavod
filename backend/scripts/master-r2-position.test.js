@@ -1,0 +1,27 @@
+require('./master-offline-guard.cjs');require('reflect-metadata');
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {memory,strict,copy,matches}=require('./master-r2-memory.cjs');
+const {LineService}=require('../dist/modules/line/line.service');
+const {creditCompletedLineAssignments}=require('../dist/modules/people/skill-experience');
+const {factoryShiftTarget}=require('../dist/common/shift-time');
+for(const extra of [false,true])for(const startedAt of ['2026-09-14T20:59:00Z','2026-09-14T21:01:00Z','2026-09-15T05:01:00Z'])test(`R2-E-J03/J05 position extra=${extra} actual STOP credit at ${startedAt}`,async()=>{
+  const m=memory(),user={userId:'position-master',selectedFactoryId:'position-factory',role:'MASTER',isAdmin:false,permissions:['lines.manage']};
+  const line={id:'position-line',factoryId:user.selectedFactoryId,name:'Упаковка',status:'WORK',deletedAt:null,deactivatedAt:null,version:0};
+  const assignment={id:'position-assignment',factoryId:user.selectedFactoryId,userId:'position-worker',lineId:line.id,positionId:'position-slot',kind:'LINE',startedAt:new Date(startedAt),endedAt:null,version:0};
+  const worker={id:assignment.userId,employeeState:'ASSIGNED',version:0},position={id:assignment.positionId,skillFamilyKey:'PACKING',isExtraSlot:extra};
+  const credits=[],skills=[];m.data.line=m.model('line',[line]);m.data.assignment=m.model('assignment',[assignment]);m.data.user=m.model('user',[worker]);m.data.lineEvent=m.model('lineEvent',[]);m.data.washSession=m.model('washSession',[]);m.data.defrostEvent=m.model('defrostEvent',[]);m.data.linePosition=m.model('linePosition',[position]);
+  // ADMIN02: STOP reads foreign factual sessions before changing the global worker state.
+  // This fixture has none; credit/time assertions below remain unchanged.
+  m.data.shiftSession=m.model('shiftSession',[]);
+  m.data.userSkill=m.model('userSkill',skills,{compounds:['factoryId_userId_lineId_positionId_isActive'],defaults:{isActive:true}});
+  // Explicit schema unique tuple and skipDuplicates, not arbitrary success.
+  m.data.userSkillCredit=strict({createMany:async query=>{assert.equal(query.skipDuplicates,true);let count=0;for(const row of query.data){const keys=['factoryId','userId','lineId','positionId','shiftDate','shiftType'];if(credits.some(old=>matches(old,Object.fromEntries(keys.map(k=>[k,row[k]])))))continue;credits.push(copy(row));count++;}return{count};}});
+  const service=new LineService({db:m.db},m.ws,m.audit,strict({}));
+  await service.updateStatus(line.id,'PAUSE','Осмотр',user);assert.equal(assignment.endedAt,null);assert.equal(credits.length,0);
+  const endedSource=copy(assignment);await service.updateStatus(line.id,'STOP','Работа завершена',user);assert.ok(assignment.endedAt);assert.equal(worker.employeeState,'AVAILABLE');assert.equal(credits.length,1);assert.equal(skills.length,extra?0:1);
+  // Shift date is Moscow midnight (21:00Z on the prior UTC date), not UTC midnight.
+  const day=startedAt==='2026-09-15T05:01:00Z';assert.equal(credits[0].shiftType,day?'DAY':'NIGHT');assert.equal(credits[0].shiftDate.toISOString(),day?'2026-09-14T21:00:00.000Z':'2026-09-13T21:00:00.000Z');assert.equal(credits[0].assignmentId,assignment.id);
+  assert.equal((await creditCompletedLineAssignments(m.db,[endedSource])).length,0);assert.equal(credits.length,1);if(!extra)assert.equal(skills[0].experienceCount,1);
+  assert.equal(m.audits.filter(a=>['SKILL_EXPERIENCE_CREDITED','LINE_EXPERIENCE_CREDITED'].includes(a.action)).length,1);
+  const before=copy(credits);await service.updateStatus(line.id,'WORK','Запуск',user);assert.deepEqual(credits,before);assert.equal(worker.employeeState,'AVAILABLE');
+});

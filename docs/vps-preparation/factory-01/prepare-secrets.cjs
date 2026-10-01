@@ -1,0 +1,15 @@
+const{fs,path,assert,crypto,root,runtime,sha,receipt}=require('./own-runtime.cjs');
+assert(fs.existsSync(runtime),'ACL-protected runtime must be created first');
+for(const d of ['secrets','uploads','logs','prisma-stage'])fs.mkdirSync(path.join(runtime,d),{recursive:false});
+for(const key of ['db-password','jwt-secret','admin-recovery','admin-personal'])fs.writeFileSync(path.join(runtime,'secrets',key+'.txt'),`F01!${crypto.randomBytes(36).toString('base64url')}`,{flag:'wx',mode:0o600});
+const stage=path.join(runtime,'prisma-stage');fs.mkdirSync(path.join(stage,'prisma'));
+fs.copyFileSync(path.join(root,'backend/prisma/schema.prisma'),path.join(stage,'prisma/schema.prisma'),fs.constants.COPYFILE_EXCL);
+fs.cpSync(path.join(root,'backend/prisma/migrations'),path.join(stage,'prisma/migrations'),{recursive:true,errorOnExist:true,force:false});
+const prior=JSON.parse(fs.readFileSync(path.join(root,'docs/vps-preparation/admin-02/final-integrity.json'),'utf8'));
+for(const f of prior.files)assert.equal(sha(fs.readFileSync(path.join(root,f.path))),f.after,f.path);
+const migrations=fs.readdirSync(path.join(root,'backend/prisma/migrations'),{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>({name:x.name,sha256:sha(fs.readFileSync(path.join(root,'backend/prisma/migrations',x.name,'migration.sql')))}));assert.equal(migrations.length,57);
+const artifacts=['admin-01/review-pack-admin01-20260926.zip','admin-02/review-pack-admin02-20260926.zip'].map(p=>({path:p,bytes:fs.statSync(path.join(root,'docs/vps-preparation',p)).size,sha256:sha(fs.readFileSync(path.join(root,'docs/vps-preparation',p)))}));
+receipt('before',{atUtc:new Date().toISOString(),priorIdentity:prior.identity,files:prior.files.map(f=>({path:f.path,sha256:f.after})),schema:sha(fs.readFileSync(path.join(root,'backend/prisma/schema.prisma'))),migrations,artifacts});
+fs.writeFileSync(path.join(runtime,'config.json'),JSON.stringify({scope:'FACTORY01_OWN_SYNTHETIC_ONLY',database:'zavod_factory01_t1',port:15437,host:'127.0.0.1',backendPort:3000,frontendPort:5173,registrationFactory:'test-factory-t1',source:root,uploads:path.join(runtime,'uploads')},null,2),{flag:'wx'});
+fs.writeFileSync(path.join(runtime,'credential-index.json'),JSON.stringify([{key:'ADMIN',role:'ADMIN',name:'Учебный Администратор T1',phone:'+79990005000',secretFile:path.join(runtime,'secrets/admin-personal.txt')}],null,2),{flag:'wx',mode:0o600});
+console.log(JSON.stringify({status:'PASS_PROTECTED_RUNTIME_AND_CURRENT_IDENTITY',migrations:migrations.length,identity:prior.identity}));

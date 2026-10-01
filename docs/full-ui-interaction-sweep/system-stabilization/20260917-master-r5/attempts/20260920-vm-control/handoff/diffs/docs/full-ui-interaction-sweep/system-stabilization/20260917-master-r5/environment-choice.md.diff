@@ -1,0 +1,20 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md"
+index a7c9fd4f..f42ef1c7 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md"
+@@ -1,4 +1,14 @@
+-# Текущая среда — Hyper-V + Ubuntu24.04, ожидается ручная перезагрузка
++# Текущая среда — одна own Gen2 VM создана; console observation требует разрешения
++
++20.09 новый явно разрешённый UAC actual admin token=true создал VM99a158da-c247-422c-ae11-109485a92b1f2CPU/4GiB/16GiBdynamic и Internal switch10.243.53.0/30. Full official UbuntuISOhash verified/seed/clean source prepared. Это не installed guest/isolation proof; console capture harness failed, requested read-only observer ещё НЕ approved/НЕ executed. VM былаRunning, обычное shutdown08:48/queuedhelperexit безterminal на08:55; noForce. [Текущий отчёт](final-report.md), exactcurrent receipts `attempts/20260920-vm-control/`. Previous cancellation19.09 ниже — сохранённая история, не current VM absence. DISM не повторялся, host protection/firewall/working DB untouched.
++
++## История19.09
++
++19.09 после ручной перезагрузки: новый boot19:09:05+03, HypervisorPresent=true, DEP=true, vmms Running,7features Enabled. На19:41 RAMfree9,377,431,552bytes/diskfree53,842,927,616bytes. `post-reboot-20260919/host-observation.json` — actual read-only proof; повторного DISM/нового reboot нет. Get-VMHost отказал non-admin token; одна штатная visible UAC попытка current Microsoft-signed PowerShell7 VM-helper закончилась19:57:24 «Операция была отменена пользователем». VM/guest/isolation/stack NOT_RUN, helper token/PID не получены. STOP_AT_UAC_BOUNDARY, новое явное разрешение перед повтором; receipt guards не удалять.
++
++Текущие детали/окончательный статус image download: [final-report](final-report.md), `attempts/20260918-hyperv-ubuntu24/post-reboot-20260919/environment-runtime-receipt.json`. VM/seed scripts лишь подготовлены, runtime UNVERIFIED. Prep network refinement без изменения host firewall/Defender — `post-reboot-20260919/host-control-boundary.md`; internal/no NAT + host-loopback proxy через host-initiated SSH reverse-forward, затем forwarding закрыть/NIC disconnect до app. Это план, не фактическая isolation proof. Прежняя compatible Ubuntu/Node/PG/Prisma/Playwright цель сохранена; installer/version downgrade не выполняется.
++
++## История до ручной перезагрузки — boundary ниже уже пройден
+ 
+ Continuation08cd10ab18.09 явно выбрала один Hyper-V/Linux путь и разрешила новую штатную UAC-попытку после platform review.19.09 signed native DISM PID51652/actualTokenElevated=true завершён exit3010;7 Hyper-V features2→1, unrelated delta0. HypervisorPresent=false, log подтверждает reboot required=yes и /NoRestart. **Компоненты включены; guest/isolation/stack ещё NOT_RUN.** Сейчас STOP до сообщения пользователя о ручной перезагрузке, затем actual host readiness → та же stage2 VM →3–9, без повторного installer.
+ 

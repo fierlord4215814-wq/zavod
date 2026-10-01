@@ -1,0 +1,134 @@
+{
+  "startedAt": "2026-09-15T21:07:27.411Z",
+  "expected": [
+    {
+      "title": "R3-C2 Defrost start same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "958bbb245dd2"
+    },
+    {
+      "title": "R3-C2 Defrost complete same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "939145e898d1"
+    },
+    {
+      "title": "R3-C2 Defrost blow same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "a22e87ff2d13"
+    },
+    {
+      "title": "R3-C2 Checklist row numeric zero retry retains key changed answer gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 20,
+      "id": "38f1185cfb83"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-C2 Defrost start same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "958bbb245dd2",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2599,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"comment\": \"Проверка перед запуском\",\u001b[22m\n\u001b[32m-   \"operationId\": \"defrost-start-series-line-1789506451010\",\u001b[39m\n\u001b[31m+   \"operationId\": \"defrost-start-series-line-1789506451127\",\u001b[39m\n\u001b[2m  }\u001b[22m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-red-02\\runner-artifacts\\master-r3-row-defrost-R3-C-04e81-opened-attempt-gets-new-key\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-red-02\\runner-artifacts\\master-r3-row-defrost-R3-C-04e81-opened-attempt-gets-new-key\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 Defrost complete same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "939145e898d1",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2672,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"comment\": \"Проверка перед запуском\",\u001b[22m\n\u001b[32m-   \"operationId\": \"defrost-complete-series-line-1789506455027\",\u001b[39m\n\u001b[31m+   \"operationId\": \"defrost-complete-series-line-1789506455144\",\u001b[39m\n\u001b[2m  }\u001b[22m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-red-02\\runner-artifacts\\master-r3-row-defrost-R3-C-61047-opened-attempt-gets-new-key\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-red-02\\runner-artifacts\\master-r3-row-defrost-R3-C-61047-opened-attempt-gets-new-key\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 Defrost blow same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "a22e87ff2d13",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2657,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"comment\": \"Проверка перед запуском\",\u001b[22m\n\u001b[32m-   \"operationId\": \"defrost-blow-series-line-1789506458993\",\u001b[39m\n\u001b[31m+   \"operationId\": \"defrost-blow-series-line-1789506459094\",\u001b[39m\n\u001b[2m  }\u001b[22m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-red-02\\runner-artifacts\\master-r3-row-defrost-R3-C-c4864-opened-attempt-gets-new-key\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-red-02\\runner-artifacts\\master-r3-row-defrost-R3-C-c4864-opened-attempt-gets-new-key\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C2 Checklist row numeric zero retry retains key changed answer gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 20,
+      "id": "38f1185cfb83",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2733,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"answerNumber\": \"0\",\u001b[22m\n\u001b[2m    \"checkId\": null,\u001b[22m\n\u001b[2m    \"comment\": \"\",\u001b[22m\n\u001b[32m-   \"operationId\": \"d77b7cef-2f9b-4ce3-9d77-8a6a6aef0fbd\",\u001b[39m\n\u001b[31m+   \"operationId\": \"3f2439df-9e7a-405d-9297-a1b9ea273856\",\u001b[39m\n\u001b[2m  }\u001b[22m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-red-02\\runner-artifacts\\master-r3-row-defrost-R3-C-e7aa9-changed-answer-gets-new-key\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C2-producers-red-02\\runner-artifacts\\master-r3-row-defrost-R3-C-e7aa9-changed-answer-gets-new-key\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T21:07:43.523Z",
+  "status": "failed",
+  "listOnly": false
+}

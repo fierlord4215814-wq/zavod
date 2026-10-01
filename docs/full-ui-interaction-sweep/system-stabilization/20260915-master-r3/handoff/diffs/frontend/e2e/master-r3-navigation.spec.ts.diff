@@ -1,0 +1,67 @@
+--- /dev/null
++++ frontend/e2e/master-r3-navigation.spec.ts
+@@ -0,0 +1,64 @@
++import {expect,test} from '@playwright/test';
++import {isolate,linkedReplies,json,open,shot,person,taskRow,records,save,unknown,errors,installEvidenceHooks} from './helpers/frontend-series';
++import {installNavigationTrace,mark,saveTrace} from './helpers/master-r3-trace';
++installEvidenceHooks();
++
++for(const schedule of ['immediate','profile-after-layout','return-people-after-unlock','return-profile-after-people','return-profile-frame-before-close','return-profile-frame-after-close'] as const)test(`R3-B063 original MASTER390x640 ${schedule} causal first-pass`,async({page})=>{
++ await installNavigationTrace(page);
++ let releaseProfile:()=>void=()=>{},releasePeople:()=>void=()=>{},releaseReturnProfile:()=>void=()=>{},profileCalls=0,peopleCalls=0;
++ const profileGate=new Promise<void>(resolve=>releaseProfile=resolve);
++ const peopleGate=new Promise<void>(resolve=>releasePeople=resolve);
++ const returnProfileGate=new Promise<void>(resolve=>releaseReturnProfile=resolve);
++ const list=Array.from({length:18},(_,i)=>({...person,id:i===14?person.id:`scroll-person-${i}`,userId:i===14?person.id:`scroll-person-${i}`,displayName:i===14?person.displayName:`Сервисный Сергей ${i+1}`}));
++ await isolate(page,{role:'MASTER',replies:async(r,p)=>{
++  if(p==='/people'){peopleCalls++;if(peopleCalls===3&&schedule==='return-people-after-unlock')await peopleGate;await json(r,{people:list,groups:{}});return true;}
++  if(p==='/people/search'){await json(r,{queryAccepted:true,message:null,context:null,results:[]});return true;}
++  if(p==='/tasks/board'){await json(r,{NEW:[],IN_PROGRESS:[],LONG:[],DONE:[]});return true;}
++  if(p===`/people/${person.id}`){profileCalls++;if(profileCalls===1&&schedule==='profile-after-layout')await profileGate;if(profileCalls===2&&schedule==='return-profile-after-people')await returnProfileGate;}
++  return linkedReplies(r,p);
++ }});
++ await page.setViewportSize({width:390,height:640});await page.goto('/');
++ try{
++  await open(page,'Люди');await page.locator('.people-shift-tabs').getByRole('button',{name:'На смене',exact:true}).click();
++  await page.getByRole('button',{name:'Поиск и фильтры',exact:true}).click();await page.locator('.people-category-tabs').getByRole('button',{name:'Службы',exact:true}).click();
++  await page.locator('.people-search-panel input').fill('Сервис');await page.getByRole('button',{name:'Показать',exact:true}).click();
++  const row=page.locator('.people-compact-row').filter({hasText:'Сервисов'});await row.scrollIntoViewIfNeeded();
++  const expected=await page.evaluate(()=>scrollY);expect(expected).toBeGreaterThan(100);await mark(page,'original-pre-shot-measurement');
++  await shot(page,`B063-${schedule}-before`,{expected,schedule});await mark(page,'before-row-click');await row.click();
++  if(schedule==='profile-after-layout'){
++   // R3 separates profile progress from the list-height/loading owner.
++   await expect(page.getByRole('status').filter({hasText:/^Загрузка профиля\.\.\.$/})).toHaveCount(1);
++   await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
++   await mark(page,'profile-response-after-loading-layout');releaseProfile();
++  }
++  await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();await expect(page.getByRole('dialog')).toContainText(taskRow.description);await mark(page,'task-open');
++  await page.goBack();await mark(page,'back-one');await page.goBack();
++  if(schedule==='return-profile-after-people'){await expect(page.locator('.people-compact-row')).toHaveCount(18);await mark(page,'people-ready-before-return-profile');releaseReturnProfile();}
++  await expect(page.locator('.profile-card')).toBeVisible();await mark(page,'profile-returned');
++  if(schedule==='return-profile-frame-before-close')await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
++  await page.goBack();await expect(page.locator('.profile-card')).toBeHidden();await mark(page,'profile-closed');
++  if(schedule==='return-profile-frame-after-close')await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
++  if(schedule==='return-people-after-unlock'){await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));await mark(page,'unlock-before-return-people');releasePeople();await expect(page.locator('.people-compact-row')).toHaveCount(18);}
++  await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(expected);
++  await expect(page.locator('.people-shift-tabs').getByRole('button',{name:'На смене',exact:true})).toHaveAttribute('aria-pressed','true');
++  await shot(page,`B063-${schedule}-after`,{expected,schedule});expect(errors).toEqual([]);expect(unknown).toEqual([]);
++ }finally{releaseProfile();releasePeople();releaseReturnProfile();const trace=await saveTrace(page,schedule);records.push({firstPass:true,retries:0,schedule,traceDropped:trace.dropped});save();}
++});
++
++test('R3-B profile refresh response after real Back does not reopen closed profile',async({page})=>{
++ await installNavigationTrace(page);let release:()=>void=()=>{},calls=0;
++ const response=new Promise<void>(resolve=>release=resolve);
++ await isolate(page,{role:'MASTER',replies:async(r,p)=>{
++  if(p===`/people/${person.id}`&&++calls===2)await response;
++  return linkedReplies(r,p);
++ }});
++ try{
++  await page.goto('/');await open(page,'Люди');await page.locator('.people-compact-row').filter({hasText:'Сервисов'}).click();
++  await page.locator('.profile-card').getByRole('button',{name:'Обновить',exact:true}).click();await expect.poll(()=>calls).toBe(2);
++  await page.goBack();await expect(page.locator('.profile-card')).toBeHidden();await mark(page,'closed-with-profile-response-pending');
++  const responseDone=page.waitForResponse(r=>new URL(r.url()).pathname===`/api/people/${person.id}`);release();await responseDone;
++  await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
++  await expect(page.locator('.profile-card')).toBeHidden();expect(errors).toEqual([]);expect(unknown).toEqual([]);
++ }finally{release();await saveTrace(page,'late profile refresh');}
++});
++

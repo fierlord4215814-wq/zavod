@@ -1,0 +1,52 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260922-provider-dvd-boot\before\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\expected-actual.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\expected-actual.json', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260922-provider-dvd-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json"
+index d4733cb..0b56a18 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260922-provider-dvd-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json"
+@@ -1,5 +1,32 @@
+ {
+-  "currentContinuation": {"checkpoint":"2026-09-21_2311_VISIBLE_UAC_DVD_GUARD","installerActual":"USER_OBSERVED_LATE_COMMAND3_EXIT2","guestActual":"LAST_OFF_231111_BOOT_NOT_RUN_DVD_PROVIDER_STATE_PENDING","sourceOnlyCheck":"RETAINED_UNCHANGED_CORRECTED_GENERATOR_10PASS_HOST_SYNTHETIC_GUEST_PENDING_NOT_RERUN","actualSeedRegenerated":false,"guestRepairExecuted":false,"productCasesExecuted":0,"uacOutcome":"SUCCESS_HELPER_STARTED_ACTUAL_ADMIN_TOKEN_TRUE","diagnosticBootExecuted":false,"sshExecuted":false,"codexRestart":"USER_CONFIRMED","environment":"BLOCKED_DVD_READBACK_GUARD_NEW_UAC_REQUIRED","vmReadback":"OFF_231111_SOLE_VHDX_BIOS_NETWORK_VERIFIED","firmwareVhdxFirstConfirmed":true,"dvdEjectPostcondition":"UNKNOWN_OBJECT_READBACK_RETAINS_ISO_PATHS_FRESH_CIM_PENDING","bootExecuted":false},
++  "currentContinuation": {
++    "checkpoint": "2026-09-22_075519_PROVIDER_READBACK_UAC_CANCELLED",
++    "environment": "BLOCKED_UAC_CANCELLED_PROVIDER_READBACK",
++    "uacOutcome": "NATIVE_CANCELLED_CAUSE_UNKNOWN_HELPER_NOT_INVOKED",
++    "uacFailureAt": "2026-09-22T07:55:19.8839519+03:00",
++    "newVmProviderReadback": "NOT_RUN_NO_ELEVATED_TOKEN",
++    "lastKnownVm": "HISTORICAL_OFF_20260921_231111",
++    "lastKnownFirmwareVhdxFirstConfirmed": true,
++    "dvdEjectPostcondition": "UNKNOWN_FRESH_PROVIDER_READBACK_PENDING",
++    "diagnosticBootExecuted": false,
++    "sshExecuted": false,
++    "guestRepairExecuted": false,
++    "providerHelperPrepared": true,
++    "providerHelperExecuted": false,
++    "providerGuardChecks": {
++      "pass": 7,
++      "scope": "HOST_SYNTHETIC_NOT_VM_NOT_PRODUCT"
++    },
++    "sourceDefect": "RETAINED_CORRECTED_GENERATOR_TEN_HOST_PASS_NOT_RERUN",
++    "generatorCorrectionAppliedPreviously": true,
++    "actualSeedRegenerated": false,
++    "newProductCases": 0,
++    "newLiveCases": 0,
++    "newRealJourneys": 0,
++    "captureRetries": 0,
++    "automaticUacRetry": false,
++    "evidence": "attempts/20260922-provider-dvd-boot/result.md"
++  },
+   "stage": 8,
+   "result": "NOT_RUN_ENVIRONMENT_GATE",
+   "r5FinalGenerationFrozen": false,
+@@ -23,8 +50,8 @@
+     "isR5Execution": false
+   },
+   "typesBuildsPrisma": "NOT_RUN_R5_PRODUCT_UNCHANGED",
+-  "runtimeInstallFailureClass": "UAC_SUCCESS_HELPER_STOPPED_DVD_READBACK_BOOT_GUARD",
+-  "ownProcessOrderingCorrection": "Full stack compatibility review completed after unsuccessful UAC; selection withdrawn pending supported guest path",
++  "runtimeInstallFailureClass": "UAC_CANCELLED_NO_HELPER_NO_VM_OPERATION",
+   "nativeR5Captured": 0,
+-  "nativeR5Viewed": 0
++  "nativeR5Viewed": 0,
++  "historicalOwnProcessOrderingCorrection": "Full stack compatibility review completed after unsuccessful UAC; selection withdrawn pending supported guest path"
+ }

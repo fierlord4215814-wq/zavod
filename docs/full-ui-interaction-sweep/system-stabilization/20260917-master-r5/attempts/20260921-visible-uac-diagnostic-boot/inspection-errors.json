@@ -1,0 +1,13 @@
+{
+  "scope": "READ_ONLY_LOCAL_METADATA_NOT_VM_OR_PRODUCT_EXECUTION",
+  "vmCallsExecuted": 0,
+  "errors": [
+    {"operation": "initial type listing", "exitCode": 1, "message": "You cannot call a method on a null-valued expression.", "cause": "DvdDrive looked up in Cmdlets assembly, actual type belongs to Objects assembly"},
+    {"operation": "first IL inspection", "exitCode": 1, "message": "You cannot call a method on a null-valued expression.", "location": "inspect-dvd-cmdlet.ps1:42 ForEach-Object calling Read-R5Method"},
+    {"operation": "bounded error-stack localization", "wrapperExitCode": 0, "success": false, "message": "You cannot call a method on a null-valued expression.", "scriptStack": "Read-R5Method line14; calling ForEach-Object line42", "cause": "FE opcode base was 65280; correct base65024"}
+  ],
+  "correction": "Decoder prefix constant only; installed DLL and VM untouched",
+  "subsequentArtifacts": ["dvd-cmdlet-inspection.json", "dvd-cmdlet-followup.json", "dvd-cache-inspection.json"],
+  "localUpdateThresholdSecondsObserved": 5,
+  "guestOrDvdActualStateProvenByMetadata": false
+}

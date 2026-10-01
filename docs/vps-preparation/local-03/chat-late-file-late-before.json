@@ -1,0 +1,64 @@
+{
+  "attempt": "late-before",
+  "proof": "real HTTP response held, never fabricated; own group only",
+  "actors": {
+    "owner": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+    "member": "65200cff-b27d-4929-a95d-e7565cc467f0",
+    "memberRole": "TECH_ELECTRIC"
+  },
+  "chatId": "f8f897ec-5d2f-4d16-b72f-d332b454c40f",
+  "title": "Учебный поздний ответ LOCAL03 late-before",
+  "messageId": "1c370444-69f4-4439-b9a5-f390aa0b651f",
+  "fileId": "6374166b-169b-4d8e-9905-c415d88f5e61",
+  "uploadRetrySameId": true,
+  "range": {
+    "status": 200,
+    "contentRange": null,
+    "acceptRanges": null,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813",
+    "verdict": "CHARACTERIZED_200_FULL_BODY_NO_RANGE_CONTRACT"
+  },
+  "abort": {
+    "status": 200,
+    "point": "after headers, before application body consumption",
+    "error": "AbortError"
+  },
+  "newContextRetry": {
+    "status": 200,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813"
+  },
+  "heldResponse": {
+    "status": 200,
+    "heldAt": "2026-09-25T05:35:05.610Z"
+  },
+  "removedAt": "2026-09-25T05:35:06.247Z",
+  "removedUi": true,
+  "freshDetail": 403,
+  "freshFile": 403,
+  "trace": {
+    "events": [],
+    "exposed": [
+      {
+        "at": 2185.399999999907,
+        "body": "←УПУчебный поздний ответ LOCAL03 late-beforeГрупповой чат · 2 участника⋯УчастникиОбновить",
+        "hasProtectedText": true
+      }
+    ],
+    "releasedAt": 2175.8000000000466
+  },
+  "finalDialog": 0,
+  "sql": {
+    "messages": 1,
+    "attachments": 1,
+    "member": {
+      "removedAt": "2026-09-25T05:35:06.237Z",
+      "leftAt": null,
+      "canRead": false
+    }
+  },
+  "status": "FAIL_LATE_RESPONSE_REOPEN",
+  "error": "Late authorized response reopened revoked UI\n\n1 !== 0\n",
+  "finallyArchive": 200
+}

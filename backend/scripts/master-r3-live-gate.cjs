@@ -1,0 +1,50 @@
+'use strict';
+// Future opt-in entrypoint. No dotenv, URL fallback, DB client, server, sockets or fetch at import/--plan.
+const assert=require('node:assert/strict'),crypto=require('node:crypto');
+const digest=value=>crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
+const gates=Object.freeze({
+ 'MI-SEC-01':{owners:['task','wash','employee','shift','chats','checklists','defrost','line','okk','returns','stock','error-report'],fixture:'Two synthetic factories, two departments, non-admin actor with current UFA in A/B, disjoint targets; owner creates command through current API.',steps:['first action → persist exact result/actor/factory/key','same key response-loss retry → same result, zero extra domain/audit/event writes','same key other target/type →409; other selected factory or revoked/blocked/deleted identity →403/409, no old result','opaque same-entity changed action is BLOCKED_POLICY, not an accepted negative'],boundaries:['real middleware/auth','transaction lock and unique winner','revoke before read and between response/next read','WS room recipients']},
+ 'MI-PUB-01':{owners:['announcements','notifications','audit'],fixture:'Current IMPORTANT publication, own/global/department audience; reader with archive capability, reader without it, unrelated department and factory.',steps:['GET /announcements/current → own exact ID','GET /announcements/:id →200 for currently eligible archive-capable reader','POST /announcements/:id/ack twice concurrently →200/201 same read timestamp','GET /announcements/:id/ack-report and /announcements/archive → one read; GET /notifications → no unread notice for entity','lost response after commit / notice failure → retry repairs notice without second ACK/audit','revoke or expired/future nonarchived →403, no ACK; archived-future remains decision row'],boundaries:['PostgreSQL unique(read)','notification recipient count','one real Audit row','WS/poll badge settlement not push receipt']},
+ 'MI-R2-ORD-01':{owners:['orders','archive','audit'],fixture:'Synthetic stock item quantity10/minimum5 with two authorized warehouse users, active request and archived request.',steps:['POST /orders/items/:id/take quantity3 → remaining7, one movement','retry same key quantity3 → same movement/no second decrement','same key quantity4 or changed comment →409 unchanged balance','POST /orders/items/:id/restock quantity3 and retry → remaining10 one increment','two distinct TAKE7 concurrently from10 → one accepted, one409, never negative','GET /orders/requests/:id active detail and archived-readable replay →200 scoped; foreign/revoked →403/409'],boundaries:['real numeric decimal precision','row/operation locks','unique operation','history/archive same movement IDs']},
+ 'MI-R2-CHAT-ATT-01':{owners:['chats','attachments','storage'],fixture:'Synthetic private chat OWNER/member and nonmember, generated small PNG/audio/video with manifest SHA; private isolated file root.',steps:['POST /chats/:id/messages then POST /attachments/upload CHAT_MESSAGE → link actual message ID','GET /attachments/:id and /attachments/:id/file →200, exact bytes/hash; browser preview','transfer owner/remove or leave using existing membership endpoint','old token/new metadata/file GET →403; stale canRead with removedAt/leftAt must not authorize','existing preview closes/revokes app objectURL on invalidation; membership restore → new authorized read','real Range/206 or documented unsupported behavior; actual codec and interrupted streaming separately'],boundaries:['current canonical membership','HTTP bytes/range','file traversal denial','client cache resource cleanup','no promise to erase already downloaded external bytes']},
+ '036':{owners:['shift-log','attachments','archive'],fixture:'Separate synthetic ordinary log and handover snapshot with distinct comments, image attachment, archive-only reader without normal shift-log.read, same and other department/factory.',steps:['GET /shift-log/archive and /shift-log/archive/:id →200 with archive capability, exact original log ID','GET /shift-log/:id without normal read →403','handover snapshot comment differs from later ordinary comment; both retain exact respective IDs/text','archived detail attachment metadata/file follows archive-read contract; cross-factory/revoke →403','PUT/POST/PATCH mutation through read-only archive →403 or no route; no read-only view creates ACK/comment','browser Back returns same archive filter/scroll; sticky history actions usable'],boundaries:['actual controller/middleware','archive attachment authorization','snapshot immutability','no SQL data loss inferred from image']},
+ '014-READONLY':{owners:['wash','processedOperation'],fixture:'No creation. Separately authorized read-only extraction from explicitly attested historical environment only.',steps:['Exact operationId __PFFV5_P17C_BROWSER_1788105576992__:wash-start; no prefix/name inference','Project ProcessedOperation userId/operationId/resultKey/createdAt and joined WashSession id/factoryId/startedById/lineId/targetType/status/startedAt/completedAt/deletedAt','Collect exact original invocation actor/factory and session return receipt; separately mark child wash-hide/wash-complete','Classify UNIQUE only one consistent actor/key/result/session link; zero is MISSING (not ordinary/nonfixture); multiple or disagreeing witnesses CONFLICTING','Projection-only hiding may not clear occupancy or permit another Start; no writes/cleanup'],boundaries:['exact historical persisted provenance only','original business identity never packaged','no generator/reconcile/cleanup execution']},
+});
+function authorize(intent,approved,observed){
+ assert.equal(intent.mode,'EXPLICIT_FUTURE_EXECUTION');assert.ok(gates[intent.gate]);
+ assert.ok(approved&&observed,'Both separately approved and freshly observed target identities are required');
+ assert.equal(approved.purpose,'ZAVOD_SYNTHETIC_INTEGRATION_ONLY');
+ assert.match(approved.environmentId,/^r3-isolated-[a-f0-9]{32}$/);
+ assert.equal(approved.databaseMode,'DEDICATED_SYNTHETIC');
+ assert.equal(approved.egress,'DENIED');assert.equal(approved.push,'DISABLED');assert.equal(approved.smtp,'DISABLED');assert.equal(approved.sms,'DISABLED');assert.equal(approved.scheduler,'DISABLED_BEFORE_BOOTSTRAP');
+ const origin=new URL(approved.origin);assert.equal(origin.protocol,'http:');assert.equal(origin.hostname,'127.0.0.1');assert.ok(origin.port&&!['3000','5173','5432','5433'].includes(origin.port));assert.equal(origin.pathname,'/');assert.equal(origin.search,'');assert.equal(origin.username,'');assert.equal(origin.password,'');
+ for(const field of ['databaseIdentitySha256','dataDirectorySha256','fileRootSha256','serverConfigurationSha256','productFingerprint','schemaSha256','adapterSha256'])assert.match(approved[field]||'',/^[a-f0-9]{64}$/);
+ assert.ok(Array.isArray(approved.forbiddenIdentityHashes)&&approved.forbiddenIdentityHashes.length>=3,'Explicit working-environment exclusions are mandatory');
+ for(const field of ['databaseIdentitySha256','dataDirectorySha256','fileRootSha256'])assert.ok(!approved.forbiddenIdentityHashes.includes(approved[field]),'Working target is forbidden');
+ for(const field of ['factoryIds','userIds','fileIds']){assert.ok(Array.isArray(approved[field])&&approved[field].length>0);assert.equal(new Set(approved[field]).size,approved[field].length);assert.ok(approved[field].every(x=>typeof x==='string'&&/^r3-fixture-[a-z0-9-]+$/.test(x)));}
+ assert.equal(intent.approvalDigest,digest(approved));assert.equal(intent.environmentId,approved.environmentId);assert.equal(intent.adapterSha256,approved.adapterSha256);
+ assert.ok(Number.isFinite(Date.parse(approved.expiresAt))&&Date.parse(approved.expiresAt)>intent.now&&Date.parse(approved.expiresAt)-intent.now<=3600000,'Approval must expire within one hour');
+ assert.ok(Number.isFinite(Date.parse(observed.observedAt))&&Math.abs(intent.now-Date.parse(observed.observedAt))<=60000,'Fresh independently observed runtime receipt required');
+ const actual={...observed};delete actual.observedAt;assert.deepEqual(actual,approved,'Observed backend/data/file/runtime identity must exactly match approval');
+ assert.equal(intent.gate==='014-READONLY',false,'Historical source needs a separate read-only approval; synthetic execution must never auto-open working history');
+ return {gate:intent.gate,origin:approved.origin,fixtureIds:[...approved.factoryIds,...approved.userIds,...approved.fileIds],approvalDigest:intent.approvalDigest};
+}
+// Transport is supplied only by a separately reviewed/pinned future stand adapter.
+// It must observe target identity BEFORE any fixture setup and expose actual API/SQL/WS receipts.
+async function execute(intent,approved,adapterPath){
+ assert.equal(intent.mode,'EXPLICIT_FUTURE_EXECUTION');assert.equal(intent.adapterSha256,approved?.adapterSha256);
+ // Validate approval BEFORE importing adapter code; this is not yet observed target proof.
+ authorize(intent,approved,{...approved,observedAt:new Date(intent.now).toISOString()});
+ assert.equal(typeof adapterPath,'string');
+ const fs=require('node:fs'),path=require('node:path');assert.ok(path.isAbsolute(adapterPath));
+ const actualHash=crypto.createHash('sha256').update(fs.readFileSync(adapterPath)).digest('hex');
+ assert.equal(actualHash,intent.adapterSha256,'Reviewed adapter bytes must match explicit approval');
+ const adapter=require(adapterPath);
+ const observed=await adapter.observeIdentity();const authority=authorize(intent,approved,observed);
+ return adapter.runNamedGate(authority,gates[authority.gate]);
+}
+module.exports={gates,digest,authorize,execute};
+if(require.main===module){
+ if(process.argv.length===3&&process.argv[2]==='--plan')console.log(JSON.stringify({status:'DISABLED_PLAN_ONLY',noConnections:true,gates},null,2));
+ else{console.error('DENIED: only --plan is enabled here. Future execution requires a separately reviewed adapter, fresh observed identity and digest-bound explicit approval; no DATABASE_URL fallback.');process.exitCode=2;}
+}

@@ -1,0 +1,158 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-context-before\\frontend\\src\\ws\\client.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\ws\\client.ts"
+index 2a448587..e4a6ac14 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-context-before\\frontend\\src\\ws\\client.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\ws\\client.ts"
+@@ -33,10 +33,11 @@ type ConnectOptions = {
+ 
+ let operationalRefreshTimer: number | null = null;
+ 
+-function scheduleOperationalRefresh(reason: 'assignment' | 'shift' | 'line' | 'wash' | 'quantity-release' | 'checklist' | 'reconnect') {
++function scheduleOperationalRefresh(reason: 'assignment' | 'shift' | 'line' | 'wash' | 'quantity-release' | 'checklist' | 'reconnect', isCurrent: () => boolean) {
+   if (operationalRefreshTimer !== null) window.clearTimeout(operationalRefreshTimer);
+   operationalRefreshTimer = window.setTimeout(() => {
+     operationalRefreshTimer = null;
++    if (!isCurrent()) return;
+     window.dispatchEvent(new CustomEvent('zavod:operational-data-invalidated', { detail: { reason } }));
+   }, 140);
+ }
+@@ -59,7 +60,7 @@ function resolveWsConnection() {
+   };
+ }
+ 
+-function applyEvent(event: WsEvent, options: ConnectOptions) {
++function applyEvent(event: WsEvent, options: ConnectOptions, isCurrent: () => boolean) {
+   const state = appStore.getState();
+ 
+   if (event.type === 'task_updated') {
+@@ -73,22 +74,22 @@ function applyEvent(event: WsEvent, options: ConnectOptions) {
+   }
+ 
+   if (event.type === 'line_updated') {
+-    scheduleOperationalRefresh('line');
++    scheduleOperationalRefresh('line', isCurrent);
+     if (WS_DEBUG) console.debug('[ws] line_updated');
+   }
+ 
+   if (event.type === 'assignment_updated') {
+-    scheduleOperationalRefresh('assignment');
++    scheduleOperationalRefresh('assignment', isCurrent);
+     if (WS_DEBUG) console.debug('[ws] assignment_updated');
+   }
+ 
+   if (event.type === 'shift_updated') {
+-    scheduleOperationalRefresh('shift');
++    scheduleOperationalRefresh('shift', isCurrent);
+     if (WS_DEBUG) console.debug('[ws] shift_updated');
+   }
+ 
+   if (event.type === 'wash_updated') {
+-    scheduleOperationalRefresh('wash');
++    scheduleOperationalRefresh('wash', isCurrent);
+     window.dispatchEvent(new CustomEvent('zavod:wash-updated', { detail: event.payload }));
+     if (WS_DEBUG) console.debug('[ws] wash_updated');
+   }
+@@ -104,13 +105,13 @@ function applyEvent(event: WsEvent, options: ConnectOptions) {
+   }
+ 
+   if (event.type === 'quantity_release_updated') {
+-    scheduleOperationalRefresh('quantity-release');
++    scheduleOperationalRefresh('quantity-release', isCurrent);
+     window.dispatchEvent(new CustomEvent('zavod:quantity-release-updated', { detail: event.payload }));
+     if (WS_DEBUG) console.debug('[ws] quantity_release_updated');
+   }
+ 
+   if (event.type === 'checklist_updated') {
+-    scheduleOperationalRefresh('checklist');
++    scheduleOperationalRefresh('checklist', isCurrent);
+     if (WS_DEBUG) console.debug('[ws] checklist_updated');
+   }
+ 
+@@ -143,6 +144,19 @@ export function connectWs(options: ConnectOptions = {}) {
+   let socket: WebSocket | null = null;
+   let reconnectTimer: number | null = null;
+   let attempts = 0;
++  const contextKey = () => {
++    const state = appStore.getState();
++    return JSON.stringify([getApiContext(), state.authStatus, state.currentUser?.role,
++      state.currentUser?.isGuest, state.currentUser?.departmentId,
++      [...(state.currentUser?.permissions ?? [])].sort()]);
++  };
++  const initialContext = contextKey();
++  let contextInvalidated = false;
++  // Invalidate synchronously, including an A→B→A transition before React cleanup.
++  const unsubscribeContext = appStore.subscribe(() => {
++    if (contextKey() !== initialContext) contextInvalidated = true;
++  });
++  const isCurrent = () => !closedByCaller && !contextInvalidated;
+ 
+   const clearReconnect = () => {
+     if (reconnectTimer !== null) window.clearTimeout(reconnectTimer);
+@@ -150,7 +164,7 @@ export function connectWs(options: ConnectOptions = {}) {
+   };
+ 
+   const scheduleReconnect = () => {
+-    if (closedByCaller || reconnectSuppressed || reconnectTimer !== null) return;
++    if (!isCurrent() || reconnectSuppressed || reconnectTimer !== null) return;
+     clearReconnect();
+     options.onStatus?.('fallback');
+     if (!navigator.onLine) return;
+@@ -162,7 +176,7 @@ export function connectWs(options: ConnectOptions = {}) {
+   };
+ 
+   const connect = () => {
+-    if (closedByCaller || reconnectSuppressed) return;
++    if (!isCurrent() || reconnectSuppressed) return;
+     if (!navigator.onLine) {
+       options.onStatus?.('fallback');
+       return;
+@@ -175,20 +189,21 @@ export function connectWs(options: ConnectOptions = {}) {
+       const currentSocket = new WebSocket(connection.url, connection.protocols);
+       socket = currentSocket;
+       currentSocket.onopen = () => {
+-        if (socket !== currentSocket) return;
++        if (!isCurrent() || socket !== currentSocket) return;
+         attempts = 0;
+         options.onStatus?.('connected');
+-        scheduleOperationalRefresh('reconnect');
++        scheduleOperationalRefresh('reconnect', isCurrent);
+         if (WS_DEBUG) console.debug('[ws] connected');
+       };
+       currentSocket.onmessage = (event) => {
++        if (!isCurrent() || socket !== currentSocket) return;
+         try {
+           const parsed = JSON.parse(event.data) as WsEvent;
+           if (parsed.type === 'auth_context_changed') {
+             reconnectSuppressed = true;
+             clearReconnect();
+           }
+-          applyEvent(parsed, options);
++          applyEvent(parsed, options, isCurrent);
+         } catch {
+           if (WS_DEBUG) console.debug('[ws] message parse error');
+         }
+@@ -197,7 +212,7 @@ export function connectWs(options: ConnectOptions = {}) {
+         if (WS_DEBUG) console.debug('[ws] error');
+       };
+       currentSocket.onclose = (event) => {
+-        if (socket !== currentSocket) return;
++        if (!isCurrent() || socket !== currentSocket) return;
+         socket = null;
+         if (WS_DEBUG) console.debug('[ws] closed');
+         if (event.code === 4001) reconnectSuppressed = true;
+@@ -213,7 +228,7 @@ export function connectWs(options: ConnectOptions = {}) {
+   };
+ 
+   const onOnline = () => {
+-    if (closedByCaller || reconnectSuppressed) return;
++    if (!isCurrent() || reconnectSuppressed) return;
+     attempts = 0;
+     clearReconnect();
+     connect();
+@@ -224,6 +239,7 @@ export function connectWs(options: ConnectOptions = {}) {
+   return {
+     close: () => {
+       closedByCaller = true;
++      unsubscribeContext();
+       clearReconnect();
+       window.removeEventListener('online', onOnline);
+       options.onStatus?.('closed');

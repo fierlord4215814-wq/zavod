@@ -1,0 +1,35 @@
+{
+  "status": "PASS_PAIRED_SAFE_CONFIG_RELEASE_IDENTITY",
+  "addendumAfterRestore": true,
+  "sameCanonicalBuild": true,
+  "secretValuesOrHashesInReceipt": false,
+  "releaseVersion": "LOCAL03-20260924-C1",
+  "baselineHead": "2dd40727042a01994ff32f396897f70b41d3a3a7",
+  "sourceDatabase": "zavod_local01_c0",
+  "restoredDatabase": "zavod_local02_local03_restore",
+  "loopbackPgPort": 15436,
+  "uploadsDirectory": "uploads",
+  "migrationCount": 57,
+  "build": [
+    {
+      "path": "backend/dist/main.js",
+      "bytes": 4241,
+      "sha256": "db062ade8787028decd1718f8f316010ab438f7f726d716b90b5cb2a610109ce"
+    },
+    {
+      "path": "frontend/dist/assets/index-Bd-W8VLQ.js",
+      "bytes": 1125738,
+      "sha256": "f795e596ee38f19aeef4717e3ce3128b0a6d5fd9464dda7502f723603ee13214"
+    },
+    {
+      "path": "frontend/dist/assets/index-iuCOMHyM.css",
+      "bytes": 359260,
+      "sha256": "0b462bee06f070196773a919b79fad1a48534dfefa0b5d5b8b1345f2fb35906b"
+    }
+  ],
+  "safeConfigFiles": [
+    "db-password.txt",
+    "jwt-secret.txt"
+  ],
+  "secretBytesVerified": true
+}

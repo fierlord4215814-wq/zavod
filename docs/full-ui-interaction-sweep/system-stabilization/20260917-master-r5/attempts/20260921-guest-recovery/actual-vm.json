@@ -1,0 +1,48 @@
+{
+  "soleTargetVhdxConfirmed": true,
+  "vm": {
+    "Name": "99A158DA-C247-422C-AE11-109485A92B1F",
+    "ElementName": "Zavod-Master-R5-Ubuntu24",
+    "EnabledState": 3,
+    "RequestedState": 5,
+    "OperationalStatus": [
+      2
+    ],
+    "StatusDescriptions": [
+      "Работает нормально"
+    ],
+    "HealthState": 5,
+    "OnTimeInMilliseconds": 0,
+    "ProcessID": null
+  },
+  "storage": [
+    {
+      "ResourceSubType": "Microsoft:Hyper-V:Virtual Hard Disk",
+      "HostResource": [
+        "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\ubuntu24.vhdx"
+      ],
+      "AddressOnParent": null
+    },
+    {
+      "ResourceSubType": "Microsoft:Hyper-V:Virtual CD/DVD Disk",
+      "HostResource": [
+        "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\ubuntu-24.04.5-live-server-amd64.iso"
+      ],
+      "AddressOnParent": null
+    },
+    {
+      "ResourceSubType": "Microsoft:Hyper-V:Virtual CD/DVD Disk",
+      "HostResource": [
+        "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\private\\seed.iso"
+      ],
+      "AddressOnParent": null
+    }
+  ],
+  "at": "2026-09-21T16:09:11.5995329+03:00",
+  "settings": {
+    "VirtualSystemIdentifier": "99A158DA-C247-422C-AE11-109485A92B1F",
+    "VirtualSystemSubType": "Microsoft:Hyper-V:SubType:2",
+    "BIOSGUID": "D00FD8A4-6628-433C-BD34-00A7CB7DD174"
+  },
+  "jobs": []
+}

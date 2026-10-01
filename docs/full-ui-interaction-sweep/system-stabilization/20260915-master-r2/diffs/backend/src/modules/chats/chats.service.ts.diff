@@ -1,0 +1,192 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-related-before\\backend\\src\\modules\\chats\\chats.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\chats\\chats.service.ts"
+index 17004603..b8ecdde3 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-related-before\\backend\\src\\modules\\chats\\chats.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\chats\\chats.service.ts"
+@@ -372,31 +372,22 @@ export class ChatsService {
+   async addMember(user: UserContext, id: string, body: any) {
+     const chat = await this.loadChat(user, id);
+     this.assertCustomGroup(chat);
+-    this.assertCanManageMembers(user, chat);
+     const member = this.normalizeSingleMember(body);
+     if (!member.userId) {
+       throw new ConflictError('В групповой чат можно добавить только конкретного сотрудника.');
+     }
+-    await this.assertRequestedMembers(user, [member], false);
+     const operationId = this.optionalOperationId(body.operationId);
+     const saved = await this.prisma.db.$transaction(async (tx) => {
+       await lockOperationKeys(tx, [
+         operationLockKey.chat(id),
+         operationId ? operationLockKey.processedOperation(user.userId, operationId) : null,
+       ]);
+-      const processed = operationId
+-        ? await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } })
+-        : null;
+-      if (processed?.resultKey) {
+-        const replay = await tx.chatMember.findFirst({
+-          where: { id: processed.resultKey, chatId: id },
+-          include: { user: true, department: true },
+-        });
+-        if (replay) return replay;
+-      }
++      const replay = await this.processedMembershipReplayTx(tx, user, operationId, id, member.userId!);
++      if (replay) return replay;
+       const lockedChat = await this.loadChatTx(tx, user, id);
+       this.assertCustomGroup(lockedChat);
+       this.assertCanManageMembers(user, lockedChat);
++      await this.assertRequestedMembers(user, [member], false);
+       const existing = await tx.chatMember.findFirst({
+         where: {
+           chatId: id,
+@@ -459,21 +450,14 @@ export class ChatsService {
+     const operationId = this.optionalOperationId(body.operationId);
+     const chat = await this.loadChat(user, id);
+     this.assertCustomGroup(chat);
+-    this.assertCanManageMembers(user, chat);
+-    const replay = await this.processedMembershipReplay(user, operationId, id);
+-    if (replay) return replay;
++    let replayed = false;
+     const saved = await this.prisma.db.$transaction(async (tx) => {
+       await lockOperationKeys(tx, [
+         operationLockKey.chat(id),
+         operationId ? operationLockKey.processedOperation(user.userId, operationId) : null,
+       ]);
+-      const processed = operationId
+-        ? await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } })
+-        : null;
+-      if (processed) {
+-        const replayRow = await tx.chatMember.findFirst({ where: { chatId: id, userId }, include: { user: true, department: true } });
+-        if (replayRow) return replayRow;
+-      }
++      const replay = await this.processedMembershipReplayTx(tx, user, operationId, id, userId);
++      if (replay) { replayed = true; return replay; }
+       const lockedChat = await this.loadChatTx(tx, user, id);
+       this.assertCustomGroup(lockedChat);
+       this.assertCanManageMembers(user, lockedChat);
+@@ -513,25 +497,22 @@ export class ChatsService {
+       }
+       return row;
+     });
+-    this.notifyChatChanged(id, [userId]);
++    if (!replayed) this.notifyChatChanged(id, [userId]);
+     return this.serializeMember(saved);
+   }
+ 
+   async leave(user: UserContext, id: string, body: any = {}) {
+     const operationId = this.optionalOperationId(body.operationId);
+-    const replay = await this.processedMembershipReplay(user, operationId, id);
+-    if (replay) return { ...replay, left: true };
+     const chat = await this.loadChat(user, id);
+     this.assertCustomGroup(chat);
++    let replayed = false;
+     const saved = await this.prisma.db.$transaction(async (tx) => {
+       await lockOperationKeys(tx, [
+         operationLockKey.chat(id),
+         operationId ? operationLockKey.processedOperation(user.userId, operationId) : null,
+       ]);
+-      const processed = operationId
+-        ? await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } })
+-        : null;
+-      if (processed) return null;
++      const replay = await this.processedMembershipReplayTx(tx, user, operationId, id, user.userId);
++      if (replay) { replayed = true; return replay; }
+       const lockedChat = await this.loadChatTx(tx, user, id);
+       this.assertCustomGroup(lockedChat);
+       const member = this.activeUserMember(lockedChat, user.userId);
+@@ -566,7 +547,7 @@ export class ChatsService {
+       }
+       return row;
+     });
+-    this.notifyChatChanged(id, [user.userId]);
++    if (!replayed) this.notifyChatChanged(id, [user.userId]);
+     return { ...(saved ? this.serializeMember(saved) : {}), left: true };
+   }
+ 
+@@ -575,19 +556,13 @@ export class ChatsService {
+     const operationId = this.optionalOperationId(body.operationId);
+     const chat = await this.loadChat(user, id);
+     this.assertCustomGroup(chat);
+-    this.assertOwner(user, chat);
+     const saved = await this.prisma.db.$transaction(async (tx) => {
+       await lockOperationKeys(tx, [
+         operationLockKey.chat(id),
+         operationId ? operationLockKey.processedOperation(user.userId, operationId) : null,
+       ]);
+-      const processed = operationId
+-        ? await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } })
+-        : null;
+-      if (processed?.resultKey) {
+-        const replayRow = await tx.chatMember.findFirst({ where: { id: processed.resultKey, chatId: id }, include: { user: true, department: true } });
+-        if (replayRow) return replayRow;
+-      }
++      const replay = await this.processedMembershipReplayTx(tx, user, operationId, id, userId);
++      if (replay) return replay;
+       const lockedChat = await this.loadChatTx(tx, user, id);
+       this.assertOwner(user, lockedChat);
+       const member = await tx.chatMember.findFirst({ where: { chatId: id, userId }, include: { user: true, department: true } });
+@@ -634,19 +609,13 @@ export class ChatsService {
+     const operationId = this.optionalOperationId(body.operationId);
+     const chat = await this.loadChat(user, id);
+     this.assertCustomGroup(chat);
+-    this.assertOwner(user, chat);
+     const saved = await this.prisma.db.$transaction(async (tx) => {
+       await lockOperationKeys(tx, [
+         operationLockKey.chat(id),
+         operationId ? operationLockKey.processedOperation(user.userId, operationId) : null,
+       ]);
+-      const processed = operationId
+-        ? await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } })
+-        : null;
+-      if (processed?.resultKey) {
+-        const replayRow = await tx.chatMember.findFirst({ where: { id: processed.resultKey, chatId: id }, include: { user: true, department: true } });
+-        if (replayRow) return replayRow;
+-      }
++      const replay = await this.processedMembershipReplayTx(tx, user, operationId, id, targetUserId);
++      if (replay) return replay;
+       const lockedChat = await this.loadChatTx(tx, user, id);
+       this.assertOwner(user, lockedChat);
+       const owner = this.ownerMember(lockedChat);
+@@ -701,13 +670,8 @@ export class ChatsService {
+         operationLockKey.chat(id),
+         operationId ? operationLockKey.processedOperation(user.userId, operationId) : null,
+       ]);
+-      const processed = operationId
+-        ? await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } })
+-        : null;
+-      if (processed?.resultKey) {
+-        const replayRow = await tx.chatMember.findFirst({ where: { id: processed.resultKey, chatId: id }, include: { user: true, department: true } });
+-        if (replayRow) return replayRow;
+-      }
++      const replay = await this.processedMembershipReplayTx(tx, user, operationId, id, user.userId);
++      if (replay) return replay;
+       const lockedChat = await this.loadChatTx(tx, user, id);
+       const member = this.activeUserMember(lockedChat, user.userId);
+       if (!member) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к этому личному чату.' });
+@@ -1636,17 +1600,22 @@ export class ChatsService {
+     return typeof value === 'string' && value.trim() ? value.trim() : null;
+   }
+ 
+-  private async processedMembershipReplay(user: UserContext, operationId: string | null, chatId: string) {
++  private async processedMembershipReplayTx(tx: Prisma.TransactionClient, user: UserContext, operationId: string | null, chatId: string, targetUserId: string) {
+     if (!operationId) return null;
+-    const processed = await this.prisma.db.processedOperation.findUnique({
++    const processed = await tx.processedOperation.findUnique({
+       where: { userId_operationId: { userId: user.userId, operationId } },
+     });
+-    if (!processed?.resultKey) return null;
+-    const member = await this.prisma.db.chatMember.findFirst({
+-      where: { id: processed.resultKey, chatId },
++    if (!processed) return null;
++    if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++    // Called under the existing chat/operation locks. Read authority is current;
++    // OWNER/management is checked for a new mutation, not a completed transfer.
++    await this.loadChatTx(tx, user, chatId);
++    const member = await tx.chatMember.findFirst({
++      where: { id: processed.resultKey, chatId, userId: targetUserId },
+       include: { user: true, department: true },
+     });
+-    return member ? this.serializeMember(member) : null;
++    if (!member) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++    return member;
+   }
+ 
+   private async createMembershipSystemMessageTx(

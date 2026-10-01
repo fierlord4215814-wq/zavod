@@ -1,0 +1,41 @@
+{
+  "startedAt": "2026-09-15T20:11:04.488Z",
+  "expected": [
+    {
+      "title": "R3-C5 response committed before revoke cannot trigger stale People follow-up reads",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 22,
+      "id": "80914e803e96"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-C5 response committed before revoke cannot trigger stale People follow-up reads",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 22,
+      "id": "80914e803e96",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2986,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 7\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"factory\": \"series-factory\",\u001b[39m\n\u001b[31m+     \"method\": \"GET\",\u001b[39m\n\u001b[31m+     \"path\": \"/people/series-person\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C5-red-01\\runner-artifacts\\master-r3-context-R3-C5-re-45746-tale-People-follow-up-reads\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\C5-red-01\\runner-artifacts\\master-r3-context-R3-C5-re-45746-tale-People-follow-up-reads\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T20:11:09.080Z",
+  "status": "failed",
+  "listOnly": false
+}

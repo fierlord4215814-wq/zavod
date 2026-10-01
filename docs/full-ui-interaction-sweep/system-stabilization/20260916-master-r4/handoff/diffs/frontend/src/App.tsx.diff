@@ -1,0 +1,22 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\B-product-before\\frontend\\src\\App.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+index 024af424..917e26fc 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\B-product-before\\frontend\\src\\App.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+@@ -852,7 +852,7 @@ export default function App() {
+   }, [authStatus, currentUser?.isGuest, currentUser?.userId, hasSelectedFactory, selectedFactoryId]);
+ 
+   const connectivityMessage = apiConnectivityMessage
+-    ?? (!online ? 'Нет связи с сервером. Просмотр открытых данных доступен, новые действия не сохраняются.' : null);
++    ?? (!online ? 'Нет сети. Просмотр открытых данных доступен. Результат отправленных действий проверьте после восстановления связи.' : null);
+ 
+   const performPwaUpdate = () => {
+     if (!pwaUpdateWorker) {
+@@ -1011,7 +1011,7 @@ export default function App() {
+ 
+       {connectivityMessage ? (
+         <div className="pwa-status-banner warning" role="status">
+-          <strong>{online ? 'Сервер недоступен' : 'Нет связи'}</strong>
++          <strong>{online ? 'Ответ не получен' : 'Нет связи'}</strong>
+           <span>{connectivityMessage}</span>
+         </div>
+       ) : null}

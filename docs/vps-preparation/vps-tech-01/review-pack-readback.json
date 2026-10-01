@@ -1,0 +1,477 @@
+{
+  "zip": "docs/vps-preparation/vps-tech-01/review-pack-vps-tech01-20260928.zip",
+  "bytes": 220592,
+  "sha256": "9ea5bfad2519a25ae06ef6b75573921e336658b0675ce76d70835d7125ce04ce",
+  "manifestPayloads": 92,
+  "entryCount": 93,
+  "status": "PASS_FULL_STREAM_SOURCE_AND_MANIFEST_MATCH",
+  "errors": [],
+  "entries": [
+    {
+      "path": ".dockerignore",
+      "bytes": 1199,
+      "sha256": "0f49b2c01550511e834ef789af37385eb0b45cf1187635dc9d2f7e1731e580da"
+    },
+    {
+      "path": "backend/Dockerfile.production",
+      "bytes": 661,
+      "sha256": "a222bb8675ed24edf4f7870127d61dc2bf1ef49f2fe948f92417d020ce0cf436"
+    },
+    {
+      "path": "backend/package.json",
+      "bytes": 19657,
+      "sha256": "9e6b0b3d41aa0c2caa0ada8f790ae40d69a88510ccbff1bb5254737897b65790"
+    },
+    {
+      "path": "backend/prisma/migrations/20260503000000_initial_current_schema/migration.sql",
+      "bytes": 29682,
+      "sha256": "6e48b3b667842d398bbefc3f76fdb44b88c4a766c54c256007b83e14138b29cf"
+    },
+    {
+      "path": "backend/prisma/migrations/20260504000000_stage4_line_positions/migration.sql",
+      "bytes": 9299,
+      "sha256": "cfe13c46293e6605da14c4d1da4c5642424be62fd590e406611f241532d4fa42"
+    },
+    {
+      "path": "backend/prisma/migrations/20260505000000_stage8_attachments_foundation/migration.sql",
+      "bytes": 1638,
+      "sha256": "06469cac7aefebdf1a84784529e948b4e1a355511fea9f4064c9c98f2abc94b6"
+    },
+    {
+      "path": "backend/prisma/migrations/20260505010000_stage7_admin_foundation/migration.sql",
+      "bytes": 181,
+      "sha256": "f4f68c724c9aa6d01bfdec7b92e0a6cbaccaa19567aa4b23c0bfea9b19850317"
+    },
+    {
+      "path": "backend/prisma/migrations/20260505020000_stage8_attachment_operation_id/migration.sql",
+      "bytes": 302,
+      "sha256": "e11585ae26511005fb682f8f065cc4f81e35606f8c8591640d628b101e7bbdb3"
+    },
+    {
+      "path": "backend/prisma/migrations/20260506000000_stage9_shift_operations/migration.sql",
+      "bytes": 8689,
+      "sha256": "3159db41cb1d95ace47051d8f9e859e23605f5f35ed319e6d3a75ce8b53d49a8"
+    },
+    {
+      "path": "backend/prisma/migrations/20260506010000_stage10_tasks_technical_services/migration.sql",
+      "bytes": 7508,
+      "sha256": "530097273846180777abd7caf3d97ea4f3c63dadc325cd526b5ce1aff4e9f9aa"
+    },
+    {
+      "path": "backend/prisma/migrations/20260506020000_stage11_wash_process_foundation/migration.sql",
+      "bytes": 8772,
+      "sha256": "65b4f30562503b013622ea1e87204ff1bdd769633f8624fad409ee46298c72e2"
+    },
+    {
+      "path": "backend/prisma/migrations/20260506030000_stage115_simple_internal_auth/migration.sql",
+      "bytes": 981,
+      "sha256": "33877b5c6244dd9661f88654fb098ed93824a837e0b37e64a242c7ffcd85eb59"
+    },
+    {
+      "path": "backend/prisma/migrations/20260511080000_stage12_orders_minimum_stock/migration.sql",
+      "bytes": 4427,
+      "sha256": "89ff54282dda1f50dd5763a1787fe6571f14150ac1c49bdc21b18434aac7fa54"
+    },
+    {
+      "path": "backend/prisma/migrations/20260511100000_stage13_checklists/migration.sql",
+      "bytes": 7902,
+      "sha256": "b2dab643c55b9329400d9095a4176c58dfa18dd0c89c2f305eeab65285d1a733"
+    },
+    {
+      "path": "backend/prisma/migrations/20260511110000_stage14_shift_log_hardening/migration.sql",
+      "bytes": 1452,
+      "sha256": "914c1eb4d8266584f611534996815eefd6ccd4eaf0873e7406bf593e9a223fd4"
+    },
+    {
+      "path": "backend/prisma/migrations/20260511120000_stage15_defrost_hardening/migration.sql",
+      "bytes": 2502,
+      "sha256": "6a4101690fffb9a050125111d7860884ea9579b8cd69b35977103e4773916a69"
+    },
+    {
+      "path": "backend/prisma/migrations/20260511130000_stage17_notifications/migration.sql",
+      "bytes": 1002,
+      "sha256": "4f82e111d8b6a349f086b9e03f72041f7657d75cdb352d58021eb30e01abb332"
+    },
+    {
+      "path": "backend/prisma/migrations/20260512170000_stage23_chats/migration.sql",
+      "bytes": 5319,
+      "sha256": "36c86650515632ca07e343a42db0ac2481fd96f1b68cf15da762c7bbad6bf583"
+    },
+    {
+      "path": "backend/prisma/migrations/20260515130000_stage24_announcements/migration.sql",
+      "bytes": 3162,
+      "sha256": "073ad1461730fdbf781f012916b0a4bddf3146a6e162a0a44bc483b4a546c267"
+    },
+    {
+      "path": "backend/prisma/migrations/20260515140000_stage25_people_profile_skills/migration.sql",
+      "bytes": 2915,
+      "sha256": "6b50832d262e4f048dd07cd7568ee37b79603db2f4ec364fcff39c97954262ce"
+    },
+    {
+      "path": "backend/prisma/migrations/20260517120000_stage26_line_skills_okk_table/migration.sql",
+      "bytes": 2896,
+      "sha256": "1c7a6e39c6bfbdca39432bea6e3d7b9954bada95294c874f93ccd92f93b277be"
+    },
+    {
+      "path": "backend/prisma/migrations/20260517130000_stage27_store_returns_work_areas/migration.sql",
+      "bytes": 6367,
+      "sha256": "682c4269818c994613c69aea36bb63d6f51f5f476ddc5747af97732ec3ec53f1"
+    },
+    {
+      "path": "backend/prisma/migrations/20260520140000_stage40b_downtime_task_analytics/migration.sql",
+      "bytes": 784,
+      "sha256": "53f46c6e35f71b173a0c37839aabfee605b7848f77a6d3ad12ae5f730bcd1e27"
+    },
+    {
+      "path": "backend/prisma/migrations/20260521141000_stage41_line_shift_assignment/migration.sql",
+      "bytes": 2532,
+      "sha256": "9af70245d8d6af5ce25545a25243a18853bd036366d7337c9ca875d344c552d8"
+    },
+    {
+      "path": "backend/prisma/migrations/20260521173000_stage44_checklist_builder_guided_run/migration.sql",
+      "bytes": 1384,
+      "sha256": "efe7664eb5e64009e7f9164ded318b097f50cddb403820e4bd534b917fb0d922"
+    },
+    {
+      "path": "backend/prisma/migrations/20260524180000_stage48_shift_timeline_planning/migration.sql",
+      "bytes": 3157,
+      "sha256": "33f9e563c5a2377897bc4f7bb97c2de6f3b8172ff802ae09bf2a63b59c31ebeb"
+    },
+    {
+      "path": "backend/prisma/migrations/20260525120000_stage50_checklist_library_assignment_archive/migration.sql",
+      "bytes": 698,
+      "sha256": "d79a316bc6d1dc6e2c3b9d5aa62e7863f3c0dc67fcbd6a36509d519b8c405638"
+    },
+    {
+      "path": "backend/prisma/migrations/20260603120000_stage56_admin_configurability/migration.sql",
+      "bytes": 1038,
+      "sha256": "a1c709fa5b3a57ae3799ac1ffcc2846aa7680e3d0cd27152f02df1ee70c1d0d6"
+    },
+    {
+      "path": "backend/prisma/migrations/20260603130000_stage56a_internal_messenger_direct/migration.sql",
+      "bytes": 190,
+      "sha256": "4fb8e75b86c1d0a9bf475af9f5cd43def248dd44934962fdb7c3f05580aa3ae3"
+    },
+    {
+      "path": "backend/prisma/migrations/20260604160000_stage60_admin_safety_recovery/migration.sql",
+      "bytes": 2481,
+      "sha256": "a75d985c445d40963d2f59d2213f6653d75e85b5f0c71c6747c15ece4aa612c0"
+    },
+    {
+      "path": "backend/prisma/migrations/20260618120000_future_shift_non_line_assignments/migration.sql",
+      "bytes": 2680,
+      "sha256": "707a9ecb6887b6f0f2849ad9e8695ac23632625afeba0b66b5016a8a774687c5"
+    },
+    {
+      "path": "backend/prisma/migrations/20260618183000_checklist_periodic_lifecycle/migration.sql",
+      "bytes": 3678,
+      "sha256": "9a7de1b899c4968c17e256bc89fb9d9e2461fe3700cd00e0e8c32a04207e4fcf"
+    },
+    {
+      "path": "backend/prisma/migrations/20260620120000_stock_defect_name_unit/migration.sql",
+      "bytes": 215,
+      "sha256": "550563e5b56a53cda9abb015d7e30e22d476c67e16283de68838e86796ad4bc0"
+    },
+    {
+      "path": "backend/prisma/migrations/20260620122500_vps_prep_permission_catalog/migration.sql",
+      "bytes": 9328,
+      "sha256": "e1578b5758fc27b59c92d3e97420592aa9e9915ae1e6a87803adf529d133674d"
+    },
+    {
+      "path": "backend/prisma/migrations/20260620123000_master_okk_read_permission/migration.sql",
+      "bytes": 286,
+      "sha256": "e8ee50cdca892b625035fbdd3314a2ecdb689223f761c1ca3baf77b34d5ca572"
+    },
+    {
+      "path": "backend/prisma/migrations/20260620150000_shift_log_date_shift/migration.sql",
+      "bytes": 197,
+      "sha256": "de95a7428cbbc616c97355f0843ba2a116c9860c60bcbd57d2a5cd5b14394202"
+    },
+    {
+      "path": "backend/prisma/migrations/20260621120000_chat_reactions_error_reports/migration.sql",
+      "bytes": 3839,
+      "sha256": "8277f2c567a777ba6ec6ca17701a0333edab999ed0505c78f65a8218e42594e8"
+    },
+    {
+      "path": "backend/prisma/migrations/20260621160000_orders_item_category_storage/migration.sql",
+      "bytes": 126,
+      "sha256": "3dfba601d75fac9c83de6fb9a0b17879b4ba88f6f268f50a482ecb0304895555"
+    },
+    {
+      "path": "backend/prisma/migrations/20260629120000_job_title_hierarchy/migration.sql",
+      "bytes": 860,
+      "sha256": "4db1b7ff3917539acca41389b6855f89bdfc59dc961ef770267881b70d361c3f"
+    },
+    {
+      "path": "backend/prisma/migrations/20260702120000_push_subscriptions/migration.sql",
+      "bytes": 1539,
+      "sha256": "08caf597115f1c6a035d4b3afd73322d53bf9aa57eda31542efcdac40ab4d69c"
+    },
+    {
+      "path": "backend/prisma/migrations/20260704120000_chat_simple_polls/migration.sql",
+      "bytes": 4436,
+      "sha256": "80862e7f89b1a13090a8d0eafc148c4b228db2483af8e73957ebd89d96d44bd6"
+    },
+    {
+      "path": "backend/prisma/migrations/20260705120000_defrost_event_type/migration.sql",
+      "bytes": 310,
+      "sha256": "77659c1897015cee7f2f72c9fa74a3f6f9d0ae35578bebc481395a6fc809b598"
+    },
+    {
+      "path": "backend/prisma/migrations/20260708090000_wash_other_target/migration.sql",
+      "bytes": 541,
+      "sha256": "0e08203ecb47c134e5d7b7823f66ec72263699fb7c3a4d50e5a58ae827dcc0d6"
+    },
+    {
+      "path": "backend/prisma/migrations/20260717120000_mobile_pilot_org_identity/migration.sql",
+      "bytes": 7209,
+      "sha256": "64754c9500f368cc9c5b74d6e453e660f06e709e7977b7f041df5d111869caab"
+    },
+    {
+      "path": "backend/prisma/migrations/20260718003000_mobile_pilot_rbac_matrix_followup/migration.sql",
+      "bytes": 528,
+      "sha256": "1a86d23303eb503b7cb5e4e99873c05a0b7fd04c5ffc1161d4ced818787e9b1c"
+    },
+    {
+      "path": "backend/prisma/migrations/20260718010000_mobile_pilot_technolog_lines_read/migration.sql",
+      "bytes": 256,
+      "sha256": "66adac9a3b1db00d4e936b7181e28606d91194c347d95db687557267583b9ed4"
+    },
+    {
+      "path": "backend/prisma/migrations/20260718143000_mobile_pilot_shift_assignment_unification/migration.sql",
+      "bytes": 2025,
+      "sha256": "9bec3eef507193561dc0e0ccbec1ef66688284732ce9b455366fcac461aa10de"
+    },
+    {
+      "path": "backend/prisma/migrations/20260718180000_mobile_pilot_handover_wash_requests/migration.sql",
+      "bytes": 1085,
+      "sha256": "994816b4748f7a343dec51d5715d7d2157dd24a09d273c0ea350b0208de7c8d0"
+    },
+    {
+      "path": "backend/prisma/migrations/20260718193000_mobile_pilot_department_processes/migration.sql",
+      "bytes": 143,
+      "sha256": "9f13e648740dd228dfcdb89f57fa90941abfbfc2645a5ed88727de2c0dfbdac2"
+    },
+    {
+      "path": "backend/prisma/migrations/20260724120000_physical_field_fixes_v3_skill_credits/migration.sql",
+      "bytes": 914,
+      "sha256": "802a4ae24629dc732c36dbdbcd381c7a7097e586a6529c76b0b765105ba8f834"
+    },
+    {
+      "path": "backend/prisma/migrations/20260727090000_physical_fixes_v4_shift_duration/migration.sql",
+      "bytes": 538,
+      "sha256": "036e68a297203438fdac189306b5b3b5410917e0836e4da4749c398fabdcb9b9"
+    },
+    {
+      "path": "backend/prisma/migrations/20260727120000_physical_fixes_v4_chat_membership/migration.sql",
+      "bytes": 1503,
+      "sha256": "36871a41fa1b4c9a8ec5e3d2ccdfd0fbfbd81b8df4434b3bc00432d4ea3d6251"
+    },
+    {
+      "path": "backend/prisma/migrations/20260728110000_physical_fixes_v4_publication_feeds/migration.sql",
+      "bytes": 1360,
+      "sha256": "beb77af50f5a461b525846b2ce4bda2a01097b0a0c476533617274e04cfd22c6"
+    },
+    {
+      "path": "backend/prisma/migrations/20260808120000_physical_field_fixes_v5_plast2_default_template/migration.sql",
+      "bytes": 1126,
+      "sha256": "05745a8ea913e7809b70ee1f0f887bf49144f97d4a7d7cedb1df344ca4e6bc15"
+    },
+    {
+      "path": "backend/prisma/migrations/20260809120000_physical_field_fixes_v5_plast5_announcements/migration.sql",
+      "bytes": 574,
+      "sha256": "b3285c02cf84347c7f44aaf07456ff0d89cad75902466e828676afc692baa357"
+    },
+    {
+      "path": "backend/prisma/migrations/20260809150000_physical_field_fixes_v5_plast6_partial_release/migration.sql",
+      "bytes": 3007,
+      "sha256": "092703298a03d8638fd32b1c755b6ec632984cc90e0cc491f460c62867d3964d"
+    },
+    {
+      "path": "backend/prisma/migrations/20260828120000_p17b_identity_effective_capabilities/migration.sql",
+      "bytes": 4391,
+      "sha256": "4682ab87bb217431def5a3f6528052543d9a1d29a747edecedc5fbbdaf42afc0"
+    },
+    {
+      "path": "backend/prisma/migrations/20260922190000_vps_prep_01_auth_recovery/migration.sql",
+      "bytes": 819,
+      "sha256": "993d50fa8d126fac2b483a123158cc8b5c15ad6725fd98542e05dfb85854d293"
+    },
+    {
+      "path": "backend/prisma/migrations/20260923193000_local01_schema_contract_reconciliation/migration.sql",
+      "bytes": 772,
+      "sha256": "5492af7f4dbfc56203a0830bd070edb215401051fcc0363fdc37034d67454f00"
+    },
+    {
+      "path": "backend/prisma/migrations/20260924190000_local02_chat_and_checklist_reference/migration.sql",
+      "bytes": 1526,
+      "sha256": "99392096542f2da993f9d4e6bd56adeec14c3167f981d2c91f96d696b078af7e"
+    },
+    {
+      "path": "backend/prisma/migrations/migration_lock.toml",
+      "bytes": 24,
+      "sha256": "1db17a8d051aa136110736752c5e1f8b7ed92b6ea8e803112fbbe2497047c210"
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "bytes": 85485,
+      "sha256": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e"
+    },
+    {
+      "path": "backend/prisma/system-foundation.cjs",
+      "bytes": 22200,
+      "sha256": "43052d4c571efc624ae53ea49f8999ad657fdfd999734025abae7e4a30d23c98"
+    },
+    {
+      "path": "backend/src/cli/apply-system-foundation.ts",
+      "bytes": 1227,
+      "sha256": "319202e128870261fd00d2ed5f82821e8f69bf53349cba79f6c3211c7a7a8817"
+    },
+    {
+      "path": "backend/src/cli/bootstrap-first-admin.ts",
+      "bytes": 4621,
+      "sha256": "3672dbdff8bedd53ea334610b90a824cd22bd3b7f6bc8d2392c8e9383e1eb4ee"
+    },
+    {
+      "path": "backend/src/common/first-admin-bootstrap.ts",
+      "bytes": 7653,
+      "sha256": "d1c8d74493d576de95abef068b8baf86373a7f810903b5aada24a9cd4f027440"
+    },
+    {
+      "path": "backend/src/common/recovery-credential.ts",
+      "bytes": 1440,
+      "sha256": "6c58c5b57d52d0a3227199f0535d6774475be535f768a2fc35b0bd3c6bae2f60"
+    },
+    {
+      "path": "backend/src/common/runtime-readiness.ts",
+      "bytes": 3388,
+      "sha256": "87938c80cb2c3565ac0276a7e51c2d7ec44fe8a84a19f69d102088448534099d"
+    },
+    {
+      "path": "backend/src/common/system-foundation.ts",
+      "bytes": 2943,
+      "sha256": "029f6a3cf0be642cce85434bc3096ae1f049ed285aab47d90a22053163a46704"
+    },
+    {
+      "path": "backend/src/main.ts",
+      "bytes": 3938,
+      "sha256": "c6d17a33e8299607fe53e5d41a71174dd342164d9b2548d2034db56df3c17ee2"
+    },
+    {
+      "path": "backend/src/modules/health/readiness.service.ts",
+      "bytes": 980,
+      "sha256": "77e977719c750906e65afd533915d4a37979d480143d92e833efd85c93853768"
+    },
+    {
+      "path": "docker-compose.production.yml",
+      "bytes": 1732,
+      "sha256": "751179455d0696fc9b5b02c08a7231c2b8fd9df8bf9dae6170aa3102e519bf40"
+    },
+    {
+      "path": "docs/backup-restore.md",
+      "bytes": 1302,
+      "sha256": "50abcb8621b74eb2a3190b35550c1541c376819cadf2da1c988ad8a1f66d81b2"
+    },
+    {
+      "path": "docs/vps-preparation/ops-01/server-readiness.md",
+      "bytes": 15178,
+      "sha256": "d287e9599fc5c4c3a51232b655a9e2b30b6b5d8185f2146c73510b2004584c62"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-02/operator-runbook.md",
+      "bytes": 6385,
+      "sha256": "533af0fea48ccd100c42834c85ca9d3cc9e195593bbc549414f596222ac1eba0"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-02/pending-runtime.md",
+      "bytes": 2541,
+      "sha256": "016003915a01454b6285e9a4ca7ec49cd6fa098ae635c687e5ba113661f83d1c"
+    },
+    {
+      "path": "docs/vps-preparation/vps-tech-01/change-summary.md",
+      "bytes": 1769,
+      "sha256": "ad70f8470fbe5ea2a2e40e8f61f81435bfcbf040311520816e12fc702f880771"
+    },
+    {
+      "path": "docs/vps-preparation/vps-tech-01/config-map.md",
+      "bytes": 6736,
+      "sha256": "d3a966aa0b7aa5e33fc5ff9be4b1cff395b1ad9fd433d0a9d77f9bdd6cfcfe2c"
+    },
+    {
+      "path": "docs/vps-preparation/vps-tech-01/plan.md",
+      "bytes": 7944,
+      "sha256": "0ad963ee87bdf7ad86d38bb020010ce9638532741f1f35a35f5ec14aefde7c5a"
+    },
+    {
+      "path": "docs/vps-preparation/vps-tech-01/release-inventory.json",
+      "bytes": 55971,
+      "sha256": "cb9abf5257f10f70fca118f4fba6c02d99bb030785576577436490e9d9b95b9d"
+    },
+    {
+      "path": "docs/vps-preparation/vps-tech-01/report.md",
+      "bytes": 7341,
+      "sha256": "83b7c941d1f9e075430927246bc37a3fd406168bd510aa15bab917054943368c"
+    },
+    {
+      "path": "docs/vps-preparation/vps-tech-01/review-pack-manifest.json",
+      "bytes": 18879,
+      "sha256": "29027e8da25c24bae66c4d53087020aa8cbb4b678c0304d28bf4bc1245940fdc"
+    },
+    {
+      "path": "docs/vps-preparation/vps-tech-01/source-preflight.json",
+      "bytes": 1518,
+      "sha256": "a81b6d78c1311b944d648256736f5687916a91671850374be02e6d9eade749c7"
+    },
+    {
+      "path": "frontend/Dockerfile.production",
+      "bytes": 576,
+      "sha256": "c9d743aa726c122bddaae60892fe672a60866e4ba76e6ef782a25ddb6836a79e"
+    },
+    {
+      "path": "frontend/nginx.production.conf",
+      "bytes": 316,
+      "sha256": "b8e71fbf84141c17edb02c08c4eb937e9b9f179cbb5e1a9783309625ec621fc9"
+    },
+    {
+      "path": "frontend/package.json",
+      "bytes": 11486,
+      "sha256": "25cd2438cf96e2609e44a507db29d2de9707f0b4512b1e336d5acec0869ca117"
+    },
+    {
+      "path": "frontend/src/api/client.ts",
+      "bytes": 12093,
+      "sha256": "4566684c03343122a1efd1935326454f65eaa0f3d9d3de3389569a40b2f394c1"
+    },
+    {
+      "path": "frontend/src/ws/client.ts",
+      "bytes": 9732,
+      "sha256": "3882659a98ad6bd0971bf3881967831c225130552cb53fb7ba6d5864a9479c26"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 256102,
+      "sha256": "42f9edd28e9901021f29e36529ab276e7aaae427809a7f9ce54da5a49ecdb523"
+    },
+    {
+      "path": "package.json",
+      "bytes": 5624,
+      "sha256": "a199ad4d4f4a6bb03c398fdb09da288c489c5ce460c5f83b65d016213a30b5d6"
+    },
+    {
+      "path": "setup/deployment-context.js",
+      "bytes": 3802,
+      "sha256": "c15bb87e7fca40e64a8b52089955cefe18aa4c3d4b6ba207aeb6004a3fcc6f93"
+    },
+    {
+      "path": "setup/storage-contract.js",
+      "bytes": 6165,
+      "sha256": "a445eb752629941c2f03bb0a42e8b73b203ac109a1ae4cb746796259ca8041ac"
+    },
+    {
+      "path": "setup/zavod-setup.js",
+      "bytes": 54374,
+      "sha256": "e4b50e68ce55e245b205c341b35fdb3eef481861c2ca7f38b6e636ba369e1bed"
+    }
+  ],
+  "atUtc": "2026-09-28T05:57:53.873Z"
+}

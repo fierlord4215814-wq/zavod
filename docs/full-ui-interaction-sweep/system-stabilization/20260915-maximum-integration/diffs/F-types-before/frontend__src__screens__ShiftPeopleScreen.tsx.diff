@@ -1,0 +1,34 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-types-before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+index 0579c040..7ead8c03 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-types-before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+@@ -597,18 +597,13 @@ const stateMeta: Record<ShiftPerson['employeeState'], { label: string; tag: stri
+ 
+ const activePersonStates: ShiftPerson['employeeState'][] = ['ASSIGNED', 'WASHING', 'TIME_ROLE'];
+ 
+-const statusLabels: Record<Line['status'], string> = {
++// LineEvent.status follows the backend enum; planning is a separate read model.
++const statusLabels: Record<'WORK' | 'PAUSE' | 'STOP', string> = {
+   WORK: 'Работает',
+   PAUSE: 'Простой',
+   STOP: 'Остановлена',
+ };
+ 
+-const statusTag: Record<Line['status'], string> = {
+-  WORK: 'work',
+-  PAUSE: 'pause',
+-  STOP: 'stop',
+-};
+-
+ const canonicalLineStateMeta: Record<NonNullable<Line['operationalState']>, { label: string; tag: string }> = {
+   RUNNING: { label: 'Работает', tag: 'work' },
+   DOWNTIME: { label: 'Простой', tag: 'pause' },
+@@ -750,7 +745,7 @@ export type ShiftTaskReturn = {
+   parentScroll?: Array<{ selector: string; top: number; left: number }>;
+   pageTop?: number;
+ };
+-const taskReturnScrollSelectors = ['.current-people-panel', '.line-assignment-scroll', '.work-area-assignment-scroll', '.planning-assignment-scroll', '.future-assignment-scroll'];
++const taskReturnScrollSelectors = ['.current-people-panel', '.quick-assignment-sheet', '.compact-line-dashboard', '.work-area-assignment-board', '.planning-assignment-scroll', '.future-nonline-assignment-modal'];
+ type ShiftPeopleScreenProps = { mode?: 'workspace' | 'history'; taskReturn?: ShiftTaskReturn };
+ 
+ const MONTH_NAMES = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];

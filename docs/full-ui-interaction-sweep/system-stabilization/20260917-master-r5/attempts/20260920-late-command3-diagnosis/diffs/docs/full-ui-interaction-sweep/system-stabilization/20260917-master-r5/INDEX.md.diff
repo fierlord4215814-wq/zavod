@@ -1,0 +1,12 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\INDEX.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\INDEX.md"
+index 79f3168b..edeb56c0 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\INDEX.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\INDEX.md"
+@@ -1,4 +1,6 @@
+-# MASTER R5 — текущий existing-VM checkpoint20.09.2026 16:34+03
++# MASTER R5 — текущий checkpoint: late command 3 diagnosis,20.09.2026
++
++CURRENT=WAITING_GUEST_READ_ONLY_DIAGNOSTICS / NOT_ACCEPTED. [Точная source-first диагностика](attempts/20260920-late-command3-diagnosis/diagnosis.md), [argv/parse-only receipts](attempts/20260920-late-command3-diagnosis/source-diagnosis.json), [runtime](attempts/20260920-late-command3-diagnosis/runtime-observation.json), [resume](resume-prompt.txt). Пять argv вместо трёх/unmatchedquote доказаны; source correction только candidate, VM/seed неизменны. Следующий ручной шаг Help→Enter shell в ownVMConnect, кадрприглашения/безкоманд. До guestlog/targetreadback никаких reboot/shutdown/reinstall. Старый9056 завершён18:03, не смешивать с историей16:34 ниже. Все4старыхZIP сохранены; последний observation ZIP **не включает новую late3 диагностику**. Полная R5 серия остаётся впереди, main sweep paused. Ниже — сохранённый указатель предыдущего checkpoint и его пакета.
+ 
+ MASTER_R5_STATUS=BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS; GOAL_ACCEPTANCE=NOT_ACCEPTED. Main UI Sweep PAUSED_BY_USER / NOT_ACCEPTED. Не Pilot Ready, не новый sweep.
+ 

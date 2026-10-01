@@ -1,0 +1,52 @@
+{
+  "body": {
+    "type": "URGENT",
+    "description": "Учебная проверка потери HTTP ответа",
+    "assigneeUserIds": [
+      "384dc80d-d254-423c-bf0a-4d6ba72415dd"
+    ],
+    "departmentRecipientIds": [],
+    "operationId": "task-notify-01-lost-response"
+  },
+  "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+  "before": {
+    "tasks": [
+      {
+        "id": "a2596cd3-5939-44f8-a0d3-ee4f60ffe7b7",
+        "status": "NEW",
+        "operationId": "task-notify-01-lost-response"
+      }
+    ],
+    "processed": [
+      {
+        "id": "d882ca87-84db-4592-b7a1-2d4e97e922b1",
+        "resultKey": "a2596cd3-5939-44f8-a0d3-ee4f60ffe7b7"
+      }
+    ],
+    "history": [
+      {
+        "id": "75dfbc3c-be29-4c4d-8753-5e280a6a16af",
+        "taskId": "a2596cd3-5939-44f8-a0d3-ee4f60ffe7b7",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "audit": [
+      {
+        "id": "ecf8f6f0-4d5c-488d-83e0-643b61729ea2",
+        "entityId": "a2596cd3-5939-44f8-a0d3-ee4f60ffe7b7",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "notifications": [
+      {
+        "id": "8183df1c-31d6-43da-bf75-bacabc3b0c36",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "departmentId": null,
+        "type": "TASK_CREATED",
+        "entityId": "a2596cd3-5939-44f8-a0d3-ee4f60ffe7b7",
+        "createdAt": "2026-09-26T23:11:39.381Z"
+      }
+    ]
+  }
+}

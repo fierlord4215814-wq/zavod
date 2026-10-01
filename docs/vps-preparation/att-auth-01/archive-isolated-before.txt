@@ -1,0 +1,39 @@
+✖ archive-only reader receives archive bytes, not ordinary active file/write rights (4.8741ms)
+✖ immutable handover stays readable, no upload/deactivation even ADMIN (1.3156ms)
+✔ ordinary ShiftLog read/write rights and department scope preserved (3.0089ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 424.2819
+
+✖ failing tests:
+
+test at backend\scripts\att-auth-01-archive.test.cjs:6:1
+✖ archive-only reader receives archive bytes, not ordinary active file/write rights (4.8741ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01-archive.test.cjs:6:169)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01-archive.test.cjs:7:1
+✖ immutable handover stays readable, no upload/deactivation even ADMIN (1.3156ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01-archive.test.cjs:7:324)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

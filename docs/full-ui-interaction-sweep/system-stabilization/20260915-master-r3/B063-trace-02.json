@@ -1,0 +1,59 @@
+{
+  "startedAt": "2026-09-15T19:44:32.420Z",
+  "expected": [
+    {
+      "title": "R3-B063 original MASTER390x640 return-people-after-unlock causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "4da2d68a7f00"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-after-people causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "b96b6a2c55b9"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-B063 original MASTER390x640 return-people-after-unlock causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "4da2d68a7f00",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 11789,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1286\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 8000ms exceeded while waiting on the predicate"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\B063-trace-02\\runner-artifacts\\master-r3-navigation-R3-B0-052c1-er-unlock-causal-first-pass\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\B063-trace-02\\runner-artifacts\\master-r3-navigation-R3-B0-052c1-er-unlock-causal-first-pass\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-after-people causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "b96b6a2c55b9",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3836,
+      "errors": [],
+      "attachments": []
+    }
+  ],
+  "finishedAt": "2026-09-15T19:44:51.385Z",
+  "status": "failed",
+  "listOnly": false
+}

@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-08-12T00:38:53.024Z",
+  "marker": "__PFFV5_P10_1786494965172-19a73a__",
+  "runId": "1786494965172-19a73a",
+  "uiCreates": [
+    "Пользователь: штатная саморегистрация через экран регистрации",
+    "Локальный отдел",
+    "Дерево должностей MASTER → WORKER",
+    "Производственная линия",
+    "Три позиции линии A/B/C",
+    "Шаблон состава A×2 + B×1 + C×2",
+    "Старший мастер: дубликат шаблона через scoped control plane",
+    "Чек-лист отдела через конструктор",
+    "Закрытый групповой чат с двумя участниками",
+    "Заявка в тестовый отдел",
+    "Объявление для выбранного отдела"
+  ],
+  "uiReads": [
+    "Post-cleanup: Люди",
+    "Post-cleanup: Линии",
+    "Post-cleanup: Смена",
+    "Post-cleanup: Заявки",
+    "Post-cleanup: Чаты",
+    "Post-cleanup: Чек-листы",
+    "Post-cleanup: Уведомления",
+    "Post-cleanup: picker будущей смены без деактивированной линии",
+    "Post-cleanup: конструктор объявления без деактивированного отдела"
+  ],
+  "uiUpdates": [
+    "Режим смены тестовой должности",
+    "Гостевой доступ назначен как WORKER в тестовый отдел и должность",
+    "Название тестовой линии",
+    "Название и состав тестового шаблона",
+    "Старший мастер: редактирование и назначение основного состава",
+    "Marker-пользователь переведён через админку из WORKER в eligible-роль ОКК для department checklist",
+    "Пользователь: block/unblock и factory-access deactivate/restore"
+  ],
+  "consumers": [
+    "Линии и текущая смена: основной шаблон 5 мест",
+    "slot-first: тестовый сотрудник назначен штатной кнопкой",
+    "person-first: тот же canonical состав из 5 свободных слотов; повторное быстрое назначение не выполняется из-за штатного anti-churn guard",
+    "Будущая смена: тестовая линия доступна в штатном picker без создания незакрываемого плана",
+    "Чек-лист: получен пользователем ОКК, выполнен и закрыт через focused runner",
+    "Чат: realtime preview, unread и чтение вторым участником без reload",
+    "Заявки: отдел из админского справочника доступен получателем",
+    "Объявление: получатель отдела видит и подтверждает, другой отдел не видит"
+  ],
+  "denials": [
+    "Обычный мастер: UI скрыт, прямой API 403, cross-factory 403",
+    "Работник: UI скрыт, прямой API 403, cross-factory 403"
+  ],
+  "cleanup": [
+    "Чек-лист архивирован штатно",
+    "Заявка завершена штатно",
+    "Объявление архивировано штатно",
+    "Чат архивирован штатно, сообщения сохранены",
+    "Тестовая линия остановлена до деактивации",
+    "Тестовый пользователь заблокирован, доступ к заводу отключён",
+    "Шаблоны, позиции, линия, должности и отдел деактивированы штатно"
+  ],
+  "screenshots": [
+    "01-admin-organization-and-template-desktop.png",
+    "02-senior-master-default-template-desktop.png",
+    "03-current-shift-assignment-390.png",
+    "04-checklist-complete-390.png",
+    "05-chat-realtime-390.png",
+    "06-announcement-audience-390.png",
+    "07-audit-post-cleanup-390.png"
+  ],
+  "physicalDeletes": 0,
+  "directDatabaseWrites": 0,
+  "migrationCreated": false,
+  "finalStates": {
+    "user": "blocked; factory access inactive; history retained",
+    "department": "deactivated",
+    "jobTitles": "deactivated child-first",
+    "line": "stopped then deactivated",
+    "positions": "deactivated",
+    "templates": "deactivated; default link cleared by canonical admin service",
+    "checklist": "run completed; template archived",
+    "chat": "archived; messages retained",
+    "task": "DONE",
+    "announcement": "archived; acknowledgement retained"
+  },
+  "runtime": {
+    "startedAt": "2026-08-13T09:58:10.2838484+03:00",
+    "publicUrl": "https://reload-layer-url-helping.trycloudflare.com",
+    "publicHealthUrl": "https://reload-layer-url-helping.trycloudflare.com/api/health",
+    "backendPid": 8684,
+    "frontendPid": 13592,
+    "tunnelPid": 8828,
+    "keepAwakePid": 4416,
+    "serviceWorkerVersion": "zavod-shell-v6",
+    "externalSmoke": {
+      "frontend": "PASS",
+      "health": "PASS",
+      "sameOriginAuth": "PASS",
+      "websocket": "PASS",
+      "secureContext": "PASS",
+      "publicLocalNetworkTargets": 0,
+      "forbiddenFieldsPresent": false
+    },
+    "qr": "physical-recheck-qr.png",
+    "physicalPhoneGate": "PENDING"
+  },
+  "internal": {
+    "userId": "88877bcc-89bc-4611-bf4b-3707fc2d876d",
+    "departmentId": "d40a9c0f-c91e-45da-a867-98107a0da952",
+    "seniorTitleId": "9f5059fe-18d9-4b21-b513-10ed0d23a327",
+    "workerTitleId": "62acb3e1-1bbd-44d5-a911-c93d521875a0",
+    "lineId": "aed1b920-7ccb-4a4d-8589-bf6873fa1b9b",
+    "positionIds": [
+      "f6baca49-b8e9-4aa7-bf41-9c3ab567abfd",
+      "e150a708-5f89-4498-96c3-77614c8f15de",
+      "f26900ed-3c2a-4a7c-bfdc-5d475d7811a1"
+    ],
+    "templateIds": [
+      "22b26502-c03b-4e4f-acb8-3bf50b8de87f",
+      "47fb7434-6464-450c-b902-cc51aaf59875"
+    ],
+    "checklistTemplateId": "afe654e1-782b-41be-a2a4-c23ad387f111",
+    "checklistRunId": "9d0a4350-5213-4c56-8b48-4a28d2c4c56e",
+    "chatId": "b9ed2355-b56c-46e6-b69c-d08db8c1d3b4",
+    "taskId": "b1592051-960e-41a0-906f-84d425ac69e2",
+    "announcementId": "871720b7-100c-499d-bc47-d86384ab7ae8"
+  }
+}

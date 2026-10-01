@@ -1,0 +1,12 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\H-settings-harness-before\\frontend\\e2e\\review-variants.spec.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\review-variants.spec.ts"
+index 98cf4790..bb6289f2 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\H-settings-harness-before\\frontend\\e2e\\review-variants.spec.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\review-variants.spec.ts"
+@@ -13,6 +13,7 @@ test('Master 063 dirty source intent Stay preserves draft and confirmed leave op
+ });
+ 
+ async function settings(page:Page){
++  await expect(page.locator('.bottom-nav,.mobile-quick-nav').filter({visible:true}).first()).toBeVisible();
+   const desktop=page.locator('.nav-settings-button');
+   if(await desktop.isVisible())await desktop.click();else{await page.getByRole('button',{name:'Ещё',exact:true}).click();await page.locator('.mobile-nav-sheet').getByRole('button',{name:'Настройки',exact:true}).click();}
+   await expect(page.locator('.device-access-panel')).toBeAttached();

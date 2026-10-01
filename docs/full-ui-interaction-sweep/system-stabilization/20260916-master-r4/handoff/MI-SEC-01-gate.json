@@ -1,0 +1,1186 @@
+{
+  "productFingerprint": "6ae29f473c26b5d0dbe657f52c32cfebaff3c198abd5bb177eedf81e0ab1cfdc",
+  "id": "MI-SEC-01",
+  "owners": [
+    {
+      "path": "backend/src/modules/task/task.service.ts",
+      "sha256": "947de3145e4116d5d9df56dd58d63bce90df3638dd91ab38e585bdded925acd3",
+      "bytes": 45887
+    },
+    {
+      "path": "backend/src/modules/wash/wash.service.ts",
+      "sha256": "a06bcaa0e1e47b7ea3a1878d7f457c7a6e821f9b5cf4bcb959d4770e55e40957",
+      "bytes": 76356
+    },
+    {
+      "path": "backend/src/common/operation-lock.ts",
+      "sha256": "5560e30c00fcc661f1dc857c021c6f7e75f4cf873765f638442fb52b644d73d7",
+      "bytes": 3507
+    }
+  ],
+  "required": "Commit/lost response/same intent replay/completed result; null/missing/foreign type/factory/current revoked blocked deleted; same and different keys with actual SQL unique/advisory/row locking; no duplicate mutation/fanout. Opaque kind/input ambiguity remains decision.",
+  "witnesses": [
+    {
+      "id": "96383891b5ac0c0a",
+      "title": "R2-A related Employee LINE replay positive-ended",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0a3d4a3412c8a741",
+      "title": "R2-A related Employee LINE replay foreign-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "188bf125a054942a",
+      "title": "R2-A related Employee LINE replay different-worker",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "ecf7b09ce8904278",
+      "title": "R2-A related Employee LINE replay different-target",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "408ba011fe234cfa",
+      "title": "R2-A related Employee LINE replay wrong-kind",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8320a921a7138155",
+      "title": "R2-A related Employee LINE replay revoked-worker",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4f2f55d5bde301f1",
+      "title": "R2-A related Employee LINE replay deleted-target",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "516b7bf2e82eea09",
+      "title": "R2-A related Employee LINE replay missing-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "64d66401409a6cec",
+      "title": "R2-A related Employee WASH replay positive-ended",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a77742eb4836a1fe",
+      "title": "R2-A related Employee WASH replay foreign-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1ca7afab2902f5c1",
+      "title": "R2-A related Employee WASH replay different-worker",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "ee62dcbf0cbf9357",
+      "title": "R2-A related Employee WASH replay different-target",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a8779efd82e4d16f",
+      "title": "R2-A related Employee WASH replay wrong-kind",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e3f6dc30a40a7515",
+      "title": "R2-A related Employee WASH replay revoked-worker",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "64cbb9ad6285ebd5",
+      "title": "R2-A related Employee WASH replay deleted-target",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2f5df276c8047c61",
+      "title": "R2-A related Employee WASH replay missing-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6e6447cfe3a82c41",
+      "title": "R2-A related Employee WORK_AREA replay positive-ended",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9bd06e6831643991",
+      "title": "R2-A related Employee WORK_AREA replay foreign-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "bbb27919cf8e3027",
+      "title": "R2-A related Employee WORK_AREA replay different-worker",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "09b21115b41e2461",
+      "title": "R2-A related Employee WORK_AREA replay different-target",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "f4dde92218b55846",
+      "title": "R2-A related Employee WORK_AREA replay wrong-kind",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a560aa4e88f360d0",
+      "title": "R2-A related Employee WORK_AREA replay revoked-worker",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9a62ba9c5725a598",
+      "title": "R2-A related Employee WORK_AREA replay deleted-target",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "93b8ec5081a1f188",
+      "title": "R2-A related Employee WORK_AREA replay missing-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "02c76434e4947887",
+      "title": "R2-A related Employee TIME work-area is a valid existing assignToWorkArea result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0041c227850875ba",
+      "title": "R2-A related Chat leave replay current-visible",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "84dc55dce669c7cc",
+      "title": "R2-A related Chat leave replay foreign-factory",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "dd1054157105d73c",
+      "title": "R2-A related Chat leave replay membership-revoked",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d930f3404fdb6e82",
+      "title": "R2-A related Chat leave replay different-member-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "22f20651ebd686ef",
+      "title": "R3-C3 contractor submission saved-result across 08:00 retains existing time policy",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0666efe772b9607c",
+      "title": "R3-C3 contractor actual-status saved-result across 08:00 retains existing time policy",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "f626b645364e9f8c",
+      "title": "R3-C3 contractor current-arrival saved-result across 08:00 retains existing time policy",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e2e5c48cfdca6ffb",
+      "title": "R3-C3 contractor submission saved-result across 20:00 retains existing time policy",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "88651b3f55d88a0e",
+      "title": "R3-C3 contractor actual-status saved-result across 20:00 retains existing time policy",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "5ad6f447d3a4bbf4",
+      "title": "R3-C3 contractor current-arrival saved-result across 20:00 retains existing time policy",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a331dbfeb5a03c8a",
+      "title": "R3-C3 contractor submission saved-result across 00:00 retains existing time policy",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7849f097895d256f",
+      "title": "R3-C3 contractor actual-status saved-result across 00:00 retains existing time policy",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "fe76812372d2a95a",
+      "title": "R3-C3 contractor current-arrival saved-result across 00:00 retains existing time policy",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "14e3c55968a7c464",
+      "title": "R2-A related Contractor submission replay positive",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8135365a693ad67f",
+      "title": "R2-A related Contractor submission replay foreign-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "71ffeaf6c49f7c40",
+      "title": "R2-A related Contractor submission replay different-company",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9eaf0ee265960315",
+      "title": "R2-A related Contractor submission replay different-worker-or-submission",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "60cbc80265205fa8",
+      "title": "R2-A related Contractor submission replay missing-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d2ac5f5baef90aa7",
+      "title": "R2-A related Contractor actual-status replay positive",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "f566aa03b49dcdc2",
+      "title": "R2-A related Contractor actual-status replay foreign-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "345be7dd05f43c47",
+      "title": "R2-A related Contractor actual-status replay different-company",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "ebc0d65a2bf31bea",
+      "title": "R2-A related Contractor actual-status replay different-worker-or-submission",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e334fa196aeea2b7",
+      "title": "R2-A related Contractor actual-status replay missing-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4283eeccd305c863",
+      "title": "R2-A related Contractor current-arrival replay positive",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "c1a0ce65be43c102",
+      "title": "R2-A related Contractor current-arrival replay foreign-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8c1735560a151724",
+      "title": "R2-A related Contractor current-arrival replay different-company",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b8f5123b96e1f833",
+      "title": "R2-A related Contractor current-arrival replay different-worker-or-submission",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a414dadb06fe1d10",
+      "title": "R2-A related Contractor current-arrival replay missing-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "3137dd11a224885c",
+      "title": "R2-A related releaseFutureShiftAssignment replay positive-released",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "629ab47b1fa41242",
+      "title": "R2-A related releaseFutureShiftAssignment replay wrong-requested-id",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a072c61913dcdd16",
+      "title": "R2-A related releaseFutureShiftAssignment replay foreign-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "bcdf89a4eff6d37d",
+      "title": "R2-A related Checklist completeRow replay positive-closed",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "5119ed8729d8abd6",
+      "title": "R2-A related Checklist completeRow replay foreign-factory",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "02eb8e1742a57f1b",
+      "title": "R2-A related Checklist completeRow replay wrong-department",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0f074dba426fecf7",
+      "title": "R2-A related Checklist completeRow replay different-owner",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1762790cb4f21e4c",
+      "title": "R2-A related Checklist completeRow replay missing-result",
+      "file": "backend/scripts/master-r2-related-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1ad4a2fdc1215475",
+      "title": "R2-A Task create: first success lost-response subsequent-state replay keeps one mutation",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "29d6707e3ba22031",
+      "title": "R2-A Task create: deny foreign-factory without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4e558b5a0dc98c81",
+      "title": "R2-A Task create: deny deleted-entity without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "91f17299ef9e99ea",
+      "title": "R2-A Task create: deny object-revoked without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "fa0a3e94a636b318",
+      "title": "R2-A Task create: deny wrong-result-type without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4f843c50683819cc",
+      "title": "R2-A Task create: deny wrong-requested-entity without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0239f06cb30cc34d",
+      "title": "R2-A Task create: deny missing-result-key without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "22533b04180e36bb",
+      "title": "R2-A Task take: first success lost-response subsequent-state replay keeps one mutation",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4f6aba09a0a26e90",
+      "title": "R2-A Task take: deny foreign-factory without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "f08202b839a647e9",
+      "title": "R2-A Task take: deny deleted-entity without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2f750b3b3fdc5351",
+      "title": "R2-A Task take: deny object-revoked without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e7529167462d1f8c",
+      "title": "R2-A Task take: deny wrong-result-type without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a9e58608061793eb",
+      "title": "R2-A Task take: deny wrong-requested-entity without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "56731b7229b7e7cb",
+      "title": "R2-A Task take: deny missing-result-key without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "5b7113b3d9a3c9cb",
+      "title": "R2-A Task complete: first success lost-response subsequent-state replay keeps one mutation",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "06dd7c8f76ddbbdb",
+      "title": "R2-A Task complete: deny foreign-factory without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8870af907b8120fa",
+      "title": "R2-A Task complete: deny deleted-entity without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "3a7a2c3172d53d1c",
+      "title": "R2-A Task complete: deny object-revoked without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "19897e5a225cc875",
+      "title": "R2-A Task complete: deny wrong-result-type without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "3a99e2005d4c4f30",
+      "title": "R2-A Task complete: deny wrong-requested-entity without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "5ca4cd1753e0d44f",
+      "title": "R2-A Task complete: deny missing-result-key without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7f9f03317f055295",
+      "title": "R2-A Task redirect: first success lost-response subsequent-state replay keeps one mutation",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "185d66e870c9022c",
+      "title": "R2-A Task redirect: deny foreign-factory without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "00ae6caa5ee4c927",
+      "title": "R2-A Task redirect: deny deleted-entity without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "ce169782b8abb299",
+      "title": "R2-A Task redirect: deny object-revoked without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "3b4dd3ee46553c0b",
+      "title": "R2-A Task redirect: deny wrong-result-type without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e828dc4d19958f51",
+      "title": "R2-A Task redirect: deny wrong-requested-entity without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8c10fa45d89a5ac5",
+      "title": "R2-A Task redirect: deny missing-result-key without DTO audit notification fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "aed5e51976e86528",
+      "title": "R2-A Task foreign operation owner cannot consume prior result; current actor still performs own authorized action",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "19c31c086baa57b2",
+      "title": "R2-A Task deterministic same/different operation interleavings preserve single create/take and adapter retry",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6025204d61605ef0",
+      "title": "R2-A actual current identity and endpoint guards deny blocked before service",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1ad47e93829cf950",
+      "title": "R2-A actual current identity and endpoint guards deny deleted before service",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0203b15252da8f49",
+      "title": "R2-A actual current identity and endpoint guards deny revoked before service",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7b912cc41da8fa49",
+      "title": "R2-A actual current identity and endpoint guards deny factory-inactive before service",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "124b8329040ca822",
+      "title": "R2-A actual current identity and endpoint guards deny factory-deleted before service",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0ec3538022eb756a",
+      "title": "R2-A actual current identity and endpoint guards deny guest before service",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "44a5c27a09d7adf8",
+      "title": "R2-A actual current identity and endpoint guards deny no-capability before service",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4230125776978e33",
+      "title": "R2-A Wash createRequest: first success lost-response subsequent-state replay no second business mutation",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2951f13d66dfeb8f",
+      "title": "R2-A Wash createRequest: deny foreign-factory without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "24c61cd4f0258e2c",
+      "title": "R2-A Wash createRequest: deny deleted-entity without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6bb6d69cf9df1dfc",
+      "title": "R2-A Wash createRequest: deny wrong-result-type without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "55c8575d0b6ff5b1",
+      "title": "R2-A Wash createRequest: deny wrong-parent-or-target without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e6f58bf557abb6e5",
+      "title": "R2-A Wash startWash: first success lost-response subsequent-state replay no second business mutation",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7d07fd962c88441e",
+      "title": "R2-A Wash startWash: deny foreign-factory without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "c4389ba6d30135b1",
+      "title": "R2-A Wash startWash: deny deleted-entity without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9b863a1c27bb21c9",
+      "title": "R2-A Wash startWash: deny wrong-result-type without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4a8a524c449d5017",
+      "title": "R2-A Wash startWash: deny wrong-parent-or-target without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4e78e448c9658d03",
+      "title": "R2-A Wash startWash: deny missing-result-key without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b396e71243a366a8",
+      "title": "R2-A Wash addMessage: first success lost-response subsequent-state replay no second business mutation",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6b065ee53fd313d7",
+      "title": "R2-A Wash addMessage: deny foreign-factory without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "979e6505ae067255",
+      "title": "R2-A Wash addMessage: deny deleted-entity without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "564ce585e5a8e7b1",
+      "title": "R2-A Wash addMessage: deny wrong-result-type without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2ed73f8e097c0635",
+      "title": "R2-A Wash addMessage: deny wrong-parent-or-target without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7448bc3258263fee",
+      "title": "R2-A Wash addMessage: deny missing-result-key without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "90dc5504df6cd872",
+      "title": "R2-A Wash addIssue: first success lost-response subsequent-state replay no second business mutation",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "bce3462e90b3684b",
+      "title": "R2-A Wash addIssue: deny foreign-factory without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1668fda70d5f6a72",
+      "title": "R2-A Wash addIssue: deny deleted-entity without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "3cef0ac086f3c6ce",
+      "title": "R2-A Wash addIssue: deny wrong-result-type without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "bd3fb65e44518f12",
+      "title": "R2-A Wash addIssue: deny wrong-parent-or-target without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "708af10c5b9a5ebe",
+      "title": "R2-A Wash addIssue: deny missing-result-key without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b3bc085443f3e698",
+      "title": "R2-A Wash completeWash: first success lost-response subsequent-state replay no second business mutation",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "14d5a3fe609a0570",
+      "title": "R2-A Wash completeWash: deny foreign-factory without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7f64b2d9ab100d27",
+      "title": "R2-A Wash completeWash: deny deleted-entity without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1195328c2d811119",
+      "title": "R2-A Wash completeWash: deny wrong-result-type without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "79506ce985157c24",
+      "title": "R2-A Wash completeWash: deny wrong-parent-or-target without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4cd5a734c48a6d0b",
+      "title": "R2-A Wash completeWash: deny missing-result-key without payload or fanout",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e23bbf4ad684444b",
+      "title": "R2-A Wash issue adapter failure retry only re-enters existing notification recovery, one issue",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "3168365d8c7944a2",
+      "title": "R2-A Task comment replay current-read-after-redirect",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "028293bb4f0e1da2",
+      "title": "R2-A Task comment replay deleted-comment",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e975643d11338371",
+      "title": "R2-A Task comment replay different-author",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e60a46abcc9214c6",
+      "title": "R2-A Task comment replay different-parent",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8ca98330abc4c4d7",
+      "title": "R2-A Task comment replay missing-result-key",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "5444985f52419cac",
+      "title": "R2-A Wash deterministic same/different start IDs never start second occupied target",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "608068726dbafaa8",
+      "title": "R3-C2 Wash direct request key denies changed objectName",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "07ba28ad2484c97f",
+      "title": "R3-C2 Wash direct request key denies changed objectDescription",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "389eaac2a006d4c3",
+      "title": "R3-C2 Wash direct request key denies changed description",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "658d66d2decef8ad",
+      "title": "R3-C2 Wash direct request key denies changed priority",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6606a3326ca51240",
+      "title": "R3-C2 Wash direct request key denies changed dueAt",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d6a6eb516a876127",
+      "title": "R3-C2 Wash direct request key denies changed comment",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6cbd67fc58bde063",
+      "title": "R3-C2 Wash direct request key denies changed targetType",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "648e7701251577cd",
+      "title": "R3-C2 Wash direct request replay normalizes equivalent whitespace and dates without a second write",
+      "file": "backend/scripts/master-r2-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "cd967732c5462e4b",
+      "title": "R2-E-J06 actual create take redirect take complete feeds same Notifications board detail archive Ops",
+      "file": "backend/scripts/master-r2-task-chain.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d0974f59fe84b2e0",
+      "title": "MI-SEC-01 processed Task take replay must not return another selected factory entity",
+      "file": "backend/scripts/master-task-replay-boundary.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    }
+  ],
+  "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+  "isolated": {
+    "cases": 144,
+    "status": "SCOPED_REVALIDATED_NOT_LIVE"
+  },
+  "liveTestStack": {
+    "cases": 0,
+    "status": "NOT_RUN_BLOCKED_ENV_C1_TECHNICAL_ISOLATION_UNAVAILABLE"
+  },
+  "physical": "PENDING"
+}

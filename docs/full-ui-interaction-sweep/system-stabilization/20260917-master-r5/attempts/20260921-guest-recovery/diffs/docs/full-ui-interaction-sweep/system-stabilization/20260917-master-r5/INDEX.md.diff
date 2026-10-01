@@ -1,0 +1,21 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\INDEX.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\INDEX.md"
+index edeb56c0..298985a2 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\INDEX.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\INDEX.md"
+@@ -1,4 +1,15 @@
+-# MASTER R5 — текущий checkpoint: late command 3 diagnosis,20.09.2026
++# MASTER R5 — текущий checkpoint: guest recovery,21.09.2026
++
++CURRENT=BLOCKED_TOOL_CAPABILITY / NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. FINAL_STOP=STOP. [Единый полный отчёт](final-report.md), [checkpoint](progress.md), [resume](resume-prompt.txt), [current detailed result](attempts/20260921-guest-recovery/result.md).
++
++- [Actual VM/soleVHDX/Off/jobs](attempts/20260921-guest-recovery/actual-vm.json), [attached seed redacted argv](attempts/20260921-guest-recovery/actual-seed-redacted.json).
++- [7PASS/3BLOCKED generator checks](attempts/20260921-guest-recovery/run-03-consistent-status/generator-results.json), [runtime/channel boundary](attempts/20260921-guest-recovery/environment-runtime-receipt.json).
++- [Source delta/before-after](attempts/20260921-guest-recovery/source-delta-manifest.json), [changed files](attempts/20260921-guest-recovery/changed-files.txt), [retention/frozen identities](attempts/20260921-guest-recovery/final-identities.json).
++- [Один новый review ZIP](zavod-master-r5-guest-recovery-20260921.zip), [SHA/size/full entry readback receipt](attempts/20260921-guest-recovery/package-receipt.json), [manifest/exclusions](attempts/20260921-guest-recovery/package-manifest.json). ZIP включает новую диагностику20.09 и21.09;4старыхZIP не перезаписаны, images/private runtime/секреты не включены.
++
++Source generator исправлен, **seed/guest не изменены**, Ubuntu не восстановлена. Все5gates/new real journeys/product regressions0. Нужен observable channel: свежий capture0x80004002/только title и SSH probe WSAEACCES не дают вывода. Предложен один diagnostic restart только Codex; гарантия capturefix не заявлена. VM Off последним readback16:09, no VM state change. Ниже прежние index/checkpoint сохранены исторически.
++
++## Исторический index20.09
+ 
+ CURRENT=WAITING_GUEST_READ_ONLY_DIAGNOSTICS / NOT_ACCEPTED. [Точная source-first диагностика](attempts/20260920-late-command3-diagnosis/diagnosis.md), [argv/parse-only receipts](attempts/20260920-late-command3-diagnosis/source-diagnosis.json), [runtime](attempts/20260920-late-command3-diagnosis/runtime-observation.json), [resume](resume-prompt.txt). Пять argv вместо трёх/unmatchedquote доказаны; source correction только candidate, VM/seed неизменны. Следующий ручной шаг Help→Enter shell в ownVMConnect, кадрприглашения/безкоманд. До guestlog/targetreadback никаких reboot/shutdown/reinstall. Старый9056 завершён18:03, не смешивать с историей16:34 ниже. Все4старыхZIP сохранены; последний observation ZIP **не включает новую late3 диагностику**. Полная R5 серия остаётся впереди, main sweep paused. Ниже — сохранённый указатель предыдущего checkpoint и его пакета.
+ 

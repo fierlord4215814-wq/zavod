@@ -1,0 +1,453 @@
+{
+  "status": "PASS_CHARACTERIZED_RESOLVE_LOW_STOCK_DEDUPE_AND_SCANNER_RACE",
+  "cases": [
+    {
+      "kind": "done",
+      "id": "88a7f7e3-a868-4cbb-8ad9-1cd54b1b053f",
+      "before": [
+        {
+          "id": "e162fc50-048e-4f28-919b-4c67569814f2",
+          "type": "TASK_CREATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "88a7f7e3-a868-4cbb-8ad9-1cd54b1b053f",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:56.384Z"
+        }
+      ],
+      "changed": [
+        {
+          "id": "94cba229-e6c6-4137-b015-dc7d94a1d377",
+          "type": "TASK_DONE",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "88a7f7e3-a868-4cbb-8ad9-1cd54b1b053f",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:56.481Z"
+        },
+        {
+          "id": "e162fc50-048e-4f28-919b-4c67569814f2",
+          "type": "TASK_CREATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "88a7f7e3-a868-4cbb-8ad9-1cd54b1b053f",
+          "readAt": "2026-09-27T09:14:56.473Z",
+          "createdAt": "2026-09-27T09:14:56.384Z"
+        }
+      ],
+      "replay": [
+        {
+          "id": "94cba229-e6c6-4137-b015-dc7d94a1d377",
+          "type": "TASK_DONE",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "88a7f7e3-a868-4cbb-8ad9-1cd54b1b053f",
+          "readAt": "2026-09-27T09:14:56.541Z",
+          "createdAt": "2026-09-27T09:14:56.481Z"
+        },
+        {
+          "id": "e162fc50-048e-4f28-919b-4c67569814f2",
+          "type": "TASK_CREATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "88a7f7e3-a868-4cbb-8ad9-1cd54b1b053f",
+          "readAt": "2026-09-27T09:14:56.473Z",
+          "createdAt": "2026-09-27T09:14:56.384Z"
+        }
+      ],
+      "meaning": "Resolve ALL unread entity rows; unchanged DONE/CLOSE retry also marks the newly created completion notice read"
+    },
+    {
+      "kind": "close",
+      "id": "8def3df5-4eb7-49f9-9e03-79e7a1c5fbc7",
+      "before": [
+        {
+          "id": "5ceb437b-6031-4eb2-85a8-51ccb5197975",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8def3df5-4eb7-49f9-9e03-79e7a1c5fbc7",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:56.606Z"
+        },
+        {
+          "id": "a95a37d3-c88c-4071-ab8c-bce2238a04db",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8def3df5-4eb7-49f9-9e03-79e7a1c5fbc7",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:56.597Z"
+        }
+      ],
+      "changed": [
+        {
+          "id": "1468bc67-5d74-4354-94a7-724fc939f6bf",
+          "type": "ORDER_REQUEST_CLOSED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8def3df5-4eb7-49f9-9e03-79e7a1c5fbc7",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:56.652Z"
+        },
+        {
+          "id": "5ceb437b-6031-4eb2-85a8-51ccb5197975",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8def3df5-4eb7-49f9-9e03-79e7a1c5fbc7",
+          "readAt": "2026-09-27T09:14:56.644Z",
+          "createdAt": "2026-09-27T09:14:56.606Z"
+        },
+        {
+          "id": "a95a37d3-c88c-4071-ab8c-bce2238a04db",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8def3df5-4eb7-49f9-9e03-79e7a1c5fbc7",
+          "readAt": "2026-09-27T09:14:56.644Z",
+          "createdAt": "2026-09-27T09:14:56.597Z"
+        }
+      ],
+      "replay": [
+        {
+          "id": "1468bc67-5d74-4354-94a7-724fc939f6bf",
+          "type": "ORDER_REQUEST_CLOSED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8def3df5-4eb7-49f9-9e03-79e7a1c5fbc7",
+          "readAt": "2026-09-27T09:14:56.703Z",
+          "createdAt": "2026-09-27T09:14:56.652Z"
+        },
+        {
+          "id": "5ceb437b-6031-4eb2-85a8-51ccb5197975",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8def3df5-4eb7-49f9-9e03-79e7a1c5fbc7",
+          "readAt": "2026-09-27T09:14:56.644Z",
+          "createdAt": "2026-09-27T09:14:56.606Z"
+        },
+        {
+          "id": "a95a37d3-c88c-4071-ab8c-bce2238a04db",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "8def3df5-4eb7-49f9-9e03-79e7a1c5fbc7",
+          "readAt": "2026-09-27T09:14:56.644Z",
+          "createdAt": "2026-09-27T09:14:56.597Z"
+        }
+      ],
+      "meaning": "Resolve ALL unread entity rows; unchanged DONE/CLOSE retry also marks the newly created completion notice read"
+    }
+  ],
+  "lowStock": {
+    "item": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+    "steps": [
+      {
+        "kind": "take",
+        "quantity": 3,
+        "after": 7,
+        "notices": [
+          {
+            "id": "19802e6f-b184-4ccc-9226-e13a0dc49987",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:14:56.767Z"
+          },
+          {
+            "id": "87192aef-ef7b-44af-9bc6-b6093f2586d4",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:14:56.774Z"
+          }
+        ]
+      },
+      {
+        "kind": "take",
+        "quantity": 1,
+        "after": 6,
+        "notices": [
+          {
+            "id": "19802e6f-b184-4ccc-9226-e13a0dc49987",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:14:56.767Z"
+          },
+          {
+            "id": "87192aef-ef7b-44af-9bc6-b6093f2586d4",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:14:56.774Z"
+          }
+        ]
+      },
+      {
+        "kind": "restock",
+        "quantity": 4,
+        "after": 10,
+        "notices": [
+          {
+            "id": "19802e6f-b184-4ccc-9226-e13a0dc49987",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:14:56.767Z"
+          },
+          {
+            "id": "87192aef-ef7b-44af-9bc6-b6093f2586d4",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:14:56.774Z"
+          }
+        ]
+      },
+      {
+        "kind": "take",
+        "quantity": 3,
+        "after": 7,
+        "notices": [
+          {
+            "id": "19802e6f-b184-4ccc-9226-e13a0dc49987",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:14:56.767Z"
+          },
+          {
+            "id": "87192aef-ef7b-44af-9bc6-b6093f2586d4",
+            "type": "ORDER_STOCK_BELOW_THRESHOLD",
+            "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "departmentId": null,
+            "entityType": "MINIMUM_STOCK_ITEM",
+            "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+            "readAt": null,
+            "createdAt": "2026-09-27T09:14:56.774Z"
+          }
+        ]
+      }
+    ],
+    "meaning": "Event scoped to item/type/recipient tuple; readAt not in dedupe key; RESTOCK does not resolve or rearm it",
+    "afterArchive": [
+      {
+        "id": "19802e6f-b184-4ccc-9226-e13a0dc49987",
+        "type": "ORDER_STOCK_BELOW_THRESHOLD",
+        "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "entityType": "MINIMUM_STOCK_ITEM",
+        "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+        "readAt": "2026-09-27T09:14:56.923Z",
+        "createdAt": "2026-09-27T09:14:56.767Z"
+      },
+      {
+        "id": "87192aef-ef7b-44af-9bc6-b6093f2586d4",
+        "type": "ORDER_STOCK_BELOW_THRESHOLD",
+        "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "entityType": "MINIMUM_STOCK_ITEM",
+        "entityId": "c64caab0-fa70-442b-8b49-3c8ae66e082b",
+        "readAt": "2026-09-27T09:14:56.923Z",
+        "createdAt": "2026-09-27T09:14:56.774Z"
+      }
+    ]
+  },
+  "escalationConcurrency": {
+    "taskId": "e41f627d-34e8-45c4-8f8a-2e9a6337b1b6",
+    "holderPid": 25976,
+    "writerPids": [
+      19768,
+      552
+    ],
+    "responses": [
+      {
+        "status": 201,
+        "escalated": 1
+      },
+      {
+        "status": 201,
+        "escalated": 1
+      }
+    ],
+    "state": {
+      "business": {
+        "id": "e41f627d-34e8-45c4-8f8a-2e9a6337b1b6",
+        "status": "NEW",
+        "version": 1,
+        "escalatedAt": "2026-09-27T09:14:56.993Z",
+        "assignedToId": null,
+        "departmentRecipients": [],
+        "assignees": [
+          {
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "active": true
+          }
+        ]
+      },
+      "processed": [],
+      "history": [
+        {
+          "id": "226b22f6-9ca4-4469-9d19-b042ca0df966",
+          "action": "TASK_LONG_ESCALATED"
+        },
+        {
+          "id": "8885f8bd-02dc-4707-8a0c-08328a453eae",
+          "action": "TASK_LONG_ESCALATED"
+        }
+      ],
+      "audit": [
+        {
+          "id": "79d2177e-7eb6-460c-884d-89adef1dbb69",
+          "action": "TASK_LONG_ESCALATED"
+        },
+        {
+          "id": "f01c4b9d-8b5f-4209-ad05-bf2d127f8316",
+          "action": "TASK_LONG_ESCALATED"
+        }
+      ],
+      "notifications": [
+        {
+          "id": "3b3907e9-b285-4203-ac11-ee996dfa59ec",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "e41f627d-34e8-45c4-8f8a-2e9a6337b1b6",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:57.026Z"
+        },
+        {
+          "id": "68682fa4-0f2d-41a0-bb48-317fbcd5dd3e",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "e41f627d-34e8-45c4-8f8a-2e9a6337b1b6",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:57.030Z"
+        },
+        {
+          "id": "fe1bb1e9-21cc-4308-b2de-544169ba5276",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "e41f627d-34e8-45c4-8f8a-2e9a6337b1b6",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:57.036Z"
+        }
+      ],
+      "allNotifications": [
+        {
+          "id": "3b3907e9-b285-4203-ac11-ee996dfa59ec",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "e41f627d-34e8-45c4-8f8a-2e9a6337b1b6",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:57.026Z"
+        },
+        {
+          "id": "68682fa4-0f2d-41a0-bb48-317fbcd5dd3e",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "e41f627d-34e8-45c4-8f8a-2e9a6337b1b6",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:57.030Z"
+        },
+        {
+          "id": "7d1771f1-8622-420a-9104-62ca58e0c3b2",
+          "type": "TASK_CREATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "e41f627d-34e8-45c4-8f8a-2e9a6337b1b6",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:56.964Z"
+        },
+        {
+          "id": "fe1bb1e9-21cc-4308-b2de-544169ba5276",
+          "type": "TASK_LONG_ESCALATED",
+          "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": null,
+          "entityType": "TASK",
+          "entityId": "e41f627d-34e8-45c4-8f8a-2e9a6337b1b6",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:14:57.036Z"
+        }
+      ]
+    },
+    "status": "PROVEN_DUPLICATE_ESCALATION_HISTORY_AUDIT_BEFORE_FIX"
+  }
+}

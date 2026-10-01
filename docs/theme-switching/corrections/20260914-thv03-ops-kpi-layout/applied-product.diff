@@ -1,0 +1,93 @@
+diff --git "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\styles.css" "b/frontend\\src\\styles.css"
+index e34fb09e..0594a44d 100644
+--- "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\styles.css"
++++ "b/frontend\\src\\styles.css"
+@@ -21582,3 +21582,66 @@ body.pwa-standalone {
+     background: var(--info-soft);
+   }
+ }
++
++/* THV-03: Ops KPI cards need local geometry; shared KPI decoration is not content. */
++.ops-audit-screen .ops-metric-grid > .metric-card {
++  min-width: 0;
++  min-height: 112px;
++  align-content: center;
++  gap: 6px;
++  padding: 14px;
++}
++
++.ops-audit-screen .ops-metric-grid > .metric-card::before {
++  display: none;
++  content: none;
++}
++
++.ops-audit-screen :is(
++  .ops-metric-grid,
++  .ops-overview-metric-grid
++) :is(.metric-label, .metric-value, .metric-detail) {
++  min-width: 0;
++  max-width: 100%;
++  overflow: visible;
++  overflow-wrap: normal;
++  word-break: normal;
++  hyphens: none;
++  white-space: normal;
++}
++
++.ops-audit-screen :is(
++  .ops-metric-grid,
++  .ops-overview-metric-grid
++) .metric-label {
++  text-wrap: balance;
++}
++
++@media (max-width: 768px) {
++  .ops-audit-screen .ops-overview-metric-grid {
++    --premium-kpi-columns: 2;
++    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
++    gap: 8px !important;
++  }
++
++  .ops-audit-screen .ops-overview-metric-grid > .metric-card,
++  .ops-audit-screen .ops-metric-grid > .metric-card {
++    min-height: 100px !important;
++    align-content: center !important;
++    gap: 5px !important;
++    padding: 12px !important;
++  }
++
++  .ops-audit-screen .ops-overview-metric-grid .metric-label,
++  .ops-audit-screen .ops-metric-grid .metric-label,
++  .ops-audit-screen .ops-metric-grid .metric-detail {
++    font-size: 12px !important;
++    line-height: 1.25 !important;
++  }
++
++  .ops-audit-screen .ops-overview-metric-grid .metric-value,
++  .ops-audit-screen .ops-metric-grid .metric-value {
++    font-size: 23px !important;
++    line-height: 1.05 !important;
++  }
++}
+diff --git "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\OpsAuditScreen.tsx" "b/frontend\\src\\screens\\OpsAuditScreen.tsx"
+index 810f833b..cf1bd629 100644
+--- "a/docs\\theme-switching\\corrections\\20260914-thv03-ops-kpi-layout\\baseline-source\\OpsAuditScreen.tsx"
++++ "b/frontend\\src\\screens\\OpsAuditScreen.tsx"
+@@ -354,7 +354,7 @@ export function OpsAuditScreen() {
+   };
+ 
+   return (
+-    <section className="screen-panel">
++    <section className="screen-panel ops-audit-screen">
+       <PremiumSectionHeader
+         title="Статистика / Аудит"
+         subtitle="Операционная картина по простоям, заявкам, реакции отделов и качеству данных без финансовых допущений."
+@@ -587,7 +587,7 @@ export function OpsAuditScreen() {
+       ) : null}
+ 
+       {tab === 'Обзор' && overview ? (
+-        <div className="metric-grid premium-kpi-strip" data-count="4">
++        <div className="metric-grid premium-kpi-strip ops-overview-metric-grid" data-count="4">
+           <Metric label="Просроченные заявки" value={overview.overdueLongTasksCount} />
+           <Metric label="Активные заявки" value={overview.activeTasksCount} />
+           <Metric label="Активные мойки" value={overview.activeWashCount} />

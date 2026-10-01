@@ -1,0 +1,13 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-stock-replay.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-stock-replay.test.js"
+index b2030473..1678185f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-stock-replay.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-stock-replay.test.js"
+@@ -19,3 +19,8 @@ for(const action of ['take','restock'])for(const variant of ['archived-current-r
+   if(variant==='archived-current-read')assert.equal((await f.service[action](f.user,f.item.id,f.body)).currentQuantity,balance);else await assert.rejects(f.service[action](f.user,f.item.id,f.body),e=>{assert.ok(denied(e),e.stack);return true;});
+   assert.equal(f.writes.length,writes);assert.equal(f.item.currentQuantity,balance);assert.equal(f.movements.length,1);
+ });
++for(const action of ['take','restock'])for(const field of ['quantity','comment'])test(`R3-C2 stock ${action} replay denies changed ${field}`,async()=>{
++ const f=fixture();await f.service[action](f.user,f.item.id,f.body);const writes=f.writes.length,balance=f.item.currentQuantity;
++ await assert.rejects(f.service[action](f.user,f.item.id,{...f.body,[field]:field==='quantity'?3:'Другая операция'}),denied);
++ assert.equal(f.writes.length,writes);assert.equal(f.item.currentQuantity,balance);assert.equal(f.movements.length,1);
++});

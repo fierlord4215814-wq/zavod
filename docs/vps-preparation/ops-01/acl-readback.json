@@ -1,0 +1,109 @@
+{
+  "status": "PASS_OWNER_SYSTEM_ADMIN_ONLY",
+  "secretValuesRead": false,
+  "permissionsChanged": false,
+  "observations": [
+    {
+      "relative": "pair-ops01",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    },
+    {
+      "relative": "pair-ops01\\t1.dump",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    },
+    {
+      "relative": "pair-ops01\\uploads",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    },
+    {
+      "relative": "ops01",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    },
+    {
+      "relative": "ops01\\uploads",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    },
+    {
+      "relative": "ops01\\error-reports-export",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    }
+  ]
+}

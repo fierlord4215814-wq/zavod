@@ -1,0 +1,33 @@
+--- /dev/null
++++ frontend/e2e/master-r2-profile.spec.ts
+@@ -0,0 +1,30 @@
++import {expect,test} from '@playwright/test';
++import {isolate,linkedReplies,open,shot,errors,unknown,taskRow,installEvidenceHooks} from './helpers/frontend-series';
++installEvidenceHooks();
++for(const theme of ['dark','gray','light'])for(const [width,height]of [[1440,844],[360,844],[390,844],[430,844],[360,640]])test(`R2-F FS15 profile ${theme} ${width}x${height} Shift and People`,async({page})=>{
++  await isolate(page,{role:'TECH_MECHANIC',theme,replies:linkedReplies});await page.setViewportSize({width,height});await page.goto('/');
++  for(const source of ['Смена','Люди']){
++    await open(page,source);
++    if(source==='Смена')await page.locator('.person-card').filter({hasText:'Сервисов'}).getByRole('button',{name:/Сервисов/}).first().click();
++    else await page.locator('.people-compact-row').filter({hasText:'Сервисов'}).first().click();
++    const card=page.locator('.profile-card');await expect(card).toBeVisible();
++    const measured=await card.evaluate(e=>{
++      const hero=e.querySelector('.profile-hero')!,following=hero.nextElementSibling!,title=e.querySelector('h3')!,panel=e.querySelector('.profile-title-panel')!;
++      const rect=(n:Element)=>n.getBoundingClientRect().toJSON();return{hero:rect(hero),following:rect(following),title:rect(title),panel:rect(panel),card:rect(e),children:e.children.length,body:!!e.querySelector(':scope > .profile-card-body'),overflow:document.documentElement.scrollWidth-innerWidth};
++    });
++    await shot(page,`FS15-${source}-${theme}-${width}-${height}-top`,{source,state:'profile-top-native',measured});
++    expect(measured.following.y).toBeGreaterThanOrEqual(measured.panel.bottom-1);
++    expect(measured.body).toBe(true);expect(measured.children).toBe(2);expect(measured.overflow).toBeLessThanOrEqual(1);
++    const body=card.locator('.profile-card-body');await body.evaluate(e=>e.scrollTop=e.scrollHeight);await expect(card.getByRole('button',{name:'Посмотреть заявку',exact:true})).toBeVisible();
++    const footer=card.locator(':scope > .modal-actions');await expect(footer).toBeVisible();const box=await footer.boundingBox();expect(box!.y+box!.height).toBeLessThanOrEqual(height+1);
++    await shot(page,`FS15-${source}-${theme}-${width}-${height}-scrolled`,{source,state:'profile-body-scrolled-actions-accessible'});
++    if(theme!=='dark'){
++      const colors=await card.evaluate(e=>{const css=getComputedStyle(e);const color=(value:string)=>{const s=document.createElement('span').style;s.color=value;return s.color;};return Array.from(e.querySelectorAll('.position-row > div > strong, .position-row > div > span')).map(n=>({text:n.textContent,color:getComputedStyle(n).color,expected:color(css.getPropertyValue(n.tagName==='STRONG'?'--text-strong':'--text-secondary').trim())}));});
++      expect(colors.length).toBeGreaterThan(0);for(const row of colors)expect(row.color,row.text??'profile row').toBe(row.expected);
++    }
++    await card.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();await expect(page.getByRole('dialog')).toContainText(taskRow.description);
++    await page.goBack();await page.goBack();await expect(card).toBeVisible();await page.goBack();await expect(card).toBeHidden();
++  }
++  expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++

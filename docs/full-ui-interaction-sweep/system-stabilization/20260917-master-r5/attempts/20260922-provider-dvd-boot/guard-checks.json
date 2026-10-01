@@ -1,0 +1,83 @@
+{
+  "cases": [
+    {
+      "case": "complete-empty-dvd",
+      "pass": true,
+      "expectedValid": true,
+      "actualValid": true,
+      "querySucceeded": true,
+      "violations": []
+    },
+    {
+      "case": "mounted-own",
+      "pass": true,
+      "expectedValid": true,
+      "actualValid": true,
+      "querySucceeded": true,
+      "violations": []
+    },
+    {
+      "case": "query-error",
+      "pass": true,
+      "expectedValid": false,
+      "actualValid": false,
+      "querySucceeded": false,
+      "violations": [
+        "QUERY_OR_TOPOLOGY_FAILURE: SYNTHETIC_ASSOCIATION_ERROR"
+      ]
+    },
+    {
+      "case": "empty-components",
+      "pass": true,
+      "expectedValid": false,
+      "actualValid": false,
+      "querySucceeded": true,
+      "violations": [
+        "Incomplete current configuration (CPU/memory/resource walk)",
+        "Expected sole synthetic SCSI controller missing/ambiguous",
+        "Expected sole synthetic hard disk drive missing/ambiguous",
+        "Expected two synthetic DVD devices missing/ambiguous",
+        "Sole existing VHDX allocation mismatch",
+        "DVD addresses not exactly 1 and 2"
+      ]
+    },
+    {
+      "case": "missing-dvd",
+      "pass": true,
+      "expectedValid": false,
+      "actualValid": false,
+      "querySucceeded": true,
+      "violations": [
+        "Expected two synthetic DVD devices missing/ambiguous",
+        "DVD addresses not exactly 1 and 2"
+      ]
+    },
+    {
+      "case": "foreign-media",
+      "pass": true,
+      "expectedValid": false,
+      "actualValid": false,
+      "querySucceeded": true,
+      "violations": [
+        "Foreign DVD media"
+      ]
+    },
+    {
+      "case": "snapshot",
+      "pass": true,
+      "expectedValid": false,
+      "actualValid": false,
+      "querySucceeded": false,
+      "violations": [
+        "QUERY_OR_TOPOLOGY_FAILURE: Not the exact current realized Gen2 configuration"
+      ]
+    }
+  ],
+  "helperSha256": "9ffbc1c506c541288f2794a0fde54d42f5d93aff66eddf256ca99ba1a649aef8",
+  "productTests": 0,
+  "parserErrors": 0,
+  "vmCalls": 0,
+  "runtimeReadback": "NOT_YET_EXECUTED",
+  "scope": "HOST_SYNTHETIC_PROVIDER_GUARD_ONLY",
+  "at": "2026-09-22T07:52:35.4337781+03:00"
+}

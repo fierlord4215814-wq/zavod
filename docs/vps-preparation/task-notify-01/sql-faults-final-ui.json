@@ -1,0 +1,453 @@
+{
+  "status": "PASS_A_B_C_AND_PARTIAL_FANOUT_REAL_SQL_HTTP_SECOND_UI",
+  "cases": [
+    {
+      "label": "A_before_task_insert",
+      "barrier": "Task",
+      "waiterPid": 23352,
+      "phase": "INSERT",
+      "relations": [
+        {
+          "relname": "ProcessedOperation",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowExclusiveLock",
+          "granted": false
+        }
+      ],
+      "independentTaskVisibleBeforeCancel": false,
+      "firstHttp": 500,
+      "rolledBack": {
+        "tasks": [],
+        "processed": [],
+        "history": [],
+        "audit": [],
+        "notifications": []
+      },
+      "retryHttp": 201,
+      "saved": {
+        "tasks": [
+          {
+            "id": "dac91d19-e1d3-4434-909d-2065421d1054",
+            "status": "NEW",
+            "operationId": "task-notify-01-A_before_task_insert-final-ui"
+          }
+        ],
+        "processed": [
+          {
+            "id": "c2f22c0d-b512-4723-b175-a8f57191baa4",
+            "resultKey": "dac91d19-e1d3-4434-909d-2065421d1054"
+          }
+        ],
+        "history": [
+          {
+            "id": "396bd065-8e74-4446-b8cd-92ccb6aed002",
+            "taskId": "dac91d19-e1d3-4434-909d-2065421d1054",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "3a55a439-2919-417d-8c92-e3814cacda05",
+            "entityId": "dac91d19-e1d3-4434-909d-2065421d1054",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "d11385ad-f507-4fc8-957a-b42e192a5580",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "dac91d19-e1d3-4434-909d-2065421d1054",
+            "createdAt": "2026-09-26T23:33:41.429Z"
+          }
+        ]
+      },
+      "stableReplay": true,
+      "partialRowsBeforeCancel": null,
+      "secondUi": {
+        "rollback": {
+          "cards": 0,
+          "notices": 0,
+          "createdWs": 0
+        },
+        "retry": {
+          "cards": 1,
+          "visibleNotice": 1,
+          "noF5": true
+        }
+      }
+    },
+    {
+      "label": "B_after_task_before_processed",
+      "barrier": "ProcessedOperation",
+      "waiterPid": 23116,
+      "phase": "INSERT",
+      "relations": [
+        {
+          "relname": "ProcessedOperation",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "RowExclusiveLock",
+          "granted": false
+        },
+        {
+          "relname": "Task",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowShareLock",
+          "granted": true
+        }
+      ],
+      "independentTaskVisibleBeforeCancel": false,
+      "firstHttp": 500,
+      "rolledBack": {
+        "tasks": [],
+        "processed": [],
+        "history": [],
+        "audit": [],
+        "notifications": []
+      },
+      "retryHttp": 201,
+      "saved": {
+        "tasks": [
+          {
+            "id": "d57e9738-6738-4df0-af84-e895119527e1",
+            "status": "NEW",
+            "operationId": "task-notify-01-B_after_task_before_processed-final-ui"
+          }
+        ],
+        "processed": [
+          {
+            "id": "0b82c236-4959-4e6e-89c0-7d9dfbcf449c",
+            "resultKey": "d57e9738-6738-4df0-af84-e895119527e1"
+          }
+        ],
+        "history": [
+          {
+            "id": "13e78512-bce7-410e-b697-25baa6fbf2cf",
+            "taskId": "d57e9738-6738-4df0-af84-e895119527e1",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "0cf5f08f-8b6e-42f1-af42-8972c9e761ef",
+            "entityId": "d57e9738-6738-4df0-af84-e895119527e1",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "3a698afa-646e-4812-8466-2a7f07a1f273",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "d57e9738-6738-4df0-af84-e895119527e1",
+            "createdAt": "2026-09-26T23:33:41.954Z"
+          }
+        ]
+      },
+      "stableReplay": true,
+      "partialRowsBeforeCancel": null,
+      "secondUi": {
+        "rollback": {
+          "cards": 0,
+          "notices": 0,
+          "createdWs": 0
+        },
+        "retry": {
+          "cards": 1,
+          "visibleNotice": 1,
+          "noF5": true
+        }
+      }
+    },
+    {
+      "label": "C_same_notification_fault",
+      "barrier": "Notification",
+      "waiterPid": 23216,
+      "phase": "SELECT",
+      "relations": [
+        {
+          "relname": "AuditLog",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Notification",
+          "mode": "AccessShareLock",
+          "granted": false
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowShareLock",
+          "granted": true
+        },
+        {
+          "relname": "TaskHistory",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        }
+      ],
+      "independentTaskVisibleBeforeCancel": false,
+      "firstHttp": 500,
+      "rolledBack": {
+        "tasks": [],
+        "processed": [],
+        "history": [],
+        "audit": [],
+        "notifications": []
+      },
+      "retryHttp": 201,
+      "saved": {
+        "tasks": [
+          {
+            "id": "73618fe7-d950-45df-a127-981921d158f0",
+            "status": "NEW",
+            "operationId": "task-notify-01-C_same_notification_fault-final-ui-v2"
+          }
+        ],
+        "processed": [
+          {
+            "id": "8c693675-06ab-4a38-8c2e-1ccedb12322e",
+            "resultKey": "73618fe7-d950-45df-a127-981921d158f0"
+          }
+        ],
+        "history": [
+          {
+            "id": "197cecfa-e4d9-412e-816d-52eb7b70731e",
+            "taskId": "73618fe7-d950-45df-a127-981921d158f0",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "a2dd58a5-f90d-4cd7-859f-99ba968eeb84",
+            "entityId": "73618fe7-d950-45df-a127-981921d158f0",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "f24d9987-a9f6-4f93-85a7-685a059cb5a9",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "73618fe7-d950-45df-a127-981921d158f0",
+            "createdAt": "2026-09-26T23:36:36.837Z"
+          }
+        ]
+      },
+      "stableReplay": true,
+      "partialRowsBeforeCancel": null,
+      "secondUi": {
+        "rollback": {
+          "cards": 0,
+          "notices": 0,
+          "createdWs": 0
+        },
+        "retry": {
+          "cards": 1,
+          "visibleNotice": 1,
+          "noF5": true
+        }
+      }
+    },
+    {
+      "label": "C_partial_fanout_two_inserted",
+      "barrier": "AFTER INSERT count=2 advisory barrier",
+      "waiterPid": 23124,
+      "phase": "INSERT",
+      "relations": [
+        {
+          "relname": "AuditLog",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Notification",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Notification",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowShareLock",
+          "granted": true
+        },
+        {
+          "relname": "TaskHistory",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        }
+      ],
+      "independentTaskVisibleBeforeCancel": false,
+      "firstHttp": 500,
+      "rolledBack": {
+        "tasks": [],
+        "processed": [],
+        "history": [],
+        "audit": [],
+        "notifications": []
+      },
+      "retryHttp": 201,
+      "saved": {
+        "tasks": [
+          {
+            "id": "6065085d-a74d-4a2f-8d46-e2102bc53d5a",
+            "status": "NEW",
+            "operationId": "task-notify-01-C_partial_fanout_two_inserted-final-ui-v2"
+          }
+        ],
+        "processed": [
+          {
+            "id": "2e3d9d8a-e642-4476-b29f-e8879202b950",
+            "resultKey": "6065085d-a74d-4a2f-8d46-e2102bc53d5a"
+          }
+        ],
+        "history": [
+          {
+            "id": "f453a8c5-558b-4379-80db-3bf9150d32bc",
+            "taskId": "6065085d-a74d-4a2f-8d46-e2102bc53d5a",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "089dfdca-afd2-44ad-b014-71977468f405",
+            "entityId": "6065085d-a74d-4a2f-8d46-e2102bc53d5a",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "0dbeb240-3853-4b5e-8dbe-e60a9fec63d7",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "6065085d-a74d-4a2f-8d46-e2102bc53d5a",
+            "createdAt": "2026-09-26T23:36:37.322Z"
+          },
+          {
+            "id": "1b99ce86-61fd-47fa-93ae-eafb6d6c3b93",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "6065085d-a74d-4a2f-8d46-e2102bc53d5a",
+            "createdAt": "2026-09-26T23:36:37.326Z"
+          },
+          {
+            "id": "1ff146cc-3250-4348-9724-2f9534a7af73",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+            "type": "TASK_CREATED",
+            "entityId": "6065085d-a74d-4a2f-8d46-e2102bc53d5a",
+            "createdAt": "2026-09-26T23:36:37.331Z"
+          },
+          {
+            "id": "49b19852-dd4b-44c4-970b-19a17e7aff9a",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+            "type": "TASK_CREATED",
+            "entityId": "6065085d-a74d-4a2f-8d46-e2102bc53d5a",
+            "createdAt": "2026-09-26T23:36:37.333Z"
+          },
+          {
+            "id": "d2d848f5-25f0-4f14-a0d0-54ebe0e49e47",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "6065085d-a74d-4a2f-8d46-e2102bc53d5a",
+            "createdAt": "2026-09-26T23:36:37.325Z"
+          }
+        ]
+      },
+      "stableReplay": true,
+      "partialRowsBeforeCancel": 2,
+      "secondUi": {
+        "rollback": {
+          "cards": 0,
+          "notices": 0,
+          "createdWs": 0
+        },
+        "retry": {
+          "cards": 1,
+          "visibleNotice": 1,
+          "noF5": true
+        }
+      }
+    }
+  ],
+  "priorObservations": [
+    "The expression evaluated to a falsy value:\n\n  l.assert(relations.some(r=>r.relname==='Task'&&r.mode==='RowExclusiveLock'&&r.granted))\n",
+    "Expected values to be strictly equal:\n\n1 !== 0\n"
+  ]
+}

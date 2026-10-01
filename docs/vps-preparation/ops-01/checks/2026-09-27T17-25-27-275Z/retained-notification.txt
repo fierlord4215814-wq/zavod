@@ -1,0 +1,47 @@
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification publication failed; in-app state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[OrdersService] [39m[33mCommitted order invalidation failed; durable state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification publication failed; in-app state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[OrdersService] [39m[33mCommitted order invalidation failed; durable state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification publication failed; in-app state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[OrdersService] [39m[33mCommitted order invalidation failed; durable state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification resolution publication failed; read state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification publication failed; in-app state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[OrdersService] [39m[33mCommitted order invalidation failed; durable state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification resolution publication failed; read state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification publication failed; in-app state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[TaskService] [39m[33mCommitted task invalidation failed; durable state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification resolution publication failed; read state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification publication failed; in-app state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[TaskService] [39m[33mCommitted task invalidation failed; durable state remains available.[39m
+[33m[Nest] 16204  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification publication failed; in-app state remains available.[39m
+✔ NOTIFY02 request-department: required rows use business tx; no publication before commit (23.9141ms)
+✔ NOTIFY02 request-factory: required rows use business tx; no publication before commit (2.5869ms)
+✔ NOTIFY02 low-stock: required rows use business tx; no publication before commit (6.0284ms)
+✔ NOTIFY02 request-close: required rows use business tx; no publication before commit (4.4985ms)
+✔ NOTIFY02 task-done: required rows use business tx; no publication before commit (7.6846ms)
+✔ NOTIFY02 task-redirect: required rows use business tx; no publication before commit (5.5344ms)
+✔ NOTIFY02 task-escalated: required rows use business tx; no publication before commit (3.7111ms)
+✔ NOTIFY02 persistence failure propagates in each event; no postcommit publication (SQL rollback proved separately) (11.8389ms)
+✔ NOTIFY02 publication/first recipient/unread/invalidation throws are isolated for every event (13.5303ms)
+✔ NOTIFY02 DONE/CLOSE resolve old rows atomically; unchanged retry retains current readAt semantics (4.8792ms)
+✔ NOTIFY02 low-stock dedupe remains item/user scoped across more TAKE, RESTOCK and decline (3.4948ms)
+✔ NOTIFY02 factory request stays one shared row, department fanout includes ADMIN but excludes inactive users (3.7249ms)
+✔ NOTIFY02 scanner takes canonical task lock and repeated scan does not duplicate history/audit (1.6714ms)
+[33m[Nest] 25788  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[NotificationsService] [39m[33mCommitted notification publication failed; in-app state remains available.[39m
+[33m[Nest] 25788  - [39m27.09.2026, 20:25:51 [33m   WARN[39m [38;5;3m[TaskService] [39m[33mCommitted task invalidation failed; durable state remains available.[39m
+✔ TASK-NOTIFY supplied transaction owns persistent rows; only committed rows are published (18.5223ms)
+✔ TASK-NOTIFY persistence error propagates and never calls publication (rollback separately proven on PostgreSQL) (2.0711ms)
+✔ TASK-NOTIFY one recipient transport failure does not prevent later recipient or invalidate successful create (3.8187ms)
+✔ TASK-NOTIFY failed task WS invalidation leaves successful result and durable record (2.4193ms)
+✔ TASK-NOTIFY replay after mutation never resolves recipients or persists/publishes again (2.3399ms)
+✔ TASK-NOTIFY exact event dedupe retains distinct user/department scope rows (0.8623ms)
+✔ TASK-NOTIFY department fanout preserves ADMIN inclusion and explicit/dept overlap as separate rows (3.6954ms)
+✔ TASK-NOTIFY department recipients exclude inactive, guest and blocked at create time (3.6142ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 922.2729

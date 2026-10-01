@@ -1,0 +1,169 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+index 3bb8e717..7ead8c03 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+@@ -597,18 +597,13 @@ const stateMeta: Record<ShiftPerson['employeeState'], { label: string; tag: stri
+ 
+ const activePersonStates: ShiftPerson['employeeState'][] = ['ASSIGNED', 'WASHING', 'TIME_ROLE'];
+ 
+-const statusLabels: Record<Line['status'], string> = {
++// LineEvent.status follows the backend enum; planning is a separate read model.
++const statusLabels: Record<'WORK' | 'PAUSE' | 'STOP', string> = {
+   WORK: 'Работает',
+   PAUSE: 'Простой',
+   STOP: 'Остановлена',
+ };
+ 
+-const statusTag: Record<Line['status'], string> = {
+-  WORK: 'work',
+-  PAUSE: 'pause',
+-  STOP: 'stop',
+-};
+-
+ const canonicalLineStateMeta: Record<NonNullable<Line['operationalState']>, { label: string; tag: string }> = {
+   RUNNING: { label: 'Работает', tag: 'work' },
+   DOWNTIME: { label: 'Простой', tag: 'pause' },
+@@ -735,7 +730,22 @@ function errorMessage(error: unknown, fallback: string) {
+   return error instanceof Error ? error.message : fallback;
+ }
+ 
+-export type ShiftTaskReturn = { profileId: string; includeAllPeople: boolean; shiftTab: 'past' | 'current' | 'next' | 'future'; currentOperationalView: CurrentOperationalView; peoplePanelMode: PeoplePanelMode; peopleSearch: string };
++export type ShiftTaskReturn = {
++  profileId: string; includeAllPeople: boolean; shiftTab: 'past' | 'current' | 'next' | 'future';
++  currentOperationalView: CurrentOperationalView; peoplePanelMode: PeoplePanelMode; peopleSearch: string;
++  futurePanelMode?: FuturePanelMode; futureSearch?: string; selectedFuturePersonId?: string;
++  selectedFutureTarget?: ShiftTimeline['future'][number] | null;
++  historyMonth?: string; historySelectedDate?: string; pastDetailTab?: string; pastShiftKey?: string;
++  dashboard?: { lineId: string; readOnly: boolean };
++  planning?: { lineId: string; shiftDate: string; shiftType: string; templateId?: string; candidateId: string; slot: { positionId: string; slotIndex: number; label: string } | null };
++  futureBoard?: { shiftDate: string; shiftType: string };
++  workAreaId?: string;
++  selectedAssignmentSlot?: { positionId: string; slotIndex: number; label: string } | null;
++  selectedAssignmentCandidateId?: string;
++  parentScroll?: Array<{ selector: string; top: number; left: number }>;
++  pageTop?: number;
++};
++const taskReturnScrollSelectors = ['.current-people-panel', '.quick-assignment-sheet', '.compact-line-dashboard', '.work-area-assignment-board', '.planning-assignment-scroll', '.future-nonline-assignment-modal'];
+ type ShiftPeopleScreenProps = { mode?: 'workspace' | 'history'; taskReturn?: ShiftTaskReturn };
+ 
+ const MONTH_NAMES = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+@@ -789,18 +799,18 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+   const [workAreaPickerUser, setWorkAreaPickerUser] = useState<ShiftPerson | null>(null);
+   const [currentLinePickerSelection, setCurrentLinePickerSelection] = useState<CurrentLinePickerSelection>(null);
+   const [currentSlotAction, setCurrentSlotAction] = useState<CurrentSlotAction>(null);
+-  const [futurePanelMode, setFuturePanelMode] = useState<FuturePanelMode>(null);
+-  const [futureSearch, setFutureSearch] = useState('');
+-  const [selectedFuturePersonId, setSelectedFuturePersonId] = useState('');
++  const [futurePanelMode, setFuturePanelMode] = useState<FuturePanelMode>(taskReturn?.futurePanelMode ?? null);
++  const [futureSearch, setFutureSearch] = useState(taskReturn?.futureSearch ?? '');
++  const [selectedFuturePersonId, setSelectedFuturePersonId] = useState(taskReturn?.selectedFuturePersonId ?? '');
+   const [shiftTimeline, setShiftTimeline] = useState<ShiftTimeline | null>(null);
+   const [selfShift, setSelfShift] = useState<ShiftMeResponse | null>(null);
+   const [futureShift, setFutureShift] = useState<FutureShift | null>(null);
+-  const [selectedFutureTarget, setSelectedFutureTarget] = useState<ShiftTimeline['future'][number] | null>(null);
++  const [selectedFutureTarget, setSelectedFutureTarget] = useState<ShiftTimeline['future'][number] | null>(taskReturn?.selectedFutureTarget ?? null);
+   const [pastShift, setPastShift] = useState<PastShift | null>(null);
+   const [pastShiftDetail, setPastShiftDetail] = useState<PastShiftDetail | null>(null);
+-  const [pastDetailTab, setPastDetailTab] = useState('Обзор');
+-  const [historyMonth, setHistoryMonth] = useState('');
+-  const [historySelectedDate, setHistorySelectedDate] = useState('');
++  const [pastDetailTab, setPastDetailTab] = useState(taskReturn?.pastDetailTab ?? 'Обзор');
++  const [historyMonth, setHistoryMonth] = useState(taskReturn?.historyMonth ?? '');
++  const [historySelectedDate, setHistorySelectedDate] = useState(taskReturn?.historySelectedDate ?? '');
+   const [notNeededWillBe, setNotNeededWillBe] = useState<{ id: string; userId: string; displayName: string } | null>(null);
+   const [notNeededReason, setNotNeededReason] = useState('');
+   const [willBeComment, setWillBeComment] = useState('');
+@@ -850,11 +860,11 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+   const [futureNonLinePending, setFutureNonLinePending] = useState<FutureNonLinePending | null>(null);
+   const [planningLinePickerOpen, setPlanningLinePickerOpen] = useState(false);
+   const [lineShiftAssignmentLine, setLineShiftAssignmentLine] = useState<{ id: string; name: string } | null>(null);
+-  const [selectedAssignmentSlot, setSelectedAssignmentSlot] = useState<{ positionId: string; slotIndex: number; label: string } | null>(null);
+-  const [selectedAssignmentCandidateId, setSelectedAssignmentCandidateId] = useState<string>('');
++  const [selectedAssignmentSlot, setSelectedAssignmentSlot] = useState<{ positionId: string; slotIndex: number; label: string } | null>(taskReturn?.selectedAssignmentSlot ?? null);
++  const [selectedAssignmentCandidateId, setSelectedAssignmentCandidateId] = useState<string>(taskReturn?.selectedAssignmentCandidateId ?? '');
+   const [currentAssignmentConfirm, setCurrentAssignmentConfirm] = useState(false);
+-  const [selectedPlanningSlot, setSelectedPlanningSlot] = useState<{ positionId: string; slotIndex: number; label: string } | null>(null);
+-  const [selectedPlanningCandidateId, setSelectedPlanningCandidateId] = useState<string>('');
++  const [selectedPlanningSlot, setSelectedPlanningSlot] = useState<{ positionId: string; slotIndex: number; label: string } | null>(taskReturn?.planning?.slot ?? null);
++  const [selectedPlanningCandidateId, setSelectedPlanningCandidateId] = useState<string>(taskReturn?.planning?.candidateId ?? '');
+   const [planningAssignmentConfirm, setPlanningAssignmentConfirm] = useState(false);
+   const [manualSearchSheet, setManualSearchSheet] = useState<ManualSearchSheet>(null);
+   const [manualSearchQuery, setManualSearchQuery] = useState('');
+@@ -864,7 +874,34 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+   const [assignmentRowToDelete, setAssignmentRowToDelete] = useState<LineShiftAssignmentRow | null>(null);
+   const [dashboardLoading, setDashboardLoading] = useState(false);
+   const [profile, setProfile] = useState<PersonProfile | null>(null);
+-  useEffect(() => { if (taskReturn?.profileId) void openProfile(taskReturn.profileId); }, []);
++  const [returnLoading, setReturnLoading] = useState(Boolean(taskReturn?.profileId));
++  useEffect(() => {
++    if (!taskReturn?.profileId) return;
++    let cancelled = false;
++    // Only view selectors cross the task boundary. Re-read each existing guarded
++    // parent, never retain an actionable board DTO or replay a planning command.
++    const restore = async () => {
++      try {
++        const result = await Promise.all([
++          apiClient.get<PersonProfile>(`/people/${encodeURIComponent(taskReturn.profileId)}/profile`),
++          taskReturn.dashboard ? apiClient.get<LineDashboard>(`/lines/${encodeURIComponent(taskReturn.dashboard.lineId)}/${taskReturn.dashboard.readOnly ? 'current-shift-detail' : 'dashboard'}`) : null,
++          taskReturn.dashboard && !taskReturn.dashboard.readOnly ? apiClient.get<AssignmentBoard>(`/lines/${encodeURIComponent(taskReturn.dashboard.lineId)}/assignment-board`) : null,
++          taskReturn.planning ? apiClient.get<PlanningBoard>(`/lines/${encodeURIComponent(taskReturn.planning.lineId)}/planning-board?${new URLSearchParams({ shiftDate: taskReturn.planning.shiftDate, shiftType: taskReturn.planning.shiftType, ...(taskReturn.planning.templateId ? { staffingTemplateId: taskReturn.planning.templateId } : {}) })}`) : null,
++          taskReturn.futureBoard ? apiClient.get<FutureAssignmentBoard>(`/shift/future-assignment-board?${new URLSearchParams({ targetShiftDate: taskReturn.futureBoard.shiftDate, shiftType: taskReturn.futureBoard.shiftType })}`) : null,
++          taskReturn.workAreaId ? apiClient.get<WorkAreaBoard>(`/work-areas/${encodeURIComponent(taskReturn.workAreaId)}/board`) : null,
++          taskReturn.pastShiftKey ? apiClient.get<PastShiftDetail>(`/shift/past/${encodeURIComponent(taskReturn.pastShiftKey)}`) : null,
++        ]);
++        if (cancelled) return;
++        setProfile(result[0]); setDashboard(result[1]); setAssignmentBoard(result[2]);
++        setDashboardReadOnly(Boolean(taskReturn.dashboard?.readOnly));
++        setPlanningBoard(result[3]); setFutureAssignmentBoard(result[4]); setWorkAreaBoard(result[5]); setPastShiftDetail(result[6]);
++      } catch (error) {
++        if (!cancelled) setErrorText(errorMessage(error, 'Не удалось восстановить контекст смены. Откройте профиль повторно.'));
++      } finally { if (!cancelled) setReturnLoading(false); }
++    };
++    void restore();
++    return () => { cancelled = true; };
++  }, []);
+   const [workAreas, setWorkAreas] = useState<WorkArea[]>([]);
+   const [workAreaBoard, setWorkAreaBoard] = useState<WorkAreaBoard | null>(null);
+   const [workAreaLoading, setWorkAreaLoading] = useState(false);
+@@ -881,6 +918,19 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+   const workAreaBoardScrollRef = useRef<HTMLDivElement | null>(null);
+   const futureAssignmentAttemptRef = useRef<{ key: string; operationId: string } | null>(null);
+   const futureReleaseAttemptRef = useRef<{ assignmentId: string; operationId: string } | null>(null);
++  const returnScrollRestored = useRef(false);
++  useEffect(() => {
++    if (!taskReturn || returnLoading || !initialLoadCompleted || profile || returnScrollRestored.current) return;
++    const frame = requestAnimationFrame(() => {
++      for (const saved of taskReturn.parentScroll ?? []) {
++        if (!taskReturnScrollSelectors.includes(saved.selector)) continue;
++        document.querySelector<HTMLElement>(saved.selector)?.scrollTo({ top: saved.top, left: saved.left });
++      }
++      if (!document.body.classList.contains('app-scroll-locked')) window.scrollTo({ top: taskReturn.pageTop ?? 0, left: 0 });
++      returnScrollRestored.current = true;
++    });
++    return () => cancelAnimationFrame(frame);
++  }, [returnLoading, initialLoadCompleted, profile]);
+ 
+   useBodyScrollLock(Boolean(
+     shiftPickerOpen
+@@ -5760,7 +5810,20 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+                     <button className="secondary-button compact-action" type="button" onClick={() => {
+                     window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: {
+                       screen: 'Tasks', taskId: profile.serviceTaskStatus?.taskId,
+-                      taskReturn: { profileId: profile.id, includeAllPeople, shiftTab, currentOperationalView, peoplePanelMode, peopleSearch } satisfies ShiftTaskReturn,
++                      taskReturn: {
++                        profileId: profile.id, includeAllPeople, shiftTab, currentOperationalView, peoplePanelMode, peopleSearch,
++                        futurePanelMode, futureSearch, selectedFuturePersonId, selectedFutureTarget,
++                        historyMonth, historySelectedDate, pastDetailTab, pastShiftKey: pastShiftDetail?.key,
++                        dashboard: dashboard ? { lineId: dashboard.line.id, readOnly: dashboardReadOnly } : undefined,
++                        planning: planningBoard ? { lineId: planningBoard.line.id, shiftDate: planningBoard.shiftDate, shiftType: planningBoard.shiftType, templateId: planningBoard.staffingTemplate?.id, candidateId: selectedPlanningCandidateId, slot: selectedPlanningSlot } : undefined,
++                        futureBoard: futureAssignmentBoard ? { shiftDate: futureAssignmentBoard.shiftDate, shiftType: futureAssignmentBoard.shiftType } : undefined,
++                        workAreaId: workAreaBoard?.workArea.id, selectedAssignmentSlot, selectedAssignmentCandidateId,
++                        pageTop: document.body.style.position === 'fixed' ? -(parseFloat(document.body.style.top) || 0) : window.scrollY,
++                        parentScroll: taskReturnScrollSelectors.flatMap((selector) => {
++                          const element = document.querySelector<HTMLElement>(selector);
++                          return element ? [{ selector, top: element.scrollTop, left: element.scrollLeft }] : [];
++                        }),
++                      } satisfies ShiftTaskReturn,
+                     } }));
+                     }}>
+                       Посмотреть заявку

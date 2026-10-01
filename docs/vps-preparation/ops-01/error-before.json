@@ -1,0 +1,34 @@
+{
+  "status": "CAPTURED_LOST_RESPONSE_AND_ADMIN_GUEST",
+  "firstHttp": 201,
+  "firstUiSuccess": 0,
+  "ids": [
+    "8ae5d153-2f95-4599-866c-065cc691f6f5",
+    "d53c23ce-8af0-406f-b4b4-0a302180a878"
+  ],
+  "rows": [
+    {
+      "id": "8ae5d153-2f95-4599-866c-065cc691f6f5",
+      "title": "Учебная проверка потерянного ответа 1790527394265",
+      "status": "NEW",
+      "authorId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+      "createdAt": "2026-09-27T16:43:14.693Z"
+    },
+    {
+      "id": "d53c23ce-8af0-406f-b4b4-0a302180a878",
+      "title": "Учебная проверка потерянного ответа 1790527394265",
+      "status": "NEW",
+      "authorId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+      "createdAt": "2026-09-27T16:43:14.905Z"
+    }
+  ],
+  "expectedOneReport": true,
+  "actualCount": 2,
+  "adminGuest": {
+    "listHttp": 200,
+    "listCount": 2,
+    "detailHttp": 200,
+    "foreignAuthorReportExposed": true
+  },
+  "flagsRestored": true
+}

@@ -1,0 +1,99 @@
+{
+  "runId": "1786611366025-5007b8",
+  "marker": "__PFFV5_P11_1786611366025-5007b8__",
+  "startedAt": "2026-08-13T08:56:06.025Z",
+  "uiMutations": [
+    "UI create URGENT: 3465cbe7-fea1-4799-be85-68b58d6ee868",
+    "UI take: __PFFV5_P11_1786611366025-5007b8__ Срочно проверить датчик линии",
+    "UI comment: __PFFV5_P11_1786611366025-5007b8__ Срочно проверить датчик линии",
+    "UI transfer: __PFFV5_P11_1786611366025-5007b8__ Срочно проверить датчик линии",
+    "UI take: __PFFV5_P11_1786611366025-5007b8__ Срочно проверить датчик линии",
+    "UI complete: __PFFV5_P11_1786611366025-5007b8__ Срочно проверить датчик линии",
+    "UI create LONG: bc09a234-0223-4bb3-80a4-785b6fa10a5e",
+    "UI take: __PFFV5_P11_1786611366025-5007b8__ Долгая проверка шкафа управления",
+    "UI comment: __PFFV5_P11_1786611366025-5007b8__ Долгая проверка шкафа управления",
+    "UI complete: __PFFV5_P11_1786611366025-5007b8__ Долгая проверка шкафа управления",
+    "UI stock create: d04803f6-858c-425e-b3c0-73e0c6d8e7c2",
+    "UI order create: 979a7958-6e1e-47f0-ad37-4d03429e8fb9",
+    "UI stock archive"
+  ],
+  "realtime": [
+    {
+      "event": "urgent-created",
+      "milliseconds": 1039,
+      "transport": "websocket-ui-event"
+    },
+    {
+      "event": "stock-created",
+      "milliseconds": 383,
+      "transport": "orders_updated"
+    },
+    {
+      "event": "order-created",
+      "milliseconds": 1000,
+      "transport": "orders_updated"
+    },
+    {
+      "event": "offline-mutation",
+      "result": "guarded-no-write"
+    }
+  ],
+  "denials": [
+    "TECH_HOLOD cannot read KIPIA request before transfer",
+    "old KIPIA recipient loses request after transfer",
+    "WORKER/STORE/TECH_KIPIA order/task denies and cross-factory deny"
+  ],
+  "filters": [
+    "requests search + done + LONG + department + line",
+    "request reset and Android Back close only sheet",
+    "stock/order search + archive status"
+  ],
+  "screenshots": [
+    "01-urgent-request-mobile-390.png",
+    "02-request-in-work-mobile-390.png",
+    "03-request-archive-mobile-390.png",
+    "04-stock-list-mobile-390.png",
+    "05-order-request-mobile-390.png",
+    "06-post-cleanup-requests-mobile-390.png",
+    "06b-post-cleanup-stock-mobile-390.png"
+  ],
+  "cleanup": [
+    "URGENT/LONG completed, order closed, marker stock archived, marker notifications read"
+  ],
+  "emergencyCleanup": [],
+  "browserErrors": [],
+  "serverErrors": [],
+  "stockBaselineHash": "4315ae0a33181049533f3a67c6fdc02a09449a099a5d2bdeccb3cf6d857e414d",
+  "stockFinalHash": "4315ae0a33181049533f3a67c6fdc02a09449a099a5d2bdeccb3cf6d857e414d",
+  "activeTestRequests": 0,
+  "activeTestUrgentRequests": 0,
+  "activeTestLongRequests": 0,
+  "activeTestStockItems": 0,
+  "activeTestOrderRequests": 0,
+  "activeTestArtifacts": 0,
+  "preexistingEntitiesDeleted": 0,
+  "preexistingEntitiesUnintentionallyModified": 0,
+  "preexistingStockValuesModified": 0,
+  "physicalDeletes": 0,
+  "directDatabaseWrites": 0,
+  "migrationCreated": false,
+  "preexistingStockCount": 372,
+  "viewports": [
+    "360x800",
+    "390x844",
+    "430x900",
+    "1280x900"
+  ],
+  "cleanupMetrics": {
+    "ACTIVE_TEST_REQUESTS": 0,
+    "ACTIVE_TEST_URGENT_REQUESTS": 0,
+    "ACTIVE_TEST_LONG_REQUESTS": 0,
+    "ACTIVE_TEST_STOCK_ITEMS": 0,
+    "ACTIVE_TEST_ORDER_REQUESTS": 0,
+    "ACTIVE_TEST_ARTIFACTS": 0,
+    "PREEXISTING_STOCK_VALUES_MODIFIED": 0,
+    "PREEXISTING_ENTITIES_DELETED": 0,
+    "PREEXISTING_ENTITIES_UNINTENTIONALLY_MODIFIED": 0
+  },
+  "finishedAt": "2026-08-13T08:56:43.888Z"
+}

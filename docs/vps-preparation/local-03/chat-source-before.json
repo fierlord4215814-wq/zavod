@@ -1,0 +1,61 @@
+{
+  "at": "2026-09-25T05:36:06.176Z",
+  "identity": {
+    "database": "zavod_local01_c0",
+    "port": 15436,
+    "data_directory": "C:/Users/79164/AppData/Local/Zavod-Local01-Functional/run-20260924-0b9b24e0/pgdata"
+  },
+  "migrations": [
+    {
+      "count": 57
+    }
+  ],
+  "version": {
+    "name": "zavod",
+    "stage": "vps-prep-02",
+    "version": "LOCAL03-20260924-C1"
+  },
+  "ready": {
+    "ready": true,
+    "code": "READY"
+  },
+  "hashes": [
+    {
+      "path": "frontend/src/navigation/permissions.ts",
+      "bytes": 5491,
+      "sha256": "8b75b93eac14b6b324efe4eca6d84beae187de08dadf2b7e6988e6e54854cb59"
+    },
+    {
+      "path": "frontend/src/screens/ChatsScreen.tsx",
+      "bytes": 95136,
+      "sha256": "c961553c2f08bb3391781bc1fb088ef539d423c8ede1cbe03c1430b1ee8943a6"
+    },
+    {
+      "path": "frontend/src/api/client.ts",
+      "bytes": 12093,
+      "sha256": "4566684c03343122a1efd1935326454f65eaa0f3d9d3de3389569a40b2f394c1"
+    },
+    {
+      "path": "backend/src/modules/chats/chats.service.ts",
+      "bytes": 83222,
+      "sha256": "7a3f9a21012215be4a9f384dd28bb1d6c931b3b7d2dc64dd4973c538218a158d"
+    },
+    {
+      "path": "backend/src/modules/chats/chat-message-delete-policy.ts",
+      "bytes": 4456,
+      "sha256": "a12b58823c56367e390245bf7d0a0f3181e17aceef26b9c624cc75d0aa59fb7f"
+    },
+    {
+      "path": "frontend/dist/index.html",
+      "bytes": 2253,
+      "sha256": "a2339adac8d36059a114fb911005f7367d68374be5f2c6097b70916a8f1163ef"
+    }
+  ],
+  "users": 17,
+  "activeFactories": [
+    {
+      "id": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "code": "local01-a"
+    }
+  ]
+}

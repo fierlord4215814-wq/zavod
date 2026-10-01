@@ -1,0 +1,45 @@
+{
+  "atUtc": "2026-09-27T14:41:27.7713509Z",
+  "action": "Switch",
+  "target": "AttAuth01",
+  "before": [
+    {
+      "port": 3000,
+      "pid": 21240,
+      "createdUtc": "2026-09-27T14:35:50.3615360Z",
+      "command": "\"C:\\Program Files\\nodejs\\node.exe\" backend/dist/main.js"
+    },
+    {
+      "port": 5173,
+      "pid": 27552,
+      "createdUtc": "2026-09-27T14:36:14.6775160Z",
+      "command": "\"C:\\Program Files\\nodejs\\node.exe\" docs/vps-preparation/local-03/frontend-preview.cjs"
+    },
+    {
+      "port": 15437,
+      "pid": 24212,
+      "createdUtc": "2026-09-26T21:41:03.5517600Z",
+      "command": "\"C:/Program Files/PostgreSQL/18/bin/postgres.exe\"  -D \"C:/Users/79164/AppData/Local/Zavod-Factory01/run-20260926-t1/pgdata\" -h 127.0.0.1 -p 15437 "
+    }
+  ],
+  "after": [
+    {
+      "port": 3000,
+      "pid": 26936,
+      "createdUtc": "2026-09-27T14:41:24.4485340Z",
+      "command": "\"C:\\Program Files\\nodejs\\node.exe\" backend/dist/main.js"
+    },
+    {
+      "port": 5173,
+      "pid": 27552,
+      "createdUtc": "2026-09-27T14:36:14.6775160Z",
+      "command": "\"C:\\Program Files\\nodejs\\node.exe\" docs/vps-preparation/local-03/frontend-preview.cjs"
+    },
+    {
+      "port": 15437,
+      "pid": 24212,
+      "createdUtc": "2026-09-26T21:41:03.5517600Z",
+      "command": "\"C:/Program Files/PostgreSQL/18/bin/postgres.exe\"  -D \"C:/Users/79164/AppData/Local/Zavod-Factory01/run-20260926-t1/pgdata\" -h 127.0.0.1 -p 15437 "
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+
+[*] Changed the `Announcement` table
+  [*] Renamed index `Announcement_factoryId_departmentId_visibleFrom_visibleUntil_id` to `Announcement_factoryId_departmentId_visibleFrom_visibleUnti_idx`
+
+[*] Changed the `ChecklistPauseEvent` table
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+
+[*] Changed the `ChecklistRun` table
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+
+[*] Changed the `ChecklistRunRow` table
+  [-] Removed index on columns (rowType, status)
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+
+[*] Changed the `ChecklistSettings` table
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+
+[*] Changed the `ChecklistTemplate` table
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+  [*] Renamed index `ChecklistTemplate_factoryId_departmentId_isActive_archivedAt_id` to `ChecklistTemplate_factoryId_departmentId_isActive_archivedA_idx`
+
+[*] Changed the `ChecklistTemplateRow` table
+  [-] Removed index on columns (rowType)
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+
+[*] Changed the `ContractorShiftSubmission` table
+  [*] Renamed index `ContractorShiftSubmission_companyId_targetShiftDate_shiftType_i` to `ContractorShiftSubmission_companyId_targetShiftDate_shiftTy_idx`
+  [*] Renamed index `ContractorShiftSubmission_factoryId_targetShiftDate_shiftType_s` to `ContractorShiftSubmission_factoryId_targetShiftDate_shiftTy_idx`
+
+[*] Changed the `LinePosition` table
+  [-] Removed index on columns (factoryId, skillFamilyKey)
+
+[*] Changed the `LineStaffingTemplateItem` table
+  [-] Removed index on columns (templateId, plannedCount)
+
+[*] Changed the `MinimumStockItem` table
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+
+[*] Changed the `MinimumStockMovement` table
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+
+[*] Changed the `OkkRecord` table
+  [-] Removed index on columns (factoryId, archivedAt)
+
+[*] Changed the `OrderRequest` table
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+
+[*] Changed the `OrderSettings` table
+  [*] Altered column `id` (default changed from `Some(DbGenerated(Some("gen_random_uuid()")))` to `None`)
+  [+] Added foreign key on columns (factoryId)
+
+[*] Changed the `PlannedShiftAssignment` table
+  [*] Renamed index `PlannedShiftAssignment_workAreaId_workAreaPositionId_slotIndex_` to `PlannedShiftAssignment_workAreaId_workAreaPositionId_slotIn_idx`
+
+[*] Changed the `User` table
+  [-] Removed index on columns (blockedAt)
+
+[*] Changed the `UserSkillCredit` table
+  [*] Renamed index `UserSkillCredit_factoryId_userId_lineId_positionId_shiftDate_sh` to `UserSkillCredit_factoryId_userId_lineId_positionId_shiftDat_key`

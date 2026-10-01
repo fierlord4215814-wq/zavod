@@ -1,0 +1,48 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+index 660cd950..59090b70 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+@@ -1,4 +1,42 @@
+-# MASTER R5 — текущий результат20.09.2026: дефект late command 3 доказан в source
++# MASTER R5 — результат21.09.2026: source исправлен, доступ к гостю блокирован
++
++MASTER_R5_STATUS=BLOCKED_TOOL_CAPABILITY. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. PHYSICAL_PHONE=PENDING. FINAL_STOP=STOP. Это тот же R5; никакой новый sweep/R6 не начат. Ниже сохранена вся прежняя история; её устаревшие статусы и временные запреты не являются текущим checkpoint.
++
++## Что действительно изменено в этом продолжении
++
++Подтверждена причина late command3 в **фактически подключённом CIDATA seed**: PowerShell comma/+ разбивает `sh -c` на5argv; строка программы заканчивается открытой кавычкой, GUID и хвост становятся отдельными аргументами. Точное parse-only воспроизведение даёт exit2. Это provisioning defect, не product defect; guest `/autoinstall.yaml` и stderr ещё не получены. [Exact seed/argv](attempts/20260921-guest-recovery/actual-seed-redacted.json).
++
++В существующем собственном `attempts/20260920-vm-control/create-seed-media.ps1` подключён pure helper `r5-late-commands.ps1`: whole program одной строкой, GUID whitelist, `set -eu`, обязательные существующий proof и его точное содержимое, остановка перед marker при ошибке copy. Commands0–2 побайтно по значениям argv совпадают с подключённым seed, не исполнялись. Полный генератор/новые ключи/ISO не запускались; seed, VM, VHDX, guest не менялись. Исправление source **не означает** завершения Ubuntu или разрешения повторного autoinstall на использованном диске.
++
++[Итог provisioning checks](attempts/20260921-guest-recovery/run-03-consistent-status/generator-results.json): **7 PASS / 0 FAIL / 3 BLOCKED** из10, не продуктовые controls. Подтверждены length/type/value после JSON и настоящего YAML round-trip, unchanged0–2, original syntax exit2/fixed exit0, отклонение invalid GUID, missing/wrong proof без создания доказательства/marker. Success/repeat, copy-failure и marker-write failure не доказаны: в host Git runtime отсутствует `install`. Ubuntu dash, uid/gid/modes и guest behavior PENDING. Ошибки первого запуска и промежуточная несогласованность per-case статусов сохранены, разобраны в [полном текущем результате](attempts/20260921-guest-recovery/result.md). Корпус не объявлен зелёным; exit2 итогового harness означает blocked.
++
++## Runtime и настоящая причина остановки
++
++Новый boot хоста20.09 20:26:33 подтверждён; старый helper9056 завершился до reboot, текущий9056 — чужой reused PID, не трогался. Один штатный scoped UAC read-only observer14396 выполнен и завершён16:09:11. Exact VM GUID99a158da-c247-422c-ae11-109485a92b1f/BIOS/единственный прежний VHDX подтверждены; **VM Off на21.09 16:09:11**, jobs=[]. Это не результат отвергнутого ранее shutdown000006. Старую очередь не запускали,000007 не объявлен выполненным. [VM receipt](attempts/20260921-guest-recovery/actual-vm.json).
++
++Открыт только Microsoft VMConnect собственной VM (PID15316). Актуальный computer-use26.915.31945 после reset дважды отказал в capture с0x80004002; accessibility показывает окно/название, не guest screen или command output. Навык запрещает слепой ввод при таком отсутствии обратной связи. Bound ownIP TCP/SSH probe дал WSAEACCES до auth, а VM позднее независимо наблюдалась Off; причина сети/SSH UNKNOWN, не «доказанный VPN bug» и не «сломанный guest SSH». Ни console, ни SSH не дали разрешённый наблюдаемый канал. Это **BLOCKED_TOOL_CAPABILITY**, не нехватка согласия на shell. [Канал и процессы](attempts/20260921-guest-recovery/environment-runtime-receipt.json).
++
++Один минимальный ручной диагностический шаг: полностью перезапустить **только Codex**, без elevation и без reboot Windows/VM. Это ограниченная попытка восстановить канал, не гарантированный ремонт capture0x80004002. [Официальная справка OpenAI](https://learn.chatgpt.com/docs/windows/windows-sandbox) рекомендует restart при неожиданной недоступности сети; конкретную причину capture она не доказывает. Новых настроек защиты/сети не требуется и здесь не предлагается.
++
++## Что не выполнено и что продолжать
++
++Guest config/logs/crash/mount/target, фактические результаты0–2, bootloader/packages/finalization/SSH и proof provenance ещё UNVERIFIED. Старые USER_OBSERVED post-install/late0–2success не повышены до independently verified. После host reboot сохранность installer live `/run`/логов UNKNOWN; не утверждается потеря данных. Адресный nondestructive recovery предпочтителен, но пока не выполнен. Не boot/retry со старым seed вслепую, не пересоздавать/стирать VHDX, не подделывать empty-disk proof.
++
++После восстановления канала — actual guest diagnostics/repair → installed identity/canary/clean payload → dependencies и закрытие prep forwarding → app/test isolation proof → отдельная PostgreSQL/actual stack → **все5gates** → все применимые32journeys/1407edges → original063 → одна финальная регрессия/visual evidence. Полный объём сохранён в [execution-plan.md](execution-plan.md), [матрице gates](live-gate-matrix.json), [journey-matrix.json](journey-matrix.json), [остатке](remaining-live-and-physical.md). Не просить новое разрешение на каждый уже разрешённый шаг.
++
++Все пять gates (`MI-SEC-01`, `MI-PUB-01`, `MI-R2-ORD-01`, `MI-R2-CHAT-ATT-01`, `UI-SWEEP-036`) имеют0 новых live cases. 32 journeys —0 new real. Original063 (MASTER390/низкая высота,1286→1213 после Back3) OPEN/UNKNOWN;036 — distinct ordinary/handover comments и archive permissions, не функциональная причина063.014/050/replay/publication решения не выдуманы; отсутствующий OKK→Task не создан. R4 historical549Node/177browser не являются R5 выполнением. Строгие типы/builds/Prisma/product scans в этом продолжении не запускались, новых product fixes0.
++
++## Сохранность, покрытие и пакет
++
++215product/config,132build,72harness и6parent matrices проверяются hash retention; main coverage остаётся **954/957 semantic controls**,3FAIL063;284surfaces; Back1623, Text2754. Это сохранённые матрицы, не новая приёмка, P0/P1/P2=0/1/10. Main sweep PAUSED/NOT_ACCEPTED, physical PENDING. Новых валидных guest/product screenshots0; старые screenshot packs не перезаписаны и не считаются просмотренными в этом продолжении. [Retention/final identities](attempts/20260921-guest-recovery/final-identities.json).
++
++Рабочие PostgreSQL/service/.env/uploads/business data/protected history не читались, не запускались и не менялись. Own app PostgreSQL/fixtures не создавались; retained synthetic filesystem fixtures содержат только фиктивные proof/ID. Host utility delta — checksum-verified unpack pureJS `yaml@2.8.1` в собственном `.r5-runtime`, без npm install/hooks/product dependencies. Observer завершён; Alt+F4 собственного viewer не дал доказанного закрытия, последний статус15316 alive — runtime receipt содержит время/identity. Никакие чужие процессы не завершались. Новых guest writers/queue/helpers не оставлено. Library/account memory NOT_WRITTEN.
++
++Существующие15doc/matrix owners, один старый provisioning generator и новый pure helper разделены от исторического dirty worktree в [changed-files](attempts/20260921-guest-recovery/changed-files.txt) и before/after/diffs. Новый **[review ZIP](zavod-master-r5-guest-recovery-20260921.zip)** содержит текущие документы, оба последних diagnostic attempts и cumulative R5 evidence, без private seed/keys/.env/cookies/storageState/DB/uploads/VM images. [Package receipt](attempts/20260921-guest-recovery/package-receipt.json) фиксирует фактические SHA/размер/полный readback всех entries и сохранность4старыхZIP; именно receipt, не ссылка, подтверждает готовность пакета. FINAL_STOP=STOP на tool boundary, не принятие Goal.
++
++---
++
++## Исторический результат20.09.2026: дефект late command 3 доказан в source
+ 
+ MASTER_R5_STATUS=WAITING_GUEST_READ_ONLY_DIAGNOSTICS. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. [Точная диагностика/argv/inputs/план безопасного восстановления](attempts/20260920-late-command3-diagnosis/diagnosis.md), [текущий checkpoint](progress.md), [resume](resume-prompt.txt).
+ 

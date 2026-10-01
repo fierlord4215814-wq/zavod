@@ -1,0 +1,898 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\backend\\src\\modules\\ops\\ops.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\ops\\ops.service.ts"
+index d6d8417a..e82148a7 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\backend\\src\\modules\\ops\\ops.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\ops\\ops.service.ts"
+@@ -1,4 +1,4 @@
+-import { ForbiddenException, Injectable } from '@nestjs/common';
++import { BadRequestException, ForbiddenException, Injectable } from '@nestjs/common';
+ import { ChecklistRunStatus, LineStatus, OrderRequestStatus, TaskStatus, TaskType, UserRole, WashStatus } from '@prisma/client';
+ import { AuditService } from '../../common/audit.service';
+ import { presentAuditDetails } from '../../common/audit-presentation';
+@@ -26,6 +26,7 @@ type OpsQuery = {
+   taskScope?: string;
+   shiftType?: string;
+   includeDiagnostics?: string;
++  snapshotAt?: string;
+ };
+ 
+ type OpsPeriod = {
+@@ -327,13 +328,22 @@ export class OpsService {
+     this.assertAuditScope(user, query);
+     const includeDiagnostics = this.includeOpsDiagnostics(user, query);
+     const limit = this.limit(query.limit);
+-    const logs = await this.prisma.db.auditLog.findMany({
+-      where: this.auditWhere(user, query),
+-      orderBy: { createdAt: 'desc' },
+-      take: Math.min(800, limit * 8),
+-      include: { user: { select: { id: true } } },
+-    });
+-    const visibleLogs = logs
++    const where = this.auditWhere(user, query);
++    const offset = this.offset(query);
++    const search = String(query.search ?? '').trim().toLocaleLowerCase('ru-RU');
++    const matched: any[] = [];
++    let cursor: string | undefined;
++    // Search human presentation before paging. A fixed first-N scan silently lost old history.
++    while (matched.length < offset + limit) {
++      const logs = await this.prisma.db.auditLog.findMany({
++        where,
++        orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
++        take: 250,
++        ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
++        include: { user: { select: { id: true } } },
++      });
++      if (!logs.length) break;
++      const visibleLogs = logs
+       .filter((item) => includeDiagnostics || (
+         !isPilotFixtureUser(item.user)
+         && (item.details as any)?.includeDiagnostics !== true
+@@ -363,16 +373,19 @@ export class OpsService {
+       item.actorName,
+       ...item.detailsSummary,
+     ));
+-    const search = String(query.search ?? '').trim().toLocaleLowerCase('ru-RU');
+-    return presented
++      matched.push(...presented
++      .filter((item) => !query.module || item.module.toLowerCase() === query.module.toLowerCase())
+       .filter((item) => !search || [
+         item.actionLabel,
+         item.entityLabel,
+         item.entityName,
+         item.actorName,
+         ...item.detailsSummary,
+-      ].filter(Boolean).join(' ').toLocaleLowerCase('ru-RU').includes(search))
+-      .slice(this.offset(query), this.offset(query) + limit);
++      ].filter(Boolean).join(' ').toLocaleLowerCase('ru-RU').includes(search)));
++      if (logs.length < 250) break;
++      cursor = logs[logs.length - 1].id;
++    }
++    return matched.slice(offset, offset + limit);
+   }
+ 
+   async moduleSummary(user: UserContext, query: OpsQuery = {}) {
+@@ -414,15 +427,15 @@ export class OpsService {
+         select: { id: true, title: true, description: true, reasonComment: true },
+       }),
+       this.prisma.db.okkRecord.findMany({
+-        where: { factoryId: user.selectedFactoryId, deletedAt: null, createdAt: this.periodRange(period) },
++        where: { factoryId: user.selectedFactoryId, OR: [{ deletedAt: null }, { archivedAt: { not: null } }], createdAt: this.periodRange(period) },
+         select: { id: true, description: true, article: true, productName: true },
+       }),
+       this.prisma.db.stockDefect.findMany({
+-        where: { factoryId: user.selectedFactoryId, deletedAt: null, createdAt: this.periodRange(period) },
++        where: { factoryId: user.selectedFactoryId, OR: [{ deletedAt: null }, { status: 'ARCHIVED' }], createdAt: this.periodRange(period) },
+         select: { id: true, productName: true, name: true, comment: true },
+       }),
+       this.prisma.db.returnRecord.findMany({
+-        where: { factoryId: user.selectedFactoryId, deletedAt: null, createdAt: this.periodRange(period) },
++        where: { factoryId: user.selectedFactoryId, OR: [{ deletedAt: null }, { archivedAt: { not: null } }], createdAt: this.periodRange(period) },
+         select: { id: true, description: true, article: true, productName: true },
+       }),
+       this.prisma.db.shiftLog.findMany({
+@@ -542,8 +555,7 @@ export class OpsService {
+       this.prisma.db.okkRecord.findMany({
+         where: {
+           factoryId: user.selectedFactoryId,
+-          deletedAt: null,
+-          archivedAt: null,
++          OR: [{ deletedAt: null }, { archivedAt: { not: null } }],
+           createdAt: this.periodRange(period),
+           ...(query.lineId ? { lineId: String(query.lineId) } : {}),
+         },
+@@ -553,7 +565,7 @@ export class OpsService {
+       this.prisma.db.stockDefect.findMany({
+         where: {
+           factoryId: user.selectedFactoryId,
+-          deletedAt: null,
++          OR: [{ deletedAt: null }, { status: 'ARCHIVED' }],
+           createdAt: this.periodRange(period),
+         },
+         select: { id: true, productName: true, name: true, comment: true, quantity: true, unit: true, status: true },
+@@ -562,9 +574,9 @@ export class OpsService {
+       this.prisma.db.returnRecord.findMany({
+         where: {
+           factoryId: user.selectedFactoryId,
+-          deletedAt: null,
+-          archivedAt: null,
++          OR: [{ deletedAt: null }, { archivedAt: { not: null } }],
+           createdAt: this.periodRange(period),
++          ...(query.lineId ? { lineId: String(query.lineId) } : {}),
+         },
+         select: { id: true, description: true, article: true, productName: true, status: true },
+         take: 2000,
+@@ -633,9 +645,9 @@ export class OpsService {
+         || (!hasPilotFixtureMarker(event.id, event.lineId, event.line?.name, event.comment)
+           && !hasPhysicalFieldFixtureMarker(event.id, event.lineId, event.line?.name, event.comment)));
+     const taskRecords = tasks as any[];
+-    const periodEvents = events.filter((event) => this.inPeriod(this.lineEventEffectiveAt(event), period));
+-    const downtimeIntervals = this.buildDowntimeIntervals(events, period, now)
+-      .filter((item) => !query.shiftType || query.shiftType === 'all' || item.shiftType === String(query.shiftType).toUpperCase());
++    const periodEvents = events.filter((event) => this.inPeriod(this.lineEventEffectiveAt(event), period))
++      .filter((event) => !query.shiftType || query.shiftType === 'all' || this.shiftTypeFor(this.lineEventEffectiveAt(event)) === String(query.shiftType).toUpperCase());
++    const downtimeIntervals = this.buildDowntimeIntervals(events, period, now, query.shiftType);
+     const taskRowsAll = taskRecords
+       .filter((task) => includeDiagnostics || isRuntimeVisibleTask(task))
+       .filter((task) => this.canSeeOperationalTask(user, task))
+@@ -666,7 +678,7 @@ export class OpsService {
+     const repeatedProblems = this.buildRepeatedProblems(taskRows, downtimeRows);
+     const longestDowntimes = [...downtimeRows].sort((a, b) => b.durationMinutes - a.durationMinutes).slice(0, 10);
+     const openUrgentTasks = taskRows.filter((task) => task.type === TaskType.URGENT && task.status !== TaskStatus.DONE);
+-    const overdueTasks = taskRows.filter((task) => task.overdueLong);
++    const overdueTasks = taskRows.filter((task) => task.overdueLong && task.status !== TaskStatus.DONE);
+     const totalLostMinutes = this.sum(downtimeRows.map((item) => item.durationMinutes));
+     const downtimeDurations = downtimeRows.map((item) => item.durationMinutes);
+     const downtimeReasons = this.buildDowntimeReasonSummaries(downtimeRows);
+@@ -677,6 +689,13 @@ export class OpsService {
+       .filter((record) => includeDiagnostics || !hasPilotFixtureMarker(record.id, record.description, record.article, record.productName))
+       .filter((record) => !query.shiftType || query.shiftType === 'all' || record.shiftLabel === (query.shiftType === 'DAY' ? 'День' : 'Ночь'));
+     const visibleStockDefects = stockDefects.filter((record) => includeDiagnostics || !hasPilotFixtureMarker(record.id, record.productName, record.name, record.comment));
++    const quantityByUnit = new Map<string, number>();
++    for (const record of visibleStockDefects) {
++      const unit = record.unit?.trim() || 'без единицы';
++      quantityByUnit.set(unit, (quantityByUnit.get(unit) ?? 0) + Number(record.quantity ?? 0));
++    }
++    const stockDefectQuantities = [...quantityByUnit].sort(([a], [b]) => a.localeCompare(b, 'ru'))
++      .map(([unit, quantity]) => ({ unit, quantity }));
+     const visibleReturnRecords = returnRecords.filter((record) => includeDiagnostics || !hasPilotFixtureMarker(record.id, record.description, record.article, record.productName));
+     const visibleChecklistRuns = checklistRuns.filter((run) => includeDiagnostics
+       || (!hasPilotFixtureMarker(run.id, run.template?.name) && !hasPhysicalFieldFixtureMarker(run.id, run.template?.name)));
+@@ -691,11 +710,11 @@ export class OpsService {
+     })))
+       .filter((check) => this.inPeriod(check.startedAt, period) || this.inPeriod(check.dueAt, period) || this.inPeriod(check.completedAt, period));
+     const washIssues = visibleWashSessions.flatMap((session) => session.issues)
+-      .filter((issue) => this.inPeriod(issue.createdAt, period) || this.inPeriod(issue.resolvedAt, period) || (!issue.isResolved && issue.status !== 'RESOLVED'))
++      .filter((issue) => issue.createdAt <= period.asOf && (this.inPeriod(issue.createdAt, period) || this.inPeriod(issue.resolvedAt, period) || !issue.resolvedAt || issue.resolvedAt > period.asOf))
+       .filter((issue) => includeDiagnostics || !hasPilotFixtureMarker(issue.id, issue.title, issue.message));
+     const washMiniTasks = visibleWashSessions.flatMap((session) => session.controlItems)
+       .filter((item) => item.type === 'MINI_TASK')
+-      .filter((item) => this.inPeriod(item.createdAt, period) || this.inPeriod(item.doneAt, period) || item.status !== 'DONE')
++      .filter((item) => item.createdAt <= period.asOf && (this.inPeriod(item.createdAt, period) || this.inPeriod(item.doneAt, period) || !item.doneAt || item.doneAt > period.asOf))
+       .filter((item) => includeDiagnostics || !hasPilotFixtureMarker(item.id, item.title, item.description));
+     const dataQuality = this.operationsDataQuality(
+       downtimeRows,
+@@ -798,7 +817,8 @@ export class OpsService {
+       quality: {
+         okkDefects: visibleOkkRecords.length,
+         stockDefects: visibleStockDefects.length,
+-        stockDefectQuantity: this.sum(visibleStockDefects.map((record) => Number(record.quantity ?? 0))),
++        stockDefectQuantity: stockDefectQuantities.length > 1 ? null : stockDefectQuantities[0]?.quantity ?? 0,
++        stockDefectQuantities,
+         returns: visibleReturnRecords.length,
+       },
+       checklists: {
+@@ -806,7 +826,7 @@ export class OpsService {
+         active: visibleChecklistRuns.filter((run) => run.startedAt <= period.asOf && (!run.closedAt || run.closedAt > period.asOf)).length,
+         runsCompleted: checklistRunsClosed.filter((run) => run.status === ChecklistRunStatus.CLOSED || run.status === ChecklistRunStatus.AUTO_CLOSED).length,
+         checksCompleted: checklistChecks.filter((check) => check.status === 'COMPLETED' && this.inPeriod(check.completedAt, period)).length,
+-        checksOverdue: checklistChecks.filter((check) => check.status !== 'COMPLETED'
++        checksOverdue: checklistChecks.filter((check) => (!check.completedAt || check.completedAt > period.asOf)
+           && this.inPeriod(check.dueAt, period)
+           && check.dueAt < period.asOf
+           && check.runStartedAt <= period.asOf
+@@ -885,7 +905,7 @@ export class OpsService {
+     const maxEndExclusive = new Date(start.getTime() + OPS_ANALYTICS_MAX_DAYS * 86_400_000);
+     const capped = endExclusive > maxEndExclusive;
+     if (capped) endExclusive = maxEndExclusive;
+-    if (endExclusive <= start) endExclusive = new Date(start.getTime() + 86_400_000);
++    if (endExclusive <= start) throw new BadRequestException({ code: 'VALIDATION_ERROR', message: 'Конец диапазона должен быть позже начала периода.' });
+     const asOf = new Date(Math.min(now.getTime(), endExclusive.getTime()));
+     const days = Math.max(1, Math.ceil((endExclusive.getTime() - start.getTime()) / 86_400_000));
+     const displayEnd = new Date(endExclusive.getTime() - 1);
+@@ -911,7 +931,7 @@ export class OpsService {
+     return includeDiagnostics || (!hasPilotFixtureMarker(...values) && !hasPhysicalFieldFixtureMarker(...values));
+   }
+ 
+-  private buildDowntimeIntervals(events: any[], period: OpsPeriod, _now: Date) {
++  private buildDowntimeIntervals(events: any[], period: OpsPeriod, _now: Date, shiftType?: string) {
+     const byLine = new Map<string, any[]>();
+     for (const event of events) byLine.set(event.lineId, [...(byLine.get(event.lineId) ?? []), event]);
+     const intervals: any[] = [];
+@@ -940,22 +960,27 @@ export class OpsService {
+           }
+           continue;
+         }
+-        const durationMinutes = Math.round((clippedEnd.getTime() - clippedStart.getTime()) / 60000);
+         cursor = Math.max(cursor, clippedEnd.getTime());
++        const segments = this.selectedShiftSegments(clippedStart, clippedEnd, shiftType);
++        if (!segments.length) continue;
++        const selectedStart = segments[0].startAt;
++        const selectedEnd = segments[segments.length - 1].endAt;
++        const durationMinutes = Math.round(this.sum(segments.map((segment) => segment.endAt.getTime() - segment.startAt.getTime())) / 60000);
+         intervals.push({
+           id: event.id,
+           eventId: event.id,
+           lineId,
+           lineName: event.line?.name ?? 'Линия',
+           status: event.status,
+-          startAt: clippedStart,
+-          endAt: clippedEnd,
++          startAt: selectedStart,
++          endAt: selectedEnd,
++          segments,
+           rawStartAt: rawStart,
+           rawEndAt: rawEnd,
+           durationMinutes,
+           durationLabel: this.durationLabel(durationMinutes),
+           isOpen,
+-          isClipped: clippedStart.getTime() !== rawStart.getTime() || clippedEnd.getTime() !== rawEnd.getTime(),
++          isClipped: selectedStart.getTime() !== rawStart.getTime() || selectedEnd.getTime() !== rawEnd.getTime() || segments.length > 1,
+           isNormalized: clippedStart.getTime() > Math.max(rawStart.getTime(), period.start.getTime()),
+           shiftType: this.shiftTypeFor(clippedStart),
+           downtimeReason: this.normalizeReason(event.downtimeReason ?? event.comment),
+@@ -970,6 +995,22 @@ export class OpsService {
+     return intervals.sort((a, b) => b.durationMinutes - a.durationMinutes);
+   }
+ 
++  private selectedShiftSegments(startAt: Date, endAt: Date, shiftType?: string) {
++    const selected = String(shiftType ?? 'all').toUpperCase();
++    if (!['DAY', 'NIGHT'].includes(selected)) return [{ startAt, endAt }];
++    const segments: Array<{ startAt: Date; endAt: Date }> = [];
++    let key = addFactoryDays(factoryDateKey(startAt), -1);
++    for (let day = 0; day <= OPS_ANALYTICS_MAX_DAYS + 1; day += 1, key = addFactoryDays(key, 1)) {
++      const from = new Date(`${key}T${selected === 'DAY' ? '08' : '20'}:00:00+03:00`);
++      if (from >= endAt) break;
++      const to = new Date(from.getTime() + 12 * 60 * 60 * 1000);
++      const a = new Date(Math.max(startAt.getTime(), from.getTime()));
++      const b = new Date(Math.min(endAt.getTime(), to.getTime()));
++      if (b > a) segments.push({ startAt: a, endAt: b });
++    }
++    return segments;
++  }
++
+   private buildLineSummaries(lines: any[], downtimes: any[], tasks: any[], results: any[], period: OpsPeriod) {
+     const periodMinutes = Math.max(1, Math.round((period.asOf.getTime() - period.start.getTime()) / 60000));
+     return lines.map((line) => {
+@@ -1020,7 +1061,7 @@ export class OpsService {
+     const overdueLong = task.type === TaskType.LONG && task.deadlineAt ? (doneAt ?? period.asOf) > task.deadlineAt : false;
+     const downtimeLinked = Boolean(task.lineStatusEventId && downtimes.some((item) => item.eventId === task.lineStatusEventId));
+     const downtimeContext = !downtimeLinked && task.lineId
+-      ? downtimes.some((item) => item.lineId === task.lineId && task.createdAt >= item.startAt && task.createdAt <= item.endAt)
++      ? downtimes.some((item) => item.lineId === task.lineId && (item.segments ?? [item]).some((segment: any) => task.createdAt >= segment.startAt && task.createdAt < segment.endAt))
+       : false;
+     return {
+       id: task.id,
+@@ -1080,6 +1121,7 @@ export class OpsService {
+           received: 0,
+           taken: 0,
+           closed: 0,
++          closedOnTime: 0,
+           open: 0,
+           overdue: 0,
+           redirects: 0,
+@@ -1089,7 +1131,10 @@ export class OpsService {
+         };
+         current.received += 1;
+         if (task.takenAt) current.taken += 1;
+-        if (task.status === TaskStatus.DONE) current.closed += 1;
++        if (task.status === TaskStatus.DONE) {
++          current.closed += 1;
++          if (!task.overdueLong) current.closedOnTime += 1;
++        }
+         else current.open += 1;
+         if (task.overdueLong) current.overdue += 1;
+         current.redirects += task.redirectCount;
+@@ -1100,7 +1145,7 @@ export class OpsService {
+       }
+     }
+     return [...groups.values()].map((group) => {
+-      const onTimeClosed = group.closed - group.overdue;
++      const onTimeClosed = group.closedOnTime;
+       return {
+         departmentId: group.departmentId,
+         departmentName: group.departmentName,
+@@ -1269,7 +1314,7 @@ export class OpsService {
+       });
+     }
+ 
+-    const overdueChecks = input.checklistChecks.filter((check: any) => check.status !== 'COMPLETED'
++    const overdueChecks = input.checklistChecks.filter((check: any) => (!check.completedAt || check.completedAt > input.now)
+       && check.dueAt
+       && check.dueAt < input.now
+       && check.runStartedAt <= input.now
+@@ -1291,12 +1336,12 @@ export class OpsService {
+         severity: qualityCount >= 5 ? 'CRITICAL' : 'WARNING',
+         title: 'Отклонения качества',
+         text: `ОКК: ${input.visibleOkkRecords.length}, некондиция: ${input.visibleStockDefects.length}, возвраты: ${input.visibleReturnRecords.length}.`,
+-        detail: 'Показаны только активные записи выбранного завода за период.',
++        detail: 'Записи выбранного завода, созданные за период, включая архивные; это число записей, не объём продукции.',
+       });
+     }
+ 
+-    const openWashIssues = input.washIssues.filter((issue: any) => !issue.isResolved && issue.status !== 'RESOLVED').length;
+-    const openWashTasks = input.washMiniTasks.filter((item: any) => item.status !== 'DONE').length;
++    const openWashIssues = input.washIssues.filter((issue: any) => !issue.resolvedAt || issue.resolvedAt > input.now).length;
++    const openWashTasks = input.washMiniTasks.filter((item: any) => !item.doneAt || item.doneAt > input.now).length;
+     if (openWashIssues || openWashTasks) {
+       insights.push({
+         key: 'wash',
+@@ -1369,7 +1414,9 @@ export class OpsService {
+           return side === 'end' ? window.to : window.from;
+         })()
+       : new Date(text);
+-    if (Number.isNaN(date.getTime())) return fallback;
++    if (Number.isNaN(date.getTime()) || (match && factoryDateKey(side === 'end' ? new Date(date.getTime() - 1) : date) !== text)) {
++      throw new BadRequestException({ code: 'VALIDATION_ERROR', message: 'Укажите корректные даты периода.' });
++    }
+     return date;
+   }
+ 
+@@ -1671,11 +1718,15 @@ export class OpsService {
+       ...(query.action ? { action: query.action } : {}),
+       ...((query as any).entityType ? { entityType: (query as any).entityType } : {}),
+       ...((query as any).entityId ? { entityId: (query as any).entityId } : {}),
+-      ...(query.accessDeniedOnly === 'true' ? { action: 'ACCESS_DENIED' } : {}),
++      ...(query.accessDeniedOnly === 'true' ? { AND: [{ action: 'ACCESS_DENIED' }] } : {}),
+     };
+-    if (query.module) where.action = { startsWith: this.actionPrefix(query.module), mode: 'insensitive' };
++    // Module is the displayed classifier, not a single action prefix (e.g. EMPLOYEE_*).
++    if (query.snapshotAt) {
++      const snapshot = this.safePeriodBoundary(query.snapshotAt, factoryServerNow(), 'end');
++      where.createdAt.lt = new Date(Math.min(where.createdAt.lt.getTime(), snapshot.getTime()));
++    }
+     if (!user.isAdmin && user.role !== UserRole.MANAGEMENT && !user.permissions.includes('ops.audit.full') && query.accessDeniedOnly !== 'true') {
+-      where.action = { not: 'ACCESS_DENIED' };
++      where.AND = [...(where.AND ?? []), { action: { not: 'ACCESS_DENIED' } }];
+     }
+     return where;
+   }
+@@ -1703,13 +1754,14 @@ export class OpsService {
+   }
+ 
+   private notificationVisibilityWhere(user: UserContext): any {
+-    if (user.isAdmin) return { OR: [{ userId: user.userId }, { factoryId: user.selectedFactoryId }, { factoryId: null, departmentId: null, userId: null }] };
++    const factoryScope = { OR: [{ factoryId: user.selectedFactoryId }, { factoryId: null }] };
++    if (user.isAdmin) return { AND: [factoryScope, { OR: [{ userId: user.userId }, { factoryId: user.selectedFactoryId }, { factoryId: null, departmentId: null, userId: null }] }] };
+     return {
+-      OR: [
++      AND: [factoryScope, { OR: [
+         { userId: user.userId },
+         { factoryId: user.selectedFactoryId, departmentId: null, userId: null },
+         ...(user.departmentId ? [{ factoryId: user.selectedFactoryId, departmentId: user.departmentId, userId: null }] : []),
+-      ],
++      ] }],
+     };
+   }
+ 
+@@ -2075,7 +2127,8 @@ export class OpsService {
+   }
+ 
+   private offset(query: OpsQuery) {
+-    const page = Math.max(Number(query.page ?? 1), 1);
++    const number = Number(query.page ?? 1);
++    const page = Number.isFinite(number) ? Math.max(Math.trunc(number), 1) : 1;
+     return (page - 1) * this.limit(query.limit);
+   }
+ }
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\frontend\\src\\screens\\OpsAuditScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\OpsAuditScreen.tsx"
+index cf1bd629..b79b1575 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\frontend\\src\\screens\\OpsAuditScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\OpsAuditScreen.tsx"
+@@ -1,4 +1,4 @@
+-import React, { useEffect, useMemo, useState } from 'react';
++import React, { useEffect, useMemo, useRef, useState } from 'react';
+ import { apiClient } from '../api/client';
+ import { PremiumSectionHeader, PremiumSheet } from '../components/PremiumShell';
+ import { addFactoryDays, factoryDateKey, factoryDateTimeLabel } from '../utils/factory-time';
+@@ -174,7 +174,7 @@ type OperationsAnalytics = {
+   };
+   weakSpots: OpsInsight[];
+   lineEvents: { stop: number; pause: number; work: number; downtimeLinkedTasks: number };
+-  quality: { okkDefects: number; stockDefects: number; stockDefectQuantity: number; returns: number };
++  quality: { okkDefects: number; stockDefects: number; stockDefectQuantity: number | null; stockDefectQuantities: Array<{ unit: string; quantity: number }>; returns: number };
+   checklists: { started: number; active: number; runsCompleted: number; checksCompleted: number; checksOverdue: number; manuallyClosed: number; shiftClosed: number };
+   wash: { active: number; completed: number; issues: number; openIssues: number; miniTasks: number; miniTasksDone: number };
+   lines: OpsLine[];
+@@ -271,11 +271,18 @@ export function OpsAuditScreen() {
+     accessDeniedOnly: false,
+   });
+   const [errorText, setErrorText] = useState<string | null>(null);
++  const [appliedFilters, setAppliedFilters] = useState(filters);
++  const [loadedFilters, setLoadedFilters] = useState(filters);
++  const requestGeneration = useRef(0);
++  const auditSnapshot = useRef('');
++  const [auditPage, setAuditPage] = useState(1);
++  const [auditLoading, setAuditLoading] = useState(false);
+   const [loading, setLoading] = useState(false);
+   const [filtersOpen, setFiltersOpen] = useState(false);
+   const [selectedAudit, setSelectedAudit] = useState<AuditRow | null>(null);
+ 
+   const operationsUrl = useMemo(() => {
++    const filters = appliedFilters;
+     const params = new URLSearchParams();
+     if (filters.dateFrom) params.set('dateFrom', filters.dateFrom);
+     if (filters.dateTo) params.set('dateTo', filters.dateTo);
+@@ -286,42 +293,53 @@ export function OpsAuditScreen() {
+     if (filters.taskStatus) params.set('taskStatus', filters.taskStatus);
+     if (filters.taskScope && filters.taskScope !== 'all') params.set('taskScope', filters.taskScope);
+     return `/ops/operations/overview?${params.toString()}`;
+-  }, [filters]);
++  }, [appliedFilters]);
+ 
+   const summaryQuery = useMemo(() => {
++    const filters = appliedFilters;
+     const params = new URLSearchParams();
+     if (filters.dateFrom) params.set('dateFrom', filters.dateFrom);
+     if (filters.dateTo) params.set('dateTo', filters.dateTo);
+     if (filters.departmentId) params.set('departmentId', filters.departmentId);
+     return params.toString();
+-  }, [filters.dateFrom, filters.dateTo, filters.departmentId]);
++  }, [appliedFilters.dateFrom, appliedFilters.dateTo, appliedFilters.departmentId]);
+ 
+   const timelineQuery = useMemo(() => {
++    const filters = appliedFilters;
+     const params = new URLSearchParams(summaryQuery);
+     if (filters.eventModule) params.set('module', filters.eventModule);
+     if (filters.eventSeverity) params.set('severity', filters.eventSeverity);
+     if (filters.eventSearch.trim()) params.set('search', filters.eventSearch.trim());
+     if (filters.accessDeniedOnly) params.set('accessDeniedOnly', 'true');
+     return params.toString();
+-  }, [summaryQuery, filters.eventModule, filters.eventSeverity, filters.eventSearch, filters.accessDeniedOnly]);
++  }, [summaryQuery, appliedFilters.eventModule, appliedFilters.eventSeverity, appliedFilters.eventSearch, appliedFilters.accessDeniedOnly]);
+ 
+   const load = async () => {
++    const generation = ++requestGeneration.current;
+     setLoading(true);
+     setErrorText(null);
+     try {
+-      const [nextOperations, nextOverview, nextEvents, nextAudit, nextModules] = await Promise.all([
+-        apiClient.get<OperationsAnalytics>(operationsUrl),
++      const nextOperations = await apiClient.get<OperationsAnalytics>(operationsUrl);
++      if (generation !== requestGeneration.current) return;
++      const snapshot = nextOperations.generatedAt;
++      const [nextOverview, nextEvents, nextAudit, nextModules] = await Promise.all([
+         apiClient.get<Overview>(`/ops/overview?${summaryQuery}`),
+         apiClient.get<OpsEvent[]>(`/ops/events?limit=50&${timelineQuery}`),
+-        apiClient.get<AuditRow[]>(`/ops/audit?limit=50&${timelineQuery}`),
++        apiClient.get<AuditRow[]>(`/ops/audit?limit=50&snapshotAt=${encodeURIComponent(snapshot)}&${timelineQuery}`),
+         apiClient.get<ModuleSummary[]>(`/ops/module-summary?${summaryQuery}`),
+       ]);
++      if (generation !== requestGeneration.current) return;
+       setOperations(nextOperations);
+       setOverview(nextOverview);
+       setEvents(nextEvents);
+       setAudit(nextAudit);
++      auditSnapshot.current = snapshot;
++      setAuditPage(1);
++      setAuditLoading(false);
+       setModules(nextModules);
++      setLoadedFilters(appliedFilters);
+     } catch (error) {
++      if (generation !== requestGeneration.current) return;
+       setOperations(null);
+       setOverview(null);
+       setEvents([]);
+@@ -329,11 +347,30 @@ export function OpsAuditScreen() {
+       setModules([]);
+       setErrorText(error instanceof Error ? error.message : 'Не удалось загрузить операционную сводку.');
+     } finally {
+-      setLoading(false);
++      if (generation === requestGeneration.current) setLoading(false);
+     }
+   };
+ 
+-  useEffect(() => { void load(); }, []);
++  const loadAuditPage = async (page: number) => {
++    const generation = requestGeneration.current;
++    setAuditLoading(true);
++    setSelectedAudit(null);
++    try {
++      const rows = await apiClient.get<AuditRow[]>(`/ops/audit?limit=50&page=${page}&snapshotAt=${encodeURIComponent(auditSnapshot.current)}&${timelineQuery}`);
++      if (generation !== requestGeneration.current) return;
++      setAudit(rows);
++      setAuditPage(page);
++    } catch (error) {
++      if (generation === requestGeneration.current) setErrorText(error instanceof Error ? error.message : 'Не удалось загрузить страницу аудита.');
++    } finally {
++      if (generation === requestGeneration.current) setAuditLoading(false);
++    }
++  };
++
++  useEffect(() => {
++    void load();
++    return () => { requestGeneration.current += 1; };
++  }, [operationsUrl, summaryQuery, timelineQuery, appliedFilters]);
+ 
+   const applyQuickPeriod = (period: 'today' | 'yesterday' | 'week' | 'month' | 'prevMonth') => {
+     const today = factoryDateKey();
+@@ -371,19 +408,19 @@ export function OpsAuditScreen() {
+       {errorText ? <div className="empty-state error-state">{errorText}</div> : null}
+       {loading ? <div className="empty-state">Загрузка...</div> : null}
+ 
+-      {operations ? (
+         <div className="ops-filter-summary" data-testid="ops-filter-summary">
+           <div>
+             <span className="section-eyebrow">Период</span>
+-            <strong>{operations.period.label}</strong>
++            <strong>{operations?.period.label ?? 'Выберите корректный период'}</strong>
+             <small>
+-              {filters.lineId ? operations.filterOptions.lines.find((line) => line.id === filters.lineId)?.name ?? 'Выбранная линия' : 'Все линии'}
+-              {filters.departmentId ? ` · ${operations.filterOptions.departments.find((department) => department.id === filters.departmentId)?.name ?? 'Выбранный отдел'}` : ''}
++              {loadedFilters.lineId ? operations?.filterOptions.lines.find((line) => line.id === loadedFilters.lineId)?.name ?? 'Выбранная линия' : 'Все линии'}
++              {loadedFilters.departmentId ? ` · ${operations?.filterOptions.departments.find((department) => department.id === loadedFilters.departmentId)?.name ?? 'Выбранный отдел'}` : ''}
+             </small>
+           </div>
+           <button className="secondary-button" type="button" onClick={() => setFiltersOpen(true)}>Фильтры</button>
++          <button className="secondary-button" type="button" disabled={loading} onClick={() => void load()}>Обновить</button>
+         </div>
+-      ) : null}
++      <p className="line-meta">Снимок обновляется кнопкой «Обновить» или при применении фильтров. Автоматического обновления нет.</p>
+ 
+       {tab === 'Потери' && operations ? (
+         <div className="ops-analytics">
+@@ -444,7 +481,7 @@ export function OpsAuditScreen() {
+             <h3>Качество</h3>
+             <div className="metric-grid ops-metric-grid">
+               <Metric label="Брак ОКК" value={operations.quality.okkDefects} />
+-              <Metric label="Некондиция" value={operations.quality.stockDefects} detail={`Количество: ${operations.quality.stockDefectQuantity}`} />
++              <Metric label="Некондиция" value={operations.quality.stockDefects} detail={`Текущее количество в записях периода: ${operations.quality.stockDefectQuantities.map((item) => `${item.quantity} ${item.unit}`).join('; ') || 'нет данных'}`} />
+               <Metric label="Возвраты" value={operations.quality.returns} />
+             </div>
+           </section>
+@@ -454,7 +491,7 @@ export function OpsAuditScreen() {
+             <div className="metric-grid ops-metric-grid">
+               <Metric label="Запущено" value={operations.checklists.started} />
+               <Metric label="Активно на конец периода" value={operations.checklists.active} />
+-              <Metric label="Проверок выполнено" value={operations.checklists.checksCompleted} detail={`Запусков завершено: ${operations.checklists.runsCompleted}`} />
++              <Metric label="Периодических проверок выполнено" value={operations.checklists.checksCompleted} detail={`Запусков завершено: ${operations.checklists.runsCompleted}; закрытие запуска не является отдельным периодическим выполнением`} />
+               <Metric label="Просрочено" value={operations.checklists.checksOverdue} />
+               <Metric label="Закрыто вручную" value={operations.checklists.manuallyClosed} />
+               <Metric label="Закрыто сменой" value={operations.checklists.shiftClosed} />
+@@ -479,7 +516,7 @@ export function OpsAuditScreen() {
+                   <span>{line.lostLabel} · простоев: {line.downtimeCount} · заявок открыто: {line.openTasks}</span>
+                 </div>
+                 <div className="ops-row-meta">
+-                  <span>Доля периода: {line.downtimeSharePercent}%</span>
++                  <span>Доля календарного периода: {line.downtimeSharePercent}%</span>
+                   <span>План: {line.planCompletionLabel ?? 'нет данных'}</span>
+                   {line.currentOpenDowntime ? <span className="tag pause">Простой открыт</span> : null}
+                 </div>
+@@ -588,21 +625,22 @@ export function OpsAuditScreen() {
+ 
+       {tab === 'Обзор' && overview ? (
+         <div className="metric-grid premium-kpi-strip ops-overview-metric-grid" data-count="4">
+-          <Metric label="Просроченные заявки" value={overview.overdueLongTasksCount} />
+-          <Metric label="Активные заявки" value={overview.activeTasksCount} />
+-          <Metric label="Активные мойки" value={overview.activeWashCount} />
+-          <Metric label="Проблемы мойки" value={overview.washIssuesCount} />
+-          <Metric label="Остатки ниже порога" value={overview.lowStockItemsCount} />
+-          <Metric label="Заявки на заказ" value={overview.openOrderRequestsCount} />
+-          <Metric label="Важные пересменки" value={overview.activeImportantShiftLogsCount} />
+-          <Metric label="Непрочитанные уведомления" value={overview.unreadNotificationsCount} />
+-          <Metric label="Автозакрытые чек-листы" value={overview.checklistAutoClosedCount} />
+-          <Metric label="Отказы доступа" value={overview.recentAccessDeniedCount} />
++          <Metric label="Просроченные заявки" value={overview.overdueLongTasksCount} detail="Текущее состояние завода, не период" />
++          <Metric label="Активные заявки" value={overview.activeTasksCount} detail="Текущее состояние завода, не период" />
++          <Metric label="Активные мойки" value={overview.activeWashCount} detail="Текущее состояние завода, не период" />
++          <Metric label="Проблемы мойки" value={overview.washIssuesCount} detail="Открытые проблемы текущих моек" />
++          <Metric label="Остатки ниже порога" value={overview.lowStockItemsCount} detail="Текущие остатки не выше минимального порога" />
++          <Metric label="Заявки на заказ" value={overview.openOrderRequestsCount} detail="Текущие открытые заявки, не движения остатков" />
++          <Metric label="Важные пересменки" value={overview.activeImportantShiftLogsCount} detail="Текущие активные записи" />
++          <Metric label="Непрочитанные уведомления" value={overview.unreadNotificationsCount} detail="Доступные непрочитанные строки сейчас, не уникальные события" />
++          <Metric label="Автозакрытые чек-листы" value={overview.checklistAutoClosedCount} detail="Закрыты за выбранный период; учитывается отдел" />
++          <Metric label="Отказы доступа" value={overview.recentAccessDeniedCount} detail="Записи аудита за выбранный период" />
+         </div>
+       ) : null}
+ 
+       {tab === 'События' ? (
+         <div className="section-stack">
++          <p className="line-meta">Последние 50 доступных строк событий за период. Одно действие может иметь запись аудита, историю и строки уведомлений.</p>
+           {!events.length && !loading ? <div className="empty-state">Событий пока нет.</div> : null}
+           {events.map((item) => <EventCard item={item} key={item.id} />)}
+         </div>
+@@ -610,6 +648,11 @@ export function OpsAuditScreen() {
+ 
+       {tab === 'Аудит' ? (
+         <div className="section-stack">
++          <div className="tab-row" aria-label="Страницы аудита">
++            <button type="button" className="secondary-button" disabled={loading || auditLoading || auditPage === 1} onClick={() => void loadAuditPage(auditPage - 1)}>Предыдущая</button>
++            <span>Страница {auditPage}</span>
++            <button type="button" className="secondary-button" disabled={loading || auditLoading || audit.length < 50} onClick={() => void loadAuditPage(auditPage + 1)}>Следующая</button>
++          </div>
+           {!audit.length && !loading ? <div className="empty-state">Записей аудита пока нет.</div> : null}
+           {audit.map((item) => (
+             <article className="card ops-audit-card" key={item.id}>
+@@ -634,18 +677,17 @@ export function OpsAuditScreen() {
+ 
+       {tab === 'Модули' ? (
+         <div className="metric-grid ops-module-grid">
+-          {modules.map((item) => <Metric label={humanModule(item.module)} value={item.count} detail={item.scopeLabel ?? 'За выбранный период'} key={item.module} />)}
++          {modules.map((item) => <Metric label={item.module === 'Notifications' ? 'Строки уведомлений' : humanModule(item.module)} value={item.count} detail={item.scopeLabel ?? 'За выбранный период'} key={item.module} />)}
+         </div>
+       ) : null}
+ 
+-      {operations ? (
+         <PremiumSheet
+           open={filtersOpen}
+           title="Фильтры статистики"
+           eyebrow="Статистика / Аудит"
+-          description="Период считается по времени завода. Фильтры применяются ко всем вкладкам."
++          description="Календарные сутки по времени завода. Линия и смена — для связанных с ними показателей потерь; отдел — для заявок, чек-листов и журнала. Поиск и модуль — для событий и аудита. Текущие показатели обзора не ограничиваются периодом."
+           onClose={() => setFiltersOpen(false)}
+-          footer={<button className="action-button work" type="button" disabled={loading} onClick={() => { void load().then(() => setFiltersOpen(false)); }}>Применить фильтры</button>}
++          footer={<button className="action-button work" type="button" onClick={() => { setAppliedFilters({ ...filters }); setFiltersOpen(false); }}>Применить фильтры</button>}
+         >
+           <div className="ops-filter-sheet-grid">
+             <div className="ops-quick-periods">
+@@ -656,23 +698,23 @@ export function OpsAuditScreen() {
+                 <button type="button" onClick={() => applyQuickPeriod('week')}>7 дней</button>
+                 <button type="button" onClick={() => applyQuickPeriod('month')}>Этот месяц</button>
+                 <button type="button" onClick={() => applyQuickPeriod('prevMonth')}>Прошлый месяц</button>
++                <button type="button" onClick={() => setFilters({ dateFrom: weekAgoInput(), dateTo: todayInput(), shiftType: 'all', lineId: '', departmentId: '', taskType: '', taskStatus: '', taskScope: 'all', eventModule: '', eventSeverity: '', eventSearch: '', accessDeniedOnly: false })}>Сбросить фильтры</button>
+               </div>
+             </div>
+             <label><span>С</span><input type="date" value={filters.dateFrom} onChange={(event) => setFilters((current) => ({ ...current, dateFrom: event.target.value }))} /></label>
+             <label><span>По</span><input type="date" value={filters.dateTo} onChange={(event) => setFilters((current) => ({ ...current, dateTo: event.target.value }))} /></label>
+-            <label><span>Линия</span><select value={filters.lineId} onChange={(event) => setFilters((current) => ({ ...current, lineId: event.target.value }))}><option value="">Все линии</option>{operations.filterOptions.lines.map((line) => <option value={line.id} key={line.id}>{line.name}</option>)}</select></label>
++            <label><span>Линия</span><select value={filters.lineId} onChange={(event) => setFilters((current) => ({ ...current, lineId: event.target.value }))}><option value="">Все линии</option>{operations?.filterOptions.lines.map((line) => <option value={line.id} key={line.id}>{line.name}</option>)}</select></label>
+             <label><span>Смена</span><select value={filters.shiftType} onChange={(event) => setFilters((current) => ({ ...current, shiftType: event.target.value }))}><option value="all">Все</option><option value="DAY">День</option><option value="NIGHT">Ночь</option></select></label>
+-            <label><span>Отдел</span><select value={filters.departmentId} onChange={(event) => setFilters((current) => ({ ...current, departmentId: event.target.value }))}><option value="">Все отделы</option>{operations.filterOptions.departments.map((department) => <option value={department.id} key={department.id}>{department.name}</option>)}</select></label>
++            <label><span>Отдел</span><select value={filters.departmentId} onChange={(event) => setFilters((current) => ({ ...current, departmentId: event.target.value }))}><option value="">Все отделы</option>{operations?.filterOptions.departments.map((department) => <option value={department.id} key={department.id}>{department.name}</option>)}</select></label>
+             <label><span>Тип заявки</span><select value={filters.taskType} onChange={(event) => setFilters((current) => ({ ...current, taskType: event.target.value }))}><option value="">Все типы</option><option value="URGENT">Срочные</option><option value="LONG">Долгие</option></select></label>
+             <label><span>Статус заявки</span><select value={filters.taskStatus} onChange={(event) => setFilters((current) => ({ ...current, taskStatus: event.target.value }))}><option value="">Все статусы</option><option value="NEW">Новые</option><option value="IN_PROGRESS">В работе</option><option value="DONE">Завершённые</option></select></label>
+-            <label><span>Какие заявки учитывать</span><select value={filters.taskScope} onChange={(event) => setFilters((current) => ({ ...current, taskScope: event.target.value }))}>{(operations.filterOptions.taskScopes ?? fallbackTaskScopes).map((scope) => <option value={scope.value} key={scope.value}>{scope.label}</option>)}</select></label>
++            <label><span>Какие заявки учитывать</span><select value={filters.taskScope} onChange={(event) => setFilters((current) => ({ ...current, taskScope: event.target.value }))}>{(operations?.filterOptions.taskScopes ?? fallbackTaskScopes).map((scope) => <option value={scope.value} key={scope.value}>{scope.label}</option>)}</select></label>
+             <label><span>Модуль событий</span><select value={filters.eventModule} onChange={(event) => setFilters((current) => ({ ...current, eventModule: event.target.value }))}><option value="">Все модули</option>{Object.entries(moduleLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>
+             <label><span>Важность событий</span><select value={filters.eventSeverity} onChange={(event) => setFilters((current) => ({ ...current, eventSeverity: event.target.value }))}><option value="">Любая</option><option value="INFO">Информация</option><option value="WARNING">Внимание</option><option value="CRITICAL">Критично</option></select></label>
+             <label><span>Поиск в событиях и аудите</span><input type="search" value={filters.eventSearch} placeholder="Заявка, мойка, отказ..." onChange={(event) => setFilters((current) => ({ ...current, eventSearch: event.target.value }))} /></label>
+             <label className="ops-checkbox-filter"><input type="checkbox" checked={filters.accessDeniedOnly} onChange={(event) => setFilters((current) => ({ ...current, accessDeniedOnly: event.target.checked }))} /><span>Только отказы доступа</span></label>
+           </div>
+         </PremiumSheet>
+-      ) : null}
+ 
+       <PremiumSheet
+         open={Boolean(selectedAudit)}
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\frontend\\src\\screens\\BugReportScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\BugReportScreen.tsx"
+index 056129dc..1c91a762 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\frontend\\src\\screens\\BugReportScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\BugReportScreen.tsx"
+@@ -59,13 +59,18 @@ function formatDate(value?: string | null) {
+ }
+ 
+ export function BugReportScreen() {
++  const { currentUser, selectedFactoryId } = useAppStore();
++  return <BugReportForm key={`${currentUser?.userId ?? 'anonymous'}.${selectedFactoryId}`} />;
++}
++
++function BugReportForm() {
+   const { currentUser, availableFactories, selectedFactoryId } = useAppStore();
+   const selectedFactory = useMemo(
+     () => availableFactories.find((factory) => factory.id === selectedFactoryId),
+     [availableFactories, selectedFactoryId],
+   );
+   const currentRoleLabel = roleLabel(currentUser?.role);
+-  const isAdmin = Boolean(currentUser?.isAdmin);
++  const isAdmin = Boolean(currentUser?.isAdmin && !currentUser?.isGuest);
+   const [title, setTitle] = useState('');
+   const [section, setSection] = useState(sectionOptions[0]);
+   const [description, setDescription] = useState('');
+@@ -75,9 +80,13 @@ export function BugReportScreen() {
+   const [resultText, setResultText] = useState<string | null>(null);
+   const [reports, setReports] = useState<ErrorReport[]>([]);
+   const [selectedReport, setSelectedReport] = useState<ErrorReport | null>(null);
++  const [statusBusy, setStatusBusy] = useState(false);
++  const statusBusyRef = useRef(false);
+   const [uploadProgress, setUploadProgress] = useState<AttachmentUploadProgress | null>(null);
+   const pendingUploadRef = useRef<{ reportId: string; files: File[]; operationIds: string[] } | null>(null);
+   const uploadControllerRef = useRef<AbortController | null>(null);
++  const submittingRef = useRef(false);
++  const pendingCreateRef = useRef<{ operationId: string; fingerprint: string } | null>(null);
+   const draftKey = `zavod.session.error-report.${currentUser?.userId ?? 'anonymous'}.${selectedFactoryId}`;
+   useMobileBackLayer(Boolean(selectedReport), () => setSelectedReport(null), 500);
+   useBodyScrollLock(Boolean(selectedReport));
+@@ -85,10 +94,11 @@ export function BugReportScreen() {
+ 
+   useEffect(() => {
+     try {
+-      const saved = JSON.parse(window.sessionStorage.getItem(draftKey) ?? '{}') as { title?: string; section?: string; description?: string };
++      const saved = JSON.parse(window.sessionStorage.getItem(draftKey) ?? '{}') as { title?: string; section?: string; description?: string; pendingCreate?: { operationId: string; fingerprint: string } };
+       if (saved.title) setTitle(saved.title);
+       if (saved.section && sectionOptions.includes(saved.section)) setSection(saved.section);
+       if (saved.description) setDescription(saved.description);
++      if (typeof saved.pendingCreate?.operationId === 'string' && typeof saved.pendingCreate.fingerprint === 'string') pendingCreateRef.current = saved.pendingCreate;
+     } catch {
+       // A damaged local draft must not block the report screen.
+     }
+@@ -96,7 +106,7 @@ export function BugReportScreen() {
+ 
+   useEffect(() => {
+     try {
+-      if (title.trim() || description.trim()) window.sessionStorage.setItem(draftKey, JSON.stringify({ title, section, description }));
++      if (title.trim() || description.trim()) window.sessionStorage.setItem(draftKey, JSON.stringify({ title, section, description, pendingCreate: pendingCreateRef.current }));
+       else window.sessionStorage.removeItem(draftKey);
+     } catch {
+       // Draft recovery is best-effort when browser storage is unavailable.
+@@ -131,6 +141,7 @@ export function BugReportScreen() {
+         onProgress: setUploadProgress,
+       });
+       pendingUploadRef.current = null;
++      pendingCreateRef.current = null;
+       setResultText('Ошибка отправлена администратору.');
+       setTitle('');
+       setDescription('');
+@@ -151,17 +162,23 @@ export function BugReportScreen() {
+   };
+ 
+   const submit = async () => {
+-    if (!canSubmit) return;
++    if (!canSubmit || submittingRef.current) return;
++    submittingRef.current = true;
+     setBusy(true);
+     setErrorText(null);
+     setResultText(null);
+     try {
++      const payload = { title: title.trim(), section, description: description.trim() };
++      const fingerprint = JSON.stringify(payload);
++      if (pendingCreateRef.current?.fingerprint !== fingerprint) pendingCreateRef.current = { fingerprint, operationId: crypto.randomUUID() };
++      // An ambiguous transport failure retains this logical attempt across retry/reload.
++      try { window.sessionStorage.setItem(draftKey, JSON.stringify({ ...payload, pendingCreate: pendingCreateRef.current })); } catch { /* In-memory retry remains available. */ }
+       const response = await apiClient.post<ReportResponse>('/error-reports', {
+-        title: title.trim(),
+-        section,
+-        description: description.trim(),
++        ...payload,
++        operationId: pendingCreateRef.current.operationId,
+       });
+       if (!files.length) {
++        pendingCreateRef.current = null;
+         setResultText('Ошибка отправлена администратору.');
+         setTitle('');
+         setDescription('');
+@@ -179,6 +196,7 @@ export function BugReportScreen() {
+     } catch (error) {
+       setErrorText(error instanceof Error ? error.message : 'Не удалось отправить сообщение.');
+     } finally {
++      submittingRef.current = false;
+       setBusy(false);
+     }
+   };
+@@ -200,6 +218,9 @@ export function BugReportScreen() {
+   };
+ 
+   const updateStatus = async (report: ErrorReport, status: string) => {
++    if (statusBusyRef.current) return;
++    statusBusyRef.current = true;
++    setStatusBusy(true);
+     setErrorText(null);
+     try {
+       const updated = await apiClient.patch<ErrorReport>(`/error-reports/${report.id}/status`, { status });
+@@ -207,6 +228,9 @@ export function BugReportScreen() {
+       await loadReports();
+     } catch (error) {
+       setErrorText(error instanceof Error ? error.message : 'Не удалось изменить статус.');
++    } finally {
++      statusBusyRef.current = false;
++      setStatusBusy(false);
+     }
+   };
+ 
+@@ -262,7 +286,9 @@ export function BugReportScreen() {
+           />
+         </label>
+ 
+-        <AttachmentPicker value={files} onChange={setFiles} allowFiles allowVideo disabled={busy} compact singleTrigger />
++        {currentUser?.isGuest
++          ? <p className="line-meta">Гостевой доступ позволяет отправить текстовое сообщение. Вложения доступны после назначения рабочего доступа.</p>
++          : <AttachmentPicker value={files} onChange={setFiles} allowFiles allowVideo disabled={busy} compact singleTrigger />}
+         <AttachmentUploadFeedback
+           progress={uploadProgress}
+           onCancel={() => uploadControllerRef.current?.abort()}
+@@ -324,7 +350,7 @@ export function BugReportScreen() {
+               {statusOptions.map((item) => (
+                 <button
+                   className={selectedReport.status === item.value ? 'primary-button' : 'secondary-button'}
+-                  disabled={selectedReport.status === item.value}
++                  disabled={statusBusy || selectedReport.status === item.value}
+                   key={item.value}
+                   type="button"
+                   onClick={() => void updateStatus(selectedReport, item.value)}
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\backend\\src\\modules\\error-report\\error-report.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\error-report\\error-report.service.ts"
+index 6b4ca755..23e0887c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\backend\\src\\modules\\error-report\\error-report.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\error-report\\error-report.service.ts"
+@@ -190,11 +190,13 @@ export class ErrorReportService {
+       entityId: id,
+       details: { oldStatus: report.status, newStatus: status },
+     });
++    await this.writeFileExport(id);
+     const [serialized] = await this.withAttachments([updated]);
+     return serialized;
+   }
+ 
+   private async loadReport(user: UserContext, id: string) {
++    await this.assertActiveReporter(user);
+     const report = await this.prisma.db.errorReport.findFirst({
+       where: { id },
+       include: { author: true, factory: true, closedBy: true },
+@@ -202,7 +204,7 @@ export class ErrorReportService {
+     if (!report) throw new BadRequestException({ code: 'NOT_FOUND', message: 'Сообщение об ошибке не найдено.' });
+     const isOwner = report.authorId === user.userId;
+     const isSameFactory = !report.factoryId || report.factoryId === user.selectedFactoryId;
+-    if (!isSameFactory || (!user.isAdmin && !isOwner)) {
++    if (!isSameFactory || (!(user.isAdmin && !user.isGuest) && !isOwner)) {
+       await this.writeDenied(user, report.factoryId, id);
+       throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к этому сообщению.' });
+     }
+@@ -266,7 +268,7 @@ export class ErrorReportService {
+   }
+ 
+   private assertAdmin(user: UserContext) {
+-    if (user.isAdmin) return;
++    if (user.isAdmin && !user.isGuest) return;
+     throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Список сообщений об ошибках доступен только администратору.' });
+   }
+ 
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\backend\\src\\modules\\attachments\\attachments.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\attachments\\attachments.service.ts"
+index 717e3b1b..d257ac34 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\backend\\src\\modules\\attachments\\attachments.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\attachments\\attachments.service.ts"
+@@ -230,7 +230,10 @@ export class AttachmentsService {
+   }
+ 
+   private isRuntimeAttachmentNoise(attachment: Attachment) {
+-    return hasPilotFixtureMarker(attachment.id, attachment.operationId, attachment.originalName, attachment.publicUrl);
++    // A generated UUID can contain "e2e"; the canonical file route is not fixture text.
++    const canonicalUrl = `/attachments/${attachment.id}/file`;
++    return hasPilotFixtureMarker(attachment.id, attachment.operationId, attachment.originalName,
++      attachment.publicUrl === canonicalUrl ? null : attachment.publicUrl);
+   }
+ 
+   private async loadAttachment(attachmentId: string) {
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\docs\\vps-preparation\\factory-01\\stand.ps1" "b/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\stand.ps1"
+index a08cac75..7690ff75 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\before\\docs\\vps-preparation\\factory-01\\stand.ps1"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\stand.ps1"
+@@ -1,4 +1,4 @@
+-param([ValidateSet('Start','Stop','Switch','Quiesce')][string]$Action='Start',[ValidateSet('T1','Restore','Handover','HandoverRestore','TaskNotify','Notify02','AttAuth01')][string]$Target='T1',[string]$TestNow='',[ValidateSet('','before-publication','ws','push')][string]$NotificationFault='')
++param([ValidateSet('Start','Stop','Switch','Quiesce')][string]$Action='Start',[ValidateSet('T1','Restore','Handover','HandoverRestore','TaskNotify','Notify02','AttAuth01','Ops01')][string]$Target='T1',[string]$TestNow='',[ValidateSet('','before-publication','ws','push')][string]$NotificationFault='')
+ $ErrorActionPreference='Stop'
+ if($NotificationFault -and $Target -notin @('TaskNotify','Notify02')){throw 'Transport faults are restricted to the isolated notification copies'}
+ if($TestNow -and $Target -ne 'Handover'){throw 'Test clock is restricted to the isolated Handover copy'}
+@@ -9,7 +9,7 @@ $pgData=Join-Path $factory01Runtime 'pgdata'
+ $pgCtl='C:\Program Files\PostgreSQL\18\bin\pg_ctl.exe'
+ $node='C:\Program Files\nodejs\node.exe'
+ $preview='"C:\Program Files\nodejs\node.exe" docs/vps-preparation/local-03/frontend-preview.cjs'
+-$database=@{T1='zavod_factory01_t1';Restore='zavod_factory01_restore';Handover='zavod_factory01_handover';HandoverRestore='zavod_factory01_handover_restore';TaskNotify='zavod_factory01_task_notify';Notify02='zavod_factory01_notify02';AttAuth01='zavod_factory01_attauth01'}[$Target]
++$database=@{T1='zavod_factory01_t1';Restore='zavod_factory01_restore';Handover='zavod_factory01_handover';HandoverRestore='zavod_factory01_handover_restore';TaskNotify='zavod_factory01_task_notify';Notify02='zavod_factory01_notify02';AttAuth01='zavod_factory01_attauth01';Ops01='zavod_factory01_ops01'}[$Target]
+ $version='FACTORY01-20260926-'+$Target.ToUpperInvariant()
+ $uploads=if($Target -eq 'T1'){Join-Path $factory01Runtime 'uploads'}else{Join-Path $factory01Runtime ($Target.ToLowerInvariant()+'/uploads')}
+ function Observe([int]$port){
+@@ -42,11 +42,14 @@ if($Action -notin @('Stop','Quiesce')){
+   Remove-Item Env:ZAVOD_INTERNAL_TEST_NOW -ErrorAction SilentlyContinue
+   Remove-Item Env:ZAVOD_INTERNAL_TEST_NOW_FILE -ErrorAction SilentlyContinue
+   Remove-Item Env:NODE_OPTIONS,Env:TASK_NOTIFY_FAULT,Env:NOTIFY02_FAULT -ErrorAction SilentlyContinue
++  Remove-Item Env:ERROR_REPORTS_EXPORT_PATH -ErrorAction SilentlyContinue
++  if($Target -eq 'Ops01'){$env:ERROR_REPORTS_EXPORT_PATH=Join-Path $factory01Runtime 'ops01/error-reports-export'}
+   if($NotificationFault){if($Target -eq 'Notify02'){$env:NOTIFY02_FAULT=$NotificationFault;$env:NODE_OPTIONS='--require=./docs/vps-preparation/notify-02/transport-fault.cjs'}else{$env:TASK_NOTIFY_FAULT=$NotificationFault;$env:NODE_OPTIONS='--require=./docs/vps-preparation/task-notify-01/transport-fault.cjs'}}
+   if($TestNow){$env:NODE_ENV='test';$env:ZAVOD_INTERNAL_TEST_NOW=$TestNow}
+   $stamp=[DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss-fff')
+   $started=Start-Process -FilePath $node -ArgumentList 'backend/dist/main.js' -WorkingDirectory $factory01Root -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $factory01Runtime "logs/backend-$stamp.stdout.log") -RedirectStandardError (Join-Path $factory01Runtime "logs/backend-$stamp.stderr.log")
+   Remove-Item Env:DATABASE_URL,Env:JWT_SECRET,Env:FILE_STORAGE_ROOT -ErrorAction SilentlyContinue
++  Remove-Item Env:ERROR_REPORTS_EXPORT_PATH -ErrorAction SilentlyContinue
+   Remove-Item Env:NODE_OPTIONS,Env:TASK_NOTIFY_FAULT,Env:NOTIFY02_FAULT -ErrorAction SilentlyContinue
+   $ready=$false;for($i=0;$i -lt 60;$i++){Start-Sleep -Milliseconds 250;try{$ready=(Invoke-RestMethod 'http://127.0.0.1:3000/ready').ready}catch{};if($ready){break}}
+   if(!$ready -or (Observe 3000).pid -ne $started.Id){throw 'Own backend not ready'}

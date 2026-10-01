@@ -1,0 +1,18 @@
+✔ J30 real WS owner coalesces invalidations and bounded offline online reconnect (195.523ms)
+✔ J09 J30 queued prior socket event must not change a new factory unread count (64.8218ms)
+✔ J09 J30 context ABA and permission revoke invalidate queued callbacks before owner cleanup (93.8714ms)
+✔ notification source uses exact server task after read and current auth, never client entity ID (71.2537ms)
+✔ foreign notification row cannot supply a task ID for the selected factory (17.2257ms)
+✔ non-task source cannot supply a task ID (14.1823ms)
+✔ notification read denial prevents any pending source navigation (17.5644ms)
+✔ current permission denial prevents source navigation (13.6525ms)
+✔ late response after context cancellation cannot set source task (9.3729ms)
+✔ exact task source reuses linked navigation with existing dirty-form/current-context gate (0.5793ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1394.3762

@@ -1,0 +1,15 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-context-before\\frontend\\e2e\\component-contracts.spec.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\component-contracts.spec.ts"
+index 5d5ce31d..638c75f4 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-context-before\\frontend\\e2e\\component-contracts.spec.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\component-contracts.spec.ts"
+@@ -158,3 +158,10 @@ test('Master 047 consumer without external busy cannot close or double-submit pe
+   expect(await page.evaluate(()=>(window as any).submitCalls)).toBe(2);
+   expect(unknown).toEqual([]);expect(errors).toEqual([]);
+ });
++
++test('Master 047 option labels reorder preserve selected identity while hidden drafts are not submitted',async({page})=>{
++  await host(page,'form');await page.getByLabel('Получатель',{exact:true}).selectOption('two');await page.getByLabel('Комментарий',{exact:true}).fill('Скрытый черновик');
++  await page.getByRole('button',{name:'Обновить варианты',exact:true}).click();await expect(page.getByLabel('Получатель',{exact:true})).toHaveValue('two');await expect(page.getByLabel('Получатель',{exact:true}).locator('option:checked')).toHaveText('Отдел второй — новое имя');
++  await page.getByRole('button',{name:'Условное поле',exact:true}).click();await page.getByRole('button',{name:'Подтвердить',exact:true}).click();const submitted=JSON.parse(await page.locator('output').textContent()||'{}');expect(submitted.choice).toBe('two');expect(submitted).not.toHaveProperty('comment');
++  await page.getByRole('button',{name:'Условное поле',exact:true}).click();await expect(page.getByLabel('Комментарий',{exact:true})).toHaveValue('Скрытый черновик');expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});

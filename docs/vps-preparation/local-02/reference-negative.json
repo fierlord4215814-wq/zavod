@@ -1,0 +1,24 @@
+{
+  "provenance": "LOCAL02 own C1",
+  "denied": {
+    "closedResultUpload": 403,
+    "closedResultDelete": 403,
+    "referenceDelete": 403,
+    "wrongRoleRead": 403,
+    "otherFactoryRead": 403,
+    "wrongRoleReplace": 403
+  },
+  "oldReplayDoesNotRollbackB": true,
+  "interruptedRealMultipartNoBinding": true,
+  "retry": {
+    "sameId": true,
+    "attachmentRows": 1,
+    "differentBytes": 409,
+    "attachmentId": "28f737ad-0c3c-4c2e-9d25-584c4799f559"
+  },
+  "uiRemove": "PASS",
+  "templateArchived": true,
+  "archiveReadOnlyUi": "PASS",
+  "runRowsUnchangedSha256": "36f2d51377782f93c4542082b6eb10a551a51fd06e0e50d6bc7cb0709e673264",
+  "restrictFk": "PASS (PostgreSQL RESTRICT 23001)"
+}

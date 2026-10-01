@@ -1,0 +1,33 @@
+{
+  "phase": "before",
+  "batch": "20260914-tc14-label-visibility-evidence",
+  "screenshots": [],
+  "apiReads": [
+    "/auth/me",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/error-reports",
+    "/chats",
+    "/directory/departments",
+    "/directory/users",
+    "/chats",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks"
+  ],
+  "apiWrites": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response",
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response",
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response"
+  ],
+  "requestFailures": [],
+  "isolatedFixtureWrites": [],
+  "computedStyles": [],
+  "visibilityChecks": []
+}

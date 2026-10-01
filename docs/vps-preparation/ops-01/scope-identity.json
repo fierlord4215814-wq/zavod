@@ -1,0 +1,32 @@
+{
+  "status": "READ_ONLY_OWN_COPY_FACTORY_INVENTORY",
+  "database": {
+    "name": "zavod_factory01_ops01",
+    "port": 15437,
+    "ownedPgdataVerified": true
+  },
+  "copiedFrom": "zavod_factory01_t1",
+  "copySourceIdentity": {
+    "factory": {
+      "id": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "code": "test-factory-t1",
+      "isActive": true
+    },
+    "users": 31,
+    "lines": 4
+  },
+  "factories": [
+    {
+      "id": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "code": "test-factory-t1",
+      "name": "УЧЕБНЫЙ ЗАВОД T1",
+      "isActive": true
+    },
+    {
+      "id": "948b0ca9-93cd-470f-9e88-45f86eb90dbe",
+      "code": "test-factory01-bootstrap",
+      "name": "УЧЕБНАЯ ОСНОВА FACTORY01",
+      "isActive": true
+    }
+  ]
+}

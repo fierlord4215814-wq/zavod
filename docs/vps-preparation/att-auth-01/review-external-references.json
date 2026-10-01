@@ -1,0 +1,507 @@
+{
+  "classification": "RETAINED_HISTORY_NOT_NEW_LIVE_PROOF",
+  "paths": [
+    "README_ДЛЯ_СИСАДМИНА.md",
+    "backend/.env.example",
+    "backend/Dockerfile.production",
+    "backend/prisma/migrations",
+    "backend/prisma/seed.js",
+    "backend/prisma/system-foundation.cjs",
+    "backend/scripts/stage68-backup-create.js",
+    "backend/src/cli/apply-system-foundation.ts",
+    "backend/src/cli/bootstrap-first-admin.ts",
+    "docker-compose.production.yml",
+    "docs/backup-restore.md",
+    "docs/full-ui-interaction-sweep/back-matrix.csv",
+    "docs/full-ui-interaction-sweep/coverage-checkpoint.json",
+    "docs/full-ui-interaction-sweep/frontend-series/20260915-autonomous-frontend/final-report.md",
+    "docs/full-ui-interaction-sweep/frontend-series/20260915-autonomous-frontend/root-result-matrix.md",
+    "docs/full-ui-interaction-sweep/interaction-matrix.csv",
+    "docs/full-ui-interaction-sweep/progress.md",
+    "docs/full-ui-interaction-sweep/surface-reconciliation.json",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/INDEX.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/decision-queue.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/final-report.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/root-result-matrix.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/INDEX.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/decision-queue.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/final-report.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/root-result-matrix.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-maximum-integration/decision-queue.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-maximum-integration/final-report.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260915-maximum-integration/root-result-matrix.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/INDEX.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/final-report.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/root-result-matrix.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-late-command3-diagnosis/diagnosis.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260921-visible-uac-diagnostic-boot/result.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260922-provider-dvd-boot/result.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/native-evidence-index.md",
+    "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+    "docs/full-ui-interaction-sweep/text-integrity-matrix.csv",
+    "docs/theme-switching/final-report.md",
+    "docs/vps-preparation/admin-01/admin-acceptance-matrix.md",
+    "docs/vps-preparation/admin-01/final-live-state.json",
+    "docs/vps-preparation/admin-01/module-settings-matrix.md",
+    "docs/vps-preparation/admin-01/remaining-gaps.md",
+    "docs/vps-preparation/admin-01/report.md",
+    "docs/vps-preparation/admin-01/review-pack-admin01-20260926.zip",
+    "docs/vps-preparation/admin-01/review-pack-manifest.json",
+    "docs/vps-preparation/admin-01/review-pack-readback.json",
+    "docs/vps-preparation/admin-01/runtime-readback.json",
+    "docs/vps-preparation/admin-01/stop-stand.ps1",
+    "docs/vps-preparation/admin-01/v1-completeness-matrix.md",
+    "docs/vps-preparation/admin-02/attendance-authority-matrix.md",
+    "docs/vps-preparation/admin-02/final-live-state.json",
+    "docs/vps-preparation/admin-02/report.md",
+    "docs/vps-preparation/admin-02/review-pack-admin02-20260926.zip",
+    "docs/vps-preparation/admin-02/review-pack-readback.json",
+    "docs/vps-preparation/admin-02/runtime-readback.json",
+    "docs/vps-preparation/factory-01/final-live-state.json",
+    "docs/vps-preparation/factory-01/five-gate-delta-matrix.md",
+    "docs/vps-preparation/factory-01/manual-review.md",
+    "docs/vps-preparation/factory-01/plan.md",
+    "docs/vps-preparation/factory-01/report.md",
+    "docs/vps-preparation/factory-01/review-pack-factory01-20260927.zip",
+    "docs/vps-preparation/factory-01/review-pack-readback.json",
+    "docs/vps-preparation/factory-01/role-matrix.md",
+    "docs/vps-preparation/factory-01/runtime-20260926-220156-536.json",
+    "docs/vps-preparation/factory-01/sec-copy.json",
+    "docs/vps-preparation/local-01/before-hashes.json",
+    "docs/vps-preparation/local-01/c1-036-reconciliation.md",
+    "docs/vps-preparation/local-01/c1-sec-task-replay.cjs",
+    "docs/vps-preparation/local-01/linux-reboot-checkpoint.md",
+    "docs/vps-preparation/local-01/report.md",
+    "docs/vps-preparation/local-01/review-pack-20260924-final-v2-readback.md",
+    "docs/vps-preparation/local-01/review-pack-20260924-local01-final-v2.zip",
+    "docs/vps-preparation/local-01/review-pack.zip",
+    "docs/vps-preparation/local-01/schema-reconciliation/after-hashes.json",
+    "docs/vps-preparation/local-01/schema-reconciliation/before-hashes.json",
+    "docs/vps-preparation/local-01/schema-reconciliation/catalog-after.txt",
+    "docs/vps-preparation/local-01/schema-reconciliation/catalog-before.txt",
+    "docs/vps-preparation/local-01/schema-reconciliation/constraint-probes-final.txt",
+    "docs/vps-preparation/local-01/schema-reconciliation/fresh-diff.json",
+    "docs/vps-preparation/local-01/schema-reconciliation/integration-full-final.txt",
+    "docs/vps-preparation/local-01/schema-reconciliation/review-pack-readback.json",
+    "docs/vps-preparation/local-01/schema-reconciliation/review-pack.zip",
+    "docs/vps-preparation/local-01/schema-reconciliation/upgrade-diff.json",
+    "docs/vps-preparation/local-01/wsl-network-checkpoint.md",
+    "docs/vps-preparation/local-02/report.md",
+    "docs/vps-preparation/local-02/review-pack-local02-20260924.zip",
+    "docs/vps-preparation/local-02/review-pack-readback.json",
+    "docs/vps-preparation/local-03/final-integrity.json",
+    "docs/vps-preparation/local-03/final-live-state.json",
+    "docs/vps-preparation/local-03/five-gate-matrix.md",
+    "docs/vps-preparation/local-03/report.md",
+    "docs/vps-preparation/local-03/role-matrix.md",
+    "docs/vps-preparation/local-03/stop-stand.ps1",
+    "docs/vps-preparation/new-chat-prompt.txt",
+    "docs/vps-preparation/notify-02/attachment-gap.json",
+    "docs/vps-preparation/notify-02/final-state.json",
+    "docs/vps-preparation/notify-02/plan.md",
+    "docs/vps-preparation/notify-02/report.md",
+    "docs/vps-preparation/notify-02/review-pack-notify02-20260927.zip",
+    "docs/vps-preparation/notify-02/review-pack-readback.json",
+    "docs/vps-preparation/notify-02/security.json",
+    "docs/vps-preparation/notify-02/similar-patterns.md",
+    "docs/vps-preparation/notify-02/sql-after.json",
+    "docs/vps-preparation/notify-02/targeted-checks.json",
+    "docs/vps-preparation/notify-02/ui-order-closed-390.png",
+    "docs/vps-preparation/source-first-server-plan.md",
+    "docs/vps-preparation/source-update-delta.md",
+    "docs/vps-preparation/task-notify-01/final-state.json",
+    "docs/vps-preparation/task-notify-01/lost-second-ui.json",
+    "docs/vps-preparation/task-notify-01/plan.md",
+    "docs/vps-preparation/task-notify-01/report.md",
+    "docs/vps-preparation/task-notify-01/restart-final.json",
+    "docs/vps-preparation/task-notify-01/review-pack-readback.json",
+    "docs/vps-preparation/task-notify-01/review-pack-task-notify01-20260927.zip",
+    "docs/vps-preparation/task-notify-01/similar-patterns.md",
+    "docs/vps-preparation/task-notify-01/sql-faults-final-ui.json",
+    "docs/vps-preparation/vps-prep-01/progress.md",
+    "docs/vps-preparation/vps-prep-01/review-pack/README.md",
+    "docs/vps-preparation/vps-prep-01/review-pack/operator-runbook.md",
+    "docs/vps-preparation/vps-prep-01/review-report.md",
+    "docs/vps-preparation/vps-prep-02/operator-runbook.md",
+    "docs/vps-preparation/vps-prep-02/pending-runtime.md",
+    "docs/vps-preparation/vps-prep-02/progress.md",
+    "docs/vps-preparation/vps-prep-02/review-report.md",
+    "frontend/Dockerfile.production",
+    "frontend/nginx.production.conf",
+    "setup/restore.html",
+    "setup/wizard.html",
+    "setup/zavod-setup.js"
+  ],
+  "buildImports": [
+    {
+      "from": "backend/scripts/att-auth-01.test.cjs",
+      "import": "../dist/modules/attachments/attachments.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/att-auth-01-archive.test.cjs",
+      "import": "../dist/modules/attachments/attachments.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/att-auth-01-archive.test.cjs",
+      "import": "../dist/common/shift-handover",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "docs/vps-preparation/att-auth-01/handover-boundary.cjs",
+      "import": "../../../backend/dist/common/shift-handover",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/notify-02.test.cjs",
+      "import": "../dist/modules/orders/orders.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "import": "../dist/modules/shift-log/shift-log.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "import": "../dist/modules/shift-log/shift-log.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "import": "../dist/modules/attachments/attachments.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "import": "../dist/common/permission.guard",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "import": "../dist/common/user-context.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "import": "../dist/common/pilot-visibility",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-checklist.test.js",
+      "import": "../dist/modules/checklists/checklists.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-handover.test.js",
+      "import": "../dist/common/shift-handover",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-handover.test.js",
+      "import": "../dist/common/permission.guard",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-chain.test.js",
+      "import": "../dist/modules/chats/chats.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-chain.test.js",
+      "import": "../dist/modules/chats/chats.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-chain.test.js",
+      "import": "../dist/modules/attachments/attachments.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-chain.test.js",
+      "import": "../dist/modules/attachments/attachments.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-chain.test.js",
+      "import": "../dist/common/permission.guard",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/local03-quality-realtime.test.js",
+      "import": "../dist/modules/stock/stock.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/local03-quality-realtime.test.js",
+      "import": "../dist/modules/returns/returns.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/local03-quality-realtime.test.js",
+      "import": "../dist/ws/ws.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/local03-quality-realtime.test.js",
+      "import": "../dist/modules/attachments/attachments.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-orders.test.js",
+      "import": "../dist/modules/orders/orders.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-orders.test.js",
+      "import": "../dist/modules/notifications/notifications.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-chain.test.js",
+      "import": "../dist/modules/task/task.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-chain.test.js",
+      "import": "../dist/modules/notifications/notifications.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-chain.test.js",
+      "import": "../dist/modules/ops/ops.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-replay.test.js",
+      "import": "../dist/modules/task/task.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-replay.test.js",
+      "import": "../dist/modules/task/task.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-replay.test.js",
+      "import": "../dist/modules/wash/wash.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-replay.test.js",
+      "import": "../dist/modules/wash/wash.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-replay.test.js",
+      "import": "../dist/common/user-context.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-replay.test.js",
+      "import": "../dist/common/permission.guard",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-replay.test.js",
+      "import": "../dist/common/pilot-visibility",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-task-replay-boundary.test.js",
+      "import": "../dist/modules/task/task.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-task-replay-boundary.test.js",
+      "import": "../dist/modules/task/task.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-task-replay-boundary.test.js",
+      "import": "../dist/common/permission.guard",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-stateful-chain.test.js",
+      "import": "../dist/modules/task/task.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-stateful-chain.test.js",
+      "import": "../dist/modules/notifications/notifications.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-stateful-chain.test.js",
+      "import": "../dist/modules/ops/ops.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-stateful-chain.test.js",
+      "import": "../dist/common/shift-handover",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-stateful-chain.test.js",
+      "import": "../dist/modules/checklists/checklists.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-offline-contract.test.js",
+      "import": "../dist/common/permission.guard",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-offline-contract.test.js",
+      "import": "../dist/modules/task/task.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-offline-contract.test.js",
+      "import": "../dist/modules/task/task.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-offline-contract.test.js",
+      "import": "../dist/modules/notifications/notifications.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-offline-contract.test.js",
+      "import": "../dist/modules/notifications/notifications.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/vps-prep-01-regression.js",
+      "import": "./system-foundation.cjs",
+      "kind": "CANONICAL_BUILD_OR_RUNTIME_PREREQUISITE"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/modules/task/task.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/modules/task/task.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/modules/wash/wash.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/modules/wash/wash.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/common/user-context.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/common/permission.guard",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/modules/notifications/notifications.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/common/audit.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/modules/notifications/notifications.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/modules/ops/ops.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-task-fixture.cjs",
+      "import": "../dist/modules/directory/directory.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-handover-fixture.cjs",
+      "import": "../dist/modules/shift-log/shift-log.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-handover-fixture.cjs",
+      "import": "../dist/modules/shift-log/shift-log.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-handover-fixture.cjs",
+      "import": "../dist/common/audit.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-fixture.cjs",
+      "import": "../dist/modules/chats/chats.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-fixture.cjs",
+      "import": "../dist/modules/chats/chats.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-fixture.cjs",
+      "import": "../dist/modules/attachments/attachments.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-fixture.cjs",
+      "import": "../dist/modules/attachments/attachments.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-fixture.cjs",
+      "import": "../dist/common/permission.guard",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-fixture.cjs",
+      "import": "../dist/modules/directory/directory.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-chat-fixture.cjs",
+      "import": "../dist/modules/directory/directory.controller",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "backend/scripts/master-r2-authority-fixture.cjs",
+      "import": "../dist/common/user-context.service",
+      "kind": "EXCLUDED_DEPENDENCY_BUILD"
+    },
+    {
+      "from": "docs/vps-preparation/local-02/harness.cjs",
+      "import": "../../../node_modules/@playwright/test",
+      "kind": "CANONICAL_BUILD_OR_RUNTIME_PREREQUISITE"
+    },
+    {
+      "from": "docs/vps-preparation/local-02/own-db.cjs",
+      "import": "../../../backend/node_modules/@prisma/client",
+      "kind": "CANONICAL_BUILD_OR_RUNTIME_PREREQUISITE"
+    }
+  ],
+  "note": "Self-contained review evidence/source, not runnable installer. Runtime secrets/data/builds and prior ZIPs excluded."
+}

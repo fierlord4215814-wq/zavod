@@ -1,0 +1,20 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260921-visible-uac-diagnostic-boot\before\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\progress.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\progress.md', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+index 43dd8d73..204d473b 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+@@ -1,5 +1,13 @@
+ # MASTER R5 — recoverable checkpoint
+ 
++## Новая visible-UAC attempt21.09 — разрешение пользователя получено
++
++MASTER_R5_STATUS=BLOCKED_DVD_READBACK_GUARD_NEW_UAC_REQUIRED; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. Authority и отдельная baseline: `attempts/20260921-visible-uac-diagnostic-boot/`. Единственный новый UAC ПОДТВЕРЖДЁН; helper11600 реально стартовал23:11:05, actualElevated=true23:11:06. Fresh exactGUID/BIOS/Gen2/sole16GiBVHDX/Off23:11:11, jobs=[], controllers=[], internalnetwork подтверждены. Hostboot21.09 22:12:54.5, Hyper-V/DEP true, freeRAM10,269,270,016/freeDisk39,737,823,232bytes. Old9056 не трогать; новая попытка не capture.
++
++Последняя завершённая операция23:11:11.8835008+03: helper STOPPED на guard `No-media/VHDX-first readback failed; no boot issued`. SetDVD -Path null вызван для двух ownISO; свежесть возвращённых DVD объектов не доказана, их Path всё ещё показывают исходные ISO. Извлечение НЕ объявлять PASS. VHDX-first подтверждён firmware readback; SecureBoot и5прочих firmware fields неизменны, ISO файлы сохранены. `mutations` в rawreceipt — выполненные cmdlet calls, не доказательство всех postconditions. Start-VM0/SSH0; VM не запускалась. Helper завершился/его PID отсутствует при subsequent read; одно разрешение UAC использовано, автоматически второе не выполнять.
++
++Незавершённая операция: независимый fresh provider readback DVD, при необходимости адресное извлечение → одна diagnosticboot → SSH/trustedhostkey → весьR5. Read-only installed Microsoft cmdlet metadata/IL показывает, что Path null поддержан, а -VM resolver возвращает переданный объект; cache-vs-actual-no-op пока не разделены actualCIM. Guard не ослаблен. Требуется одно новое явное согласие на scopedUAC, сначала READ actualCIM, не повтор вслепую всейконфигурации. Baseline/7старыхZIP/10hostPASS сохранены; product/code/workingdata неизменны. Ниже исторические checkpoint.
++
+ ## Актуальное продолжение21.09 — Hyper-V/VHDX → SSH, без capture
+ 
+ MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_DIAGNOSTIC_BOOT; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; PHYSICAL_PHONE=PENDING; FINAL_STOP=STOP. Новая authority: `attempts/20260921-vhdx-ssh/continuation-request.txt` (ff30e7d9). Пользователь подтвердил прежний restart Codex; точное время неизвестно, повтор не требуется. Capture/VMConnect больше не повторять.

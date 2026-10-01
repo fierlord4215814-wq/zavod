@@ -1,0 +1,340 @@
+{
+  "cases": [
+    {
+      "mode": "lock-rollback",
+      "operationId": "local03-sec-20260925-lock-rollback",
+      "lock": {
+        "holderPid": 4512,
+        "observerPid": 3872,
+        "waiters": [
+          {
+            "pid": 14276,
+            "wait_event_type": "Lock",
+            "wait_event": "advisory",
+            "blockers": [
+              4512
+            ]
+          }
+        ]
+      },
+      "firstTransport": {
+        "status": 201,
+        "body": {
+          "id": "34866f79-c8b3-4f03-a3f2-4b984b14d021",
+          "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+          "lineId": null,
+          "lineStatusEventId": null,
+          "createdById": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+          "assignedToId": null,
+          "takenById": null,
+          "doneById": null,
+          "type": "URGENT",
+          "description": "Учебная согласованность LOCAL03 lock-rollback",
+          "status": "NEW",
+          "priority": null,
+          "deadlineAt": null,
+          "startedAt": null,
+          "doneAt": null,
+          "escalatedAt": null,
+          "archivedAt": null,
+          "operationId": "local03-sec-20260925-lock-rollback",
+          "createdAt": "2026-09-25T05:22:36.527Z",
+          "updatedAt": "2026-09-25T05:22:36.539Z",
+          "deletedAt": null,
+          "version": 1,
+          "title": "Учебная согласованность LOCAL03 lock-rollback",
+          "createdByName": "Пользователь +7 *** ***-10-06",
+          "takenByName": null,
+          "doneByName": null,
+          "takenAt": null,
+          "responseMinutes": null,
+          "executionMinutes": null,
+          "resolutionMinutes": null,
+          "lineName": null,
+          "assigneeId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032",
+          "assigneeName": "Пользователь +7 *** ***-10-12",
+          "recipients": [],
+          "assignees": [
+            {
+              "id": "e958e5d1-7309-4588-a456-01c970654eb1",
+              "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032",
+              "displayName": "Пользователь +7 *** ***-10-12",
+              "isPrimary": true,
+              "assignedAt": "2026-09-25T05:22:36.539Z"
+            }
+          ],
+          "comments": [],
+          "commentsCount": 0,
+          "readsCount": 0,
+          "overdue": false,
+          "availableActions": {
+            "canTake": true,
+            "canDone": true,
+            "canRedirect": true,
+            "canComment": true
+          }
+        }
+      },
+      "committedBeforeRetry": true,
+      "id": "34866f79-c8b3-4f03-a3f2-4b984b14d021",
+      "afterCreate": {
+        "task": 1,
+        "history": [
+          {
+            "id": "a9016c9e-db84-44b6-8b14-60359976d196",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "9790085b-d602-4aea-8a48-1d48c8549537",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "bd9f8a8c-1ffa-4a5e-b59e-d54970a75d98",
+            "type": "TASK_CREATED",
+            "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032"
+          }
+        ]
+      },
+      "processed": 1,
+      "rowLock": {
+        "holderPid": 4512,
+        "observerPid": 3872,
+        "waiters": [
+          {
+            "pid": 9056,
+            "wait_event_type": "Lock",
+            "wait_event": "transactionid",
+            "blockers": [
+              4512
+            ]
+          }
+        ]
+      },
+      "wrongResultType": 409,
+      "changedPayload": "CHARACTERIZED_SAVED_RESULT; POLICY_PENDING, not payload equality guarantee",
+      "final": {
+        "task": 1,
+        "history": [
+          {
+            "id": "a9016c9e-db84-44b6-8b14-60359976d196",
+            "action": "TASK_CREATED"
+          },
+          {
+            "id": "4b301116-e14b-4ca7-93e7-1ce4e8cd8196",
+            "action": "TASK_TAKEN"
+          },
+          {
+            "id": "7518b12b-8a24-45ee-a3b6-c294bdc35961",
+            "action": "TASK_DONE"
+          }
+        ],
+        "audit": [
+          {
+            "id": "9790085b-d602-4aea-8a48-1d48c8549537",
+            "action": "TASK_CREATED"
+          },
+          {
+            "id": "caae9736-014e-40bf-9dc5-c9c70f860d59",
+            "action": "TASK_TAKEN"
+          },
+          {
+            "id": "8f08ee2f-a793-4145-b7b1-9842d1d6a847",
+            "action": "TASK_DONE"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "bd9f8a8c-1ffa-4a5e-b59e-d54970a75d98",
+            "type": "TASK_CREATED",
+            "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032"
+          },
+          {
+            "id": "28bb2559-a2c7-4bc2-b5eb-e458e308859b",
+            "type": "TASK_DONE",
+            "userId": "7a7ad710-31ef-49a0-b41d-7293c80e0400"
+          }
+        ]
+      },
+      "sqlStatus": "DONE",
+      "done": true
+    },
+    {
+      "mode": "lost-before-observed-commit",
+      "operationId": "local03-sec-20260925-lost-before-observed-commit",
+      "lock": {
+        "holderPid": 4512,
+        "observerPid": 3872,
+        "waiters": [
+          {
+            "pid": 4068,
+            "wait_event_type": "Lock",
+            "wait_event": "advisory",
+            "blockers": [
+              4512
+            ]
+          }
+        ]
+      },
+      "firstTransport": {
+        "clientError": "AbortError"
+      },
+      "committedBeforeRetry": true,
+      "id": "481ea657-ac0b-48df-84ce-3b6ebcd128be",
+      "afterCreate": {
+        "task": 1,
+        "history": [
+          {
+            "id": "2241c5a4-9e6b-4883-a1a8-ba925569612a",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "27d46fb3-78d5-44a8-9f34-b82172a6c0f7",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "948400ae-0a15-47b9-b31c-3d6410730280",
+            "type": "TASK_CREATED",
+            "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032"
+          }
+        ]
+      },
+      "processed": 1,
+      "final": {
+        "task": 1,
+        "history": [
+          {
+            "id": "2241c5a4-9e6b-4883-a1a8-ba925569612a",
+            "action": "TASK_CREATED"
+          },
+          {
+            "id": "26bb001d-e19d-457a-9b7c-16b93e7e1fea",
+            "action": "TASK_TAKEN"
+          },
+          {
+            "id": "4eb481b9-a812-4840-bd0b-7ebb326081f2",
+            "action": "TASK_DONE"
+          }
+        ],
+        "audit": [
+          {
+            "id": "27d46fb3-78d5-44a8-9f34-b82172a6c0f7",
+            "action": "TASK_CREATED"
+          },
+          {
+            "id": "f3b97dee-a404-44a7-ae23-85145d1c8d3e",
+            "action": "TASK_TAKEN"
+          },
+          {
+            "id": "695852a3-13c9-4a7b-a04c-5a658b7e434e",
+            "action": "TASK_DONE"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "948400ae-0a15-47b9-b31c-3d6410730280",
+            "type": "TASK_CREATED",
+            "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032"
+          },
+          {
+            "id": "19d459e6-15f1-4ed6-b08a-6f4f64038919",
+            "type": "TASK_DONE",
+            "userId": "7a7ad710-31ef-49a0-b41d-7293c80e0400"
+          }
+        ]
+      },
+      "sqlStatus": "DONE",
+      "done": true
+    },
+    {
+      "mode": "lost-response-body",
+      "operationId": "local03-sec-20260925-lost-response-body",
+      "lostResponseStatus": 201,
+      "bodyNotConsumed": true,
+      "committedBeforeRetry": true,
+      "id": "2549a99a-b7c0-4941-be28-97e5d9ee9c15",
+      "afterCreate": {
+        "task": 1,
+        "history": [
+          {
+            "id": "8c67307a-f7bf-4e9f-8cd4-578b226d89a4",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "518bd0a6-68c3-4e63-b1c0-326c5d3224bc",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "efe30f54-f727-4ad4-a237-faa587bce480",
+            "type": "TASK_CREATED",
+            "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032"
+          }
+        ]
+      },
+      "processed": 1,
+      "final": {
+        "task": 1,
+        "history": [
+          {
+            "id": "8c67307a-f7bf-4e9f-8cd4-578b226d89a4",
+            "action": "TASK_CREATED"
+          },
+          {
+            "id": "3436e59a-8c10-4a5a-8488-b7cc143b022c",
+            "action": "TASK_TAKEN"
+          },
+          {
+            "id": "b5f8235a-8871-4a23-b8b6-01821a78f9d1",
+            "action": "TASK_DONE"
+          }
+        ],
+        "audit": [
+          {
+            "id": "518bd0a6-68c3-4e63-b1c0-326c5d3224bc",
+            "action": "TASK_CREATED"
+          },
+          {
+            "id": "081c5a52-5297-4f71-b632-044d99c867a0",
+            "action": "TASK_TAKEN"
+          },
+          {
+            "id": "73848c57-0104-4906-8bb8-4b1d1921512c",
+            "action": "TASK_DONE"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "e63f1bb8-3ad4-4bf6-8a59-1bb2f63ef31b",
+            "type": "TASK_DONE",
+            "userId": "7a7ad710-31ef-49a0-b41d-7293c80e0400"
+          },
+          {
+            "id": "efe30f54-f727-4ad4-a237-faa587bce480",
+            "type": "TASK_CREATED",
+            "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032"
+          }
+        ]
+      },
+      "sqlStatus": "DONE",
+      "done": true
+    }
+  ],
+  "status": "PASS_BOUNDED_REAL_HTTP_TWO_SQL_CONNECTIONS",
+  "notCovered": [
+    "rollback after partial business writes",
+    "downstream failure after commit",
+    "synthetic null/foreign result-key policy",
+    "UI trigger (this is SQL/HTTP gate)"
+  ]
+}

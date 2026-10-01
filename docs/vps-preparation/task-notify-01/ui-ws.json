@@ -1,0 +1,70 @@
+{
+  "status": "PASS_UI_HTTP_SQL_WS_DURABILITY_EXACT_SOURCE_SECOND_READER",
+  "mode": "ws",
+  "taskId": "f57785c3-8982-4034-8287-8945b2916ce4",
+  "createHttp": 201,
+  "operationId": "661988b1-a6d9-4264-91a6-8b834ad85f0c",
+  "snapshot": {
+    "tasks": [
+      {
+        "id": "f57785c3-8982-4034-8287-8945b2916ce4",
+        "status": "NEW",
+        "operationId": "661988b1-a6d9-4264-91a6-8b834ad85f0c"
+      }
+    ],
+    "processed": [
+      {
+        "id": "948b3cf4-12d7-41a5-8311-665f0d7620c6",
+        "resultKey": "f57785c3-8982-4034-8287-8945b2916ce4"
+      }
+    ],
+    "history": [
+      {
+        "id": "e5a47ae3-0785-49d3-93f9-6b7bd965656e",
+        "taskId": "f57785c3-8982-4034-8287-8945b2916ce4",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "audit": [
+      {
+        "id": "a24a3877-4a5c-414f-93cc-2cbecd35dabf",
+        "entityId": "f57785c3-8982-4034-8287-8945b2916ce4",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "notifications": [
+      {
+        "id": "925686be-b5c2-410a-a681-058720a38d25",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "departmentId": null,
+        "type": "TASK_CREATED",
+        "entityId": "f57785c3-8982-4034-8287-8945b2916ce4",
+        "createdAt": "2026-09-26T23:31:10.919Z"
+      }
+    ]
+  },
+  "secondTaskUiMs": 6754,
+  "createdFrames": 0,
+  "unrelatedWsIdentityLeak": false,
+  "reconnect": {
+    "closedSockets": 1,
+    "connectedBefore": 1,
+    "connectedAfter": 2
+  },
+  "recoveryMechanism": "real WS reconnect followed by ordinary in-app notifications list GET; reconnect alone does not refresh badge",
+  "unread": {
+    "before": 1,
+    "after": 2,
+    "uiBadgeMatches": true
+  },
+  "exactSource": {
+    "http": 200,
+    "id": "f57785c3-8982-4034-8287-8945b2916ce4",
+    "modal": true
+  },
+  "masterSecondUiMs": 316,
+  "noF5": true,
+  "finalTaskStatus": "DONE",
+  "retryAfterCompletionUnchanged": true
+}

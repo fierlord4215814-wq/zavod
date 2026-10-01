@@ -1,0 +1,146 @@
+{
+  "productFingerprint": "6ae29f473c26b5d0dbe657f52c32cfebaff3c198abd5bb177eedf81e0ab1cfdc",
+  "id": "UI-SWEEP-036",
+  "owners": [
+    {
+      "path": "backend/src/modules/shift-log/shift-log.service.ts",
+      "sha256": "34d5a1d66dad56fa91b45dbea260223608e8f0ac1e549f214283cf1f26c3891e",
+      "bytes": 43365
+    },
+    {
+      "path": "backend/src/modules/attachments/attachments.service.ts",
+      "sha256": "b9353200842657096ce5d43a84dbf016c4781bb3dcdc08708a75a4871b59f7a0",
+      "bytes": 36374
+    },
+    {
+      "path": "frontend/src/screens/ShiftLogScreen.tsx",
+      "sha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+      "bytes": 19943
+    }
+  ],
+  "required": "Distinct ordinary/handover comments; current/closed/soft archived; archive-only vs normal-only; master/management/admin and guest/blocked/revoked/foreign factory/department; exact list/detail/file/Back; ordinary archive query not bypass; no archive write/receipt/ACK/upload/delete/important-close or counter change.",
+  "witnesses": [
+    {
+      "id": "016d13a8802bf9c2",
+      "title": "R2-E-J14 actual saved snapshot preserves exact comment separately from ordinary comment and archive has no receipt",
+      "file": "backend/scripts/master-r2-handover.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "749f845605a3145c",
+      "title": "R2-E-J14 handover deny outside-window before saved snapshot",
+      "file": "backend/scripts/master-r2-handover.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6ad8b4eb49634751",
+      "title": "R2-E-J14 handover deny revoked before saved snapshot",
+      "file": "backend/scripts/master-r2-handover.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "c29eb13c5af4c563",
+      "title": "R2-E-J14 handover deny guest before saved snapshot",
+      "file": "backend/scripts/master-r2-handover.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a4503ef2fdf3c6c8",
+      "title": "R2-E-J14 handover deny no-manage before saved snapshot",
+      "file": "backend/scripts/master-r2-handover.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "69b466751a9a73bd",
+      "title": "R2-E-J14 handover deny foreign-department before saved snapshot",
+      "file": "backend/scripts/master-r2-handover.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "069053a089e07601",
+      "title": "R2-E-J14 handover deny too-long before saved snapshot",
+      "file": "backend/scripts/master-r2-handover.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "24f179830312e64f",
+      "title": "archive list/detail requires archive permission, independent from ordinary read",
+      "file": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4b5c6bba54c0934b",
+      "title": "ordinary list cannot enable archive with query; active and closed detail still work",
+      "file": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2de24526ad5e25b0",
+      "title": "archive scope denies other factory/department, missing object and missing department",
+      "file": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "df89188ace0eca39",
+      "title": "archive detail does not write receipt; existing mutation predicates deny archived rows",
+      "file": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "192ce4efc82ea316",
+      "title": "log/comment attachment read requires archive capability and matching scope; all archived writes denied",
+      "file": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "c484e43898b3a2cc",
+      "title": "real user-context resolution denies blocked/deleted/guest/revoked access before archive guard",
+      "file": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b0545c076ceb5e09",
+      "title": "proven stage14 payload hidden; unrelated human archive preserved",
+      "file": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    }
+  ],
+  "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+  "isolated": {
+    "cases": 14,
+    "status": "SCOPED_REVALIDATED_NOT_LIVE"
+  },
+  "liveTestStack": {
+    "cases": 0,
+    "status": "NOT_RUN_BLOCKED_ENV_C1_TECHNICAL_ISOLATION_UNAVAILABLE"
+  },
+  "physical": "PENDING"
+}

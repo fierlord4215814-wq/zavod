@@ -1,0 +1,361 @@
+{
+  "name": "УЧЕБНЫЙ — обход чистоты T1",
+  "completed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "http": [
+    {
+      "path": "/api/checklists/runs/start",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/678b8d31-567a-481c-aae9-aa59103b5425/complete",
+      "status": 409,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/678b8d31-567a-481c-aae9-aa59103b5425/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/c38f29e3-4abf-4a31-b074-47b18438cd43/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/015260f8-af58-4163-aca4-39c31966a43c/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/63df93cf-f558-4dc6-945f-81ef58b47b60/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/a2d43e45-5b87-4630-b5bb-6a771655f412/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/b20c8874-b556-4c69-8d33-e5ab8474414a/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/e79981e4-3a49-4767-b1bf-66acdb6864c5/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/759d435c-c021-481b-bcdb-b5ca539c048f/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/d61afaf7-ec97-42ff-b610-de3a3ce2b6a9/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/attachments/upload",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/rows/7f36ce46-1168-42c0-83f4-ea0b86f9ea41/complete",
+      "status": 201,
+      "method": "POST"
+    },
+    {
+      "path": "/api/checklists/runs/3c9899a3-4f1b-46c5-ae33-40468065103d/close",
+      "status": 201,
+      "method": "POST"
+    }
+  ],
+  "templateId": "c67eead8-1401-4ac5-a937-ac6ac7e9b0dd",
+  "references": [
+    {
+      "rowId": "d38bf72f-e5e6-41c3-8145-28694b2972a0",
+      "id": "0c13c90b-f880-4aa1-b1a7-2eb23cc69bf9"
+    },
+    {
+      "rowId": "2e7b5a6b-021d-47c1-9232-ea1cf78b5b10",
+      "id": "33e95a20-98a1-4c5a-a094-56543a8668d9"
+    },
+    {
+      "rowId": "7f8965e3-c6ff-4e30-a884-d6d2d36c6b80",
+      "id": "8c09c19c-408f-4e60-bb9f-56cee6674563"
+    },
+    {
+      "rowId": "80f98552-cfea-4eb8-9457-85d00f4f919a",
+      "id": "0f2570c7-bec9-44e5-8f0c-c9593e8589c0"
+    },
+    {
+      "rowId": "043a9ddb-5af1-4a70-a4b1-56d914bb6a7f",
+      "id": "cd7c6432-456e-430e-ba4e-ca7347f3a5ba"
+    },
+    {
+      "rowId": "b5286db2-36c8-480e-88ed-9d301e890527",
+      "id": "578e388a-d0e9-4a65-8315-67c1a4b9a0d9"
+    },
+    {
+      "rowId": "64928f31-3a23-4e2f-8199-19cacf87465b",
+      "id": "93ddc47e-3aba-407b-97cd-d06288f71412"
+    },
+    {
+      "rowId": "10cc094a-3ac7-4a5e-8ae2-1fb21db9d7f1",
+      "id": "2518d8f8-06b2-4866-91d5-fad8dddeb446"
+    },
+    {
+      "rowId": "5da98785-08f7-4bd1-be9f-2dd59eb9a314",
+      "id": "c374c627-6407-4710-9a9d-21585601f8fa"
+    },
+    {
+      "rowId": "7336c505-7ac8-4eb8-ad72-d4995f94c323",
+      "id": "30bdc517-705c-4791-89a9-67e22153e489"
+    }
+  ],
+  "runId": "3c9899a3-4f1b-46c5-ae33-40468065103d",
+  "referenceNotResult": 409,
+  "files": [
+    {
+      "point": 1,
+      "kind": "reference",
+      "id": "0c13c90b-f880-4aa1-b1a7-2eb23cc69bf9",
+      "sha256": "56dd0b5f47d0357f587538af617917ed7dffe8c79629cafb8a1bbfeacaf52270"
+    },
+    {
+      "point": 1,
+      "kind": "result",
+      "id": "a3a1c2f9-7e85-443a-96aa-e66ce28b84e3",
+      "sha256": "fda93cdf9ae45f642d6411fc1ce3696ae81bfd6445cfe9f7c774746e418a1076"
+    },
+    {
+      "point": 2,
+      "kind": "reference",
+      "id": "33e95a20-98a1-4c5a-a094-56543a8668d9",
+      "sha256": "1ed746cee68139586aa1c14e70126fc0f186ec0682867b108902d2c2305784a9"
+    },
+    {
+      "point": 2,
+      "kind": "result",
+      "id": "18b61f2e-5887-4585-8539-b258346fba3c",
+      "sha256": "c73e9158660904b0cc609a6a03fe8327f2b9a86c651e6b603e4d58ad976d6545"
+    },
+    {
+      "point": 3,
+      "kind": "reference",
+      "id": "8c09c19c-408f-4e60-bb9f-56cee6674563",
+      "sha256": "a6187ba58cfa625329dc8d1349bedbb5d9e012d5dc54db718b3c84a5a2f56dec"
+    },
+    {
+      "point": 3,
+      "kind": "result",
+      "id": "e423c084-a1c7-40ba-971f-131a83417be9",
+      "sha256": "e3c85a47337b64b1b7db91a8740b1400579fe3d6858f7dcff60ecb7910a49117"
+    },
+    {
+      "point": 4,
+      "kind": "reference",
+      "id": "0f2570c7-bec9-44e5-8f0c-c9593e8589c0",
+      "sha256": "3380a7b88098bb502338fb00d2ad8e3d8e269eb6c9cdf5d3d249e0ca7479ced5"
+    },
+    {
+      "point": 4,
+      "kind": "result",
+      "id": "c7f9ac6e-18c4-4073-8818-beb9d34d6de0",
+      "sha256": "aedc0226a2ff75243bae00b00fa93d62e35986a5324e4f28ebcc91d64229181b"
+    },
+    {
+      "point": 5,
+      "kind": "reference",
+      "id": "cd7c6432-456e-430e-ba4e-ca7347f3a5ba",
+      "sha256": "e73d8170c6836300e4d2a77387efbe4e41cffabe1739b47b73d58532e463d1c8"
+    },
+    {
+      "point": 5,
+      "kind": "result",
+      "id": "73db0b29-3a76-435f-a397-09cf7fd62203",
+      "sha256": "eef1619853ef13727d86a1b714ed3e58317328c4603b139d5c38a6be78b9f919"
+    },
+    {
+      "point": 6,
+      "kind": "reference",
+      "id": "578e388a-d0e9-4a65-8315-67c1a4b9a0d9",
+      "sha256": "d12def7bc92fbd80f81ed3966b020e7d0166c5298edb9ca65a6ef3e3424d7a10"
+    },
+    {
+      "point": 6,
+      "kind": "result",
+      "id": "02429cf2-2495-4d06-b266-988ba7053ad6",
+      "sha256": "1075a759b1cc7f5126f2dd95c7e62a2756aa68c299e3f29f6077d0c519a959ce"
+    },
+    {
+      "point": 7,
+      "kind": "reference",
+      "id": "93ddc47e-3aba-407b-97cd-d06288f71412",
+      "sha256": "16180ebbbddde92bfe1ca98451d76f2356e7879cba56070279b15b805df07a1c"
+    },
+    {
+      "point": 7,
+      "kind": "result",
+      "id": "c78805c5-e95a-4e79-ace2-5b9632942c18",
+      "sha256": "ac1d8c8b4d63e3b4253f47ad35f425b0b2704f6a0ef83ecc204c6fa760560a16"
+    },
+    {
+      "point": 8,
+      "kind": "reference",
+      "id": "2518d8f8-06b2-4866-91d5-fad8dddeb446",
+      "sha256": "0b59c5364ee3ad9a087f6ef8e7b8565d3d2a7c189247c779191e3e02001a76d0"
+    },
+    {
+      "point": 8,
+      "kind": "result",
+      "id": "deb95500-422b-4b4b-b84f-f33491dda66b",
+      "sha256": "682e43e8fdbfbe8897950fbbff1fee5dab92096bcb1edd4192279ed54fe558bd"
+    },
+    {
+      "point": 9,
+      "kind": "reference",
+      "id": "c374c627-6407-4710-9a9d-21585601f8fa",
+      "sha256": "4855968f05b783e3af1ee1a31b2fd6e4948016dd1daa13aafffa9c27aaa78e0c"
+    },
+    {
+      "point": 9,
+      "kind": "result",
+      "id": "4755f0fd-5348-405a-8b8a-afdf85c628a6",
+      "sha256": "cfb69b0f88638661f9e2eda31931ea3c41e117d0ffc129ec180fe958c44f0e2c"
+    },
+    {
+      "point": 10,
+      "kind": "reference",
+      "id": "30bdc517-705c-4791-89a9-67e22153e489",
+      "sha256": "a98e502680ddfb94f2988eb56835a5914cb20df1565a842c962db84c2280c717"
+    },
+    {
+      "point": 10,
+      "kind": "result",
+      "id": "7558a78f-bf0e-450f-b702-09bc92b65254",
+      "sha256": "a360dbe819fad57c7fd34099d9a493de9cb102f4cd7e1242efeb1e621f02004e"
+    }
+  ],
+  "sql": {
+    "id": "3c9899a3-4f1b-46c5-ae33-40468065103d",
+    "status": "CLOSED",
+    "rows": [
+      {
+        "id": "678b8d31-567a-481c-aae9-aa59103b5425",
+        "status": "ISSUE",
+        "referenceAttachmentId": "0c13c90b-f880-4aa1-b1a7-2eb23cc69bf9"
+      },
+      {
+        "id": "c38f29e3-4abf-4a31-b074-47b18438cd43",
+        "status": "OK",
+        "referenceAttachmentId": "33e95a20-98a1-4c5a-a094-56543a8668d9"
+      },
+      {
+        "id": "015260f8-af58-4163-aca4-39c31966a43c",
+        "status": "OK",
+        "referenceAttachmentId": "8c09c19c-408f-4e60-bb9f-56cee6674563"
+      },
+      {
+        "id": "63df93cf-f558-4dc6-945f-81ef58b47b60",
+        "status": "OK",
+        "referenceAttachmentId": "0f2570c7-bec9-44e5-8f0c-c9593e8589c0"
+      },
+      {
+        "id": "a2d43e45-5b87-4630-b5bb-6a771655f412",
+        "status": "OK",
+        "referenceAttachmentId": "cd7c6432-456e-430e-ba4e-ca7347f3a5ba"
+      },
+      {
+        "id": "b20c8874-b556-4c69-8d33-e5ab8474414a",
+        "status": "OK",
+        "referenceAttachmentId": "578e388a-d0e9-4a65-8315-67c1a4b9a0d9"
+      },
+      {
+        "id": "e79981e4-3a49-4767-b1bf-66acdb6864c5",
+        "status": "OK",
+        "referenceAttachmentId": "93ddc47e-3aba-407b-97cd-d06288f71412"
+      },
+      {
+        "id": "759d435c-c021-481b-bcdb-b5ca539c048f",
+        "status": "OK",
+        "referenceAttachmentId": "2518d8f8-06b2-4866-91d5-fad8dddeb446"
+      },
+      {
+        "id": "d61afaf7-ec97-42ff-b610-de3a3ce2b6a9",
+        "status": "OK",
+        "referenceAttachmentId": "c374c627-6407-4710-9a9d-21585601f8fa"
+      },
+      {
+        "id": "7f36ce46-1168-42c0-83f4-ea0b86f9ea41",
+        "status": "OK",
+        "referenceAttachmentId": "30bdc517-705c-4791-89a9-67e22153e489"
+      }
+    ]
+  },
+  "ws": [
+    "connected",
+    "checklist_updated"
+  ],
+  "status": "PASS_UI_10_REFERENCE_10_RESULT_CLOSED",
+  "actor": "OKK02"
+}

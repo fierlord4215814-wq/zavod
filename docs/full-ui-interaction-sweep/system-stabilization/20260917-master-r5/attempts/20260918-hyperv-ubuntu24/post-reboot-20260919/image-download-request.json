@@ -1,0 +1,32 @@
+{
+  "expectedSha256": "97f3d7ffb032c3eb3b23d2c8be9cc76e60c2c1f2c0146ba5ba9fe01cafae0fd8",
+  "freeDiskBefore": 53841670144,
+  "at": "2026-09-19T19:43:18.7698659+03:00",
+  "runtimeBefore": "ABSENT",
+  "minimumFreeDiskBefore": 37634918400.0,
+  "arguments": [
+    "--fail",
+    "--location",
+    "--proto",
+    "=https",
+    "--tlsv1.2",
+    "--connect-timeout",
+    "30",
+    "--max-time",
+    "1800",
+    "--retry",
+    "0",
+    "--max-filesize",
+    "4080486400",
+    "--output",
+    "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\ubuntu-24.04.5-live-server-amd64.iso.part",
+    "https://releases.ubuntu.com/24.04/ubuntu-24.04.5-live-server-amd64.iso"
+  ],
+  "url": "https://releases.ubuntu.com/24.04/ubuntu-24.04.5-live-server-amd64.iso",
+  "command": "curl.exe",
+  "workingDbAccessed": false,
+  "vmCreated": false,
+  "expectedBytes": 4080486400,
+  "runtime": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24",
+  "scriptSha256": "0528a1ae34137bcd26be6db7354b1bf5498f2847a4856fa190823b0d96791e3f"
+}

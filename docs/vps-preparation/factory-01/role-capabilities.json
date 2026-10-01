@@ -1,0 +1,3357 @@
+{
+  "status": "PASS_CURRENT_14_EFFECTIVE_FAMILY_READBACK_DENIALS_NOT_FULL_ROLE_ACCEPTANCE",
+  "scope": "current T1 effective families, real read-only UI/HTTP and context guards; this alone is not role-operation PASS",
+  "roles": [
+    {
+      "role": "MANAGEMENT",
+      "permissions": [
+        "announcements.archive.read",
+        "announcements.create",
+        "announcements.manage",
+        "announcements.read",
+        "announcements.settings.read",
+        "audit.read",
+        "chats.access",
+        "chats.archive.read",
+        "chats.manage",
+        "chats.read",
+        "chats.write",
+        "checklists.archive.read",
+        "checklists.runs.manage",
+        "checklists.runs.read",
+        "checklists.runs.self",
+        "checklists.templates.manage",
+        "checklists.templates.read",
+        "defrost.calendar.read",
+        "defrost.manage",
+        "defrost.read",
+        "factory.read",
+        "lines.manage",
+        "lines.read",
+        "notifications.read",
+        "okk.read",
+        "ops.audit.read",
+        "ops.events.read",
+        "ops.overview.read",
+        "ops.statistics.read",
+        "orders.archive.read",
+        "orders.items.manage",
+        "orders.read",
+        "orders.request",
+        "orders.requests.manage",
+        "orders.restock",
+        "orders.take",
+        "people.notes.manage",
+        "people.notes.read",
+        "people.phone.read",
+        "people.profile.manage",
+        "people.profile.read",
+        "people.read",
+        "people.recommendations.manage",
+        "people.skills.manage",
+        "people.skills.read",
+        "returns.manage",
+        "returns.publication.read",
+        "returns.read",
+        "shift-log.archive.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.important.manage",
+        "shift-log.manage",
+        "shift-log.read",
+        "shift-log.reads.read",
+        "shift.current.read",
+        "shift.future.read",
+        "shift.past.read",
+        "stock.read",
+        "tasks.comment",
+        "tasks.done",
+        "tasks.escalation.manage",
+        "tasks.read",
+        "tasks.read-receipts.read",
+        "tasks.take",
+        "wash.control.create",
+        "wash.control.manage",
+        "wash.issue.create",
+        "wash.issue.resolve",
+        "wash.message.create",
+        "wash.read"
+      ],
+      "families": [
+        "announcements",
+        "audit",
+        "chats",
+        "checklists",
+        "defrost",
+        "factory",
+        "lines",
+        "notifications",
+        "okk",
+        "ops",
+        "orders",
+        "people",
+        "returns",
+        "shift",
+        "shift-log",
+        "stock",
+        "tasks",
+        "wash"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284209
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284213
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284252
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284293
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284433
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284505
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nЛюди\n\nРабочий список сотрудников, профиль, навыки по линиям и управленческие заметки без HR-учёта.\n\nΣ\nВсего\n1\n●\nНа смене\n0\n○\nВне смены\n1\nВсе\nНа смене\nВне смены\nПоиск и фильтры\nВсе роли · показано 1\nОбновить\nТекущий список\n1\nУЧ\nУчебный-Руководитель-01 Тестовый\nСвободен\nРуководство · УЧ — Руководство T1",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Линии",
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284929
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284949
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284952
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284955
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458284956
+            }
+          ],
+          "visibleText": "Линия 3\nРаботает\nЛюдей: 2\nПростой\nОстановить\nПодробнее\nУЧ-Линия 4\nРаботает\nЛюдей: 2\nПростой\nОстановить\nПодробнее\nОТДЕЛЬНАЯ ПРОЦЕДУРА\nПроизводится мойка — 0\nОткрыть раздел мойки\nСейчас мойка линий не ведётся.\nХОЛОДИЛЬНАЯ СЛУЖБА\nНа оттайке — 0\nОткрыть раздел оттайки\nСейчас линий на оттайке нет.\nОстановленные линии — 2\nЗапустить новую линию\nУЧ-Линия 1\nОстановлена\nЛюдей: 0\nОжидает запуска\nВернуть в работу\nПодробнее\nУЧ-Линия 2\nОстановлена\nЛюдей: 0\nОжидает запуска\nВернуть в работу\nПодробнее\nРАБОЧИЕ ЗОНЫ\nПовременщики и рабочие зоны — 0\nНе входят в KPI линий\nРабочие зоны для этого завода не настроены.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заявки",
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458285432
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458285439
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458285479
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458285519
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458285554
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nЗаявки\n\nМежотдельская доска заявок: адресаты, исполнители, сроки, комментарии, вложения и связь с простоями линий.\n\n+\nНовые\n0\n↻\nВ работе\n0\n⌛\nДолгие\n0\n!\nПросрочено\n0\nНет новых событий\nАрхив и метрики\nЭскалация: включена\nПоиск и фильтры\nВсе доступные заявки\nПо выбранному фильтру заявок нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Мойка",
+          "http": [
+            {
+              "path": "/api/wash/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458285993
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458286025
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458286042
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nМойка\n\nАктивные мойки по линиям: задания, проблемы, фото, комментарии и ОКК-проверка в одном рабочем месте.\n\nСоздать задание\n●\nАктивные\n0\n!\nПроблемы\n0\nЗ\nЗадания\n0\nО\nОКК ждут\n0\nАктивные 0\nЗадания 0\nАрхив 1\nАктивных моек сейчас нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "ОКК",
+          "http": [
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458286544
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458286555
+            },
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458286563
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nОКК\n\nЗабракованная продукция, выполнение решений, архив и вложения.\n\nАктивные записи\n0\nАрхив\n1\nАктивные записи\n0\nАктивных записей ОКК пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Некондиция",
+          "http": [
+            {
+              "path": "/api/stock",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458287042
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nНекондиция\n\nСкладская некондиция, выдача, архив и вложения по правам склада.\n\nЗАПИСИ\n0\nВЫДАНО\n0\nНекондиции пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заказы / Остатки",
+          "http": [
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458287566
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458287573
+            },
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458287576
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458287592
+            },
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458287592
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nЗаказы / Остатки\n\nНеснижаемый запас критичных позиций и заявки на пополнение. Это не складской учёт и не 1С.\n\nНИЖЕ МИНИМУМА\n0\nКРИТИЧНО / НЕТ\n0\nОТКРЫТЫЕ ЗАЯВКИ\n0\nПОЗИЦИИ\n0\nОстатки\nЗаявки на заказ\nАрхив\nПоиск и фильтры\nВсе доступные позиции\n+ Новая позиция\nАктивных позиций остатков пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чек-листы",
+          "http": [
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458288078
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458288083
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458288096
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458288113
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458288131
+            },
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458288145
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458288157
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\n\nОТДЕЛОВОЙ КОНТРОЛЬ\n\nЧек-листы\n\nТекущие проверки, сроки и выполнение по вашему отделу.\n\n✓\nВ работе\n0\n+\nДоступные\n0\n▤\nАрхив\n0\nНастройка чек-листов\nУправление шаблонами ›\nВ работе\n0\nСейчас у вас нет чек-листов в работе.\nНачать новый чек-лист",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Оттайка",
+          "http": [
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458288621
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nОттайка\n\nБыстрая фиксация оттайки и запуска в работу по производственным линиям.\n\n▶\nВ работе\n2\n❄\nНа оттайке\n0\nПоставить на оттайку\nОбдул шоковую камеру\nЗапустить в работу\nУЧ-Линия 3\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 28 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было\nУЧ-Линия 4\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 28 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458289145
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458289156
+            },
+            {
+              "path": "/api/returns/publication-lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458289166
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nОпубликовать возврат\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458289674
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458289679
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458289696
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nНет новых событий\nЛичный чат\nСоздать чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458290194
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458290206
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Руководство Учебный-Руководитель-01 Т.\n9\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхивУправление\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458290738
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458290738
+            }
+          ],
+          "visibleText": "ик: УЧЕБНЫЙ ЗАВОД T1\nКонтроль мойки\nне прочитано\nОткрытьОтметить прочитанным\nПроблема в мойке\nВнимание\n\nУчебная проверка остатка загрязнения\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nПроблема мойки\nне прочитано\nОткрытьОтметить прочитанным\nЗапрос возврата на смену\nВнимание\n\nУчебный-Работник-01 Тестовый: УЧ T1: готов вернуться\n\n26.09, 23:06\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nСобытие\nне прочитано\nОткрытьОтметить прочитанным\nЗапрос возврата на смену\nВнимание\n\nУчебный-Работник-01 Тестовый: УЧ T1: первый запрос возврата\n\n26.09, 23:06\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nСобытие\nне прочитано\nОткрытьОтметить прочитанным",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "MASTER",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "assignments.manage",
+        "chats.access",
+        "chats.read",
+        "chats.write",
+        "checklists.runs.read",
+        "checklists.runs.self",
+        "checklists.templates.read",
+        "defrost.calendar.read",
+        "defrost.read",
+        "factory.read",
+        "lines.manage",
+        "lines.read",
+        "notifications.read",
+        "okk.read",
+        "orders.read",
+        "orders.request",
+        "orders.take",
+        "people.phone.read",
+        "people.profile.read",
+        "people.read",
+        "people.recommendations.manage",
+        "people.skills.manage",
+        "people.skills.read",
+        "returns.publication.read",
+        "returns.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.manage",
+        "shift-log.read",
+        "shift.current.manage",
+        "shift.current.read",
+        "shift.future.manage",
+        "shift.future.read",
+        "shift.past.read",
+        "shift.return.manage",
+        "tasks.comment",
+        "tasks.create",
+        "tasks.done",
+        "tasks.manage",
+        "tasks.read",
+        "tasks.read-receipts.read",
+        "tasks.redirect",
+        "tasks.take",
+        "wash.control.create",
+        "wash.control.manage",
+        "wash.issue.create",
+        "wash.issue.resolve",
+        "wash.manage",
+        "wash.message.create",
+        "wash.read"
+      ],
+      "families": [
+        "announcements",
+        "assignments",
+        "chats",
+        "checklists",
+        "defrost",
+        "factory",
+        "lines",
+        "notifications",
+        "okk",
+        "orders",
+        "people",
+        "returns",
+        "shift",
+        "shift-log",
+        "tasks",
+        "wash"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458292673
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458292676
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458292775
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458292778
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458292805
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458292859
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458292866
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458292908
+            }
+          ],
+          "visibleText": "ециалист-02 Тестовый\nСвободен\nДругое · УЧ — Другие службы\nУЧ\nУчебный-Механик-01 Тестовый\nСвободен\nМеханик · УЧ — Механики\nУЧ\nУчебный-Электрик-01 Тестовый\nСвободен\nЭлектрик · УЧ — Электрики\nУЧ\nУчебный-Холодильщик-01 Тестовый\nСвободен\nХолодильная служба · УЧ — Холодильная служба\nУЧ\nУчебный-КИПиА-01 Тестовый\nСвободен\nКИПиА · УЧ — КИПиА\nУЧ\nУчебный-Сантехник-01 Тестовый\nСвободен\nСантехник · УЧ — Сантехники\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Линии",
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293349
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293369
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293369
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293370
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293371
+            }
+          ],
+          "visibleText": "Линия 3\nРаботает\nЛюдей: 2\nПростой\nОстановить\nПодробнее\nУЧ-Линия 4\nРаботает\nЛюдей: 2\nПростой\nОстановить\nПодробнее\nОТДЕЛЬНАЯ ПРОЦЕДУРА\nПроизводится мойка — 0\nОткрыть раздел мойки\nСейчас мойка линий не ведётся.\nХОЛОДИЛЬНАЯ СЛУЖБА\nНа оттайке — 0\nОткрыть раздел оттайки\nСейчас линий на оттайке нет.\nОстановленные линии — 2\nЗапустить новую линию\nУЧ-Линия 1\nОстановлена\nЛюдей: 0\nОжидает запуска\nВернуть в работу\nПодробнее\nУЧ-Линия 2\nОстановлена\nЛюдей: 0\nОжидает запуска\nВернуть в работу\nПодробнее\nРАБОЧИЕ ЗОНЫ\nПовременщики и рабочие зоны — 0\nНе входят в KPI линий\nРабочие зоны для этого завода не настроены.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заявки",
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293848
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293864
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293865
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293891
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458293894
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nЗаявки\n\nМежотдельская доска заявок: адресаты, исполнители, сроки, комментарии, вложения и связь с простоями линий.\n\n+\nНовые\n0\n↻\nВ работе\n0\n⌛\nДолгие\n0\n!\nПросрочено\n0\nНет новых событий\nСоздать заявку\nПроверить долгие\nАрхив и метрики\nЭскалация: включена\nПоиск и фильтры\nВсе доступные заявки\nПо выбранному фильтру заявок нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Мойка",
+          "http": [
+            {
+              "path": "/api/wash/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458294415
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458294441
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458294459
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nМойка\n\nАктивные мойки по линиям: задания, проблемы, фото, комментарии и ОКК-проверка в одном рабочем месте.\n\nСоздать задание\nНачать мойку\n●\nАктивные\n0\n!\nПроблемы\n0\nЗ\nЗадания\n0\nО\nОКК ждут\n0\nАктивные 0\nЗадания 0\nАрхив 1\nАктивных моек сейчас нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "ОКК",
+          "http": [
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458294968
+            },
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458294980
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458294984
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nОКК\n\nЗабракованная продукция, выполнение решений, архив и вложения.\n\nАктивные записи\n0\nАрхив\n1\nАктивные записи\n0\nАктивных записей ОКК пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заказы / Остатки",
+          "http": [
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458295498
+            },
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458295499
+            },
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458295500
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nЗаказы / Остатки\n\nНеснижаемый запас критичных позиций и заявки на пополнение. Это не складской учёт и не 1С.\n\nНИЖЕ МИНИМУМА\n0\nКРИТИЧНО / НЕТ\n0\nОТКРЫТЫЕ ЗАЯВКИ\n0\nПОЗИЦИИ\n0\nОстатки\nЗаявки на заказ\nПоиск и фильтры\nВсе доступные позиции\nАктивных позиций остатков пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чек-листы",
+          "http": [
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458296012
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458296055
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458296065
+            },
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458296088
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458296109
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\n\nОТДЕЛОВОЙ КОНТРОЛЬ\n\nЧек-листы\n\nТекущие проверки, сроки и выполнение по вашему отделу.\n\n✓\nВ работе\n0\n+\nДоступные\n2\n▤\nАрхив\n1\nВ работе\n0\nСейчас у вас нет чек-листов в работе.\nНачать новый чек-лист",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Оттайка",
+          "http": [
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458296560
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nОттайка\n\nБыстрая фиксация оттайки и запуска в работу по производственным линиям.\n\n▶\nВ работе\n2\n❄\nНа оттайке\n0\nУЧ-Линия 3\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 28 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было\nУЧ-Линия 4\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 28 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458297097
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458297107
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458297628
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458297639
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458297650
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nНет новых событий\nЛичный чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458298161
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458298172
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458298708
+            },
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458298715
+            }
+          ],
+          "visibleText": ", 23:07\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nЗаявка\nне прочитано\nОткрытьОтметить прочитанным\nЗаявка закрыта\nИнформация\n\nУчебная проверка механика FACTORY01 T1\n\n26.09, 23:07\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nЗаявка\nне прочитано\nОткрытьОтметить прочитанным\nЗапрос возврата на смену\nВнимание\n\nУчебный-Работник-01 Тестовый: УЧ T1: готов вернуться\n\n26.09, 23:06\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nСобытие\nне прочитано\nОткрытьОтметить прочитанным\nЗапрос возврата на смену\nВнимание\n\nУчебный-Работник-01 Тестовый: УЧ T1: первый запрос возврата\n\n26.09, 23:06\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nСобытие\nне прочитано\nОткрытьОтметить прочитанным",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "TECHNOLOG",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "chats.read",
+        "chats.write",
+        "checklists.runs.read",
+        "checklists.runs.self",
+        "checklists.templates.read",
+        "defrost.calendar.read",
+        "defrost.read",
+        "factory.read",
+        "lines.manage",
+        "lines.read",
+        "notifications.read",
+        "orders.read",
+        "orders.request",
+        "orders.take",
+        "people.phone.read",
+        "people.profile.read",
+        "people.read",
+        "people.skills.read",
+        "returns.publication.read",
+        "returns.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.read",
+        "tasks.comment",
+        "tasks.done",
+        "tasks.read",
+        "tasks.take",
+        "wash.read"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "checklists",
+        "defrost",
+        "factory",
+        "lines",
+        "notifications",
+        "orders",
+        "people",
+        "returns",
+        "shift-log",
+        "tasks",
+        "wash"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458300507
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458300528
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458300530
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458300656
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458300784
+            }
+          ],
+          "visibleText": "ециалист-02 Тестовый\nСвободен\nДругое · УЧ — Другие службы\nУЧ\nУчебный-Механик-01 Тестовый\nСвободен\nМеханик · УЧ — Механики\nУЧ\nУчебный-Электрик-01 Тестовый\nСвободен\nЭлектрик · УЧ — Электрики\nУЧ\nУчебный-Холодильщик-01 Тестовый\nСвободен\nХолодильная служба · УЧ — Холодильная служба\nУЧ\nУчебный-КИПиА-01 Тестовый\nСвободен\nКИПиА · УЧ — КИПиА\nУЧ\nУчебный-Сантехник-01 Тестовый\nСвободен\nСантехник · УЧ — Сантехники\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Линии",
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301133
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301145
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301145
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301149
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301154
+            }
+          ],
+          "visibleText": "Линия 3\nРаботает\nЛюдей: 2\nПростой\nОстановить\nПодробнее\nУЧ-Линия 4\nРаботает\nЛюдей: 2\nПростой\nОстановить\nПодробнее\nОТДЕЛЬНАЯ ПРОЦЕДУРА\nПроизводится мойка — 0\nОткрыть раздел мойки\nСейчас мойка линий не ведётся.\nХОЛОДИЛЬНАЯ СЛУЖБА\nНа оттайке — 0\nОткрыть раздел оттайки\nСейчас линий на оттайке нет.\nОстановленные линии — 2\nЗапустить новую линию\nУЧ-Линия 1\nОстановлена\nЛюдей: 0\nОжидает запуска\nВернуть в работу\nПодробнее\nУЧ-Линия 2\nОстановлена\nЛюдей: 0\nОжидает запуска\nВернуть в работу\nПодробнее\nРАБОЧИЕ ЗОНЫ\nПовременщики и рабочие зоны — 0\nНе входят в KPI линий\nРабочие зоны для этого завода не настроены.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заявки",
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301605
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301607
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301614
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301617
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458301623
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Технолог Учебный-Технолог-01 Т.\n5\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nЗаявки\n\nМежотдельская доска заявок: адресаты, исполнители, сроки, комментарии, вложения и связь с простоями линий.\n\n+\nНовые\n0\n↻\nВ работе\n0\n⌛\nДолгие\n0\n!\nПросрочено\n0\nНет новых событий\nАрхив и метрики\nЭскалация: включена\nПоиск и фильтры\nВсе доступные заявки\nПо выбранному фильтру заявок нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Мойка",
+          "http": [
+            {
+              "path": "/api/wash/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458302162
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458302208
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Технолог Учебный-Технолог-01 Т.\n5\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nМойка\n\nАктивные мойки по линиям: задания, проблемы, фото, комментарии и ОКК-проверка в одном рабочем месте.\n\n●\nАктивные\n0\n!\nПроблемы\n0\nЗ\nЗадания\n0\nО\nОКК ждут\n0\nАктивные 0\nЗадания 0\nАрхив 1\nАктивных моек сейчас нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заказы / Остатки",
+          "http": [
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458302713
+            },
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458302713
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458302721
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Технолог Учебный-Технолог-01 Т.\n5\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nЗаказы / Остатки\n\nНеснижаемый запас критичных позиций и заявки на пополнение. Это не складской учёт и не 1С.\n\nНИЖЕ МИНИМУМА\n0\nКРИТИЧНО / НЕТ\n0\nОТКРЫТЫЕ ЗАЯВКИ\n0\nПОЗИЦИИ\n0\nОстатки\nЗаявки на заказ\nПоиск и фильтры\nВсе доступные позиции\nАктивных позиций остатков пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чек-листы",
+          "http": [
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458303197
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458303208
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458303221
+            },
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458303232
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458303252
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Технолог Учебный-Технолог-01 Т.\n5\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\n\nОТДЕЛОВОЙ КОНТРОЛЬ\n\nЧек-листы\n\nТекущие проверки, сроки и выполнение по вашему отделу.\n\n✓\nВ работе\n0\n+\nДоступные\n0\n▤\nАрхив\n0\nВ работе\n0\nСейчас у вас нет чек-листов в работе.\nНачать новый чек-лист",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Оттайка",
+          "http": [
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458303764
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Технолог Учебный-Технолог-01 Т.\n5\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nОттайка\n\nБыстрая фиксация оттайки и запуска в работу по производственным линиям.\n\n▶\nВ работе\n2\n❄\nНа оттайке\n0\nУЧ-Линия 3\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 28 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было\nУЧ-Линия 4\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 28 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458304272
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458304288
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Технолог Учебный-Технолог-01 Т.\n5\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458304794
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458304797
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458304801
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Технолог Учебный-Технолог-01 Т.\n5\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nНет новых событий\nЛичный чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458305330
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458305345
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Технолог Учебный-Технолог-01 Т.\n5\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458305873
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458305875
+            }
+          ],
+          "visibleText": "ройден\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОКК мойки\nне прочитано\nОткрытьОтметить прочитанным\nМини-задание мойки выполнено\nИнформация\n\nПроверить учебную контрольную точку\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nКонтроль мойки\nне прочитано\nОткрытьОтметить прочитанным\nКонтроль мойки создан\nИнформация\n\nПроверить учебную контрольную точку\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nКонтроль мойки\nне прочитано\nОткрытьОтметить прочитанным\nПроблема в мойке\nВнимание\n\nУчебная проверка остатка загрязнения\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nПроблема мойки\nне прочитано\nОткрытьОтметить прочитанным",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "OKK",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "chats.read",
+        "chats.write",
+        "checklists.runs.read",
+        "checklists.runs.self",
+        "checklists.templates.read",
+        "factory.read",
+        "lines.manage",
+        "lines.read",
+        "notifications.read",
+        "okk.manage",
+        "okk.read",
+        "orders.read",
+        "orders.request",
+        "orders.take",
+        "people.phone.read",
+        "people.profile.read",
+        "people.read",
+        "people.skills.read",
+        "returns.manage",
+        "returns.publication.read",
+        "returns.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.read",
+        "tasks.comment",
+        "tasks.create",
+        "tasks.done",
+        "tasks.read",
+        "tasks.take",
+        "wash.issue.create",
+        "wash.issue.resolve",
+        "wash.okk-review.manage",
+        "wash.okk-review.read",
+        "wash.read"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "checklists",
+        "factory",
+        "lines",
+        "notifications",
+        "okk",
+        "orders",
+        "people",
+        "returns",
+        "shift-log",
+        "tasks",
+        "wash"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458307643
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458307760
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458307923
+            }
+          ],
+          "visibleText": "ециалист-02 Тестовый\nСвободен\nДругое · УЧ — Другие службы\nУЧ\nУчебный-Механик-01 Тестовый\nСвободен\nМеханик · УЧ — Механики\nУЧ\nУчебный-Электрик-01 Тестовый\nСвободен\nЭлектрик · УЧ — Электрики\nУЧ\nУчебный-Холодильщик-01 Тестовый\nСвободен\nХолодильная служба · УЧ — Холодильная служба\nУЧ\nУчебный-КИПиА-01 Тестовый\nСвободен\nКИПиА · УЧ — КИПиА\nУЧ\nУчебный-Сантехник-01 Тестовый\nСвободен\nСантехник · УЧ — Сантехники\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Линии",
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308228
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308243
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308244
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308246
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308247
+            }
+          ],
+          "visibleText": "\nЛинии в работе — 2\nУЧ-Линия 3\nРаботает\nЛюдей: 2\nПростой\nОстановить\nПодробнее\nУЧ-Линия 4\nРаботает\nЛюдей: 2\nПростой\nОстановить\nПодробнее\nОТДЕЛЬНАЯ ПРОЦЕДУРА\nПроизводится мойка — 0\nОткрыть раздел мойки\nСейчас мойка линий не ведётся.\nХОЛОДИЛЬНАЯ СЛУЖБА\nНа оттайке — 0\nСейчас линий на оттайке нет.\nОстановленные линии — 2\nЗапустить новую линию\nУЧ-Линия 1\nОстановлена\nЛюдей: 0\nОжидает запуска\nВернуть в работу\nПодробнее\nУЧ-Линия 2\nОстановлена\nЛюдей: 0\nОжидает запуска\nВернуть в работу\nПодробнее\nРАБОЧИЕ ЗОНЫ\nПовременщики и рабочие зоны — 0\nНе входят в KPI линий\nРабочие зоны для этого завода не настроены.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заявки",
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308729
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308732
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308741
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308756
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458308763
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n6\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nЗаявки\n\nМежотдельская доска заявок: адресаты, исполнители, сроки, комментарии, вложения и связь с простоями линий.\n\n+\nНовые\n0\n↻\nВ работе\n0\n⌛\nДолгие\n0\n!\nПросрочено\n0\nНет новых событий\nСоздать заявку\nАрхив и метрики\nЭскалация: включена\nПоиск и фильтры\nВсе доступные заявки\nПо выбранному фильтру заявок нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Мойка",
+          "http": [
+            {
+              "path": "/api/wash/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458309297
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458309331
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n6\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nМойка\n\nАктивные мойки по линиям: задания, проблемы, фото, комментарии и ОКК-проверка в одном рабочем месте.\n\n●\nАктивные\n0\n!\nПроблемы\n0\nЗ\nЗадания\n0\nО\nОКК ждут\n0\nАктивные 0\nЗадания 0\nАрхив 1\nАктивных моек сейчас нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "ОКК",
+          "http": [
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458309847
+            },
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458309859
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458309865
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458309882
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458309887
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n6\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nОКК\n\nЗабракованная продукция, выполнение решений, архив и вложения.\n\nАктивные записи\n0\nАрхив\n1\nНовый брак\nАктивные записи\n0\nАктивных записей ОКК пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заказы / Остатки",
+          "http": [
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458310388
+            },
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458310389
+            },
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458310397
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n6\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nЗаказы / Остатки\n\nНеснижаемый запас критичных позиций и заявки на пополнение. Это не складской учёт и не 1С.\n\nНИЖЕ МИНИМУМА\n0\nКРИТИЧНО / НЕТ\n0\nОТКРЫТЫЕ ЗАЯВКИ\n0\nПОЗИЦИИ\n0\nОстатки\nЗаявки на заказ\nПоиск и фильтры\nВсе доступные позиции\nАктивных позиций остатков пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чек-листы",
+          "http": [
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458310874
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458310921
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458310932
+            },
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458310957
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458310981
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n6\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\n\nОТДЕЛОВОЙ КОНТРОЛЬ\n\nЧек-листы\n\nТекущие проверки, сроки и выполнение по вашему отделу.\n\n✓\nВ работе\n0\n+\nДоступные\n1\n▤\nАрхив\n2\nВ работе\n0\nСейчас у вас нет чек-листов в работе.\nНачать новый чек-лист",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458311413
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458311421
+            },
+            {
+              "path": "/api/returns/publication-lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458311431
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n6\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nОпубликовать возврат\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458311946
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458311946
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458311952
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n6\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\nНет новых событий\nЛичный чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458312494
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458312494
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · ОКК Учебный-ОКК-01 Т.\n6\nЛюди\nЛинии\nЗаявки\nЧек-листы\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458313039
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458313040
+            }
+          ],
+          "visibleText": "точку\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nКонтроль мойки\nне прочитано\nОткрытьОтметить прочитанным\nКонтроль мойки создан\nИнформация\n\nПроверить учебную контрольную точку\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nКонтроль мойки\nне прочитано\nОткрытьОтметить прочитанным\nПроблема в мойке\nВнимание\n\nУчебная проверка остатка загрязнения\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nПроблема мойки\nне прочитано\nОткрытьОтметить прочитанным\n1\nРанее\n\nУже просмотрены\n\nВажное объявление\nВнимание\n\nУЧЕБНОЕ T1 — архив, аудитории и подтверждения\n\n27.09, 00:12\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОбъявление\nпрочитано\nОткрыть",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "STORE",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "chats.read",
+        "chats.write",
+        "factory.read",
+        "notifications.read",
+        "orders.read",
+        "orders.restock",
+        "orders.take",
+        "people.phone.read",
+        "people.profile.read",
+        "people.read",
+        "people.skills.read",
+        "returns.manage",
+        "returns.publication.read",
+        "returns.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.read"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "factory",
+        "notifications",
+        "orders",
+        "people",
+        "returns",
+        "shift-log"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458314881
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458314896
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458315023
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458315038
+            }
+          ],
+          "visibleText": "вый\nСвободен\nРаботник · УЧ — Производство T1\nУЧ\nУчебный-Работник-03 Тестовый\nСвободен\nРаботник · УЧ — Производство T1\nУЧ\nУчебный-Работник-09 Тестовый\nСвободен\nРаботник · УЧ — Производство T1\nУЧ\nУчебный-Работник-04 Тестовый\nНа смене\nРаботник · УЧ — Производство T1\nУЧ\nУчебный-Работник-12 Тестовый\nСвободен\nРаботник · УЧ — Производство T1\nУЧ\nУчебный-Работник-02 Тестовый\nНа смене\nРаботник · УЧ — Производство T1\nУЧ\nУчебный-Работник-05 Тестовый\nНа смене\nРаботник · УЧ — Производство T1\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заказы / Остатки",
+          "http": [
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458315332
+            },
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458315333
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458315341
+            }
+          ],
+          "visibleText": "т и не 1С.\n\nНИЖЕ МИНИМУМА\n0\nКРИТИЧНО / НЕТ\n0\nОТКРЫТЫЕ ЗАЯВКИ\n0\nПОЗИЦИИ\n4\nОстатки\nЗаявки на заказ\nПоиск и фильтры\nВсе доступные позиции\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный датчик\n10 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный подшипник\n9 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный расходник\n10 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее\nУЧЕБНЫЕ ТЕХНИЧЕСКИЕ ПОЗИЦИИ\nУчебный ремкомплект\n10 шт\nНормально\nВладелец: УЧ — Склад T1\nОткрытого заказа нет\nПодробнее",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458315823
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458315829
+            },
+            {
+              "path": "/api/returns/publication-lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458315841
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Склад Учебный-Кладовщик-01 Т.\nЛюди\nЧаты\nЗаказы / Остатки\nВозвраты на производство\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nОпубликовать возврат\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458316314
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458316322
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458316322
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Склад Учебный-Кладовщик-01 Т.\nЛюди\nЧаты\nЗаказы / Остатки\nВозвраты на производство\nЕщё\nНет новых событий\nЛичный чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nУТ\nУчебный-Кладовщик-02 Тестовый\nВчера\nЛичный чат · 2 уч.\nУЧ T1 — сообщение при реальном разрыве WebSocket",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458316861
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458316862
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Склад Учебный-Кладовщик-01 Т.\nЛюди\nЧаты\nЗаказы / Остатки\nВозвраты на производство\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458317408
+            },
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458317421
+            }
+          ],
+          "visibleText": "обытия по вашему пользователю, отделу и заводу. Чаты не создают обычные уведомления.\n\n●\nНепрочитанные\n0\n!\nВажные\n0\nΣ\nВсего\n3\nОтметить всё прочитаннымНастройки уведомлений\n3\nРанее\n\nУже просмотрены\n\nВажное объявление\nВнимание\n\nУЧЕБНОЕ T1 — архив, аудитории и подтверждения\n\n27.09, 00:12\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОбъявление\nпрочитано\nОткрыть\nВажное объявление\nВнимание\n\nУЧЕБНОЕ T1 — важное сообщение завода\n\n26.09, 23:28\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОбъявление\nпрочитано\nОткрыть\nНовая заявка на заказ\nВнимание\n\nУчебный двигатель\n\n26.09, 23:13\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nЗаявка на заказ\nпрочитано\nОткрыть",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "WORKER",
+      "permissions": [
+        "announcements.read",
+        "defrost.read",
+        "notifications.read",
+        "people.profile.read",
+        "people.skills.read",
+        "returns.publication.read",
+        "shift.self.manage",
+        "shift.self.read"
+      ],
+      "families": [
+        "announcements",
+        "defrost",
+        "notifications",
+        "people",
+        "returns",
+        "shift"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/shift/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458319217
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458319297
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458319459
+            }
+          ],
+          "visibleText": "айка\nЕщё\nЛюди\n\nРабочий список сотрудников, профиль, навыки по линиям и управленческие заметки без HR-учёта.\n\nΣ\nВсего\n5\n●\nНа смене\n1\n○\nВне смены\n4\nВсе\nНа смене\nВне смены\nПоиск и фильтры\nВсе роли · показано 5\nОбновить\nТекущий список\n5\nУЧ\nУчебный-Руководитель-01 Тестовый\nСвободен\nРуководство · УЧ — Руководство T1\nУЧ\nУчебный-Мастер-01 Тестовый\nСвободен\nМастер · УЧ — Производство T1\nУЧ\nУчебный-Мастер-02 Тестовый\nСвободен\nМастер · УЧ — Производство T1\nУЧ\nУчебный-Работник-01 Тестовый\nНа смене\nРаботник · УЧ — Производство T1\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Оттайка",
+          "http": [
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458319816
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Работник Учебный-Работник-01 Т.\n1\nСмена\nЛюди\nИстория смен\nОттайка\nЕщё\nОттайка\n\nБыстрая фиксация оттайки и запуска в работу по производственным линиям.\n\n▶\nВ работе\n2\n❄\nНа оттайке\n0\nУЧ-Линия 3\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 29 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было\nУЧ-Линия 4\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 29 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458320347
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458320349
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Работник Учебный-Работник-01 Т.\n1\nСмена\nЛюди\nИстория смен\nОттайка\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458320897
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Работник Учебный-Работник-01 Т.\n1\nСмена\nЛюди\nИстория смен\nОттайка\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458321441
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458321441
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Работник Учебный-Работник-01 Т.\n1\nСмена\nЛюди\nИстория смен\nОттайка\nЕщё\nУведомления\n\nСобытия по вашему пользователю, отделу и заводу. Чаты не создают обычные уведомления.\n\n●\nНепрочитанные\n1\n!\nВажные\n0\nΣ\nВсего\n1\nОтметить всё прочитаннымНастройки уведомлений\n1\nНовые\n\nТребуют внимания\n\nВажное объявление\nВнимание\n\nУЧЕБНОЕ T1 — важное сообщение завода\n\n26.09, 23:28\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОбъявление\nне прочитано\nОткрытьОтметить прочитанным",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "TECH_MECHANIC",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "chats.read",
+        "chats.write",
+        "factory.read",
+        "lines.read",
+        "notifications.read",
+        "people.phone.read",
+        "people.profile.read",
+        "people.read",
+        "people.skills.read",
+        "returns.publication.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.read",
+        "shift.current.read",
+        "shift.future.read",
+        "tasks.comment",
+        "tasks.done",
+        "tasks.read",
+        "tasks.take"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "factory",
+        "lines",
+        "notifications",
+        "people",
+        "returns",
+        "shift",
+        "shift-log",
+        "tasks"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/lines/shift-overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458323357
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458323526
+            }
+          ],
+          "visibleText": "ециалист-02 Тестовый\nСвободен\nДругое · УЧ — Другие службы\nУЧ\nУчебный-Механик-01 Тестовый\nСвободен\nМеханик · УЧ — Механики\nУЧ\nУчебный-Электрик-01 Тестовый\nСвободен\nЭлектрик · УЧ — Электрики\nУЧ\nУчебный-Холодильщик-01 Тестовый\nСвободен\nХолодильная служба · УЧ — Холодильная служба\nУЧ\nУчебный-КИПиА-01 Тестовый\nСвободен\nКИПиА · УЧ — КИПиА\nУЧ\nУчебный-Сантехник-01 Тестовый\nСвободен\nСантехник · УЧ — Сантехники\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Линии",
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458324056
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458324072
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458324072
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458324072
+            }
+          ],
+          "visibleText": "\n0\n◌\nОттайка\n0\n☷\nНазначены\n4\nКРАСНАЯ ЗОНА\nПростой — 0\nСейчас линий в простое нет.\nРАБОЧАЯ ЗОНА\nЛинии в работе — 2\nУЧ-Линия 3\nРаботает\nЛюдей: 2\nПодробнее\nУЧ-Линия 4\nРаботает\nЛюдей: 2\nПодробнее\nОТДЕЛЬНАЯ ПРОЦЕДУРА\nПроизводится мойка — 0\nОткрыть раздел мойки\nСейчас мойка линий не ведётся.\nХОЛОДИЛЬНАЯ СЛУЖБА\nНа оттайке — 0\nСейчас линий на оттайке нет.\nОстановленные линии — 2\nУЧ-Линия 1\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nУЧ-Линия 2\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nРАБОЧИЕ ЗОНЫ\nПовременщики и рабочие зоны — 0\nНе входят в KPI линий\nРабочие зоны для этого завода не настроены.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заявки",
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458324549
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458324549
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458324555
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458324562
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458324577
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Механик Учебный-Механик-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\n2\nЕщё\nЗаявки\n\nМежотдельская доска заявок: адресаты, исполнители, сроки, комментарии, вложения и связь с простоями линий.\n\n+\nНовые\n0\n↻\nВ работе\n0\n⌛\nДолгие\n0\n!\nПросрочено\n0\nНет новых событий\nАрхив и метрики\nЭскалация: включена\nПоиск и фильтры\nВсе доступные заявки\nПо выбранному фильтру заявок нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458325113
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458325114
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Механик Учебный-Механик-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\n2\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458325597
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458325608
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458325627
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Механик Учебный-Механик-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\n2\nЕщё\nНет новых событий\nЛичный чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nУГ\nУчебная группа FACTORY01 T1\n00:22\nГрупповой чат · 2 уч.\nУчебный-Механик-01 Тестовый добавлен в группу\n2",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458326148
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458326151
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Механик Учебный-Механик-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\n2\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458326678
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458326679
+            }
+          ],
+          "visibleText": "вателю, отделу и заводу. Чаты не создают обычные уведомления.\n\n●\nНепрочитанные\n1\n!\nВажные\n0\nΣ\nВсего\n3\nОтметить всё прочитаннымНастройки уведомлений\n1\nНовые\n\nТребуют внимания\n\nВажное объявление\nВнимание\n\nУЧЕБНОЕ T1 — важное сообщение завода\n\n26.09, 23:28\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОбъявление\nне прочитано\nОткрытьОтметить прочитанным\n2\nРанее\n\nУже просмотрены\n\nНовая заявка\nИнформация\n\nНужен УЧ — Двигатель\n\n27.09, 00:11\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nЗаявка\nпрочитано\nОткрыть\nНовая заявка\nИнформация\n\nУчебная проверка механика FACTORY01 T1\n\n26.09, 23:07\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nЗаявка\nпрочитано\nОткрыть",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "TECH_ELECTRIC",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "chats.read",
+        "chats.write",
+        "factory.read",
+        "lines.read",
+        "notifications.read",
+        "people.phone.read",
+        "people.profile.read",
+        "people.read",
+        "people.skills.read",
+        "returns.publication.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.read",
+        "shift.current.read",
+        "shift.future.read",
+        "tasks.comment",
+        "tasks.done",
+        "tasks.read",
+        "tasks.take"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "factory",
+        "lines",
+        "notifications",
+        "people",
+        "returns",
+        "shift",
+        "shift-log",
+        "tasks"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/lines/shift-overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458328533
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458328724
+            }
+          ],
+          "visibleText": "ециалист-02 Тестовый\nСвободен\nДругое · УЧ — Другие службы\nУЧ\nУчебный-Механик-01 Тестовый\nСвободен\nМеханик · УЧ — Механики\nУЧ\nУчебный-Электрик-01 Тестовый\nСвободен\nЭлектрик · УЧ — Электрики\nУЧ\nУчебный-Холодильщик-01 Тестовый\nСвободен\nХолодильная служба · УЧ — Холодильная служба\nУЧ\nУчебный-КИПиА-01 Тестовый\nСвободен\nКИПиА · УЧ — КИПиА\nУЧ\nУчебный-Сантехник-01 Тестовый\nСвободен\nСантехник · УЧ — Сантехники\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Линии",
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458329239
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458329251
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458329254
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458329258
+            }
+          ],
+          "visibleText": "\n0\n◌\nОттайка\n0\n☷\nНазначены\n4\nКРАСНАЯ ЗОНА\nПростой — 0\nСейчас линий в простое нет.\nРАБОЧАЯ ЗОНА\nЛинии в работе — 2\nУЧ-Линия 3\nРаботает\nЛюдей: 2\nПодробнее\nУЧ-Линия 4\nРаботает\nЛюдей: 2\nПодробнее\nОТДЕЛЬНАЯ ПРОЦЕДУРА\nПроизводится мойка — 0\nОткрыть раздел мойки\nСейчас мойка линий не ведётся.\nХОЛОДИЛЬНАЯ СЛУЖБА\nНа оттайке — 0\nСейчас линий на оттайке нет.\nОстановленные линии — 2\nУЧ-Линия 1\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nУЧ-Линия 2\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nРАБОЧИЕ ЗОНЫ\nПовременщики и рабочие зоны — 0\nНе входят в KPI линий\nРабочие зоны для этого завода не настроены.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заявки",
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458329728
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458329730
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458329731
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458329743
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458329758
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Электрик Учебный-Электрик-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nЗаявки\n\nМежотдельская доска заявок: адресаты, исполнители, сроки, комментарии, вложения и связь с простоями линий.\n\n+\nНовые\n0\n↻\nВ работе\n0\n⌛\nДолгие\n0\n!\nПросрочено\n0\nНет новых событий\nАрхив и метрики\nЭскалация: включена\nПоиск и фильтры\nВсе доступные заявки\nПо выбранному фильтру заявок нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458330277
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458330288
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Электрик Учебный-Электрик-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458330780
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458330783
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458330789
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Электрик Учебный-Электрик-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nНет новых событий\nЛичный чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458331383
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458331390
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Электрик Учебный-Электрик-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458331910
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458331911
+            }
+          ],
+          "visibleText": "д\n\nОнлайн · Электрик Учебный-Электрик-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nУведомления\n\nСобытия по вашему пользователю, отделу и заводу. Чаты не создают обычные уведомления.\n\n●\nНепрочитанные\n1\n!\nВажные\n0\nΣ\nВсего\n2\nОтметить всё прочитаннымНастройки уведомлений\n1\nНовые\n\nТребуют внимания\n\nВажное объявление\nВнимание\n\nУЧЕБНОЕ T1 — важное сообщение завода\n\n26.09, 23:28\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОбъявление\nне прочитано\nОткрытьОтметить прочитанным\n1\nРанее\n\nУже просмотрены\n\nНовая заявка\nИнформация\n\nУчебная проверка электрика FACTORY01 T1\n\n26.09, 23:07\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nЗаявка\nпрочитано\nОткрыть",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "TECH_HOLOD",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "chats.read",
+        "chats.write",
+        "defrost.calendar.read",
+        "defrost.manage",
+        "defrost.read",
+        "factory.read",
+        "lines.read",
+        "notifications.read",
+        "people.phone.read",
+        "people.profile.read",
+        "people.read",
+        "people.skills.read",
+        "returns.publication.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.read",
+        "shift.current.read",
+        "shift.future.read",
+        "tasks.comment",
+        "tasks.done",
+        "tasks.read",
+        "tasks.take"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "defrost",
+        "factory",
+        "lines",
+        "notifications",
+        "people",
+        "returns",
+        "shift",
+        "shift-log",
+        "tasks"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458333933
+            }
+          ],
+          "visibleText": "ециалист-02 Тестовый\nСвободен\nДругое · УЧ — Другие службы\nУЧ\nУчебный-Механик-01 Тестовый\nСвободен\nМеханик · УЧ — Механики\nУЧ\nУчебный-Электрик-01 Тестовый\nСвободен\nЭлектрик · УЧ — Электрики\nУЧ\nУчебный-Холодильщик-01 Тестовый\nСвободен\nХолодильная служба · УЧ — Холодильная служба\nУЧ\nУчебный-КИПиА-01 Тестовый\nСвободен\nКИПиА · УЧ — КИПиА\nУЧ\nУчебный-Сантехник-01 Тестовый\nСвободен\nСантехник · УЧ — Сантехники\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Линии",
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458334423
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458334434
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458334436
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458334438
+            }
+          ],
+          "visibleText": "ены\n4\nКРАСНАЯ ЗОНА\nПростой — 0\nСейчас линий в простое нет.\nРАБОЧАЯ ЗОНА\nЛинии в работе — 2\nУЧ-Линия 3\nРаботает\nЛюдей: 2\nПодробнее\nУЧ-Линия 4\nРаботает\nЛюдей: 2\nПодробнее\nОТДЕЛЬНАЯ ПРОЦЕДУРА\nПроизводится мойка — 0\nОткрыть раздел мойки\nСейчас мойка линий не ведётся.\nХОЛОДИЛЬНАЯ СЛУЖБА\nНа оттайке — 0\nОткрыть раздел оттайки\nСейчас линий на оттайке нет.\nОстановленные линии — 2\nУЧ-Линия 1\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nУЧ-Линия 2\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nРАБОЧИЕ ЗОНЫ\nПовременщики и рабочие зоны — 0\nНе входят в KPI линий\nРабочие зоны для этого завода не настроены.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заявки",
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458334929
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458334929
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458334932
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458334943
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458334947
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Холодильная служба Учебный-Холодильщик-01 Т.\n3\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nЗаявки\n\nМежотдельская доска заявок: адресаты, исполнители, сроки, комментарии, вложения и связь с простоями линий.\n\n+\nНовые\n0\n↻\nВ работе\n0\n⌛\nДолгие\n0\n!\nПросрочено\n0\nНет новых событий\nАрхив и метрики\nЭскалация: включена\nПоиск и фильтры\nВсе доступные заявки\nПо выбранному фильтру заявок нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Оттайка",
+          "http": [
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458335497
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Холодильная служба Учебный-Холодильщик-01 Т.\n3\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nОттайка\n\nБыстрая фиксация оттайки и запуска в работу по производственным линиям.\n\n▶\nВ работе\n2\n❄\nНа оттайке\n0\nПоставить на оттайку\nОбдул шоковую камеру\nЗапустить в работу\nУЧ-Линия 3\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 29 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было\nУЧ-Линия 4\nВ работе\nВ работе с 23:02\nВ работе: 1 ч 29 мин\nОбдувов с последней оттайки: 0\nПосле запуска обдувов не было",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458336026
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458336032
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Холодильная служба Учебный-Холодильщик-01 Т.\n3\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458336534
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458336538
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458336542
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Холодильная служба Учебный-Холодильщик-01 Т.\n3\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nНет новых событий\nЛичный чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458337044
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458337046
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Холодильная служба Учебный-Холодильщик-01 Т.\n3\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458337573
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458337573
+            }
+          ],
+          "visibleText": "ания\n\nВажное объявление\nВнимание\n\nУЧЕБНОЕ T1 — важное сообщение завода\n\n26.09, 23:28\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОбъявление\nне прочитано\nОткрытьОтметить прочитанным\nОттайка завершена\nИнформация\n\nЛиния: УЧ-Линия 2\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОттайка\nне прочитано\nОткрытьОтметить прочитанным\nОттайка начата\nВнимание\n\nЛиния: УЧ-Линия 2\n\n26.09, 23:16\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОттайка\nне прочитано\nОткрытьОтметить прочитанным\n1\nРанее\n\nУже просмотрены\n\nНовая заявка\nИнформация\n\nУчебная проверка холодильной службы FACTORY01 T1\n\n26.09, 23:07\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nЗаявка\nпрочитано\nОткрыть",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "TECH_KIPIA",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "chats.read",
+        "chats.write",
+        "factory.read",
+        "lines.read",
+        "notifications.read",
+        "people.phone.read",
+        "people.profile.read",
+        "people.read",
+        "people.skills.read",
+        "returns.publication.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.read",
+        "shift.current.read",
+        "shift.future.read",
+        "tasks.comment",
+        "tasks.done",
+        "tasks.read",
+        "tasks.take"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "factory",
+        "lines",
+        "notifications",
+        "people",
+        "returns",
+        "shift",
+        "shift-log",
+        "tasks"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458339526
+            }
+          ],
+          "visibleText": "ециалист-02 Тестовый\nСвободен\nДругое · УЧ — Другие службы\nУЧ\nУчебный-Механик-01 Тестовый\nСвободен\nМеханик · УЧ — Механики\nУЧ\nУчебный-Электрик-01 Тестовый\nСвободен\nЭлектрик · УЧ — Электрики\nУЧ\nУчебный-Холодильщик-01 Тестовый\nСвободен\nХолодильная служба · УЧ — Холодильная служба\nУЧ\nУчебный-КИПиА-01 Тестовый\nСвободен\nКИПиА · УЧ — КИПиА\nУЧ\nУчебный-Сантехник-01 Тестовый\nСвободен\nСантехник · УЧ — Сантехники\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Линии",
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458340039
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458340050
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458340051
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458340051
+            }
+          ],
+          "visibleText": "\n0\n◌\nОттайка\n0\n☷\nНазначены\n4\nКРАСНАЯ ЗОНА\nПростой — 0\nСейчас линий в простое нет.\nРАБОЧАЯ ЗОНА\nЛинии в работе — 2\nУЧ-Линия 3\nРаботает\nЛюдей: 2\nПодробнее\nУЧ-Линия 4\nРаботает\nЛюдей: 2\nПодробнее\nОТДЕЛЬНАЯ ПРОЦЕДУРА\nПроизводится мойка — 0\nОткрыть раздел мойки\nСейчас мойка линий не ведётся.\nХОЛОДИЛЬНАЯ СЛУЖБА\nНа оттайке — 0\nСейчас линий на оттайке нет.\nОстановленные линии — 2\nУЧ-Линия 1\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nУЧ-Линия 2\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nРАБОЧИЕ ЗОНЫ\nПовременщики и рабочие зоны — 0\nНе входят в KPI линий\nРабочие зоны для этого завода не настроены.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заявки",
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458340528
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458340528
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458340529
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458340534
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458340541
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · КИПиА Учебный-КИПиА-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nЗаявки\n\nМежотдельская доска заявок: адресаты, исполнители, сроки, комментарии, вложения и связь с простоями линий.\n\n+\nНовые\n0\n↻\nВ работе\n0\n⌛\nДолгие\n0\n!\nПросрочено\n0\nНет новых событий\nАрхив и метрики\nЭскалация: включена\nПоиск и фильтры\nВсе доступные заявки\nПо выбранному фильтру заявок нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458341058
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458341061
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · КИПиА Учебный-КИПиА-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458341563
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458341564
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458341572
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · КИПиА Учебный-КИПиА-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nНет новых событий\nЛичный чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458342095
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458342096
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · КИПиА Учебный-КИПиА-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458342624
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458342625
+            }
+          ],
+          "visibleText": "Д T1\n\nЗавод\n\nОнлайн · КИПиА Учебный-КИПиА-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nУведомления\n\nСобытия по вашему пользователю, отделу и заводу. Чаты не создают обычные уведомления.\n\n●\nНепрочитанные\n1\n!\nВажные\n0\nΣ\nВсего\n2\nОтметить всё прочитаннымНастройки уведомлений\n1\nНовые\n\nТребуют внимания\n\nВажное объявление\nВнимание\n\nУЧЕБНОЕ T1 — важное сообщение завода\n\n26.09, 23:28\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОбъявление\nне прочитано\nОткрытьОтметить прочитанным\n1\nРанее\n\nУже просмотрены\n\nНовая заявка\nИнформация\n\nУчебная проверка КИПиА FACTORY01 T1\n\n26.09, 23:07\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nЗаявка\nпрочитано\nОткрыть",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "TECH_SANTECHNIK",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "chats.read",
+        "chats.write",
+        "factory.read",
+        "lines.read",
+        "notifications.read",
+        "people.phone.read",
+        "people.profile.read",
+        "people.read",
+        "people.skills.read",
+        "returns.publication.read",
+        "shift-log.comment",
+        "shift-log.create",
+        "shift-log.read",
+        "shift.current.read",
+        "shift.future.read",
+        "tasks.comment",
+        "tasks.done",
+        "tasks.read",
+        "tasks.take"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "factory",
+        "lines",
+        "notifications",
+        "people",
+        "returns",
+        "shift",
+        "shift-log",
+        "tasks"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458344577
+            }
+          ],
+          "visibleText": "ециалист-02 Тестовый\nСвободен\nДругое · УЧ — Другие службы\nУЧ\nУчебный-Механик-01 Тестовый\nСвободен\nМеханик · УЧ — Механики\nУЧ\nУчебный-Электрик-01 Тестовый\nСвободен\nЭлектрик · УЧ — Электрики\nУЧ\nУчебный-Холодильщик-01 Тестовый\nСвободен\nХолодильная служба · УЧ — Холодильная служба\nУЧ\nУчебный-КИПиА-01 Тестовый\nСвободен\nКИПиА · УЧ — КИПиА\nУЧ\nУчебный-Сантехник-01 Тестовый\nСвободен\nСантехник · УЧ — Сантехники\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Линии",
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458345082
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458345096
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458345097
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458345097
+            }
+          ],
+          "visibleText": "\n0\n◌\nОттайка\n0\n☷\nНазначены\n4\nКРАСНАЯ ЗОНА\nПростой — 0\nСейчас линий в простое нет.\nРАБОЧАЯ ЗОНА\nЛинии в работе — 2\nУЧ-Линия 3\nРаботает\nЛюдей: 2\nПодробнее\nУЧ-Линия 4\nРаботает\nЛюдей: 2\nПодробнее\nОТДЕЛЬНАЯ ПРОЦЕДУРА\nПроизводится мойка — 0\nОткрыть раздел мойки\nСейчас мойка линий не ведётся.\nХОЛОДИЛЬНАЯ СЛУЖБА\nНа оттайке — 0\nСейчас линий на оттайке нет.\nОстановленные линии — 2\nУЧ-Линия 1\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nУЧ-Линия 2\nОстановлена\nЛюдей: 0\nОжидает запуска\nПодробнее\nРАБОЧИЕ ЗОНЫ\nПовременщики и рабочие зоны — 0\nНе входят в KPI линий\nРабочие зоны для этого завода не настроены.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Заявки",
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458345592
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458345593
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458345593
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458345601
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458345607
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Сантехник Учебный-Сантехник-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nЗаявки\n\nМежотдельская доска заявок: адресаты, исполнители, сроки, комментарии, вложения и связь с простоями линий.\n\n+\nНовые\n0\n↻\nВ работе\n0\n⌛\nДолгие\n0\n!\nПросрочено\n0\nНет новых событий\nАрхив и метрики\nЭскалация: включена\nПоиск и фильтры\nВсе доступные заявки\nПо выбранному фильтру заявок нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458346125
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458346131
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Сантехник Учебный-Сантехник-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458346631
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458346633
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458346639
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Сантехник Учебный-Сантехник-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nНет новых событий\nЛичный чат\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458347165
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458347170
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Сантехник Учебный-Сантехник-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458347691
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458347692
+            }
+          ],
+          "visibleText": "Онлайн · Сантехник Учебный-Сантехник-01 Т.\n1\nСмена\nЛинии\nЗаявки\nЧаты\nЕщё\nУведомления\n\nСобытия по вашему пользователю, отделу и заводу. Чаты не создают обычные уведомления.\n\n●\nНепрочитанные\n1\n!\nВажные\n0\nΣ\nВсего\n2\nОтметить всё прочитаннымНастройки уведомлений\n1\nНовые\n\nТребуют внимания\n\nВажное объявление\nВнимание\n\nУЧЕБНОЕ T1 — важное сообщение завода\n\n26.09, 23:28\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nОбъявление\nне прочитано\nОткрытьОтметить прочитанным\n1\nРанее\n\nУже просмотрены\n\nНовая заявка\nИнформация\n\nУчебная проверка сантехника FACTORY01 T1\n\n26.09, 23:07\nИсточник: УЧЕБНЫЙ ЗАВОД T1\nЗаявка\nпрочитано\nОткрыть",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "CONTRACTOR",
+      "permissions": [
+        "returns.publication.read",
+        "shift.self.manage",
+        "shift.self.read"
+      ],
+      "families": [
+        "returns",
+        "shift"
+      ],
+      "screens": [
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/shift/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458349533
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458349577
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458349587
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Наёмный работник Учебный-Подрядчик-01 Т.\nСмена\nЛюди\nИстория смен\nВозвраты на производство\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('nav[aria-label=\"Основная навигация\"], .mobile-nav-sheet').getByRole('button', { name: /^Уведомления(?:$|\\s|\\d)/ }).filter({ visible: true }).first()\u001b[22m\n"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "CONTRACTOR_LEAD",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "company.members.manage",
+        "company.members.read",
+        "people.phone.read",
+        "people.read",
+        "returns.publication.read",
+        "shift.contractor-lead.manage",
+        "shift.self.manage",
+        "shift.self.read"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "company",
+        "people",
+        "returns",
+        "shift"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/shift/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458366439
+            },
+            {
+              "path": "/api/shift/contractor-lead/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458366461
+            },
+            {
+              "path": "/api/shift/contractor-lead/pool",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458366466
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458366557
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458366706
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Старший наёмных работников Учебный-Старший-подрядчика-01 Т.\nСмена\nЧаты\nЛюди\nИстория смен\nЕщё\nЛюди\n\nРабочий список сотрудников, профиль, навыки по линиям и управленческие заметки без HR-учёта.\n\nΣ\nВсего\n3\n●\nНа смене\n1\n○\nВне смены\n2\nВсе\nНа смене\nВне смены\nПоиск и фильтры\nВсе роли · показано 3\nОбновить\nТекущий список\n3\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458367091
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458367095
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Старший наёмных работников Учебный-Старший-подрядчика-01 Т.\nСмена\nЧаты\nЛюди\nИстория смен\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 403,
+              "at": 1790458367596
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Старший наёмных работников Учебный-Старший-подрядчика-01 Т.\nСмена\nЧаты\nЛюди\nИстория смен\nЕщё\nНет доступных чатов.\nНет новых событий\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458368113
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458368114
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Старший наёмных работников Учебный-Старший-подрядчика-01 Т.\nСмена\nЧаты\nЛюди\nИстория смен\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('nav[aria-label=\"Основная навигация\"], .mobile-nav-sheet').getByRole('button', { name: /^Уведомления(?:$|\\s|\\d)/ }).filter({ visible: true }).first()\u001b[22m\n"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    },
+    {
+      "role": "OTHER",
+      "permissions": [
+        "announcements.create",
+        "announcements.read",
+        "chats.access",
+        "people.phone.read",
+        "people.read",
+        "returns.publication.read"
+      ],
+      "families": [
+        "announcements",
+        "chats",
+        "people",
+        "returns"
+      ],
+      "screens": [
+        {
+          "label": "Люди",
+          "http": [
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458384949
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458385100
+            }
+          ],
+          "visibleText": "ециалист-02 Тестовый\nСвободен\nДругое · УЧ — Другие службы\nУЧ\nУчебный-Механик-01 Тестовый\nСвободен\nМеханик · УЧ — Механики\nУЧ\nУчебный-Электрик-01 Тестовый\nСвободен\nЭлектрик · УЧ — Электрики\nУЧ\nУчебный-Холодильщик-01 Тестовый\nСвободен\nХолодильная служба · УЧ — Холодильная служба\nУЧ\nУчебный-КИПиА-01 Тестовый\nСвободен\nКИПиА · УЧ — КИПиА\nУЧ\nУчебный-Сантехник-01 Тестовый\nСвободен\nСантехник · УЧ — Сантехники\nУЧ\nУчебный-Подрядчик-01 Тестовый\nНа смене\nНаёмный работник\nУЧ\nУчебный-Подрядчик-02 Тестовый\nСвободен\nНаёмный работник\nУЧ\nУчебный-Старший-подрядчика-01 Тестовый\nСвободен\nСтарший наёмных работников",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Возвраты на производство",
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458385396
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458385403
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Учебный — Другой специалист Учебный-Специалист-01 Т.\nЛюди\nЧаты\nВозвраты на производство\nОбъявления\nЕщё\nВозвраты на производство\n\nФото и причины возврата продукции. Новые публикации находятся сверху.\n\nНовые\n0\nАрхив\n1\nНовых возвратов на производство нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Чаты",
+          "http": [
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 403,
+              "at": 1790458385897
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Учебный — Другой специалист Учебный-Специалист-01 Т.\nЛюди\nЧаты\nВозвраты на производство\nОбъявления\nЕщё\nНет доступных чатов.\nНет новых событий\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nДоступных чатов пока нет.",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Объявления",
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458386394
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790458386394
+            }
+          ],
+          "visibleText": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Учебный — Другой специалист Учебный-Специалист-01 Т.\nЛюди\nЧаты\nВозвраты на производство\nОбъявления\nЕщё\n←\nОбъявления\nНовых нет\nАрхив\nНовыеАрхив\nСоздать объявление\nНет новых событий\nНовых объявлений нет.\n\nНовых объявлений для вас сейчас нет. Доступные объявления можно посмотреть в архиве.\n\nАрхив объявлений",
+          "overflow": false,
+          "mode": "read-only UI, not mutation"
+        },
+        {
+          "label": "Уведомления",
+          "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('nav[aria-label=\"Основная навигация\"], .mobile-nav-sheet').getByRole('button', { name: /^Уведомления(?:$|\\s|\\d)/ }).filter({ visible: true }).first()\u001b[22m\n"
+        }
+      ],
+      "denials": {
+        "admin": 403,
+        "otherFactory": 403
+      },
+      "wsConnected": true
+    }
+  ]
+}

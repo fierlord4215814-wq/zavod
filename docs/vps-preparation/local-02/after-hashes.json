@@ -1,0 +1,102 @@
+{
+  "capturedUtc": "2026-09-24T15:36:17.1187634Z",
+  "historicalMigrationsUnchanged": 56,
+  "migrationCount": 57,
+  "files": [
+    {
+      "file": "backend/prisma/migrations/20260924190000_local02_chat_and_checklist_reference/migration.sql",
+      "beforeSha256": null,
+      "sha256": "99392096542f2da993f9d4e6bd56adeec14c3167f981d2c91f96d696b078af7e"
+    },
+    {
+      "file": "backend/prisma/schema.prisma",
+      "beforeSha256": "43ceafbf56c34116b3db2fd40ded805d99276f5d68d28b5e7b68f745ef48df2a",
+      "sha256": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e"
+    },
+    {
+      "file": "backend/prisma/system-foundation.cjs",
+      "beforeSha256": "78f4d8ab4d144f20b7ec1bc5c5086cd9a69d4ff264b445536c083cc972990cdf",
+      "sha256": "43052d4c571efc624ae53ea49f8999ad657fdfd999734025abae7e4a30d23c98"
+    },
+    {
+      "file": "backend/scripts/local01-chat-guest-policy.test.js",
+      "beforeSha256": "b81349f647297aeceb78d310839b5237e106a014e9f39a7fa496cdfe6405e272",
+      "sha256": "0ca5d6ee75dbb1f95b1000e02ba344cda07701428f2122008a739c6eea1c4de4"
+    },
+    {
+      "file": "backend/scripts/local02-chat-policy.test.js",
+      "beforeSha256": null,
+      "sha256": "9d22c9d10e66c7da43606a2461421e2fd5c272f5800d52068dbe70cc6de82592"
+    },
+    {
+      "file": "backend/scripts/master-r2-chat-fixture.cjs",
+      "beforeSha256": "1a037bc38df89db37ba446d9c7e03b85324a6b443a6a278f44add1e3f652696c",
+      "sha256": "ccfa45b96090e3ca9009d94f033c54e2188f9af5c4ad7e8359fee509e4ce744e"
+    },
+    {
+      "file": "backend/scripts/vps-prep-01-regression.js",
+      "beforeSha256": "c01918eb47196c1bf0dcc9713451381a27ff0280011d6818fb3c9e130af3c32e",
+      "sha256": "95b0d801decc9decbedcd8314505c78e736fa5fa0b3d5ca5696cd3e508aee817"
+    },
+    {
+      "file": "backend/src/common/effective-permissions.ts",
+      "beforeSha256": "748350991d683c35e0a859d8d4b5eccecff7623cb9c38f8fa44dd8caf4d5ac50",
+      "sha256": "1abf62bd12838284b11c5afde39a0aa05986821cb50264653073144d19bdc17b"
+    },
+    {
+      "file": "backend/src/modules/attachments/attachments.module.ts",
+      "beforeSha256": "cb663090ce406f4f04fec8250ccd4ad6d68aa6e43265ab8ca8ca419cfabf243c",
+      "sha256": "0eb9699451da8e3afc47a02b0f01a2cd46793d913db02e42fdd6a9fb34a7420c"
+    },
+    {
+      "file": "backend/src/modules/attachments/attachments.service.ts",
+      "beforeSha256": "b9353200842657096ce5d43a84dbf016c4781bb3dcdc08708a75a4871b59f7a0",
+      "sha256": "81de23c7213d923c3b48a700e7c620c2f68faa887194e6960a476c1e4aaf39c9"
+    },
+    {
+      "file": "backend/src/modules/chats/chat-message-delete-policy.ts",
+      "beforeSha256": "c830ad132a4db3436d7a2107b8e4f0542d19b0c0f913eca807e9ee7b80b6e4a3",
+      "sha256": "a12b58823c56367e390245bf7d0a0f3181e17aceef26b9c624cc75d0aa59fb7f"
+    },
+    {
+      "file": "backend/src/modules/chats/chats.controller.ts",
+      "beforeSha256": "9a7c239b5c94f815b3d602bb261e8b5ca73b7f93784aa7f57bc5adc44a28699c",
+      "sha256": "153191c4e600d48e6ae180aae37ee1fe61ff9b48d630dfe1c7888d41ad6c3f3e"
+    },
+    {
+      "file": "backend/src/modules/chats/chats.service.ts",
+      "beforeSha256": "e3217fb5b72f05661d04bb00c619e2c02ec61d1984475bf9ecb807fa0f2f5c40",
+      "sha256": "7a3f9a21012215be4a9f384dd28bb1d6c931b3b7d2dc64dd4973c538218a158d"
+    },
+    {
+      "file": "backend/src/modules/checklists/checklists.controller.ts",
+      "beforeSha256": "a4af7b29dac825b416a0eb3e8fd5eb586732d2d902b849a978d02462726b1957",
+      "sha256": "62f24f11c3ea2e3297c45fcd75b77b4abf8bdea2cdd6e2a9b70b36addd2be552"
+    },
+    {
+      "file": "backend/src/modules/checklists/checklists.service.ts",
+      "beforeSha256": "121830e052d22c9096eeeb235d68017d3f05c828e15db1ed4547c40034f95f29",
+      "sha256": "9d603f7a20700ff3645edf65495bcc31f1ebdcb849b2850b85eaf90115e23bb5"
+    },
+    {
+      "file": "backend/src/ws/ws.service.ts",
+      "beforeSha256": "d56bd0787cd14d37864af8cdc1869598e255d309fedf656b8af2f1279039a179",
+      "sha256": "4092266082348f1321f9f42db070fcee03f19020a5a9b6723f65c67ba99762a7"
+    },
+    {
+      "file": "frontend/src/components/ChecklistItemEditor.tsx",
+      "beforeSha256": "80947a0ebb57393bdcd06a82ab9271241e9573a2ac6e263df065641283b68f09",
+      "sha256": "2774067b44e6b601b408cbfcb2ccd64b704c26c4db88a7aea25d958785c60dd1"
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "beforeSha256": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+      "sha256": "435815fd984c3a57420a6548e024db626f9edfe366d7ed088eca8c7e7af3f765"
+    },
+    {
+      "file": "frontend/src/utils/pilot-ui.ts",
+      "beforeSha256": "0525d4a96f303a37b78abaa08d80fe5bfcad2efa375b4c1a255f1a47fb38a863",
+      "sha256": "b9f9249058d36cbdb9d9c4b9aaa8539d9749b0d3232d19bba54dbe8b580582ff"
+    }
+  ]
+}

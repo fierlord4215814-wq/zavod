@@ -1,0 +1,72 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\B-before\\backend\\src\\modules\\announcements\\announcements.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\announcements\\announcements.service.ts"
+index 04cd2665..02e0596f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\B-before\\backend\\src\\modules\\announcements\\announcements.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\announcements\\announcements.service.ts"
+@@ -108,7 +108,7 @@ export class AnnouncementsService implements OnModuleInit, OnModuleDestroy {
+   async detail(user: UserContext, id: string) {
+     await this.assertGuestCanRead(user);
+     const announcement = await this.prisma.db.announcement.findFirst({
+-      where: { id, ...(await this.visibleWhere(user, { includeArchive: 'true' })) },
++      where: { id, ...(await this.visibleWhere(user, { includeArchive: 'true' }, 'ENTITY')) },
+       include: {
+         author: { select: { id: true, role: true } },
+         department: { select: { id: true, name: true } },
+@@ -310,7 +310,7 @@ export class AnnouncementsService implements OnModuleInit, OnModuleDestroy {
+ 
+   async markRead(user: UserContext, id: string) {
+     await this.assertUserCanAccess(user);
+-    const announcement = await this.prisma.db.announcement.findFirst({ where: { id, ...(await this.visibleWhere(user, { includeArchive: 'true' })) } });
++    const announcement = await this.prisma.db.announcement.findFirst({ where: { id, ...(await this.visibleWhere(user, { includeArchive: 'true' }, 'ENTITY')) } });
+     if (!announcement) {
+       await this.writeDenied(user, 'announcement read denied', id);
+       throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Вы не входите в получатели этого объявления.' });
+@@ -320,9 +320,18 @@ export class AnnouncementsService implements OnModuleInit, OnModuleDestroy {
+       await this.notificationsService.markEntityNotificationsRead(user, 'ANNOUNCEMENT', id);
+       return { ...existing, acknowledgedAt: existing.readAt };
+     }
+-    const read = await this.prisma.db.announcementRead.create({
+-      data: { announcementId: id, userId: user.userId },
+-    });
++    let read;
++    try {
++      read = await this.prisma.db.announcementRead.create({ data: { announcementId: id, userId: user.userId } });
++    } catch (error) {
++      // A simultaneous acknowledgement may have committed the same unique pair.
++      // Only that exact persisted result is a replay; other storage errors still fail.
++      if (!(error instanceof Prisma.PrismaClientKnownRequestError) || error.code !== 'P2002') throw error;
++      const committed = await this.prisma.db.announcementRead.findUnique({ where: { announcementId_userId: { announcementId: id, userId: user.userId } } });
++      if (!committed) throw error;
++      await this.notificationsService.markEntityNotificationsRead(user, 'ANNOUNCEMENT', id);
++      return { ...committed, acknowledgedAt: committed.readAt };
++    }
+     await this.auditService.write({
+       userId: user.userId,
+       factoryId: announcement.factoryId,
+@@ -626,20 +635,23 @@ export class AnnouncementsService implements OnModuleInit, OnModuleDestroy {
+     }));
+   }
+ 
+-  private async visibleWhere(user: UserContext, query: any): Promise<Prisma.AnnouncementWhereInput> {
++  private async visibleWhere(user: UserContext, query: any, selection: 'LIST' | 'ENTITY' = 'LIST'): Promise<Prisma.AnnouncementWhereInput> {
+     const now = new Date();
+     const wantsArchive = query.includeArchive === 'true' || query.archive === 'true';
+     const canArchive = !user.isGuest && (user.isAdmin || user.permissions.includes('announcements.archive.read'));
+     const includeArchive = wantsArchive && canArchive;
+     const activeOnly = query.activeOnly !== 'false' && !includeArchive;
++    const activeWindow = { archivedAt: null, visibleFrom: { lte: now }, visibleUntil: { gte: now } };
+     const where: Prisma.AnnouncementWhereInput = {
+       deletedAt: null,
+-      ...(activeOnly ? { archivedAt: null, visibleFrom: { lte: now }, visibleUntil: { gte: now } } : {}),
+-      ...(includeArchive ? { archivedAt: { not: null } } : {}),
++      ...(activeOnly ? activeWindow : {}),
++      ...(includeArchive ? selection === 'ENTITY'
++        ? { AND: [{ OR: [activeWindow, { archivedAt: { not: null } }] }] }
++        : { archivedAt: { not: null } } : {}),
+       ...(query.importantOnly === 'true' ? { priority: AnnouncementPriority.IMPORTANT } : {}),
+     };
+     if (query.departmentId) {
+-      where.AND = [{
++      where.AND = [...(Array.isArray(where.AND) ? where.AND : where.AND ? [where.AND] : []), {
+         OR: [
+           { departmentId: query.departmentId },
+           { audienceDepartments: { some: { departmentId: query.departmentId, isActive: true } } },

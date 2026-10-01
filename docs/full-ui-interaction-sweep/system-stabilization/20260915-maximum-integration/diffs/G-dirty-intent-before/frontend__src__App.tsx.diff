@@ -1,0 +1,62 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-dirty-intent-before\\frontend\\src\\App.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+index e1787437..d0dd72eb 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-dirty-intent-before\\frontend\\src\\App.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+@@ -81,7 +81,10 @@ type MeResponse = {
+ };
+ 
+ type DirtyNavigation =
+-  | { kind: 'screen'; next: Screen; remember: boolean }
++  | { kind: 'screen'; next: Screen; remember: boolean; taskIntent?: {
++      id: string; context: string; epoch: number; source: Screen;
++      returnValue?: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn;
++    } }
+   | { kind: 'exit' };
+ 
+ const screens = SCREEN_DEFINITIONS;
+@@ -366,6 +369,7 @@ export default function App() {
+   useEffect(() => {
+     setPendingTask(null);
+     setTaskReturn(null);
++    setDirtyNavigation(null);
+     // Legacy unscoped intents must never survive login/factory changes or reload.
+     try { window.localStorage.removeItem('zavod.taskHighlightId'); } catch { /* Optional storage. */ }
+   }, [navigationContextKey, navigationPermissionsKey]);
+@@ -619,7 +623,18 @@ export default function App() {
+       const detail = (event as CustomEvent<{ screen?: Screen; userId?: string; taskId?: string; taskReturn?: PeopleTaskReturn | ShiftTaskReturn | SituationTaskReturn }>).detail;
+       if (detail?.screen) {
+         if (detail.screen === 'Tasks' && detail.taskId && navigationContextKey
+-          && visibleScreens.some((item) => item.id === 'Tasks') && !hasDirtyMobileForms()) {
++          && visibleScreens.some((item) => item.id === 'Tasks')) {
++          if (hasDirtyMobileForms()) {
++            // Keep the complete intent in the existing confirmation, not in a
++            // prematurely active target that Stay or a context change could replay.
++            setDirtyNavigation({ kind: 'screen', next: 'Tasks', remember: true, taskIntent: {
++              id: detail.taskId, context: navigationContextKey, epoch: asyncContextEpoch.current,
++              source: screen, returnValue: detail.taskReturn,
++            } });
++            setMobileMoreOpen(false);
++            setMobileSheetView('sections');
++            return;
++          }
+           setPendingTask({ id: detail.taskId, context: navigationContextKey, epoch: asyncContextEpoch.current });
+           setTaskReturn(detail.taskReturn ? { screen, context: navigationContextKey, value: detail.taskReturn } : null);
+         }
+@@ -1336,7 +1351,16 @@ export default function App() {
+             const action = dirtyNavigation;
+             setDirtyNavigation(null);
+             if (action.kind === 'exit') leaveStandaloneApp();
+-            else openScreen(action.next, action.remember, true);
++            else {
++              const intent = action.taskIntent;
++              if (intent) {
++                if (intent.context !== navigationContextKey || intent.epoch !== asyncContextEpoch.current
++                  || !visibleScreens.some((item) => item.id === 'Tasks')) return;
++                setPendingTask({ id: intent.id, context: intent.context, epoch: intent.epoch });
++                setTaskReturn(intent.returnValue ? { screen: intent.source, context: intent.context, value: intent.returnValue } : null);
++              }
++              openScreen(action.next, action.remember, true, Boolean(intent));
++            }
+           }}
+         />
+       ) : null}

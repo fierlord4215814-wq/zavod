@@ -1,0 +1,2590 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum EmployeeState {
+  AVAILABLE
+  ASSIGNED
+  WASHING
+  TIME_ROLE
+  OFF_SHIFT
+}
+
+enum LineStatus {
+  WORK
+  PAUSE
+  STOP
+}
+
+enum TaskStatus {
+  NEW
+  IN_PROGRESS
+  DONE
+}
+
+enum TaskType {
+  URGENT
+  LONG
+}
+
+enum WashStatus {
+  IN_PROGRESS
+  REVIEW
+  DONE
+}
+
+enum OkkStatus {
+  BLOCKED
+  DECISION
+  CLOSED
+  UNBLOCKED
+  COMPLETION_PENDING
+  COMPLETED
+  ARCHIVED
+}
+
+enum StockStatus {
+  ON_STOCK
+  ISSUED
+  ARCHIVED
+}
+
+enum NotificationSeverity {
+  INFO
+  WARNING
+  CRITICAL
+}
+
+enum UserRole {
+  ADMIN
+  MANAGEMENT
+  OKK
+  TECHNOLOG
+  MASTER
+  WORKER
+  STORE
+  OTHER
+  TECH_MECHANIC
+  TECH_ELECTRIC
+  TECH_HOLOD
+  TECH_KIPIA
+  TECH_SANTECHNIK
+  CONTRACTOR
+  CONTRACTOR_LEAD
+}
+
+enum AssignmentRequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  CANCELLED
+}
+
+enum DepartmentScope {
+  LOCAL
+  GLOBAL
+}
+
+enum PermissionEffect {
+  ALLOW
+  DENY
+}
+
+enum ShiftType {
+  DAY
+  NIGHT
+}
+
+enum ShiftSessionStatus {
+  ACTIVE
+  ENDED
+  AUTO_CLOSED
+}
+
+enum AssignmentKind {
+  LINE
+  WASH
+  TIME
+  WORK_AREA
+}
+
+enum ReturnProductionStatus {
+  ACTIVE
+  COMPLETION_MARKED
+  COMPLETED
+  ARCHIVED
+}
+
+enum QuantityReleaseSourceType {
+  OKK
+  RETURN
+}
+
+enum WorkAreaShiftStatus {
+  ACTIVE
+  CLOSED
+}
+
+enum ShiftWillBeStatus {
+  WILL_BE
+  CANCELLED
+  REMOVED_BY_MASTER
+}
+
+enum ContractorSubmissionStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+  REJECTED
+  PARTIALLY_APPROVED
+}
+
+enum ContractorSubmissionItemStatus {
+  PROPOSED
+  APPROVED
+  REJECTED
+}
+
+enum ContractorActualStatus {
+  PLANNED
+  ARRIVED
+  ABSENT
+}
+
+enum ShiftReturnRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CANCELLED
+}
+
+enum AttachmentEntityType {
+  TASK
+  TASK_COMMENT
+  WASH_SESSION
+  WASH_MESSAGE
+  WASH_ISSUE
+  WASH_CONTROL_ITEM
+  WASH_OKK_REVIEW
+  OKK_RECORD
+  STOCK_DEFECT
+  RETURN_RECORD
+  SHIFT_LOG
+  SHIFT_LOG_COMMENT
+  MINIMUM_STOCK_ITEM
+  ORDER_REQUEST
+  MINIMUM_STOCK_MOVEMENT
+  CHECKLIST_RUN
+  CHECKLIST_RUN_ROW
+  CHECKLIST_ENTRY
+  CHECKLIST_TEMPLATE_ROW
+  CHAT_MESSAGE
+  ERROR_REPORT
+  ANNOUNCEMENT
+  COMMON
+}
+
+enum AnnouncementPriority {
+  NORMAL
+  IMPORTANT
+}
+
+enum AnnouncementRecurrence {
+  NONE
+  WEEKLY
+  BIWEEKLY
+  MONTHLY
+}
+
+enum UserProfileNoteVisibility {
+  MANAGEMENT
+  ADMIN
+}
+
+enum ChecklistTemplateScope {
+  DEPARTMENT
+  LINE
+}
+
+enum ChecklistRunStatus {
+  ACTIVE
+  PAUSED
+  CLOSED
+  AUTO_CLOSED
+}
+
+enum ChecklistRunRowStatus {
+  PENDING
+  OK
+  NA
+  ISSUE
+}
+
+enum ShiftLogStatus {
+  ACTIVE
+  CLOSED
+  ARCHIVED
+}
+
+enum DefrostStatus {
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum MinimumStockMovementType {
+  TAKE
+  RESTOCK
+  ADJUSTMENT_RESERVED
+}
+
+enum OrderRequestSourceType {
+  AUTO_FROM_STOCK
+  MANUAL
+}
+
+enum OrderRequestStatus {
+  ACTIVE
+  ORDERED
+  NOT_NEEDED
+  CLOSED_RESERVED
+}
+
+enum AttachmentKind {
+  PHOTO
+  VIDEO
+  AUDIO
+  FILE
+}
+
+enum ChatType {
+  FACTORY
+  DEPARTMENT
+  MANAGEMENT
+  SYSTEM
+  CUSTOM
+  DIRECT
+}
+
+enum ChatMessageKind {
+  USER
+  SYSTEM
+}
+
+enum ChatMemberRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+model Factory {
+  id        String    @id @default(uuid())
+  name      String
+  code      String    @unique
+  isActive  Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
+  deletedAt DateTime?
+  deactivatedAt DateTime?
+  deactivatedById String?
+  deactivationReason String?
+  recoveryUntil DateTime?
+  restoredAt DateTime?
+  restoredById String?
+
+  departments Department[]
+  userAccess  UserFactoryAccess[]
+  audits      AuditLog[]
+  linePositions LinePosition[]
+  lineStaffingTemplates LineStaffingTemplate[]
+  lineShiftStates LineShiftState[]
+  lineShiftResults LineShiftResult[]
+  lineShiftWorkPlans LineShiftWorkPlan[]
+  plannedLineAssignments PlannedLineAssignment[]
+  plannedShiftAssignments PlannedShiftAssignment[]
+  attachments Attachment[]
+  shiftSettings ShiftSettings?
+  shiftWillBe ShiftWillBe[]
+  contractorShiftSubmissions ContractorShiftSubmission[]
+  shiftReturnRequests ShiftReturnRequest[]
+  taskSettings TaskSettings?
+  taskDepartmentRecipients TaskDepartmentRecipient[]
+  washSettings WashSettings?
+  washEvents WashEvent[]
+  washControlItems WashControlItem[]
+  washOkkReviews WashOkkReview[]
+  orderSettings OrderSettings?
+  checklistSettings ChecklistSettings?
+  defrostSettings DefrostSettings?
+  defrostEvents DefrostEvent[]
+  chambers Chamber[]
+  chats Chat[]
+  chatPolls ChatPoll[]
+  chatSettings ChatSettings?
+  errorReports ErrorReport[]
+  announcements Announcement[]
+  announcementSettings AnnouncementSettings?
+  userSkills UserSkill[]
+  userProfileNotes UserProfileNote[]
+  workAreas WorkArea[]
+  workAreaShiftStates WorkAreaShiftState[]
+  jobTitles JobTitle[]
+  pushSubscriptions PushSubscription[]
+  externalCompanies ExternalCompany[]
+  assignmentRequests AssignmentRequest[]
+  quantityReleaseOperations QuantityReleaseOperation[]
+}
+
+model Department {
+  id        String          @id @default(uuid())
+  factoryId String?
+  name      String
+  normalizedName String?
+  code      String
+  scope     DepartmentScope @default(LOCAL)
+  isActive  Boolean         @default(true)
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @default(now()) @updatedAt
+  deletedAt DateTime?
+  deactivatedAt DateTime?
+  deactivatedById String?
+  deactivationReason String?
+  recoveryUntil DateTime?
+  restoredAt DateTime?
+  restoredById String?
+
+  factory    Factory?            @relation(fields: [factoryId], references: [id], onDelete: SetNull)
+  userAccess UserFactoryAccess[]
+  taskRecipients TaskDepartmentRecipient[]
+  checklistTemplates ChecklistTemplate[]
+  chats Chat[]
+  chatMembers ChatMember[]
+  chatMessages ChatMessage[]
+  announcements Announcement[]
+  announcementAudiences AnnouncementDepartment[]
+  workAreas WorkArea[]
+  jobTitles JobTitle[]
+  assignmentRequests AssignmentRequest[]
+
+  @@unique([factoryId, code])
+  @@index([scope, isActive])
+}
+
+model ExternalCompany {
+  id             String   @id @default(uuid())
+  factoryId      String
+  name           String
+  normalizedName String
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now()) @updatedAt
+  deactivatedAt  DateTime?
+  deactivatedById String?
+  deactivationReason String?
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+    userAccess UserFactoryAccess[]
+    assignmentRequests AssignmentRequest[]
+    contractorShiftSubmissions ContractorShiftSubmission[]
+
+  @@unique([factoryId, normalizedName])
+  @@index([factoryId, isActive])
+}
+
+model JobTitle {
+  id               String    @id @default(uuid())
+  factoryId        String?
+  departmentId     String?
+  parentJobTitleId String?
+  name             String
+  code             String
+  baseRole         UserRole
+  permissionPreset String?
+  description      String?
+  shiftDurationHours Int     @default(12)
+  isActive         Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @default(now()) @updatedAt
+  deletedAt        DateTime?
+  deactivatedAt    DateTime?
+  deactivatedById  String?
+  deactivationReason String?
+  recoveryUntil    DateTime?
+  restoredAt       DateTime?
+  restoredById     String?
+
+  factory    Factory?    @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  department Department? @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  parentJobTitle JobTitle? @relation("JobTitleHierarchy", fields: [parentJobTitleId], references: [id], onDelete: SetNull)
+  childJobTitles JobTitle[] @relation("JobTitleHierarchy")
+  userAccess UserFactoryAccess[]
+
+  @@unique([factoryId, code])
+  @@index([factoryId, isActive])
+  @@index([departmentId])
+  @@index([parentJobTitleId])
+}
+
+model Permission {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+
+  rolePermissions RolePermission[]
+  userOverrides   UserPermissionOverride[]
+}
+
+model RolePermission {
+  id             String   @id @default(uuid())
+  role           UserRole
+  permissionCode String
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+
+  permission Permission @relation(fields: [permissionCode], references: [code], onDelete: Cascade)
+
+  @@unique([role, permissionCode])
+  @@index([permissionCode])
+}
+
+model SystemFoundationState {
+  id        String   @id
+  version   Int
+  mode      String
+  details   Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model User {
+  id            String        @id @default(uuid())
+  factoryId     String
+  lastName      String?
+  firstName     String?
+  middleName    String?
+  employeeState EmployeeState @default(AVAILABLE)
+  version       Int           @default(1)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @default(now()) @updatedAt
+  blockedAt     DateTime?
+  deletedAt     DateTime?
+  role          UserRole      @default(WORKER)
+  phone         String?
+  normalizedPhone String?      @unique
+  passwordHash  String?
+  passwordResetRequired Boolean @default(false)
+  passwordChangedAt DateTime?
+  lastLoginAt   DateTime?
+  failedLoginCount Int         @default(0)
+  failedLoginStage Int         @default(0)
+  lockedUntil   DateTime?
+  authUpdatedAt DateTime?
+  passwordRecoveryHash String?
+  passwordRecoveryExpiresAt DateTime?
+  passwordRecoveryIssuedAt DateTime?
+  passwordRecoveryIssuedById String?
+  passwordRecoveryFactoryId String?
+  passwordRecoveryConsumedAt DateTime?
+
+  assignments        Assignment[]
+  shiftSessions      ShiftSession[] @relation("ShiftSessionUser")
+  startedShiftSessions ShiftSession[] @relation("ShiftStartedBy")
+  endedShiftSessions   ShiftSession[] @relation("ShiftEndedBy")
+  createdTasks       Task[]         @relation("TaskCreatedBy")
+  assignedTasks      Task[]         @relation("TaskAssignedTo")
+  takenTasks         Task[]         @relation("TaskTakenBy")
+  doneTasks          Task[]         @relation("TaskDoneBy")
+  taskComments       TaskComment[]
+  taskAssignees      TaskAssignee[] @relation("TaskAssigneeUser")
+  assignedTaskAssignees TaskAssignee[] @relation("TaskAssigneeAssignedBy")
+  taskHistory        TaskHistory[]
+  taskReads          TaskRead[]
+  startedWashes      WashSession[]  @relation("WashStartedBy")
+  washMessages       WashMessage[]
+  washIssues         WashIssue[]
+  washIssueAssignments WashIssue[] @relation("WashIssueAssignedTo")
+  washIssueResolved WashIssue[] @relation("WashIssueResolvedBy")
+  washEvents        WashEvent[]
+  createdWashControlItems WashControlItem[] @relation("WashControlCreatedBy")
+  assignedWashControlItems WashControlItem[] @relation("WashControlAssignedTo")
+  doneWashControlItems WashControlItem[] @relation("WashControlDoneBy")
+  washOkkReviews    WashOkkReview[] @relation("WashOkkReviewUser")
+  createdOkkRecords  OkkRecord[]    @relation("OkkCreatedBy")
+  assignedOkkRecords OkkRecord[]    @relation("OkkAssignedMaster")
+  stockDefects       StockDefect[]  @relation("StockDefectCreatedBy")
+  returnRecords      ReturnRecord[]     @relation("ReturnRecordCreatedBy")
+  shiftLogs          ShiftLog[]         @relation("ShiftLogCreatedBy")
+  shiftLogComments   ShiftLogComment[]
+  factoryAccess      UserFactoryAccess[]
+  permissionOverrides UserPermissionOverride[]
+  audits             AuditLog[]
+  createdLineShiftResults LineShiftResult[] @relation("LineShiftResultCreatedBy")
+  createdLineShiftWorkPlans LineShiftWorkPlan[] @relation("LineShiftWorkPlanCreatedBy")
+  updatedLineShiftWorkPlans LineShiftWorkPlan[] @relation("LineShiftWorkPlanUpdatedBy")
+  plannedLineAssignments PlannedLineAssignment[] @relation("PlannedLineAssignmentUser")
+  createdPlannedLineAssignments PlannedLineAssignment[] @relation("PlannedLineAssignmentCreatedBy")
+  releasedPlannedLineAssignments PlannedLineAssignment[] @relation("PlannedLineAssignmentReleasedBy")
+  plannedShiftAssignments PlannedShiftAssignment[] @relation("PlannedShiftAssignmentUser")
+  createdPlannedShiftAssignments PlannedShiftAssignment[] @relation("PlannedShiftAssignmentCreatedBy")
+  releasedPlannedShiftAssignments PlannedShiftAssignment[] @relation("PlannedShiftAssignmentReleasedBy")
+  uploadedAttachments Attachment[] @relation("AttachmentUploadedBy")
+  shiftWillBe ShiftWillBe[] @relation("ShiftWillBeUser")
+  removedShiftWillBe ShiftWillBe[] @relation("ShiftWillBeRemovedBy")
+  contractorShiftSubmissions ContractorShiftSubmission[] @relation("ContractorSubmissionLead")
+  contractorSubmissionItems ContractorShiftSubmissionItem[] @relation("ContractorSubmissionItemUser")
+  decidedContractorSubmissionItems ContractorShiftSubmissionItem[] @relation("ContractorSubmissionItemDecidedBy")
+  actualContractorSubmissionItems ContractorShiftSubmissionItem[] @relation("ContractorSubmissionItemActualBy")
+  shiftReturnRequests ShiftReturnRequest[] @relation("ShiftReturnRequestUser")
+  requestedShiftReturnRequests ShiftReturnRequest[] @relation("ShiftReturnRequestedBy")
+  decidedShiftReturnRequests ShiftReturnRequest[] @relation("ShiftReturnDecidedBy")
+  checklistRuns ChecklistRun[]
+  closedChecklistRuns ChecklistRun[] @relation("ChecklistRunClosedBy")
+  checklistPauseEvents ChecklistPauseEvent[] @relation("ChecklistPausePausedBy")
+  checklistPauseResumeEvents ChecklistPauseEvent[] @relation("ChecklistPauseResumedBy")
+  startedDefrostEvents DefrostEvent[] @relation("DefrostStartedBy")
+  endedDefrostEvents DefrostEvent[] @relation("DefrostEndedBy")
+  createdChats Chat[] @relation("ChatCreatedBy")
+  chatMembers ChatMember[]
+  chatMessages ChatMessage[] @relation("ChatMessageAuthor")
+  chatMessageReactions ChatMessageReaction[]
+  chatPolls ChatPoll[] @relation("ChatPollCreatedBy")
+  chatPollVotes ChatPollVote[]
+  chatReads ChatRead[]
+  authoredErrorReports ErrorReport[] @relation("ErrorReportAuthor")
+  closedErrorReports ErrorReport[] @relation("ErrorReportClosedBy")
+  authoredAnnouncements Announcement[] @relation("AnnouncementAuthor")
+  announcementReads AnnouncementRead[]
+  skills UserSkill[] @relation("UserSkillUser")
+  recommendedSkills UserSkill[] @relation("UserSkillRecommendedBy")
+  profileNotes UserProfileNote[] @relation("UserProfileNoteUser")
+  authoredProfileNotes UserProfileNote[] @relation("UserProfileNoteAuthor")
+  pushSubscriptions PushSubscription[]
+  requestedAssignmentRequests AssignmentRequest[] @relation("AssignmentRequestRequestedBy")
+  decidedAssignmentRequests AssignmentRequest[] @relation("AssignmentRequestDecidedBy")
+  quantityReleaseOperations QuantityReleaseOperation[] @relation("QuantityReleaseActor")
+
+  @@index([blockedAt], map: "User_blockedAt_idx")
+}
+
+model Attachment {
+  id           String               @id @default(uuid())
+  factoryId    String?
+  uploadedById String
+  entityType   AttachmentEntityType
+  entityId     String
+  kind         AttachmentKind
+  operationId  String?
+  originalName String
+  mimeType     String
+  sizeBytes    Int
+  storagePath  String
+  publicUrl    String?
+  width        Int?
+  height       Int?
+  durationSec  Int?
+  createdAt    DateTime             @default(now())
+  deletedAt    DateTime?
+
+  factory    Factory? @relation(fields: [factoryId], references: [id], onDelete: SetNull)
+  uploadedBy User     @relation("AttachmentUploadedBy", fields: [uploadedById], references: [id], onDelete: Cascade)
+  checklistTemplateReferences ChecklistTemplateRow[] @relation("ChecklistTemplateReference")
+  checklistRunReferences ChecklistRunRow[] @relation("ChecklistRunReference")
+
+  @@index([factoryId, entityType, entityId])
+  @@index([uploadedById, createdAt])
+  @@index([entityType, entityId])
+  @@unique([uploadedById, operationId])
+}
+
+model UserFactoryAccess {
+  id           String   @id @default(uuid())
+  userId       String
+  factoryId    String
+  role         UserRole
+  departmentId String?
+  jobTitleId   String?
+  companyId    String?
+  isGuest      Boolean  @default(false)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
+  deactivatedAt DateTime?
+  deactivatedById String?
+  deactivationReason String?
+  recoveryUntil DateTime?
+  restoredAt DateTime?
+  restoredById String?
+
+  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  factory    Factory     @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  department Department? @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  jobTitle   JobTitle?   @relation(fields: [jobTitleId], references: [id], onDelete: SetNull)
+  company    ExternalCompany? @relation(fields: [companyId], references: [id], onDelete: SetNull)
+
+  @@unique([userId, factoryId])
+  @@index([factoryId, role])
+  @@index([departmentId])
+  @@index([jobTitleId])
+  @@index([companyId])
+}
+
+model AssignmentRequest {
+  id             String                  @id @default(uuid())
+  factoryId      String
+  requestedById  String
+  requestedRole  UserRole
+  departmentId   String?
+  companyId      String?
+  comment        String?
+  status         AssignmentRequestStatus @default(PENDING)
+  activeKey      String?                 @unique
+  operationId    String?                 @unique
+  version        Int                     @default(1)
+  createdAt      DateTime                @default(now())
+  updatedAt      DateTime                @default(now()) @updatedAt
+  decidedAt      DateTime?
+  decidedById    String?
+  decisionReason String?
+  decisionSnapshot Json?
+
+  factory     Factory          @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  requestedBy User             @relation("AssignmentRequestRequestedBy", fields: [requestedById], references: [id], onDelete: Cascade)
+  decidedBy   User?            @relation("AssignmentRequestDecidedBy", fields: [decidedById], references: [id], onDelete: SetNull)
+  department  Department?      @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  company     ExternalCompany? @relation(fields: [companyId], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, status, createdAt])
+  @@index([requestedById, factoryId, createdAt])
+  @@index([departmentId, status])
+  @@index([companyId, status])
+}
+
+model UserPermissionOverride {
+  id             String           @id @default(uuid())
+  userId         String
+  factoryId      String?
+  permissionCode String
+  effect         PermissionEffect
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @default(now()) @updatedAt
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionCode], references: [code], onDelete: Cascade)
+
+  @@unique([userId, factoryId, permissionCode])
+  @@index([factoryId])
+  @@index([permissionCode])
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  factoryId  String?
+  userId     String?
+  action     String
+  entityType String
+  entityId   String?
+  details    Json
+  createdAt  DateTime @default(now())
+
+  factory Factory? @relation(fields: [factoryId], references: [id], onDelete: SetNull)
+  user    User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, createdAt])
+  @@index([userId, createdAt])
+  @@index([entityType, entityId])
+}
+
+model Notification {
+  id           String               @id @default(uuid())
+  factoryId    String?
+  departmentId String?
+  userId       String?
+  type         String
+  title        String
+  message      String
+  entityType   String?
+  entityId     String?
+  operationId  String?              @unique
+  severity     NotificationSeverity @default(INFO)
+  readAt       DateTime?
+  createdAt    DateTime             @default(now())
+  expiresAt    DateTime?
+
+  @@index([userId, readAt, createdAt])
+  @@index([factoryId, departmentId, readAt, createdAt])
+  @@index([type, createdAt])
+  @@index([entityType, entityId])
+}
+
+model PushSubscription {
+  id          String   @id @default(uuid())
+  userId      String
+  factoryId   String
+  endpoint    String   @unique
+  p256dh      String
+  auth        String
+  userAgent   String?
+  deviceLabel String?
+  isActive    Boolean  @default(true)
+  revokedAt   DateTime?
+  revokedById String?
+  lastSeenAt  DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+
+  @@index([userId, factoryId, isActive])
+  @@index([factoryId, isActive])
+  @@index([revokedAt])
+}
+
+model ChatSettings {
+  id                  String   @id @default(uuid())
+  factoryId           String   @unique
+  chatEnabled         Boolean  @default(true)
+  attachmentsEnabled  Boolean  @default(true)
+  editWindowMinutes   Int      @default(15)
+  deleteWindowMinutes Int      @default(15)
+  retentionMonths     Int      @default(2)
+  voiceReserved       Boolean  @default(false)
+  videoReserved       Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+}
+
+model Chat {
+  id           String    @id @default(uuid())
+  factoryId    String?
+  departmentId String?
+  type         ChatType
+  title        String
+  description  String?
+  isActive     Boolean   @default(true)
+  isHidden     Boolean   @default(false)
+  createdById  String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @default(now()) @updatedAt
+  archivedAt   DateTime?
+
+  factory    Factory?     @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  department Department?  @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  createdBy  User         @relation("ChatCreatedBy", fields: [createdById], references: [id])
+  members    ChatMember[]
+  messages   ChatMessage[]
+  polls      ChatPoll[]
+  reads      ChatRead[]
+
+  @@index([factoryId, type, isActive])
+  @@index([departmentId, type, isActive])
+  @@index([archivedAt])
+}
+
+model ChatMember {
+  id                     String         @id @default(uuid())
+  chatId                 String
+  userId                 String?
+  roleCode               UserRole?
+  departmentId           String?
+  membershipRole         ChatMemberRole @default(MEMBER)
+  canRead                Boolean        @default(true)
+  canWrite               Boolean        @default(false)
+  canManage              Boolean        @default(false)
+  hiddenAt               DateTime?
+  communicationBlockedAt DateTime?
+  leftAt                 DateTime?
+  removedAt              DateTime?
+  membershipUpdatedAt    DateTime?
+  createdAt              DateTime       @default(now())
+
+  chat       Chat        @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  user       User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  department Department? @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+
+  @@index([chatId])
+  @@unique([chatId, userId])
+  @@index([userId])
+  @@index([userId, hiddenAt])
+  @@index([chatId, membershipRole])
+  @@index([departmentId])
+  @@index([roleCode])
+}
+
+model ChatMessage {
+  id           String          @id @default(uuid())
+  factoryId    String?
+  departmentId String?
+  chatId       String
+  authorId     String?
+  replyToMessageId String?
+  kind         ChatMessageKind @default(USER)
+  text         String
+  entityType   String?
+  entityId     String?
+  operationId  String?
+  createdAt    DateTime        @default(now())
+  editedAt     DateTime?
+  deletedAt    DateTime?
+
+  chat       Chat        @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  author     User?       @relation("ChatMessageAuthor", fields: [authorId], references: [id], onDelete: SetNull)
+  department Department? @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  replyToMessage ChatMessage? @relation("ChatMessageReplies", fields: [replyToMessageId], references: [id], onDelete: SetNull)
+  replies ChatMessage[] @relation("ChatMessageReplies")
+  reactions ChatMessageReaction[]
+  poll ChatPoll?
+
+  @@unique([authorId, operationId])
+  @@index([chatId, createdAt])
+  @@index([chatId, replyToMessageId])
+  @@index([factoryId, createdAt])
+  @@index([departmentId, createdAt])
+}
+
+model ChatMessageReaction {
+  id        String   @id @default(uuid())
+  messageId String
+  userId    String
+  emoji     String
+  createdAt DateTime @default(now())
+  deletedAt DateTime?
+
+  message ChatMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user    User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId, emoji])
+  @@index([messageId, deletedAt])
+  @@index([userId, createdAt])
+}
+
+model ChatPoll {
+  id             String   @id @default(uuid())
+  factoryId      String?
+  chatId         String
+  messageId      String   @unique
+  createdById    String
+  question       String
+  anonymous      Boolean  @default(false)
+  multipleChoice Boolean  @default(false)
+  allowRevote    Boolean  @default(true)
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now()) @updatedAt
+  deletedAt      DateTime?
+
+  factory   Factory?         @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  chat      Chat             @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  message   ChatMessage      @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  createdBy User             @relation("ChatPollCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  options   ChatPollOption[]
+  votes     ChatPollVote[]
+
+  @@index([chatId, createdAt])
+  @@index([factoryId, createdAt])
+  @@index([createdById, createdAt])
+}
+
+model ChatPollOption {
+  id        String   @id @default(uuid())
+  pollId    String
+  text      String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  poll  ChatPoll       @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  votes ChatPollVote[]
+
+  @@index([pollId, sortOrder])
+}
+
+model ChatPollVote {
+  id        String    @id @default(uuid())
+  pollId    String
+  optionId  String
+  userId    String
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+
+  poll   ChatPoll       @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  option ChatPollOption @relation(fields: [optionId], references: [id], onDelete: Cascade)
+  user   User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([optionId, userId])
+  @@index([pollId, userId, deletedAt])
+  @@index([userId, createdAt])
+}
+
+model ChatRead {
+  id         String   @id @default(uuid())
+  chatId     String
+  userId     String
+  lastReadAt DateTime @default(now())
+
+  chat Chat @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([chatId, userId])
+  @@index([userId, lastReadAt])
+}
+
+model ErrorReport {
+  id          String   @id @default(uuid())
+  factoryId   String?
+  authorId    String?
+  authorRole  UserRole?
+  section     String
+  title       String
+  description String
+  status      String   @default("NEW")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  closedAt    DateTime?
+  closedById  String?
+
+  factory  Factory? @relation(fields: [factoryId], references: [id], onDelete: SetNull)
+  author   User?    @relation("ErrorReportAuthor", fields: [authorId], references: [id], onDelete: SetNull)
+  closedBy User?    @relation("ErrorReportClosedBy", fields: [closedById], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, status, createdAt])
+  @@index([authorId, createdAt])
+  @@index([closedById])
+}
+
+model AnnouncementSettings {
+  id                    String   @id @default(uuid())
+  factoryId             String   @unique
+  defaultVisibleDays    Int      @default(7)
+  archiveRetentionDays  Int      @default(30)
+  attachmentsEnabled    Boolean  @default(false)
+  guestCanRead          Boolean  @default(false)
+  importantBadgeEnabled Boolean  @default(true)
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+}
+
+model Announcement {
+  id           String               @id @default(uuid())
+  factoryId    String?
+  departmentId String?
+  authorId     String
+  title        String
+  text         String
+  priority     AnnouncementPriority @default(NORMAL)
+  recurrence   AnnouncementRecurrence @default(NONE)
+  recurrenceAnchorAt DateTime?
+  nextReminderAt DateTime?
+  lastReminderAt DateTime?
+  visibleFrom  DateTime             @default(now())
+  visibleUntil DateTime
+  archivedAt   DateTime?
+  deletedAt    DateTime?
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @default(now()) @updatedAt
+
+  factory    Factory?           @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  department Department?        @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  author     User               @relation("AnnouncementAuthor", fields: [authorId], references: [id])
+  reads      AnnouncementRead[]
+  audienceDepartments AnnouncementDepartment[]
+
+  @@index([factoryId, departmentId, visibleFrom, visibleUntil], map: "Announcement_factoryId_departmentId_visibleFrom_visibleUntil_id")
+  @@index([recurrence, nextReminderAt])
+  @@index([archivedAt])
+  @@index([priority, visibleUntil])
+}
+
+model AnnouncementDepartment {
+  announcementId String
+  departmentId   String
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  deactivatedAt  DateTime?
+
+  announcement Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  department   Department   @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+
+  @@id([announcementId, departmentId])
+  @@index([departmentId, isActive])
+}
+
+model AnnouncementRead {
+  id             String   @id @default(uuid())
+  announcementId String
+  userId         String
+  readAt         DateTime @default(now())
+
+  announcement Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([announcementId, userId])
+  @@index([userId, readAt])
+}
+
+model Assignment {
+  id            String         @id @default(uuid())
+  userId        String
+  lineId        String?
+  factoryId     String
+    kind          AssignmentKind @default(LINE)
+    positionId    String?
+    slotIndex     Int?
+    staffingTemplateId String?
+  washSessionId String?
+  workAreaId    String?
+  workAreaPositionId String?
+  timeRoleName  String?
+  startedById   String?
+  endedById     String?
+  startedAt     DateTime       @default(now())
+  endedAt       DateTime?
+  comment       String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @default(now()) @updatedAt
+  version       Int            @default(1)
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  line        Line?        @relation(fields: [lineId], references: [id], onDelete: SetNull)
+  position    LinePosition? @relation(fields: [positionId], references: [id], onDelete: SetNull)
+  staffingTemplate LineStaffingTemplate? @relation(fields: [staffingTemplateId], references: [id], onDelete: SetNull)
+  washSession WashSession? @relation(fields: [washSessionId], references: [id], onDelete: SetNull)
+  workArea WorkArea? @relation(fields: [workAreaId], references: [id], onDelete: SetNull)
+  workAreaPosition WorkAreaPosition? @relation(fields: [workAreaPositionId], references: [id], onDelete: SetNull)
+
+  @@index([lineId])
+    @@index([positionId])
+    @@index([lineId, positionId, slotIndex])
+  @@index([staffingTemplateId])
+  @@index([userId, endedAt])
+  @@index([factoryId, endedAt])
+  @@index([washSessionId])
+  @@index([workAreaId])
+  @@index([workAreaPositionId])
+}
+
+model WorkArea {
+  id                   String         @id @default(uuid())
+  factoryId            String
+  departmentId         String?
+  name                 String
+  description          String?
+  assignmentKind       AssignmentKind @default(WORK_AREA)
+  isActive             Boolean        @default(true)
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @default(now()) @updatedAt
+  deletedAt            DateTime?
+  deactivatedAt        DateTime?
+  deactivatedById String?
+  deactivationReason String?
+  recoveryUntil DateTime?
+  restoredAt DateTime?
+  restoredById String?
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  department Department? @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  positions WorkAreaPosition[]
+  shiftStates WorkAreaShiftState[]
+  assignments Assignment[]
+  plannedShiftAssignments PlannedShiftAssignment[]
+
+  @@index([factoryId, isActive])
+  @@index([departmentId])
+  @@unique([factoryId, name])
+}
+
+model WorkAreaPosition {
+  id          String   @id @default(uuid())
+  workAreaId  String
+  title       String
+  minRequired Int      @default(1)
+  maxRequired Int      @default(1)
+  defaultPlanned Int   @default(1)
+  plannedCount Int?
+  isFlexible  Boolean  @default(false)
+  isExtraSlot Boolean  @default(false)
+  doesNotAffectShortage Boolean @default(false)
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  deletedAt   DateTime?
+  deactivatedAt DateTime?
+  deactivatedById String?
+  deactivationReason String?
+  recoveryUntil DateTime?
+  restoredAt DateTime?
+  restoredById String?
+
+  workArea WorkArea @relation(fields: [workAreaId], references: [id], onDelete: Cascade)
+  assignments Assignment[]
+  plannedShiftAssignments PlannedShiftAssignment[]
+
+  @@index([workAreaId, sortOrder])
+}
+
+model WorkAreaShiftState {
+  id             String              @id @default(uuid())
+  factoryId      String
+  shiftSessionId String?
+  workAreaId     String
+  status         WorkAreaShiftStatus @default(ACTIVE)
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @default(now()) @updatedAt
+  closedAt       DateTime?
+  closedById     String?
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  shiftSession ShiftSession? @relation(fields: [shiftSessionId], references: [id], onDelete: SetNull)
+  workArea WorkArea @relation(fields: [workAreaId], references: [id], onDelete: Cascade)
+
+  @@unique([factoryId, shiftSessionId, workAreaId])
+  @@index([workAreaId, status])
+}
+
+model Line {
+  id        String     @id @default(uuid())
+  factoryId String
+  defaultStaffingTemplateId String? @unique
+  name      String
+  status    LineStatus @default(WORK)
+  version   Int        @default(1)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now()) @updatedAt
+  deletedAt DateTime?
+  deactivatedAt DateTime?
+  deactivatedById String?
+  deactivationReason String?
+  recoveryUntil DateTime?
+  restoredAt DateTime?
+  restoredById String?
+
+  events       LineEvent[]
+  assignments  Assignment[]
+  positions    LinePosition[]
+  staffingTemplates LineStaffingTemplate[] @relation("LineStaffingTemplates")
+  defaultStaffingTemplate LineStaffingTemplate? @relation("LineDefaultStaffingTemplate", fields: [defaultStaffingTemplateId], references: [id], onDelete: SetNull)
+  shiftStates  LineShiftState[]
+  shiftResults LineShiftResult[]
+  shiftWorkPlans LineShiftWorkPlan[]
+  plannedLineAssignments PlannedLineAssignment[]
+  tasks        Task[]
+  washSessions WashSession[]
+  washControlItems WashControlItem[]
+  okkRecords   OkkRecord[]
+  defrostEvents DefrostEvent[]
+  chamber Chamber?
+  userSkills UserSkill[]
+  returnRecords ReturnRecord[]
+
+  @@index([factoryId])
+  @@index([factoryId, deletedAt])
+}
+
+model LinePosition {
+  id        String   @id @default(uuid())
+  factoryId String
+  lineId    String
+  name      String
+  displayName String?
+  normalizedName String?
+  skillCode String?
+  skillFamilyKey String?
+  isExtraSlot Boolean @default(false)
+  doesNotAffectShortage Boolean @default(false)
+  isFlexibleSkillGroup Boolean @default(false)
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  deletedAt DateTime?
+  deactivatedAt DateTime?
+  deactivatedById String?
+  deactivationReason String?
+  recoveryUntil DateTime?
+  restoredAt DateTime?
+  restoredById String?
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  line    Line    @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  templateItems LineStaffingTemplateItem[]
+  assignments Assignment[]
+  userSkills UserSkill[]
+  plannedLineAssignments PlannedLineAssignment[]
+
+  @@index([factoryId, lineId, isActive])
+  @@index([lineId, sortOrder])
+  @@index([factoryId, skillFamilyKey], map: "LinePosition_factoryId_skillFamilyKey_idx")
+}
+
+model UserSkill {
+  id                    String   @id @default(uuid())
+  factoryId             String
+  userId                String
+  lineId                String
+  positionId            String
+  skillFamilyKey        String?
+  experienceCount       Int      @default(0)
+  recommendedById       String?
+  recommendedAt         DateTime?
+  recommendationComment String?
+  isActive              Boolean  @default(true)
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @default(now()) @updatedAt
+  deactivatedAt         DateTime?
+
+  factory       Factory      @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  user          User         @relation("UserSkillUser", fields: [userId], references: [id], onDelete: Cascade)
+  line          Line         @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  position      LinePosition @relation(fields: [positionId], references: [id], onDelete: Cascade)
+  recommendedBy User?        @relation("UserSkillRecommendedBy", fields: [recommendedById], references: [id], onDelete: SetNull)
+
+  @@unique([factoryId, userId, lineId, positionId, isActive])
+  @@index([factoryId, userId, isActive])
+  @@index([lineId, positionId])
+  @@index([factoryId, userId, skillFamilyKey, isActive])
+}
+
+model UserSkillCredit {
+  id           String    @id @default(uuid())
+  factoryId    String
+  userId       String
+  lineId       String
+  positionId   String
+  assignmentId String
+  shiftDate    DateTime
+  shiftType    ShiftType
+  createdAt    DateTime  @default(now())
+
+  @@unique([factoryId, userId, lineId, positionId, shiftDate, shiftType], map: "UserSkillCredit_factoryId_userId_lineId_positionId_shiftDate_sh")
+  @@index([assignmentId])
+  @@index([factoryId, userId, createdAt])
+  @@index([lineId, positionId])
+}
+
+model UserProfileNote {
+  id         String                    @id @default(uuid())
+  factoryId  String
+  userId     String
+  authorId   String
+  text       String
+  visibility UserProfileNoteVisibility @default(MANAGEMENT)
+  createdAt  DateTime                  @default(now())
+  updatedAt  DateTime                  @default(now()) @updatedAt
+  deletedAt  DateTime?
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  user    User    @relation("UserProfileNoteUser", fields: [userId], references: [id], onDelete: Cascade)
+  author  User    @relation("UserProfileNoteAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([factoryId, userId, deletedAt])
+  @@index([authorId, createdAt])
+}
+
+model LineStaffingTemplate {
+  id        String   @id @default(uuid())
+  factoryId String
+  lineId    String
+  name      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  deletedAt DateTime?
+  deactivatedAt DateTime?
+  deactivatedById String?
+  deactivationReason String?
+  recoveryUntil DateTime?
+  restoredAt DateTime?
+  restoredById String?
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  line    Line    @relation("LineStaffingTemplates", fields: [lineId], references: [id], onDelete: Cascade)
+  defaultForLine Line? @relation("LineDefaultStaffingTemplate")
+  items   LineStaffingTemplateItem[]
+  assignments Assignment[]
+  shiftStates LineShiftState[]
+  shiftResults LineShiftResult[]
+  shiftWorkPlans LineShiftWorkPlan[]
+  plannedLineAssignments PlannedLineAssignment[]
+
+  @@index([factoryId, lineId, isActive])
+}
+
+model LineStaffingTemplateItem {
+  id            String @id @default(uuid())
+  templateId    String
+  positionId    String
+  requiredCount Int
+  minRequired   Int?
+  maxRequired   Int?
+  defaultPlanned Int?
+  plannedCount  Int?
+  isFlexible    Boolean @default(false)
+  isExtraSlot   Boolean @default(false)
+  doesNotAffectShortage Boolean @default(false)
+  sortOrder     Int    @default(0)
+
+  template LineStaffingTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  position LinePosition @relation(fields: [positionId], references: [id], onDelete: Cascade)
+
+  @@unique([templateId, positionId])
+  @@index([positionId])
+  @@index([templateId, plannedCount], map: "LineStaffingTemplateItem_templateId_plannedCount_idx")
+}
+
+model LineShiftState {
+  id                 String   @id @default(uuid())
+  factoryId          String
+  shiftSessionId     String?
+  lineId             String
+  staffingTemplateId String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  shiftSession ShiftSession? @relation(fields: [shiftSessionId], references: [id], onDelete: SetNull)
+  line Line @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  staffingTemplate LineStaffingTemplate? @relation(fields: [staffingTemplateId], references: [id], onDelete: SetNull)
+
+  @@unique([factoryId, shiftSessionId, lineId])
+  @@index([factoryId, lineId])
+  @@index([staffingTemplateId])
+}
+
+model LineShiftResult {
+  id                    String   @id @default(uuid())
+  factoryId             String
+  shiftSessionId        String
+  lineId                String
+  staffingTemplateId    String?
+  planCompletionPercent Int?
+  comment               String?
+  createdById           String
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  shiftSession ShiftSession @relation(fields: [shiftSessionId], references: [id], onDelete: Cascade)
+  line Line @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  staffingTemplate LineStaffingTemplate? @relation(fields: [staffingTemplateId], references: [id], onDelete: SetNull)
+  createdBy User @relation("LineShiftResultCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+
+  @@index([factoryId, shiftSessionId])
+  @@index([lineId])
+}
+
+model LineShiftWorkPlan {
+  id             String    @id @default(uuid())
+  factoryId      String
+  lineId         String
+  shiftSessionId String?
+  staffingTemplateId String?
+  shiftDate      DateTime
+  shiftType      ShiftType
+  createdById    String
+  updatedById    String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @default(now()) @updatedAt
+
+  factory      Factory       @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  line         Line          @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  shiftSession ShiftSession? @relation(fields: [shiftSessionId], references: [id], onDelete: SetNull)
+  staffingTemplate LineStaffingTemplate? @relation(fields: [staffingTemplateId], references: [id], onDelete: SetNull)
+  createdBy    User          @relation("LineShiftWorkPlanCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  updatedBy    User?         @relation("LineShiftWorkPlanUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+  rows         LineShiftWorkPlanRow[]
+
+  @@unique([factoryId, lineId, shiftDate, shiftType])
+  @@index([shiftSessionId])
+  @@index([staffingTemplateId])
+  @@index([factoryId, shiftDate, shiftType])
+}
+
+model LineShiftWorkPlanRow {
+  id               String    @id @default(uuid())
+  workPlanId       String
+  sortOrder        Int
+  article          String
+  productName      String
+  plannedGofrCount Int
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @default(now()) @updatedAt
+  deletedAt        DateTime?
+
+  workPlan LineShiftWorkPlan @relation(fields: [workPlanId], references: [id], onDelete: Cascade)
+
+  @@index([workPlanId, sortOrder])
+}
+
+model PlannedLineAssignment {
+  id                 String    @id @default(uuid())
+  factoryId          String
+  lineId             String
+  shiftDate          DateTime
+  shiftType          ShiftType
+  positionId         String
+  staffingTemplateId String?
+  slotIndex          Int
+  userId             String
+  createdById        String
+  releasedById       String?
+  releasedAt         DateTime?
+  comment            String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @default(now()) @updatedAt
+
+  factory          Factory               @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  line             Line                  @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  position         LinePosition          @relation(fields: [positionId], references: [id], onDelete: Cascade)
+  staffingTemplate LineStaffingTemplate? @relation(fields: [staffingTemplateId], references: [id], onDelete: SetNull)
+  user             User                  @relation("PlannedLineAssignmentUser", fields: [userId], references: [id], onDelete: Cascade)
+  createdBy        User                  @relation("PlannedLineAssignmentCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  releasedBy       User?                 @relation("PlannedLineAssignmentReleasedBy", fields: [releasedById], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, shiftDate, shiftType])
+  @@index([factoryId, lineId, shiftDate, shiftType])
+  @@index([userId, shiftDate, shiftType])
+  @@index([positionId])
+  @@index([releasedAt])
+}
+
+model PlannedShiftAssignment {
+  id                 String         @id @default(uuid())
+  factoryId          String
+  shiftDate          DateTime
+  shiftType          ShiftType
+  kind               AssignmentKind
+  userId             String
+  workAreaId         String?
+  workAreaPositionId String?
+  slotIndex          Int?
+  timeRoleName       String?
+  createdById        String
+  releasedById       String?
+  releasedAt         DateTime?
+  comment            String?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @default(now()) @updatedAt
+
+  factory          Factory           @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  user             User              @relation("PlannedShiftAssignmentUser", fields: [userId], references: [id], onDelete: Cascade)
+  createdBy        User              @relation("PlannedShiftAssignmentCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  releasedBy       User?             @relation("PlannedShiftAssignmentReleasedBy", fields: [releasedById], references: [id], onDelete: SetNull)
+  workArea         WorkArea?         @relation(fields: [workAreaId], references: [id], onDelete: SetNull)
+  workAreaPosition WorkAreaPosition? @relation(fields: [workAreaPositionId], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, shiftDate, shiftType])
+  @@index([userId, shiftDate, shiftType])
+  @@index([kind])
+  @@index([workAreaId])
+  @@index([workAreaPositionId])
+  @@index([workAreaId, workAreaPositionId, slotIndex], map: "PlannedShiftAssignment_workAreaId_workAreaPositionId_slotIndex_")
+  @@index([releasedAt])
+}
+
+model LineEvent {
+  id        String     @id @default(uuid())
+  lineId    String
+  factoryId String?
+  createdById String?
+  status    LineStatus
+  comment   String?
+  downtimeReason String?
+  readyAt   DateTime?
+  readyById String?
+  confirmedEndAt DateTime?
+  correctedStartAt DateTime?
+  correctedEndAt DateTime?
+  correctionComment String?
+  correctionById String?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now()) @updatedAt
+
+  line Line @relation(fields: [lineId], references: [id], onDelete: Cascade)
+
+  @@index([lineId])
+  @@index([factoryId, createdAt])
+  @@index([lineId, status, createdAt])
+  @@index([downtimeReason])
+}
+
+model Task {
+  id           String     @id @default(uuid())
+  factoryId    String
+  lineId       String?
+  lineStatusEventId String?
+  createdById  String
+  assignedToId String?
+  takenById    String?
+  doneById     String?
+  type         TaskType   @default(URGENT)
+  description  String?
+  status       TaskStatus @default(NEW)
+  priority     String?
+  deadlineAt   DateTime?
+  startedAt    DateTime?
+  doneAt       DateTime?
+  escalatedAt  DateTime?
+  archivedAt   DateTime?
+  operationId  String?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  deletedAt    DateTime?
+  version      Int        @default(1)
+
+  line       Line?         @relation(fields: [lineId], references: [id], onDelete: SetNull)
+  createdBy  User          @relation("TaskCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  assignedTo User?         @relation("TaskAssignedTo", fields: [assignedToId], references: [id], onDelete: SetNull)
+  takenBy    User?         @relation("TaskTakenBy", fields: [takenById], references: [id], onDelete: SetNull)
+  doneBy     User?         @relation("TaskDoneBy", fields: [doneById], references: [id], onDelete: SetNull)
+  comments   TaskComment[]
+  departmentRecipients TaskDepartmentRecipient[]
+  assignees TaskAssignee[]
+  history TaskHistory[]
+  reads TaskRead[]
+
+  @@index([lineId])
+  @@index([lineStatusEventId])
+  @@index([createdById])
+  @@index([assignedToId])
+  @@index([factoryId, status, type])
+  @@index([factoryId, deadlineAt])
+  @@unique([createdById, operationId])
+}
+
+model TaskComment {
+  id        String   @id @default(uuid())
+  taskId    String
+  userId    String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  deletedAt DateTime?
+
+  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([taskId])
+  @@index([userId])
+}
+
+model TaskSettings {
+  id                                  String   @id @default(uuid())
+  factoryId                           String   @unique
+  longTaskDefaultDeadlineHours        Int?
+  longTaskEscalationEnabled           Boolean  @default(true)
+  longTaskEscalationGraceMinutes      Int      @default(0)
+  urgentTaskRequiresLineWhenCreatedFromLine Boolean @default(true)
+  taskRedirectRequiresComment         Boolean  @default(true)
+  taskDoneRequiresComment             Boolean  @default(false)
+  taskReadReceiptsEnabled             Boolean  @default(true)
+  taskAttachmentsEnabled              Boolean  @default(true)
+  taskDepartmentRecipientsEnabled     Boolean  @default(true)
+  taskPersonalAssigneeEnabled         Boolean  @default(true)
+  taskChatMirrorEnabledReserved       Boolean  @default(false)
+  taskStorageRetentionMode            String?
+  createdAt                           DateTime @default(now())
+  updatedAt                           DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+}
+
+model OrderSettings {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  factoryId String @unique
+  lowStockNotificationsEnabled Boolean @default(true)
+  orderRequestNotificationsEnabled Boolean @default(true)
+  restockRequiresComment Boolean @default(false)
+  takeRequiresComment Boolean @default(true)
+  archiveRequiresComment Boolean @default(false)
+  defaultUnit String @default("шт")
+  warningYellowPercent Int @default(40)
+  warningRedPercent Int @default(20)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+model MinimumStockItem {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  factoryId String
+  departmentId String?
+  name String
+  category String?
+  description String?
+  storageLocation String?
+  minThreshold Float
+  initialQuantity Float
+  currentQuantity Float
+  referenceQuantity Float
+  unit String @default("шт")
+  isActive Boolean @default(true)
+  archivedAt DateTime?
+  archivedById String?
+  restoredAt DateTime?
+  restoredById String?
+  createdById String
+  updatedById String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  movements MinimumStockMovement[]
+  orderRequests OrderRequest[]
+
+  @@index([factoryId, departmentId])
+  @@index([factoryId, isActive, archivedAt])
+}
+
+model MinimumStockMovement {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  factoryId String
+  itemId String
+  actorId String
+  type MinimumStockMovementType
+  quantity Float
+  beforeQuantity Float
+  afterQuantity Float
+  comment String
+  createdAt DateTime @default(now())
+
+  item MinimumStockItem @relation(fields: [itemId], references: [id])
+
+  @@index([factoryId, itemId, createdAt])
+}
+
+model OrderRequest {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  factoryId String
+  departmentId String?
+  sourceType OrderRequestSourceType
+  sourceItemId String?
+  title String
+  description String?
+  requestedQuantity Float?
+  unit String?
+  reasonComment String
+  status OrderRequestStatus @default(ACTIVE)
+  createdById String
+  closedById String?
+  closedAt DateTime?
+  closeComment String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  sourceItem MinimumStockItem? @relation(fields: [sourceItemId], references: [id])
+
+  @@index([factoryId, departmentId, status])
+  @@index([factoryId, sourceItemId])
+}
+
+model ChecklistSettings {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  factoryId String @unique
+  autoCloseAtDayShiftEnd Boolean @default(true)
+  autoCloseAtNightShiftEnd Boolean @default(true)
+  requirePauseComment Boolean @default(true)
+  allowEditAfterCloseHours Int @default(24)
+  checklistAttachmentsEnabled Boolean @default(true)
+  archiveEnabled Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+}
+
+model ChecklistTemplate {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  factoryId String?
+  departmentId String
+  name String
+  description String?
+  scope ChecklistTemplateScope @default(DEPARTMENT)
+  lineId String?
+  assignmentRoles Json?
+  assignmentUserIds Json?
+  shiftType ShiftType?
+  frequencyRule String @default("MANUAL")
+  frequencyHours Int?
+  frequencyIntervalUnit String?
+  frequencyIntervalValue Int?
+  isMandatory Boolean @default(false)
+  launchRoles Json?
+  archiveRoles Json?
+  isActive Boolean @default(true)
+  createdById String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  archivedAt DateTime?
+
+  department Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  rows ChecklistTemplateRow[]
+  runs ChecklistRun[]
+
+  @@index([factoryId, departmentId, isActive, archivedAt], map: "ChecklistTemplate_factoryId_departmentId_isActive_archivedAt_id")
+  @@index([departmentId])
+}
+
+model ChecklistTemplateRow {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  templateId String
+  title String
+  description String?
+  sortOrder Int @default(0)
+  rowType String @default("LEGACY")
+  configJson Json?
+  requiredAnswer Boolean @default(false)
+  requiresPhoto Boolean @default(false)
+  requiresComment Boolean @default(false)
+  isRequired Boolean @default(true)
+  unit String?
+  minValue Float?
+  maxValue Float?
+  targetValue Float?
+  optionsJson Json?
+  isActive Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  template ChecklistTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  referenceAttachmentId String?
+  referencePhoto Attachment? @relation("ChecklistTemplateReference", fields: [referenceAttachmentId], references: [id], onDelete: Restrict)
+  runRows ChecklistRunRow[]
+
+  @@index([referenceAttachmentId])
+  @@index([templateId, sortOrder])
+  @@index([rowType], map: "ChecklistTemplateRow_rowType_idx")
+}
+
+model ChecklistRun {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  factoryId String
+  departmentId String
+  templateId String
+  userId String
+  shiftSessionId String?
+  lineId String?
+  shiftDate DateTime?
+  shiftType ShiftType?
+  status ChecklistRunStatus @default(ACTIVE)
+  startedAt DateTime @default(now())
+  pausedAt DateTime?
+  resumedAt DateTime?
+  closedAt DateTime?
+  autoClosedAt DateTime?
+  pauseComment String?
+  closeComment String?
+  closeReason String?
+  closeKind String?
+  closedById String?
+  nextCheckAt DateTime?
+  shiftEndsAt DateTime?
+  frequencyIntervalUnit String?
+  frequencyIntervalValue Int?
+  lastCheckCompletedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  template ChecklistTemplate @relation(fields: [templateId], references: [id], onDelete: Restrict)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  closedBy User? @relation("ChecklistRunClosedBy", fields: [closedById], references: [id], onDelete: SetNull)
+  rows ChecklistRunRow[]
+  checks ChecklistRunCheck[]
+  checkRows ChecklistRunCheckRow[]
+  pauseEvents ChecklistPauseEvent[]
+
+  @@index([factoryId, departmentId, status])
+  @@index([userId, status])
+  @@index([templateId])
+  @@index([shiftSessionId])
+  @@index([factoryId, shiftDate, shiftType])
+  @@index([lineId])
+  @@index([nextCheckAt])
+  @@index([shiftEndsAt])
+  @@index([closedById])
+}
+
+model ChecklistRunRow {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  runId String
+  templateRowId String
+  title String
+  description String?
+  sortOrder Int @default(0)
+  rowType String @default("LEGACY")
+  configJson Json?
+  requiredAnswer Boolean @default(false)
+  requiresPhoto Boolean @default(false)
+  requiresComment Boolean @default(false)
+  isRequired Boolean @default(true)
+  unit String?
+  minValue Float?
+  maxValue Float?
+  targetValue Float?
+  optionsJson Json?
+  status ChecklistRunRowStatus @default(PENDING)
+  answerBoolean Boolean?
+  answerText String?
+  answerNumber Float?
+  selectedOption String?
+  comment String?
+  completedById String?
+  completedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  run ChecklistRun @relation(fields: [runId], references: [id], onDelete: Cascade)
+  templateRow ChecklistTemplateRow @relation(fields: [templateRowId], references: [id], onDelete: Restrict)
+  referenceAttachmentId String?
+  referencePhoto Attachment? @relation("ChecklistRunReference", fields: [referenceAttachmentId], references: [id], onDelete: Restrict)
+
+  @@index([referenceAttachmentId])
+  @@index([runId, sortOrder])
+  @@index([templateRowId])
+  @@index([rowType, status], map: "ChecklistRunRow_rowType_status_idx")
+}
+
+model ChecklistRunCheck {
+  id String @id @default(uuid())
+  runId String
+  sequence Int
+  status String @default("ACTIVE")
+  dueAt DateTime?
+  startedAt DateTime @default(now())
+  completedAt DateTime?
+  completedById String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  run ChecklistRun @relation(fields: [runId], references: [id], onDelete: Cascade)
+  rows ChecklistRunCheckRow[]
+
+  @@unique([runId, sequence])
+  @@index([runId, status])
+  @@index([dueAt])
+}
+
+model ChecklistRunCheckRow {
+  id String @id @default(uuid())
+  checkId String
+  runId String
+  templateRowId String
+  runRowId String?
+  title String
+  description String?
+  sortOrder Int @default(0)
+  rowType String @default("LEGACY")
+  configJson Json?
+  requiredAnswer Boolean @default(false)
+  requiresPhoto Boolean @default(false)
+  requiresComment Boolean @default(false)
+  isRequired Boolean @default(true)
+  unit String?
+  minValue Float?
+  maxValue Float?
+  targetValue Float?
+  optionsJson Json?
+  status ChecklistRunRowStatus @default(PENDING)
+  answerBoolean Boolean?
+  answerText String?
+  answerNumber Float?
+  selectedOption String?
+  comment String?
+  completedById String?
+  completedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  check ChecklistRunCheck @relation(fields: [checkId], references: [id], onDelete: Cascade)
+  run ChecklistRun @relation(fields: [runId], references: [id], onDelete: Cascade)
+
+  @@index([checkId, sortOrder])
+  @@index([runId, templateRowId])
+  @@index([runRowId])
+}
+
+model ChecklistPauseEvent {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  runId String
+  pausedById String
+  resumedById String?
+  pausedAt DateTime @default(now())
+  resumedAt DateTime?
+  reason String
+  durationSeconds Int?
+
+  run ChecklistRun @relation(fields: [runId], references: [id], onDelete: Cascade)
+  pausedBy User @relation("ChecklistPausePausedBy", fields: [pausedById], references: [id], onDelete: Cascade)
+  resumedBy User? @relation("ChecklistPauseResumedBy", fields: [resumedById], references: [id], onDelete: SetNull)
+
+  @@index([runId, pausedAt])
+}
+
+model TaskDepartmentRecipient {
+  id           String   @id @default(uuid())
+  taskId       String
+  departmentId String
+  factoryId    String?
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  task       Task       @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  department Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  factory    Factory?   @relation(fields: [factoryId], references: [id], onDelete: SetNull)
+
+  @@unique([taskId, departmentId])
+  @@index([departmentId, active])
+  @@index([factoryId])
+}
+
+model TaskAssignee {
+  id           String   @id @default(uuid())
+  taskId       String
+  userId       String
+  assignedById String
+  assignedAt   DateTime @default(now())
+  isPrimary    Boolean  @default(false)
+  active       Boolean  @default(true)
+
+  task       Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user       User @relation("TaskAssigneeUser", fields: [userId], references: [id], onDelete: Cascade)
+  assignedBy User @relation("TaskAssigneeAssignedBy", fields: [assignedById], references: [id], onDelete: Cascade)
+
+  @@unique([taskId, userId])
+  @@index([userId, active])
+}
+
+model TaskHistory {
+  id        String   @id @default(uuid())
+  taskId    String
+  actorId   String?
+  action    String
+  oldValue  Json?
+  newValue  Json?
+  comment   String?
+  createdAt DateTime @default(now())
+
+  task  Task  @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([taskId, createdAt])
+  @@index([actorId])
+}
+
+model TaskRead {
+  id        String   @id @default(uuid())
+  taskId    String
+  userId    String
+  readAt    DateTime @default(now())
+
+  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([taskId, userId])
+  @@index([userId, readAt])
+}
+
+model WashSession {
+  id          String     @id @default(uuid())
+  factoryId   String
+  lineId      String?
+  targetType  String     @default("LINE")
+  objectName  String?
+  objectDescription String?
+  startedById String
+  status      WashStatus @default(IN_PROGRESS)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @default(now()) @updatedAt
+  deletedAt   DateTime?
+  completedAt DateTime?
+  version     Int        @default(1)
+
+  line      Line?         @relation(fields: [lineId], references: [id], onDelete: SetNull)
+  startedBy User          @relation("WashStartedBy", fields: [startedById], references: [id], onDelete: Cascade)
+  messages  WashMessage[]
+  issues    WashIssue[]
+  events    WashEvent[]
+  controlItems WashControlItem[]
+  okkReviews WashOkkReview[]
+  assignments Assignment[]
+
+  @@index([lineId])
+  @@index([factoryId, targetType])
+  @@index([startedById])
+}
+
+model WashMessage {
+  id            String   @id @default(uuid())
+  washSessionId String
+  userId        String
+  message       String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+
+  session WashSession @relation(fields: [washSessionId], references: [id], onDelete: Cascade)
+  user    User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([washSessionId])
+  @@index([userId])
+}
+
+model WashIssue {
+  id            String   @id @default(uuid())
+  factoryId     String?
+  washSessionId String
+  createdById   String
+  assignedToId   String?
+  resolvedById   String?
+  message       String
+  title         String?
+  description   String?
+  status        String   @default("OPEN")
+  isResolved    Boolean  @default(false)
+  resolveComment String?
+  resolvedAt    DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+
+  session   WashSession @relation(fields: [washSessionId], references: [id], onDelete: Cascade)
+  createdBy User        @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  assignedTo User?      @relation("WashIssueAssignedTo", fields: [assignedToId], references: [id], onDelete: SetNull)
+  resolvedBy User?      @relation("WashIssueResolvedBy", fields: [resolvedById], references: [id], onDelete: SetNull)
+
+  @@index([washSessionId])
+  @@index([createdById])
+  @@index([factoryId, status])
+  @@index([assignedToId])
+}
+
+model WashSettings {
+  id                              String   @id @default(uuid())
+  factoryId                       String   @unique
+  washIssueRequiresPhoto          Boolean  @default(false)
+  washIssueResolveRequiresPhoto   Boolean  @default(false)
+  washCompleteRequiresOkkReview   Boolean  @default(false)
+  washCompleteRequiresNoOpenIssues Boolean @default(true)
+  washMiniTasksEnabled            Boolean  @default(true)
+  washControlEnabled              Boolean  @default(true)
+  washOkkReviewEnabled            Boolean  @default(true)
+  washDefaultControlItems         Json?
+  washAllowNonLineWorkers         Boolean  @default(false)
+  washMessagesEnabled             Boolean  @default(true)
+  washAttachmentsEnabled          Boolean  @default(true)
+  createdAt                       DateTime @default(now())
+  updatedAt                       DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+}
+
+model DefrostSettings {
+  id                              String   @id @default(uuid())
+  factoryId                       String   @unique
+  defrostCommentRequiredOnStart   Boolean  @default(false)
+  defrostCommentRequiredOnEnd     Boolean  @default(false)
+  defrostShowOnLineDashboard      Boolean  @default(true)
+  defrostCalendarEnabled          Boolean  @default(true)
+  defrostAttachmentsEnabled       Boolean  @default(false)
+  createdAt                       DateTime @default(now())
+  updatedAt                       DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+}
+
+model Chamber {
+  id String @id @default(uuid())
+  factoryId String
+  lineId String? @unique
+  name String
+  hiddenAt DateTime?
+  hiddenById String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  line Line? @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  defrostEvents DefrostEvent[]
+
+  @@index([factoryId, hiddenAt])
+  @@index([factoryId, lineId, name, id])
+}
+
+model DefrostEvent {
+  id              String        @id @default(uuid())
+  factoryId       String
+  lineId          String?
+  chamberId       String?
+  startedById     String
+  endedById       String?
+  startAt         DateTime      @default(now())
+  endAt           DateTime?
+  durationSeconds Int?
+  status          DefrostStatus @default(ACTIVE)
+  eventType       String        @default("DEFROST")
+  comment         String?
+  endComment      String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @default(now()) @updatedAt
+
+  factory   Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  line      Line?    @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  chamber   Chamber? @relation(fields: [chamberId], references: [id], onDelete: Cascade)
+  startedBy User    @relation("DefrostStartedBy", fields: [startedById], references: [id], onDelete: Cascade)
+  endedBy   User?   @relation("DefrostEndedBy", fields: [endedById], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, status])
+  @@index([factoryId, startAt])
+  @@index([factoryId, eventType, startAt])
+  @@index([lineId, status])
+  @@index([lineId, eventType, startAt])
+  @@index([chamberId, status])
+}
+
+model WashEvent {
+  id            String   @id @default(uuid())
+  factoryId     String
+  washSessionId String
+  actorId       String?
+  type          String
+  text          String?
+  payload       Json?
+  createdAt     DateTime @default(now())
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  session WashSession @relation(fields: [washSessionId], references: [id], onDelete: Cascade)
+  actor   User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, createdAt])
+  @@index([washSessionId, createdAt])
+}
+
+model WashControlItem {
+  id            String   @id @default(uuid())
+  factoryId     String
+  washSessionId String?
+  lineId        String?
+  createdById   String
+  assignedToId  String?
+  title         String
+  description   String?
+  type          String   @default("CONTROL")
+  status        String   @default("OPEN")
+  targetType    String   @default("LINE")
+  objectName    String?
+  objectDescription String?
+  priority      String   @default("NORMAL")
+  dueAt         DateTime?
+  comment       String?
+  operationId   String?
+  version       Int      @default(1)
+  requiresPhoto Boolean  @default(false)
+  doneComment   String?
+  doneById      String?
+  doneAt        DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  deletedAt     DateTime?
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  session WashSession? @relation(fields: [washSessionId], references: [id], onDelete: Cascade)
+  line Line? @relation(fields: [lineId], references: [id], onDelete: SetNull)
+  createdBy User @relation("WashControlCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  assignedTo User? @relation("WashControlAssignedTo", fields: [assignedToId], references: [id], onDelete: SetNull)
+  doneBy User? @relation("WashControlDoneBy", fields: [doneById], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, status])
+  @@index([washSessionId, status])
+  @@index([factoryId, type, status])
+  @@index([lineId, status])
+  @@index([assignedToId])
+  @@unique([createdById, operationId])
+}
+
+model WashOkkReview {
+  id            String   @id @default(uuid())
+  factoryId     String
+  washSessionId String
+  okkUserId     String
+  status        String
+  rating        Int?
+  comment       String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  deletedAt     DateTime?
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  session WashSession @relation(fields: [washSessionId], references: [id], onDelete: Cascade)
+  okkUser User @relation("WashOkkReviewUser", fields: [okkUserId], references: [id], onDelete: Cascade)
+
+  @@index([factoryId, status])
+  @@index([washSessionId, createdAt])
+}
+
+model OkkRecord {
+  id               String    @id @default(uuid())
+  factoryId        String
+  lineId           String
+  createdById      String
+  assignedMasterId String
+  status           OkkStatus @default(BLOCKED)
+  description      String
+  acknowledged     Boolean   @default(false)
+  defectDate       DateTime?
+  productionDate   DateTime?
+  shiftLabel       String?
+  shiftSessionId   String?
+  article          String?
+  productName      String?
+  mismatchReason   String?
+  defectQuantity   String?
+  decision         String?
+  masterUserId     String?
+  masterNameSnapshot String?
+  temperatureAfterExtraFreeze String?
+  completionMark   String?
+  unblockDate      DateTime?
+  completedByUserId String?
+  completedByNameSnapshot String?
+  blockedByUserId  String?
+  blockedByNameSnapshot String?
+  correctiveActions String?
+  completedAt      DateTime?
+  archivedAt       DateTime?
+  archivedById     String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @default(now()) @updatedAt
+  deletedAt        DateTime?
+  version          Int       @default(1)
+
+  line           Line @relation(fields: [lineId], references: [id], onDelete: Cascade)
+  createdBy      User @relation("OkkCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  assignedMaster User @relation("OkkAssignedMaster", fields: [assignedMasterId], references: [id], onDelete: Cascade)
+  quantityReleaseOperations QuantityReleaseOperation[]
+
+  @@index([factoryId, archivedAt], map: "OkkRecord_factoryId_archivedAt_idx")
+
+  @@index([lineId])
+  @@index([createdById])
+  @@index([assignedMasterId])
+  @@index([factoryId, status])
+}
+
+model StockDefect {
+  id          String      @id @default(uuid())
+  factoryId   String
+  createdById String
+  productName String
+  name        String?
+  quantity    Int
+  unit        String?
+  status      StockStatus @default(ON_STOCK)
+  comment     String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @default(now()) @updatedAt
+  deletedAt   DateTime?
+  version     Int         @default(1)
+
+  createdBy User @relation("StockDefectCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+
+  @@index([factoryId, status])
+  @@index([createdById])
+}
+
+model ReturnRecord {
+  id          String   @id @default(uuid())
+  factoryId   String
+  createdById String
+  description String
+  photoUrl    String
+  receivedAt  DateTime?
+  productionDate DateTime?
+  article     String?
+  productName String?
+  mismatchReason String?
+  quantity    Int?
+  unit        String?
+  lineId      String?
+  decision    String?
+  completionMark String?
+  completedByUserId String?
+  completedByNameSnapshot String?
+  correctiveActionsComment String?
+  status      ReturnProductionStatus @default(ACTIVE)
+  completedAt DateTime?
+  archivedAt  DateTime?
+  archivedById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  deletedAt   DateTime?
+
+  createdBy User @relation("ReturnRecordCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  line      Line? @relation(fields: [lineId], references: [id], onDelete: SetNull)
+  quantityReleaseOperations QuantityReleaseOperation[]
+
+  @@index([factoryId, createdAt])
+  @@index([factoryId, status])
+  @@index([factoryId, archivedAt])
+  @@index([createdById])
+  @@index([lineId])
+}
+
+model QuantityReleaseOperation {
+  id                String                    @id @default(uuid())
+  factoryId         String
+  sourceType        QuantityReleaseSourceType
+  sourceId          String
+  okkRecordId       String?
+  returnRecordId    String?
+  actorId           String?
+  actorNameSnapshot String
+  quantity          Decimal                   @db.Decimal(20, 3)
+  unit              String
+  quantityBefore    Decimal                   @db.Decimal(20, 3)
+  quantityAfter     Decimal                   @db.Decimal(20, 3)
+  comment           String
+  operationId       String                    @unique
+  createdAt         DateTime                  @default(now())
+
+  factory      Factory       @relation(fields: [factoryId], references: [id], onDelete: Restrict)
+  okkRecord    OkkRecord?    @relation(fields: [okkRecordId], references: [id], onDelete: Restrict)
+  returnRecord ReturnRecord? @relation(fields: [returnRecordId], references: [id], onDelete: Restrict)
+  actor        User?         @relation("QuantityReleaseActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, sourceType, createdAt])
+  @@index([sourceType, sourceId, createdAt])
+  @@index([okkRecordId, createdAt])
+  @@index([returnRecordId, createdAt])
+  @@index([actorId, createdAt])
+}
+
+
+model ShiftLog {
+  id             String         @id @default(uuid())
+  factoryId      String
+  departmentId   String?
+  shiftSessionId String?
+  createdById    String
+  closedById     String?
+  title          String?
+  text           String
+  logDate        DateTime?
+  shiftLabel     String?
+  isImportant    Boolean        @default(false)
+  importantUntil DateTime?
+  status         ShiftLogStatus @default(ACTIVE)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  editedAt       DateTime?
+  closedAt       DateTime?
+  isDeleted      Boolean        @default(false)
+  deletedAt      DateTime?
+
+  createdBy User              @relation("ShiftLogCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  comments  ShiftLogComment[]
+  reads     ShiftLogRead[]
+
+  @@index([factoryId, createdAt])
+  @@index([factoryId, departmentId, createdAt])
+  @@index([factoryId, logDate])
+  @@index([factoryId, isImportant, status])
+  @@index([createdById])
+}
+
+model ShiftLogComment {
+  id        String   @id @default(uuid())
+  factoryId String?
+  logId      String
+  userId     String
+  text       String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+  deletedAt  DateTime?
+
+  log  ShiftLog @relation(fields: [logId], references: [id], onDelete: Cascade)
+  user User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([logId])
+  @@index([userId])
+}
+
+model ShiftLogRead {
+  id     String   @id @default(uuid())
+  logId  String
+  userId String
+  readAt DateTime @default(now())
+
+  log ShiftLog @relation(fields: [logId], references: [id], onDelete: Cascade)
+
+  @@unique([logId, userId])
+  @@index([userId])
+}
+
+model ShiftSession {
+  id          String             @id @default(uuid())
+  factoryId   String
+  userId      String
+  startedAt   DateTime
+  endedAt     DateTime?
+  shiftType   ShiftType
+  status      ShiftSessionStatus @default(ACTIVE)
+  startedById String?
+  endedById   String?
+  autoClosed  Boolean            @default(false)
+  durationHours Int               @default(12)
+  plannedEndAt DateTime?
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @default(now()) @updatedAt
+  version     Int                @default(1)
+
+  user      User  @relation("ShiftSessionUser", fields: [userId], references: [id], onDelete: Cascade)
+  startedBy User? @relation("ShiftStartedBy", fields: [startedById], references: [id], onDelete: SetNull)
+  endedBy   User? @relation("ShiftEndedBy", fields: [endedById], references: [id], onDelete: SetNull)
+  lineShiftStates LineShiftState[]
+  workAreaShiftStates WorkAreaShiftState[]
+  lineShiftResults LineShiftResult[]
+  lineShiftWorkPlans LineShiftWorkPlan[]
+  returnRequests ShiftReturnRequest[]
+
+  @@index([factoryId, status])
+  @@index([userId, factoryId, status])
+  @@index([startedAt])
+  @@index([status, plannedEndAt])
+}
+
+model ShiftSettings {
+  id                                String   @id @default(uuid())
+  factoryId                         String   @unique
+  dayShiftStartTime                 String   @default("08:00")
+  dayShiftEndTime                   String   @default("20:00")
+  nightShiftStartTime               String   @default("20:00")
+  nightShiftEndTime                 String   @default("08:00")
+  willBeOpenHoursBeforeShift        Int      @default(24)
+  noShowCheckMinutesAfterShiftStart Int      @default(60)
+  minAssignmentMoveIntervalMinutes  Int      @default(5)
+  contractorLeadMaxPeoplePerShift   Int      @default(6)
+  returnRequestEnabled              Boolean  @default(true)
+  autoCloseChecklistsAtShiftEnd     Boolean  @default(false)
+  sendHomeRequiresComment           Boolean  @default(true)
+  willBeCancelRequiresComment       Boolean  @default(true)
+  createdAt                         DateTime @default(now())
+  updatedAt                         DateTime @default(now()) @updatedAt
+
+  factory Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+}
+
+model ShiftWillBe {
+  id              String            @id @default(uuid())
+  factoryId       String
+  userId          String
+  targetShiftDate DateTime
+  shiftType       ShiftType
+  status          ShiftWillBeStatus @default(WILL_BE)
+  comment         String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @default(now()) @updatedAt
+  cancelledAt     DateTime?
+  removedById     String?
+  removedAt       DateTime?
+
+  factory   Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  user      User    @relation("ShiftWillBeUser", fields: [userId], references: [id], onDelete: Cascade)
+  removedBy User?   @relation("ShiftWillBeRemovedBy", fields: [removedById], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, targetShiftDate, shiftType, status])
+  @@index([userId, targetShiftDate, shiftType])
+}
+
+model ContractorShiftSubmission {
+  id                  String                     @id @default(uuid())
+  factoryId           String
+  leadId              String
+  companyId           String?
+  companyNameSnapshot String?
+  targetShiftDate     DateTime
+  shiftType           ShiftType
+  status              ContractorSubmissionStatus @default(DRAFT)
+  comment             String?
+  version             Int                        @default(1)
+  createdAt           DateTime                   @default(now())
+  updatedAt           DateTime                   @default(now()) @updatedAt
+
+  factory Factory                   @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  lead    User                      @relation("ContractorSubmissionLead", fields: [leadId], references: [id], onDelete: Cascade)
+  company ExternalCompany?         @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  items   ContractorShiftSubmissionItem[]
+
+  @@index([factoryId, targetShiftDate, shiftType, status], map: "ContractorShiftSubmission_factoryId_targetShiftDate_shiftType_s")
+  @@index([leadId, targetShiftDate, shiftType])
+  @@index([companyId, targetShiftDate, shiftType], map: "ContractorShiftSubmission_companyId_targetShiftDate_shiftType_i")
+}
+
+model ContractorShiftSubmissionItem {
+  id               String                         @id @default(uuid())
+  submissionId     String
+  contractorUserId String
+  status           ContractorSubmissionItemStatus @default(PROPOSED)
+  actualStatus     ContractorActualStatus         @default(PLANNED)
+  actualById       String?
+  actualAt         DateTime?
+  masterComment    String?
+  decidedById      String?
+  decidedAt        DateTime?
+  createdAt        DateTime                       @default(now())
+  updatedAt        DateTime                       @default(now()) @updatedAt
+  version          Int                            @default(1)
+
+  submission     ContractorShiftSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  contractorUser User                      @relation("ContractorSubmissionItemUser", fields: [contractorUserId], references: [id], onDelete: Cascade)
+  decidedBy      User?                     @relation("ContractorSubmissionItemDecidedBy", fields: [decidedById], references: [id], onDelete: SetNull)
+  actualBy       User?                     @relation("ContractorSubmissionItemActualBy", fields: [actualById], references: [id], onDelete: SetNull)
+
+  @@unique([submissionId, contractorUserId])
+  @@index([contractorUserId])
+  @@index([status])
+  @@index([actualStatus])
+}
+
+model ShiftReturnRequest {
+  id              String                   @id @default(uuid())
+  factoryId       String
+  userId          String
+  shiftSessionId  String?
+  requestedById   String
+  reason          String
+  status          ShiftReturnRequestStatus @default(PENDING)
+  decidedById     String?
+  decisionComment String?
+  createdAt       DateTime                 @default(now())
+  decidedAt       DateTime?
+  updatedAt       DateTime                 @default(now()) @updatedAt
+
+  factory      Factory       @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  user         User          @relation("ShiftReturnRequestUser", fields: [userId], references: [id], onDelete: Cascade)
+  requestedBy  User          @relation("ShiftReturnRequestedBy", fields: [requestedById], references: [id], onDelete: Cascade)
+  decidedBy    User?         @relation("ShiftReturnDecidedBy", fields: [decidedById], references: [id], onDelete: SetNull)
+  shiftSession ShiftSession? @relation(fields: [shiftSessionId], references: [id], onDelete: SetNull)
+
+  @@index([factoryId, status, createdAt])
+  @@index([userId, status])
+  @@index([shiftSessionId])
+}
+
+
+model ProcessedOperation {
+  id          String   @id @default(uuid())
+  userId      String
+  operationId String
+  resultKey   String?
+  createdAt   DateTime @default(now())
+
+  @@unique([userId, operationId])
+  @@index([createdAt])
+}

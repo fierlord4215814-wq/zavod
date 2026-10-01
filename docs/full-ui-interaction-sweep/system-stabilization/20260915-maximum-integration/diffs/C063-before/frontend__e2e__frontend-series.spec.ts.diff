@@ -1,0 +1,20 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-before\\frontend\\e2e\\frontend-series.spec.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\frontend-series.spec.ts"
+index eb011e9e..aedd211a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\C063-before\\frontend\\e2e\\frontend-series.spec.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\frontend-series.spec.ts"
+@@ -1,5 +1,7 @@
+ import { expect, test, Page, WebSocketRoute } from '@playwright/test';
+ import { permissions, records, network, errors, unknown, json, before, isolate, shot, save, open, end, geometry, serviceTask, person, taskRow, taskSummary, lineRow, linkedReplies } from './helpers/frontend-series';
++import { installEvidenceHooks } from './helpers/frontend-series';
++installEvidenceHooks();
+ 
+ test('Series A navigation geometry and history end controls',async ({page})=>{
+   test.setTimeout(240000);
+@@ -109,6 +111,7 @@ test('Series B delayed board missing target and one-shot reload',async({page})=>
+   test.setTimeout(60000);
+   let release: (()=>void)|undefined; let mode='delay';
+   await isolate(page,{replies:async(route,p)=>{
++    if(p==='/tasks/series-task'&&mode==='missing') {await json(route,{message:'Заявка не найдена.'},404);return true;}
+     if(p==='/tasks/board') {
+       if(mode==='delay') await new Promise<void>(resolve=>{release=resolve;});
+       await json(route,mode==='missing'?{NEW:[],IN_PROGRESS:[],LONG:[],DONE:[]}:{NEW:[],IN_PROGRESS:[taskRow],LONG:[],DONE:[]});return true;

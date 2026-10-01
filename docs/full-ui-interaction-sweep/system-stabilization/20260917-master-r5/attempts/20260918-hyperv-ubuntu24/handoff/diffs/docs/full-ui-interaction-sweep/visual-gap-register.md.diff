@@ -1,0 +1,23 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+index 53785e9e..dc9c6df2 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+@@ -1,14 +1,14 @@
+ # Full UI Interaction Sweep — gap register
+ 
+-## Current source layer — MASTER R5 checkpoint, 17.09.2026
++## Current source layer — MASTER R5 checkpoint, 19.09.2026
+ 
+-MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_AND_COMPATIBILITY_REVIEW_REQUIRED; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. [R5 result](system-stabilization/20260917-master-r5/final-report.md), [единая очередь решений](system-stabilization/20260917-master-r5/decision-queue.md), [resume](system-stabilization/20260917-master-r5/resume-prompt.txt). Это environment checkpoint, не новый whole-system sweep и не новый product finding/P-count.
++MASTER_R5_STATUS=WAITING_MANUAL_REBOOT; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. [R5 result](system-stabilization/20260917-master-r5/final-report.md), [единая очередь решений](system-stabilization/20260917-master-r5/decision-queue.md), [resume](system-stabilization/20260917-master-r5/resume-prompt.txt). Это environment checkpoint, не новый whole-system sweep и не новый product finding/P-count.
+ 
+-Изменение ENV-C1: разрешение на установку одного механизма получено в R5; old «installation not authorized» не актуален. Inventory подтверждён, но Sandbox UAC отменён до elevated installer и full Playwright1.60/Win10guest compatibility не подтверждается официальными требованиями. Установка/изолированная среда/fixtures не созданы. Новый UAC без подтверждения и пересмотра совместимости не повторять. Reboot requirement UNKNOWN, не продуктовый дефект.
++Изменение ENV-C1: пользователь разрешил Hyper-V + Ubuntu24.04 после полной платформенной проверки.19.09 native DISM/UAC успешно выполнил scoped enable, actual administrator token=true, exit3010;7 Hyper-V features2→1, unrelateddelta0. Hypervisor ещё false; reboot required=yes подтверждён log/receipt, /NoRestart подавил автоматический reboot. ENV-C1 ещё НЕ закрыт: VM/guest round-trip/isolation/app stack NOT_RUN. Новый blocker — ручная перезагрузка и actual stage2 verification, не новая установка и не productfinding. Старые Sandbox cancellation/WinPS5.1 helper failure сохранены, policies/dependencies не ослаблялись.
+ 
+ MI-SEC-01/MI-PUB-01/MI-R2-ORD-01/MI-R2-CHAT-ATT-01/UI-SWEEP-036: source/isolated R4 retained; R5 live0 у каждого, NOT_RUN_ENVIRONMENT. Новых product/test/schema fixes, captures и прогонов нет.036 P1 live-pending/19bindings не19livePASS; ordinary/handover comments остаются отдельными.063 P2 original1286→1213UNKNOWN, не связан функционально с036.014 exact historical facts/050 alternatives/replay/publication decisions не решены и не ослаблены; missing-option/pristineBack не возвращены в UNKNOWN; THV06/FS15 не задвоены. Все matrices/P0=0/P1=1/P2=10 сохранены как historical, не новая приёмка.
+ 
+-Current product/build/config/harness совпали с R4 по bytes. Working DB/service/env/uploads/protected history untouched; main sweep/phone/Stage68/Load/public access не возобновлялись. Точная UAC error и собственная doc-only delta сохранены в R5 batch, Library sync NOT_WRITTEN.
++Current product/build/config/harness19.09 совпали с R4 по bytes,6parentmatrices unchanged. Working DB/service/env/uploads/protected history untouched; main sweep/phone/Stage68/Load/public access не возобновлялись. В R5 batch сохранены обе прежние ошибки, новый exact DISM command/hash/token/before/after/exit/reboot proof и собственная doc/evidence delta. Product fixes0, Library sync NOT_WRITTEN.
+ 
+ ## Previous source layer — MASTER R4, 16.09.2026
+ 

@@ -1,0 +1,71 @@
+--- /dev/null
++++ frontend/e2e/master-r2-return.spec.ts
+@@ -0,0 +1,68 @@
++import {expect,test} from '@playwright/test';
++import {isolate,linkedReplies,json,open,shot,person,lineRow,taskRow,permissions,records,save,unknown,errors,network,installEvidenceHooks} from './helpers/frontend-series';
++installEvidenceHooks();
++// Persisted UI read snapshots only; no assignment or task mutation is simulated.
++const pos={id:'return-position',title:'Оператор',name:'Оператор',plannedCount:12,minRequired:12,maxRequired:12,defaultPlanned:12,isFlexible:false,isExtraSlot:false,doesNotAffectShortage:false};
++const template={id:'return-template',name:'Основной состав',items:[]};
++const line={...lineRow,isActiveForShift:true,activeTemplate:template,staffingTemplates:[template],positions:[pos]};
++const people=Array.from({length:12},(_,i)=>({...person,id:i===8?person.id:`return-person-${i}`,userId:i===8?person.id:`return-person-${i}`,displayName:i===8?person.displayName:`Сотрудников Сергей ${i+1}`,role:'WORKER',employeeState:'ASSIGNED'}));
++const slots=people.map((p,i)=>({positionId:pos.id,positionName:pos.title,slotIndex:i+1,assignment:{id:`return-assignment-${i}`,userId:p.id,displayName:p.displayName,startedAt:'2026-09-15T06:00:00Z'}}));
++const board={line,activeTemplate:template,structureConfigured:true,structureMessage:null,positions:[pos],slots,candidates:[],shortage:[]};
++const shortage={...pos,workAreaPositionId:pos.id,required:12,actual:12,missing:0};
++const area={id:'return-area',name:'Повременщики упаковки',assignmentKind:'TIME',positions:[pos],shortageSummary:[shortage]};
++const areaSlots=slots.map(s=>({...s,...pos,title:pos.title,workAreaPositionId:pos.id}));
++const future={shiftDate:'2026-09-17',targetShiftDate:'2026-09-17',shiftType:'NIGHT',label:'Ночная смена'};
++for(const role of ['MASTER','TECH_MECHANIC'] as const)test(`R2-E-J04 People ${role} nonzero scroll filters task Back exact restore`,async({page})=>{
++ await page.addInitScript(()=>{(window as any).__r2ReturnProbe=[];document.addEventListener('pointerdown',event=>{if((event.target as Element).closest('.people-compact-row'))(window as any).__r2ReturnProbe.push({event:'row-pointerdown',scroll:scrollY,top:document.body.style.top});},true);window.addEventListener('zavod:navigate',event=>(window as any).__r2ReturnProbe.push({event:'navigate',detail:(event as CustomEvent).detail,top:document.body.style.top}));});
++ const list=Array.from({length:18},(_,i)=>({...person,id:i===14?person.id:`scroll-person-${i}`,userId:i===14?person.id:`scroll-person-${i}`,displayName:i===14?person.displayName:`Сервисный Сергей ${i+1}`}));
++ await isolate(page,{role,replies:async(r,p)=>{if(p==='/people'){await json(r,{people:list,groups:{}});return true;}if(p==='/people/search'){await json(r,{queryAccepted:true,message:null,context:null,results:[]});return true;}if(p==='/tasks/board'){await json(r,{NEW:[],IN_PROGRESS:[],LONG:[],DONE:[]});return true;}return linkedReplies(r,p);}});
++ await page.setViewportSize({width:390,height:640});await page.goto('/');await open(page,'Люди');await page.locator('.people-shift-tabs').getByRole('button',{name:'На смене',exact:true}).click();await page.getByRole('button',{name:'Поиск и фильтры',exact:true}).click();await page.locator('.people-category-tabs').getByRole('button',{name:'Службы',exact:true}).click();await page.locator('.people-search-panel input').fill('Сервис');await page.getByRole('button',{name:'Показать',exact:true}).click();
++ const row=page.locator('.people-compact-row').filter({hasText:'Сервисов'});await row.scrollIntoViewIfNeeded();const scroll=await page.evaluate(()=>scrollY);expect(scroll).toBeGreaterThan(100);await shot(page,`J04-People-${role}-before`,{scroll,state:'populated-filtered-list'});await row.click();await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();await expect(page.getByRole('dialog')).toContainText(taskRow.description);await page.goBack();await page.goBack();await expect(page.locator('.profile-card')).toBeVisible();await page.goBack();await expect(page.locator('.profile-card')).toBeHidden();
++ records.push({returnProbe:await page.evaluate(()=>({events:(window as any).__r2ReturnProbe,actual:scrollY,top:document.body.style.top,locked:document.body.classList.contains('app-scroll-locked'),height:document.documentElement.scrollHeight,nav:getComputedStyle(document.documentElement).getPropertyValue('--shell-navigation-inset')})),expected:scroll});save();
++ await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(scroll);await expect(page.locator('.people-shift-tabs').getByRole('button',{name:'На смене',exact:true})).toHaveAttribute('aria-pressed','true');await shot(page,`J04-People-${role}-returned`,{scroll,state:'exact-return-scroll'});await page.getByRole('button',{name:'Поиск и фильтры',exact:true}).click();await expect(page.locator('.people-search-panel input')).toHaveValue('Сервис');await expect(page.locator('.people-category-tabs').getByRole('button',{name:'Службы',exact:true})).toHaveAttribute('aria-pressed','true');expect(errors).toEqual([]);expect(unknown).toEqual([]);
++});
++for(const role of ['MASTER','MANAGEMENT'])for(const variant of ['current-line','work-area','planning-line','future-work-area','attendance'])test(`R2-E-J04 ${role} ${variant} nonzero parent exact task outside board return`,async({page})=>{
++ await isolate(page,{role:'MASTER',replies:async(r,p)=>{
++  if(p==='/auth/me'){await json(r,{userId:'series-user',selectedFactoryId:'series-factory',role,isAdmin:false,isGuest:false,departmentId:'series-department',permissions,displayName:'Руководитель смены',availableFactories:[{id:'series-factory',name:'Изолированный завод',role,isGuest:false}]});return true;}
++  if(p==='/shift/people'){await json(r,people);return true;}
++  if(p==='/lines'||p==='/lines/shift-overview'){await json(r,[line]);return true;}
++  if(p==='/work-areas'){await json(r,[area]);return true;}
++  if(p==='/work-areas/return-area/board'){await json(r,{workArea:area,slots:areaSlots,shortage:[shortage],candidates:[]});return true;}
++  if(p==='/lines/series-line/dashboard'){await json(r,{line,staffingTemplates:[template],activeTemplate:template,assignedCount:12,requiredCount:12,structureConfigured:true,assignmentsByPosition:[],withoutPosition:[],activeTasks:[],activeWash:[],recentEvents:[]});return true;}
++  if(p==='/lines/series-line/assignment-board'){await json(r,board);return true;}
++  if(p==='/lines/series-line/planning-board'){await json(r,{...board,...future,statusLabel:'Запланирована',staffingTemplate:template,counts:{planned:12,freeSlots:0,willBeCandidates:12}});return true;}
++  if(p==='/shift/timeline'){await json(r,{current:{...future,shiftDate:'2026-09-15',targetShiftDate:'2026-09-15',shiftType:'DAY'},next:future,future:[future],past:[]});return true;}
++  if(p==='/shift/future'){await json(r,{...future,willBe:people.map(p=>({id:'will-'+p.id,userId:p.id,displayName:p.displayName,status:'WILL_BE'})),contractorSubmissions:[],plannedNonLineAssignments:[],plannedLines:[{lineId:line.id,lineName:line.name,statusLabel:'Запланирована',staffingTemplateId:template.id,staffingTemplateName:template.name,plannedAssignmentsCount:12,plannedSlots:12,shortageCount:0,workPlanRowsCount:0}],counts:{willBe:12,cancelled:0,removed:0,contractorItems:0,plannedLines:1,plannedSlots:12,plannedAssignments:12,plannedNonLineAssignments:0,confirmedUnassigned:0,assignedUnconfirmed:0,deficit:0,surplus:0}});return true;}
++  if(p==='/shift/future-assignment-board'){await json(r,{...future,assignments:[],workAreas:[{...area,positions:[{...pos,slots:areaSlots.map(s=>({...s,assignment:{...s.assignment,kind:'TIME',targetLabel:area.name,workAreaId:area.id,workAreaPositionId:pos.id}}))}]}],candidates:[],counts:{planned:12,wash:0,time:12,workArea:0}});return true;}
++  if(p==='/tasks/board'){await json(r,{NEW:[],IN_PROGRESS:[],LONG:[],DONE:[]});return true;}
++  return linkedReplies(r,p);
++ }});
++ await page.addInitScript(()=>{(window as any).r2Returns=[];window.addEventListener('zavod:navigate',e=>{const d=(e as CustomEvent).detail;if(d.taskReturn)(window as any).r2Returns.push(d);});});
++ await page.setViewportSize({width:390,height:640});await page.goto('/');await open(page,'Смена');
++ let selector='';
++ if(variant==='current-line'){await page.locator('.current-shift-line-card').filter({hasText:line.name}).getByRole('button',{name:'Подробнее',exact:true}).click();selector='.compact-line-dashboard';}
++ if(variant==='work-area'){await page.getByRole('button',{name:'Открыть повременщиков',exact:true}).click();selector='.work-area-assignment-board';}
++ if(variant==='planning-line'||variant==='future-work-area'){
++  await page.locator('.shift-selector-compact').click();await page.getByRole('button',{name:/Следующая смена/}).click();
++  if(variant==='planning-line'){await page.locator('.planned-line-row').click();selector='.planning-assignment-scroll';}
++  else{await page.getByRole('button',{name:/Подтвердили «Я буду»/}).click();await page.locator('#future-planning-search').fill('Сервисов');await page.locator('#future-planning-search').blur();await page.locator('.future-planning-panel').getByRole('button',{name:'Назначить',exact:true}).click();selector='.future-nonline-assignment-modal';}
++ }
++ if(variant==='attendance'){await page.locator('.current-shift-person-row').filter({hasText:'Сервисов'}).getByRole('button',{name:'Подробнее',exact:true}).scrollIntoViewIfNeeded();await page.locator('.current-shift-person-row').filter({hasText:'Сервисов'}).getByRole('button',{name:'Подробнее',exact:true}).click();}
++ else{
++  const parent=page.locator(selector),row=parent.locator('.slot-row').filter({hasText:'Сервисов'});await expect(parent).toBeVisible();
++  await row.scrollIntoViewIfNeeded();
++  if(variant==='current-line'||variant==='work-area'){await row.getByRole('button',{name:'Действия',exact:true}).click();await page.locator('.slot-actions-sheet').getByRole('button',{name:/Профиль/}).click();}
++  else await row.getByRole('button',{name:'Профиль',exact:true}).click();
++ }
++ await expect(page.locator('.profile-card')).toBeVisible();await page.locator('.profile-card').getByRole('button',{name:'Посмотреть заявку',exact:true}).click();await expect(page.getByRole('dialog')).toContainText(taskRow.description);
++ const intent=await page.evaluate(()=>(window as any).r2Returns.at(-1));expect(intent.taskId).toBe(taskRow.id);expect(intent.taskReturn.profileId).toBe(person.id);
++ if(selector){expect(intent.taskReturn.parentScroll.find((r:any)=>r.selector===selector).top).toBeGreaterThan(0);}else expect(intent.taskReturn.pageTop).toBeGreaterThan(0);
++ if(variant==='planning-line'){expect(intent.taskReturn.planning).toMatchObject({lineId:line.id,shiftDate:future.shiftDate,shiftType:'NIGHT',templateId:template.id});}
++ if(variant==='work-area')expect(intent.taskReturn.workAreaId).toBe(area.id);
++ if(variant==='future-work-area')expect(intent.taskReturn.futureBoard).toEqual({shiftDate:future.shiftDate,shiftType:'NIGHT'});
++ await page.goBack();await page.goBack();await expect(page.locator('.profile-card')).toBeVisible();await page.goBack();await expect(page.locator('.profile-card')).toBeHidden();
++ if(selector){const top=intent.taskReturn.parentScroll.find((r:any)=>r.selector===selector).top;await expect.poll(()=>page.locator(selector).evaluate(e=>e.scrollTop)).toBe(top);}else await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBe(intent.taskReturn.pageTop);
++ if(variant==='future-work-area'){await page.locator(selector).getByRole('button',{name:'Закрыть',exact:true}).click();await expect(page.locator('#future-planning-search')).toHaveValue('Сервисов');}
++ records.push({variant,role,actualSourceIntent:intent,layer:'browser-interception-no-business-assignment-write'});save();await shot(page,`J04-${role}-${variant}-returned`,{state:'native-parent-restored'});expect(network.filter(n=>n.path==='/tasks/series-task').length).toBeGreaterThan(0);expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++

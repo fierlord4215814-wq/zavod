@@ -1,0 +1,62 @@
+{
+  "stage": "PHYSICAL FIELD FIXES V5 - PLAST 5",
+  "generatedAt": "2026-08-09T09:10:13+03:00",
+  "backendRuns": [
+    {
+      "marker": "__PFFV5_P5_1786254598940_15220__",
+      "announcementIds": [
+        "ed7de1d5-0963-4e60-9a95-20f67d6f57b3",
+        "b3867549-7b91-4da9-91b4-0c53a6a8b49d",
+        "cecefdd5-37cb-42df-88b5-1017efc72b13"
+      ],
+      "notificationIds": [
+        "187ffacf-8c68-45ce-8196-93dc862b0576"
+      ],
+      "departmentIds": [
+        "e221b3dc-51e2-48b0-aacb-6ac0ce195e4d"
+      ],
+      "cleanup": "archived and soft-deactivated"
+    },
+    {
+      "marker": "__PFFV5_P5_1786255377994_11540__",
+      "announcementIds": [
+        "6f2319ba-8725-4158-9dec-5b3d1b24d914",
+        "06b13e0d-7355-4c7e-82c0-aadfde51a41b",
+        "93c9616d-3422-491e-8ab7-d1c42c9aabff"
+      ],
+      "notificationIds": [
+        "a1dfb66a-4847-4b5b-8f94-6a52e4b0ff9f"
+      ],
+      "departmentIds": [
+        "bcf355f1-a407-42bb-a376-e740cac8dc17"
+      ],
+      "cleanup": "archived and soft-deactivated"
+    }
+  ],
+  "browserRun": {
+    "attempted": true,
+    "testsStarted": false,
+    "artifactsCreated": false,
+    "status": "BLOCKED_EXTERNAL_BROWSER_RUNTIME",
+    "reason": "Vite webServer could not read frontend/vite.config.ts because the external sandbox returned Access is denied"
+  },
+  "affectedRegressions": {
+    "stage23Chats": "PASS; test message soft-deleted by existing flow",
+    "stage24Announcements": "PASS; test announcements archived",
+    "stage52FullscreenAnnouncements": "PASS; test announcements archived",
+    "chatMobileMessenger": "PASS; test chat archived",
+    "notificationRouting": "PASS",
+    "realtimeWebSocket": "PASS"
+  },
+  "cleanup": {
+    "activeAnnouncements": 0,
+    "activeRecurrences": 0,
+    "activeAccesses": 0,
+    "activeDepartments": 0,
+    "activeChats": 0,
+    "preexistingEntitiesDeleted": 0,
+    "physicalDeleteUsed": false,
+    "resetDropTruncateUsed": false,
+    "historicalSoftDeletedOrArchivedRecordsRetained": true
+  }
+}

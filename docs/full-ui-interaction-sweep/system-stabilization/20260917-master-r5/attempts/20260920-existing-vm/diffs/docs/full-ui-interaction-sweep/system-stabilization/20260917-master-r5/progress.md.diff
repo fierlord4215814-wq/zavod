@@ -1,0 +1,26 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+index 1ac7d84c..0933beb7 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+@@ -1,6 +1,20 @@
+ # MASTER R5 — recoverable checkpoint
+ 
+-MASTER_R5_STATUS=BLOCKED_CONSOLE_OBSERVATION_PERMISSION. EXECUTION_STATUS=GRACEFUL_OWN_SHUTDOWN_UNVERIFIED_HANDOFF. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO.
++MASTER_R5_STATUS=BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS. EXECUTION_STATUS=WAITING_OWN_HELPER_STATE_AND_GUEST_CONSOLE. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO.
++
++## Текущий checkpoint — 20.09.2026 16:34+03
++
++Последняя завершённая операция: bounded read-only observer PID8296 штатно завершён; собственный не подключившийся viewer9616 после accessibility error observation закрыт обычным Alt+F4, PID отсутствует. VM была Running16:26:38, guest screen UNVERIFIED. Thumbnail actual lengths614404/153604 приexpected614400/153600, API0; guard не ослаблялся. VMConnect non-admin access denied; screenshot через computer-use дважды failed SetIsBorderRequired0x80004002. Ни наличие viewer, ни accessibility error не доказывают состояние Ubuntu.
++
++Незавершённая операция: old helper9056/start08:26:22.464087/exactcommandline подтверждён и жив;000006SHUTDOWN/000007EXIT безresults/terminal. Associated jobs=[] не доказывает отмену. Конкретная строка ожидания UNKNOWN. Нового mutating helper/UAC/BOOT/SHUTDOWN/KEYS не было. Пользователю нужны последние строки старого helper без ввода/Force и отдельный кадр только ownVMConnect, вручную открытого от администратора. До этой сверки нельзя продолжать install с возможным delayedshutdown.
++
++Все5gates/newjourneys/tests/builds/productfixes0; parent6matrices без новыхPASS. Existing runtime artifacts/3старыхZIP сохранены. Current attempt `attempts/20260920-existing-vm/`, final runtime/retention/досье и новый unique reviewZIP фиксируются receipts. Следовать актуальному resume, не перезапускать завершённый observer/старый provisioning controller. Working DB/service/env/uploads/history не опрашивать. Дальше только сохранение checkpoint/package, затем STOP на реальной runtime/console boundary, не приёмка.
++
++## Завершённый промежуточный checkpoint — 20.09.2026 16:26+03
++
++Новое поручение ef597b09 разрешило один read-only observer UAC и первоначальный просмотр VMConnect, а новый контроллер — только после завершения старого и сверки операций. Bounded observer PID8296 actual elevated token подтверждён, завершился штатно за 6 секунд. VM99a158da-c247-422c-ae11-109485a92b1f: EnabledState2/OperationalStatus2, прежние BIOSGUID/Gen2/own VHDX и два ISO подтверждены; associated jobs=[] в двух наблюдениях. Helper9056 подтверждён по PID/start/полной command line, жив. SHUTDOWN000006 и EXIT000007 остаются без результатов/terminal; отсутствие jobs НЕ означает отмену queued shutdown. Новые BOOT/SHUTDOWN/KEYS и второй контроллер запрещены до прояснения.
++
++Thumbnail API дважды вернул0 и System.Byte[]: 640×480 →614404bytes вместо614400; 320×240 →153604 вместо153600. Видеоголовка1024×768/32bpp. Невалидный по документированному RGB565 contract буфер не обрезался/не дополнялся, изображения не декодировались; причина дополнительных4bytes UNKNOWN. Следующий шаг — разрешённый native VMConnect только этой VM, пока без ввода, затем решение по старой операции. Evidence: attempts/20260920-existing-vm/. Product/DB/fixtures/gates0. Hyper-V готов, DISM/создание VM не повторялись. Исторические checkpoint ниже не являются текущими командами.
+ 
+ ## Safe handoff checkpoint — 20.09.2026 08:55+03
+ 

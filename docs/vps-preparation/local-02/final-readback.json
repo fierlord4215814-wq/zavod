@@ -1,0 +1,64 @@
+{
+  "readOnly": true,
+  "widths": [
+    {
+      "width": 360,
+      "noHorizontalOverflow": true,
+      "referenceAndResultLoaded": true,
+      "archiveReadOnly": true
+    },
+    {
+      "width": 390,
+      "noHorizontalOverflow": true,
+      "referenceAndResultLoaded": true,
+      "archiveReadOnly": true
+    },
+    {
+      "width": 1440,
+      "noHorizontalOverflow": true,
+      "referenceAndResultLoaded": true,
+      "archiveReadOnly": true
+    }
+  ],
+  "roleDenials": {
+    "WORKER": {
+      "list": 403,
+      "effectiveChatPermissions": [],
+      "chatMenu": false
+    },
+    "CONTRACTOR": {
+      "list": 403,
+      "effectiveChatPermissions": [],
+      "chatMenu": false
+    }
+  },
+  "ready": {
+    "ready": true,
+    "code": "READY"
+  },
+  "version": {
+    "name": "zavod",
+    "stage": "vps-prep-02",
+    "version": "LOCAL02-20260924-C1"
+  },
+  "migrations": 57,
+  "defaults": [
+    {
+      "role": "CONTRACTOR_LEAD",
+      "permissionCode": "chats.access",
+      "isActive": true
+    },
+    {
+      "role": "WORKER",
+      "permissionCode": "chats.read",
+      "isActive": false
+    },
+    {
+      "role": "WORKER",
+      "permissionCode": "chats.write",
+      "isActive": false
+    }
+  ],
+  "tempBActive": false,
+  "fixtureAccessActive": false
+}

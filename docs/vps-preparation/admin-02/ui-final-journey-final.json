@@ -1,0 +1,1700 @@
+{
+  "status": "PASS_UNINTERRUPTED_TWO_CONTEXT_UI_HTTP_SQL_WS_A0_UNCHANGED",
+  "steps": [
+    {
+      "name": "self-start-C",
+      "status": 201,
+      "id": "df9f5dd5-2c3d-42b0-95cf-2d866b12cb45"
+    },
+    {
+      "name": "UI-assignment-worker-second-page",
+      "status": 201,
+      "id": "829c8092-fdd0-42d7-abc6-7c424edcfe39",
+      "ms": 1612
+    },
+    {
+      "name": "UI-home-new-provenance-no-stale-approved-feedback",
+      "status": 201
+    },
+    {
+      "name": "UI-request-both-open-pages",
+      "status": 201,
+      "id": "7f69293c-0321-4574-9429-ef0d4ed308b8",
+      "ms": 328
+    },
+    {
+      "name": "UI-reject-worker-second-page-Back",
+      "status": 200,
+      "ms": 434
+    },
+    {
+      "name": "UI-request-both-open-pages",
+      "status": 201,
+      "id": "3d7e3ea1-48f1-4f89-9584-d3efaf50e38e",
+      "ms": 311
+    },
+    {
+      "name": "UI-approve-worker-second-page-busy-real-response",
+      "status": 200
+    },
+    {
+      "name": "UI-reassign-after-approved",
+      "id": "bbae57cc-dc36-4bb4-8881-ac447d84e3fd",
+      "status": 201
+    }
+  ],
+  "startedAt": "2026-09-26T18:22:51.456Z",
+  "a0Before": {
+    "digest": "0ddbb45de35e0d19ffe6fbe8d2126fc60b97935838e0e5e2c18170e7b32ec303",
+    "counts": {
+      "userFactoryAccess": 37,
+      "assignment": 2,
+      "shiftSession": 13,
+      "shiftReturnRequest": 0,
+      "auditLog": 108
+    }
+  },
+  "realIntervalWaitMs": 56394,
+  "a0After": {
+    "digest": "0ddbb45de35e0d19ffe6fbe8d2126fc60b97935838e0e5e2c18170e7b32ec303",
+    "counts": {
+      "userFactoryAccess": 37,
+      "assignment": 2,
+      "shiftSession": 13,
+      "shiftReturnRequest": 0,
+      "auditLog": 108
+    }
+  },
+  "http": {
+    "master": [
+      {
+        "path": "/api/auth/login",
+        "method": "POST",
+        "status": 201
+      },
+      {
+        "path": "/api/auth/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/auth/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/chats",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/notifications/unread-count",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/announcements/current",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/tasks",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/auth/assignment-request",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/downtime-reasons",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/health",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift-log/handover/availability",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift-log/handover/previous",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/dashboard",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/assignment-board",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/assignments/line",
+        "method": "POST",
+        "status": 201,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/dashboard",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/assignment-board",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/send-home",
+        "method": "POST",
+        "status": 201,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/notifications/unread-count",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/chats",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/tasks",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/announcements/current",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests/7f69293c-0321-4574-9429-ef0d4ed308b8",
+        "method": "PATCH",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/notifications/unread-count",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/tasks",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/chats",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/announcements/current",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests/3d7e3ea1-48f1-4f89-9584-d3efaf50e38e",
+        "method": "PATCH",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift-log/handover/availability",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift-log/handover/previous",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/health",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift-log/handover/availability",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift-log/handover/previous",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/dashboard",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/assignment-board",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/assignments/line",
+        "method": "POST",
+        "status": 201,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/dashboard",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/assignment-board",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      }
+    ],
+    "worker": [
+      {
+        "path": "/api/auth/login",
+        "method": "POST",
+        "status": 201
+      },
+      {
+        "path": "/api/auth/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/auth/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/auth/assignment-request",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/notifications/unread-count",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/announcements/current",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/health",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/start",
+        "method": "POST",
+        "status": 201,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-request",
+        "method": "POST",
+        "status": 201,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-request",
+        "method": "POST",
+        "status": 201,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/health",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      }
+    ]
+  },
+  "ws": {
+    "master": [
+      {
+        "type": "connected",
+        "payload": {
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "userId": "972b69f5-b703-43ea-97a9-c9ecb2801600",
+          "message": "Realtime подключён."
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:55.102Z"
+        }
+      },
+      {
+        "type": "assignment_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:56.697Z"
+        }
+      },
+      {
+        "type": "assignment_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:58.091Z"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:58.483Z"
+        }
+      },
+      {
+        "type": "notification_created",
+        "payload": {
+          "id": "0c5a8519-0df7-402c-ae60-ddeef8972a42",
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "departmentId": null,
+          "userId": "972b69f5-b703-43ea-97a9-c9ecb2801600",
+          "type": "SHIFT_RETURN_REQUESTED",
+          "title": "Запрос возврата на смену",
+          "message": "Приёмочный Проверочный Заводович: Первый запрос финальной проверки",
+          "entityType": "SHIFT_RETURN_REQUEST",
+          "entityId": "7f69293c-0321-4574-9429-ef0d4ed308b8",
+          "severity": "WARNING",
+          "readAt": null,
+          "createdAt": "2026-09-26T18:22:58.536Z",
+          "expiresAt": null,
+          "sourceRoute": "shift"
+        }
+      },
+      {
+        "type": "notifications_count_changed",
+        "payload": {
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "reason": "notification_created"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:59.920Z"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:23:00.350Z"
+        }
+      },
+      {
+        "type": "notification_created",
+        "payload": {
+          "id": "aa52acb5-4574-4d85-848d-a2b7a4ade604",
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "departmentId": null,
+          "userId": "972b69f5-b703-43ea-97a9-c9ecb2801600",
+          "type": "SHIFT_RETURN_REQUESTED",
+          "title": "Запрос возврата на смену",
+          "message": "Приёмочный Проверочный Заводович: Повторный запрос финальной проверки",
+          "entityType": "SHIFT_RETURN_REQUEST",
+          "entityId": "3d7e3ea1-48f1-4f89-9584-d3efaf50e38e",
+          "severity": "WARNING",
+          "readAt": null,
+          "createdAt": "2026-09-26T18:23:00.375Z",
+          "expiresAt": null,
+          "sourceRoute": "shift"
+        }
+      },
+      {
+        "type": "notifications_count_changed",
+        "payload": {
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "reason": "notification_created"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:23:00.947Z"
+        }
+      },
+      {
+        "type": "assignment_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:23:58.859Z"
+        }
+      }
+    ],
+    "worker": [
+      {
+        "type": "connected",
+        "payload": {
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "userId": "7127a898-1129-4a11-8def-ac96557c2392",
+          "message": "Realtime подключён."
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:55.102Z"
+        }
+      },
+      {
+        "type": "assignment_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:56.697Z"
+        }
+      },
+      {
+        "type": "assignment_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:58.091Z"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:58.483Z"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:22:59.920Z"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:23:00.350Z"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:23:00.947Z"
+        }
+      },
+      {
+        "type": "assignment_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:23:58.859Z"
+        }
+      }
+    ]
+  }
+}

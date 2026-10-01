@@ -1,0 +1,73 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\src\\modules\\shift\\shift.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.service.ts"
+index 175e4670..5ed2420f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\src\\modules\\shift\\shift.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.service.ts"
+@@ -1082,7 +1082,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+     sourceAssignmentId?: string | null;
+     replaceAssignmentId?: string | null;
+   }) {
+-    const assignment = await this.prisma.db.$transaction(async (tx) => {
++    const { assignment, changed } = await this.prisma.db.$transaction(async (tx) => {
+       const target = this.resolveFutureTarget({ targetShiftDate: body.shiftDate, shiftType: body.shiftType });
+       this.ensureCanEditShiftAssignment(user, target.shiftDate, target.shiftType);
+       if (!body.targetUserId) throw new ConflictError('Выберите сотрудника');
+@@ -1128,7 +1128,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+             id: replay.workAreaPositionId ?? '', workAreaId: replay.workAreaId ?? '', deletedAt: null,
+             workArea: { factoryId: user.selectedFactoryId, deletedAt: null },
+           } })) throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
+-          return replay;
++          return { assignment: replay, changed: false };
+         }
+       }
+       const access = await tx.userFactoryAccess.findUnique({
+@@ -1214,7 +1214,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+             update: { resultKey: existingShiftPlan.id },
+           });
+         }
+-        return existingShiftPlan;
++        return { assignment: existingShiftPlan, changed: false };
+       }
+       const existingSource = existingLinePlan ?? existingShiftPlan;
+       if (existingSource && existingSource.id !== body.sourceAssignmentId) {
+@@ -1300,9 +1300,9 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+       if (operationId) {
+         await tx.processedOperation.create({ data: { userId: user.userId, operationId, resultKey: assignment.id } });
+       }
+-      return assignment;
++      return { assignment, changed: true };
+     });
+-    this.wsService.broadcast(WS_EVENTS.SHIFT_UPDATED, {
++    if (changed) this.wsService.broadcast(WS_EVENTS.SHIFT_UPDATED, {
+       factoryId: user.selectedFactoryId,
+       shiftDate: assignment.shiftDate,
+       shiftType: assignment.shiftType,
+@@ -1312,7 +1312,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+   }
+ 
+   async releaseFutureShiftAssignment(user: UserContext, assignmentId: string, body: { operationId?: string | null } = {}) {
+-    const released = await this.prisma.db.$transaction(async (tx) => {
++    const { released, changed } = await this.prisma.db.$transaction(async (tx) => {
+       const operationId = body.operationId?.trim() || null;
+       if (operationId) {
+         await lockOperationKeys(tx, [operationLockKey.processedOperation(user.userId, operationId)]);
+@@ -1322,7 +1322,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+           if (!resultKey || resultKey !== assignmentId) throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
+           const replay = await tx.plannedShiftAssignment.findFirst({ where: { id: resultKey, factoryId: user.selectedFactoryId } });
+           if (!replay) throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
+-          return replay;
++          return { released: replay, changed: false };
+         }
+       }
+       let assignment = await tx.plannedShiftAssignment.findFirst({
+@@ -1355,9 +1355,9 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+       if (operationId) {
+         await tx.processedOperation.create({ data: { userId: user.userId, operationId, resultKey: released.id } });
+       }
+-      return released;
++      return { released, changed: true };
+     });
+-    this.wsService.broadcast(WS_EVENTS.SHIFT_UPDATED, {
++    if (changed) this.wsService.broadcast(WS_EVENTS.SHIFT_UPDATED, {
+       factoryId: user.selectedFactoryId,
+       shiftDate: released.shiftDate,
+       shiftType: released.shiftType,

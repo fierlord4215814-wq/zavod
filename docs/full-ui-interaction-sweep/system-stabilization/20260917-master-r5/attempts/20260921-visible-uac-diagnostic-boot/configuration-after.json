@@ -1,0 +1,74 @@
+{
+  "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+  "dvd": [
+    {
+      "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\ubuntu-24.04.5-live-server-amd64.iso",
+      "ControllerNumber": 0,
+      "ControllerLocation": 1,
+      "Id": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\1\\D"
+    },
+    {
+      "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\private\\seed.iso",
+      "ControllerNumber": 0,
+      "ControllerLocation": 2,
+      "Id": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\2\\D"
+    }
+  ],
+  "firmware": {
+    "pauseAfterBootFailure": "Off",
+    "bootOrder": [
+      {
+        "devicePath": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\ubuntu24.vhdx",
+        "deviceId": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\0\\D",
+        "firmwarePath": "AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,0)",
+        "description": "EFI SCSI Device",
+        "bootType": "Drive",
+        "deviceType": "Microsoft.HyperV.PowerShell.HardDiskDrive"
+      },
+      {
+        "devicePath": null,
+        "deviceId": null,
+        "firmwarePath": "HD(1,GPT,BC5EA385-EA53-49AE-8E11-C9CD7AC6CF62,0x800,0x100000)/\\EFI\\ubuntu\\shimx64.efi",
+        "description": "Ubuntu",
+        "bootType": "File",
+        "deviceType": null
+      },
+      {
+        "devicePath": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\ubuntu-24.04.5-live-server-amd64.iso",
+        "deviceId": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\1\\D",
+        "firmwarePath": "AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,1)",
+        "description": "EFI SCSI Device",
+        "bootType": "Drive",
+        "deviceType": "Microsoft.HyperV.PowerShell.DvdDrive"
+      },
+      {
+        "devicePath": null,
+        "deviceId": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\A9CAAB35-DFFE-45A9-A54A-A5F1321594DA",
+        "firmwarePath": "AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,635161F83EDFC546913FF2D2F965ED0E74246E779A61DE448B946A013EB76DF4)/MAC(000000000000)/MessagingPath(0000000000000000000000000000000000000000000000)",
+        "description": "EFI Network",
+        "bootType": "Network",
+        "deviceType": "Microsoft.HyperV.PowerShell.VMNetworkAdapter"
+      },
+      {
+        "devicePath": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\private\\seed.iso",
+        "deviceId": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\2\\D",
+        "firmwarePath": "AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,2)",
+        "description": "EFI SCSI Device",
+        "bootType": "Drive",
+        "deviceType": "Microsoft.HyperV.PowerShell.DvdDrive"
+      }
+    ],
+    "consoleMode": "Default",
+    "secureBootTemplateId": "272e7447-90a4-4563-a4b9-8e4ab00526ce",
+    "secureBootTemplate": "MicrosoftUEFICertificateAuthority",
+    "secureBoot": "On",
+    "preferredNetworkBootProtocol": "IPv4"
+  },
+  "mutations": [
+    "EJECT_OWN_DVD_0_1",
+    "EJECT_OWN_DVD_0_2",
+    "EXISTING_VHDX_FIRST"
+  ],
+  "at": "2026-09-21T23:11:11.8698417+03:00",
+  "isoFilesPreserved": true
+}

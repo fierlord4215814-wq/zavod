@@ -1,0 +1,549 @@
+{
+  "productFingerprint": "6ae29f473c26b5d0dbe657f52c32cfebaff3c198abd5bb177eedf81e0ab1cfdc",
+  "id": "MI-R2-CHAT-ATT-01",
+  "owners": [
+    {
+      "path": "backend/src/modules/chats/chats.service.ts",
+      "sha256": "e3217fb5b72f05661d04bb00c619e2c02ec61d1984475bf9ecb807fa0f2f5c40",
+      "bytes": 81708
+    },
+    {
+      "path": "backend/src/modules/attachments/attachments.service.ts",
+      "sha256": "b9353200842657096ce5d43a84dbf016c4781bb3dcdc08708a75a4871b59f7a0",
+      "bytes": 36374
+    }
+  ],
+  "required": "Private chat upload metadata and actual bytes/hash; owner/member/nonmember/removal/leave/staleflags/transfer/restore; fresh metadata/file denied after revoke; current UI invalidation/resource cleanup; HTTP range/stream/abort and allowed new-context retry. No remote revocation of downloaded files.",
+  "witnesses": [
+    {
+      "id": "34c9bf72e3afea5f",
+      "title": "R2-E-J20 actual ownership message reader attachment controller revoke retry delete restore chain",
+      "file": "backend/scripts/master-r2-chat-chain.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "61d199ba4f869044",
+      "title": "R2-E-J20 removedAt active flags cannot override canonical denied chat attachment getMetadata",
+      "file": "backend/scripts/master-r2-chat-chain.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8b5d859796aa8454",
+      "title": "R2-E-J20 removedAt active flags cannot override canonical denied chat attachment getFile",
+      "file": "backend/scripts/master-r2-chat-chain.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "bdf03a50f5af30d6",
+      "title": "R2-E-J20 leftAt active flags cannot override canonical denied chat attachment getMetadata",
+      "file": "backend/scripts/master-r2-chat-chain.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "683c554940b10702",
+      "title": "R2-E-J20 leftAt active flags cannot override canonical denied chat attachment getFile",
+      "file": "backend/scripts/master-r2-chat-chain.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a77c2782d2257e24",
+      "title": "R2-A/E-J20 add replay valid",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a596a6edec2446a1",
+      "title": "R2-A/E-J20 add replay wrong-member",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7075be32e9aac49b",
+      "title": "R2-A/E-J20 add replay missing-result",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "3030991b393745ea",
+      "title": "R2-A/E-J20 add replay revoked-under-lock",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "beed4d8aa811305e",
+      "title": "R2-A/E-J20 remove replay valid",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b625c69ddd9f50b2",
+      "title": "R2-A/E-J20 remove replay wrong-member",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d49df1b5f1e1d08b",
+      "title": "R2-A/E-J20 remove replay missing-result",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2f4b83b05a8dec93",
+      "title": "R2-A/E-J20 remove replay revoked-under-lock",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e68df3b4820f7c1d",
+      "title": "R2-A/E-J20 role replay valid",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "ebd4bc10dcb41486",
+      "title": "R2-A/E-J20 role replay wrong-member",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "203454b664d2a9dd",
+      "title": "R2-A/E-J20 role replay missing-result",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "fe7785c72b2dd6c8",
+      "title": "R2-A/E-J20 role replay revoked-under-lock",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6ab224d89aa347f5",
+      "title": "R2-A/E-J20 transfer replay valid",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "28989d4c011d9626",
+      "title": "R2-A/E-J20 transfer replay wrong-member",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "646351b92fa5d4de",
+      "title": "R2-A/E-J20 transfer replay missing-result",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b58892ff34e09704",
+      "title": "R2-A/E-J20 transfer replay revoked-under-lock",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2b89a2eef131bbd2",
+      "title": "R2-A/E-J20 block replay valid",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "32b18ab4b7082cb4",
+      "title": "R2-A/E-J20 block replay wrong-member",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b452bb6583e2b7d4",
+      "title": "R2-A/E-J20 block replay missing-result",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e653eb01c58a97ef",
+      "title": "R2-A/E-J20 block replay revoked-under-lock",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8925a1a86531a031",
+      "title": "R2-A/E-J20 leave replay valid",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "a861bbbcb01969bf",
+      "title": "R2-A/E-J20 leave replay wrong-member",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d44d2b61d2ea5674",
+      "title": "R2-A/E-J20 leave replay missing-result",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1658ea3cf23fd105",
+      "title": "R2-A/E-J20 leave replay revoked-under-lock",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "71faa5e71cc47574",
+      "title": "R2-A/E-J20 add first success lost response current-state retry",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1150bf1b2523e724",
+      "title": "R2-A/E-J20 role first success lost response current-state retry",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "ac9788440067606e",
+      "title": "R2-A/E-J20 transfer first success lost response current-state retry",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "105e6ea0b83c41a5",
+      "title": "R2-A/E-J20 block first success lost response current-state retry",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2080ed0106ff5745",
+      "title": "R2-A/E-J03 future WASH replay valid-released",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "66e1b7e0eafafe66",
+      "title": "R2-A/E-J03 future WASH replay wrong-user",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "67db943a235188e5",
+      "title": "R2-A/E-J03 future WASH replay wrong-kind",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e153672fe87c6b35",
+      "title": "R2-A/E-J03 future WASH replay wrong-date",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b36ad50f31d5ff64",
+      "title": "R2-A/E-J03 future WASH replay wrong-shift",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0ec0ad107d6b107b",
+      "title": "R2-A/E-J03 future WASH replay revoked-worker",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8916b080b9fa0cf1",
+      "title": "R2-A/E-J03 future WASH replay foreign",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7d7ab3ec201c0f3c",
+      "title": "R2-A/E-J03 future WASH replay wrong-slot",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "979854d68c91c8fa",
+      "title": "R2-A/E-J03 future TIME replay valid-released",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7cb411aaab4f4adf",
+      "title": "R2-A/E-J03 future TIME replay wrong-user",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4ba86227210a4049",
+      "title": "R2-A/E-J03 future TIME replay wrong-kind",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8165373f407eee35",
+      "title": "R2-A/E-J03 future TIME replay wrong-date",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0490d86f64c80f55",
+      "title": "R2-A/E-J03 future TIME replay wrong-shift",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "470721a271e538ae",
+      "title": "R2-A/E-J03 future TIME replay revoked-worker",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "297613bd7ca7fe29",
+      "title": "R2-A/E-J03 future TIME replay foreign",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2af1c89422921759",
+      "title": "R2-A/E-J03 future TIME replay wrong-slot",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d17cf7415634c885",
+      "title": "R2-A/E-J03 future WORK_AREA replay valid-released",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9c3709276ff95a79",
+      "title": "R2-A/E-J03 future WORK_AREA replay wrong-user",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8c83858942e1bd02",
+      "title": "R2-A/E-J03 future WORK_AREA replay wrong-kind",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "393cd5f031ff22b1",
+      "title": "R2-A/E-J03 future WORK_AREA replay wrong-date",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b0ce22a5b71e66c1",
+      "title": "R2-A/E-J03 future WORK_AREA replay wrong-shift",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9205d29318426d06",
+      "title": "R2-A/E-J03 future WORK_AREA replay revoked-worker",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "22d6aae3c988f538",
+      "title": "R2-A/E-J03 future WORK_AREA replay foreign",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "dfcb00cba3acd0ec",
+      "title": "R2-A/E-J03 future WORK_AREA replay wrong-slot",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0a39123955d1fbb1",
+      "title": "R2-A/E-J03 future WASH first create retry changes no factual assignment",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "64904fe8248d0763",
+      "title": "R3-C3 existing future DAY first and saved-result across 2030-01-01T08:00:00+03:00 policy=read",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6475fd143b771b18",
+      "title": "R3-C3 existing future DAY first and saved-result across 2030-01-01T20:00:00+03:00 policy=deny",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "fc0944268255febe",
+      "title": "R3-C3 existing future NIGHT first and saved-result across 2030-01-01T20:00:00+03:00 policy=read",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "98e8316d04f8c04d",
+      "title": "R3-C3 existing future NIGHT first and saved-result across 2030-01-02T00:00:00+03:00 policy=read",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7d40003241e67fcb",
+      "title": "R3-C3 existing future NIGHT first and saved-result across 2030-01-02T08:00:00+03:00 policy=deny",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "bfbfd0d23febd300",
+      "title": "R3-C3 future create lost response replay emits no second update",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "da55dec85d3e9fcc",
+      "title": "R3-C3 future release lost response replay emits no second update",
+      "file": "backend/scripts/master-r2-membership-future.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    }
+  ],
+  "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+  "isolated": {
+    "cases": 65,
+    "status": "SCOPED_REVALIDATED_NOT_LIVE"
+  },
+  "liveTestStack": {
+    "cases": 0,
+    "status": "NOT_RUN_BLOCKED_ENV_C1_TECHNICAL_ISOLATION_UNAVAILABLE"
+  },
+  "physical": "PENDING"
+}

@@ -1,0 +1,20 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json"
+index 2fae0b14..41a53841 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\expected-actual.json"
+@@ -1,5 +1,5 @@
+ {
+-  "currentContinuation": {"checkpoint": "2026-09-20_VM_CREATED", "installerActual": "PRIOR_DISM_NOT_REPEATED_HYPERV_AND_OWN_VM_CREATED", "guestActual": "INSTALL_STATE_UNVERIFIED_CONSOLE_OBSERVER_PERMISSION_PENDING", "productCasesExecuted": 0},
++  "currentContinuation": {"checkpoint": "2026-09-20_EXISTING_VM_OBSERVED", "installerActual": "PRIOR_DISM_AND_VM_PROVISION_NOT_REPEATED", "guestActual": "UNVERIFIED_OLD_QUEUE_AND_CONSOLE_ACCESS_BOUNDARY", "productCasesExecuted": 0},
+   "stage": 8,
+   "result": "NOT_RUN_ENVIRONMENT_GATE",
+   "r5FinalGenerationFrozen": false,
+@@ -23,7 +23,7 @@
+     "isR5Execution": false
+   },
+   "typesBuildsPrisma": "NOT_RUN_R5_PRODUCT_UNCHANGED",
+-  "runtimeInstallFailureClass": "ENV_CONSOLE_OBSERVATION_PERMISSION_AND_SHUTDOWN_UNVERIFIED",
++  "runtimeInstallFailureClass": "ENV_PENDING_OLD_SHUTDOWN_AND_CONSOLE_ACCESS",
+   "ownProcessOrderingCorrection": "Full stack compatibility review completed after unsuccessful UAC; selection withdrawn pending supported guest path",
+   "nativeR5Captured": 0,
+   "nativeR5Viewed": 0

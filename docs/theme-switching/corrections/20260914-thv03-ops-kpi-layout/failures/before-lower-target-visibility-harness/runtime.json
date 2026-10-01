@@ -1,0 +1,1769 @@
+{
+  "phase": "before",
+  "batch": "20260914-thv03-ops-kpi-layout",
+  "screenshots": [
+    {
+      "file": "desktop-dark-ops-loss-upper.png",
+      "capturedAt": "2026-09-14T19:42:40.081Z",
+      "productStyleFingerprint": "a11237e29ee59a56356218c13289686c55eda6cf236a34716bc35d2eca124eb7",
+      "harnessFingerprint": "647b8153749b557dd4fe11247b1ff59a34273efda3ab3851536ab0622e32d4af",
+      "theme": "dark",
+      "width": 1440,
+      "overflowX": 0,
+      "bodyBackground": "rgba(0, 0, 0, 0)",
+      "textColor": "rgb(247, 248, 251)",
+      "role": "Admin / isolated rich Ops DTO",
+      "selectedTheme": "dark",
+      "fixtureFingerprint": "ad169b4e7daaed025a66c16fd31334e350ba745cf4ac0afd077cdd9e1dc0647a",
+      "state": "thv03-ops-loss",
+      "view": "loss",
+      "captureRole": "mandatory-upper",
+      "metricSetFingerprint": "1f6e1ae5fdf0fe1609bfbb62ec22007ff47cabd30e49f7c168bc0ccddca88d1c",
+      "queryFingerprint": "116d3a5c2bf59a0a3429bb74b822f12e4c5471c4fc1afa5e86cf0b329964bd23",
+      "visibilityStatus": "VERIFIED_VISIBLE",
+      "scrollMethod": "scrollIntoView-center"
+    }
+  ],
+  "apiReads": [
+    "/auth/me",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks?includeDone=false",
+    "/error-reports",
+    "/ops/operations/overview?dateFrom=2026-09-07&dateTo=2026-09-14",
+    "/ops/overview?dateFrom=2026-09-07&dateTo=2026-09-14",
+    "/ops/events?limit=50&dateFrom=2026-09-07&dateTo=2026-09-14",
+    "/ops/audit?limit=50&dateFrom=2026-09-07&dateTo=2026-09-14",
+    "/ops/module-summary?dateFrom=2026-09-07&dateTo=2026-09-14"
+  ],
+  "apiWrites": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response"
+  ],
+  "requestFailures": [],
+  "isolatedFixtureWrites": [],
+  "computedStyles": [],
+  "visibilityChecks": [
+    {
+      "caseId": "thv03-loss-upper-visible",
+      "scrollMethod": "scrollIntoView-center",
+      "role": "Admin / isolated rich Ops DTO",
+      "selectedTheme": "dark",
+      "width": 1440,
+      "fixtureFingerprint": "ad169b4e7daaed025a66c16fd31334e350ba745cf4ac0afd077cdd9e1dc0647a",
+      "text": "Линии и простоиОстановки123456Паузы234567Возвраты в работу345678Заявки из простоя456789Только по подтверждённой связи",
+      "rect": {
+        "x": 213,
+        "y": 248.453125,
+        "width": 1014,
+        "height": 345.9375,
+        "right": 1227,
+        "bottom": 594.390625
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "effectiveClip": {
+        "left": 0,
+        "top": 0,
+        "right": 1440,
+        "bottom": 844
+      },
+      "clippingAncestors": [
+        {
+          "tag": "DIV",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -807,
+            "width": 1440,
+            "height": 3640.6875
+          }
+        },
+        {
+          "tag": "BODY",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -807,
+            "width": 1440,
+            "height": 3640.6875
+          }
+        },
+        {
+          "tag": "HTML",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 807,
+          "rect": {
+            "x": 0,
+            "y": -807,
+            "width": 1440,
+            "height": 3640.6875
+          }
+        }
+      ],
+      "fullyInsideClip": true,
+      "hitTestClear": true,
+      "fullyVisible": true,
+      "points": [
+        {
+          "x": 219,
+          "y": 254.453125,
+          "topTag": "H3",
+          "topClass": "",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1221,
+          "y": 254.453125,
+          "topTag": "H3",
+          "topClass": "",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 720,
+          "y": 421.421875,
+          "topTag": "DIV",
+          "topClass": "metric-grid ops-metric-grid",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 219,
+          "y": 588.390625,
+          "topTag": "SECTION",
+          "topClass": "ops-analytics-section",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1221,
+          "y": 588.390625,
+          "topTag": "SECTION",
+          "topClass": "ops-analytics-section",
+          "targetOwnsHit": true
+        }
+      ]
+    },
+    {
+      "caseId": "thv03-loss-lower-visible",
+      "scrollMethod": "scrollIntoView-center",
+      "role": "Admin / isolated rich Ops DTO",
+      "selectedTheme": "dark",
+      "width": 1440,
+      "fixtureFingerprint": "ad169b4e7daaed025a66c16fd31334e350ba745cf4ac0afd077cdd9e1dc0647a",
+      "text": "Дисциплина чек-листовЗапущено901234Активно на конец периода812345Проверок выполнено634567Запусков завершено: 723456Просрочено545678Закрыто вручную456789Закрыто сменой367890",
+      "rect": {
+        "x": 213,
+        "y": 121.328125,
+        "width": 1014,
+        "height": 600.875,
+        "right": 1227,
+        "bottom": 722.203125
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "effectiveClip": {
+        "left": 0,
+        "top": 0,
+        "right": 1440,
+        "bottom": 844
+      },
+      "clippingAncestors": [
+        {
+          "tag": "DIV",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -1632,
+            "width": 1440,
+            "height": 3640.6875
+          }
+        },
+        {
+          "tag": "BODY",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 0,
+          "rect": {
+            "x": 0,
+            "y": -1632,
+            "width": 1440,
+            "height": 3640.6875
+          }
+        },
+        {
+          "tag": "HTML",
+          "className": "",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "scrollLeft": 0,
+          "scrollTop": 1632,
+          "rect": {
+            "x": 0,
+            "y": -1632,
+            "width": 1440,
+            "height": 3640.6875
+          }
+        }
+      ],
+      "fullyInsideClip": true,
+      "hitTestClear": false,
+      "fullyVisible": false,
+      "points": [
+        {
+          "x": 219,
+          "y": 127.328125,
+          "topTag": "H3",
+          "topClass": "",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1221,
+          "y": 127.328125,
+          "topTag": "H3",
+          "topClass": "",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 720,
+          "y": 421.765625,
+          "topTag": "DIV",
+          "topClass": "metric-grid ops-metric-grid",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 219,
+          "y": 716.203125,
+          "topTag": "BUTTON",
+          "topClass": "nav-button ",
+          "targetOwnsHit": false
+        },
+        {
+          "x": 1221,
+          "y": 716.203125,
+          "topTag": "BUTTON",
+          "topClass": "nav-button ",
+          "targetOwnsHit": false
+        }
+      ]
+    }
+  ],
+  "opsLayoutChecks": [
+    {
+      "role": "Admin / isolated rich Ops DTO",
+      "selectedTheme": "dark",
+      "width": 1440,
+      "fixtureFingerprint": "ad169b4e7daaed025a66c16fd31334e350ba745cf4ac0afd077cdd9e1dc0647a",
+      "queryFingerprint": "116d3a5c2bf59a0a3429bb74b822f12e4c5471c4fc1afa5e86cf0b329964bd23",
+      "view": "loss",
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "labels": [
+        "Самая проблемная линия",
+        "Средний простой",
+        "Срочные открытые",
+        "Средняя реакция",
+        "Среднее исполнение",
+        "Среднее решение",
+        "Эффект 10 минут",
+        "Качество данных",
+        "Остановки",
+        "Паузы",
+        "Возвраты в работу",
+        "Заявки из простоя",
+        "Брак ОКК",
+        "Некондиция",
+        "Возвраты",
+        "Запущено",
+        "Активно на конец периода",
+        "Проверок выполнено",
+        "Просрочено",
+        "Закрыто вручную",
+        "Закрыто сменой",
+        "Активные мойки",
+        "Завершённые мойки",
+        "Открытые проблемы",
+        "Мини-задания"
+      ],
+      "values": [
+        "Линия фасовки и упаковки № 12",
+        "164 ч 36 мин",
+        "12345",
+        "72 ч 1 мин",
+        "146 ч 5 мин",
+        "127 ч 34 мин",
+        "12 345 ч",
+        "Требует проверки",
+        "123456",
+        "234567",
+        "345678",
+        "456789",
+        "567890",
+        "678901",
+        "890123",
+        "901234",
+        "812345",
+        "634567",
+        "545678",
+        "456789",
+        "367890",
+        "278901",
+        "189012",
+        "801234",
+        "712345"
+      ],
+      "details": [
+        "1 666 ч 39 мин",
+        "Медиана: 72 ч 1 мин · p90: 205 ч 45 мин",
+        "Нужно держать в фокусе смены",
+        "Медиана: 53 ч 30 мин · p90: 146 ч 5 мин",
+        "Медиана: 127 ч 34 мин · p90: 109 ч 3 мин",
+        "Медиана: 109 ч 3 мин · p90: 90 ч 32 мин",
+        "Не больше подтверждённых потерь за выбранный период",
+        "1 предупреждений",
+        "",
+        "",
+        "",
+        "Только по подтверждённой связи",
+        "",
+        "Количество: 789012",
+        "",
+        "",
+        "",
+        "Запусков завершено: 723456",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Всего проблем: 990123",
+        "Выполнено: 623456"
+      ],
+      "cardCount": 25,
+      "nestedLossCardCount": 17,
+      "pseudoActiveCount": 17,
+      "decorationOverlapCount": 0,
+      "textOverlapCount": 0,
+      "clippedCount": 25,
+      "fragmentedWordCount": 0,
+      "cards": [
+        {
+          "index": 0,
+          "nestedLossCard": false,
+          "label": "Самая проблемная линия",
+          "value": "Линия фасовки и упаковки № 12",
+          "detail": "1 666 ч 39 мин",
+          "cardRect": {
+            "x": 213,
+            "y": 656.4706420898438,
+            "width": 246.75,
+            "height": 191.3125,
+            "right": 459.75,
+            "bottom": 847.7831420898438
+          },
+          "labelRect": {
+            "x": 224,
+            "y": 666.4706420898438,
+            "width": 224.75,
+            "height": 12.3125,
+            "right": 448.75,
+            "bottom": 678.7831420898438
+          },
+          "valueRect": {
+            "x": 224,
+            "y": 681.7831420898438,
+            "width": 224.75,
+            "height": 124,
+            "right": 448.75,
+            "bottom": 805.7831420898438
+          },
+          "detailRect": {
+            "x": 224,
+            "y": 814.7831420898438,
+            "width": 224.75,
+            "height": 22,
+            "right": 448.75,
+            "bottom": 836.7831420898438
+          },
+          "gridColumns": "246.75px 246.75px 246.75px 246.75px",
+          "gridColumnCount": 4,
+          "cardPadding": "9px 10px 10px",
+          "cardAlignContent": "end",
+          "cardOverflow": "hidden",
+          "pseudoContent": "none",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 229,
+            "top": 672.4706420898438,
+            "right": 271,
+            "bottom": 714.4706420898438
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 1,
+          "nestedLossCard": false,
+          "label": "Средний простой",
+          "value": "164 ч 36 мин",
+          "detail": "Медиана: 72 ч 1 мин · p90: 205 ч 45 мин",
+          "cardRect": {
+            "x": 468.75,
+            "y": 656.4706420898438,
+            "width": 246.75,
+            "height": 191.3125,
+            "right": 715.5,
+            "bottom": 847.7831420898438
+          },
+          "labelRect": {
+            "x": 479.75,
+            "y": 737.4706420898438,
+            "width": 224.75,
+            "height": 12.3125,
+            "right": 704.5,
+            "bottom": 749.7831420898438
+          },
+          "valueRect": {
+            "x": 479.75,
+            "y": 752.7831420898438,
+            "width": 224.75,
+            "height": 31,
+            "right": 704.5,
+            "bottom": 783.7831420898438
+          },
+          "detailRect": {
+            "x": 479.75,
+            "y": 792.7831420898438,
+            "width": 224.75,
+            "height": 44,
+            "right": 704.5,
+            "bottom": 836.7831420898438
+          },
+          "gridColumns": "246.75px 246.75px 246.75px 246.75px",
+          "gridColumnCount": 4,
+          "cardPadding": "9px 10px 10px",
+          "cardAlignContent": "end",
+          "cardOverflow": "hidden",
+          "pseudoContent": "none",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 484.75,
+            "top": 672.4706420898438,
+            "right": 526.75,
+            "bottom": 714.4706420898438
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 2,
+          "nestedLossCard": false,
+          "label": "Срочные открытые",
+          "value": "12345",
+          "detail": "Нужно держать в фокусе смены",
+          "cardRect": {
+            "x": 724.5,
+            "y": 656.4706420898438,
+            "width": 246.75,
+            "height": 191.3125,
+            "right": 971.25,
+            "bottom": 847.7831420898438
+          },
+          "labelRect": {
+            "x": 735.5,
+            "y": 737.4706420898438,
+            "width": 224.75,
+            "height": 12.3125,
+            "right": 960.25,
+            "bottom": 749.7831420898438
+          },
+          "valueRect": {
+            "x": 735.5,
+            "y": 752.7831420898438,
+            "width": 224.75,
+            "height": 31,
+            "right": 960.25,
+            "bottom": 783.7831420898438
+          },
+          "detailRect": {
+            "x": 735.5,
+            "y": 792.7831420898438,
+            "width": 224.75,
+            "height": 44,
+            "right": 960.25,
+            "bottom": 836.7831420898438
+          },
+          "gridColumns": "246.75px 246.75px 246.75px 246.75px",
+          "gridColumnCount": 4,
+          "cardPadding": "9px 10px 10px",
+          "cardAlignContent": "end",
+          "cardOverflow": "hidden",
+          "pseudoContent": "none",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 740.5,
+            "top": 672.4706420898438,
+            "right": 782.5,
+            "bottom": 714.4706420898438
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 3,
+          "nestedLossCard": false,
+          "label": "Средняя реакция",
+          "value": "72 ч 1 мин",
+          "detail": "Медиана: 53 ч 30 мин · p90: 146 ч 5 мин",
+          "cardRect": {
+            "x": 980.25,
+            "y": 656.4706420898438,
+            "width": 246.75,
+            "height": 191.3125,
+            "right": 1227,
+            "bottom": 847.7831420898438
+          },
+          "labelRect": {
+            "x": 991.25,
+            "y": 737.4706420898438,
+            "width": 224.75,
+            "height": 12.3125,
+            "right": 1216,
+            "bottom": 749.7831420898438
+          },
+          "valueRect": {
+            "x": 991.25,
+            "y": 752.7831420898438,
+            "width": 224.75,
+            "height": 31,
+            "right": 1216,
+            "bottom": 783.7831420898438
+          },
+          "detailRect": {
+            "x": 991.25,
+            "y": 792.7831420898438,
+            "width": 224.75,
+            "height": 44,
+            "right": 1216,
+            "bottom": 836.7831420898438
+          },
+          "gridColumns": "246.75px 246.75px 246.75px 246.75px",
+          "gridColumnCount": 4,
+          "cardPadding": "9px 10px 10px",
+          "cardAlignContent": "end",
+          "cardOverflow": "hidden",
+          "pseudoContent": "none",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 996.25,
+            "top": 672.4706420898438,
+            "right": 1038.25,
+            "bottom": 714.4706420898438
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 4,
+          "nestedLossCard": false,
+          "label": "Среднее исполнение",
+          "value": "146 ч 5 мин",
+          "detail": "Медиана: 127 ч 34 мин · p90: 109 ч 3 мин",
+          "cardRect": {
+            "x": 213,
+            "y": 856.7831420898438,
+            "width": 246.75,
+            "height": 129.3125,
+            "right": 459.75,
+            "bottom": 986.0956420898438
+          },
+          "labelRect": {
+            "x": 224,
+            "y": 875.7831420898438,
+            "width": 224.75,
+            "height": 12.3125,
+            "right": 448.75,
+            "bottom": 888.0956420898438
+          },
+          "valueRect": {
+            "x": 224,
+            "y": 891.0956420898438,
+            "width": 224.75,
+            "height": 31,
+            "right": 448.75,
+            "bottom": 922.0956420898438
+          },
+          "detailRect": {
+            "x": 224,
+            "y": 931.0956420898438,
+            "width": 224.75,
+            "height": 44,
+            "right": 448.75,
+            "bottom": 975.0956420898438
+          },
+          "gridColumns": "246.75px 246.75px 246.75px 246.75px",
+          "gridColumnCount": 4,
+          "cardPadding": "9px 10px 10px",
+          "cardAlignContent": "end",
+          "cardOverflow": "hidden",
+          "pseudoContent": "none",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 229,
+            "top": 872.7831420898438,
+            "right": 271,
+            "bottom": 914.7831420898438
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 5,
+          "nestedLossCard": false,
+          "label": "Среднее решение",
+          "value": "127 ч 34 мин",
+          "detail": "Медиана: 109 ч 3 мин · p90: 90 ч 32 мин",
+          "cardRect": {
+            "x": 468.75,
+            "y": 856.7831420898438,
+            "width": 246.75,
+            "height": 129.3125,
+            "right": 715.5,
+            "bottom": 986.0956420898438
+          },
+          "labelRect": {
+            "x": 479.75,
+            "y": 875.7831420898438,
+            "width": 224.75,
+            "height": 12.3125,
+            "right": 704.5,
+            "bottom": 888.0956420898438
+          },
+          "valueRect": {
+            "x": 479.75,
+            "y": 891.0956420898438,
+            "width": 224.75,
+            "height": 31,
+            "right": 704.5,
+            "bottom": 922.0956420898438
+          },
+          "detailRect": {
+            "x": 479.75,
+            "y": 931.0956420898438,
+            "width": 224.75,
+            "height": 44,
+            "right": 704.5,
+            "bottom": 975.0956420898438
+          },
+          "gridColumns": "246.75px 246.75px 246.75px 246.75px",
+          "gridColumnCount": 4,
+          "cardPadding": "9px 10px 10px",
+          "cardAlignContent": "end",
+          "cardOverflow": "hidden",
+          "pseudoContent": "none",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 484.75,
+            "top": 872.7831420898438,
+            "right": 526.75,
+            "bottom": 914.7831420898438
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 6,
+          "nestedLossCard": false,
+          "label": "Эффект 10 минут",
+          "value": "12 345 ч",
+          "detail": "Не больше подтверждённых потерь за выбранный период",
+          "cardRect": {
+            "x": 724.5,
+            "y": 856.7831420898438,
+            "width": 246.75,
+            "height": 129.3125,
+            "right": 971.25,
+            "bottom": 986.0956420898438
+          },
+          "labelRect": {
+            "x": 735.5,
+            "y": 875.7831420898438,
+            "width": 224.75,
+            "height": 12.3125,
+            "right": 960.25,
+            "bottom": 888.0956420898438
+          },
+          "valueRect": {
+            "x": 735.5,
+            "y": 891.0956420898438,
+            "width": 224.75,
+            "height": 31,
+            "right": 960.25,
+            "bottom": 922.0956420898438
+          },
+          "detailRect": {
+            "x": 735.5,
+            "y": 931.0956420898438,
+            "width": 224.75,
+            "height": 44,
+            "right": 960.25,
+            "bottom": 975.0956420898438
+          },
+          "gridColumns": "246.75px 246.75px 246.75px 246.75px",
+          "gridColumnCount": 4,
+          "cardPadding": "9px 10px 10px",
+          "cardAlignContent": "end",
+          "cardOverflow": "hidden",
+          "pseudoContent": "none",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 740.5,
+            "top": 872.7831420898438,
+            "right": 782.5,
+            "bottom": 914.7831420898438
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 7,
+          "nestedLossCard": false,
+          "label": "Качество данных",
+          "value": "Требует проверки",
+          "detail": "1 предупреждений",
+          "cardRect": {
+            "x": 980.25,
+            "y": 856.7831420898438,
+            "width": 246.75,
+            "height": 129.3125,
+            "right": 1227,
+            "bottom": 986.0956420898438
+          },
+          "labelRect": {
+            "x": 991.25,
+            "y": 866.7831420898438,
+            "width": 224.75,
+            "height": 12.3125,
+            "right": 1216,
+            "bottom": 879.0956420898438
+          },
+          "valueRect": {
+            "x": 991.25,
+            "y": 882.0956420898438,
+            "width": 224.75,
+            "height": 62,
+            "right": 1216,
+            "bottom": 944.0956420898438
+          },
+          "detailRect": {
+            "x": 991.25,
+            "y": 953.0956420898438,
+            "width": 224.75,
+            "height": 22,
+            "right": 1216,
+            "bottom": 975.0956420898438
+          },
+          "gridColumns": "246.75px 246.75px 246.75px 246.75px",
+          "gridColumnCount": 4,
+          "cardPadding": "9px 10px 10px",
+          "cardAlignContent": "end",
+          "cardOverflow": "hidden",
+          "pseudoContent": "none",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 996.25,
+            "top": 872.7831420898438,
+            "right": 1038.25,
+            "bottom": 914.7831420898438
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 8,
+          "nestedLossCard": true,
+          "label": "Остановки",
+          "value": "123456",
+          "detail": "",
+          "cardRect": {
+            "x": 213,
+            "y": 1088.095703125,
+            "width": 238.5,
+            "height": 293.9375,
+            "right": 451.5,
+            "bottom": 1382.033203125
+          },
+          "labelRect": {
+            "x": 230,
+            "y": 1210.095703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 434.5,
+            "bottom": 1229.001953125
+          },
+          "valueRect": {
+            "x": 230,
+            "y": 1246.001953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 434.5,
+            "bottom": 1365.033203125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 229,
+            "top": 1104.095703125,
+            "right": 271,
+            "bottom": 1146.095703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 9,
+          "nestedLossCard": true,
+          "label": "Паузы",
+          "value": "234567",
+          "detail": "",
+          "cardRect": {
+            "x": 471.5,
+            "y": 1088.095703125,
+            "width": 238.5,
+            "height": 293.9375,
+            "right": 710,
+            "bottom": 1382.033203125
+          },
+          "labelRect": {
+            "x": 488.5,
+            "y": 1210.095703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 693,
+            "bottom": 1229.001953125
+          },
+          "valueRect": {
+            "x": 488.5,
+            "y": 1246.001953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 693,
+            "bottom": 1365.033203125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 487.5,
+            "top": 1104.095703125,
+            "right": 529.5,
+            "bottom": 1146.095703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 10,
+          "nestedLossCard": true,
+          "label": "Возвраты в работу",
+          "value": "345678",
+          "detail": "",
+          "cardRect": {
+            "x": 730,
+            "y": 1088.095703125,
+            "width": 238.5,
+            "height": 293.9375,
+            "right": 968.5,
+            "bottom": 1382.033203125
+          },
+          "labelRect": {
+            "x": 747,
+            "y": 1210.095703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 951.5,
+            "bottom": 1229.001953125
+          },
+          "valueRect": {
+            "x": 747,
+            "y": 1246.001953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 951.5,
+            "bottom": 1365.033203125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 746,
+            "top": 1104.095703125,
+            "right": 788,
+            "bottom": 1146.095703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 11,
+          "nestedLossCard": true,
+          "label": "Заявки из простоя",
+          "value": "456789",
+          "detail": "Только по подтверждённой связи",
+          "cardRect": {
+            "x": 988.5,
+            "y": 1088.095703125,
+            "width": 238.5,
+            "height": 293.9375,
+            "right": 1227,
+            "bottom": 1382.033203125
+          },
+          "labelRect": {
+            "x": 1005.5,
+            "y": 1151.095703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 1210,
+            "bottom": 1170.001953125
+          },
+          "valueRect": {
+            "x": 1005.5,
+            "y": 1187.001953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 1210,
+            "bottom": 1306.033203125
+          },
+          "detailRect": {
+            "x": 1005.5,
+            "y": 1321.033203125,
+            "width": 204.5,
+            "height": 44,
+            "right": 1210,
+            "bottom": 1365.033203125
+          },
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 1004.5,
+            "top": 1104.095703125,
+            "right": 1046.5,
+            "bottom": 1146.095703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 12,
+          "nestedLossCard": true,
+          "label": "Брак ОКК",
+          "value": "567890",
+          "detail": "",
+          "cardRect": {
+            "x": 213,
+            "y": 1448.033203125,
+            "width": 238.5,
+            "height": 271.9375,
+            "right": 451.5,
+            "bottom": 1719.970703125
+          },
+          "labelRect": {
+            "x": 230,
+            "y": 1548.033203125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 434.5,
+            "bottom": 1566.939453125
+          },
+          "valueRect": {
+            "x": 230,
+            "y": 1583.939453125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 434.5,
+            "bottom": 1702.970703125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 229,
+            "top": 1464.033203125,
+            "right": 271,
+            "bottom": 1506.033203125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 13,
+          "nestedLossCard": true,
+          "label": "Некондиция",
+          "value": "678901",
+          "detail": "Количество: 789012",
+          "cardRect": {
+            "x": 471.5,
+            "y": 1448.033203125,
+            "width": 238.5,
+            "height": 271.9375,
+            "right": 710,
+            "bottom": 1719.970703125
+          },
+          "labelRect": {
+            "x": 488.5,
+            "y": 1511.033203125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 693,
+            "bottom": 1529.939453125
+          },
+          "valueRect": {
+            "x": 488.5,
+            "y": 1546.939453125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 693,
+            "bottom": 1665.970703125
+          },
+          "detailRect": {
+            "x": 488.5,
+            "y": 1680.970703125,
+            "width": 204.5,
+            "height": 22,
+            "right": 693,
+            "bottom": 1702.970703125
+          },
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 487.5,
+            "top": 1464.033203125,
+            "right": 529.5,
+            "bottom": 1506.033203125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 14,
+          "nestedLossCard": true,
+          "label": "Возвраты",
+          "value": "890123",
+          "detail": "",
+          "cardRect": {
+            "x": 730,
+            "y": 1448.033203125,
+            "width": 238.5,
+            "height": 271.9375,
+            "right": 968.5,
+            "bottom": 1719.970703125
+          },
+          "labelRect": {
+            "x": 747,
+            "y": 1548.033203125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 951.5,
+            "bottom": 1566.939453125
+          },
+          "valueRect": {
+            "x": 747,
+            "y": 1583.939453125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 951.5,
+            "bottom": 1702.970703125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 746,
+            "top": 1464.033203125,
+            "right": 788,
+            "bottom": 1506.033203125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 15,
+          "nestedLossCard": true,
+          "label": "Запущено",
+          "value": "901234",
+          "detail": "",
+          "cardRect": {
+            "x": 213,
+            "y": 1785.970703125,
+            "width": 238.5,
+            "height": 293.9375,
+            "right": 451.5,
+            "bottom": 2079.908203125
+          },
+          "labelRect": {
+            "x": 230,
+            "y": 1907.970703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 434.5,
+            "bottom": 1926.876953125
+          },
+          "valueRect": {
+            "x": 230,
+            "y": 1943.876953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 434.5,
+            "bottom": 2062.908203125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 229,
+            "top": 1801.970703125,
+            "right": 271,
+            "bottom": 1843.970703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 16,
+          "nestedLossCard": true,
+          "label": "Активно на конец периода",
+          "value": "812345",
+          "detail": "",
+          "cardRect": {
+            "x": 471.5,
+            "y": 1785.970703125,
+            "width": 238.5,
+            "height": 293.9375,
+            "right": 710,
+            "bottom": 2079.908203125
+          },
+          "labelRect": {
+            "x": 488.5,
+            "y": 1889.064453125,
+            "width": 204.5,
+            "height": 37.8125,
+            "right": 693,
+            "bottom": 1926.876953125
+          },
+          "valueRect": {
+            "x": 488.5,
+            "y": 1943.876953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 693,
+            "bottom": 2062.908203125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 487.5,
+            "top": 1801.970703125,
+            "right": 529.5,
+            "bottom": 1843.970703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 17,
+          "nestedLossCard": true,
+          "label": "Проверок выполнено",
+          "value": "634567",
+          "detail": "Запусков завершено: 723456",
+          "cardRect": {
+            "x": 730,
+            "y": 1785.970703125,
+            "width": 238.5,
+            "height": 293.9375,
+            "right": 968.5,
+            "bottom": 2079.908203125
+          },
+          "labelRect": {
+            "x": 747,
+            "y": 1848.970703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 951.5,
+            "bottom": 1867.876953125
+          },
+          "valueRect": {
+            "x": 747,
+            "y": 1884.876953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 951.5,
+            "bottom": 2003.908203125
+          },
+          "detailRect": {
+            "x": 747,
+            "y": 2018.908203125,
+            "width": 204.5,
+            "height": 44,
+            "right": 951.5,
+            "bottom": 2062.908203125
+          },
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 746,
+            "top": 1801.970703125,
+            "right": 788,
+            "bottom": 1843.970703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 18,
+          "nestedLossCard": true,
+          "label": "Просрочено",
+          "value": "545678",
+          "detail": "",
+          "cardRect": {
+            "x": 988.5,
+            "y": 1785.970703125,
+            "width": 238.5,
+            "height": 293.9375,
+            "right": 1227,
+            "bottom": 2079.908203125
+          },
+          "labelRect": {
+            "x": 1005.5,
+            "y": 1907.970703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 1210,
+            "bottom": 1926.876953125
+          },
+          "valueRect": {
+            "x": 1005.5,
+            "y": 1943.876953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 1210,
+            "bottom": 2062.908203125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 1004.5,
+            "top": 1801.970703125,
+            "right": 1046.5,
+            "bottom": 1843.970703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 19,
+          "nestedLossCard": true,
+          "label": "Закрыто вручную",
+          "value": "456789",
+          "detail": "",
+          "cardRect": {
+            "x": 213,
+            "y": 2099.908203125,
+            "width": 238.5,
+            "height": 234.9375,
+            "right": 451.5,
+            "bottom": 2334.845703125
+          },
+          "labelRect": {
+            "x": 230,
+            "y": 2162.908203125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 434.5,
+            "bottom": 2181.814453125
+          },
+          "valueRect": {
+            "x": 230,
+            "y": 2198.814453125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 434.5,
+            "bottom": 2317.845703125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 229,
+            "top": 2115.908203125,
+            "right": 271,
+            "bottom": 2157.908203125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 20,
+          "nestedLossCard": true,
+          "label": "Закрыто сменой",
+          "value": "367890",
+          "detail": "",
+          "cardRect": {
+            "x": 471.5,
+            "y": 2099.908203125,
+            "width": 238.5,
+            "height": 234.9375,
+            "right": 710,
+            "bottom": 2334.845703125
+          },
+          "labelRect": {
+            "x": 488.5,
+            "y": 2162.908203125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 693,
+            "bottom": 2181.814453125
+          },
+          "valueRect": {
+            "x": 488.5,
+            "y": 2198.814453125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 693,
+            "bottom": 2317.845703125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 487.5,
+            "top": 2115.908203125,
+            "right": 529.5,
+            "bottom": 2157.908203125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 21,
+          "nestedLossCard": true,
+          "label": "Активные мойки",
+          "value": "278901",
+          "detail": "",
+          "cardRect": {
+            "x": 213,
+            "y": 2400.845703125,
+            "width": 238.5,
+            "height": 271.9375,
+            "right": 451.5,
+            "bottom": 2672.783203125
+          },
+          "labelRect": {
+            "x": 230,
+            "y": 2500.845703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 434.5,
+            "bottom": 2519.751953125
+          },
+          "valueRect": {
+            "x": 230,
+            "y": 2536.751953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 434.5,
+            "bottom": 2655.783203125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 229,
+            "top": 2416.845703125,
+            "right": 271,
+            "bottom": 2458.845703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 22,
+          "nestedLossCard": true,
+          "label": "Завершённые мойки",
+          "value": "189012",
+          "detail": "",
+          "cardRect": {
+            "x": 471.5,
+            "y": 2400.845703125,
+            "width": 238.5,
+            "height": 271.9375,
+            "right": 710,
+            "bottom": 2672.783203125
+          },
+          "labelRect": {
+            "x": 488.5,
+            "y": 2500.845703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 693,
+            "bottom": 2519.751953125
+          },
+          "valueRect": {
+            "x": 488.5,
+            "y": 2536.751953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 693,
+            "bottom": 2655.783203125
+          },
+          "detailRect": null,
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 487.5,
+            "top": 2416.845703125,
+            "right": 529.5,
+            "bottom": 2458.845703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 23,
+          "nestedLossCard": true,
+          "label": "Открытые проблемы",
+          "value": "801234",
+          "detail": "Всего проблем: 990123",
+          "cardRect": {
+            "x": 730,
+            "y": 2400.845703125,
+            "width": 238.5,
+            "height": 271.9375,
+            "right": 968.5,
+            "bottom": 2672.783203125
+          },
+          "labelRect": {
+            "x": 747,
+            "y": 2463.845703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 951.5,
+            "bottom": 2482.751953125
+          },
+          "valueRect": {
+            "x": 747,
+            "y": 2499.751953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 951.5,
+            "bottom": 2618.783203125
+          },
+          "detailRect": {
+            "x": 747,
+            "y": 2633.783203125,
+            "width": 204.5,
+            "height": 22,
+            "right": 951.5,
+            "bottom": 2655.783203125
+          },
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 746,
+            "top": 2416.845703125,
+            "right": 788,
+            "bottom": 2458.845703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        },
+        {
+          "index": 24,
+          "nestedLossCard": true,
+          "label": "Мини-задания",
+          "value": "712345",
+          "detail": "Выполнено: 623456",
+          "cardRect": {
+            "x": 988.5,
+            "y": 2400.845703125,
+            "width": 238.5,
+            "height": 271.9375,
+            "right": 1227,
+            "bottom": 2672.783203125
+          },
+          "labelRect": {
+            "x": 1005.5,
+            "y": 2463.845703125,
+            "width": 204.5,
+            "height": 18.90625,
+            "right": 1210,
+            "bottom": 2482.751953125
+          },
+          "valueRect": {
+            "x": 1005.5,
+            "y": 2499.751953125,
+            "width": 204.5,
+            "height": 119.03125,
+            "right": 1210,
+            "bottom": 2618.783203125
+          },
+          "detailRect": {
+            "x": 1005.5,
+            "y": 2633.783203125,
+            "width": 204.5,
+            "height": 22,
+            "right": 1210,
+            "bottom": 2655.783203125
+          },
+          "gridColumns": "238.5px 238.5px 238.5px 238.5px",
+          "gridColumnCount": 4,
+          "cardPadding": "62px 16px 16px",
+          "cardAlignContent": "end",
+          "cardOverflow": "visible",
+          "pseudoContent": "\"\"",
+          "pseudoDisplay": "grid",
+          "pseudoPointerEvents": "auto",
+          "pseudoRect": {
+            "left": 1004.5,
+            "top": 2416.845703125,
+            "right": 1046.5,
+            "bottom": 2458.845703125
+          },
+          "decorationOverlapsText": false,
+          "textOverlapPairs": [],
+          "clippedElements": [
+            "metric-value"
+          ],
+          "brokenWords": []
+        }
+      ],
+      "metricSetFingerprint": "1f6e1ae5fdf0fe1609bfbb62ec22007ff47cabd30e49f7c168bc0ccddca88d1c"
+    }
+  ]
+}

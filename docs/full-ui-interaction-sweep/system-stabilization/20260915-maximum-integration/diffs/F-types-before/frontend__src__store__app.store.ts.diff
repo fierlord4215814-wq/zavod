@@ -1,0 +1,29 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-types-before\\frontend\\src\\store\\app.store.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\store\\app.store.ts"
+index b27ed2c9..fe69efe6 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-types-before\\frontend\\src\\store\\app.store.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\store\\app.store.ts"
+@@ -13,8 +13,6 @@ export type CurrentUser = {
+   departmentName?: string | null;
+   companyId?: string | null;
+   companyName?: string | null;
+-  companyId?: string | null;
+-  companyName?: string | null;
+   jobTitleName?: string | null;
+   displayName?: string | null;
+   permissions: string[];
+@@ -449,6 +447,7 @@ export type NotificationItem = {
+ export type ChatMessage = {
+   id: string;
+   chatId: string;
++  operationId?: string | null;
+   authorId?: string | null;
+   authorName?: string | null;
+   authorContext?: string | null;
+@@ -576,6 +575,7 @@ export type AnnouncementItem = {
+ 
+ export type ShiftPerson = {
+   userId: string;
++  companyName?: string | null;
+   displayName: string;
+   role: string;
+   departmentId: string | null;

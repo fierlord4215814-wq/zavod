@@ -1,0 +1,18 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+index e6f0da12..6bb0f1f1 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-late-command3-diagnosis\\before\\docs\\full-ui-interaction-sweep\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+@@ -1,6 +1,12 @@
+ # Full UI Interaction Sweep — progress
+ 
+-## Current source result — MASTER R5 existing VM observation, 20.09.2026 16:34+03
++## Current source result — MASTER R5 late command 3 diagnosis, 20.09.2026
++
++EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. MASTER_R5_STATUS=WAITING_GUEST_READ_ONLY_DIAGNOSTICS. [Source-first диагноз и exact evidence](system-stabilization/20260917-master-r5/attempts/20260920-late-command3-diagnosis/diagnosis.md), [resume](system-stabilization/20260917-master-r5/resume-prompt.txt).
++
++На source line50 собственного seed generator подтверждён PowerShell array/concatenation defect:5argv вместо3, unmatched quote вsh-c; host parse-only exit2, parenthesizedcandidate exit0. Candidate NOT_APPLIED; product/generator/seed/VM не менялись. Пользователь реально наблюдал late0–2success, late3exit2/install_fail; actual guestconfig/logs/target пока не прочитаны. VM оставитькакесть, безreboot/shutdown/reinstall. Старый9056 завершён18:03 по новомуterminal/PIDabsent, result000006 содержитVMRunning, неOff;000007 безresult. Точный следующий ручной шаг Help→Enter shell/кадр приглашения, безкоманд. После — узкая read-only диагностика, предпочтение in-place completion при доказанных preconditions. WorkingDB/service/env/uploads/history untouched. Frozen215product/config132build72harness/6parentmatrices/4priorZIP unchanged; новыеproducttests/live/journeys0.954/957semanticcontrols/P0/P1/P2=0/1/10 остаются историей, не приёмкой. Все прежние screenshots/evidence сохранены.
++
++## Historical source result — MASTER R5 existing VM observation, 20.09.2026 16:34+03
+ 
+ EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. MASTER_R5_STATUS=BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS. [Единый отчёт](system-stabilization/20260917-master-r5/final-report.md), [актуальное продолжение](system-stabilization/20260917-master-r5/resume-prompt.txt).
+ 

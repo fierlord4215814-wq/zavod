@@ -1,0 +1,13 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\H-support-before\\frontend\\scripts\\master-r2-typecheck.cjs" "b/C:\\Users\\79164\\Documents\\work\\frontend\\scripts\\master-r2-typecheck.cjs"
+index 20c3f94a..954ab469 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\H-support-before\\frontend\\scripts\\master-r2-typecheck.cjs"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\scripts\\master-r2-typecheck.cjs"
+@@ -28,7 +28,7 @@ const report = { at: new Date().toISOString(), compiler: ts.version, scope: 'ful
+ const output = process.env.R2_TYPE_REPORT;
+ if (output) {
+   const target = path.resolve(root, output);
+-  const allowed = ['20260915-master-r2','20260915-master-r3'].map(batch => path.join(root, 'docs/full-ui-interaction-sweep/system-stabilization', batch) + path.sep);
++  const allowed = ['20260915-master-r2','20260915-master-r3','20260916-master-r4'].map(batch => path.join(root, 'docs/full-ui-interaction-sweep/system-stabilization', batch) + path.sep);
+   if (!allowed.some(directory => target.startsWith(directory)) || !target.endsWith('.json')) throw new Error('Scoped R2/R3 report path required');
+   fs.mkdirSync(path.dirname(target), { recursive: true });
+   fs.writeFileSync(target, JSON.stringify(report, null, 2), { flag: 'wx' });

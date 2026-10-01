@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#172033" />
+    <meta name="background-color" content="#1e1e2e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Завод" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="/pwa-icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Завод</title>
+    <script>
+      (() => {
+        const themes = {
+          dark: { themeColor: '#172033', backgroundColor: '#1e1e2e', colorScheme: 'dark' },
+          gray: { themeColor: '#cbd2d8', backgroundColor: '#cbd2d8', colorScheme: 'light' },
+          light: { themeColor: '#f8f4ec', backgroundColor: '#f3efe7', colorScheme: 'light' },
+        };
+        let theme = 'dark';
+        try {
+          const savedTheme = window.localStorage.getItem('zavod.appearanceTheme');
+          if (savedTheme && Object.prototype.hasOwnProperty.call(themes, savedTheme)) theme = savedTheme;
+        } catch {
+          // The dark default stays available when device storage is unavailable.
+        }
+        const selectedTheme = themes[theme];
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = selectedTheme.colorScheme;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', selectedTheme.themeColor);
+        document.querySelector('meta[name="background-color"]')?.setAttribute('content', selectedTheme.backgroundColor);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Для работы приложения «Завод» включите JavaScript в браузере.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

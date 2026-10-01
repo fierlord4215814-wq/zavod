@@ -1,0 +1,717 @@
+{
+  "status": "PASS_UI_FACTORY_C_HOME_A0_SEND_HOME_REJECT_REPEAT_APPROVE_REASSIGN_SECOND_PAGES",
+  "steps": {
+    "start": {
+      "status": 201,
+      "sessionId": "938f6630-5adf-400e-abb0-f99899e24202",
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    "lineStarted": true,
+    "assign": {
+      "status": 201,
+      "id": "b63320a8-e6d0-4511-adff-e5767218d732",
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    "worker-assigned-390": {
+      "width": 390,
+      "scroll": 390
+    },
+    "assignmentSecondPage": {
+      "row": {
+        "id": "b63320a8-e6d0-4511-adff-e5767218d732",
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+        "userId": "f670f7b4-0ffb-437f-8df6-387050bfbefe",
+        "endedAt": null
+      },
+      "ws": [
+        "connected",
+        "assignment_updated"
+      ],
+      "text": "Ограниченная площадка С\n\nЗавод\n\nОнлайн · Работник Приёмочный Р.\nСмена\nЛюди\nИстория смен\nОттайка\nЕщё\nСмена\n\nВаша смена и текущее назначение.\n\n≡\nВ работе\n1\nНа мойке: 0\n●\nЛюди на смене\n1\nⅡ\nПростой\n0\nНа производственных линиях:\n1 из 1\nТекущая смена · Ограниченная площадка С\n26.09.2026 · Ночь · 20:00–08:00\nВыбрать смену\n⌄\nОбновлено: данные смены изменились\nЛинии в работе\n1\nЛиния приёмки\nРаботает\nЛюди 1/1\nОсновной состав\nПодробнее\nПовременщики\n1\nПовременная работа\nПовременщики\n0/0\nНужно: 0\nНазначено: 0\nНе хватает: 0\nЛинии на мойке\n0\nЛиний на мойке сейчас нет\nОстановленные линии\n0\nОстановленных линий нет\nМоя смена\n1\nРаботники\n1\nПР\nПриёмочный Работник Заводович\nНа линии\nРаботник\nСмена приёмки\nЛиния приёмки\nОператор"
+    },
+    "home": {
+      "status": 201,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    "worker-home-390": {
+      "width": 390,
+      "scroll": 390
+    },
+    "request": {
+      "status": 201,
+      "id": "9d0eb624-30dd-4bcf-89ff-62aa52a337bd"
+    },
+    "masterSecondPageMs": 337,
+    "master-queue-390": {
+      "width": 390,
+      "scroll": 390
+    },
+    "master-queue-1440": {
+      "width": 1440,
+      "scroll": 1440
+    },
+    "master-reject-390": {
+      "width": 390,
+      "scroll": 390
+    },
+    "reject": {
+      "status": 200,
+      "workerSecondPage": true
+    },
+    "worker-rejected-390": {
+      "width": 390,
+      "scroll": 390
+    },
+    "repeatRequest": {
+      "status": 201,
+      "id": "eb03c66e-b0f9-478f-a882-4ca8e4d906ba"
+    },
+    "approve": {
+      "workerSecondPage": true,
+      "noAutomaticAssignment": true
+    },
+    "worker-approved-390": {
+      "width": 390,
+      "scroll": 390
+    },
+    "worker-approved-1440": {
+      "width": 1440,
+      "scroll": 1440
+    },
+    "reassign": true
+  },
+  "startedAt": "2026-09-26T17:56:58.848Z",
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.return-requests article').filter({ hasText: 'Готов продолжить' }).getByRole('button', { name: 'Отклонить', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" class=\"secondary-button\">Отклонить</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"modal-actions sticky-actions\">…</div> from <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop sheet-backdrop\" aria-labelledby=\"shift-people-panel-title\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"modal-actions sticky-actions\">…</div> from <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop sheet-backdrop\" aria-labelledby=\"shift-people-panel-title\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    4 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"modal-actions sticky-actions\">…</div> from <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop sheet-backdrop\" aria-labelledby=\"shift-people-panel-title\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    53 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <p class=\"skill-legend compact-skill-legend\">Навык проверяется по выбранной линии и позиции: з…</p> from <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop sheet-backdrop\" aria-labelledby=\"shift-people-panel-title\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+  "a0": {
+    "before": {
+      "digest": "cb552b3dd7c11c4f610bea96c22b5391e9c8de99bbf58b67795165c8ad572343",
+      "counts": {
+        "userFactoryAccess": 6,
+        "assignment": 0,
+        "shiftSession": 0,
+        "shiftReturnRequest": 0,
+        "auditLog": 50
+      }
+    },
+    "after": {
+      "digest": "cb552b3dd7c11c4f610bea96c22b5391e9c8de99bbf58b67795165c8ad572343",
+      "counts": {
+        "userFactoryAccess": 6,
+        "assignment": 0,
+        "shiftSession": 0,
+        "shiftReturnRequest": 0,
+        "auditLog": 50
+      }
+    }
+  },
+  "http": {
+    "master": [
+      {
+        "path": "/api/auth/login",
+        "method": "POST",
+        "status": 201
+      },
+      {
+        "path": "/api/auth/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/auth/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/announcements/current",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/chats",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/tasks",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/notifications/unread-count",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/downtime-reasons",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/health",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift-log/handover/previous",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift-log/handover/availability",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/auth/assignment-request",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests/9d0eb624-30dd-4bcf-89ff-62aa52a337bd",
+        "method": "PATCH",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/chats",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/tasks",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/announcements/current",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/notifications/unread-count",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests/eb03c66e-b0f9-478f-a882-4ca8e4d906ba",
+        "method": "PATCH",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/settings",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-requests",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/people",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/dashboard",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/26652724-4850-4ce0-97e9-935dcc6ce9d0/assignment-board",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/assignments/line",
+        "method": "POST",
+        "status": 201,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      }
+    ],
+    "worker": [
+      {
+        "path": "/api/auth/login",
+        "method": "POST",
+        "status": 201
+      },
+      {
+        "path": "/api/auth/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/auth/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/auth/assignment-request",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/notifications/unread-count",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/announcements/current",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/health",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/return-request",
+        "method": "POST",
+        "status": 201,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/timeline",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/work-areas",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/lines/shift-overview",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      },
+      {
+        "path": "/api/shift/me",
+        "method": "GET",
+        "status": 200,
+        "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+      }
+    ]
+  },
+  "ws": {
+    "master": [
+      {
+        "type": "connected",
+        "payload": {
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "userId": "972b69f5-b703-43ea-97a9-c9ecb2801600",
+          "message": "Realtime подключён."
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:05:25.070Z"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:05:25.718Z"
+        }
+      },
+      {
+        "type": "notification_created",
+        "payload": {
+          "id": "e566830e-56be-41c0-8155-e1262b912a1d",
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "departmentId": null,
+          "userId": "972b69f5-b703-43ea-97a9-c9ecb2801600",
+          "type": "SHIFT_RETURN_REQUESTED",
+          "title": "Запрос возврата на смену",
+          "message": "Приёмочный Работник Заводович: Готовность подтверждена, прошу вернуть на смену",
+          "entityType": "SHIFT_RETURN_REQUEST",
+          "entityId": "eb03c66e-b0f9-478f-a882-4ca8e4d906ba",
+          "severity": "WARNING",
+          "readAt": null,
+          "createdAt": "2026-09-26T18:05:25.749Z",
+          "expiresAt": null,
+          "sourceRoute": "shift"
+        }
+      },
+      {
+        "type": "notifications_count_changed",
+        "payload": {
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "reason": "notification_created"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:05:26.288Z"
+        }
+      },
+      {
+        "type": "assignment_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:05:28.429Z"
+        }
+      }
+    ],
+    "worker": [
+      {
+        "type": "connected",
+        "payload": {
+          "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+          "userId": "f670f7b4-0ffb-437f-8df6-387050bfbefe",
+          "message": "Realtime подключён."
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:05:25.070Z"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:05:25.718Z"
+        }
+      },
+      {
+        "type": "shift_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:05:26.288Z"
+        }
+      },
+      {
+        "type": "assignment_updated",
+        "payload": {
+          "changedAt": "2026-09-26T18:05:28.429Z"
+        }
+      }
+    ]
+  }
+}

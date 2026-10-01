@@ -1,0 +1,17 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\README.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\README.md"
+index c244e9d6..da6209f5 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\README.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\README.md"
+@@ -6,7 +6,11 @@ Monorepo:
+ 
+ ## Завод v1.0 — текущая точка передачи
+ 
+-MASTER R5: `WAITING_MANUAL_REBOOT` (19.09.2026), NOT_ACCEPTED. [Checkpoint и передача](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md). По новому явному разрешению выбран Hyper-V + Ubuntu24.04; после проверки совместимости и ресурсов штатный visible UAC/DISM включил7 Hyper-V компонентов, actual administrator token подтверждён, exit3010 требует ручной перезагрузки. Автоматический reboot подавлен /NoRestart. VM/guest/isolation/продуктовые tests/fixtures ещё NOT_RUN, рабочая PostgreSQL и данные не тронуты. Source/config/build/harness и6matrices совпадают с checkpoint; старые Sandbox cancellation и PowerShell failure сохранены. После ручной перезагрузки продолжить тот же R5 с actual host readiness и stage2 VM, не повторять installer/discovery. Основной UI Sweep остаётся на паузе.
++MASTER R5,20.09: `BLOCKED_CONSOLE_OBSERVATION_PERMISSION / NOT_ACCEPTED`. [Единый текущий отчёт/пакет](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md). После нового явного UAC создана одна own Hyper-V Gen2 VM, официальный UbuntuISO полностью проверен, clean source подготовлен; actual guest/isolation/live ещё не доказаны. Read-only observer требует дополнительного разрешения после ошибки capture helper. Штатная остановка ownVM запрошена, terminal/Off на08:55 не подтверждены; exact runtime receipt обязателен, Force не применялся. Продукт/рабочая PostgreSQL/service/data/.env/uploads/history не менялись/не читались, основной sweep на паузе. DISM не повторять, duplicate VM не создавать. Следовать [resume](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt).
++
++Исторический checkpoint19.09 ниже уже заменён текущим:
++
++MASTER R5: `BLOCKED_UAC_CANCELLED_VM_PROVISION` (19.09.2026), NOT_ACCEPTED. [Checkpoint и передача](docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md). После ручной перезагрузки подтверждены новый boot19:09:05, DEP/HypervisorPresent=true, vmms Running,7features Enabled, достаточные RAM/disk. DISM не повторялся. Ограниченный VM-control UAC19:57 вернул «Операция была отменена пользователем»; helper PID/token/VM не получены, повтор без нового разрешения не выполняется. Official Ubuntu download/подготовленные helpers сохранены, actual guest/isolation/пять live gates/fixtures NOT_RUN. Рабочая PostgreSQL/service/data/.env/uploads/history не читались и не менялись. Product/config/build/harness/6matrices сохранены, новые product fixes0. Следующий шаг — новое разрешение на один scoped UAC, затем stage2–9 того же R5, без повторного DISM/discovery. Основной UI Sweep остаётся на паузе.
+ 
+ ### Исторический результат R4
+ 

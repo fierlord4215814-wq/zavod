@@ -1,0 +1,20 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const {ownPrisma,ownRuntime,verifyOwnDb}=require('../local-02/own-db.cjs');
+const sourceName='zavod_local02_admin01_fresh',targetName='zavod_local02_admin02_clean';
+(async()=>{const source=ownPrisma(sourceName),control=ownPrisma();let target;
+ try{assert(!fs.existsSync(path.join(__dirname,'target.json')),'Preserve prior target');await verifyOwnDb(source,sourceName);await verifyOwnDb(control);
+ assert.equal((await control.$queryRawUnsafe('SELECT datname FROM pg_database WHERE datname=$1',targetName)).length,0);
+ const counts={};for(const m of ['factory','user','userFactoryAccess','shiftSession','assignment','shiftReturnRequest','line','washSession','shiftLog','attachment'])counts[m]=await source[m].count();
+ for(const [m,n] of Object.entries(counts))assert.equal(n,['factory','user','userFactoryAccess'].includes(m)?1:0,m);
+ const factory=await source.factory.findFirstOrThrow({select:{id:true,code:true,name:true}});assert.equal(factory.code,'admin01-final-c0');
+ const migrations=await source.$queryRawUnsafe('SELECT migration_name, checksum FROM "_prisma_migrations" WHERE finished_at IS NOT NULL AND rolled_back_at IS NULL ORDER BY migration_name');assert.equal(migrations.length,57);
+ await source.$disconnect();assert.equal((await control.$queryRawUnsafe('SELECT pid FROM pg_stat_activity WHERE datname=$1',sourceName)).length,0,'Do not terminate source connections');
+ const dir=path.join(ownRuntime(),'admin02');assert(!fs.existsSync(dir),'Do not reuse retained uploads');
+ await control.$executeRawUnsafe(`CREATE DATABASE "${targetName}" WITH TEMPLATE "${sourceName}" OWNER local01_owner`);
+ fs.mkdirSync(path.join(dir,'uploads'),{recursive:true});target=ownPrisma(targetName);const identity=await verifyOwnDb(target,targetName);
+ const after={};for(const m of Object.keys(counts))after[m]=await target[m].count();assert.deepEqual(after,counts);
+ const ev={status:'PASS_NEW_OWN_COPY_57_NO_C1_BUSINESS_WRITES',atUtc:new Date().toISOString(),source:sourceName,target:targetName,identity,factory,counts,migrations,uploads:0};
+ fs.writeFileSync(path.join(__dirname,'target.json'),JSON.stringify(ev,null,2));console.log(JSON.stringify({status:ev.status,target:targetName,counts,migrations:migrations.length}));
+ }finally{await source.$disconnect();await control.$disconnect();await target?.$disconnect();}
+})().catch(e=>{console.error(e.message.replace(/postgres(?:ql)?:\/\/\S+/g,'[REDACTED]'));process.exitCode=1;});

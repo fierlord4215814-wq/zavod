@@ -1,0 +1,26 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\B-before\\frontend\\e2e\\master.playwright.config.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\master.playwright.config.ts"
+index d2f732f1..b39c9e21 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\B-before\\frontend\\e2e\\master.playwright.config.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\master.playwright.config.ts"
+@@ -1,12 +1,12 @@
+ import { defineConfig, devices } from '@playwright/test';
+ import path from 'node:path';
+ 
+-if (!['20260915-maximum-integration', '20260915-master-r2', '20260915-master-r3'].includes(process.env.MASTER_BATCH ?? '') || !process.env.FRONTEND_SERIES_RUN) {
++if (!['20260915-maximum-integration', '20260915-master-r2', '20260915-master-r3', '20260916-master-r4'].includes(process.env.MASTER_BATCH ?? '') || !process.env.FRONTEND_SERIES_RUN) {
+   throw new Error('Explicit master batch and immutable run ID are required. No runtime autostart.');
+ }
+ export default defineConfig({
+   testDir: '.',
+-  testMatch: ['master-integration.spec.ts', 'frontend-series.spec.ts', 'component-contracts.spec.ts', 'module-journeys.spec.ts', 'review-variants.spec.ts', 'master-r2-*.spec.ts', 'master-r3-*.spec.ts'],
++  testMatch: ['master-integration.spec.ts', 'frontend-series.spec.ts', 'component-contracts.spec.ts', 'module-journeys.spec.ts', 'review-variants.spec.ts', 'master-r2-*.spec.ts', 'master-r3-*.spec.ts', 'master-r4-*.spec.ts'],
+   timeout: 45_000,
+   expect: { timeout: 8_000 },
+   fullyParallel: false,
+@@ -15,5 +15,5 @@ export default defineConfig({
+   reporter: [['list']],
+   webServer: [],
+   outputDir: path.resolve(__dirname, '../../docs/full-ui-interaction-sweep/system-stabilization', process.env.MASTER_BATCH, 'evidence', process.env.FRONTEND_SERIES_RUN, 'runner-artifacts'),
+-  use: { ...devices['Desktop Chrome'], channel: 'msedge', baseURL: 'http://127.0.0.1:5173', serviceWorkers: 'block', trace: 'off', screenshot: 'only-on-failure', video: 'off', actionTimeout: 10_000 },
++  use: { ...devices['Desktop Chrome'], channel: 'msedge', baseURL: process.env.MASTER_BATCH === '20260916-master-r4' ? 'http://127.0.0.1:15464' : 'http://127.0.0.1:5173', serviceWorkers: 'block', trace: 'off', screenshot: 'only-on-failure', video: 'off', actionTimeout: 10_000 },
+ });

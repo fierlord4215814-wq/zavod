@@ -1,0 +1,20 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260921-vhdx-ssh\before\docs\full-ui-interaction-sweep\progress.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\progress.md', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-vhdx-ssh\\before\\docs\\full-ui-interaction-sweep\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+index 54f1ba4f..86587916 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-vhdx-ssh\\before\\docs\\full-ui-interaction-sweep\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+@@ -1,10 +1,10 @@
+ # Full UI Interaction Sweep — progress
+ 
+-## Current source result — MASTER R5 channel recheck, 21.09.2026 после17:00
++## Current source result — MASTER R5 VHDX→SSH, 21.09.2026 22:29
+ 
+-EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO; MASTER_R5_STATUS=BLOCKED_TOOL_CAPABILITY. Source generator неизменён после предыдущего fix; недостающий host GNU install получен официально в own runtime, child PATH only. Тот же provisioning suite теперь10/10PASS (не guest/live/product). Свежий VMConnect capture дважды0x80004002, accessibility только non-admin connection denied; созданный viewer14364 штатно закрыт/PIDabsent. Новых UAC/guest/VM state operations0. Последнее VMOff16:09 — история, сейчас не перепроверено. Нужен observable channel, уточняется факт прошлого app-only restart; не согласие на каждый guest шаг. [Текущий полный отчёт](system-stabilization/20260917-master-r5/final-report.md), [evidence](system-stabilization/20260917-master-r5/attempts/20260921-channel-recheck/result.md).
++EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO; MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_DIAGNOSTIC_BOOT. Разрешён один diagnostic boot прежнего VHDX через Hyper-V→SSH. Единственный scoped UAC22:29:35 отменён; helper не запущен, freshVM/network/config/boot/SSH NOT_RUN. Codex restart USER_CONFIRMED; capture retries0. Generator уже corrected/10hostPASS, неизменён; guest repair не выполнен. CurrentVM UNKNOWN/lastOff16:09 исторический; старый helper завершён, reused9056 не трогать. Нужны новое явное согласие на один UAC и подтверждение системного окна; не повторять отмену автоматически. [Текущий полный отчёт](system-stabilization/20260917-master-r5/final-report.md), [evidence](system-stabilization/20260917-master-r5/attempts/20260921-vhdx-ssh/result.md).
+ 
+-Все5live gates0,32journeys0newreal, original063OPEN, productfixes/builds/tests0; main954/957/P0/P1/P2=0/1/10 не переприняты. Working DB/service/env/uploads/history не трогались; physicalPENDING. Main6matrices/5previousZIP сохранены; новый пакет указан в current INDEX. Ниже предыдущий результат,7/3 и viewer15316alive уже не последние данные.
++Все5live gates0,32journeys0newreal, original063OPEN, productfixes/builds/tests0; main954/957/P0/P1/P2=0/1/10 не переприняты. Working DB/service/env/uploads/history не трогались; physicalPENDING. Main6matrices/6previousZIP сохранены; новый пакет указан в current INDEX. Ниже исторические результаты, не текущие команды.
+ 
+ ## Historical source result — MASTER R5 guest recovery, 21.09.2026
+ 

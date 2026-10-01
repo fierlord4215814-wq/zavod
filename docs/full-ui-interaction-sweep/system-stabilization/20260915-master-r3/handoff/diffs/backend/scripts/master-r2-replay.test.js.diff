@@ -1,0 +1,23 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-replay.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-replay.test.js"
+index bb047fa7..d3a01c69 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-replay.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-replay.test.js"
+@@ -164,3 +164,18 @@ test('R2-A Wash deterministic same/different start IDs never start second occupi
+   assert.equal(require('../dist/common/pilot-visibility').isRuntimeVisibleWashSession(active[0]), true, JSON.stringify(active[0]));
+   await assert.rejects(start('r2-start-second'), denied); assert.equal(f.sessions.length, 1); assert.equal(f.operations.length, 1);
+ });
++
++for(const [field,value] of Object.entries({objectName:'Другой стол',objectDescription:'Другой процесс',description:'Иная работа',priority:'URGENT',dueAt:'2026-09-18T16:00:00.000Z',comment:'Другой комментарий',targetType:'LINE'}))test(`R3-C2 Wash direct request key denies changed ${field}`,async()=>{
++  const f=washFixture(),input={...f.target,description:'Обработка поверхности',priority:'NORMAL',dueAt:'2026-09-17T16:00:00.000Z',comment:'После смены',operationId:'r3-bound-request'};
++  const first=await f.service.createRequest(actor,input),before=copy([f.writes,f.audits,f.events]);
++  const changed={...input,[field]:value,...(field==='targetType'?{lineId:'other-line'}:{})};
++  await assert.rejects(f.service.createRequest(actor,changed),denied);
++  assert.deepEqual([f.writes,f.audits,f.events],before);assert.equal(f.requests.length,1);
++  assert.equal((await f.service.createRequest(actor,input)).id,first.id);
++});
++test('R3-C2 Wash direct request replay normalizes equivalent whitespace and dates without a second write',async()=>{
++ const f=washFixture(),input={...f.target,description:'Обработка поверхности',priority:'NORMAL',dueAt:'2026-09-17T16:00:00.000Z',comment:'После смены',operationId:'r3-equivalent-request'};
++ const first=await f.service.createRequest(actor,input),before=copy([f.writes,f.audits,f.events]);f.requests[0].status='DONE';
++ const replay=await f.service.createRequest(actor,{...input,objectName:'  Стол   упаковки ',description:' Обработка поверхности ',comment:' После смены ',priority:'normal',dueAt:'2026-09-17T19:00:00+03:00'});
++ assert.equal(replay.id,first.id);assert.deepEqual([f.writes,f.audits,f.events],before);
++});

@@ -1,0 +1,73 @@
+--- /dev/null
++++ backend/scripts/master-r2-provenance.test.js
+@@ -0,0 +1,70 @@
++// C1 is a test-only evidence resolver contract, NOT a new product projection/filter.
++require('./master-offline-guard.cjs'); require('reflect-metadata');
++const { test } = require('node:test'), assert = require('node:assert/strict');
++const fs = require('node:fs'), path = require('node:path'), Module = require('node:module'), ts = require('typescript');
++const { memory, strict, copy, denied } = require('./master-r2-memory.cjs');
++const { WashService } = require('../dist/modules/wash/wash.service');
++const visibility = require('../dist/common/pilot-visibility');
++const documentedStart = /^__PFFV5_P17C_BROWSER_\d{13}__:wash-start$/;
++function projectionEvidence({ factoryId, session, operations, invocations }) {
++  if (!session || session.factoryId !== factoryId) return 'NOT_IN_SCOPE';
++  const candidates = operations.filter(row => row.userId === session.startedById && row.resultKey === session.id && documentedStart.test(row.operationId));
++  if (!candidates.length) return 'NEEDS_FACTS';
++  if (candidates.length !== 1) return 'AMBIGUOUS';
++  const proofs = invocations.filter(row => row.owner === 'WashService.startWash' && row.userId === session.startedById && row.operationId === candidates[0].operationId && row.factoryId === factoryId && row.resultId === session.id);
++  // Polymorphic resultKey by itself has no stored operation-kind authority.
++  return proofs.length === 1 ? 'PROVEN_PROJECTION_ONLY' : 'NEEDS_KIND_WITNESS';
++}
++async function startedFixture() {
++  const m = memory(), factoryId = 'provenance-factory', userId = '79c3d675-4b59-4ca0-81aa-b8a79b33c100', operations = m.operations;
++  const user = { id: userId, factoryId, role: 'MASTER', blockedAt: null, deletedAt: null }, sessions = [];
++  m.data.user = m.model('user', [user]);
++  m.data.userFactoryAccess = m.model('access', [{ userId, factoryId, isActive: true, isGuest: false, user }], { includes: ['user'], compounds: ['userId_factoryId'] });
++  m.data.washSession = m.model('washSession', sessions, { includes: ['line', 'startedBy', 'assignments', 'issues', 'messages', 'events', 'controlItems', 'okkReviews'], defaults: { id: 'c037932b-a0a2-4434-89fe-095f89ddc100', lineId: null }, enrich: row => ({ ...row, line: null, startedBy: { id: userId }, assignments: [], issues: [], messages: [], events: [], controlItems: [], okkReviews: [] }) });
++  m.data.shiftSession = m.model('shiftSession', []); m.data.washEvent = m.model('washEvent', []);
++  const service = new WashService({ db: m.db }, m.ws, m.audit, m.attachments, strict({}));
++  const operationId = '__PFFV5_P17C_BROWSER_1789400576992__:wash-start', target = { targetType: 'OTHER', objectName: 'Санитарная зона 576992', objectDescription: 'Проверка связи рабочего экрана' };
++  const session = await service.startWash(target, userId, operationId, factoryId);
++  const invocations = [{ owner: 'WashService.startWash', userId, operationId, factoryId, resultId: session.id }];
++  return { ...m, factoryId, userId, session, sessions, operations, invocations, target, service };
++}
++for (const scenario of ['proven', 'absent', 'ambiguous', 'cross-factory', 'different-author', 'wrong-result-key', 'wrong-operation-kind', 'missing-kind-witness']) test(`R2-C014 conservative projection evidence contract ${scenario}`, async () => {
++  const f = await startedFixture(), input = { factoryId: f.factoryId, session: copy(f.session), operations: copy(f.operations), invocations: copy(f.invocations) };
++  let expected = 'PROVEN_PROJECTION_ONLY';
++  if (scenario === 'absent') { input.operations = []; expected = 'NEEDS_FACTS'; }
++  if (scenario === 'ambiguous') { input.operations.push({ ...copy(input.operations[0]), operationId: '__PFFV5_P17C_BROWSER_1789400576993__:wash-start' }); expected = 'AMBIGUOUS'; }
++  if (scenario === 'cross-factory') { input.factoryId = 'other-factory'; expected = 'NOT_IN_SCOPE'; }
++  if (scenario === 'different-author') { input.operations[0].userId = 'another-actor'; expected = 'NEEDS_FACTS'; }
++  if (scenario === 'wrong-result-key') { input.operations[0].resultKey = 'another-type-or-session'; expected = 'NEEDS_FACTS'; }
++  if (scenario === 'wrong-operation-kind') { input.operations[0].operationId = input.operations[0].operationId.replace(':wash-start', ':wash-complete'); expected = 'NEEDS_FACTS'; }
++  if (scenario === 'missing-kind-witness') { input.invocations = []; expected = 'NEEDS_KIND_WITNESS'; }
++  const before = copy([input, f.sessions, f.operations, f.writes]);
++  assert.equal(projectionEvidence(input), expected); assert.deepEqual([input, f.sessions, f.operations, f.writes], before);
++  assert.equal(visibility.isRuntimeVisibleWashSession(f.session), true, 'Current parent classifier cannot infer operation provenance from the child/name/UUID');
++  await assert.rejects(f.service.startWash(f.target, f.userId, 'ordinary-second-operation', f.factoryId), denied);
++  assert.equal(f.sessions.length, 1); assert.equal(f.sessions[0].status, 'IN_PROGRESS'); assert.equal(f.operations.length, 1);
++});
++test('R2-C014 generator source binds start response to washId; completion uses a distinct operation ID', () => {
++  const source = fs.readFileSync(path.resolve(__dirname, '../../frontend/e2e/physical-field-fixes-v5-plast17c.spec.ts'), 'utf8');
++  assert.ok(source.includes('const marker = `__PFFV5_P17C_BROWSER_${runId}__`'));
++  assert.ok(source.includes("await api('/wash/start'")); assert.ok(source.includes('operationId: `${marker}:wash-start`'));
++  assert.ok(source.includes('washId = startedWash.data.id')); assert.ok(source.includes('operationId: `${marker}:wash-complete`'));
++  // Source is inspected only; the original live/registration/cleanup test is NEVER invoked.
++});
++test('R2-C050 removing only broad PILOT arm would expose documented fixtures: no authorized blanket removal', () => {
++  const sourcePath = path.resolve(__dirname, '../src/common/pilot-visibility.ts'), original = fs.readFileSync(sourcePath, 'utf8');
++  const arm = 'PILOT(?:[_ -][A-ZА-ЯЁ0-9_-]+)|'; assert.equal(original.split(arm).length, 2);
++  const hypothetical = original.replace(arm, ''), module = { exports: {} };
++  new Function('require', 'module', 'exports', ts.transpileModule(hypothetical, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(Module.createRequire(path.resolve(__dirname, '../dist/common/pilot-visibility.js')), module, module.exports);
++  const documentedLegacy = [
++    ['pilot-access-lifecycle-v1-line', 'PILOT линия access lifecycle'],
++    ['pilot-access-lifecycle-v1-factory-chat', 'PILOT общий чат access lifecycle'],
++    ['pilot-access-lifecycle-v1-masters', 'PILOT мастера access lifecycle'],
++  ];
++  for (const row of documentedLegacy) { assert.equal(visibility.hasPilotFixtureMarker(...row), true); assert.equal(module.exports.hasPilotFixtureMarker(...row), false); }
++  for (const label of ['PILOT Фирма-партнёр', 'PILOT Альфа-42']) { assert.equal(visibility.hasPilotFixtureMarker(label), true); assert.equal(module.exports.hasPilotFixtureMarker(label), false); }
++  for (const label of ['PILOT Фирма наёмных работников v1.0', `Временная фирма А ${(1789400000000).toString(36)}`, `Временная фирма Б ${(1789400000000).toString(36)}`]) assert.equal(module.exports.hasPilotFixtureMarker(label), true, 'accepted exact050 remains independent');
++  for (const label of ['Пилотная фирма-партнёр', 'PILOT', 'PILOT Производство 123', 'Test производство 123', 'Фирма наёмных работников v1.0']) assert.equal(visibility.hasPilotFixtureMarker(label), false);
++  assert.equal(fs.readFileSync(sourcePath, 'utf8'), original, 'hypothetical compiler probe must not edit product classifier');
++});
++

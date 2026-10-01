@@ -1,0 +1,19 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-task-capability-before\\frontend\\src\\screens\\TasksScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\TasksScreen.tsx"
+index a83bc7d7..8cfc5ca2 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-task-capability-before\\frontend\\src\\screens\\TasksScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\TasksScreen.tsx"
+@@ -737,10 +737,10 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+             />
+             <div className="modal-actions">
+               <button className="secondary-button" type="button" onClick={() => setSelectedTask(null)}>Закрыть окно</button>
+-              {selectedTask.status !== 'DONE' ? <button className="secondary-button" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('comment'); }}>Добавить комментарий</button> : null}
+-              {selectedTask.status === 'NEW' ? <button className="primary-button" type="button" disabled={busy} onClick={() => void takeTask(selectedTask)}>Взять в работу</button> : null}
+-              {selectedTask.status !== 'DONE' ? <button className="primary-button danger" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('done'); }}>Завершить заявку</button> : null}
+-              {selectedTask.status !== 'DONE' ? <button className="secondary-button" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('redirect'); }}>Передать</button> : null}
++              {selectedTask.status !== 'DONE' && canComment ? <button className="secondary-button" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('comment'); }}>Добавить комментарий</button> : null}
++              {selectedTask.status === 'NEW' && canTake ? <button className="primary-button" type="button" disabled={busy} onClick={() => void takeTask(selectedTask)}>Взять в работу</button> : null}
++              {selectedTask.status !== 'DONE' && canDone ? <button className="primary-button danger" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('done'); }}>Завершить заявку</button> : null}
++              {selectedTask.status !== 'DONE' && canRedirect ? <button className="secondary-button" type="button" disabled={busy} onClick={() => { setFiles([]); openTaskModal('redirect'); }}>Передать</button> : null}
+               <button className="primary-button" type="button" onClick={() => void openDetail(selectedTask)} disabled={busy}>Обновить</button>
+             </div>
+           </div>

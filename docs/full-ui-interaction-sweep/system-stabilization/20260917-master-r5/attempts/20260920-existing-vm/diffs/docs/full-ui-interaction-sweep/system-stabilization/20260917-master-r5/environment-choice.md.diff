@@ -1,0 +1,14 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md"
+index f42ef1c7..99b1e618 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md"
+@@ -1,4 +1,8 @@
+-# Текущая среда — одна own Gen2 VM создана; console observation требует разрешения
++# Текущая среда — existing VM наблюдена, старая очередь и guest console не разрешены
++
++CURRENT20.09 16:34: Hyper-V/Gen2 остаются выбранным путём. Один разрешённый read-only UAC выполнен: exact VMRunning/BIOS/disk/media подтверждены16:26; observer8296 завершён. Old9056/start/commandline подтверждён и жив, queue000006/000007 безresults/terminal, associatedjobs=[] не доказывает отмену. Дополнительные4bytesthumbnail приreturn0 сохранены metadata, не обрезаны; VMConnectnonadmin access denied иcomputer-usecapture0x80004002. Гость/изоляция/live NOT_RUN/UNVERIFIED. Нужны наблюдаемое wait/prompt oldhelper и own guest frame; второйcontroller запрещён до разрешенияочереди. NoDISM/reboot/VM/network/securitychanges. Currentattempt20260920-existing-vm; прежняя непройденная consolepermission граница ниже — история, observer уже выполнен.
++
++## История утреннего checkpoint20.09
+ 
+ 20.09 новый явно разрешённый UAC actual admin token=true создал VM99a158da-c247-422c-ae11-109485a92b1f2CPU/4GiB/16GiBdynamic и Internal switch10.243.53.0/30. Full official UbuntuISOhash verified/seed/clean source prepared. Это не installed guest/isolation proof; console capture harness failed, requested read-only observer ещё НЕ approved/НЕ executed. VM былаRunning, обычное shutdown08:48/queuedhelperexit безterminal на08:55; noForce. [Текущий отчёт](final-report.md), exactcurrent receipts `attempts/20260920-vm-control/`. Previous cancellation19.09 ниже — сохранённая история, не current VM absence. DISM не повторялся, host protection/firewall/working DB untouched.
+ 

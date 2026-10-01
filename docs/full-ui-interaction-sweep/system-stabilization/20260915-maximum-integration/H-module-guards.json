@@ -1,0 +1,4596 @@
+{
+  "scope": "Compiled metadata and actual PermissionGuard only; not HTTP/UserContext/service data or DB proof",
+  "modules": 26,
+  "routes": 387,
+  "rows": [
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "overview",
+      "path": "admin/overview",
+      "permissions": "admin.overview.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "mediaOverview",
+      "path": "admin/media/overview",
+      "permissions": "admin.overview.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "shiftSettings",
+      "path": "admin/shift-settings",
+      "permissions": "shift.settings.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "taskSettings",
+      "path": "admin/task-settings",
+      "permissions": "tasks.settings.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "washSettings",
+      "path": "admin/wash-settings",
+      "permissions": "wash.settings.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "defrostSettings",
+      "path": "admin/defrost-settings",
+      "permissions": "defrost.settings.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "previewTaskSettings",
+      "path": "admin/task-settings/preview",
+      "permissions": "tasks.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateTaskSettings",
+      "path": "admin/task-settings",
+      "permissions": "tasks.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "previewWashSettings",
+      "path": "admin/wash-settings/preview",
+      "permissions": "wash.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateWashSettings",
+      "path": "admin/wash-settings",
+      "permissions": "wash.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "previewDefrostSettings",
+      "path": "admin/defrost-settings/preview",
+      "permissions": "defrost.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateDefrostSettings",
+      "path": "admin/defrost-settings",
+      "permissions": "defrost.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "previewShiftSettings",
+      "path": "admin/shift-settings/preview",
+      "permissions": "shift.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateShiftSettings",
+      "path": "admin/shift-settings",
+      "permissions": "shift.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "users",
+      "path": "admin/users",
+      "permissions": "admin.users.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "userProfile",
+      "path": "admin/users/:id",
+      "permissions": "admin.users.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateUserIdentity",
+      "path": "admin/users/:id/identity",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "assignmentRequests",
+      "path": "admin/assignment-requests",
+      "permissions": [
+        "admin.users.manage",
+        "company.members.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "acceptAssignmentRequest",
+      "path": "admin/assignment-requests/:id/accept",
+      "permissions": [
+        "admin.users.manage",
+        "company.members.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "rejectAssignmentRequest",
+      "path": "admin/assignment-requests/:id/reject",
+      "permissions": [
+        "admin.users.manage",
+        "company.members.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateFactoryAccess",
+      "path": "admin/users/:id/factory-access",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "grantFactoryAccess",
+      "path": "admin/users/:id/factory-access",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "previewFactoryAccess",
+      "path": "admin/users/:id/factory-access/preview",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateRoleDepartment",
+      "path": "admin/users/:id/role-department",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "previewRoleDepartment",
+      "path": "admin/users/:id/role-department/preview",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateBlockStatus",
+      "path": "admin/users/:id/block-status",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "permissionDelegationContext",
+      "path": "admin/permission-delegation/context",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "previewBlockStatus",
+      "path": "admin/users/:id/block-status/preview",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "passwordResetPreview",
+      "path": "admin/users/:id/password-reset/preview",
+      "permissions": [
+        "users.password.reset",
+        "admin.users.manage",
+        "company.members.manage",
+        "people.profile.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 5
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "resetPassword",
+      "path": "admin/users/:id/password-reset",
+      "permissions": [
+        "users.password.reset",
+        "admin.users.manage",
+        "company.members.manage",
+        "people.profile.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 5
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "factories",
+      "path": "admin/factories",
+      "permissions": "admin.factories.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "factorySetupOptions",
+      "path": "admin/factories/setup/options",
+      "permissions": "admin.factories.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "factorySetupPreview",
+      "path": "admin/factories/setup/preview",
+      "permissions": "admin.factories.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "factorySetupCreate",
+      "path": "admin/factories/setup/create",
+      "permissions": "admin.factories.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "factoryContext",
+      "path": "admin/factories/:id/context",
+      "permissions": "admin.factories.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "factoryConfigHealth",
+      "path": "admin/factories/:id/config-health",
+      "permissions": "admin.factories.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "factoryConfigExport",
+      "path": "admin/factories/:id/config-export",
+      "permissions": "admin.factories.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "factoryConfigImportPreview",
+      "path": "admin/factories/config-import/preview",
+      "permissions": "admin.factories.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "factoryConfigImportCreate",
+      "path": "admin/factories/config-import/create",
+      "permissions": "admin.factories.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createFactory",
+      "path": "admin/factories",
+      "permissions": "admin.factories.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "recovery",
+      "path": "admin/recovery",
+      "permissions": "admin.factories.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "dataHygieneSummary",
+      "path": "admin/data-hygiene/summary",
+      "permissions": "admin.overview.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "dataHygieneRecords",
+      "path": "admin/data-hygiene/records",
+      "permissions": "admin.overview.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "latestPilotHealthReport",
+      "path": "admin/pilot-health-report/latest",
+      "permissions": "ops.statistics.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "restoreRecoveryObject",
+      "path": "admin/recovery/:type/:id/restore",
+      "permissions": "admin.factories.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateFactoryStatus",
+      "path": "admin/factories/:id/status",
+      "permissions": "admin.factories.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "departments",
+      "path": "admin/departments",
+      "permissions": "admin.departments.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "organizationIdentityReport",
+      "path": "admin/organization-identity-report",
+      "permissions": "admin.overview.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "externalCompanies",
+      "path": "admin/external-companies",
+      "permissions": "admin.departments.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createExternalCompany",
+      "path": "admin/external-companies",
+      "permissions": "admin.departments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateExternalCompany",
+      "path": "admin/external-companies/:id",
+      "permissions": "admin.departments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateDepartmentStatus",
+      "path": "admin/departments/:id/status",
+      "permissions": "admin.departments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createDepartment",
+      "path": "admin/departments",
+      "permissions": "admin.departments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateDepartment",
+      "path": "admin/departments/:id",
+      "permissions": "admin.departments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "jobTitles",
+      "path": "admin/job-titles",
+      "permissions": "admin.roles.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createJobTitle",
+      "path": "admin/job-titles",
+      "permissions": "admin.roles.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateJobTitle",
+      "path": "admin/job-titles/:id",
+      "permissions": "admin.roles.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "roles",
+      "path": "admin/roles",
+      "permissions": "admin.roles.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "rolePermissions",
+      "path": "admin/roles/:role/permissions",
+      "permissions": "admin.roles.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "previewRolePermissions",
+      "path": "admin/roles/:role/permissions/preview",
+      "permissions": "admin.roles.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateRolePermissions",
+      "path": "admin/roles/:role/permissions",
+      "permissions": "admin.roles.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "permissionCopyPreview",
+      "path": "admin/users/:id/permission-copy-preview",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "permissionCopyApply",
+      "path": "admin/users/:id/permission-copy-apply",
+      "permissions": "admin.users.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "permissions",
+      "path": "admin/permissions",
+      "permissions": "admin.roles.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "linesConfig",
+      "path": "admin/lines-config",
+      "permissions": "admin.lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "staffingControlContext",
+      "path": "admin/staffing-control/context",
+      "permissions": "lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createStaffingControlTemplate",
+      "path": "admin/staffing-control/lines/:id/templates",
+      "permissions": "lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateStaffingControlTemplate",
+      "path": "admin/staffing-control/lines/:id/templates/:templateId",
+      "permissions": "lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "previewStaffingControlDefault",
+      "path": "admin/staffing-control/lines/:id/templates/:templateId/default/preview",
+      "permissions": "lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "setStaffingControlDefault",
+      "path": "admin/staffing-control/lines/:id/templates/:templateId/default",
+      "permissions": "lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "lines",
+      "path": "admin/lines",
+      "permissions": "admin.lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createLine",
+      "path": "admin/lines",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "line",
+      "path": "admin/lines/:id",
+      "permissions": "admin.lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateLine",
+      "path": "admin/lines/:id",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "linePositions",
+      "path": "admin/lines/:id/positions",
+      "permissions": "admin.lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "lineTemplates",
+      "path": "admin/lines/:id/staffing-templates",
+      "permissions": "admin.lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createPosition",
+      "path": "admin/lines/:id/positions",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updatePosition",
+      "path": "admin/lines/:id/positions/:positionId",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createTemplate",
+      "path": "admin/lines/:id/staffing-templates",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateTemplate",
+      "path": "admin/lines/:id/staffing-templates/:templateId",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "adminWorkAreas",
+      "path": "admin/work-areas",
+      "permissions": "admin.lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createWorkArea",
+      "path": "admin/work-areas",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateWorkArea",
+      "path": "admin/work-areas/:id",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "createWorkAreaPosition",
+      "path": "admin/work-areas/:id/positions",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "admin",
+      "controller": "AdminController",
+      "method": "updateWorkAreaPosition",
+      "path": "admin/work-areas/:id/positions/:positionId",
+      "permissions": "admin.lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "list",
+      "path": "//announcements",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "current",
+      "path": "//announcements/current",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "unread",
+      "path": "//announcements/unread",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "archiveList",
+      "path": "//announcements/archive",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "audienceDepartments",
+      "path": "//announcements/audience-departments",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "detail",
+      "path": "//announcements/:id",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "ackReport",
+      "path": "//announcements/:id/ack-report",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "create",
+      "path": "//announcements",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "update",
+      "path": "//announcements/:id",
+      "permissions": "announcements.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "archive",
+      "path": "//announcements/:id/archive",
+      "permissions": "announcements.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "markRead",
+      "path": "//announcements/:id/read",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "acknowledge",
+      "path": "//announcements/:id/ack",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "settings",
+      "path": "//admin/announcement-settings",
+      "permissions": "announcements.settings.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "previewSettings",
+      "path": "//admin/announcement-settings/preview",
+      "permissions": "announcements.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "announcements",
+      "controller": "AnnouncementsController",
+      "method": "updateSettings",
+      "path": "//admin/announcement-settings",
+      "permissions": "announcements.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "sections",
+      "path": "archive/sections",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "items",
+      "path": "archive/items",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "exportXlsx",
+      "path": "archive/export/xlsx",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "detail",
+      "path": "archive/detail/:section/:sourceType/:itemId",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "attachments",
+      "path": "archive/attachments",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "options",
+      "path": "archive/options",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "downtimeSummary",
+      "path": "archive/downtime/summary",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "downtimeByLines",
+      "path": "archive/downtime/by-lines",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "downtimeByDepartments",
+      "path": "archive/downtime/by-departments",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "downtimeByAssignees",
+      "path": "archive/downtime/by-assignees",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "downtimeItems",
+      "path": "archive/downtime/items",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "downtimeOptions",
+      "path": "archive/downtime/options",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "archive",
+      "controller": "ArchiveController",
+      "method": "correctDowntime",
+      "path": "archive/downtime/:eventId/correction",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "assignment",
+      "controller": "AssignmentController",
+      "method": "assign",
+      "path": "//assign",
+      "permissions": "assignments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "assignment",
+      "controller": "AssignmentController",
+      "method": "unassign",
+      "path": "//unassign",
+      "permissions": "assignments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "assignment",
+      "controller": "AssignmentController",
+      "method": "assignLine",
+      "path": "//assignments/line",
+      "permissions": "assignments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "assignment",
+      "controller": "AssignmentController",
+      "method": "assignWash",
+      "path": "//assignments/wash",
+      "permissions": "wash.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "assignment",
+      "controller": "AssignmentController",
+      "method": "assignTime",
+      "path": "//assignments/time",
+      "permissions": "assignments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "assignment",
+      "controller": "AssignmentController",
+      "method": "release",
+      "path": "//assignments/release",
+      "permissions": "assignments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "attachments",
+      "controller": "AttachmentsController",
+      "method": "upload",
+      "path": "attachments/upload",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "attachments",
+      "controller": "AttachmentsController",
+      "method": "metadata",
+      "path": "attachments/:id",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "attachments",
+      "controller": "AttachmentsController",
+      "method": "file",
+      "path": "attachments/:id/file",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "attachments",
+      "controller": "AttachmentsController",
+      "method": "deactivate",
+      "path": "attachments/:id",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "register",
+      "path": "auth/register",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "login",
+      "path": "auth/login",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "setPassword",
+      "path": "auth/set-password",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "changePassword",
+      "path": "auth/change-password",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "logout",
+      "path": "auth/logout",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "devLogin",
+      "path": "auth/dev-login",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "me",
+      "path": "auth/me",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "factories",
+      "path": "auth/factories",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "assignmentRequest",
+      "path": "auth/assignment-request",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "auth",
+      "controller": "AuthController",
+      "method": "createAssignmentRequest",
+      "path": "auth/assignment-request",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "list",
+      "path": "//chats",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "detail",
+      "path": "//chats/:id",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "create",
+      "path": "//chats",
+      "permissions": "chats.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "createDirect",
+      "path": "//chats/direct/:userId",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "update",
+      "path": "//chats/:id",
+      "permissions": "chats.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "media",
+      "path": "//chats/:id/media",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "hideForMe",
+      "path": "//chats/:id/hide-for-me",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "members",
+      "path": "//chats/:id/members",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "addMember",
+      "path": "//chats/:id/members",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "removeMemberLegacy",
+      "path": "//chats/:id/members/:userId",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "removeMember",
+      "path": "//chats/:id/members/:userId/remove",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "updateMemberRole",
+      "path": "//chats/:id/members/:userId/role",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "leave",
+      "path": "//chats/:id/leave",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "transferOwnership",
+      "path": "//chats/:id/transfer-ownership",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "setDirectCommunicationBlock",
+      "path": "//chats/:id/communication-block",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "createMessage",
+      "path": "//chats/:id/messages",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "updateMessage",
+      "path": "//chats/:id/messages/:messageId",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "deleteMessage",
+      "path": "//chats/:id/messages/:messageId",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "toggleReaction",
+      "path": "//chats/:id/messages/:messageId/reactions",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "createPoll",
+      "path": "//chats/:id/polls",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "votePoll",
+      "path": "//chats/:id/polls/:pollId/vote",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "markRead",
+      "path": "//chats/:id/read",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "settings",
+      "path": "//admin/chat-settings",
+      "permissions": "chats.settings.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "previewSettings",
+      "path": "//admin/chat-settings/preview",
+      "permissions": "chats.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "chats",
+      "controller": "ChatsController",
+      "method": "updateSettings",
+      "path": "//admin/chat-settings",
+      "permissions": "chats.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "settings",
+      "path": "checklists/settings",
+      "permissions": "checklists.settings.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "previewSettings",
+      "path": "checklists/settings/preview",
+      "permissions": "checklists.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "updateSettings",
+      "path": "checklists/settings",
+      "permissions": "checklists.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "templates",
+      "path": "checklists/templates",
+      "permissions": "checklists.templates.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "library",
+      "path": "checklists/templates/library",
+      "permissions": "checklists.templates.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "createTemplate",
+      "path": "checklists/templates",
+      "permissions": "checklists.templates.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "template",
+      "path": "checklists/templates/:id",
+      "permissions": "checklists.templates.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "updateTemplate",
+      "path": "checklists/templates/:id",
+      "permissions": "checklists.templates.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "duplicateTemplate",
+      "path": "checklists/templates/:id/duplicate",
+      "permissions": "checklists.templates.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "archiveTemplate",
+      "path": "checklists/templates/:id/archive",
+      "permissions": "checklists.templates.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "restoreTemplate",
+      "path": "checklists/templates/:id/restore",
+      "permissions": "checklists.templates.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "createRow",
+      "path": "checklists/templates/:id/rows",
+      "permissions": "checklists.templates.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "updateRow",
+      "path": "checklists/templates/:id/rows/:rowId",
+      "permissions": "checklists.templates.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "myRuns",
+      "path": "checklists/runs/my",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "runs",
+      "path": "checklists/runs",
+      "permissions": "checklists.runs.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "startRun",
+      "path": "checklists/runs",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "available",
+      "path": "checklists/available",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage",
+        "checklists.templates.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 4
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "workspace",
+      "path": "checklists/workspace",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage",
+        "checklists.templates.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 4
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "startAvailableRun",
+      "path": "checklists/runs/start",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "autoClose",
+      "path": "checklists/runs/auto-close",
+      "permissions": "checklists.runs.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "runPdfReport",
+      "path": "checklists/runs/:id/report.pdf",
+      "permissions": [
+        "checklists.archive.read",
+        "checklists.runs.read",
+        "checklists.runs.self"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 4
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "run",
+      "path": "checklists/runs/:id",
+      "permissions": [
+        "checklists.runs.read",
+        "checklists.runs.self"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "completeRow",
+      "path": "checklists/runs/:id/rows/:rowId/complete",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "completeCurrentCheck",
+      "path": "checklists/runs/:id/checks/current/complete",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "pause",
+      "path": "checklists/runs/:id/pause",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "resume",
+      "path": "checklists/runs/:id/resume",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "close",
+      "path": "checklists/runs/:id/close",
+      "permissions": [
+        "checklists.runs.self",
+        "checklists.runs.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "archive",
+      "path": "checklists/archive",
+      "permissions": [
+        "checklists.archive.read",
+        "checklists.runs.self"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "archiveByTemplate",
+      "path": "checklists/archive/by-template",
+      "permissions": [
+        "checklists.archive.read",
+        "checklists.runs.self"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "archiveByTemplateId",
+      "path": "checklists/archive/by-template/:templateId",
+      "permissions": [
+        "checklists.archive.read",
+        "checklists.runs.self"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "archiveJournal",
+      "path": "checklists/archive/template/:templateId/journal",
+      "permissions": [
+        "checklists.archive.read",
+        "checklists.runs.self"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "exportTemplateArchive",
+      "path": "checklists/archive/template/:templateId/export.xlsx",
+      "permissions": "checklists.archive.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "shiftReport",
+      "path": "checklists/reports/shift",
+      "permissions": "checklists.archive.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "checklists",
+      "controller": "ChecklistsController",
+      "method": "shiftReportPdf",
+      "path": "checklists/reports/shift.pdf",
+      "permissions": "checklists.archive.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "list",
+      "path": "defrost//",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "calendar",
+      "path": "defrost/calendar",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "lines",
+      "path": "defrost/lines",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "lineSummary",
+      "path": "defrost/lines/:lineId/summary",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "lineCalendar",
+      "path": "defrost/lines/:lineId/calendar",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "startToday",
+      "path": "defrost/lines/:lineId/start-today",
+      "permissions": "defrost.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "completeToday",
+      "path": "defrost/lines/:lineId/complete-today",
+      "permissions": "defrost.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "markShockChamberBlown",
+      "path": "defrost/lines/:lineId/shock-chamber-blown",
+      "permissions": "defrost.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "detail",
+      "path": "defrost/:id",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "start",
+      "path": "defrost/start",
+      "permissions": "defrost.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "defrost",
+      "controller": "DefrostController",
+      "method": "end",
+      "path": "defrost/:id/end",
+      "permissions": "defrost.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "directory",
+      "controller": "DirectoryController",
+      "method": "users",
+      "path": "directory/users",
+      "permissions": [
+        "tasks.read",
+        "tasks.create",
+        "tasks.manage",
+        "okk.read",
+        "okk.manage",
+        "wash.read",
+        "wash.manage",
+        "checklists.templates.read",
+        "checklists.templates.manage",
+        "chats.read",
+        "chats.write",
+        "chats.manage",
+        "shift-log.read",
+        "shift-log.manage",
+        "orders.read",
+        "orders.items.manage",
+        "defrost.read",
+        "admin.users.read",
+        "admin.users.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 20
+      }
+    },
+    {
+      "module": "directory",
+      "controller": "DirectoryController",
+      "method": "departments",
+      "path": "directory/departments",
+      "permissions": [
+        "tasks.read",
+        "tasks.create",
+        "tasks.manage",
+        "orders.read",
+        "orders.items.manage",
+        "checklists.templates.read",
+        "checklists.templates.manage",
+        "chats.read",
+        "chats.manage",
+        "shift-log.read",
+        "shift-log.manage",
+        "announcements.read",
+        "announcements.manage",
+        "admin.departments.read",
+        "admin.departments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 16
+      }
+    },
+    {
+      "module": "directory",
+      "controller": "DirectoryController",
+      "method": "lines",
+      "path": "directory/lines",
+      "permissions": [
+        "lines.read",
+        "assignments.manage",
+        "defrost.read",
+        "defrost.manage",
+        "okk.read",
+        "okk.manage",
+        "wash.read",
+        "wash.manage",
+        "checklists.templates.read",
+        "checklists.templates.manage",
+        "admin.lines.read",
+        "admin.lines.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 13
+      }
+    },
+    {
+      "module": "directory",
+      "controller": "DirectoryController",
+      "method": "roles",
+      "path": "directory/roles",
+      "permissions": [
+        "admin.users.read",
+        "admin.users.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "error-report",
+      "controller": "ErrorReportController",
+      "method": "create",
+      "path": "error-reports//",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "error-report",
+      "controller": "ErrorReportController",
+      "method": "list",
+      "path": "error-reports//",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "error-report",
+      "controller": "ErrorReportController",
+      "method": "detail",
+      "path": "error-reports/:id",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "error-report",
+      "controller": "ErrorReportController",
+      "method": "updateStatus",
+      "path": "error-reports/:id/status",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "health",
+      "controller": "HealthController",
+      "method": "health",
+      "path": "//health",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "health",
+      "controller": "HealthController",
+      "method": "version",
+      "path": "//version",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "list",
+      "path": "lines//",
+      "permissions": "lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "shiftOverview",
+      "path": "lines/shift-overview",
+      "permissions": [
+        "lines.read",
+        "shift.current.read",
+        "shift.self.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 4
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "downtimeReasons",
+      "path": "lines/downtime-reasons",
+      "permissions": "lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "currentShiftDetail",
+      "path": "lines/:id/current-shift-detail",
+      "permissions": [
+        "lines.read",
+        "shift.current.read",
+        "shift.self.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 4
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "dashboard",
+      "path": "lines/:id/dashboard",
+      "permissions": "lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "timeline",
+      "path": "lines/:id/timeline",
+      "permissions": "lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "assignmentBoard",
+      "path": "lines/:id/assignment-board",
+      "permissions": [
+        "lines.read",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "planningBoard",
+      "path": "lines/:id/planning-board",
+      "permissions": [
+        "lines.read",
+        "shift.future.read",
+        "shift.future.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 4
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "previewPlanningTemplate",
+      "path": "lines/:id/planning-board/template/preview",
+      "permissions": [
+        "shift.future.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "applyPlanningTemplate",
+      "path": "lines/:id/planning-board/template/apply",
+      "permissions": [
+        "shift.future.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "assignPlannedSlot",
+      "path": "lines/:id/planning-board/assign",
+      "permissions": [
+        "shift.future.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "releasePlannedSlot",
+      "path": "lines/:id/planning-board/release/:assignmentId",
+      "permissions": [
+        "shift.future.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "getShiftAssignment",
+      "path": "lines/:id/shift-assignment",
+      "permissions": "lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "replaceShiftAssignment",
+      "path": "lines/:id/shift-assignment",
+      "permissions": [
+        "lines.assignment.manage",
+        "lines.manage",
+        "shift.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 5
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "upsertShiftAssignmentRow",
+      "path": "lines/:id/shift-assignment/rows",
+      "permissions": [
+        "lines.assignment.manage",
+        "lines.manage",
+        "shift.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 5
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "deleteShiftAssignmentRow",
+      "path": "lines/:id/shift-assignment/rows/:rowId",
+      "permissions": [
+        "lines.assignment.manage",
+        "lines.manage",
+        "shift.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 5
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "getWorkers",
+      "path": "lines/:id/workers",
+      "permissions": "lines.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "createPosition",
+      "path": "lines/:id/positions",
+      "permissions": "lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "updatePosition",
+      "path": "lines/:id/positions/:positionId",
+      "permissions": "lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "createStaffingTemplate",
+      "path": "lines/:id/staffing-templates",
+      "permissions": "lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "updateStaffingTemplate",
+      "path": "lines/:id/staffing-templates/:templateId",
+      "permissions": "lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "activateTemplate",
+      "path": "lines/:id/activate-template",
+      "permissions": [
+        "lines.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "previewTemplateActivation",
+      "path": "lines/:id/activate-template/preview",
+      "permissions": [
+        "lines.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "updateTemplateItemPlannedCount",
+      "path": "lines/:id/staffing-templates/:templateId/items/:itemId/planned-count",
+      "permissions": [
+        "lines.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "previewTemplateItemPlannedCount",
+      "path": "lines/:id/staffing-templates/:templateId/items/:itemId/planned-count/preview",
+      "permissions": [
+        "lines.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "activateForShift",
+      "path": "lines/:id/activate-for-shift",
+      "permissions": [
+        "lines.manage",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "line",
+      "controller": "LineController",
+      "method": "updateStatus",
+      "path": "lines/:id/status",
+      "permissions": "lines.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "notifications",
+      "controller": "NotificationsController",
+      "method": "list",
+      "path": "notifications//",
+      "permissions": "notifications.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "notifications",
+      "controller": "NotificationsController",
+      "method": "unreadCount",
+      "path": "notifications/unread-count",
+      "permissions": "notifications.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "notifications",
+      "controller": "NotificationsController",
+      "method": "pushStatus",
+      "path": "notifications/push/status",
+      "permissions": "notifications.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "notifications",
+      "controller": "NotificationsController",
+      "method": "subscribePush",
+      "path": "notifications/push/subscribe",
+      "permissions": "notifications.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "notifications",
+      "controller": "NotificationsController",
+      "method": "unsubscribePush",
+      "path": "notifications/push/unsubscribe",
+      "permissions": "notifications.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "notifications",
+      "controller": "NotificationsController",
+      "method": "markRead",
+      "path": "notifications/:id/read",
+      "permissions": "notifications.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "notifications",
+      "controller": "NotificationsController",
+      "method": "markAllRead",
+      "path": "notifications/read-all",
+      "permissions": "notifications.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "create",
+      "path": "okk//",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "acknowledge",
+      "path": "okk/:id/ack",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "setDecision",
+      "path": "okk/:id/decision",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "close",
+      "path": "okk/:id/close",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "unblock",
+      "path": "okk/:id/unblock",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "archive",
+      "path": "okk/:id/archive",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "markCompletion",
+      "path": "okk/:id/completion",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "fullyComplete",
+      "path": "okk/:id/full-complete",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "partialRelease",
+      "path": "okk/:id/partial-release",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "update",
+      "path": "okk/:id",
+      "permissions": "okk.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "okk",
+      "controller": "OkkController",
+      "method": "list",
+      "path": "okk//",
+      "permissions": "okk.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "overview",
+      "path": "ops/overview",
+      "permissions": [
+        "ops.overview.read",
+        "ops.statistics.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "events",
+      "path": "ops/events",
+      "permissions": "ops.events.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "audit",
+      "path": "ops/audit",
+      "permissions": [
+        "ops.audit.read",
+        "ops.audit.full"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "moduleSummary",
+      "path": "ops/module-summary",
+      "permissions": [
+        "ops.statistics.read",
+        "ops.overview.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "operationsOverview",
+      "path": "ops/operations/overview",
+      "permissions": [
+        "ops.statistics.read",
+        "ops.overview.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "operationsLines",
+      "path": "ops/operations/lines",
+      "permissions": [
+        "ops.statistics.read",
+        "ops.overview.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "operationsDowntimes",
+      "path": "ops/operations/downtimes",
+      "permissions": [
+        "ops.statistics.read",
+        "ops.overview.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "operationsTasks",
+      "path": "ops/operations/tasks",
+      "permissions": [
+        "ops.statistics.read",
+        "ops.overview.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "operationsDepartments",
+      "path": "ops/operations/departments",
+      "permissions": [
+        "ops.statistics.read",
+        "ops.overview.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "ops",
+      "controller": "OpsController",
+      "method": "operationsRepeatedProblems",
+      "path": "ops/operations/repeated-problems",
+      "permissions": [
+        "ops.statistics.read",
+        "ops.overview.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "settings",
+      "path": "orders/settings",
+      "permissions": "orders.settings.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "previewSettings",
+      "path": "orders/settings/preview",
+      "permissions": "orders.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "updateSettings",
+      "path": "orders/settings",
+      "permissions": "orders.settings.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "summary",
+      "path": "orders/summary",
+      "permissions": "orders.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "items",
+      "path": "orders/items",
+      "permissions": "orders.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "item",
+      "path": "orders/items/:id",
+      "permissions": "orders.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "createItem",
+      "path": "orders/items",
+      "permissions": "orders.items.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "updateItem",
+      "path": "orders/items/:id",
+      "permissions": "orders.items.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "take",
+      "path": "orders/items/:id/take",
+      "permissions": "orders.take",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "restock",
+      "path": "orders/items/:id/restock",
+      "permissions": "orders.restock",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "orderFromItem",
+      "path": "orders/items/:id/order",
+      "permissions": "orders.request",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "archiveItem",
+      "path": "orders/items/:id/archive",
+      "permissions": "orders.items.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "restoreItem",
+      "path": "orders/items/:id/restore",
+      "permissions": "orders.items.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "requests",
+      "path": "orders/requests",
+      "permissions": "orders.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "createManualRequest",
+      "path": "orders/requests",
+      "permissions": "orders.request",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "request",
+      "path": "orders/requests/:id",
+      "permissions": "orders.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "orders",
+      "controller": "OrdersController",
+      "method": "closeRequest",
+      "path": "orders/requests/:id/close",
+      "permissions": "orders.requests.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "list",
+      "path": "people//",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "search",
+      "path": "people/search",
+      "permissions": [
+        "people.profile.read",
+        "people.read",
+        "assignments.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 4
+      }
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "profileLegacy",
+      "path": "people/:id/profile",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "profile",
+      "path": "people/:id",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "uploadProfilePhoto",
+      "path": "people/:id/photo",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "deleteProfilePhoto",
+      "path": "people/:id/photo",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "createSkill",
+      "path": "people/:id/skills",
+      "permissions": "people.skills.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "updateSkill",
+      "path": "people/:id/skills/:skillId",
+      "permissions": "people.skills.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "recommendSkill",
+      "path": "people/:id/skills/:skillId/recommend",
+      "permissions": "people.recommendations.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "createNote",
+      "path": "people/:id/notes",
+      "permissions": "people.notes.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "updateNote",
+      "path": "people/:id/notes/:noteId",
+      "permissions": "people.notes.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "people",
+      "controller": "PeopleController",
+      "method": "deleteNote",
+      "path": "people/:id/notes/:noteId",
+      "permissions": "people.notes.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "returns",
+      "controller": "ReturnsController",
+      "method": "createReturn",
+      "path": "returns//",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "returns",
+      "controller": "ReturnsController",
+      "method": "updateReturn",
+      "path": "returns/:id",
+      "permissions": "returns.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "returns",
+      "controller": "ReturnsController",
+      "method": "archiveReturn",
+      "path": "returns/:id/archive",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "returns",
+      "controller": "ReturnsController",
+      "method": "markCompletion",
+      "path": "returns/:id/mark-completion",
+      "permissions": "returns.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "returns",
+      "controller": "ReturnsController",
+      "method": "fullyComplete",
+      "path": "returns/:id/complete",
+      "permissions": "returns.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "returns",
+      "controller": "ReturnsController",
+      "method": "partialRelease",
+      "path": "returns/:id/partial-release",
+      "permissions": "returns.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "returns",
+      "controller": "ReturnsController",
+      "method": "publicationLines",
+      "path": "returns/publication-lines",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "returns",
+      "controller": "ReturnsController",
+      "method": "listReturns",
+      "path": "returns//",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "start",
+      "path": "shift/start",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "end",
+      "path": "shift/end",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "current",
+      "path": "shift/current",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "timeline",
+      "path": "shift/timeline",
+      "permissions": [
+        "shift.self.read",
+        "shift.future.read",
+        "shift.future.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 4
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "future",
+      "path": "shift/future",
+      "permissions": [
+        "shift.self.read",
+        "shift.future.read",
+        "shift.future.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 4
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "futureAssignmentBoard",
+      "path": "shift/future-assignment-board",
+      "permissions": "shift.future.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "createFutureAssignment",
+      "path": "shift/future-assignments",
+      "permissions": "shift.future.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "releaseFutureAssignment",
+      "path": "shift/future-assignments/:id/release",
+      "permissions": "shift.future.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "past",
+      "path": "shift/past",
+      "permissions": [
+        "shift.past.read",
+        "shift.self.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "pastDetail",
+      "path": "shift/past/:shiftKey",
+      "permissions": [
+        "shift.past.read",
+        "shift.self.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "people",
+      "path": "shift/people",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "me",
+      "path": "shift/me",
+      "permissions": "shift.self.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "markWillBe",
+      "path": "shift/will-be",
+      "permissions": "shift.self.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "cancelWillBe",
+      "path": "shift/will-be/cancel",
+      "permissions": "shift.self.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "removeWillBe",
+      "path": "shift/will-be/:id/remove",
+      "permissions": "shift.future.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "sendHome",
+      "path": "shift/send-home",
+      "permissions": "assignments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "createReturnRequest",
+      "path": "shift/return-request",
+      "permissions": "shift.self.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "returnRequests",
+      "path": "shift/return-requests",
+      "permissions": "shift.return.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "decideReturnRequest",
+      "path": "shift/return-requests/:id",
+      "permissions": "shift.return.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "contractorLeadCurrent",
+      "path": "shift/contractor-lead/current",
+      "permissions": "shift.contractor-lead.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "contractorLeadPool",
+      "path": "shift/contractor-lead/pool",
+      "permissions": "shift.contractor-lead.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "createContractorSubmission",
+      "path": "shift/contractor-submissions",
+      "permissions": "shift.contractor-lead.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "updateContractorActualStatus",
+      "path": "shift/contractor-submissions/:submissionId/items/:itemId/actual",
+      "permissions": "shift.contractor-lead.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "addContractorCurrentArrival",
+      "path": "shift/contractor-lead/current-arrivals",
+      "permissions": "shift.contractor-lead.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "decideContractorSubmissionItem",
+      "path": "shift/contractor-submissions/:submissionId/items/:itemId",
+      "permissions": "shift.future.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift",
+      "controller": "ShiftController",
+      "method": "createLineResult",
+      "path": "shift/line-results",
+      "permissions": [
+        "assignments.manage",
+        "lines.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "handoverAvailability",
+      "path": "shift-log/handover/availability",
+      "permissions": [
+        "shift.current.manage",
+        "shift-log.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "handoverSummary",
+      "path": "shift-log/handover/summary",
+      "permissions": [
+        "shift.current.manage",
+        "shift-log.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "createHandover",
+      "path": "shift-log/handover",
+      "permissions": [
+        "shift.current.manage",
+        "shift-log.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "previousHandover",
+      "path": "shift-log/handover/previous",
+      "permissions": "shift-log.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "createLog",
+      "path": "shift-log//",
+      "permissions": [
+        "shift-log.create",
+        "shift-log.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "archive",
+      "path": "shift-log/archive",
+      "permissions": [
+        "shift-log.archive.read",
+        "shift-log.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "getLog",
+      "path": "shift-log/:id",
+      "permissions": "shift-log.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "getArchiveLog",
+      "path": "shift-log/archive/:id",
+      "permissions": [
+        "shift-log.archive.read",
+        "shift-log.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "updateLog",
+      "path": "shift-log/:id",
+      "permissions": [
+        "shift-log.create",
+        "shift-log.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "archiveLog",
+      "path": "shift-log/:id/archive",
+      "permissions": "shift-log.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "deleteLog",
+      "path": "shift-log/:id",
+      "permissions": "shift-log.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "addComment",
+      "path": "shift-log/:id/comment",
+      "permissions": [
+        "shift-log.comment",
+        "shift-log.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "markRead",
+      "path": "shift-log/:id/read",
+      "permissions": "shift-log.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "reads",
+      "path": "shift-log/:id/reads",
+      "permissions": "shift-log.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "closeImportant",
+      "path": "shift-log/:id/close-important",
+      "permissions": [
+        "shift-log.important.manage",
+        "shift-log.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "shift-log",
+      "controller": "ShiftLogController",
+      "method": "listLogs",
+      "path": "shift-log//",
+      "permissions": "shift-log.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "stock",
+      "controller": "StockController",
+      "method": "createDefect",
+      "path": "stock//",
+      "permissions": "stock.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "stock",
+      "controller": "StockController",
+      "method": "updateDefect",
+      "path": "stock/:id",
+      "permissions": "stock.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "stock",
+      "controller": "StockController",
+      "method": "issueDefect",
+      "path": "stock/:id/issue",
+      "permissions": "stock.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "stock",
+      "controller": "StockController",
+      "method": "archiveDefect",
+      "path": "stock/:id/archive",
+      "permissions": "stock.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "stock",
+      "controller": "StockController",
+      "method": "listDefects",
+      "path": "stock//",
+      "permissions": "stock.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "createTask",
+      "path": "tasks//",
+      "permissions": [
+        "tasks.create",
+        "tasks.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "takeTask",
+      "path": "tasks/:id/take",
+      "permissions": [
+        "tasks.take",
+        "tasks.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "completeTask",
+      "path": "tasks/:id/complete",
+      "permissions": [
+        "tasks.done",
+        "tasks.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "addComment",
+      "path": "tasks/:id/comment",
+      "permissions": [
+        "tasks.comment",
+        "tasks.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "board",
+      "path": "tasks/board",
+      "permissions": "tasks.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "assigneeCandidates",
+      "path": "tasks/assignee-candidates",
+      "permissions": "tasks.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "archiveSummary",
+      "path": "tasks/archive/summary",
+      "permissions": "tasks.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "recipientDepartments",
+      "path": "tasks/recipient-departments",
+      "permissions": "tasks.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "redirectTask",
+      "path": "tasks/:id/redirect",
+      "permissions": [
+        "tasks.redirect",
+        "tasks.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "detail",
+      "path": "tasks/:id",
+      "permissions": "tasks.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "markRead",
+      "path": "tasks/:id/read",
+      "permissions": "tasks.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "reads",
+      "path": "tasks/:id/reads",
+      "permissions": [
+        "tasks.read-receipts.read",
+        "tasks.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "checkEscalation",
+      "path": "tasks/escalation/check",
+      "permissions": [
+        "tasks.escalation.manage",
+        "tasks.manage"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 3
+      }
+    },
+    {
+      "module": "task",
+      "controller": "TaskController",
+      "method": "listTasks",
+      "path": "tasks//",
+      "permissions": "tasks.read",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "listRequests",
+      "path": "wash/requests",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "createRequest",
+      "path": "wash/requests",
+      "permissions": "wash.control.create",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "takeRequest",
+      "path": "wash/requests/:id/take",
+      "permissions": "wash.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "startRequest",
+      "path": "wash/requests/:id/start",
+      "permissions": "wash.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "listActive",
+      "path": "wash//",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "detail",
+      "path": "wash/:id",
+      "permissions": null,
+      "status": "NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY"
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "startWash",
+      "path": "wash/start",
+      "permissions": "wash.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "addMessage",
+      "path": "wash/:id/message",
+      "permissions": "wash.message.create",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "addIssueLegacy",
+      "path": "wash/:id/issue",
+      "permissions": "wash.issue.create",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "addIssue",
+      "path": "wash/:id/issues",
+      "permissions": "wash.issue.create",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "resolveIssue",
+      "path": "wash/issue/:id/resolve",
+      "permissions": "wash.issue.resolve",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "updateIssueStatus",
+      "path": "wash/issues/:id/status",
+      "permissions": "wash.issue.resolve",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "createControlItem",
+      "path": "wash/:id/control-items",
+      "permissions": "wash.control.create",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "updateControlItem",
+      "path": "wash/control-items/:id",
+      "permissions": "wash.control.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "createOkkReview",
+      "path": "wash/:id/okk-review",
+      "permissions": "wash.okk-review.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "wash",
+      "controller": "WashController",
+      "method": "completeWash",
+      "path": "wash/:id/complete",
+      "permissions": "wash.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "work-areas",
+      "controller": "WorkAreasController",
+      "method": "list",
+      "path": "work-areas//",
+      "permissions": [
+        "assignments.manage",
+        "shift.current.read",
+        "shift.self.read",
+        "people.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 5
+      }
+    },
+    {
+      "module": "work-areas",
+      "controller": "WorkAreasController",
+      "method": "board",
+      "path": "work-areas/:id/board",
+      "permissions": [
+        "assignments.manage",
+        "shift.current.read",
+        "shift.self.read",
+        "people.read"
+      ],
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 5
+      }
+    },
+    {
+      "module": "work-areas",
+      "controller": "WorkAreasController",
+      "method": "assign",
+      "path": "work-areas/:id/assign",
+      "permissions": "assignments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "work-areas",
+      "controller": "WorkAreasController",
+      "method": "updatePlannedCount",
+      "path": "work-areas/:id/positions/:positionId/planned-count",
+      "permissions": "assignments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    },
+    {
+      "module": "work-areas",
+      "controller": "WorkAreasController",
+      "method": "previewPlannedCount",
+      "path": "work-areas/:id/positions/:positionId/planned-count/preview",
+      "permissions": "assignments.manage",
+      "status": "VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY",
+      "cases": {
+        "denied": 5,
+        "allowed": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,311 @@
+{
+  "status": "PASS_FINAL_TARGETED_CHECKS_BUILDS_SCHEMA57_DIFF0",
+  "atUtc": "2026-09-27T17:25:27.278Z",
+  "runs": [
+    {
+      "name": "backend-build",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0,
+      "log": "checks/2026-09-27T17-25-27-275Z/backend-build.txt"
+    },
+    {
+      "name": "prisma-validate",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0,
+      "log": "checks/2026-09-27T17-25-27-275Z/prisma-validate.txt"
+    },
+    {
+      "name": "controlled-generate",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0,
+      "log": "checks/2026-09-27T17-25-27-275Z/controlled-generate.txt"
+    },
+    {
+      "name": "strict-diff",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0,
+      "log": "checks/2026-09-27T17-25-27-275Z/strict-diff.txt"
+    },
+    {
+      "name": "ops-audit-error-upload",
+      "exit": 0,
+      "tests": 26,
+      "pass": 26,
+      "fail": 0,
+      "log": "checks/2026-09-27T17-25-27-275Z/ops-audit-error-upload.txt"
+    },
+    {
+      "name": "attachments-archive-consumers",
+      "exit": 0,
+      "tests": 48,
+      "pass": 48,
+      "fail": 0,
+      "log": "checks/2026-09-27T17-25-27-275Z/attachments-archive-consumers.txt"
+    },
+    {
+      "name": "retained-notification",
+      "exit": 0,
+      "tests": 21,
+      "pass": 21,
+      "fail": 0,
+      "log": "checks/2026-09-27T17-25-27-275Z/retained-notification.txt"
+    },
+    {
+      "name": "frontend-typecheck",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0,
+      "log": "checks/2026-09-27T17-25-27-275Z/frontend-typecheck.txt"
+    },
+    {
+      "name": "frontend-build",
+      "exit": 0,
+      "tests": 0,
+      "pass": 0,
+      "fail": 0,
+      "log": "checks/2026-09-27T17-25-27-275Z/frontend-build.txt"
+    }
+  ],
+  "generatedDmmfMatchesInstalled": true,
+  "migrations": [
+    {
+      "migration_name": "20260503000000_initial_current_schema",
+      "checksum": "6e48b3b667842d398bbefc3f76fdb44b88c4a766c54c256007b83e14138b29cf"
+    },
+    {
+      "migration_name": "20260504000000_stage4_line_positions",
+      "checksum": "cfe13c46293e6605da14c4d1da4c5642424be62fd590e406611f241532d4fa42"
+    },
+    {
+      "migration_name": "20260505000000_stage8_attachments_foundation",
+      "checksum": "06469cac7aefebdf1a84784529e948b4e1a355511fea9f4064c9c98f2abc94b6"
+    },
+    {
+      "migration_name": "20260505010000_stage7_admin_foundation",
+      "checksum": "f4f68c724c9aa6d01bfdec7b92e0a6cbaccaa19567aa4b23c0bfea9b19850317"
+    },
+    {
+      "migration_name": "20260505020000_stage8_attachment_operation_id",
+      "checksum": "e11585ae26511005fb682f8f065cc4f81e35606f8c8591640d628b101e7bbdb3"
+    },
+    {
+      "migration_name": "20260506000000_stage9_shift_operations",
+      "checksum": "3159db41cb1d95ace47051d8f9e859e23605f5f35ed319e6d3a75ce8b53d49a8"
+    },
+    {
+      "migration_name": "20260506010000_stage10_tasks_technical_services",
+      "checksum": "530097273846180777abd7caf3d97ea4f3c63dadc325cd526b5ce1aff4e9f9aa"
+    },
+    {
+      "migration_name": "20260506020000_stage11_wash_process_foundation",
+      "checksum": "65b4f30562503b013622ea1e87204ff1bdd769633f8624fad409ee46298c72e2"
+    },
+    {
+      "migration_name": "20260506030000_stage115_simple_internal_auth",
+      "checksum": "33877b5c6244dd9661f88654fb098ed93824a837e0b37e64a242c7ffcd85eb59"
+    },
+    {
+      "migration_name": "20260511080000_stage12_orders_minimum_stock",
+      "checksum": "89ff54282dda1f50dd5763a1787fe6571f14150ac1c49bdc21b18434aac7fa54"
+    },
+    {
+      "migration_name": "20260511100000_stage13_checklists",
+      "checksum": "b2dab643c55b9329400d9095a4176c58dfa18dd0c89c2f305eeab65285d1a733"
+    },
+    {
+      "migration_name": "20260511110000_stage14_shift_log_hardening",
+      "checksum": "914c1eb4d8266584f611534996815eefd6ccd4eaf0873e7406bf593e9a223fd4"
+    },
+    {
+      "migration_name": "20260511120000_stage15_defrost_hardening",
+      "checksum": "6a4101690fffb9a050125111d7860884ea9579b8cd69b35977103e4773916a69"
+    },
+    {
+      "migration_name": "20260511130000_stage17_notifications",
+      "checksum": "4f82e111d8b6a349f086b9e03f72041f7657d75cdb352d58021eb30e01abb332"
+    },
+    {
+      "migration_name": "20260512170000_stage23_chats",
+      "checksum": "36c86650515632ca07e343a42db0ac2481fd96f1b68cf15da762c7bbad6bf583"
+    },
+    {
+      "migration_name": "20260515130000_stage24_announcements",
+      "checksum": "073ad1461730fdbf781f012916b0a4bddf3146a6e162a0a44bc483b4a546c267"
+    },
+    {
+      "migration_name": "20260515140000_stage25_people_profile_skills",
+      "checksum": "6b50832d262e4f048dd07cd7568ee37b79603db2f4ec364fcff39c97954262ce"
+    },
+    {
+      "migration_name": "20260517120000_stage26_line_skills_okk_table",
+      "checksum": "1c7a6e39c6bfbdca39432bea6e3d7b9954bada95294c874f93ccd92f93b277be"
+    },
+    {
+      "migration_name": "20260517130000_stage27_store_returns_work_areas",
+      "checksum": "682c4269818c994613c69aea36bb63d6f51f5f476ddc5747af97732ec3ec53f1"
+    },
+    {
+      "migration_name": "20260520140000_stage40b_downtime_task_analytics",
+      "checksum": "53f46c6e35f71b173a0c37839aabfee605b7848f77a6d3ad12ae5f730bcd1e27"
+    },
+    {
+      "migration_name": "20260521141000_stage41_line_shift_assignment",
+      "checksum": "9af70245d8d6af5ce25545a25243a18853bd036366d7337c9ca875d344c552d8"
+    },
+    {
+      "migration_name": "20260521173000_stage44_checklist_builder_guided_run",
+      "checksum": "efe7664eb5e64009e7f9164ded318b097f50cddb403820e4bd534b917fb0d922"
+    },
+    {
+      "migration_name": "20260524180000_stage48_shift_timeline_planning",
+      "checksum": "33f9e563c5a2377897bc4f7bb97c2de6f3b8172ff802ae09bf2a63b59c31ebeb"
+    },
+    {
+      "migration_name": "20260525120000_stage50_checklist_library_assignment_archive",
+      "checksum": "d79a316bc6d1dc6e2c3b9d5aa62e7863f3c0dc67fcbd6a36509d519b8c405638"
+    },
+    {
+      "migration_name": "20260603120000_stage56_admin_configurability",
+      "checksum": "a1c709fa5b3a57ae3799ac1ffcc2846aa7680e3d0cd27152f02df1ee70c1d0d6"
+    },
+    {
+      "migration_name": "20260603130000_stage56a_internal_messenger_direct",
+      "checksum": "4fb8e75b86c1d0a9bf475af9f5cd43def248dd44934962fdb7c3f05580aa3ae3"
+    },
+    {
+      "migration_name": "20260604160000_stage60_admin_safety_recovery",
+      "checksum": "a75d985c445d40963d2f59d2213f6653d75e85b5f0c71c6747c15ece4aa612c0"
+    },
+    {
+      "migration_name": "20260618120000_future_shift_non_line_assignments",
+      "checksum": "707a9ecb6887b6f0f2849ad9e8695ac23632625afeba0b66b5016a8a774687c5"
+    },
+    {
+      "migration_name": "20260618183000_checklist_periodic_lifecycle",
+      "checksum": "9a7de1b899c4968c17e256bc89fb9d9e2461fe3700cd00e0e8c32a04207e4fcf"
+    },
+    {
+      "migration_name": "20260620120000_stock_defect_name_unit",
+      "checksum": "550563e5b56a53cda9abb015d7e30e22d476c67e16283de68838e86796ad4bc0"
+    },
+    {
+      "migration_name": "20260620122500_vps_prep_permission_catalog",
+      "checksum": "e1578b5758fc27b59c92d3e97420592aa9e9915ae1e6a87803adf529d133674d"
+    },
+    {
+      "migration_name": "20260620123000_master_okk_read_permission",
+      "checksum": "e8ee50cdca892b625035fbdd3314a2ecdb689223f761c1ca3baf77b34d5ca572"
+    },
+    {
+      "migration_name": "20260620150000_shift_log_date_shift",
+      "checksum": "de95a7428cbbc616c97355f0843ba2a116c9860c60bcbd57d2a5cd5b14394202"
+    },
+    {
+      "migration_name": "20260621120000_chat_reactions_error_reports",
+      "checksum": "8277f2c567a777ba6ec6ca17701a0333edab999ed0505c78f65a8218e42594e8"
+    },
+    {
+      "migration_name": "20260621160000_orders_item_category_storage",
+      "checksum": "3dfba601d75fac9c83de6fb9a0b17879b4ba88f6f268f50a482ecb0304895555"
+    },
+    {
+      "migration_name": "20260629120000_job_title_hierarchy",
+      "checksum": "4db1b7ff3917539acca41389b6855f89bdfc59dc961ef770267881b70d361c3f"
+    },
+    {
+      "migration_name": "20260702120000_push_subscriptions",
+      "checksum": "08caf597115f1c6a035d4b3afd73322d53bf9aa57eda31542efcdac40ab4d69c"
+    },
+    {
+      "migration_name": "20260704120000_chat_simple_polls",
+      "checksum": "80862e7f89b1a13090a8d0eafc148c4b228db2483af8e73957ebd89d96d44bd6"
+    },
+    {
+      "migration_name": "20260705120000_defrost_event_type",
+      "checksum": "77659c1897015cee7f2f72c9fa74a3f6f9d0ae35578bebc481395a6fc809b598"
+    },
+    {
+      "migration_name": "20260708090000_wash_other_target",
+      "checksum": "0e08203ecb47c134e5d7b7823f66ec72263699fb7c3a4d50e5a58ae827dcc0d6"
+    },
+    {
+      "migration_name": "20260717120000_mobile_pilot_org_identity",
+      "checksum": "64754c9500f368cc9c5b74d6e453e660f06e709e7977b7f041df5d111869caab"
+    },
+    {
+      "migration_name": "20260718003000_mobile_pilot_rbac_matrix_followup",
+      "checksum": "1a86d23303eb503b7cb5e4e99873c05a0b7fd04c5ffc1161d4ced818787e9b1c"
+    },
+    {
+      "migration_name": "20260718010000_mobile_pilot_technolog_lines_read",
+      "checksum": "66adac9a3b1db00d4e936b7181e28606d91194c347d95db687557267583b9ed4"
+    },
+    {
+      "migration_name": "20260718143000_mobile_pilot_shift_assignment_unification",
+      "checksum": "9bec3eef507193561dc0e0ccbec1ef66688284732ce9b455366fcac461aa10de"
+    },
+    {
+      "migration_name": "20260718180000_mobile_pilot_handover_wash_requests",
+      "checksum": "994816b4748f7a343dec51d5715d7d2157dd24a09d273c0ea350b0208de7c8d0"
+    },
+    {
+      "migration_name": "20260718193000_mobile_pilot_department_processes",
+      "checksum": "9f13e648740dd228dfcdb89f57fa90941abfbfc2645a5ed88727de2c0dfbdac2"
+    },
+    {
+      "migration_name": "20260724120000_physical_field_fixes_v3_skill_credits",
+      "checksum": "802a4ae24629dc732c36dbdbcd381c7a7097e586a6529c76b0b765105ba8f834"
+    },
+    {
+      "migration_name": "20260727090000_physical_fixes_v4_shift_duration",
+      "checksum": "036e68a297203438fdac189306b5b3b5410917e0836e4da4749c398fabdcb9b9"
+    },
+    {
+      "migration_name": "20260727120000_physical_fixes_v4_chat_membership",
+      "checksum": "36871a41fa1b4c9a8ec5e3d2ccdfd0fbfbd81b8df4434b3bc00432d4ea3d6251"
+    },
+    {
+      "migration_name": "20260728110000_physical_fixes_v4_publication_feeds",
+      "checksum": "beb77af50f5a461b525846b2ce4bda2a01097b0a0c476533617274e04cfd22c6"
+    },
+    {
+      "migration_name": "20260808120000_physical_field_fixes_v5_plast2_default_template",
+      "checksum": "05745a8ea913e7809b70ee1f0f887bf49144f97d4a7d7cedb1df344ca4e6bc15"
+    },
+    {
+      "migration_name": "20260809120000_physical_field_fixes_v5_plast5_announcements",
+      "checksum": "b3285c02cf84347c7f44aaf07456ff0d89cad75902466e828676afc692baa357"
+    },
+    {
+      "migration_name": "20260809150000_physical_field_fixes_v5_plast6_partial_release",
+      "checksum": "092703298a03d8638fd32b1c755b6ec632984cc90e0cc491f460c62867d3964d"
+    },
+    {
+      "migration_name": "20260828120000_p17b_identity_effective_capabilities",
+      "checksum": "4682ab87bb217431def5a3f6528052543d9a1d29a747edecedc5fbbdaf42afc0"
+    },
+    {
+      "migration_name": "20260922190000_vps_prep_01_auth_recovery",
+      "checksum": "993d50fa8d126fac2b483a123158cc8b5c15ad6725fd98542e05dfb85854d293"
+    },
+    {
+      "migration_name": "20260923193000_local01_schema_contract_reconciliation",
+      "checksum": "5492af7f4dbfc56203a0830bd070edb215401051fcc0363fdc37034d67454f00"
+    },
+    {
+      "migration_name": "20260924190000_local02_chat_and_checklist_reference",
+      "checksum": "99392096542f2da993f9d4e6bd56adeec14c3167f981d2c91f96d696b078af7e"
+    }
+  ],
+  "strictDiffZero": true,
+  "schema": "57_UNCHANGED"
+}

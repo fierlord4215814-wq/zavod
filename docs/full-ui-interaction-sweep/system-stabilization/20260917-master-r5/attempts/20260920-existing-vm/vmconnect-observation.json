@@ -1,0 +1,23 @@
+{
+  "scope": "OWN_VM_VIEWER_ONLY_NOT_GUEST_INSTALLATION_PROOF",
+  "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+  "viewerPid": 9616,
+  "launch": "vmconnect-launch.json; normal launch, no RunAs requested",
+  "returnedWindow": {"app": "process:C:\\Windows\\System32\\vmconnect.exe", "id": 1310932, "title": "Подключение к виртуальной машине"},
+  "capture": {
+    "attempts": 2,
+    "error": "SetIsBorderRequired failed: Интерфейс не поддерживается (0x80004002)",
+    "recovery": "Refreshed window selection and retried once according to computer-use guidance; no further capture implementation",
+    "validFrames": 0,
+    "guestConsoleViewed": false
+  },
+  "accessibilityTextObserved": "Произошла ошибка при попытке найти виртуальную машину \"Zavod-Master-R5-Ubuntu24\" на компьютере \"localhost\". У вас нет разрешения на выполнение этой задачи. Обратитесь к администратору политики авторизации для компьютера \"localhost\".",
+  "initialCloseAttempt": {"action": "Click own access-denied dialog OK", "result": "coordinate input geometry is unavailable", "followup": "Fresh accessibility observation still showed the same access-denied dialog"},
+  "normalClose": {"action": "Alt+F4 targeted only the freshly observed viewer error dialog", "inputNotSentToGuest": true, "atMostBy": "2026-09-20T16:34:07.5700126+03:00", "process9616AbsentInSubsequentCheck": true},
+  "enhancedSessionOrResourcesConnected": false,
+  "guestInputActions": 0,
+  "otherWindowsScreenshotted": false,
+  "oldControllerModified": false,
+  "oldQueueModified": false,
+  "next": "Need observed own helper wait/prompt state and native guest console; user asked for last helper lines and a manual VMConnect-only frame. No new mutating controller while PID9056/old operations unresolved."
+}

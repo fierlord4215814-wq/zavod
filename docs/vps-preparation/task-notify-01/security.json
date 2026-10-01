@@ -1,0 +1,182 @@
+{
+  "status": "PASS_CURRENT_ACCESS_SOURCE_FILE_WS_REPLAY_RECIPIENT_EXCLUSION",
+  "states": [
+    {
+      "state": "revoked",
+      "fixture": "canonical ADMIN HTTP",
+      "taskId": "cccda507-00dd-49ae-a323-44f382b7798c",
+      "denied": [
+        {
+          "path": "/tasks/cccda507-00dd-49ae-a323-44f382b7798c",
+          "status": 403
+        },
+        {
+          "path": "/attachments/7df73ab9-c3b4-4965-b880-658fc386789a",
+          "status": 403
+        },
+        {
+          "path": "/attachments/7df73ab9-c3b4-4965-b880-658fc386789a/file",
+          "status": 403
+        },
+        {
+          "path": "/notifications",
+          "status": 403
+        },
+        {
+          "path": "/notifications/unread-count",
+          "status": 403
+        }
+      ],
+      "wsReconnect": 403,
+      "replay": 201,
+      "originalRowsRetained": true,
+      "newEventRecipientIds": [
+        "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+      ],
+      "noUnauthorizedWsIdentity": true
+    },
+    {
+      "state": "blocked",
+      "fixture": "canonical ADMIN HTTP",
+      "taskId": "9051c866-ef60-4f02-9b8e-350b8d717086",
+      "denied": [
+        {
+          "path": "/tasks/9051c866-ef60-4f02-9b8e-350b8d717086",
+          "status": 403
+        },
+        {
+          "path": "/attachments/da941c15-e639-4a47-b706-99fc4b66b5c2",
+          "status": 403
+        },
+        {
+          "path": "/attachments/da941c15-e639-4a47-b706-99fc4b66b5c2/file",
+          "status": 403
+        },
+        {
+          "path": "/notifications",
+          "status": 403
+        },
+        {
+          "path": "/notifications/unread-count",
+          "status": 403
+        }
+      ],
+      "wsReconnect": 403,
+      "replay": 201,
+      "originalRowsRetained": true,
+      "newEventRecipientIds": [
+        "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+      ],
+      "noUnauthorizedWsIdentity": true
+    },
+    {
+      "state": "guest",
+      "fixture": "canonical ADMIN HTTP",
+      "taskId": "70aaa359-0ae0-4abb-ac2c-f52ea08a3bb5",
+      "denied": [
+        {
+          "path": "/tasks/70aaa359-0ae0-4abb-ac2c-f52ea08a3bb5",
+          "status": 403
+        },
+        {
+          "path": "/attachments/06782b94-7098-4987-b282-32748c017488",
+          "status": 403
+        },
+        {
+          "path": "/attachments/06782b94-7098-4987-b282-32748c017488/file",
+          "status": 403
+        },
+        {
+          "path": "/notifications",
+          "status": 403
+        },
+        {
+          "path": "/notifications/unread-count",
+          "status": 403
+        }
+      ],
+      "wsReconnect": 403,
+      "replay": 201,
+      "originalRowsRetained": true,
+      "newEventRecipientIds": [
+        "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+      ],
+      "noUnauthorizedWsIdentity": true
+    },
+    {
+      "state": "deleted",
+      "fixture": "isolated SQL soft-deleted flag; no public delete endpoint",
+      "taskId": "e2e9e60a-43e4-4145-8cad-a90c1782aec5",
+      "denied": [
+        {
+          "path": "/tasks/e2e9e60a-43e4-4145-8cad-a90c1782aec5",
+          "status": 403
+        },
+        {
+          "path": "/attachments/4d772d13-0960-4e78-9e6d-9cf9c628b60a",
+          "status": 403
+        },
+        {
+          "path": "/attachments/4d772d13-0960-4e78-9e6d-9cf9c628b60a/file",
+          "status": 403
+        },
+        {
+          "path": "/notifications",
+          "status": 403
+        },
+        {
+          "path": "/notifications/unread-count",
+          "status": 403
+        }
+      ],
+      "wsReconnect": 403,
+      "replay": 201,
+      "originalRowsRetained": true,
+      "newEventRecipientIds": [
+        "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+      ],
+      "noUnauthorizedWsIdentity": true
+    }
+  ],
+  "scope": [
+    {
+      "kind": "wrong-department",
+      "denials": [
+        {
+          "path": "/tasks/39fc3646-d441-4796-8407-843bf86adb40",
+          "status": 403
+        },
+        {
+          "path": "/attachments/8be938ee-04a7-4920-b6c3-796eb9a5c453/file",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "kind": "foreign-admin-factory",
+      "denials": [
+        {
+          "path": "/tasks/39fc3646-d441-4796-8407-843bf86adb40",
+          "status": 409
+        },
+        {
+          "path": "/attachments/8be938ee-04a7-4920-b6c3-796eb9a5c453/file",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "kind": "foreign-without-UFA",
+      "denials": [
+        {
+          "path": "/tasks/39fc3646-d441-4796-8407-843bf86adb40",
+          "status": 403
+        },
+        {
+          "path": "/attachments/8be938ee-04a7-4920-b6c3-796eb9a5c453/file",
+          "status": 403
+        }
+      ]
+    }
+  ]
+}

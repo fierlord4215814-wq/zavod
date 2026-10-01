@@ -1,0 +1,24 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260922-provider-dvd-boot\before\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\progress.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\progress.md', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260922-provider-dvd-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+index 204d473..4fa152a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260922-provider-dvd-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+@@ -1,5 +1,17 @@
+ # MASTER R5 — recoverable checkpoint
+ 
++## Актуальный terminal checkpoint22.09 — штатный UAC завершился ошибкой
++
++22.09.2026 07:55:19+03: **BLOCKED_UAC_CANCELLED_PROVIDER_READBACK / NOT_ACCEPTED**. Одна новая разрешённая visible UAC завершилась native ошибкой «Операция была отменена пользователем»; причина отмены UNKNOWN. Launcher9548/session40422 exit1, elevated helper/start/token отсутствуют, PIDlauncher отсутствовал при проверке07:56:08. Автоповтора не было. Новых VM/provider/DVD/firmware/boot/SSH/guest действий0; lastVMOff21.09 23:11:11 исторический. Fresh provider helper доработан и проверен7/7host synthetic guards/parser0, **операционно НЕ запущен**; прежний generator10hostPASS не повторялся. Product/workingdata неизменны; MainUISweep PAUSED_BY_USER / NOT_ACCEPTED, physicalPENDING.
++
++Последняя завершённая операция: сохранение uac-failure07:55:19.8839519+03 и process observation07:56:08 (launcher/matchinghelperabsent). Незавершённая: первая freshCIMVM/DVD/firmware проверка, diagnosticboot,SSH и весь stage2–9. Точка восстановления: [resume](resume-prompt.txt), [attempt/result](attempts/20260922-provider-dvd-boot/result.md); текущий launcher одноразовый и НЕ повторяется. Нужно новое явное разрешение на один nativevisibleUAC. До негоFINAL_STOP=STOP. Working cleanup UNKNOWN_NOT_INSPECTED. Далее история этой и прежних подготовок; WAITING ниже superseded terminalfailure, не ongoingprocess.
++
++## Продолжение22.09 — независимый provider readback и одна диагностическая загрузка
++
++MASTER_R5_STATUS=WAITING_NATIVE_UAC_RESULT; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; PHYSICAL_PHONE=PENDING. Новая authority c056b875 разрешает ровно один visible UAC; запрос отправлен22.09 07:53:17+03, launcher9548/session40422. На07:55:27 повышенный helper-start/token/result ещё отсутствовали; это WAITING, не cancelled и не PASS. Attempt `attempts/20260922-provider-dvd-boot/`: baseline16owners,215product/config,132build,72harness,6mainmatrices,8старыхZIP сохранены и совпадают. Предыдущие receipts неизменны. Последняя завершённая операция — source review/parser0/7synthetic guardPASS и сохранение uac-request; текущая — ожидание штатного результата UAC. Точка восстановления: проверить новые immutable receipts и текущий launcher прежде любого запуска; не повторять launcher при наличииuac-request.
++
++Доработка касается только достоверности наблюдения: current-realized exactGUID/BIOS/Gen2, полная цепочка controller/drive/media, отдельные query failures, свежие typed/CIM readbacks, guards перед каждой mutation иStart, bounded read-only диагностика в том же approved execution. Product/генератор не изменены; генератор10hostPASS не повторяется. СтарыйDVD readback/cache hypothesis пока не заменены новым actual result. Весь планR5 stages1–9 сохраняется; новыйboot/SSH/live checks пока0.
++
+ ## Новая visible-UAC attempt21.09 — разрешение пользователя получено
+ 
+ MASTER_R5_STATUS=BLOCKED_DVD_READBACK_GUARD_NEW_UAC_REQUIRED; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. Authority и отдельная baseline: `attempts/20260921-visible-uac-diagnostic-boot/`. Единственный новый UAC ПОДТВЕРЖДЁН; helper11600 реально стартовал23:11:05, actualElevated=true23:11:06. Fresh exactGUID/BIOS/Gen2/sole16GiBVHDX/Off23:11:11, jobs=[], controllers=[], internalnetwork подтверждены. Hostboot21.09 22:12:54.5, Hyper-V/DEP true, freeRAM10,269,270,016/freeDisk39,737,823,232bytes. Old9056 не трогать; новая попытка не capture.

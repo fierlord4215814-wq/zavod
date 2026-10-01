@@ -1,0 +1,5068 @@
+{
+  "status": "PASS_SIX_NORMAL_ROLES_REAL_UI_HTTP_WS_AND_PERSISTED_FILES",
+  "database": "zavod_factory01_t1",
+  "expectedVersion": "FACTORY01-20260926-T1",
+  "atUtc": "2026-09-26T21:56:18.811Z",
+  "roles": [
+    {
+      "key": "ADMIN",
+      "role": "ADMIN",
+      "normalLogin": true,
+      "checks": {
+        "peopleSkills": {
+          "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+          "ui": true,
+          "http": 200,
+          "visibleSkills": 3
+        },
+        "adminFactory": true,
+        "chat": {
+          "id": "de90b361-73fc-4c05-80b5-13dc628d270c",
+          "ui": true,
+          "http": 200,
+          "file": {
+            "id": "164c951b-abb3-41e1-bd45-da4c5dad230d",
+            "status": 200,
+            "bytes": 1417,
+            "sha256": "e16e08076d129505f573c3d9a3e9c9c1dfa93ef7830b3d596e489a12a127bbc4"
+          }
+        }
+      },
+      "connectedWs": true,
+      "http": [
+        {
+          "path": "/api/auth/login",
+          "method": "POST",
+          "status": 201,
+          "at": 1790459780570
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780687
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780688
+        },
+        {
+          "path": "/api/notifications/unread-count",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780842
+        },
+        {
+          "path": "/api/tasks",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780842
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780843
+        },
+        {
+          "path": "/api/shift/settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780883
+        },
+        {
+          "path": "/api/shift/return-requests",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780884
+        },
+        {
+          "path": "/api/shift/people",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780901
+        },
+        {
+          "path": "/api/lines",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780902
+        },
+        {
+          "path": "/api/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780902
+        },
+        {
+          "path": "/api/shift/timeline",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780921
+        },
+        {
+          "path": "/api/lines/downtime-reasons",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780937
+        },
+        {
+          "path": "/api/directory/departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780937
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780938
+        },
+        {
+          "path": "/api/health",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780949
+        },
+        {
+          "path": "/api/auth/assignment-request",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459780981
+        },
+        {
+          "path": "/api/shift/settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459781004
+        },
+        {
+          "path": "/api/shift/return-requests",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459781032
+        },
+        {
+          "path": "/api/shift/timeline",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459781071
+        },
+        {
+          "path": "/api/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459781071
+        },
+        {
+          "path": "/api/lines",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459781084
+        },
+        {
+          "path": "/api/shift/people",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459781111
+        },
+        {
+          "path": "/api/people",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459781255
+        },
+        {
+          "path": "/api/lines",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459781324
+        },
+        {
+          "path": "/api/people/search",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459781715
+        },
+        {
+          "path": "/api/admin/users/07c01509-4982-45d6-afc7-34f7bcb0539f/password-reset/preview",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459782276
+        },
+        {
+          "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459782303
+        },
+        {
+          "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459782717
+        },
+        {
+          "path": "/api/admin/overview",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783393
+        },
+        {
+          "path": "/api/admin/shift-settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783423
+        },
+        {
+          "path": "/api/checklists/settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783424
+        },
+        {
+          "path": "/api/orders/settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783424
+        },
+        {
+          "path": "/api/admin/task-settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783426
+        },
+        {
+          "path": "/api/admin/wash-settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783427
+        },
+        {
+          "path": "/api/admin/defrost-settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783431
+        },
+        {
+          "path": "/api/admin/chat-settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783432
+        },
+        {
+          "path": "/api/admin/announcement-settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783437
+        },
+        {
+          "path": "/api/admin/roles",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783475
+        },
+        {
+          "path": "/api/admin/factories",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783475
+        },
+        {
+          "path": "/api/admin/departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783477
+        },
+        {
+          "path": "/api/admin/permissions",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783477
+        },
+        {
+          "path": "/api/admin/lines-config",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783478
+        },
+        {
+          "path": "/api/admin/users",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783488
+        },
+        {
+          "path": "/api/admin/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783500
+        },
+        {
+          "path": "/api/admin/job-titles",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783519
+        },
+        {
+          "path": "/api/admin/recovery",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783519
+        },
+        {
+          "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/context",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783549
+        },
+        {
+          "path": "/api/admin/data-hygiene/summary",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783588
+        },
+        {
+          "path": "/api/admin/factories/setup/options",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783604
+        },
+        {
+          "path": "/api/admin/permission-delegation/context",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783614
+        },
+        {
+          "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/config-health",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783615
+        },
+        {
+          "path": "/api/admin/recovery",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783621
+        },
+        {
+          "path": "/api/admin/data-hygiene/records",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783623
+        },
+        {
+          "path": "/api/admin/assignment-requests",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783631
+        },
+        {
+          "path": "/api/admin/organization-identity-report",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783641
+        },
+        {
+          "path": "/api/admin/external-companies",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783645
+        },
+        {
+          "path": "/api/admin/staffing-control/context",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783661
+        },
+        {
+          "path": "/api/admin/users",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783692
+        },
+        {
+          "path": "/api/admin/roles/MASTER/permissions",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459783713
+        },
+        {
+          "path": "/api/directory/departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459784093
+        },
+        {
+          "path": "/api/directory/users",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459784097
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459784133
+        },
+        {
+          "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459784496
+        },
+        {
+          "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/read",
+          "method": "POST",
+          "status": 201,
+          "at": 1790459784561
+        },
+        {
+          "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459784561
+        },
+        {
+          "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/media",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459784591
+        },
+        {
+          "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459784623
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459784634
+        },
+        {
+          "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459784672
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "key": "MASTER",
+      "role": "MASTER",
+      "normalLogin": true,
+      "checks": {
+        "futureShift": {
+          "ui": true,
+          "http": 200,
+          "fourLines": true
+        },
+        "lineBoardHttp": 200,
+        "task": {
+          "id": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "ui": true,
+          "http": 200,
+          "status": "DONE",
+          "history": 4,
+          "files": [
+            {
+              "id": "c3af39c9-ff53-40de-8e37-458e1b6f721e",
+              "status": 200,
+              "bytes": 1514,
+              "sha256": "b5836ee98eddc0763b3583108e2fe3da2f168ec1383462ac6985008d995c6b2f"
+            }
+          ]
+        },
+        "checklist": {
+          "id": "fe49f6ab-b260-4bba-b66a-98371214989b",
+          "template": "УЧЕБНЫЙ — Проверка линии перед запуском",
+          "uiArchive": true,
+          "readOnly": true,
+          "http": 200,
+          "rows": 3,
+          "files": [
+            {
+              "id": "5266e883-d6b5-465a-a766-d1083d8dc026",
+              "status": 200,
+              "bytes": 1468,
+              "sha256": "6edcb8e4b751edd4da412f678afb4bca60290b2fc1dfb60a22f5dd3738147344"
+            },
+            {
+              "id": "4585555a-a677-45f8-b866-9ac548123e37",
+              "status": 200,
+              "bytes": 1492,
+              "sha256": "eae5345dccd1db3d7d0f53581f2045c962a69b6beba1ba861c735dcd1ccaee72"
+            },
+            {
+              "id": "6ece1cfb-2743-4b37-bb7f-849a8cb6681f",
+              "status": 200,
+              "bytes": 1528,
+              "sha256": "bb998eee43752c2d8d14c7f5f046acacecfdb08ae56a99578c060ace14d01b2a"
+            },
+            {
+              "id": "69931728-e3e5-4abc-9c1e-95673eb7611a",
+              "status": 200,
+              "bytes": 1503,
+              "sha256": "6c9ad61fb3bbc9181f2559197c48c6f24cf5a985a5632f7ffecabaf9795b95b0"
+            }
+          ]
+        },
+        "journal": {
+          "id": "398762a8-590a-4b00-bae4-b64413e8f039",
+          "uiArchive": true,
+          "readOnly": true,
+          "http": 200,
+          "file": {
+            "id": "6dfc6e60-7076-469a-89d4-d09b925b71d2",
+            "status": 200,
+            "bytes": 68,
+            "sha256": "6b1048f8a6d40bac0b2954c18fefa40c4ea7a96120fc2e54b7317c0e43c2bbec"
+          },
+          "scope": "ordinary journal; immutable handover belongs to separately labelled managed copy"
+        },
+        "washHistoryUI": true,
+        "defrost": {
+          "uiNoActiveLines": true,
+          "calendarHttp": 200,
+          "persistedEventId": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+          "note": "STOP/completed lines are not cards on the current-only screen; historical calendar read is HTTP, not UI."
+        }
+      },
+      "connectedWs": true,
+      "http": [
+        {
+          "path": "/api/auth/login",
+          "method": "POST",
+          "status": 201,
+          "at": 1790459785781
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459785958
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786031
+        },
+        {
+          "path": "/api/auth/assignment-request",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786083
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786083
+        },
+        {
+          "path": "/api/notifications/unread-count",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786083
+        },
+        {
+          "path": "/api/tasks",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786099
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786099
+        },
+        {
+          "path": "/api/shift/return-requests",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786113
+        },
+        {
+          "path": "/api/shift/settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786124
+        },
+        {
+          "path": "/api/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786124
+        },
+        {
+          "path": "/api/shift/timeline",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786133
+        },
+        {
+          "path": "/api/lines/downtime-reasons",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786133
+        },
+        {
+          "path": "/api/health",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786139
+        },
+        {
+          "path": "/api/shift/people",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786145
+        },
+        {
+          "path": "/api/shift-log/handover/previous",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786152
+        },
+        {
+          "path": "/api/shift-log/handover/availability",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786152
+        },
+        {
+          "path": "/api/lines",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786181
+        },
+        {
+          "path": "/api/shift/return-requests",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786254
+        },
+        {
+          "path": "/api/shift/settings",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786259
+        },
+        {
+          "path": "/api/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786325
+        },
+        {
+          "path": "/api/shift/timeline",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786331
+        },
+        {
+          "path": "/api/shift/people",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786355
+        },
+        {
+          "path": "/api/lines",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786406
+        },
+        {
+          "path": "/api/shift/future",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786804
+        },
+        {
+          "path": "/api/shift/future",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786844
+        },
+        {
+          "path": "/api/lines/9125a431-9d33-47d2-8763-08889bc2ab52/assignment-board",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459786884
+        },
+        {
+          "path": "/api/archive/options",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459787001
+        },
+        {
+          "path": "/api/archive/downtime/options",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459787306
+        },
+        {
+          "path": "/api/archive/items",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459787312
+        },
+        {
+          "path": "/api/archive/items",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459787367
+        },
+        {
+          "path": "/api/archive/detail/tasks/TASK/a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459787432
+        },
+        {
+          "path": "/api/attachments/c3af39c9-ff53-40de-8e37-458e1b6f721e/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459787475
+        },
+        {
+          "path": "/api/tasks/a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459787578
+        },
+        {
+          "path": "/api/attachments/c3af39c9-ff53-40de-8e37-458e1b6f721e/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459787606
+        },
+        {
+          "path": "/api/checklists/templates/library",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788148
+        },
+        {
+          "path": "/api/checklists/workspace",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788182
+        },
+        {
+          "path": "/api/directory/lines",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788194
+        },
+        {
+          "path": "/api/checklists/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788222
+        },
+        {
+          "path": "/api/checklists/archive/by-template",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788250
+        },
+        {
+          "path": "/api/attachments/5266e883-d6b5-465a-a766-d1083d8dc026/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788414
+        },
+        {
+          "path": "/api/checklists/runs/fe49f6ab-b260-4bba-b66a-98371214989b",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788446
+        },
+        {
+          "path": "/api/attachments/5266e883-d6b5-465a-a766-d1083d8dc026/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788467
+        },
+        {
+          "path": "/api/attachments/4585555a-a677-45f8-b866-9ac548123e37/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788490
+        },
+        {
+          "path": "/api/attachments/6ece1cfb-2743-4b37-bb7f-849a8cb6681f/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788511
+        },
+        {
+          "path": "/api/attachments/69931728-e3e5-4abc-9c1e-95673eb7611a/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788539
+        },
+        {
+          "path": "/api/shift-log",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459788780
+        },
+        {
+          "path": "/api/shift-log/archive/398762a8-590a-4b00-bae4-b64413e8f039",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459789169
+        },
+        {
+          "path": "/api/shift-log/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459789170
+        },
+        {
+          "path": "/api/shift-log/archive/398762a8-590a-4b00-bae4-b64413e8f039",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459789227
+        },
+        {
+          "path": "/api/attachments/6dfc6e60-7076-469a-89d4-d09b925b71d2/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459789243
+        },
+        {
+          "path": "/api/attachments/6dfc6e60-7076-469a-89d4-d09b925b71d2/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459789260
+        },
+        {
+          "path": "/api/archive/options",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459790011
+        },
+        {
+          "path": "/api/archive/items",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459790332
+        },
+        {
+          "path": "/api/defrost/lines",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459790445
+        },
+        {
+          "path": "/api/defrost/lines/40ce951f-bf4e-4692-b5a1-7334001b0a08/calendar",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459790481
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "key": "STORE",
+      "role": "STORE",
+      "normalLogin": true,
+      "checks": {
+        "stock": {
+          "id": "ee220699-aafe-48a8-a18d-28925f6eac07",
+          "ui": true,
+          "http": 200,
+          "quantity": 10,
+          "exactAllMovements": 7,
+          "file": {
+            "id": "4ec6d823-0206-4342-9490-f89084e01630",
+            "status": 200,
+            "bytes": 1510,
+            "sha256": "4d85d8477a8237d64c4e6cd6bb760609f300c9cf4b54fa9f34c1a2ded912fe01"
+          }
+        },
+        "announcement": {
+          "id": "5616d66a-916c-4948-888d-a71415a6d9b4",
+          "uiArchive": true,
+          "archiveListHttp": 200,
+          "normalArchivedDetailDenied": 403,
+          "file": {
+            "id": "8c3bcf10-8cc8-4d1d-b4c4-d8828f428000",
+            "status": 200,
+            "bytes": 1470,
+            "sha256": "ebb60216a5b5adbd741817d1a37c4ee74c8c0525893e0dcfa3ac579d1d353a06"
+          }
+        },
+        "chat": {
+          "id": "6c7a1338-4b1f-46e2-aa42-68e458d7f598",
+          "ui": true,
+          "http": 200,
+          "file": {
+            "id": "e88195ec-1fbf-4231-b150-44ea2fae12ac",
+            "status": 200,
+            "bytes": 1521,
+            "sha256": "fefbe2f007b3b667e5eb7048db917042945ebd25c6f715eb4c2d6dac464da4eb"
+          }
+        }
+      },
+      "connectedWs": true,
+      "http": [
+        {
+          "path": "/api/auth/login",
+          "method": "POST",
+          "status": 201,
+          "at": 1790459791508
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791582
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791641
+        },
+        {
+          "path": "/api/auth/assignment-request",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791645
+        },
+        {
+          "path": "/api/notifications/unread-count",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791646
+        },
+        {
+          "path": "/api/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791652
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791671
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791675
+        },
+        {
+          "path": "/api/people",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791693
+        },
+        {
+          "path": "/api/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791805
+        },
+        {
+          "path": "/api/people",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791828
+        },
+        {
+          "path": "/api/orders/requests",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791963
+        },
+        {
+          "path": "/api/orders/summary",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791972
+        },
+        {
+          "path": "/api/orders/items",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459791979
+        },
+        {
+          "path": "/api/attachments/4ec6d823-0206-4342-9490-f89084e01630/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459792311
+        },
+        {
+          "path": "/api/orders/items/ee220699-aafe-48a8-a18d-28925f6eac07",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459792311
+        },
+        {
+          "path": "/api/orders/items/ee220699-aafe-48a8-a18d-28925f6eac07",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459792362
+        },
+        {
+          "path": "/api/attachments/4ec6d823-0206-4342-9490-f89084e01630/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459792376
+        },
+        {
+          "path": "/api/announcements/audience-departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793181
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793212
+        },
+        {
+          "path": "/api/announcements/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793439
+        },
+        {
+          "path": "/api/attachments/8c3bcf10-8cc8-4d1d-b4c4-d8828f428000/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793509
+        },
+        {
+          "path": "/api/announcements/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793529
+        },
+        {
+          "path": "/api/announcements/5616d66a-916c-4948-888d-a71415a6d9b4",
+          "method": "GET",
+          "status": 403,
+          "at": 1790459793546
+        },
+        {
+          "path": "/api/attachments/8c3bcf10-8cc8-4d1d-b4c4-d8828f428000/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793562
+        },
+        {
+          "path": "/api/directory/departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793629
+        },
+        {
+          "path": "/api/directory/users",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793641
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793641
+        },
+        {
+          "path": "/api/chats/6c7a1338-4b1f-46e2-aa42-68e458d7f598",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793933
+        },
+        {
+          "path": "/api/attachments/e88195ec-1fbf-4231-b150-44ea2fae12ac/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459793991
+        },
+        {
+          "path": "/api/chats/6c7a1338-4b1f-46e2-aa42-68e458d7f598/read",
+          "method": "POST",
+          "status": 201,
+          "at": 1790459793991
+        },
+        {
+          "path": "/api/chats/6c7a1338-4b1f-46e2-aa42-68e458d7f598/media",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459794012
+        },
+        {
+          "path": "/api/chats/6c7a1338-4b1f-46e2-aa42-68e458d7f598",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459794025
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459794037
+        },
+        {
+          "path": "/api/attachments/e88195ec-1fbf-4231-b150-44ea2fae12ac/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459794046
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "key": "OKK",
+      "role": "OKK",
+      "normalLogin": true,
+      "checks": {
+        "checklist": {
+          "id": "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+          "template": "УЧЕБНЫЙ — Чистота производственного участка",
+          "uiArchive": true,
+          "readOnly": true,
+          "http": 200,
+          "rows": 10,
+          "files": [
+            {
+              "id": "e8ef230e-5a6a-468b-b41c-6983dcbdf7bd",
+              "status": 200,
+              "bytes": 1444,
+              "sha256": "cf5f3a36c129895d9fe8cbeb8f27d00c12dbd8786be16d6941dd64ad8fc8fac8"
+            },
+            {
+              "id": "9b978c0a-de49-4a73-aa92-8e11e94ad451",
+              "status": 200,
+              "bytes": 1506,
+              "sha256": "d6d0017e8439048a81a16c71642ac48bcf1d0c75367e8af3b20bcf4754beafb7"
+            },
+            {
+              "id": "33e95a20-98a1-4c5a-a094-56543a8668d9",
+              "status": 200,
+              "bytes": 1521,
+              "sha256": "1ed746cee68139586aa1c14e70126fc0f186ec0682867b108902d2c2305784a9"
+            },
+            {
+              "id": "6bef2a62-9544-476f-8fe1-fcbe8b3a7113",
+              "status": 200,
+              "bytes": 1508,
+              "sha256": "dad702e5ceb5c9a5d8047a1d4eff7e4a876f9db62672cdb48b90a1a901a2189d"
+            },
+            {
+              "id": "8c09c19c-408f-4e60-bb9f-56cee6674563",
+              "status": 200,
+              "bytes": 1542,
+              "sha256": "a6187ba58cfa625329dc8d1349bedbb5d9e012d5dc54db718b3c84a5a2f56dec"
+            },
+            {
+              "id": "a1d9212f-bcd6-4852-a7ce-98ad4c1f1b65",
+              "status": 200,
+              "bytes": 1519,
+              "sha256": "cb6f66dd704d5f06dd31efe01d08dcb9802f687c0bc0b11c9aa21f0b516cece4"
+            },
+            {
+              "id": "0f2570c7-bec9-44e5-8f0c-c9593e8589c0",
+              "status": 200,
+              "bytes": 1529,
+              "sha256": "3380a7b88098bb502338fb00d2ad8e3d8e269eb6c9cdf5d3d249e0ca7479ced5"
+            },
+            {
+              "id": "1d534eb5-3c3b-4088-ab4a-4f192843cbcc",
+              "status": 200,
+              "bytes": 1536,
+              "sha256": "d48a98adb0a5302d39bf02a1454a4a23ff54b2b3e91ffce00b20669a1ddbc64d"
+            },
+            {
+              "id": "cd7c6432-456e-430e-ba4e-ca7347f3a5ba",
+              "status": 200,
+              "bytes": 1481,
+              "sha256": "e73d8170c6836300e4d2a77387efbe4e41cffabe1739b47b73d58532e463d1c8"
+            },
+            {
+              "id": "d3ec7c32-d617-4c89-bf49-002dabb84908",
+              "status": 200,
+              "bytes": 1498,
+              "sha256": "7b32c05ed4cd8e87369777eb70da1da8e3828ab747e1a6a30b27287bb37b9760"
+            },
+            {
+              "id": "578e388a-d0e9-4a65-8315-67c1a4b9a0d9",
+              "status": 200,
+              "bytes": 1427,
+              "sha256": "d12def7bc92fbd80f81ed3966b020e7d0166c5298edb9ca65a6ef3e3424d7a10"
+            },
+            {
+              "id": "32c70569-0f99-46bd-986a-b92c76c32ac9",
+              "status": 200,
+              "bytes": 1462,
+              "sha256": "080b0963809df2a64c8dff470227d6536d5e7e7851a9f4518894f7fd06059180"
+            },
+            {
+              "id": "93ddc47e-3aba-407b-97cd-d06288f71412",
+              "status": 200,
+              "bytes": 1414,
+              "sha256": "16180ebbbddde92bfe1ca98451d76f2356e7879cba56070279b15b805df07a1c"
+            },
+            {
+              "id": "32efcff5-99b0-46d7-852b-220530f7fc14",
+              "status": 200,
+              "bytes": 1455,
+              "sha256": "eeca4892b62aedb2ed28ea231abf75d92b93ee709bc8bd3adff24176972f788e"
+            },
+            {
+              "id": "2518d8f8-06b2-4866-91d5-fad8dddeb446",
+              "status": 200,
+              "bytes": 1434,
+              "sha256": "0b59c5364ee3ad9a087f6ef8e7b8565d3d2a7c189247c779191e3e02001a76d0"
+            },
+            {
+              "id": "b2fda0c6-7891-49f4-8b7e-80be62113339",
+              "status": 200,
+              "bytes": 1465,
+              "sha256": "e443a45c10a753bfbe762e50187c42d559cada1e44b5127597b6d4ed7f8d13b4"
+            },
+            {
+              "id": "c374c627-6407-4710-9a9d-21585601f8fa",
+              "status": 200,
+              "bytes": 1471,
+              "sha256": "4855968f05b783e3af1ee1a31b2fd6e4948016dd1daa13aafffa9c27aaa78e0c"
+            },
+            {
+              "id": "34bcfab8-f489-471d-adad-57dda218cc6c",
+              "status": 200,
+              "bytes": 1467,
+              "sha256": "a2f75327a5e34ee10565bafe02d84de7b8df4d933bcbad5384116a00ad565fa8"
+            },
+            {
+              "id": "30bdc517-705c-4791-89a9-67e22153e489",
+              "status": 200,
+              "bytes": 1504,
+              "sha256": "a98e502680ddfb94f2988eb56835a5914cb20df1565a842c962db84c2280c717"
+            },
+            {
+              "id": "fdbd8931-3782-435f-867c-31bcf5ab207c",
+              "status": 200,
+              "bytes": 1477,
+              "sha256": "c800cb9ad3265bff94250e2fef046b1cef33f314b17fe93f81d84cc9e57bd930"
+            }
+          ]
+        }
+      },
+      "connectedWs": true,
+      "http": [
+        {
+          "path": "/api/auth/login",
+          "method": "POST",
+          "status": 201,
+          "at": 1790459795044
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795114
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795183
+        },
+        {
+          "path": "/api/auth/assignment-request",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795186
+        },
+        {
+          "path": "/api/tasks",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795186
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795186
+        },
+        {
+          "path": "/api/notifications/unread-count",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795186
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795192
+        },
+        {
+          "path": "/api/people",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795240
+        },
+        {
+          "path": "/api/checklists/templates/library",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795320
+        },
+        {
+          "path": "/api/checklists/workspace",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795348
+        },
+        {
+          "path": "/api/directory/lines",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795379
+        },
+        {
+          "path": "/api/checklists/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795422
+        },
+        {
+          "path": "/api/checklists/archive/by-template",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795459
+        },
+        {
+          "path": "/api/attachments/e8ef230e-5a6a-468b-b41c-6983dcbdf7bd/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795571
+        },
+        {
+          "path": "/api/checklists/runs/bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795626
+        },
+        {
+          "path": "/api/attachments/e8ef230e-5a6a-468b-b41c-6983dcbdf7bd/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795682
+        },
+        {
+          "path": "/api/attachments/9b978c0a-de49-4a73-aa92-8e11e94ad451/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795711
+        },
+        {
+          "path": "/api/attachments/33e95a20-98a1-4c5a-a094-56543a8668d9/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795736
+        },
+        {
+          "path": "/api/attachments/6bef2a62-9544-476f-8fe1-fcbe8b3a7113/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795762
+        },
+        {
+          "path": "/api/attachments/8c09c19c-408f-4e60-bb9f-56cee6674563/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795786
+        },
+        {
+          "path": "/api/attachments/a1d9212f-bcd6-4852-a7ce-98ad4c1f1b65/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795812
+        },
+        {
+          "path": "/api/attachments/0f2570c7-bec9-44e5-8f0c-c9593e8589c0/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795831
+        },
+        {
+          "path": "/api/attachments/1d534eb5-3c3b-4088-ab4a-4f192843cbcc/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795853
+        },
+        {
+          "path": "/api/attachments/cd7c6432-456e-430e-ba4e-ca7347f3a5ba/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795876
+        },
+        {
+          "path": "/api/attachments/d3ec7c32-d617-4c89-bf49-002dabb84908/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795895
+        },
+        {
+          "path": "/api/attachments/578e388a-d0e9-4a65-8315-67c1a4b9a0d9/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795917
+        },
+        {
+          "path": "/api/attachments/32c70569-0f99-46bd-986a-b92c76c32ac9/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795947
+        },
+        {
+          "path": "/api/attachments/93ddc47e-3aba-407b-97cd-d06288f71412/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795967
+        },
+        {
+          "path": "/api/attachments/32efcff5-99b0-46d7-852b-220530f7fc14/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459795988
+        },
+        {
+          "path": "/api/attachments/2518d8f8-06b2-4866-91d5-fad8dddeb446/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459796010
+        },
+        {
+          "path": "/api/attachments/b2fda0c6-7891-49f4-8b7e-80be62113339/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459796029
+        },
+        {
+          "path": "/api/attachments/c374c627-6407-4710-9a9d-21585601f8fa/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459796048
+        },
+        {
+          "path": "/api/attachments/34bcfab8-f489-471d-adad-57dda218cc6c/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459796067
+        },
+        {
+          "path": "/api/attachments/30bdc517-705c-4791-89a9-67e22153e489/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459796086
+        },
+        {
+          "path": "/api/attachments/fdbd8931-3782-435f-867c-31bcf5ab207c/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459796105
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "key": "WORKER03",
+      "role": "WORKER",
+      "normalLogin": true,
+      "checks": {
+        "ownShift": {
+          "uiFutureSlot": true,
+          "http": 200
+        },
+        "denied": {
+          "chat": 403,
+          "file": 403
+        }
+      },
+      "connectedWs": true,
+      "http": [
+        {
+          "path": "/api/auth/login",
+          "method": "POST",
+          "status": 201,
+          "at": 1790459797335
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797414
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797496
+        },
+        {
+          "path": "/api/auth/assignment-request",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797497
+        },
+        {
+          "path": "/api/notifications/unread-count",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797498
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797507
+        },
+        {
+          "path": "/api/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797528
+        },
+        {
+          "path": "/api/health",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797528
+        },
+        {
+          "path": "/api/shift/timeline",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797533
+        },
+        {
+          "path": "/api/lines/shift-overview",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797550
+        },
+        {
+          "path": "/api/shift/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797573
+        },
+        {
+          "path": "/api/shift/timeline",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797750
+        },
+        {
+          "path": "/api/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797751
+        },
+        {
+          "path": "/api/lines/shift-overview",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797772
+        },
+        {
+          "path": "/api/shift/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459797775
+        },
+        {
+          "path": "/api/shift/future",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459798176
+        },
+        {
+          "path": "/api/shift/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459798265
+        },
+        {
+          "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+          "method": "GET",
+          "status": 403,
+          "at": 1790459798276
+        },
+        {
+          "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+          "method": "GET",
+          "status": 403,
+          "at": 1790459798294
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "key": "TECH_MECHANIC",
+      "role": "TECH_MECHANIC",
+      "normalLogin": true,
+      "checks": {
+        "task": {
+          "id": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "ui": true,
+          "http": 200,
+          "status": "DONE",
+          "history": 4,
+          "files": [
+            {
+              "id": "c3af39c9-ff53-40de-8e37-458e1b6f721e",
+              "status": 200,
+              "bytes": 1514,
+              "sha256": "b5836ee98eddc0763b3583108e2fe3da2f168ec1383462ac6985008d995c6b2f"
+            }
+          ]
+        },
+        "chat": {
+          "id": "de90b361-73fc-4c05-80b5-13dc628d270c",
+          "ui": true,
+          "http": 200,
+          "file": {
+            "id": "164c951b-abb3-41e1-bd45-da4c5dad230d",
+            "status": 200,
+            "bytes": 1417,
+            "sha256": "e16e08076d129505f573c3d9a3e9c9c1dfa93ef7830b3d596e489a12a127bbc4"
+          }
+        }
+      },
+      "connectedWs": true,
+      "http": [
+        {
+          "path": "/api/auth/login",
+          "method": "POST",
+          "status": 201,
+          "at": 1790459799324
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799395
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799488
+        },
+        {
+          "path": "/api/auth/assignment-request",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799488
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799489
+        },
+        {
+          "path": "/api/notifications/unread-count",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799489
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799489
+        },
+        {
+          "path": "/api/tasks",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799489
+        },
+        {
+          "path": "/api/work-areas",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799518
+        },
+        {
+          "path": "/api/health",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799518
+        },
+        {
+          "path": "/api/shift/timeline",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799526
+        },
+        {
+          "path": "/api/shift/people",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799532
+        },
+        {
+          "path": "/api/shift-log/handover/previous",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799536
+        },
+        {
+          "path": "/api/lines/shift-overview",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799539
+        },
+        {
+          "path": "/api/archive/options",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799641
+        },
+        {
+          "path": "/api/archive/downtime/options",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799965
+        },
+        {
+          "path": "/api/archive/items",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459799984
+        },
+        {
+          "path": "/api/archive/items",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459800027
+        },
+        {
+          "path": "/api/archive/detail/tasks/TASK/a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459800098
+        },
+        {
+          "path": "/api/attachments/c3af39c9-ff53-40de-8e37-458e1b6f721e/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459800129
+        },
+        {
+          "path": "/api/tasks/a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459800171
+        },
+        {
+          "path": "/api/attachments/c3af39c9-ff53-40de-8e37-458e1b6f721e/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459800191
+        },
+        {
+          "path": "/api/directory/departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459800728
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459800733
+        },
+        {
+          "path": "/api/directory/users",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459800741
+        },
+        {
+          "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459801048
+        },
+        {
+          "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/read",
+          "method": "POST",
+          "status": 201,
+          "at": 1790459801133
+        },
+        {
+          "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459801134
+        },
+        {
+          "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/media",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459801156
+        },
+        {
+          "path": "/api/chats",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459801175
+        },
+        {
+          "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459801204
+        },
+        {
+          "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+          "method": "GET",
+          "status": 200,
+          "at": 1790459801234
+        }
+      ],
+      "status": "PASS"
+    }
+  ],
+  "priorAttempts": [
+    {
+      "status": "IN_PROGRESS",
+      "error": "No unobstructed dialog close/back control",
+      "roles": [
+        {
+          "key": "ADMIN",
+          "role": "ADMIN",
+          "normalLogin": true,
+          "checks": {
+            "peopleSkills": {
+              "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "ui": true,
+              "http": 200,
+              "visibleSkills": 3
+            },
+            "adminFactory": true,
+            "chat": {
+              "id": "de90b361-73fc-4c05-80b5-13dc628d270c",
+              "ui": true,
+              "http": 200,
+              "file": {
+                "id": "164c951b-abb3-41e1-bd45-da4c5dad230d",
+                "status": 200,
+                "bytes": 1417,
+                "sha256": "e16e08076d129505f573c3d9a3e9c9c1dfa93ef7830b3d596e489a12a127bbc4"
+              }
+            }
+          },
+          "connectedWs": true,
+          "http": [
+            {
+              "path": "/api/auth/login",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459455093
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455265
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455358
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455411
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455481
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455482
+            },
+            {
+              "path": "/api/tasks",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455528
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455529
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455537
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455560
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455575
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455583
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455589
+            },
+            {
+              "path": "/api/auth/assignment-request",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455595
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455616
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455619
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455646
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455669
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455758
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455758
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455758
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455842
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455901
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455901
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459455988
+            },
+            {
+              "path": "/api/people/search",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459456214
+            },
+            {
+              "path": "/api/admin/users/07c01509-4982-45d6-afc7-34f7bcb0539f/password-reset/preview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459456296
+            },
+            {
+              "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459456326
+            },
+            {
+              "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459456726
+            },
+            {
+              "path": "/api/admin/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457397
+            },
+            {
+              "path": "/api/admin/shift-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457427
+            },
+            {
+              "path": "/api/admin/wash-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457427
+            },
+            {
+              "path": "/api/admin/task-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457428
+            },
+            {
+              "path": "/api/admin/defrost-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457435
+            },
+            {
+              "path": "/api/checklists/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457436
+            },
+            {
+              "path": "/api/orders/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457436
+            },
+            {
+              "path": "/api/admin/chat-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457440
+            },
+            {
+              "path": "/api/admin/announcement-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457441
+            },
+            {
+              "path": "/api/admin/roles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457479
+            },
+            {
+              "path": "/api/admin/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457479
+            },
+            {
+              "path": "/api/admin/factories",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457485
+            },
+            {
+              "path": "/api/admin/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457486
+            },
+            {
+              "path": "/api/admin/lines-config",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457489
+            },
+            {
+              "path": "/api/admin/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457504
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457514
+            },
+            {
+              "path": "/api/admin/job-titles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457525
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457551
+            },
+            {
+              "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457593
+            },
+            {
+              "path": "/api/admin/factories/setup/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457629
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457637
+            },
+            {
+              "path": "/api/admin/data-hygiene/records",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457656
+            },
+            {
+              "path": "/api/admin/permission-delegation/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457690
+            },
+            {
+              "path": "/api/admin/assignment-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457691
+            },
+            {
+              "path": "/api/admin/data-hygiene/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457691
+            },
+            {
+              "path": "/api/admin/organization-identity-report",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457692
+            },
+            {
+              "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/config-health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457692
+            },
+            {
+              "path": "/api/admin/external-companies",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457695
+            },
+            {
+              "path": "/api/admin/staffing-control/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457706
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457723
+            },
+            {
+              "path": "/api/admin/roles/MASTER/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459457737
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459458582
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459458595
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459458601
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459458978
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/read",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459459041
+            },
+            {
+              "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459459043
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/media",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459459073
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459459095
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459459100
+            },
+            {
+              "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459459132
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "key": "MASTER",
+          "role": "MASTER",
+          "normalLogin": true,
+          "checks": {
+            "futureShift": {
+              "ui": true,
+              "http": 200,
+              "fourLines": true
+            },
+            "lineBoardHttp": 200,
+            "task": {
+              "id": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+              "ui": true,
+              "http": 200,
+              "status": "DONE",
+              "history": 4,
+              "files": [
+                {
+                  "id": "c3af39c9-ff53-40de-8e37-458e1b6f721e",
+                  "status": 200,
+                  "bytes": 1514,
+                  "sha256": "b5836ee98eddc0763b3583108e2fe3da2f168ec1383462ac6985008d995c6b2f"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "status": "IN_PROGRESS",
+      "error": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('УЧ-Линия 2', { exact: true }).first() to be visible\u001b[22m\n",
+      "roles": [
+        {
+          "key": "ADMIN",
+          "role": "ADMIN",
+          "normalLogin": true,
+          "checks": {
+            "peopleSkills": {
+              "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "ui": true,
+              "http": 200,
+              "visibleSkills": 3
+            },
+            "adminFactory": true,
+            "chat": {
+              "id": "de90b361-73fc-4c05-80b5-13dc628d270c",
+              "ui": true,
+              "http": 200,
+              "file": {
+                "id": "164c951b-abb3-41e1-bd45-da4c5dad230d",
+                "status": 200,
+                "bytes": 1417,
+                "sha256": "e16e08076d129505f573c3d9a3e9c9c1dfa93ef7830b3d596e489a12a127bbc4"
+              }
+            }
+          },
+          "connectedWs": true,
+          "http": [
+            {
+              "path": "/api/auth/login",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459524773
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459524914
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459524995
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525046
+            },
+            {
+              "path": "/api/tasks",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525046
+            },
+            {
+              "path": "/api/auth/assignment-request",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525046
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525059
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525097
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525102
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525114
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525116
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525122
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525123
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525126
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525127
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525144
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525168
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525217
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525222
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525296
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525305
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525383
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525383
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525423
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525491
+            },
+            {
+              "path": "/api/people/search",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459525864
+            },
+            {
+              "path": "/api/admin/users/07c01509-4982-45d6-afc7-34f7bcb0539f/password-reset/preview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459526441
+            },
+            {
+              "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459526501
+            },
+            {
+              "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459526877
+            },
+            {
+              "path": "/api/admin/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527547
+            },
+            {
+              "path": "/api/checklists/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527574
+            },
+            {
+              "path": "/api/admin/shift-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527578
+            },
+            {
+              "path": "/api/admin/task-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527579
+            },
+            {
+              "path": "/api/admin/wash-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527579
+            },
+            {
+              "path": "/api/admin/defrost-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527582
+            },
+            {
+              "path": "/api/orders/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527584
+            },
+            {
+              "path": "/api/admin/announcement-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527591
+            },
+            {
+              "path": "/api/admin/chat-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527591
+            },
+            {
+              "path": "/api/admin/roles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527624
+            },
+            {
+              "path": "/api/admin/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527625
+            },
+            {
+              "path": "/api/admin/factories",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527625
+            },
+            {
+              "path": "/api/admin/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527630
+            },
+            {
+              "path": "/api/admin/lines-config",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527630
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527636
+            },
+            {
+              "path": "/api/admin/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527662
+            },
+            {
+              "path": "/api/admin/job-titles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527681
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527681
+            },
+            {
+              "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527719
+            },
+            {
+              "path": "/api/admin/data-hygiene/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527740
+            },
+            {
+              "path": "/api/admin/factories/setup/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527740
+            },
+            {
+              "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/config-health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527751
+            },
+            {
+              "path": "/api/admin/data-hygiene/records",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527757
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527759
+            },
+            {
+              "path": "/api/admin/organization-identity-report",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527774
+            },
+            {
+              "path": "/api/admin/staffing-control/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527777
+            },
+            {
+              "path": "/api/admin/assignment-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527789
+            },
+            {
+              "path": "/api/admin/external-companies",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527794
+            },
+            {
+              "path": "/api/admin/permission-delegation/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527796
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527812
+            },
+            {
+              "path": "/api/admin/roles/MASTER/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459527838
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459528272
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459528279
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459528295
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459528629
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/read",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459528697
+            },
+            {
+              "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459528697
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/media",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459528724
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459528747
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459528760
+            },
+            {
+              "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459528790
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "key": "MASTER",
+          "role": "MASTER",
+          "normalLogin": true,
+          "checks": {
+            "futureShift": {
+              "ui": true,
+              "http": 200,
+              "fourLines": true
+            },
+            "lineBoardHttp": 200,
+            "task": {
+              "id": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+              "ui": true,
+              "http": 200,
+              "status": "DONE",
+              "history": 4,
+              "files": [
+                {
+                  "id": "c3af39c9-ff53-40de-8e37-458e1b6f721e",
+                  "status": 200,
+                  "bytes": 1514,
+                  "sha256": "b5836ee98eddc0763b3583108e2fe3da2f168ec1383462ac6985008d995c6b2f"
+                }
+              ]
+            },
+            "checklist": {
+              "id": "fe49f6ab-b260-4bba-b66a-98371214989b",
+              "template": "УЧЕБНЫЙ — Проверка линии перед запуском",
+              "uiArchive": true,
+              "readOnly": true,
+              "http": 200,
+              "rows": 3,
+              "files": [
+                {
+                  "id": "5266e883-d6b5-465a-a766-d1083d8dc026",
+                  "status": 200,
+                  "bytes": 1468,
+                  "sha256": "6edcb8e4b751edd4da412f678afb4bca60290b2fc1dfb60a22f5dd3738147344"
+                },
+                {
+                  "id": "4585555a-a677-45f8-b866-9ac548123e37",
+                  "status": 200,
+                  "bytes": 1492,
+                  "sha256": "eae5345dccd1db3d7d0f53581f2045c962a69b6beba1ba861c735dcd1ccaee72"
+                },
+                {
+                  "id": "6ece1cfb-2743-4b37-bb7f-849a8cb6681f",
+                  "status": 200,
+                  "bytes": 1528,
+                  "sha256": "bb998eee43752c2d8d14c7f5f046acacecfdb08ae56a99578c060ace14d01b2a"
+                },
+                {
+                  "id": "69931728-e3e5-4abc-9c1e-95673eb7611a",
+                  "status": 200,
+                  "bytes": 1503,
+                  "sha256": "6c9ad61fb3bbc9181f2559197c48c6f24cf5a985a5632f7ffecabaf9795b95b0"
+                }
+              ]
+            },
+            "journal": {
+              "id": "398762a8-590a-4b00-bae4-b64413e8f039",
+              "uiArchive": true,
+              "readOnly": true,
+              "http": 200,
+              "file": {
+                "id": "6dfc6e60-7076-469a-89d4-d09b925b71d2",
+                "status": 200,
+                "bytes": 68,
+                "sha256": "6b1048f8a6d40bac0b2954c18fefa40c4ea7a96120fc2e54b7317c0e43c2bbec"
+              },
+              "scope": "ordinary journal; immutable handover belongs to separately labelled managed copy"
+            },
+            "washHistoryUI": true
+          }
+        }
+      ]
+    },
+    {
+      "status": "IN_PROGRESS",
+      "error": "Expected values to be strictly equal:\n\n403 !== 200\n",
+      "roles": [
+        {
+          "key": "ADMIN",
+          "role": "ADMIN",
+          "normalLogin": true,
+          "checks": {
+            "peopleSkills": {
+              "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "ui": true,
+              "http": 200,
+              "visibleSkills": 3
+            },
+            "adminFactory": true,
+            "chat": {
+              "id": "de90b361-73fc-4c05-80b5-13dc628d270c",
+              "ui": true,
+              "http": 200,
+              "file": {
+                "id": "164c951b-abb3-41e1-bd45-da4c5dad230d",
+                "status": 200,
+                "bytes": 1417,
+                "sha256": "e16e08076d129505f573c3d9a3e9c9c1dfa93ef7830b3d596e489a12a127bbc4"
+              }
+            }
+          },
+          "connectedWs": true,
+          "http": [
+            {
+              "path": "/api/auth/login",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459614325
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614475
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614588
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614590
+            },
+            {
+              "path": "/api/tasks",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614591
+            },
+            {
+              "path": "/api/auth/assignment-request",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614591
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614592
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614592
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614627
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614631
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614641
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614643
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614644
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614652
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614654
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614655
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614679
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614761
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614764
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614828
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614832
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614841
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614843
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459614956
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459615011
+            },
+            {
+              "path": "/api/people/search",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459615415
+            },
+            {
+              "path": "/api/admin/users/07c01509-4982-45d6-afc7-34f7bcb0539f/password-reset/preview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459615481
+            },
+            {
+              "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459615508
+            },
+            {
+              "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459615911
+            },
+            {
+              "path": "/api/admin/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616619
+            },
+            {
+              "path": "/api/admin/shift-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616655
+            },
+            {
+              "path": "/api/admin/task-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616656
+            },
+            {
+              "path": "/api/orders/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616656
+            },
+            {
+              "path": "/api/admin/wash-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616657
+            },
+            {
+              "path": "/api/checklists/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616657
+            },
+            {
+              "path": "/api/admin/defrost-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616657
+            },
+            {
+              "path": "/api/admin/chat-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616661
+            },
+            {
+              "path": "/api/admin/announcement-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616666
+            },
+            {
+              "path": "/api/admin/roles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616698
+            },
+            {
+              "path": "/api/admin/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616704
+            },
+            {
+              "path": "/api/admin/factories",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616704
+            },
+            {
+              "path": "/api/admin/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616706
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616709
+            },
+            {
+              "path": "/api/admin/lines-config",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616713
+            },
+            {
+              "path": "/api/admin/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616721
+            },
+            {
+              "path": "/api/admin/job-titles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616745
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616748
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616750
+            },
+            {
+              "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616764
+            },
+            {
+              "path": "/api/admin/factories/setup/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616803
+            },
+            {
+              "path": "/api/admin/data-hygiene/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616805
+            },
+            {
+              "path": "/api/admin/data-hygiene/records",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616809
+            },
+            {
+              "path": "/api/admin/permission-delegation/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616819
+            },
+            {
+              "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/config-health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616821
+            },
+            {
+              "path": "/api/admin/assignment-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616822
+            },
+            {
+              "path": "/api/admin/external-companies",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616828
+            },
+            {
+              "path": "/api/admin/organization-identity-report",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616831
+            },
+            {
+              "path": "/api/admin/staffing-control/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616835
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616850
+            },
+            {
+              "path": "/api/admin/roles/MASTER/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459616881
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459617310
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459617322
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459617335
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459617710
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/read",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459617732
+            },
+            {
+              "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459617776
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/media",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459617777
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459617807
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459617820
+            },
+            {
+              "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459617851
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "key": "MASTER",
+          "role": "MASTER",
+          "normalLogin": true,
+          "checks": {
+            "futureShift": {
+              "ui": true,
+              "http": 200,
+              "fourLines": true
+            },
+            "lineBoardHttp": 200,
+            "task": {
+              "id": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+              "ui": true,
+              "http": 200,
+              "status": "DONE",
+              "history": 4,
+              "files": [
+                {
+                  "id": "c3af39c9-ff53-40de-8e37-458e1b6f721e",
+                  "status": 200,
+                  "bytes": 1514,
+                  "sha256": "b5836ee98eddc0763b3583108e2fe3da2f168ec1383462ac6985008d995c6b2f"
+                }
+              ]
+            },
+            "checklist": {
+              "id": "fe49f6ab-b260-4bba-b66a-98371214989b",
+              "template": "УЧЕБНЫЙ — Проверка линии перед запуском",
+              "uiArchive": true,
+              "readOnly": true,
+              "http": 200,
+              "rows": 3,
+              "files": [
+                {
+                  "id": "5266e883-d6b5-465a-a766-d1083d8dc026",
+                  "status": 200,
+                  "bytes": 1468,
+                  "sha256": "6edcb8e4b751edd4da412f678afb4bca60290b2fc1dfb60a22f5dd3738147344"
+                },
+                {
+                  "id": "4585555a-a677-45f8-b866-9ac548123e37",
+                  "status": 200,
+                  "bytes": 1492,
+                  "sha256": "eae5345dccd1db3d7d0f53581f2045c962a69b6beba1ba861c735dcd1ccaee72"
+                },
+                {
+                  "id": "6ece1cfb-2743-4b37-bb7f-849a8cb6681f",
+                  "status": 200,
+                  "bytes": 1528,
+                  "sha256": "bb998eee43752c2d8d14c7f5f046acacecfdb08ae56a99578c060ace14d01b2a"
+                },
+                {
+                  "id": "69931728-e3e5-4abc-9c1e-95673eb7611a",
+                  "status": 200,
+                  "bytes": 1503,
+                  "sha256": "6c9ad61fb3bbc9181f2559197c48c6f24cf5a985a5632f7ffecabaf9795b95b0"
+                }
+              ]
+            },
+            "journal": {
+              "id": "398762a8-590a-4b00-bae4-b64413e8f039",
+              "uiArchive": true,
+              "readOnly": true,
+              "http": 200,
+              "file": {
+                "id": "6dfc6e60-7076-469a-89d4-d09b925b71d2",
+                "status": 200,
+                "bytes": 68,
+                "sha256": "6b1048f8a6d40bac0b2954c18fefa40c4ea7a96120fc2e54b7317c0e43c2bbec"
+              },
+              "scope": "ordinary journal; immutable handover belongs to separately labelled managed copy"
+            },
+            "washHistoryUI": true,
+            "defrost": {
+              "uiNoActiveLines": true,
+              "calendarHttp": 200,
+              "persistedEventId": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+              "note": "STOP/completed lines are not cards on the current-only screen; historical calendar read is HTTP, not UI."
+            }
+          },
+          "connectedWs": true,
+          "http": [
+            {
+              "path": "/api/auth/login",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459618912
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619054
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619154
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619155
+            },
+            {
+              "path": "/api/auth/assignment-request",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619155
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619155
+            },
+            {
+              "path": "/api/tasks",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619165
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619165
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619195
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619195
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619204
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619204
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619205
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619209
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619214
+            },
+            {
+              "path": "/api/shift-log/handover/availability",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619224
+            },
+            {
+              "path": "/api/shift-log/handover/previous",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619228
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619257
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619344
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619351
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619414
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619415
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619428
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619471
+            },
+            {
+              "path": "/api/shift/future",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619861
+            },
+            {
+              "path": "/api/shift/future",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619916
+            },
+            {
+              "path": "/api/lines/9125a431-9d33-47d2-8763-08889bc2ab52/assignment-board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459619958
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459620058
+            },
+            {
+              "path": "/api/archive/downtime/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459620373
+            },
+            {
+              "path": "/api/archive/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459620385
+            },
+            {
+              "path": "/api/archive/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459620436
+            },
+            {
+              "path": "/api/archive/detail/tasks/TASK/a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459620524
+            },
+            {
+              "path": "/api/attachments/c3af39c9-ff53-40de-8e37-458e1b6f721e/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459620563
+            },
+            {
+              "path": "/api/tasks/a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459620625
+            },
+            {
+              "path": "/api/attachments/c3af39c9-ff53-40de-8e37-458e1b6f721e/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459620646
+            },
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621257
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621328
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621352
+            },
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621372
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621394
+            },
+            {
+              "path": "/api/attachments/5266e883-d6b5-465a-a766-d1083d8dc026/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621481
+            },
+            {
+              "path": "/api/checklists/runs/fe49f6ab-b260-4bba-b66a-98371214989b",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621513
+            },
+            {
+              "path": "/api/attachments/5266e883-d6b5-465a-a766-d1083d8dc026/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621533
+            },
+            {
+              "path": "/api/attachments/4585555a-a677-45f8-b866-9ac548123e37/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621558
+            },
+            {
+              "path": "/api/attachments/6ece1cfb-2743-4b37-bb7f-849a8cb6681f/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621579
+            },
+            {
+              "path": "/api/attachments/69931728-e3e5-4abc-9c1e-95673eb7611a/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621610
+            },
+            {
+              "path": "/api/shift-log",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459621854
+            },
+            {
+              "path": "/api/shift-log/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459622262
+            },
+            {
+              "path": "/api/shift-log/archive/398762a8-590a-4b00-bae4-b64413e8f039",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459622265
+            },
+            {
+              "path": "/api/shift-log/archive/398762a8-590a-4b00-bae4-b64413e8f039",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459622322
+            },
+            {
+              "path": "/api/attachments/6dfc6e60-7076-469a-89d4-d09b925b71d2/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459622337
+            },
+            {
+              "path": "/api/attachments/6dfc6e60-7076-469a-89d4-d09b925b71d2/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459622357
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459623139
+            },
+            {
+              "path": "/api/archive/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459623457
+            },
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459623610
+            },
+            {
+              "path": "/api/defrost/lines/40ce951f-bf4e-4692-b5a1-7334001b0a08/calendar",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459623707
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "key": "STORE",
+          "role": "STORE",
+          "normalLogin": true,
+          "checks": {
+            "stock": {
+              "id": "ee220699-aafe-48a8-a18d-28925f6eac07",
+              "ui": true,
+              "http": 200,
+              "quantity": 10,
+              "exactAllMovements": 7,
+              "file": {
+                "id": "4ec6d823-0206-4342-9490-f89084e01630",
+                "status": 200,
+                "bytes": 1510,
+                "sha256": "4d85d8477a8237d64c4e6cd6bb760609f300c9cf4b54fa9f34c1a2ded912fe01"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "status": "IN_PROGRESS",
+      "error": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Закрытый чек-лист доступен только для просмотра.', { exact: true }) to be visible\u001b[22m\n",
+      "roles": [
+        {
+          "key": "ADMIN",
+          "role": "ADMIN",
+          "normalLogin": true,
+          "checks": {
+            "peopleSkills": {
+              "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "ui": true,
+              "http": 200,
+              "visibleSkills": 3
+            },
+            "adminFactory": true,
+            "chat": {
+              "id": "de90b361-73fc-4c05-80b5-13dc628d270c",
+              "ui": true,
+              "http": 200,
+              "file": {
+                "id": "164c951b-abb3-41e1-bd45-da4c5dad230d",
+                "status": 200,
+                "bytes": 1417,
+                "sha256": "e16e08076d129505f573c3d9a3e9c9c1dfa93ef7830b3d596e489a12a127bbc4"
+              }
+            }
+          },
+          "connectedWs": true,
+          "http": [
+            {
+              "path": "/api/auth/login",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459721873
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722023
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722139
+            },
+            {
+              "path": "/api/auth/assignment-request",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722140
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722141
+            },
+            {
+              "path": "/api/tasks",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722141
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722151
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722152
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722192
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722192
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722192
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722195
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722196
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722209
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722211
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722214
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722215
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722326
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722329
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722394
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722398
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722473
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722473
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722473
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722505
+            },
+            {
+              "path": "/api/people/search",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459722941
+            },
+            {
+              "path": "/api/admin/users/07c01509-4982-45d6-afc7-34f7bcb0539f/password-reset/preview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459723497
+            },
+            {
+              "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459723509
+            },
+            {
+              "path": "/api/people/07c01509-4982-45d6-afc7-34f7bcb0539f",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459723882
+            },
+            {
+              "path": "/api/admin/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724548
+            },
+            {
+              "path": "/api/admin/shift-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724573
+            },
+            {
+              "path": "/api/admin/task-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724578
+            },
+            {
+              "path": "/api/checklists/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724578
+            },
+            {
+              "path": "/api/orders/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724579
+            },
+            {
+              "path": "/api/admin/wash-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724580
+            },
+            {
+              "path": "/api/admin/defrost-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724581
+            },
+            {
+              "path": "/api/admin/chat-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724584
+            },
+            {
+              "path": "/api/admin/announcement-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724589
+            },
+            {
+              "path": "/api/admin/roles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724618
+            },
+            {
+              "path": "/api/admin/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724618
+            },
+            {
+              "path": "/api/admin/factories",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724626
+            },
+            {
+              "path": "/api/admin/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724629
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724637
+            },
+            {
+              "path": "/api/admin/lines-config",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724638
+            },
+            {
+              "path": "/api/admin/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724647
+            },
+            {
+              "path": "/api/admin/job-titles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724661
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724669
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724686
+            },
+            {
+              "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724691
+            },
+            {
+              "path": "/api/admin/data-hygiene/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724729
+            },
+            {
+              "path": "/api/admin/factories/setup/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724730
+            },
+            {
+              "path": "/api/admin/assignment-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724735
+            },
+            {
+              "path": "/api/admin/permission-delegation/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724738
+            },
+            {
+              "path": "/api/admin/data-hygiene/records",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724740
+            },
+            {
+              "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/config-health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724746
+            },
+            {
+              "path": "/api/admin/external-companies",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724756
+            },
+            {
+              "path": "/api/admin/organization-identity-report",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724758
+            },
+            {
+              "path": "/api/admin/staffing-control/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724761
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724777
+            },
+            {
+              "path": "/api/admin/roles/MASTER/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459724804
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459725249
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459725261
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459725266
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459725620
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/read",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459725677
+            },
+            {
+              "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459725678
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c/media",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459725705
+            },
+            {
+              "path": "/api/chats/de90b361-73fc-4c05-80b5-13dc628d270c",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459725729
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459725729
+            },
+            {
+              "path": "/api/attachments/164c951b-abb3-41e1-bd45-da4c5dad230d/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459725756
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "key": "MASTER",
+          "role": "MASTER",
+          "normalLogin": true,
+          "checks": {
+            "futureShift": {
+              "ui": true,
+              "http": 200,
+              "fourLines": true
+            },
+            "lineBoardHttp": 200,
+            "task": {
+              "id": "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+              "ui": true,
+              "http": 200,
+              "status": "DONE",
+              "history": 4,
+              "files": [
+                {
+                  "id": "c3af39c9-ff53-40de-8e37-458e1b6f721e",
+                  "status": 200,
+                  "bytes": 1514,
+                  "sha256": "b5836ee98eddc0763b3583108e2fe3da2f168ec1383462ac6985008d995c6b2f"
+                }
+              ]
+            },
+            "checklist": {
+              "id": "fe49f6ab-b260-4bba-b66a-98371214989b",
+              "template": "УЧЕБНЫЙ — Проверка линии перед запуском",
+              "uiArchive": true,
+              "readOnly": true,
+              "http": 200,
+              "rows": 3,
+              "files": [
+                {
+                  "id": "5266e883-d6b5-465a-a766-d1083d8dc026",
+                  "status": 200,
+                  "bytes": 1468,
+                  "sha256": "6edcb8e4b751edd4da412f678afb4bca60290b2fc1dfb60a22f5dd3738147344"
+                },
+                {
+                  "id": "4585555a-a677-45f8-b866-9ac548123e37",
+                  "status": 200,
+                  "bytes": 1492,
+                  "sha256": "eae5345dccd1db3d7d0f53581f2045c962a69b6beba1ba861c735dcd1ccaee72"
+                },
+                {
+                  "id": "6ece1cfb-2743-4b37-bb7f-849a8cb6681f",
+                  "status": 200,
+                  "bytes": 1528,
+                  "sha256": "bb998eee43752c2d8d14c7f5f046acacecfdb08ae56a99578c060ace14d01b2a"
+                },
+                {
+                  "id": "69931728-e3e5-4abc-9c1e-95673eb7611a",
+                  "status": 200,
+                  "bytes": 1503,
+                  "sha256": "6c9ad61fb3bbc9181f2559197c48c6f24cf5a985a5632f7ffecabaf9795b95b0"
+                }
+              ]
+            },
+            "journal": {
+              "id": "398762a8-590a-4b00-bae4-b64413e8f039",
+              "uiArchive": true,
+              "readOnly": true,
+              "http": 200,
+              "file": {
+                "id": "6dfc6e60-7076-469a-89d4-d09b925b71d2",
+                "status": 200,
+                "bytes": 68,
+                "sha256": "6b1048f8a6d40bac0b2954c18fefa40c4ea7a96120fc2e54b7317c0e43c2bbec"
+              },
+              "scope": "ordinary journal; immutable handover belongs to separately labelled managed copy"
+            },
+            "washHistoryUI": true,
+            "defrost": {
+              "uiNoActiveLines": true,
+              "calendarHttp": 200,
+              "persistedEventId": "370baec6-4f4d-40cd-91ff-aafc1242f9c1",
+              "note": "STOP/completed lines are not cards on the current-only screen; historical calendar read is HTTP, not UI."
+            }
+          },
+          "connectedWs": true,
+          "http": [
+            {
+              "path": "/api/auth/login",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459726811
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459726954
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727056
+            },
+            {
+              "path": "/api/auth/assignment-request",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727057
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727058
+            },
+            {
+              "path": "/api/tasks",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727066
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727066
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727076
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727112
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727112
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727112
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727119
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727120
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727120
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727137
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727137
+            },
+            {
+              "path": "/api/shift-log/handover/availability",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727152
+            },
+            {
+              "path": "/api/shift-log/handover/previous",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727176
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727229
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727230
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727307
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727308
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727319
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727324
+            },
+            {
+              "path": "/api/shift/future",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727799
+            },
+            {
+              "path": "/api/shift/future",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727853
+            },
+            {
+              "path": "/api/lines/9125a431-9d33-47d2-8763-08889bc2ab52/assignment-board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459727894
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459728007
+            },
+            {
+              "path": "/api/archive/downtime/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459728307
+            },
+            {
+              "path": "/api/archive/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459728317
+            },
+            {
+              "path": "/api/archive/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459728374
+            },
+            {
+              "path": "/api/archive/detail/tasks/TASK/a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459728457
+            },
+            {
+              "path": "/api/attachments/c3af39c9-ff53-40de-8e37-458e1b6f721e/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459728497
+            },
+            {
+              "path": "/api/tasks/a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459728597
+            },
+            {
+              "path": "/api/attachments/c3af39c9-ff53-40de-8e37-458e1b6f721e/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459728621
+            },
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729155
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729177
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729187
+            },
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729213
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729237
+            },
+            {
+              "path": "/api/attachments/5266e883-d6b5-465a-a766-d1083d8dc026/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729347
+            },
+            {
+              "path": "/api/checklists/runs/fe49f6ab-b260-4bba-b66a-98371214989b",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729380
+            },
+            {
+              "path": "/api/attachments/5266e883-d6b5-465a-a766-d1083d8dc026/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729400
+            },
+            {
+              "path": "/api/attachments/4585555a-a677-45f8-b866-9ac548123e37/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729427
+            },
+            {
+              "path": "/api/attachments/6ece1cfb-2743-4b37-bb7f-849a8cb6681f/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729448
+            },
+            {
+              "path": "/api/attachments/69931728-e3e5-4abc-9c1e-95673eb7611a/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729471
+            },
+            {
+              "path": "/api/shift-log",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459729707
+            },
+            {
+              "path": "/api/shift-log/archive/398762a8-590a-4b00-bae4-b64413e8f039",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459730111
+            },
+            {
+              "path": "/api/shift-log/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459730119
+            },
+            {
+              "path": "/api/shift-log/archive/398762a8-590a-4b00-bae4-b64413e8f039",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459730192
+            },
+            {
+              "path": "/api/attachments/6dfc6e60-7076-469a-89d4-d09b925b71d2/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459730209
+            },
+            {
+              "path": "/api/attachments/6dfc6e60-7076-469a-89d4-d09b925b71d2/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459730227
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459731005
+            },
+            {
+              "path": "/api/archive/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459731303
+            },
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459731411
+            },
+            {
+              "path": "/api/defrost/lines/40ce951f-bf4e-4692-b5a1-7334001b0a08/calendar",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459731503
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "key": "STORE",
+          "role": "STORE",
+          "normalLogin": true,
+          "checks": {
+            "stock": {
+              "id": "ee220699-aafe-48a8-a18d-28925f6eac07",
+              "ui": true,
+              "http": 200,
+              "quantity": 10,
+              "exactAllMovements": 7,
+              "file": {
+                "id": "4ec6d823-0206-4342-9490-f89084e01630",
+                "status": 200,
+                "bytes": 1510,
+                "sha256": "4d85d8477a8237d64c4e6cd6bb760609f300c9cf4b54fa9f34c1a2ded912fe01"
+              }
+            },
+            "announcement": {
+              "id": "5616d66a-916c-4948-888d-a71415a6d9b4",
+              "uiArchive": true,
+              "archiveListHttp": 200,
+              "normalArchivedDetailDenied": 403,
+              "file": {
+                "id": "8c3bcf10-8cc8-4d1d-b4c4-d8828f428000",
+                "status": 200,
+                "bytes": 1470,
+                "sha256": "ebb60216a5b5adbd741817d1a37c4ee74c8c0525893e0dcfa3ac579d1d353a06"
+              }
+            },
+            "chat": {
+              "id": "6c7a1338-4b1f-46e2-aa42-68e458d7f598",
+              "ui": true,
+              "http": 200,
+              "file": {
+                "id": "e88195ec-1fbf-4231-b150-44ea2fae12ac",
+                "status": 200,
+                "bytes": 1521,
+                "sha256": "fefbe2f007b3b667e5eb7048db917042945ebd25c6f715eb4c2d6dac464da4eb"
+              }
+            }
+          },
+          "connectedWs": true,
+          "http": [
+            {
+              "path": "/api/auth/login",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459732487
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732562
+            },
+            {
+              "path": "/api/auth/me",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732616
+            },
+            {
+              "path": "/api/auth/assignment-request",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732621
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732621
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732629
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732638
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732641
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732661
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732786
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732805
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732947
+            },
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732958
+            },
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732958
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732976
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459732980
+            },
+            {
+              "path": "/api/attachments/4ec6d823-0206-4342-9490-f89084e01630/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459733288
+            },
+            {
+              "path": "/api/orders/items/ee220699-aafe-48a8-a18d-28925f6eac07",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459733289
+            },
+            {
+              "path": "/api/orders/items/ee220699-aafe-48a8-a18d-28925f6eac07",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459733358
+            },
+            {
+              "path": "/api/attachments/4ec6d823-0206-4342-9490-f89084e01630/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459733373
+            },
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734191
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734191
+            },
+            {
+              "path": "/api/announcements/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734454
+            },
+            {
+              "path": "/api/attachments/8c3bcf10-8cc8-4d1d-b4c4-d8828f428000/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734576
+            },
+            {
+              "path": "/api/announcements/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734597
+            },
+            {
+              "path": "/api/announcements/5616d66a-916c-4948-888d-a71415a6d9b4",
+              "method": "GET",
+              "status": 403,
+              "at": 1790459734616
+            },
+            {
+              "path": "/api/attachments/8c3bcf10-8cc8-4d1d-b4c4-d8828f428000/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734631
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734696
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734705
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734707
+            },
+            {
+              "path": "/api/chats/6c7a1338-4b1f-46e2-aa42-68e458d7f598",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459734998
+            },
+            {
+              "path": "/api/chats/6c7a1338-4b1f-46e2-aa42-68e458d7f598/read",
+              "method": "POST",
+              "status": 201,
+              "at": 1790459735050
+            },
+            {
+              "path": "/api/attachments/e88195ec-1fbf-4231-b150-44ea2fae12ac/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459735052
+            },
+            {
+              "path": "/api/chats/6c7a1338-4b1f-46e2-aa42-68e458d7f598/media",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459735072
+            },
+            {
+              "path": "/api/chats/6c7a1338-4b1f-46e2-aa42-68e458d7f598",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459735084
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459735095
+            },
+            {
+              "path": "/api/attachments/e88195ec-1fbf-4231-b150-44ea2fae12ac/file",
+              "method": "GET",
+              "status": 200,
+              "at": 1790459735105
+            }
+          ],
+          "status": "PASS"
+        },
+        {
+          "key": "OKK",
+          "role": "OKK",
+          "normalLogin": true,
+          "checks": {}
+        }
+      ]
+    }
+  ],
+  "version": "FACTORY01-20260926-T1",
+  "sql": {
+    "factory": {
+      "id": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "name": "УЧЕБНЫЙ ЗАВОД T1",
+      "code": "test-factory-t1",
+      "isActive": true
+    },
+    "lines": [
+      {
+        "id": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "name": "УЧ-Линия 2",
+        "status": "STOP"
+      },
+      {
+        "id": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "name": "УЧ-Линия 1",
+        "status": "STOP"
+      },
+      {
+        "id": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "name": "УЧ-Линия 4",
+        "status": "STOP"
+      },
+      {
+        "id": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "name": "УЧ-Линия 3",
+        "status": "STOP"
+      }
+    ],
+    "stock": [
+      {
+        "id": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "name": "Учебный двигатель",
+        "currentQuantity": 3
+      },
+      {
+        "id": "4566242f-ef9f-4405-ba74-59d3f0a71ba3",
+        "name": "Учебный датчик",
+        "currentQuantity": 10
+      },
+      {
+        "id": "53a110c1-7b54-429e-86b7-19c0fef4eb8f",
+        "name": "Учебный ремкомплект",
+        "currentQuantity": 10
+      },
+      {
+        "id": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "name": "Учебный подшипник",
+        "currentQuantity": 9
+      },
+      {
+        "id": "ee220699-aafe-48a8-a18d-28925f6eac07",
+        "name": "Учебный расходник",
+        "currentQuantity": 10
+      }
+    ],
+    "movements": [
+      {
+        "id": "a5f6f7ab-38bd-4ce2-baef-6f267ab89716",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "TAKE",
+        "quantity": 3,
+        "beforeQuantity": 10,
+        "afterQuantity": 7,
+        "comment": "УЧ T1: take 3",
+        "createdAt": "2026-09-26T20:09:56.448Z"
+      },
+      {
+        "id": "5ec632c3-5b91-4d4d-af46-be3bfe923dfd",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "RESTOCK",
+        "quantity": 3,
+        "beforeQuantity": 7,
+        "afterQuantity": 10,
+        "comment": "УЧ T1: restock 3",
+        "createdAt": "2026-09-26T20:09:57.703Z"
+      },
+      {
+        "id": "ee3425a3-3044-44bf-94ea-fc103c7c81e1",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "22ece47f-cd26-4dcb-8f83-a731b9d7eaab",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "TAKE",
+        "quantity": 7,
+        "beforeQuantity": 10,
+        "afterQuantity": 3,
+        "comment": "УЧ T1: конкурентный расход1",
+        "createdAt": "2026-09-26T20:09:58.315Z"
+      },
+      {
+        "id": "1c095912-dfee-4efb-9a66-664f83b29828",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "TAKE",
+        "quantity": 2,
+        "beforeQuantity": 10,
+        "afterQuantity": 8,
+        "comment": "УЧ T1: take 2",
+        "createdAt": "2026-09-26T20:09:59.137Z"
+      },
+      {
+        "id": "c10436d2-e34c-401f-ad91-5bbdabb80295",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "910736c5-3b05-4e72-8cb5-394bd2a1668a",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "RESTOCK",
+        "quantity": 1,
+        "beforeQuantity": 8,
+        "afterQuantity": 9,
+        "comment": "УЧ T1: restock 1",
+        "createdAt": "2026-09-26T20:10:00.265Z"
+      },
+      {
+        "id": "2f09bb24-826a-419a-a985-0bd469445328",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "ee220699-aafe-48a8-a18d-28925f6eac07",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "TAKE",
+        "quantity": 1,
+        "beforeQuantity": 10,
+        "afterQuantity": 9,
+        "comment": "Без комментария",
+        "createdAt": "2026-09-26T21:07:08.692Z"
+      },
+      {
+        "id": "2598ea77-48c8-42f1-81b7-0ee1f5dcf185",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "itemId": "ee220699-aafe-48a8-a18d-28925f6eac07",
+        "actorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "type": "RESTOCK",
+        "quantity": 1,
+        "beforeQuantity": 9,
+        "afterQuantity": 10,
+        "comment": "Пополнение",
+        "createdAt": "2026-09-26T21:07:09.878Z"
+      }
+    ],
+    "runs": 7,
+    "activeAssignments": 0,
+    "plans": 3,
+    "willBe": 4
+  }
+}

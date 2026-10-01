@@ -1,0 +1,51 @@
+{
+  "argumentCounts": [
+    9,
+    9,
+    3,
+    5
+  ],
+  "source": "ubuntu-server",
+  "shutdown": "poweroff",
+  "readFromAttachedSeed": true,
+  "seedIsoSha256": "4bfdf5debe2b2d3f966946358e546d1d08d98419218e991a6d8f305ce3396ea7",
+  "guestAutoinstallAndLogsRead": false,
+  "lateCommands": [
+    [
+      "curtin",
+      "in-target",
+      "--target=/target",
+      "--",
+      "useradd",
+      "--create-home",
+      "--shell",
+      "/bin/bash",
+      "r5app"
+    ],
+    [
+      "curtin",
+      "in-target",
+      "--target=/target",
+      "--",
+      "useradd",
+      "--create-home",
+      "--shell",
+      "/usr/sbin/nologin",
+      "r5pg"
+    ],
+    [
+      "sh",
+      "-c",
+      "install -m 0440 /dev/null /target/etc/sudoers.d/90-r5ops; printf \"r5ops ALL=(ALL) NOPASSWD:ALL\\n\" > /target/etc/sudoers.d/90-r5ops"
+    ],
+    [
+      "sh",
+      "-c",
+      "install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"",
+      "99a158da-c247-422c-ae11-109485a92b1f",
+      "\\n\" > /target/etc/r5-provision-instance"
+    ]
+  ],
+  "credentialsExported": false,
+  "at": "2026-09-21T16:09:11.7060959+03:00"
+}

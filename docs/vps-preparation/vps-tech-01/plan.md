@@ -1,0 +1,35 @@
+# VPS-TECH-01 — один закрытый технический план
+
+## Активное продолжение R1 + CHECKLIST-VERIFY-01 — source-only / 28.09.2026
+
+Один writer, два последовательных блока; новый installer/схема/57 SQL/T1/runtime не затронуты. [Единый итог и evidence](r1/report.md). Блок A `SOURCE_PARTIAL_RUNTIME_PENDING`: A1 explicit HTTPS origin + CORS + nginx route/template, A2 app-quiesced backup, A3 независимая пустая restore-цель с legacy fail-closed, A4 retained release images/update pending. Их fake/source tests прошли; настоящий Linux/TLS/DB/files/reboot/rollback не проверялся. Блок B `SOURCE_PARTIAL_LIVE_PENDING`: интервальная политика оставлена, checkId stale finish защищён, три подтверждённых read-model расхождения исправлены, изолированные tests прошли; фон/SQL/HTTP/недельный архив/телефон не проверялись. [Текущий inventory](release-inventory.json) обновлён **после** source правок; старый release ID ниже — исторический.
+
+Checkpoints: A source fixes + 8 isolated checks; B source fixes + 5 bounded checks, 8 R2 и 3 archive/auth impacted checks; backend build и frontend typecheck PASS; frontend Vite build `BLOCKED_WINDOWS_SANDBOX_ACCESS_DENIED`, не product FAIL. `MIGRATIONS=57_UNCHANGED`; `FINAL_STOP=STOP_FOR_SOURCE_REVIEW_BEFORE_SEPARATE_LINUX_RUNTIME_ACCEPTANCE`. Следующий этап не запускается автоматически. Все gates 0, 2–8 ниже и пять пользовательских live-groups остаются в очереди; никакого Linux PASS из source-тестов.
+
+28.09.2026. Прямое поручение пользователя VPS-TECH-01 разрешает только новый однозначно выделенный Linux/Compose target и новую изолированную БД. T1 сохранён без отката с признанным `FAILED` и не используется. LOCAL/ADMIN/FACTORY/NOTIFY/ATT-AUTH/OPS, R5, Windows/WSL, общий Sweep и пилот не повторять. [Источник фактов и статус](report.md), [release inventory](release-inventory.json), [карта конфигурации](config-map.md).
+
+## Контрольная точка 0 — входная среда: BLOCKED_INPUT
+
+На момент этого checkpoint в текущем поручении/доступных актуальных repo-указателях **не названы выделенный сервер, адрес, SSH user/host key или защищённый способ доступа**. `pending-runtime.md` ранее также фиксировал отсутствие target; это историческое подтверждение, не свежая проверка сети. Не брать случайный SSH alias, не искать ключи/секреты, не подключаться к чужой машине. Никаких Docker/БД/приложения/SQL/HTTP/SSH/reboot в этой задаче не запускалось. Ветка runtime останавливается здесь; безопасная source/release-подготовка выполнена ниже.
+
+Перед первым удалённым действием: оператор предоставляет identity хоста и право работать именно на нём, SSH user/механизм доступа и проверенный host key/out-of-band fingerprint, OS/CPU/RAM/disk и отсутствие чужих данных/сервисов в выбранных путях/портах, защищённые отдельные storage paths и допустимый origin/TLS способ. Проверить это read-only на host, затем зафиксировать exact target. Порт/префикс/SSH config сами по себе владение не доказывают.
+
+## Контрольная точка 1 — clean source release: SOURCE_CANDIDATE_VERIFIED
+
+Существующий `setup/deployment-context.js:collectBuildFiles` перечислил **280 обычных нессылочных файлов / 6 145 016 bytes**, включая 57 `migration.sql`, из фактического dirty worktree (63 Git-tracked, 217 untracked; не только HEAD). [Построчные path/bytes/SHA-256](release-inventory.json); host-control четыре файла перечислены отдельно. Никаких `.env`, protected backup, T1 dump/uploads, `node_modules`, старых ZIP или build output в список image context не вошло. Это *кандидатный состав*, не созданный image, не скопированный VPS release и не проверка Docker `.dockerignore` самим Engine. `setup/zavod-setup.js` вычисляет release ID из native relative paths+bytes: ожидаемый при тех же файлах на Linux `1.0.0+d2749fbc9a95f984`; Windows path digest иной. Фактический target release/image digest фиксировать **после** проверенной Linux staging/build, не объявлять это значение уже развернутым.
+
+Current schema SHA совпадает с последним OPS source receipt, все 57 migration SQL SHA совпали с последним сохранённым OPS check; migration58 не создана. Demo `backend/prisma/seed.js` не входит в build context и не разрешён для clean target. Синтаксический/source-only результат не заменяет `migrate deploy/status/strict diff` на новой SQL-цели.
+
+## Последовательность после предоставления target — НЕ ИСПОЛНЯЛАСЬ
+
+| Gate | Допустимое действие и checkpoint | Условие PASS / stop |
+|---|---|---|
+| 2. Isolation + build | Только новый confirmed host: назначить отдельные runtime/config, Compose project, DB parent/roles, uploads/backups/export/logs; проверить путь/UID/mode/порты; штатный Docker Engine/Compose, build/pull по текущему staging | Проверены context/image contents, container network, нет чужого overlap; ошибка владения/прав/секретов — STOP зависимой ветви |
+| 3. Clean C0 | DB-ready → `migrate deploy` 57 → foundation (повтор без потери custom) → `FIRST_ADMIN_REQUIRED` → защищённый первый ADMIN/UFA → личный пароль/normal login/recovery. Source-only пробы без demo seed | SQL checksums/strict schema diff, clean business counters/empty UI, no demo after restart, credential secrecy; никакой T1 import |
+| 4. Auth/TLS/files | Доверенный origin/proxy HTTPS/WSS, CORS, два browser sessions/reconnect/late context; scoped positive/denial file/source/notice. Linux UID/GID, guarded bytes/SHA после recreate | Без `-k`, public DB/uploads/dev ports и auth test headers. Отсутствие domain/trust разрешает только private loopback subcases; TLS остаётся NOT_RUN |
+| 5. Time/restart/update | Реальный NTP/Europe-Moscow 08/20, собственная catch-up fixture без дублей; app/DB recreate; guarded update на **другой** совместимый release с backup и наблюдаемым rollback path | Не менять часы/scheduler; reboot VPS только после явной проверки isolation и возврата доступа; same-image restart не update PASS |
+| 6. Backup/restore | Existing backup owner: quiesced/consistent DB+uploads+config+release, validate; restore только в новую confirmed DB/volumes, source не трогать; corruption refusal before target mutation | См. [source hazards](config-map.md): текущий restore нельзя запускать на independent target без адресного исправления/targeted checks. Нет source-overwrite, нет backup в review ZIP |
+| 7. Load/failure | Лишь собственная цель: ступени до гипотезы 200 активных сессий, одна фото/30с **суммарно**, указан размер/профиль; CPU/RAM/DB/WS/disk/latency/Audit; ограниченные DB/container/upload/backup отказовые пробы | Остановить рост при ресурсном риске; без fill-disk/firewall/SSH изменений; capacity PASS только по измерению |
+| 8. Review/STOP | Короткий checkpoint каждого реально завершённого gate, один безопасный review pack, процессный state/port/container identity | Технический результат ≠ Pilot Ready; T1 не оживлять; пять live gates/roles/policy/phone остаются отдельными |
+
+Статусы gates 2–8 сейчас `NOT_RUN_BLOCKED_INPUT`; применимые source hazards не обходить временными ручными командами. После получения target начинать с gate 0, не с migrate. Один writer, канонические owners и один release; никакого отдельного installer/scheduler/restore-проекта.

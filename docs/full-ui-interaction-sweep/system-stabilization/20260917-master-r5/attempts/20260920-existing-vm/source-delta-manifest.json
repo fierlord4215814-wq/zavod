@@ -1,0 +1,863 @@
+{
+  "at": "2026-09-20T13:44:59.472Z",
+  "scope": "ONLY_CURRENT_EXISTING_VM_OBSERVATION_CONTINUATION; inherited product/worktree changes not attributed",
+  "beforeBaseline": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/baseline.json",
+  "existingOwners": [
+    {
+      "owner": "README.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/README.md",
+        "bytes": 3756,
+        "sha256": "61c4e59b3c1925d9754d38fa9d7dac969e05c7572bd649e508c2875e62eb28ed"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/README.md",
+        "bytes": 4087,
+        "sha256": "f498ddfea47de99d312524de64f59a317f0e7e0c34d2033b8bc4a9c048d27ba2"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/README.md.diff",
+        "bytes": 3474,
+        "sha256": "04cb8106b545575ba593512eac7877682c8aa0e10f50b2440818150c4ec01c9d"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/progress.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/progress.md",
+        "bytes": 811754,
+        "sha256": "eeabc263d1c41a72b142028a927f7a11788a2339d4439f553cd9fddd388b48b9"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/progress.md",
+        "bytes": 813926,
+        "sha256": "2803fc4941b78557e3d191fc61e06fd3e2cf9719c365eb1cf2f11e633385deca"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/progress.md.diff",
+        "bytes": 3657,
+        "sha256": "65134299f483a72e80508c6a8856707dc7e0ea57bc4a86a84a8e43b19c339758"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/visual-gap-register.md",
+        "bytes": 219607,
+        "sha256": "418c37809553a3a8629cdd738cfe9e35ec709d62abc4c3b3f34848136a13637a"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/visual-gap-register.md",
+        "bytes": 221111,
+        "sha256": "cd0cd667f978127c0c0f232fcd9e151441fd2b3404279822039e30976ce69831"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/visual-gap-register.md.diff",
+        "bytes": 3452,
+        "sha256": "49b3eda9f5b722783e4a33a1ba442cf0d8cac9952034284147c534581fe086fe"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md",
+        "bytes": 50329,
+        "sha256": "84e57e11b24336865877d2fdbd706eb5f9b9f88102538cb6fa449aac5722418d"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md",
+        "bytes": 60206,
+        "sha256": "304e1341ec272f4cc274702caa2f758caf761aee40f49ed35169f84a8ebeb832"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md.diff",
+        "bytes": 12320,
+        "sha256": "d66bf25e329632f5d39b5777d012a2a5d26985bf1f7260110dbdf58b1f54f51b"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md",
+        "bytes": 24249,
+        "sha256": "ee3d58e4bd606d573449895b36df4e76ecf23d190cdef886add0f5e22b265508"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md",
+        "bytes": 28335,
+        "sha256": "4994d47202d3725b0cac3ab60b9c96d75a68c80ebf05bd34c81de78cbaf580db"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md.diff",
+        "bytes": 5668,
+        "sha256": "ea3d6a49ad9f91e8056712903b9068f4b7ebac95df817adb1e3c6c793f3d412a"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md",
+        "bytes": 13431,
+        "sha256": "c7ae66ec2bc6aa157ded2e2c68ab1d69145982c1e30bd72caaa2ccdc82410735"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md",
+        "bytes": 14493,
+        "sha256": "be31b681079e19686aeb7adc3a9d2c61ca32ddcfc17779c374438d138a194419"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md.diff",
+        "bytes": 3169,
+        "sha256": "66b604a4a083d01f4e5cbf98007e24699f5ef45717b4f92ec22c7737c5fbea80"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md",
+        "bytes": 6794,
+        "sha256": "de1f6afbdfd7c94e4ba5af293590b5bb575fe643e1cd559f4586da327c16dd47"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md",
+        "bytes": 7009,
+        "sha256": "e3beb5b8c17a1d1197ef9ac6d1eaf2cdf807ef8559fa12727c65cd0a36ea8e3d"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md.diff",
+        "bytes": 3395,
+        "sha256": "2e1c77e0c2c5035f18d8091b3580916f0122498e996300dfc0789e5a141f4305"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+        "bytes": 6343,
+        "sha256": "e98183a07acac714815a24814fd25cc536cef60cbe4dd77a58cea4af9a5a0610"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+        "bytes": 11519,
+        "sha256": "fb3af8b068115a1946c482132dd8eaa8ae4090799caf8deb17c19b59005f3715"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt.diff",
+        "bytes": 7241,
+        "sha256": "99353d97838f91f053b7424c80a110b47657e4a679ae8a94738a1b1ec712c251"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+        "bytes": 3125,
+        "sha256": "1a8740334e7f3db955fdb59406970904a8aaef6e776743378791c6be587a49c3"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+        "bytes": 3454,
+        "sha256": "a984edeb19eef46386c6fcc7fd10bf3ad677ada404ae721c6e9a8de0472a6c2c"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md.diff",
+        "bytes": 6811,
+        "sha256": "8542d90fcec6acf7e13fa3826a1a45b7a987880691e2618bd1a8620ab526f918"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+        "bytes": 5685,
+        "sha256": "cca4353604fdf5bbf133140ffe93dc6b5564a60c5ec0ca05e7782ff7946f0142"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+        "bytes": 5863,
+        "sha256": "4f23518052f93f53ee098c486b11cba2c79d7a7519159fce571f2dfcadbb7a9b"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md.diff",
+        "bytes": 6990,
+        "sha256": "603e347a0fd1e5a53edf53cf06ee78dfcdeb82840b36a50d86824af57e0009de"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md",
+        "bytes": 4761,
+        "sha256": "37e8e3578278deaa0c25a60545757ded5e92c7d98461b489a5e50515bb96a064"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md",
+        "bytes": 5739,
+        "sha256": "1b16ba65f6427f51c0077f05dc1e917793d5a6ffba7d2657e2243e3c0ac0fd5a"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md.diff",
+        "bytes": 3059,
+        "sha256": "c130985beeabb13367680c1229e02bb329a67ba62f406bfc798b955cf3c8da4a"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md",
+        "bytes": 7422,
+        "sha256": "093a9a262013187042018fe62434c69349b472194e3efb0c44ea4c6ed306be0f"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md",
+        "bytes": 8565,
+        "sha256": "19ee0d818d336abcec813cb5721fe54c14f21436bc1f35bf09a8c0886f1a506f"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md.diff",
+        "bytes": 4376,
+        "sha256": "615738e98557602cedd6575bfd929fabef7f5ba43e0f05da5aee7920538a769f"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json",
+        "bytes": 6505,
+        "sha256": "6e95e30eb9a1133649b0cd469f3e1fb4250911639c57088d89dc4ea4a93271d8"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json",
+        "bytes": 6483,
+        "sha256": "b22ddce7bdc1edb619b3826ac35bea52aa17716aa3b3f3ea21ac36b087a279c9"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json.diff",
+        "bytes": 4321,
+        "sha256": "e7fa4f5fae90cab41e7c0f3a8b63a22202b997c279c312914e30c6a14f4f5907"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json",
+        "bytes": 22172,
+        "sha256": "bf3e01f08b1f26352d17a9327c032ff3dc00cd54064f00dbb297edd538386701"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json",
+        "bytes": 22175,
+        "sha256": "aa9d745fe6dd80ebb0305b47f1d7bd896ce7529b5289b73cdfbeebaad036605b"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json.diff",
+        "bytes": 1540,
+        "sha256": "cf3771c24fd689c4347050f4ccc3736b18f6a61c6a40b7fa93545bdd828d10c9"
+      }
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json",
+        "bytes": 1176,
+        "sha256": "702ed0bb3ecda05d2a3e388e263d852d6d1224d2ed4ea7da46b790819cfdcaf4"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json",
+        "bytes": 1150,
+        "sha256": "5c1228531618c306fff3e904d60fb65c636ac9e1bf0c33171e95d0ccf9f8972f"
+      },
+      "changed": true,
+      "diff": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json.diff",
+        "bytes": 2125,
+        "sha256": "738fc95aa426c2a20e5250310c855685a2cc83170bd0df043e82ef0a64844f46"
+      }
+    }
+  ],
+  "additionsAtCollection": [
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/progress.md",
+      "bytes": 813926,
+      "sha256": "2803fc4941b78557e3d191fc61e06fd3e2cf9719c365eb1cf2f11e633385deca"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+      "bytes": 5863,
+      "sha256": "4f23518052f93f53ee098c486b11cba2c79d7a7519159fce571f2dfcadbb7a9b"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md",
+      "bytes": 14493,
+      "sha256": "be31b681079e19686aeb7adc3a9d2c61ca32ddcfc17779c374438d138a194419"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md",
+      "bytes": 7009,
+      "sha256": "e3beb5b8c17a1d1197ef9ac6d1eaf2cdf807ef8559fa12727c65cd0a36ea8e3d"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json",
+      "bytes": 1150,
+      "sha256": "5c1228531618c306fff3e904d60fb65c636ac9e1bf0c33171e95d0ccf9f8972f"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md",
+      "bytes": 60206,
+      "sha256": "304e1341ec272f4cc274702caa2f758caf761aee40f49ed35169f84a8ebeb832"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+      "bytes": 3454,
+      "sha256": "a984edeb19eef46386c6fcc7fd10bf3ad677ada404ae721c6e9a8de0472a6c2c"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json",
+      "bytes": 22175,
+      "sha256": "aa9d745fe6dd80ebb0305b47f1d7bd896ce7529b5289b73cdfbeebaad036605b"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json",
+      "bytes": 6483,
+      "sha256": "b22ddce7bdc1edb619b3826ac35bea52aa17716aa3b3f3ea21ac36b087a279c9"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md",
+      "bytes": 28335,
+      "sha256": "4994d47202d3725b0cac3ab60b9c96d75a68c80ebf05bd34c81de78cbaf580db"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md",
+      "bytes": 8565,
+      "sha256": "19ee0d818d336abcec813cb5721fe54c14f21436bc1f35bf09a8c0886f1a506f"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+      "bytes": 11519,
+      "sha256": "fb3af8b068115a1946c482132dd8eaa8ae4090799caf8deb17c19b59005f3715"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md",
+      "bytes": 5739,
+      "sha256": "1b16ba65f6427f51c0077f05dc1e917793d5a6ffba7d2657e2243e3c0ac0fd5a"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "bytes": 221111,
+      "sha256": "cd0cd667f978127c0c0f232fcd9e151441fd2b3404279822039e30976ce69831"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/after/README.md",
+      "bytes": 4087,
+      "sha256": "f498ddfea47de99d312524de64f59a317f0e7e0c34d2033b8bc4a9c048d27ba2"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/baseline.json",
+      "bytes": 153290,
+      "sha256": "9cf98a62e1a5c958454d8db7fdef761afbc3f22bc274fe036b14a89fa73b739c"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/progress.md",
+      "bytes": 811754,
+      "sha256": "eeabc263d1c41a72b142028a927f7a11788a2339d4439f553cd9fddd388b48b9"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+      "bytes": 5685,
+      "sha256": "cca4353604fdf5bbf133140ffe93dc6b5564a60c5ec0ca05e7782ff7946f0142"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md",
+      "bytes": 13431,
+      "sha256": "c7ae66ec2bc6aa157ded2e2c68ab1d69145982c1e30bd72caaa2ccdc82410735"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md",
+      "bytes": 6794,
+      "sha256": "de1f6afbdfd7c94e4ba5af293590b5bb575fe643e1cd559f4586da327c16dd47"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json",
+      "bytes": 1176,
+      "sha256": "702ed0bb3ecda05d2a3e388e263d852d6d1224d2ed4ea7da46b790819cfdcaf4"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md",
+      "bytes": 50329,
+      "sha256": "84e57e11b24336865877d2fdbd706eb5f9b9f88102538cb6fa449aac5722418d"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+      "bytes": 3125,
+      "sha256": "1a8740334e7f3db955fdb59406970904a8aaef6e776743378791c6be587a49c3"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json",
+      "bytes": 22172,
+      "sha256": "bf3e01f08b1f26352d17a9327c032ff3dc00cd54064f00dbb297edd538386701"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json",
+      "bytes": 6505,
+      "sha256": "6e95e30eb9a1133649b0cd469f3e1fb4250911639c57088d89dc4ea4a93271d8"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md",
+      "bytes": 24249,
+      "sha256": "ee3d58e4bd606d573449895b36df4e76ecf23d190cdef886add0f5e22b265508"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md",
+      "bytes": 7422,
+      "sha256": "093a9a262013187042018fe62434c69349b472194e3efb0c44ea4c6ed306be0f"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+      "bytes": 6343,
+      "sha256": "e98183a07acac714815a24814fd25cc536cef60cbe4dd77a58cea4af9a5a0610"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md",
+      "bytes": 4761,
+      "sha256": "37e8e3578278deaa0c25a60545757ded5e92c7d98461b489a5e50515bb96a064"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "bytes": 219607,
+      "sha256": "418c37809553a3a8629cdd738cfe9e35ec709d62abc4c3b3f34848136a13637a"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/before/README.md",
+      "bytes": 3756,
+      "sha256": "61c4e59b3c1925d9754d38fa9d7dac969e05c7572bd649e508c2875e62eb28ed"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/checkpoint-baseline.cjs",
+      "bytes": 3291,
+      "sha256": "8fbd85ef98be3aa57196a6410b1ce59e3f9d8cf1fc0ecbba91245598042b6194"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/console-observation.json",
+      "bytes": 1796,
+      "sha256": "c77beb1d8b2daf2648c5c1c59ebc8d965e0cbcf8f3519c8a1b8c91d80aef5e45"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/console-observer-start.json",
+      "bytes": 351,
+      "sha256": "0edd8d63615224b1487de5bb56ac856b91a7fff6b3c93024e94bea9c9e950199"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/console-observer-terminal.json",
+      "bytes": 226,
+      "sha256": "747847371fce05f190ac5a899496b922f3b6ac32e11ac99a4a70706259eae309"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/console-observer-uac-request.json",
+      "bytes": 904,
+      "sha256": "b62ffdb087f18a787c16a8fa1b5fb1eea326b6ee1cba1088eae24f1489bb250b"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/console-observer-uac-start.json",
+      "bytes": 127,
+      "sha256": "a3b3bccfe5379debefee223dba65beef7d68e840a5b5ab858649b8ffbc4af011"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/continuation-request.txt",
+      "bytes": 18392,
+      "sha256": "7ee4456760fae3d43b3d11b95f7b71f2689e3f62800a2b9fe257155f094a51b0"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/progress.md.diff",
+      "bytes": 3657,
+      "sha256": "65134299f483a72e80508c6a8856707dc7e0ea57bc4a86a84a8e43b19c339758"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md.diff",
+      "bytes": 6990,
+      "sha256": "603e347a0fd1e5a53edf53cf06ee78dfcdeb82840b36a50d86824af57e0009de"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md.diff",
+      "bytes": 3169,
+      "sha256": "66b604a4a083d01f4e5cbf98007e24699f5ef45717b4f92ec22c7737c5fbea80"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md.diff",
+      "bytes": 3395,
+      "sha256": "2e1c77e0c2c5035f18d8091b3580916f0122498e996300dfc0789e5a141f4305"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json.diff",
+      "bytes": 2125,
+      "sha256": "738fc95aa426c2a20e5250310c855685a2cc83170bd0df043e82ef0a64844f46"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md.diff",
+      "bytes": 12320,
+      "sha256": "d66bf25e329632f5d39b5777d012a2a5d26985bf1f7260110dbdf58b1f54f51b"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md.diff",
+      "bytes": 6811,
+      "sha256": "8542d90fcec6acf7e13fa3826a1a45b7a987880691e2618bd1a8620ab526f918"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json.diff",
+      "bytes": 1540,
+      "sha256": "cf3771c24fd689c4347050f4ccc3736b18f6a61c6a40b7fa93545bdd828d10c9"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json.diff",
+      "bytes": 4321,
+      "sha256": "e7fa4f5fae90cab41e7c0f3a8b63a22202b997c279c312914e30c6a14f4f5907"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md.diff",
+      "bytes": 5668,
+      "sha256": "ea3d6a49ad9f91e8056712903b9068f4b7ebac95df817adb1e3c6c793f3d412a"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md.diff",
+      "bytes": 4376,
+      "sha256": "615738e98557602cedd6575bfd929fabef7f5ba43e0f05da5aee7920538a769f"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt.diff",
+      "bytes": 7241,
+      "sha256": "99353d97838f91f053b7424c80a110b47657e4a679ae8a94738a1b1ec712c251"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md.diff",
+      "bytes": 3059,
+      "sha256": "c130985beeabb13367680c1229e02bb329a67ba62f406bfc798b955cf3c8da4a"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/docs/full-ui-interaction-sweep/visual-gap-register.md.diff",
+      "bytes": 3452,
+      "sha256": "49b3eda9f5b722783e4a33a1ba442cf0d8cac9952034284147c534581fe086fe"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/diffs/README.md.diff",
+      "bytes": 3474,
+      "sha256": "04cb8106b545575ba593512eac7877682c8aa0e10f50b2440818150c4ec01c9d"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/environment-runtime-receipt.json",
+      "bytes": 6157,
+      "sha256": "60f50e8d50ef929812d8dd74a7ad367a3cccaa615997888baddf48fa2e79967e"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/final-identities.json",
+      "bytes": 228123,
+      "sha256": "726bea61ed0431535885f6f1b7723988f8230411109cffd2e3a305312a7c15f1"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/final-runtime-observation.json",
+      "bytes": 2512,
+      "sha256": "b809ecd73f378c275072052df85c240bea2b6f1ee5df076af9482879255a359f"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/finalize-handoff.cjs",
+      "bytes": 9533,
+      "sha256": "45bac1b0657445f2f92b3f231041a1ba82cafc3477668c98a095059cdeb8a1f2"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/observe-handoff-runtime.ps1",
+      "bytes": 2421,
+      "sha256": "6b107d15614f8eca162dce9bcf70bd531f9fa891480c147491d05f15e1bb3efe"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/observe-vm-console.ps1",
+      "bytes": 12874,
+      "sha256": "aa4bcbf8849caf0f39c9b9275e80000535a478921e16f2917a89176bb06826ac"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/old-helper-identity.json",
+      "bytes": 707,
+      "sha256": "67fe3f3f1444f01a9e499457e99417c76deb8368e668353d741745c26f78d01b"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/old-helper-threads.json",
+      "bytes": 1441,
+      "sha256": "69fd6ce2ff054b611f5fec0da2ac2782d38760c33a803d7f4133064a5b029075"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/old-queue-after.json",
+      "bytes": 932,
+      "sha256": "91d0247b2bc17d601349d6916735b8788329129808844b550f5b4fe23f89f79d"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/old-queue-before.json",
+      "bytes": 932,
+      "sha256": "b012cfcc07e74e5d43b2e1b4a8caaa71f7c7779e8d00ba273955cd5a2c567d9f"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/package-boundary.ps1",
+      "bytes": 7825,
+      "sha256": "2c8c010b333540c60754ab6326a428be6dd2ace3a3e560394a2560950da3c533"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/progress.md",
+      "bytes": 3932,
+      "sha256": "89b4e3c45f991b04511714ce962a50262157ab59cb8b114a2894d98b07015830"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-01-done.json",
+      "bytes": 123,
+      "sha256": "deb177557534265a05e2852951d98ced91903d7c2bc22b764513b7d1a2d476e2"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-01-start.json",
+      "bytes": 146,
+      "sha256": "4008fb40b9ff2924b936d33455fa74ae13a7d31f33f7e52edfe0d519a2568f4c"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-02-done.json",
+      "bytes": 107,
+      "sha256": "7f590abf1255d1616bb098284d1157534c7c5238e545382efd54de6cb2d3c984"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-02-start.json",
+      "bytes": 130,
+      "sha256": "f8c74df6c3354394eca1f09cc1532d31168f39d3dde1f13ffce59f925a70f216"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-03-done.json",
+      "bytes": 118,
+      "sha256": "691b184878f88d24a19206c4baa60e4d498f00e4a803f2ff722392a78ae7ef4e"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-03-start.json",
+      "bytes": 141,
+      "sha256": "29ffdd3342f156c38449b6b2b3154b5963fc0de14d0ddfdfd4cf85b11a6443cf"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-04-done.json",
+      "bytes": 122,
+      "sha256": "9dc2f7f612a1f3df07f310861ce78d845753bbe6e1cdb0bbbea5c0ab90a3d63a"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-04-start.json",
+      "bytes": 145,
+      "sha256": "8142aeeef752cb785d9c5d3b41678a469706c2fad8449be9d9b6469e67091230"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-05-done.json",
+      "bytes": 122,
+      "sha256": "ea757147557ee2e7f3efd7c840f5c7e175e303978561cab6c2a4f9c242c76ff2"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-05-start.json",
+      "bytes": 145,
+      "sha256": "a9fd90f6745392965ca8c0efafda48c9466b675f0765273ace1c39724d33892e"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-06-done.json",
+      "bytes": 122,
+      "sha256": "a88b6fd9a33a509c673953a21b8178eee645d6ee0f1468ba7a4600f995ae558c"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-06-start.json",
+      "bytes": 145,
+      "sha256": "ab767cf02746d3787dc9f23b66c023a18685c52ebd53bb8d7dea890174acaf35"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-07-done.json",
+      "bytes": 108,
+      "sha256": "03cc159edb37b5eabd2874273a80b818f8ded414b86a93e515254a0a8090d0a4"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-07-start.json",
+      "bytes": 131,
+      "sha256": "212b0006a1d6df843389d370107ed359ec9d710f9350466afa9ad950ffbe880c"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-08-done.json",
+      "bytes": 125,
+      "sha256": "cd597480606aa063b01e9b14c810beb6ac3ceade99d7ae601cc4c2607cf08a87"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-08-start.json",
+      "bytes": 148,
+      "sha256": "bed432a994c635ad553cf8d3cf2709e7399b173dbbde4a9875580383f5d56006"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-09-done.json",
+      "bytes": 107,
+      "sha256": "4bec820074b111be69681dbe395f5c86a45289fbcbc0952834707d2d17439859"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-09-start.json",
+      "bytes": 130,
+      "sha256": "83113bdaa22d3da28da8170f64e83abbd03255c4310aa6626c297d4a7a75d724"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-10-done.json",
+      "bytes": 107,
+      "sha256": "27f0b9034df8744c3ee37e38d6304bb35f37204b71863fb7d814f33ea17c4499"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-10-start.json",
+      "bytes": 130,
+      "sha256": "aa7177d7efb4e13e7b15bb79282b49082513f74b358221137f223fa82b333598"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-11-done.json",
+      "bytes": 110,
+      "sha256": "787c6c240c673a9e4a6936b82b2c7b79ecde5e39610ec3e2a481a5de14ff9799"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-11-start.json",
+      "bytes": 133,
+      "sha256": "d0f0b1722b66ce462cd3a1a1717bcda2e93a1226964323112c0e13ae657cf396"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-12-done.json",
+      "bytes": 118,
+      "sha256": "df11fe8dd0b50ee19711bd87180f75da93582b63239abd604a79253e85dc0850"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/read-12-start.json",
+      "bytes": 141,
+      "sha256": "589981e13339fb2db341909ad48e9340001d1bdd60d159d57e860e874efe9af5"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/references/parent-matrices/docs/full-ui-interaction-sweep/back-matrix.csv",
+      "bytes": 604792,
+      "sha256": "9e14f757949b5c90590354778a0e6ce5880e56e390a0caf3f54119ac2b4a4e16"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/references/parent-matrices/docs/full-ui-interaction-sweep/coverage-checkpoint.json",
+      "bytes": 47108,
+      "sha256": "8bb4f8f9ccd55a7c38ae317e9c984ad9dfe73b9725e15c442bcc1ad2851d2c8b"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/references/parent-matrices/docs/full-ui-interaction-sweep/interaction-matrix.csv",
+      "bytes": 566670,
+      "sha256": "4caec98a7cd58bc9cc5a22413fc328f8aa41e257c6e99273c9e50ece315cd60a"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/references/parent-matrices/docs/full-ui-interaction-sweep/surface-inventory.csv",
+      "bytes": 192666,
+      "sha256": "8b2900b5a9c2041e73673f5980f4c56fb3cbc52ea2923e5bc8e2393e2eb4864c"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/references/parent-matrices/docs/full-ui-interaction-sweep/surface-reconciliation.json",
+      "bytes": 327435,
+      "sha256": "ece668f3f6ceca62837757efa1f0d34b2973131105c8078b40eddf355e8b1af3"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/references/parent-matrices/docs/full-ui-interaction-sweep/text-integrity-matrix.csv",
+      "bytes": 627712,
+      "sha256": "9914e5cf738ff5e79b75b9982dfebaf1bea5c4a51858bb280d1d90b95f76826e"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/references/prior-helpers/observe-vm-console.ps1",
+      "bytes": 6666,
+      "sha256": "9c150280795737f8d120be2998fcac577c8b4e149a09fa6ddd0687801e6f3fa7"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/references/prior-helpers/start-console-observer.ps1",
+      "bytes": 1668,
+      "sha256": "37fcc2061f84d6302d99f507e745630ebeed683e1b4c20711e9527bc5df610c2"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/references/prior-helpers/vm-control.ps1",
+      "bytes": 14967,
+      "sha256": "4f22e068a0d5f20a68a8b2070e89646424dea17a5dc62f1ecf996814e5beec9e"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/start-console-observer.ps1",
+      "bytes": 2171,
+      "sha256": "f80c120f97cf155b84b094fa15c1827dc76b90c7e4941e57e78280d6e6f3651b"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/start-vmconnect.ps1",
+      "bytes": 1579,
+      "sha256": "235d1a0e5919eef3b48be3b806d5939b6614108f635d35cfd472cb5b8c948bfd"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/thumbnail-probe-1.json",
+      "bytes": 666,
+      "sha256": "df64c15c7a2829b9109a68f6c106644ca95777656e1d4ed6fa22d3e465b8ccc0"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/thumbnail-probe-2.json",
+      "bytes": 666,
+      "sha256": "f56d4404ba422b8737f842d7f6ddb88e06f2d0e20773ca1f2f456b7a5026f79a"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/vm-jobs-before.json",
+      "bytes": 211,
+      "sha256": "d1449d7d5a2e44a7939864a3ae02c29d0b09d24543da8795fedbf86c9549a222"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/vm-state-after.json",
+      "bytes": 405,
+      "sha256": "a79fb5f3f90b8bed441973b2c029775aba2d6664cf2bf33cb647bc88e8518ee0"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/vm-state-before.json",
+      "bytes": 1685,
+      "sha256": "3955e55a6621f57429a8123d1a3acc6cb3bc131d0943b1299c40ff59c24d8966"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/vm-video-heads.json",
+      "bytes": 296,
+      "sha256": "047ffc6672733196e00f0f805317174c59584d0dadc3b89cd3b49bdd4590b761"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/vmconnect-launch.json",
+      "bytes": 487,
+      "sha256": "454170fca7723218a4a50c6f3efe74557fb7c1b7a76bb4349d3f92eea681e9d7"
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/vmconnect-observation.json",
+      "bytes": 1965,
+      "sha256": "bdefcd88de4227f80f2a9fa44ac4d69c734b04cf63b960c346bb118970db8542"
+    }
+  ],
+  "productFilesChanged": [],
+  "productFixes": 0,
+  "testsExecuted": false,
+  "systemSettingsChanges": [],
+  "oldHelpersAndQueueUnchanged": true,
+  "priorZips": [
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/zavod-master-r5-checkpoint.zip",
+      "bytes": 918302,
+      "sha256": "8acc06d521191463d0597a35239edea49e4d454ae46649a344f5acc83f714df1",
+      "entries": 62,
+      "unchanged": true
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/zavod-master-r5-hyperv-reboot-20260919.zip",
+      "bytes": 2109118,
+      "sha256": "2619c73263c6b37ea3274ccbaf0e43f5527abb8221fd38d92a6ea7fdbd8b5e19",
+      "entries": 163,
+      "unchanged": true
+    },
+    {
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/zavod-master-r5-vm-checkpoint-20260920.zip",
+      "sha256": "8a262b0c5b0cccd3d51a3103758b6a1244549bb6a9986b396edd3b29efa77ee2",
+      "bytes": 3307725,
+      "entries": 274,
+      "unchanged": true
+    }
+  ],
+  "library": "NOT_WRITTEN_PERSISTENCE_PENDING"
+}

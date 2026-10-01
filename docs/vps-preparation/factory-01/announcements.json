@@ -1,0 +1,700 @@
+{
+  "status": "PASS_T1_FACTORY_IMPORTANT_PRODUCTION_NORMAL_SELECTED_ACK_ARCHIVE",
+  "cases": [
+    {
+      "key": "factory",
+      "title": "УЧЕБНОЕ T1 — важное сообщение завода",
+      "priority": "IMPORTANT",
+      "reader": "STORE",
+      "scope": "Весь завод",
+      "id": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+      "secondUi": {
+        "ms": 7924,
+        "mechanism": "current 8-second polling; no reload"
+      },
+      "ack": {
+        "id": "8f0b48a1-9c62-472c-94fb-4e1e5f08eae0",
+        "announcementId": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+        "readAt": "2026-09-26T20:29:02.530Z"
+      },
+      "audit": [
+        {
+          "id": "8628ddd8-ea6f-4822-beae-c75f42659c5c",
+          "createdAt": "2026-09-26T20:29:02.532Z"
+        }
+      ],
+      "reportUI": true,
+      "archived": true,
+      "personalArchive": {
+        "id": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "authorId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "title": "УЧЕБНОЕ T1 — важное сообщение завода",
+        "text": "Только учебная репетиция T1. Не является инструкцией действующего производства.",
+        "priority": "IMPORTANT",
+        "recurrence": "NONE",
+        "visibleFrom": "2026-09-26T20:28:54.544Z",
+        "visibleUntil": "2026-10-03T20:28:54.544Z",
+        "archivedAt": "2026-09-26T20:30:01.828Z",
+        "deletedAt": null,
+        "createdAt": "2026-09-26T20:28:54.546Z",
+        "updatedAt": "2026-09-26T20:30:01.829Z",
+        "author": {
+          "id": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "role": "ADMIN",
+          "displayName": "Сотрудник",
+          "roleLabel": "Администратор"
+        },
+        "department": null,
+        "audienceDepartments": [],
+        "recurrenceLabel": "Не повторять",
+        "audienceType": "FACTORY",
+        "departmentIds": [],
+        "readAt": "2026-09-26T20:29:02.530Z",
+        "acknowledgedAt": "2026-09-26T20:29:02.530Z",
+        "isActive": false,
+        "isArchived": true,
+        "scopeLabel": "Весь завод",
+        "attachments": [],
+        "availableActions": [
+          "read",
+          "markRead"
+        ]
+      },
+      "sql": {
+        "id": "16c117d6-4b27-4e57-86bb-1a9d99939a7a",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "priority": "IMPORTANT",
+        "archivedAt": "2026-09-26T20:30:01.828Z",
+        "audienceDepartments": [],
+        "reads": [
+          {
+            "id": "8f0b48a1-9c62-472c-94fb-4e1e5f08eae0",
+            "userId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+            "readAt": "2026-09-26T20:29:02.530Z"
+          }
+        ]
+      },
+      "status": "PASS",
+      "http": [
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454599423
+        },
+        {
+          "path": "/api/announcements/audience-departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454600814
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454600817
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601148
+        },
+        {
+          "path": "/api/announcements/16c117d6-4b27-4e57-86bb-1a9d99939a7a/ack-report",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601232
+        },
+        {
+          "path": "/api/announcements/16c117d6-4b27-4e57-86bb-1a9d99939a7a/archive",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454601834
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601851
+        }
+      ],
+      "readerHttp": [
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454600755
+        },
+        {
+          "path": "/api/announcements/audience-departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601045
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601045
+        },
+        {
+          "path": "/api/announcements/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601883
+        },
+        {
+          "path": "/api/announcements/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601972
+        }
+      ]
+    },
+    {
+      "key": "production",
+      "title": "УЧЕБНОЕ T1 — порядок учебной смены",
+      "priority": "NORMAL",
+      "reader": "WORKER",
+      "scope": "Выбранные отделы",
+      "departments": [
+        "production"
+      ],
+      "id": "3d30ebd1-4957-491d-a1b9-cf92a54b2805",
+      "secondUi": {
+        "ms": 8027,
+        "mechanism": "current 8-second polling; no reload"
+      },
+      "ack": {
+        "id": "f31b34d3-f5ea-4627-a6c3-c622fb8a720e",
+        "announcementId": "3d30ebd1-4957-491d-a1b9-cf92a54b2805",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "readAt": "2026-09-26T20:30:11.959Z"
+      },
+      "audit": [
+        {
+          "id": "05f8768d-e2b3-4845-9dc5-a8d52c06e3ee",
+          "createdAt": "2026-09-26T20:30:11.962Z"
+        }
+      ],
+      "wrongAudience": {
+        "detail": 403,
+        "ack": 403,
+        "report": 403
+      },
+      "reportUI": true,
+      "archived": true,
+      "personalArchive": {
+        "id": "3d30ebd1-4957-491d-a1b9-cf92a54b2805",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "authorId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "title": "УЧЕБНОЕ T1 — порядок учебной смены",
+        "text": "Только учебная репетиция T1. Не является инструкцией действующего производства.",
+        "priority": "NORMAL",
+        "recurrence": "NONE",
+        "visibleFrom": "2026-09-26T20:30:03.879Z",
+        "visibleUntil": "2026-10-03T20:30:03.879Z",
+        "archivedAt": "2026-09-26T20:30:13.983Z",
+        "deletedAt": null,
+        "createdAt": "2026-09-26T20:30:03.881Z",
+        "updatedAt": "2026-09-26T20:30:13.984Z",
+        "author": {
+          "id": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "role": "ADMIN",
+          "displayName": "Сотрудник",
+          "roleLabel": "Администратор"
+        },
+        "department": null,
+        "audienceDepartments": [
+          {
+            "id": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+            "name": "УЧ — Производство T1"
+          }
+        ],
+        "recurrenceLabel": "Не повторять",
+        "audienceType": "SELECTED",
+        "departmentIds": [
+          "1173d258-bdbb-4e0b-aa9b-fa989baeb799"
+        ],
+        "readAt": "2026-09-26T20:30:11.959Z",
+        "acknowledgedAt": "2026-09-26T20:30:11.959Z",
+        "isActive": false,
+        "isArchived": true,
+        "scopeLabel": "Отделы: УЧ — Производство T1",
+        "attachments": [],
+        "availableActions": [
+          "read",
+          "markRead"
+        ]
+      },
+      "sql": {
+        "id": "3d30ebd1-4957-491d-a1b9-cf92a54b2805",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "priority": "NORMAL",
+        "archivedAt": "2026-09-26T20:30:13.983Z",
+        "audienceDepartments": [
+          {
+            "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+            "isActive": true
+          }
+        ],
+        "reads": [
+          {
+            "id": "f31b34d3-f5ea-4627-a6c3-c622fb8a720e",
+            "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+            "readAt": "2026-09-26T20:30:11.959Z"
+          }
+        ]
+      },
+      "status": "PASS",
+      "http": [
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454599423
+        },
+        {
+          "path": "/api/announcements/audience-departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454600814
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454600817
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601148
+        },
+        {
+          "path": "/api/announcements/16c117d6-4b27-4e57-86bb-1a9d99939a7a/ack-report",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601232
+        },
+        {
+          "path": "/api/announcements/16c117d6-4b27-4e57-86bb-1a9d99939a7a/archive",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454601834
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601851
+        },
+        {
+          "path": "/api/announcements",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454603891
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454603912
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454613318
+        },
+        {
+          "path": "/api/announcements/3d30ebd1-4957-491d-a1b9-cf92a54b2805/ack-report",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454613395
+        },
+        {
+          "path": "/api/announcements/3d30ebd1-4957-491d-a1b9-cf92a54b2805/archive",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454613989
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454614007
+        }
+      ],
+      "readerHttp": [
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454603236
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454603448
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454611462
+        },
+        {
+          "path": "/api/announcements/3d30ebd1-4957-491d-a1b9-cf92a54b2805/ack",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454611975
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454612003
+        },
+        {
+          "path": "/api/announcements/3d30ebd1-4957-491d-a1b9-cf92a54b2805/ack",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454612006
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454612025
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454612443
+        },
+        {
+          "path": "/api/announcements/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454614037
+        },
+        {
+          "path": "/api/announcements/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454614116
+        }
+      ]
+    },
+    {
+      "key": "selected",
+      "title": "УЧЕБНОЕ T1 — склад и ОКК",
+      "priority": "NORMAL",
+      "reader": "OKK",
+      "scope": "Выбранные отделы",
+      "departments": [
+        "store",
+        "okk"
+      ],
+      "id": "8c9aabed-95b7-4842-bc16-3ffe2c661965",
+      "secondUi": {
+        "ms": 8026,
+        "mechanism": "current 8-second polling; no reload"
+      },
+      "ack": {
+        "id": "c3804d5c-96a4-4776-b484-3529f4f38016",
+        "announcementId": "8c9aabed-95b7-4842-bc16-3ffe2c661965",
+        "userId": "43c38377-80b3-4256-89ab-40f896104510",
+        "readAt": "2026-09-26T20:30:24.227Z"
+      },
+      "audit": [
+        {
+          "id": "f1446bb1-81d2-431c-9321-1dee87192bb1",
+          "createdAt": "2026-09-26T20:30:24.229Z"
+        }
+      ],
+      "wrongAudience": {
+        "detail": 403,
+        "ack": 403,
+        "report": 403
+      },
+      "reportUI": true,
+      "archived": true,
+      "personalArchive": {
+        "id": "8c9aabed-95b7-4842-bc16-3ffe2c661965",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "departmentId": null,
+        "authorId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+        "title": "УЧЕБНОЕ T1 — склад и ОКК",
+        "text": "Только учебная репетиция T1. Не является инструкцией действующего производства.",
+        "priority": "NORMAL",
+        "recurrence": "NONE",
+        "visibleFrom": "2026-09-26T20:30:16.148Z",
+        "visibleUntil": "2026-10-03T20:30:16.148Z",
+        "archivedAt": "2026-09-26T20:30:26.230Z",
+        "deletedAt": null,
+        "createdAt": "2026-09-26T20:30:16.150Z",
+        "updatedAt": "2026-09-26T20:30:26.231Z",
+        "author": {
+          "id": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "role": "ADMIN",
+          "displayName": "Сотрудник",
+          "roleLabel": "Администратор"
+        },
+        "department": null,
+        "audienceDepartments": [
+          {
+            "id": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+            "name": "УЧ — ОКК T1"
+          },
+          {
+            "id": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+            "name": "УЧ — Склад T1"
+          }
+        ],
+        "recurrenceLabel": "Не повторять",
+        "audienceType": "SELECTED",
+        "departmentIds": [
+          "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+          "edd9b576-9fe7-408a-8992-7ee57ea5d0d5"
+        ],
+        "readAt": "2026-09-26T20:30:24.227Z",
+        "acknowledgedAt": "2026-09-26T20:30:24.227Z",
+        "isActive": false,
+        "isArchived": true,
+        "scopeLabel": "Отделы: УЧ — ОКК T1, УЧ — Склад T1",
+        "attachments": [],
+        "availableActions": [
+          "read",
+          "markRead"
+        ]
+      },
+      "sql": {
+        "id": "8c9aabed-95b7-4842-bc16-3ffe2c661965",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "priority": "NORMAL",
+        "archivedAt": "2026-09-26T20:30:26.230Z",
+        "audienceDepartments": [
+          {
+            "departmentId": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+            "isActive": true
+          },
+          {
+            "departmentId": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+            "isActive": true
+          }
+        ],
+        "reads": [
+          {
+            "id": "c3804d5c-96a4-4776-b484-3529f4f38016",
+            "userId": "43c38377-80b3-4256-89ab-40f896104510",
+            "readAt": "2026-09-26T20:30:24.227Z"
+          }
+        ]
+      },
+      "status": "PASS",
+      "http": [
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454599423
+        },
+        {
+          "path": "/api/announcements/audience-departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454600814
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454600817
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601148
+        },
+        {
+          "path": "/api/announcements/16c117d6-4b27-4e57-86bb-1a9d99939a7a/ack-report",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601232
+        },
+        {
+          "path": "/api/announcements/16c117d6-4b27-4e57-86bb-1a9d99939a7a/archive",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454601834
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454601851
+        },
+        {
+          "path": "/api/announcements",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454603891
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454603912
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454613318
+        },
+        {
+          "path": "/api/announcements/3d30ebd1-4957-491d-a1b9-cf92a54b2805/ack-report",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454613395
+        },
+        {
+          "path": "/api/announcements/3d30ebd1-4957-491d-a1b9-cf92a54b2805/archive",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454613989
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454614007
+        },
+        {
+          "path": "/api/announcements",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454616158
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454616180
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454625553
+        },
+        {
+          "path": "/api/announcements/8c9aabed-95b7-4842-bc16-3ffe2c661965/ack-report",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454625614
+        },
+        {
+          "path": "/api/announcements/8c9aabed-95b7-4842-bc16-3ffe2c661965/archive",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454626237
+        },
+        {
+          "path": "/api/announcements",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454626258
+        }
+      ],
+      "readerHttp": [
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454615423
+        },
+        {
+          "path": "/api/announcements/audience-departments",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454615671
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454615671
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454623653
+        },
+        {
+          "path": "/api/announcements/8c9aabed-95b7-4842-bc16-3ffe2c661965/ack",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454624237
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454624261
+        },
+        {
+          "path": "/api/announcements/8c9aabed-95b7-4842-bc16-3ffe2c661965/ack",
+          "method": "POST",
+          "status": 201,
+          "at": 1790454624266
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454624362
+        },
+        {
+          "path": "/api/announcements/current",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454624716
+        },
+        {
+          "path": "/api/announcements/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454626289
+        },
+        {
+          "path": "/api/announcements/archive",
+          "method": "GET",
+          "status": 200,
+          "at": 1790454626387
+        }
+      ]
+    }
+  ],
+  "error": "locator.waitFor: Error: strict mode violation: getByRole('dialog').filter({ has: getByRole('heading', { name: 'Журнал ознакомления', exact: true }) }).locator('.announcement-report-row').filter({ hasText: 'УЧ — Склад T1' }) resolved to 2 elements:\n    1) <div class=\"announcement-report-row\">…</div> aka getByText('СотрудникУЧ — Склад T126')\n    2) <div class=\"announcement-report-row pending\">…</div> aka getByText('СотрудникУЧ — Склад T1Ожидается')\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').filter({ has: getByRole('heading', { name: 'Журнал ознакомления', exact: true }) }).locator('.announcement-report-row').filter({ hasText: 'УЧ — Склад T1' }) to be visible\u001b[22m\n",
+  "uiA": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Администратор Учебный А.\n10\nОбъявления\n\nВажные сообщения завода. Прочитайте объявление и подтвердите ознакомление.\n\nНовыеАрхивУправление\nСоздать объявление\nНет новых событий\nСоздать объявлениеОбновить\nУЧЕБНОЕ T1 — важное сообщение завода\nВесь завод · 26 сент. 2026 г., 23:28\nНапоминание: Не повторять\nВажно\nЖурнал ознакомленияРедактироватьВ архив\nЖурнал ознакомления\nЗакрыть\nУЧЕБНОЕ T1 — важное сообщение завода\nОзнакомились: 1\nНе ознакомились: 30\nОзнакомились\nСотрудник\nУЧ — Склад T1\n26 сент. 2026 г., 23:29\nНе ознакомились\nСотрудник\nАдминистратор\nОжидается\nСотрудник\nУЧ — Руководство T1\nОжидается\nСотрудник\nУЧ — ОКК T1\nОжидается\nСотрудник\nУЧ — ОКК T1\nОжидается\nСотрудник\nУЧ — Технологи\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Производство T1\nОжидается\nСотрудник\nУЧ — Склад T1\nОжидается\nСотрудник\nУЧ — Другие службы\nОжидается\nСотрудник\nУЧ — Другие службы\nОжидается\nСотрудник\nУЧ — Механики\nОжидается\nСотрудник\nУЧ — Электрики\nОжидается\nСотрудник\nУЧ — Холодильная служба\nОжидается\nСотрудник\nУЧ — КИПиА\nОжидается\nСотрудник\nУЧ — Сантехники\nОжидается\nСотрудник\nНаёмный работник\nОжидается\nСотрудник\nНаёмный работник\nОжидается\nСотрудник\nБригадир\nОжидается\nСмена\nИстория смен\nЛюди\nАдминка\nАдминистрирование\nЛинии\nЗаявки\nМойка\nОКК\nНекондиция\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\n1\nАрхив\nУведомления\n10\nСтатистика / Аудит\nСообщить об ошибке\nНастройки",
+  "uiB": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Склад Учебный-Кладовщик-01 Т.\nЛюди\nЧаты\nЗаказы / Остатки\nВозвраты на производство\nЕщё\n←\nОбъявления\n1 непрочитанное\nАрхив\nНовыеАрхив\nСоздать объявление\nЗагрузка объявлений...\nНет новых событий\nУЧЕБНОЕ T1 — важное сообщение завода\nОбъявление 1 из 1\nВажно\nУЧЕБНОЕ T1 — важное сообщение завода\nСотрудник · Администратор\nОпубликовано: 26 сент. 2026 г., 23:28\nДействует до: 3 окт. 2026 г., 23:28\nПолучатели: Весь завод\nНапоминание: Не повторять\n\nТолько учебная репетиция T1. Не является инструкцией действующего производства.\n\n←\n1 из 1\n→\n✓ Ознакомлен",
+  "policyPending": [
+    "future",
+    "expired",
+    "late ACK",
+    "global create owner"
+  ]
+}

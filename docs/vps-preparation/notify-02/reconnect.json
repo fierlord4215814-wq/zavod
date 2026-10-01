@@ -1,0 +1,117 @@
+{
+  "status": "PASS_SEVEN_EVENTS_RECONNECT_DURABLE_LIST_UI_NO_RETRY_NO_F5",
+  "cases": [
+    {
+      "key": "request-department",
+      "event": "ORDER_REQUEST_CREATED",
+      "id": "90fd0668-9901-4053-b3a4-fabb0cc63699",
+      "http": 201,
+      "originalNoticeFrameReceived": false,
+      "reconnected": true,
+      "listBeforeClientRetry": {
+        "id": "16176bf2-bf3b-49b9-a5e6-716ab13e70b3",
+        "http": 200
+      },
+      "uiNotice": true,
+      "badge": 51,
+      "noF5": true,
+      "recovery": "ordinary list GET after reconnect, not frame replay"
+    },
+    {
+      "key": "request-factory",
+      "event": "ORDER_REQUEST_CREATED",
+      "id": "765bfbcd-ca26-4036-932d-37f6f27a38cf",
+      "http": 201,
+      "originalNoticeFrameReceived": false,
+      "reconnected": true,
+      "listBeforeClientRetry": {
+        "id": "7296d9e2-aab8-40c8-8e51-043200f10b33",
+        "http": 200
+      },
+      "uiNotice": true,
+      "badge": 52,
+      "noF5": true,
+      "recovery": "ordinary list GET after reconnect, not frame replay"
+    },
+    {
+      "key": "low-stock",
+      "event": "ORDER_STOCK_BELOW_THRESHOLD",
+      "id": "e2f5657c-5cbe-42ad-81ec-431d16c2245e",
+      "http": 201,
+      "originalNoticeFrameReceived": false,
+      "reconnected": true,
+      "listBeforeClientRetry": {
+        "id": "8493a3fc-9490-496c-9d77-b158e9024fee",
+        "http": 200
+      },
+      "uiNotice": true,
+      "badge": 53,
+      "noF5": true,
+      "recovery": "ordinary list GET after reconnect, not frame replay"
+    },
+    {
+      "key": "request-close",
+      "event": "ORDER_REQUEST_CLOSED",
+      "id": "ad728576-856b-4fbf-86f8-aff218558d09",
+      "http": 201,
+      "originalNoticeFrameReceived": false,
+      "reconnected": true,
+      "listBeforeClientRetry": {
+        "id": "a68bb0af-8456-4a35-be8f-8f3a89253c32",
+        "http": 200
+      },
+      "uiNotice": true,
+      "badge": 53,
+      "noF5": true,
+      "recovery": "ordinary list GET after reconnect, not frame replay"
+    },
+    {
+      "key": "task-done",
+      "event": "TASK_DONE",
+      "id": "71aeadab-4340-4142-90ce-a48cf151f5e7",
+      "http": 201,
+      "originalNoticeFrameReceived": false,
+      "reconnected": true,
+      "listBeforeClientRetry": {
+        "id": "9934ec87-106b-4cd9-af3f-b7d1f01d0e50",
+        "http": 200
+      },
+      "uiNotice": true,
+      "badge": 53,
+      "noF5": true,
+      "recovery": "ordinary list GET after reconnect, not frame replay"
+    },
+    {
+      "key": "task-redirect",
+      "event": "TASK_REDIRECTED",
+      "id": "12afb061-0644-49df-9bcf-8a0a1ba85b5c",
+      "http": 201,
+      "originalNoticeFrameReceived": false,
+      "reconnected": true,
+      "listBeforeClientRetry": {
+        "id": "4842f611-d17b-45e0-8ef5-271d489ca2cf",
+        "http": 200
+      },
+      "uiNotice": true,
+      "badge": 2,
+      "noF5": true,
+      "recovery": "ordinary list GET after reconnect, not frame replay"
+    },
+    {
+      "key": "task-escalated",
+      "event": "TASK_LONG_ESCALATED",
+      "id": "4975443f-3147-4c99-97e2-cfa793a6d19d",
+      "http": 201,
+      "originalNoticeFrameReceived": false,
+      "reconnected": true,
+      "listBeforeClientRetry": {
+        "id": "a71020e8-3918-4d52-929f-74ab7035c3c5",
+        "http": 200
+      },
+      "uiNotice": true,
+      "badge": 55,
+      "noF5": true,
+      "recovery": "ordinary list GET after reconnect, not frame replay"
+    }
+  ]
+}

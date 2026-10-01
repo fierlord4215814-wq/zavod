@@ -1,0 +1,17 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-related-before\\backend\\src\\modules\\checklists\\checklists.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\checklists\\checklists.service.ts"
+index 8090f2ef..c699be69 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-related-before\\backend\\src\\modules\\checklists\\checklists.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\checklists\\checklists.service.ts"
+@@ -679,8 +679,11 @@ export class ChecklistsService implements OnModuleInit, OnModuleDestroy {
+       ]);
+       if (operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } });
+-        if (processed?.resultKey) {
++        if (processed) {
++          if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите чек-лист.');
+           if (processed.resultKey !== rowId) throw new ConflictError('Идентификатор действия уже использован для другого пункта. Обновите экран.');
++          const visibleRun = await tx.checklistRun.findFirst({ where: { id: runId, ...this.runWhere(user, { includeClosed: 'true' }) } });
++          if (!visibleRun) throw new ConflictError('Запуск чек-листа не найден.');
+           const existing = await tx.checklistRunRow.findFirst({ where: { id: rowId, runId } });
+           if (!existing) throw new ConflictError('Пункт чек-листа не найден.');
+           return existing;

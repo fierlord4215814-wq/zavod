@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "stage": "PHYSICAL FIELD FIXES V5 - PLAST 17C",
+  "status": "PASS_WITH_PHYSICAL_PENDING",
+  "migration": "NOT_REQUIRED",
+  "checks": {
+    "backendRealtimeRegression": {
+      "passed": 52,
+      "failed": 0,
+      "artifact": ".codex-runtime/p17c-backend-result.json"
+    },
+    "browserE2E": {
+      "passed": 2,
+      "failed": 0,
+      "skippedByProject": 2,
+      "artifacts": [
+        ".codex-runtime/p17c-browser-desktop-edge.json",
+        ".codex-runtime/p17c-browser-mobile-360-edge.json"
+      ]
+    },
+    "existingRealtimeCompact": {
+      "passed": 34,
+      "failed": 0,
+      "artifact": ".codex-runtime/p17c-existing-realtime-result.json"
+    },
+    "realtimeV1": {
+      "passed": 9,
+      "failed": 0
+    },
+    "securityPrivacy": {
+      "passed": 17,
+      "failed": 0
+    },
+    "backendBuild": "PASS",
+    "frontendBuild": "PASS",
+    "prismaValidate": "PASS",
+    "prismaMigrateStatus": "UP_TO_DATE",
+    "localIntegratedReadOnlyRoutes": {
+      "passed": 14,
+      "failed": 0
+    },
+    "publicIntegratedReadOnlyRoutes": {
+      "passed": 14,
+      "failed": 0
+    },
+    "publicAuthenticatedWebSocket": "PASS",
+    "guestWebSocketAttempts": 0,
+    "publicSecureContext": true,
+    "publicServiceWorker": "READY",
+    "mobileHorizontalOverflow": 0,
+    "publicConsoleErrors": 0,
+    "publicFailedRequests": 0
+  },
+  "cleanup": {
+    "activeMarkers": 0,
+    "physicalDeletes": 0,
+    "preexistingBusinessChanged": 0,
+    "protectedHash": "47458753965d553ce7f63174c543654d28036644bc272e1b4282464732299303"
+  },
+  "runtime": {
+    "publicUrl": "https://females-structural-milwaukee-tunnel.trycloudflare.com",
+    "publicHealthUrl": "https://females-structural-milwaukee-tunnel.trycloudflare.com/api/health",
+    "backendPid": 9336,
+    "frontendPid": 22844,
+    "tunnelPid": 20460,
+    "keepAwakePid": 3292,
+    "serviceWorkerVersion": "zavod-shell-v6",
+    "startedAt": "2026-08-30T19:03:37+03:00",
+    "qrPath": "C:/Users/79164/Documents/work/docs/physical-field-fixes-v5-plast17c/physical-recheck-qr.png"
+  },
+  "screenshots": [
+    "docs/physical-field-fixes-v5-plast17c/01-okk-live-refetch.png",
+    "docs/physical-field-fixes-v5-plast17c/02-wash-live-refetch.png",
+    "docs/physical-field-fixes-v5-plast17c/03-defrost-live-refetch.png",
+    "docs/physical-field-fixes-v5-plast17c/04-guest-zero-websocket-mobile.png",
+    "docs/physical-field-fixes-v5-plast17c/05-affected-screens-mobile-fit.png"
+  ]
+}

@@ -1,0 +1,19 @@
+// Loaded before service modules. No Nest bootstrap, Prisma instance, transport or timer.
+const Module = require('node:module');
+const originalLoad = Module._load;
+Module._load = function(request, parent, isMain) {
+  if (/dotenv|(?:^|[\\/])(?:main|app\.module)(?:\.js)?$/.test(request)) throw Error('OFFLINE_FORBIDDEN_BOOTSTRAP');
+  const loaded = originalLoad.apply(this, arguments);
+  if(request === '@prisma/client') return {...loaded, PrismaClient: class { constructor(){throw Error('OFFLINE_FORBIDDEN_PRISMA_INSTANCE');} }};
+  return loaded;
+};
+const forbidden = () => {throw Error('OFFLINE_FORBIDDEN_INFRASTRUCTURE');};
+for(const name of ['node:http','node:https']) {const api=require(name);api.request=forbidden;api.get=forbidden;api.createServer=forbidden;}
+const net=require('node:net');net.connect=forbidden;net.createConnection=forbidden;net.Socket.prototype.connect=forbidden;
+require('node:tls').connect=forbidden;
+global.fetch=forbidden;
+global.setInterval=forbidden;
+process.env.DISABLE_DB='true';
+process.env.SHIFT_MAINTENANCE_ENABLED='false';
+process.env.CHECKLIST_MAINTENANCE_ENABLED='false';
+process.env.ANNOUNCEMENT_MAINTENANCE_ENABLED='false';

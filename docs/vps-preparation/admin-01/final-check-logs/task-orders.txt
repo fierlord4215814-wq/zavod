@@ -1,0 +1,20 @@
+✔ R2-E-J18 active OrderRequest detail is the same visible current entity (10.2427ms)
+✔ R2-A order create replay observes the same current entity read classification (2.885ms)
+✔ R2-E-J18 OrderRequest ORDERED lifecycle retry readers and granular rights (4.6069ms)
+✔ R2-E-J18 OrderRequest NOT_NEEDED lifecycle retry readers and granular rights (1.9346ms)
+✔ R2-A/E-J18 create replay null-result (0.7572ms)
+✔ R2-A/E-J18 create replay wrong-owner (0.887ms)
+✔ R2-A/E-J18 create replay wrong-source-type (0.5409ms)
+✔ R2-A/E-J18 create replay foreign-result (0.6104ms)
+✔ R2-A/E-J18 create replay wrong-department (0.7549ms)
+✔ R2-E-J18 notification failure after create does not duplicate business result (1.1733ms)
+✔ R2-E-J18 simultaneous different close decisions have one memory winner (1.2222ms)
+✔ R2-E-J06 actual create take redirect take complete feeds same Notifications board detail archive Ops (60.5964ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 823.5957

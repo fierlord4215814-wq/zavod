@@ -1,0 +1,21 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-visual-label-before\\frontend\\src\\styles.css" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\styles.css"
+index fa214d0f..9d9067d9 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-visual-label-before\\frontend\\src\\styles.css"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\styles.css"
+@@ -21163,6 +21163,16 @@ body.pwa-standalone {
+ }
+ 
+ @media screen {
++  /* Master review: these two local owners still inherited dark text literals. */
++  :root:is([data-theme="gray"], [data-theme="light"]) .device-access-panel .position-row strong,
++  :root:is([data-theme="gray"], [data-theme="light"]) .task-candidate-search label {
++    color: var(--text-main);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .device-access-panel .position-row span {
++    color: var(--text-secondary);
++  }
++
+   :root:is([data-theme="gray"], [data-theme="light"]) :is(
+     .field-label,
+     .admin-field-label,

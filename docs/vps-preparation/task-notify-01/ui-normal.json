@@ -1,0 +1,64 @@
+{
+  "status": "PASS_UI_HTTP_SQL_WS_DURABILITY_EXACT_SOURCE_SECOND_READER",
+  "mode": "normal",
+  "taskId": "82bf9d1a-8492-435e-8068-3c1dfe5a4ebe",
+  "createHttp": 201,
+  "operationId": "bff5cb47-04f2-468d-9a4e-3f174c753362",
+  "snapshot": {
+    "tasks": [
+      {
+        "id": "82bf9d1a-8492-435e-8068-3c1dfe5a4ebe",
+        "status": "NEW",
+        "operationId": "bff5cb47-04f2-468d-9a4e-3f174c753362"
+      }
+    ],
+    "processed": [
+      {
+        "id": "bf3929bf-c74c-44b4-8629-feb5bdbac3c6",
+        "resultKey": "82bf9d1a-8492-435e-8068-3c1dfe5a4ebe"
+      }
+    ],
+    "history": [
+      {
+        "id": "fadbe750-fe05-45b9-9d82-67c8b85549cd",
+        "taskId": "82bf9d1a-8492-435e-8068-3c1dfe5a4ebe",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "audit": [
+      {
+        "id": "02359cf5-9367-4d3d-9b19-12c6ba35c265",
+        "entityId": "82bf9d1a-8492-435e-8068-3c1dfe5a4ebe",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "notifications": [
+      {
+        "id": "26e0492b-ced1-4918-a74f-fc63b1ad51b0",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "departmentId": null,
+        "type": "TASK_CREATED",
+        "entityId": "82bf9d1a-8492-435e-8068-3c1dfe5a4ebe",
+        "createdAt": "2026-09-26T23:26:30.726Z"
+      }
+    ]
+  },
+  "secondTaskUiMs": 397,
+  "createdFrames": 1,
+  "unrelatedWsIdentityLeak": false,
+  "unread": {
+    "before": 1,
+    "after": 2,
+    "uiBadgeMatches": true
+  },
+  "exactSource": {
+    "http": 200,
+    "id": "82bf9d1a-8492-435e-8068-3c1dfe5a4ebe",
+    "modal": true
+  },
+  "masterSecondUiMs": 311,
+  "noF5": true,
+  "finalTaskStatus": "DONE",
+  "retryAfterCompletionUnchanged": true
+}

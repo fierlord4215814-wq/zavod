@@ -1,0 +1,25 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\ArchiveScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ArchiveScreen.tsx"
+index cce00988..328af1b2 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\ArchiveScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ArchiveScreen.tsx"
+@@ -1,7 +1,6 @@
+ import React, { useEffect, useMemo, useRef, useState } from 'react';
+ import { apiClient } from '../api/client';
+-import { AttachmentPreviewList } from '../components/AttachmentPreviewList';
+-import type { Attachment } from '../store/app.store';
++import { AttachmentPreviewList, type AttachmentPreviewItem } from '../components/AttachmentPreviewList';
+ import { ActionModal } from '../components/ActionModal';
+ import { PremiumActionItem, PremiumSectionHeader, PremiumSheet } from '../components/PremiumShell';
+ import { useMobileBackLayer } from '../navigation/mobile-back';
+@@ -93,9 +92,9 @@ function formatDate(value?: string | null) {
+   return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString('ru-RU', { dateStyle: 'short', timeStyle: 'short' });
+ }
+ function formatSize(size: number) { return size < 1024 * 1024 ? `${Math.max(1, Math.round(size / 1024))} КБ` : `${(size / 1024 / 1024).toFixed(1)} МБ`; }
+-function previewAttachment(attachment: ArchiveAttachment): Attachment {
++function previewAttachment(attachment: ArchiveDetail['attachments'][number]): AttachmentPreviewItem {
+   return {
+-    id: attachment.id, entityType: attachment.sourceType, entityId: attachment.sourceId,
++    id: attachment.id,
+     kind: attachment.kind === 'PHOTO' || attachment.kind === 'VIDEO' || attachment.kind === 'AUDIO' ? attachment.kind : 'FILE',
+     originalName: attachment.filename, mimeType: attachment.mimeType,
+     sizeBytes: attachment.size, createdAt: attachment.createdAt,

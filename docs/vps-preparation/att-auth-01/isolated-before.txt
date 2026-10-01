@@ -1,0 +1,179 @@
+✖ ADMIN guest denied before bytes, even when denial audit fails (4.6937ms)
+✖ ORDER_REQUEST own/admin positive; shared/other/no-department denied before bytes (0.9846ms)
+✖ ORDER_REQUEST archived read retained; upload/delete denied even for ADMIN (2.7332ms)
+✖ ORDER_REQUEST attachment factory differs from selected/parent: deny (0.3881ms)
+✖ MINIMUM_STOCK_ITEM own/admin positive; shared/other/no-department denied before bytes (0.3627ms)
+✖ MINIMUM_STOCK_ITEM archived read retained; upload/delete denied even for ADMIN (0.7215ms)
+✖ MINIMUM_STOCK_ITEM attachment factory differs from selected/parent: deny (0.2666ms)
+✖ MINIMUM_STOCK_MOVEMENT own/admin positive; shared/other/no-department denied before bytes (0.3052ms)
+✖ MINIMUM_STOCK_MOVEMENT archived read retained; upload/delete denied even for ADMIN (0.3951ms)
+✖ MINIMUM_STOCK_MOVEMENT attachment factory differs from selected/parent: deny (0.2916ms)
+✖ movement parent factory authoritative even when movement factory matches selected (0.4247ms)
+✖ replay checks stored object, not just new permitted target (0.4536ms)
+✔ same lawful replay returns same safe metadata without bytes/write/duplicate (0.2247ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 1
+ℹ fail 12
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 447.1343
+
+✖ failing tests:
+
+test at backend\scripts\att-auth-01.test.cjs:13:1
+✖ ADMIN guest denied before bytes, even when denial audit fails (4.6937ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:13:157)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:15:2
+✖ ORDER_REQUEST own/admin positive; shared/other/no-department denied before bytes (0.9846ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:15:254)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:16:2
+✖ ORDER_REQUEST archived read retained; upload/delete denied even for ADMIN (2.7332ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:16:298)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:17:2
+✖ ORDER_REQUEST attachment factory differs from selected/parent: deny (0.3881ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:17:134)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:15:2
+✖ MINIMUM_STOCK_ITEM own/admin positive; shared/other/no-department denied before bytes (0.3627ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:15:254)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:16:2
+✖ MINIMUM_STOCK_ITEM archived read retained; upload/delete denied even for ADMIN (0.7215ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:16:298)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:17:2
+✖ MINIMUM_STOCK_ITEM attachment factory differs from selected/parent: deny (0.2666ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:17:134)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:15:2
+✖ MINIMUM_STOCK_MOVEMENT own/admin positive; shared/other/no-department denied before bytes (0.3052ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:15:254)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:16:2
+✖ MINIMUM_STOCK_MOVEMENT archived read retained; upload/delete denied even for ADMIN (0.3951ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:16:298)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:17:2
+✖ MINIMUM_STOCK_MOVEMENT attachment factory differs from selected/parent: deny (0.2916ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:17:134)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:19:1
+✖ movement parent factory authoritative even when movement factory matches selected (0.4247ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:19:171)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at backend\scripts\att-auth-01.test.cjs:20:1
+✖ replay checks stored object, not just new permitted target (0.4536ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (denied).
+      at async TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\att-auth-01.test.cjs:20:262)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

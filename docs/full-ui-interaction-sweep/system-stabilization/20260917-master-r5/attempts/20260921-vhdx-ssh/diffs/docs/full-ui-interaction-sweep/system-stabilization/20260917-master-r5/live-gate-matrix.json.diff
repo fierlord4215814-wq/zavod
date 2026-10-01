@@ -1,0 +1,58 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260921-vhdx-ssh\before\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\live-gate-matrix.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\live-gate-matrix.json', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-vhdx-ssh\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\live-gate-matrix.json" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\live-gate-matrix.json"
+index 35e76aa6..b4c1e547 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-vhdx-ssh\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\live-gate-matrix.json"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\live-gate-matrix.json"
+@@ -1,5 +1,5 @@
+ {
+-  "currentContinuation": {"checkpoint": "2026-09-21_1700_CHANNEL_RECHECK", "environment": "BLOCKED_TOOL_CAPABILITY", "guestAndIsolation": "VM_OFF_LAST_OBSERVED_1609_NOT_REQUERIED_GUEST_REPAIR_ISOLATION_NOT_RUN", "sourceDefect": "ATTACHED_SEED_FIVE_ARGV_CONFIRMED_SOURCE_FIXED_THREE_ARGV_UNCHANGED", "candidateApplied": true, "actualSeedRegenerated": false, "guestRepairExecuted": false, "provisioningOnlyChecks": {"pass": 10, "blocked": 0, "productCases": 0, "scope": "HOST_SYNTHETIC_GUEST_PENDING"}, "newLiveCases": 0},
++  "currentContinuation": {"checkpoint": "2026-09-21_2229_VHDX_SSH_UAC_CANCELLED", "environment": "BLOCKED_UAC_CANCELLED_DIAGNOSTIC_BOOT", "guestAndIsolation": "CURRENT_VM_UNKNOWN_LAST_OFF_1609_DIAGNOSTIC_BOOT_SSH_REPAIR_ISOLATION_NOT_RUN", "sourceDefect": "ATTACHED_SEED_FIVE_ARGV_CONFIRMED_SOURCE_FIXED_THREE_ARGV_UNCHANGED", "candidateApplied": true, "actualSeedRegenerated": false, "guestRepairExecuted": false, "provisioningOnlyChecks": {"pass": 10, "blocked": 0, "productCases": 0, "scope": "RETAINED_HOST_SYNTHETIC_GUEST_PENDING_NOT_RERUN"}, "newLiveCases": 0, "diagnosticBootExecuted": false, "sshExecuted": false, "captureRetries": 0, "codexRestart": "USER_CONFIRMED"},
+   "gates": [
+     {
+       "id": "MI-SEC-01",
+@@ -29,7 +29,7 @@
+       "required": "Commit/lost response/same intent replay/completed result; null/missing/foreign type/factory/current revoked blocked deleted; same and different keys with actual SQL unique/advisory/row locking; no duplicate mutation/fanout. Opaque kind/input ambiguity remains decision.",
+       "liveTestStack": {
+         "cases": 0,
+-        "status": "NOT_RUN_BLOCKED_TOOL_CAPABILITY"
++        "status": "NOT_RUN_UAC_CANCELLED_DIAGNOSTIC_BOOT"
+       },
+       "physical": "PENDING"
+     },
+@@ -56,7 +56,7 @@
+       "required": "Active IMPORTANT/NORMAL with/without archive; global/factory/department audience; list/detail/ACK/report/notification/personal archive; concurrent ACK and postcommit retry keep one timestamp/audit with real receivers. Expired/future characterization is not approved policy.",
+       "liveTestStack": {
+         "cases": 0,
+-        "status": "NOT_RUN_BLOCKED_TOOL_CAPABILITY"
++        "status": "NOT_RUN_UAC_CANCELLED_DIAGNOSTIC_BOOT"
+       },
+       "physical": "PENDING"
+     },
+@@ -83,7 +83,7 @@
+       "required": "Quantity10 minimum5 TAKE3 then retry leaves7; changed input denied where immutable; RESTOCK3 once returns10; contested different TAKE7 keys one success one refusal; exact movement/history/archive/audit IDs; cross-factory deny.",
+       "liveTestStack": {
+         "cases": 0,
+-        "status": "NOT_RUN_BLOCKED_TOOL_CAPABILITY"
++        "status": "NOT_RUN_UAC_CANCELLED_DIAGNOSTIC_BOOT"
+       },
+       "physical": "PENDING"
+     },
+@@ -110,7 +110,7 @@
+       "required": "Private chat upload metadata and actual bytes/hash; owner/member/nonmember/removal/leave/staleflags/transfer/restore; fresh metadata/file denied after revoke; current UI invalidation/resource cleanup; HTTP range/stream/abort and allowed new-context retry. No remote revocation of downloaded files.",
+       "liveTestStack": {
+         "cases": 0,
+-        "status": "NOT_RUN_BLOCKED_TOOL_CAPABILITY"
++        "status": "NOT_RUN_UAC_CANCELLED_DIAGNOSTIC_BOOT"
+       },
+       "physical": "PENDING"
+     },
+@@ -142,7 +142,7 @@
+       "required": "Distinct ordinary/handover comments; current/closed/soft archived; archive-only vs normal-only; master/management/admin and guest/blocked/revoked/foreign factory/department; exact list/detail/file/Back; ordinary archive query not bypass; no archive write/receipt/ACK/upload/delete/important-close or counter change.",
+       "liveTestStack": {
+         "cases": 0,
+-        "status": "NOT_RUN_BLOCKED_TOOL_CAPABILITY"
++        "status": "NOT_RUN_UAC_CANCELLED_DIAGNOSTIC_BOOT"
+       },
+       "physical": "PENDING"
+     }

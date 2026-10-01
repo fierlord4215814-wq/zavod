@@ -1,0 +1,29 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+index 5fe7a8f8..02d0843a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-guest-recovery\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+@@ -1,8 +1,22 @@
+ # MASTER R5 — recoverable checkpoint
+ 
+-MASTER_R5_STATUS=WAITING_GUEST_READ_ONLY_DIAGNOSTICS. EXECUTION_STATUS=WAITING_MANUAL_GUEST_SHELL. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO.
++MASTER_R5_STATUS=BLOCKED_TOOL_CAPABILITY. EXECUTION_STATUS=STOPPED_AT_OBSERVABLE_GUEST_CHANNEL_BOUNDARY. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. FINAL_STOP=STOP.
+ 
+-## Текущий checkpoint — 20.09.2026, source-first late command 3
++## Текущий checkpoint — 21.09.2026, автономное восстановление того же гостя
++
++Новое явное поручение `attempts/20260921-guest-recovery/continuation-request.txt` заменило временный запрет guest input: разрешены наблюдаемый shell/диагностика/адресный ремонт своей VM, штатный reboot только после проверки, собственные ключи без раскрытия и вся прежняя серия. Не требуется согласие на каждый шаг. Стирание VHDX/новый autoinstall на использованном диске запрещены, системные approvals не обходить.
++
++Сохранены before15doc owners и seed generator; frozen215product/config132build72harness/6matrices/4ZIP сверяются в `attempts/20260921-guest-recovery/final-identities.json`. Новый boot20.09 20:26:33 доказан21.09; PID9056 — чужой reused PID, не old helper и не цель завершения. Старый terminal18:03/000006Running не означает Off; прежнюю очередь не запускать. Новый read-only observer PID14396 штатно завершился21.09 16:09:11; exact VM/BIOS/единственный прежний VHDX подтверждены, actual EnabledState3=Off, associated jobs=[]. Это независимое наблюдение Off, не переоценка ответа N на старый shutdown.
++
++Последняя завершённая техническая операция: исправлен только source собственного генератора (`create-seed-media.ps1` → pure `r5-late-commands.ps1`). Подключённый seed прочитан редактированно: late3 действительно5argv, sh-c строка оборвана. Новый source даёт3argv, fail-fast и не подделывает missing proof. Авторитетный `run-03-consistent-status/generator-results.json`:7PASS/0FAIL/3BLOCKED, exit2 означает неполную проверку; Git runtime не содержит install. Это host provisioning checks, не live/product tests. Первые ошибочные/противоречивые receipts сохранены и отдельно разобраны в [отчёте](attempts/20260921-guest-recovery/result.md), не переписаны в PASS. Полный generator не выполнялся; actual seed, VM и guest не менялись.
++
++Незавершённая операция: наблюдаемый доступ и недеструктивный repair Ubuntu. Обновлённый computer-use26.915.31945 после reset дважды отказал в capture: `SetIsBorderRequired failed: Интерфейс не поддерживается (0x80004002)`; accessibility даёт только название окна, не экран/вывод гостя. Bound ownIP SSH отказал WSAEACCES до auth; VM затем независимо наблюдалась Off. Причина SSH не установлена, VPN/защита не менялись. Guest input0, valid new screenshots0. Навык computer-use требует остановки слепого ввода, а не ещё одного разрешения пользователя.
++
++Точка восстановления: восстановить разрешённый наблюдаемый канал. Один минимальный ручной диагностический шаг — полностью перезапустить только приложение Codex, не Windows/VM и не от администратора; устранение capture error этим не гарантировано. Затем повторно установить actual channel/VM identity и продолжить уже разрешённый source→guest config/logs/target→in-place repair. Не включать VM со старым seed вслепую; не replay queue/reinstall/Force. Нужны guest `/autoinstall.yaml`, stderr, сохранившиеся installer/crash logs, target/mount/users/sudoers/package/bootloader/finalization и настоящая proof provenance. Их сохранность после host reboot UNKNOWN, не объявлять утрату или recovery PASS.
++
++Все5livegates0,32journeys/1407edges0newreal, original0631286→1213 OPEN/UNKNOWN, финальная регрессия NOT_RUN. Main954/957semanticcontrols иP0/P1/P2=0/1/10 исторические, не переприняты. Product fixes/builds/tests/schema/deps0; рабочие DB/service/env/uploads/history не читались. Own application DB/fixtures не созданы; только host synthetic filesystem fixtures сохранены. Observer завершён; viewer15316 последним наблюдался живым после неподтверждённого Alt+F4, force не было; см. runtime receipt. Все старые evidence/ZIP сохранены. Единый отчёт [final-report.md](final-report.md), новый пакет `zavod-master-r5-guest-recovery-20260921.zip` считается готовым только с verified `package-receipt.json`. Library/account memory=NOT_WRITTEN. Следующие checkpoint — история.
++
++## Исторический checkpoint — 20.09.2026, source-first late command 3
+ 
+ Последняя завершённая операция: точное воспроизведение выражения из `attempts/20260920-vm-control/create-seed-media.ps1:50`, SHA3964a3d034f5e97f3cd9d0c621699519ed5de4da9a73f099973e7121a9104a9a. PowerShell создаёт 5 argv вместо 3; программа для `sh -c` обрывается на незакрытой кавычке. Host `sh -n -c` (ТОЛЬКО синтаксис, payload НЕ исполнялся) дал exit2/unmatched quote; вариант с двумя скобками — 3 argv/exit0. Это подтверждённый дефект provisioning source, не продукта. Candidate NOT_APPLIED: генератор, seed и guest не менялись.
+ 

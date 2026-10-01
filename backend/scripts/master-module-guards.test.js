@@ -1,0 +1,60 @@
+// Actual compiled controller metadata + actual guard, no service instances/bootstrap.
+require('./master-offline-guard.cjs');
+require('reflect-metadata');
+const fs=require('node:fs'),path=require('node:path');
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {Reflector}=require('@nestjs/core');
+const {PATH_METADATA,METHOD_METADATA}=require('@nestjs/common/constants');
+const {PermissionGuard}=require('../dist/common/permission.guard');
+const {REQUIRED_PERMISSION_KEY}=require('../dist/common/require-permission.decorator');
+const {resolveEffectivePermissions}=require('../dist/common/effective-permissions');
+const time=require('../dist/common/shift-time');
+const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);
+const reflector=new Reflector();
+const modules=fs.readdirSync(path.join(__dirname,'../dist/modules'),{withFileTypes:true}).filter(e=>e.isDirectory());
+const report=[];
+for(const module of modules)test(`Module ${module.name}: actual controller permission OR/admin/guest/revoke contracts`,async()=>{
+  const files=walk(path.join(__dirname,'../dist/modules',module.name)).filter(f=>f.endsWith('.controller.js'));
+  for(const file of files)for(const Controller of Object.values(require(file))){
+    if(typeof Controller!=='function'||Reflect.getMetadata(PATH_METADATA,Controller)===undefined)continue;
+    for(const method of Object.getOwnPropertyNames(Controller.prototype)){
+      const handler=Controller.prototype[method];if(typeof handler!=='function'||Reflect.getMetadata(METHOD_METADATA,handler)===undefined)continue;
+      const permission=reflector.getAllAndOverride(REQUIRED_PERMISSION_KEY,[handler,Controller]);
+      const row={module:module.name,controller:Controller.name,method,path:[Reflect.getMetadata(PATH_METADATA,Controller),Reflect.getMetadata(PATH_METADATA,handler)].join('/'),permissions:permission||null};report.push(row);
+      // No decorator is NOT evidence of a public endpoint. Auth/context/service owners remain separate.
+      if(!permission){row.status='NO_PERMISSION_DECORATOR_SERVICE_OR_IDENTITY_AUTHORITY';continue;}
+      const codes=Array.isArray(permission)?permission:[permission];assert.ok(codes.length>0);
+      const events=[];const guard=new PermissionGuard(reflector,{write:async e=>events.push(e)});
+      const base={userId:'memory-reader',selectedFactoryId:'memory-factory',role:'OTHER',isAdmin:false,isGuest:false,permissions:[]};
+      const invoke=user=>guard.canActivate({getHandler:()=>handler,getClass:()=>Controller,switchToHttp:()=>({getRequest:()=>({user,method:'OFFLINE_METADATA',url:'/memory-contract'})})});
+      for(const denied of [undefined,base,{...base,isGuest:true,permissions:codes},{...base,isGuest:true,isAdmin:true}])await assert.rejects(invoke(denied),e=>e.getStatus?.()===403);
+      for(const code of codes)assert.equal(await invoke({...base,permissions:[code]}),true);
+      assert.equal(await invoke({...base,isAdmin:true}),true);
+      await assert.rejects(invoke({...base,permissions:['unrelated.permission']}),e=>e.getStatus?.()===403);
+      assert.equal(events.length,5);assert.ok(events.every(e=>e.action==='ACCESS_DENIED'));
+      row.status='VERIFIED_ISOLATED_PERMISSION_METADATA_ONLY';row.cases={denied:5,allowed:codes.length+1};
+    }
+  }
+});
+test('J02 effective override/revoke and privileged Ops visibility use canonical resolver',()=>{
+  const base={role:'MASTER',isGuest:false,rolePermissionCodes:['tasks.read','tasks.comment','ops.statistics.read']};
+  assert.deepEqual(resolveEffectivePermissions(base),['tasks.comment','tasks.read']);
+  assert.deepEqual(resolveEffectivePermissions({...base,overrides:[{permissionCode:'tasks.comment',effect:'DENY'},{permissionCode:'wash.read',effect:'ALLOW'}]}),['tasks.read','wash.read']);
+  assert.deepEqual(resolveEffectivePermissions({...base,isGuest:true}),[]);
+  assert.ok(resolveEffectivePermissions({...base,role:'MANAGEMENT'}).includes('ops.statistics.read'));
+  // Deactivation/factory membership resolution is UserContextService, not this pure resolver.
+});
+test('J03 J05 J14 J23 canonical Moscow windows are half-open across midnight/month/leap day',()=>{
+  const cases=[['2026-09-15T04:59:59.999Z','2026-09-14','NIGHT'],['2026-09-15T05:00:00.000Z','2026-09-15','DAY'],['2026-09-15T16:59:59.999Z','2026-09-15','DAY'],['2026-09-15T17:00:00.000Z','2026-09-15','NIGHT'],['2026-09-15T21:00:00.000Z','2026-09-15','NIGHT']];
+  for(const [value,shiftDate,shiftType]of cases){const at=new Date(value);assert.deepEqual(time.factoryShiftTarget(at),{shiftDate,shiftType});const w=time.factoryShiftWindow({shiftDate,shiftType});assert.ok(at>=w.from&&at<w.to);assert.equal(w.to-w.from,12*3600000);}
+  assert.equal(time.addFactoryDays('2024-02-28',1),'2024-02-29');assert.equal(time.addFactoryDays('2026-12-31',1),'2027-01-01');
+  assert.equal(time.factoryHandoverAvailability(new Date('2026-09-15T14:59:59Z')).available,false);
+  assert.equal(time.factoryHandoverAvailability(new Date('2026-09-15T15:00:00Z')).available,true);
+  assert.equal(time.factoryHandoverAvailability(new Date('2026-09-15T17:00:00Z')).available,false);
+  const future={shiftDate:'2026-09-17',shiftType:'NIGHT'};assert.deepEqual(time.addFactoryShifts(time.addFactoryShifts(future,3),-3),future);
+  assert.equal(time.factoryDayWindow('2026-09-15').to-time.factoryDayWindow('2026-09-15').from,24*3600000);
+  assert.throws(()=>time.factoryDayWindow('15.09.2026'));
+});
+test.after(()=>{
+  const out=process.env.MASTER_GUARD_REPORT;if(out)fs.writeFileSync(out,JSON.stringify({scope:'Compiled metadata and actual PermissionGuard only; not HTTP/UserContext/service data or DB proof',modules:modules.length,routes:report.length,rows:report},null,2),{flag:'wx'});
+});

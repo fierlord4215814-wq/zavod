@@ -1,0 +1,107 @@
+{
+  "evidenceDate": "2026-07-14",
+  "verdict": {
+    "codeInvariants": "PASS",
+    "runtimeData": "PASS",
+    "semanticIntegrity": "PASS",
+    "pilotReady": "YES"
+  },
+  "findings": [
+    {
+      "id": "SI-001",
+      "severity": "P0",
+      "status": "FIXED",
+      "area": "offline mutations",
+      "summary": "Критическая операция могла получить ложное локальное подтверждение через общий offline queue.",
+      "evidence": "POST/PATCH теперь завершаются явной сетевой ошибкой; browser E2E подтверждает отсутствие записей в БД."
+    },
+    {
+      "id": "SI-002",
+      "severity": "P1",
+      "status": "FIXED",
+      "area": "line/wash/defrost",
+      "summary": "Параллельные переходы могли конкурировать за состояние линии.",
+      "evidence": "Advisory locks и повторная проверка состояния дают один активный процесс и канонический ответ 201/409."
+    },
+    {
+      "id": "SI-003",
+      "severity": "P1",
+      "status": "FIXED",
+      "area": "assignments",
+      "summary": "Параллельные назначения могли претендовать на один слот или одного сотрудника.",
+      "evidence": "Текущие и будущие назначения оставляют ровно одну активную запись."
+    },
+    {
+      "id": "SI-004",
+      "severity": "P1",
+      "status": "FIXED",
+      "area": "tasks",
+      "summary": "Повтор operationId и конкурентное взять/перенаправить требовали канонической идемпотентности.",
+      "evidence": "Повторное создание возвращает одну заявку; operationId другого автора запрещён."
+    },
+    {
+      "id": "SI-005",
+      "severity": "P1",
+      "status": "FIXED",
+      "area": "checklists",
+      "summary": "Взятие, ответы, напоминания и auto-close могли пересекаться.",
+      "evidence": "Один владелец, один завершённый ответ, одно напоминание и один финальный статус."
+    },
+    {
+      "id": "SI-006",
+      "severity": "P1",
+      "status": "FIXED",
+      "area": "chats",
+      "summary": "Повторы отправки и конфликт edit/delete/membership требовали единого итогового состояния.",
+      "evidence": "Одна запись сообщения, удаление канонично, отозванный участник получает запрет."
+    },
+    {
+      "id": "SI-007",
+      "severity": "P1",
+      "status": "FIXED",
+      "area": "checklist UI",
+      "summary": "Законный 403 библиотеки обнулял разрешённый личный workspace работника.",
+      "evidence": "Library загружается только при праве чтения шаблонов; workspace зависит от пользователя и выбранного завода."
+    },
+    {
+      "id": "SI-008",
+      "severity": "P2",
+      "status": "FIXED",
+      "area": "chat UI",
+      "summary": "Offline-ошибка была перекрыта полноэкранным mobile chat-pane.",
+      "evidence": "Баннер находится внутри диалога и виден на 360 px; черновик остаётся неотправленным."
+    },
+    {
+      "id": "SI-009",
+      "severity": "P1",
+      "status": "FIXED",
+      "area": "runtime wash data",
+      "summary": "Fixture-сессии мойки, созданные test-акторами на обычных линиях, попадали в runtime read-model и guards.",
+      "evidence": "Provenance подтвердил 32 fixture и 0 non-fixture старых активных моек. Единый backend-предикат исключает fixture-сессии из обычных линий, мойки, статистики, архива и истории смен; записи БД не менялись."
+    },
+    {
+      "id": "SI-010",
+      "severity": "P2",
+      "status": "CLOSED_NOT_PRODUCT_DEFECT",
+      "area": "runtime task timestamps",
+      "summary": "Первичная текстовая классификация ошибочно сочла временные аномалии заявок рабочими данными.",
+      "evidence": "Проверка createdById подтвердила: 2 IN_PROGRESS без startedAt и 2 нарушения порядка времён принадлежат test-fixtures; non-fixture аномалий — 0."
+    },
+    {
+      "id": "SI-011",
+      "severity": "P3",
+      "status": "MANUAL_ONLY",
+      "area": "physical devices",
+      "summary": "Физические push/vibration, камера, микрофон, PWA install/offline требуют реального телефона.",
+      "evidence": "Не может быть доказано headless/browser gate в текущей среде."
+    },
+    {
+      "id": "SI-012",
+      "severity": "P2",
+      "status": "FIXED",
+      "area": "chat titles",
+      "summary": "Formatter обрезал повторяющийся последний символ легитимного названия чата.",
+      "evidence": "Дедупликация ограничена полным повтором строки; browser gate на полном названии проходит."
+    }
+  ]
+}

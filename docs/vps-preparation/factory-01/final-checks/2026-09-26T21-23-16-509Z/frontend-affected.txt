@@ -1,0 +1,31 @@
+✔ copy of pending reference has its own row and upload operation identity (2.0455ms)
+✔ copy never claims inheritance of an already saved reference (0.2771ms)
+✔ deactivation discards pending upload/removal, preserves saved immutable reference (0.2776ms)
+✔ reactivation cannot resurrect a discarded pending upload (0.202ms)
+✔ inactive copied draft has no pending file operation (0.3225ms)
+✔ pending profile removes previous editable identity immediately (103.615ms)
+✔ out-of-order GET cannot replace the last chosen person or draft (14.8588ms)
+✔ late failure cannot stop a newer load or show stale error (14.8981ms)
+✔ scope/unmount generation invalidates pending success (10.5455ms)
+✔ current failure leaves no previous editable identity (16.7499ms)
+✔ render and save preserve loading/busy identity boundary (0.7969ms)
+✔ plain INFO remains a read acknowledgement without upload (5.0801ms)
+✔ INFO with required photo exposes result picker on composite photo step (0.6362ms)
+✔ INFO photo first step does not expose second-step controls prematurely (0.8778ms)
+✔ INFO with required comment exposes the configured comment (0.378ms)
+✔ INFO with both confirmations keeps both controls (3.2069ms)
+✔ required-photo and yes/no current editors are preserved (0.6084ms)
+✔ lost response keeps upload identity on same selected File and row (109.3973ms)
+✔ multi-file retry preserves every committed file identity (13.0397ms)
+✔ same file selected for different row gets distinct intent (10.1224ms)
+✔ entity type is part of identity (10.2906ms)
+✔ replacing File with same metadata creates new intent (10.1216ms)
+✔ removing first file does not change retry key of second file (8.3802ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 718.8582

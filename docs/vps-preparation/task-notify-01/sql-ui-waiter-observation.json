@@ -1,0 +1,12 @@
+{
+  "status": "OWN_WAITER_SELECTION_CORRECTED",
+  "tasks": [
+    {
+      "id": "35316875-5d80-4d71-9065-239e875c5f25",
+      "status": "NEW"
+    }
+  ],
+  "closed": true,
+  "historyRetained": true,
+  "explanation": "Notification table also blocks an ordinary UI read. No query was cancelled on the failed assertion; finally released own lock. Create was allowed to commit, then task closed normally. Final proof selects writer by Task RowExclusiveLock."
+}

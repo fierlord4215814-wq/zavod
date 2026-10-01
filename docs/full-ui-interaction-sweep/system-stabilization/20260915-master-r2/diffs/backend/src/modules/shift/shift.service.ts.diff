@@ -1,0 +1,97 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-related-before\\backend\\src\\modules\\shift\\shift.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.service.ts"
+index 80817471..175e4670 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\A-related-before\\backend\\src\\modules\\shift\\shift.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.service.ts"
+@@ -1104,8 +1104,30 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+         if (processed) {
+           const resultKey = processed.resultKey;
+           if (!resultKey) throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
+-          const replay = await tx.plannedShiftAssignment.findFirst({ where: { id: resultKey, factoryId: user.selectedFactoryId } });
++          const workAreaTarget = kind === AssignmentKind.WORK_AREA || kind === AssignmentKind.TIME;
++          const replay = await tx.plannedShiftAssignment.findFirst({ where: {
++            id: resultKey,
++            factoryId: user.selectedFactoryId,
++            userId: body.targetUserId,
++            kind,
++            shiftDate: target.shiftDate,
++            shiftType: target.shiftType,
++            workAreaId: workAreaTarget ? body.workAreaId ?? null : null,
++            workAreaPositionId: workAreaTarget ? body.workAreaPositionId ?? null : null,
++            slotIndex: workAreaTarget ? requestedSlotIndex : null,
++          } });
+           if (!replay) throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
++          const access = await tx.userFactoryAccess.findUnique({
++            where: { userId_factoryId: { userId: replay.userId, factoryId: user.selectedFactoryId } },
++            include: { user: true },
++          });
++          if (!access?.isActive || access.isGuest || access.user.blockedAt || access.user.deletedAt) {
++            throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
++          }
++          if (workAreaTarget && !await tx.workAreaPosition.findFirst({ where: {
++            id: replay.workAreaPositionId ?? '', workAreaId: replay.workAreaId ?? '', deletedAt: null,
++            workArea: { factoryId: user.selectedFactoryId, deletedAt: null },
++          } })) throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
+           return replay;
+         }
+       }
+@@ -1297,7 +1319,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } });
+         if (processed) {
+           const resultKey = processed.resultKey;
+-          if (!resultKey) throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
++          if (!resultKey || resultKey !== assignmentId) throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
+           const replay = await tx.plannedShiftAssignment.findFirst({ where: { id: resultKey, factoryId: user.selectedFactoryId } });
+           if (!replay) throw new ConflictError('Результат операции больше недоступен. Обновите экран.');
+           return replay;
+@@ -2061,9 +2083,14 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+       ]);
+       if (operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } });
+-        if (processed?.resultKey) {
+-          const previous = await tx.contractorShiftSubmission.findUnique({ where: { id: processed.resultKey }, include: { items: true } });
+-          if (previous) return previous;
++        if (processed) {
++          if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          const previous = await tx.contractorShiftSubmission.findFirst({
++            where: { id: processed.resultKey, factoryId: user.selectedFactoryId, companyId: scope.company.id, targetShiftDate, shiftType },
++            include: { items: true },
++          });
++          if (!previous) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          return previous;
+         }
+       }
+       const existing = await tx.contractorShiftSubmission.findFirst({
+@@ -2156,9 +2183,13 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+       ]);
+       if (operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } });
+-        if (processed?.resultKey) {
+-          const previous = await tx.contractorShiftSubmissionItem.findUnique({ where: { id: processed.resultKey } });
+-          if (previous) return previous;
++        if (processed) {
++          if (processed.resultKey !== itemId) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          const previous = await tx.contractorShiftSubmissionItem.findFirst({
++            where: { id: itemId, submissionId, submission: { factoryId: user.selectedFactoryId, companyId: scope.company.id } },
++          });
++          if (!previous) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          return previous;
+         }
+       }
+       const item = await tx.contractorShiftSubmissionItem.findFirst({
+@@ -2271,9 +2302,13 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+       ]);
+       if (operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId } } });
+-        if (processed?.resultKey) {
+-          const previous = await tx.contractorShiftSubmissionItem.findUnique({ where: { id: processed.resultKey } });
+-          if (previous) return previous;
++        if (processed) {
++          if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          const previous = await tx.contractorShiftSubmissionItem.findFirst({
++            where: { id: processed.resultKey, contractorUserId, submission: { factoryId: user.selectedFactoryId, companyId: scope.company.id } },
++          });
++          if (!previous) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
++          return previous;
+         }
+       }
+       let submission = await tx.contractorShiftSubmission.findFirst({

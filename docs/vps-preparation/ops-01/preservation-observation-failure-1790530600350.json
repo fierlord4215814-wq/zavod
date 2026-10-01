@@ -1,0 +1,176 @@
+{
+  "status": "IN_PROGRESS",
+  "atUtc": "2026-09-27T17:36:39.856Z",
+  "beforeReturn": "PASS_COPY_FINISHED_T1_UNCHANGED_BEFORE_RETURN",
+  "tableDelta": [
+    {
+      "table": "Assignment",
+      "before": {
+        "count": 14,
+        "digest": "2f1633e5cc437b22c8882286cdad62fe"
+      },
+      "after": {
+        "count": 14,
+        "digest": "6bc737008fd742ab83f8be7c8ab06e37"
+      }
+    },
+    {
+      "table": "AuditLog",
+      "before": {
+        "count": 1772,
+        "digest": "6d1ea018060dd4362437b192a533ae5a"
+      },
+      "after": {
+        "count": 1778,
+        "digest": "11b304e3089c65d44e71bb134188023c"
+      }
+    },
+    {
+      "table": "ShiftSession",
+      "before": {
+        "count": 12,
+        "digest": "db38b3fd5074afdc8a117be5ffd2b9ab"
+      },
+      "after": {
+        "count": 12,
+        "digest": "929581d24454aadad1937a602caef2fc"
+      }
+    },
+    {
+      "table": "User",
+      "before": {
+        "count": 31,
+        "digest": "24cf733bd46d00b862a27449a7de965e"
+      },
+      "after": {
+        "count": 31,
+        "digest": "1c66b6bfbc338d45820444e2e8fefa62"
+      }
+    },
+    {
+      "table": "UserSkill",
+      "before": {
+        "count": 19,
+        "digest": "1a8d65fd423c9d4408daec138d332129"
+      },
+      "after": {
+        "count": 19,
+        "digest": "2b2c61ed7a166de12d3c0e90b04a11e6"
+      }
+    },
+    {
+      "table": "UserSkillCredit",
+      "before": {
+        "count": 10,
+        "digest": "85712a9b8f241f086525f18d99f53d06"
+      },
+      "after": {
+        "count": 13,
+        "digest": "c7c231ebc08927fbf272744967cf5d0b"
+      }
+    }
+  ],
+  "unchangedTables": 84,
+  "newAudit": [
+    {
+      "id": "a31be6b8-75be-4c78-95df-6832e217bd7b",
+      "action": "SKILL_EXPERIENCE_CREDITED",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": null,
+      "entityType": "UserSkill",
+      "entityId": "100d35e3-cae5-49ee-915d-a5c7bde00855",
+      "details": {
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "increment": 1,
+        "shiftDate": "2026-09-26T21:00:00.000Z",
+        "shiftType": "DAY",
+        "positionId": "3ec61c76-43dc-482f-ba16-9d1ee5e2973b",
+        "assignmentId": "4d96ca6c-307f-4b3c-b000-f65147b9279b",
+        "targetUserId": "100d35e3-cae5-49ee-915d-a5c7bde00855",
+        "professionalSkillCredited": true
+      },
+      "createdAt": "2026-09-27T17:33:41.198Z"
+    },
+    {
+      "id": "f826dc20-bb97-4184-a2cb-febe925481fd",
+      "action": "SHIFT_AUTO_CLOSED",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": null,
+      "entityType": "ShiftSession",
+      "entityId": "059a1aa7-ceae-4e6e-8493-3f04f75bb303",
+      "details": {
+        "plannedEndAt": "2026-09-27T17:00:00.000Z",
+        "durationHours": 12,
+        "closedAssignments": 1
+      },
+      "createdAt": "2026-09-27T17:33:41.219Z"
+    },
+    {
+      "id": "79132ff6-cd79-48df-af88-2ab80b986dea",
+      "action": "SKILL_EXPERIENCE_CREDITED",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": null,
+      "entityType": "UserSkill",
+      "entityId": "23280f41-9fac-4bb8-8cc2-4c59219ca803",
+      "details": {
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "increment": 1,
+        "shiftDate": "2026-09-26T21:00:00.000Z",
+        "shiftType": "DAY",
+        "positionId": "1c9601f4-67b4-4c42-a9bc-51a68e7f8ff5",
+        "assignmentId": "9796982b-0b36-4276-8920-1ffda3e2f8c8",
+        "targetUserId": "23280f41-9fac-4bb8-8cc2-4c59219ca803",
+        "professionalSkillCredited": true
+      },
+      "createdAt": "2026-09-27T17:33:41.235Z"
+    },
+    {
+      "id": "0b52982e-a451-480b-8d1a-ea126c92b6de",
+      "action": "SHIFT_AUTO_CLOSED",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": null,
+      "entityType": "ShiftSession",
+      "entityId": "bad3e100-c5cb-4717-9b63-926ddb518d50",
+      "details": {
+        "plannedEndAt": "2026-09-27T17:00:00.000Z",
+        "durationHours": 12,
+        "closedAssignments": 1
+      },
+      "createdAt": "2026-09-27T17:33:41.240Z"
+    },
+    {
+      "id": "7b84fc3c-31fb-45af-a48c-4d8109d46d62",
+      "action": "SKILL_EXPERIENCE_CREDITED",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": null,
+      "entityType": "UserSkill",
+      "entityId": "3255174d-6b6f-47eb-ab79-9e14d180e648",
+      "details": {
+        "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "increment": 1,
+        "shiftDate": "2026-09-26T21:00:00.000Z",
+        "shiftType": "DAY",
+        "positionId": "d4940b70-284d-45bf-a2d8-f55c5d613ba5",
+        "assignmentId": "c64cca90-3457-467b-99c7-794520aa007d",
+        "targetUserId": "3255174d-6b6f-47eb-ab79-9e14d180e648",
+        "professionalSkillCredited": true
+      },
+      "createdAt": "2026-09-27T17:33:41.252Z"
+    },
+    {
+      "id": "5907e039-3ae3-40f2-941f-828f95d87516",
+      "action": "SHIFT_AUTO_CLOSED",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": null,
+      "entityType": "ShiftSession",
+      "entityId": "1654db53-8638-4a8a-a891-57a3f6e9c071",
+      "details": {
+        "plannedEndAt": "2026-09-27T17:00:00.000Z",
+        "durationHours": 12,
+        "closedAssignments": 1
+      },
+      "createdAt": "2026-09-27T17:33:41.256Z"
+    }
+  ],
+  "error": "[\"SKILL_EXPERIENCE_CREDITED\",\"SHIFT_AUTO_CLOSED\",\"SKILL_EXPERIENCE_CREDITED\",\"SHIFT_AUTO_CLOSED\",\"SKILL_EXPERIENCE_CREDITED\",\"SHIFT_AUTO_CLOSED\"]"
+}

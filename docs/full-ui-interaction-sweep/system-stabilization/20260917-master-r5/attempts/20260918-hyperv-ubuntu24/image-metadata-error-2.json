@@ -1,0 +1,37 @@
+{
+  "at": "2026-09-18T06:51:35.640Z",
+  "status": "METADATA_PREPARATION_FAILED",
+  "error": "fetch failed",
+  "cause": {
+    "code": "UND_ERR_CONNECT_TIMEOUT",
+    "message": "Connect Timeout Error (attempted addresses: 185.125.188.26:443, 2620:2d:4000:1007::d43:443, 185.125.188.27:443, 2620:2d:4000:1007::70c:443, timeout: 10000ms)"
+  },
+  "records": [
+    {
+      "url": "https://registry.npmjs.org/openpgp/6.2.2",
+      "name": "openpgp-6.2.2-metadata.json",
+      "bytes": 4714,
+      "sha256": "ea3b0a211d2ff7730f58a53dd6a7d5e4f51b2e8b64047a209ce2a6e908f52503",
+      "reusedVerifiedPriorBytes": true
+    },
+    {
+      "url": "https://registry.npmjs.org/openpgp/-/openpgp-6.2.2.tgz",
+      "name": "openpgp-6.2.2.tgz",
+      "bytes": 4492394,
+      "sha256": "187a22ac06b1782e840c5f0236249078fd7d73f46efbdc081a036d9d9a0b30a4",
+      "reusedVerifiedPriorBytes": true
+    },
+    {
+      "url": "https://releases.ubuntu.com/24.04/SHA256SUMS",
+      "name": "ubuntu-SHA256SUMS",
+      "bytes": 893,
+      "sha256": "728064ecf411f4ab702d9c3ca0a938ce672771424c028a1b52b2449f7eb5a068"
+    },
+    {
+      "url": "https://releases.ubuntu.com/24.04/SHA256SUMS.gpg",
+      "name": "ubuntu-SHA256SUMS.gpg",
+      "bytes": 833,
+      "sha256": "f9be4b4a527b63f14dde0387edcb7a02ba3ac43d537b1674a5aeae19c6f23827"
+    }
+  ]
+}

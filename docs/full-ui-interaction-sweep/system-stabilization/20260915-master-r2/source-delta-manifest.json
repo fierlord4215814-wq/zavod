@@ -1,0 +1,1975 @@
+{
+  "at": "2026-09-15T18:03:29.650Z",
+  "baselineProduct": "0b2bd805f1eb468accfe99e9d9c58bc21d2fdbfe0c57c1763b20af6a618b8de4",
+  "productFingerprint": "f5fae924de3e208c68fa6c2878b2ecf016576b3fa36312a23e23cd2543562098",
+  "owners": [
+    {
+      "owner": "backend/scripts/master-r2-admin-chain.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-admin-chain.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-admin-chain.test.js",
+        "time": "2026-09-15T16:56:21.231Z"
+      },
+      "afterSha256": "c349bd67c5059fb618d28fd6c8370d401f2c414a5158f20897f42b95cf8e5285",
+      "bytes": 4708,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-admin-chain.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-admin-chain.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-admin-chain.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-admin-chain.test.js",
+          "time": "2026-09-15T16:56:21.231Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-authority-fixture.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "INITIAL_INVENTORY_ABSENT_OR_EARLIEST_AVAILABLE",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-ipc-bridge-before/backend/scripts/master-r2-authority-fixture.cjs",
+      "absenceReceipt": null,
+      "afterSha256": "1cdf950d1f374a5026cf099dc46edd592e6971c8dc950306fcc26413921ee88d",
+      "bytes": 1632,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-authority-fixture.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-authority-fixture.cjs.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-authority-fixture.cjs",
+          "sha256": "1cdf950d1f374a5026cf099dc46edd592e6971c8dc950306fcc26413921ee88d",
+          "bytes": 1632,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-ipc-bridge-before/backend/scripts/master-r2-authority-fixture.cjs",
+          "time": "2026-09-15T17:04:00.266Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-chat-chain.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-chat-chain.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-chat-chain-before/backend/scripts/master-r2-chat-chain.test.js",
+        "time": "2026-09-15T17:13:47.711Z"
+      },
+      "afterSha256": "b0085f1d1e15e0b6cc16ddb6e521fcddf7a30f40dca98170975ace9d42a8dcbe",
+      "bytes": 6594,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-chat-chain.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-chat-chain.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-chat-chain.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-chat-chain-before/backend/scripts/master-r2-chat-chain.test.js",
+          "time": "2026-09-15T17:13:47.711Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-chat-chain.test.js",
+          "sha256": "60d6d19bbacf5efda1f7bb17bdbb29bf34c670e346042becc053c2cc2e5999ff",
+          "bytes": 6609,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-chat-negative-split-before/backend/scripts/master-r2-chat-chain.test.js",
+          "time": "2026-09-15T17:15:53.827Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-chat-fixture.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-chat-fixture.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-chat-chain-before/backend/scripts/master-r2-chat-fixture.cjs",
+        "time": "2026-09-15T17:13:47.711Z"
+      },
+      "afterSha256": "388b7260521c3075b873190a520a118bf929883cb6b7022162375bef01e777a6",
+      "bytes": 2370,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-chat-fixture.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-chat-fixture.cjs.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-chat-fixture.cjs",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-chat-chain-before/backend/scripts/master-r2-chat-fixture.cjs",
+          "time": "2026-09-15T17:13:47.711Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-checklist.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-checklist.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-checklist-before/backend/scripts/master-r2-checklist.test.js",
+        "time": "2026-09-15T16:31:28.007Z"
+      },
+      "afterSha256": "6504a9545daca789f85174b0071309b1616c6701f730b197b7b7be5905a51248",
+      "bytes": 8649,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-checklist.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-checklist.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-checklist.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-checklist-before/backend/scripts/master-r2-checklist.test.js",
+          "time": "2026-09-15T16:31:28.007Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-checklist.test.js",
+          "sha256": "7efe4d1c3f30e4a59ac48ddea41d6b87b67ddf916d187e9c2a3bbbe3cfddd556",
+          "bytes": 8050,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-tail-before/backend/scripts/master-r2-checklist.test.js",
+          "time": "2026-09-15T16:41:34.467Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-defrost-line-replay.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-defrost-line-replay.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-defrost-line-replay-before/backend/scripts/master-r2-defrost-line-replay.test.js",
+        "time": "2026-09-15T16:53:09.637Z"
+      },
+      "afterSha256": "4ab82994a56c6c2d710047fc0444b59ab22feb3f57724e4c1ad5d929fb425a01",
+      "bytes": 3932,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-defrost-line-replay.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-defrost-line-replay.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-defrost-line-replay.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-defrost-line-replay-before/backend/scripts/master-r2-defrost-line-replay.test.js",
+          "time": "2026-09-15T16:53:09.637Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-defrost-line-replay.test.js",
+          "sha256": "f4c8c0c4d1b349d9794a756feb2e31f0dd90b7ac9ac39422d03483ac3e90cb25",
+          "bytes": 3824,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-defrost-line-test-correction/backend/scripts/master-r2-defrost-line-replay.test.js",
+          "time": "2026-09-15T16:53:34.349Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-handover-fixture.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-handover-fixture.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-handover-fixture.cjs",
+        "time": "2026-09-15T16:56:21.231Z"
+      },
+      "afterSha256": "844b182a0507eb8a85f1f4c83de2cae26ebb6f39e877b6bc0a5e7090f84fc1aa",
+      "bytes": 2488,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-handover-fixture.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-handover-fixture.cjs.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-handover-fixture.cjs",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-handover-fixture.cjs",
+          "time": "2026-09-15T16:56:21.231Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-handover-fixture.cjs",
+          "sha256": "7cdcddc88db570fc7ff91cb54502e0f99d060231b492cd31258bb8ce27b611e1",
+          "bytes": 2478,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-handover-fixture-correction/backend/scripts/master-r2-handover-fixture.cjs",
+          "time": "2026-09-15T16:57:53.288Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-handover.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-handover.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-handover.test.js",
+        "time": "2026-09-15T16:56:21.231Z"
+      },
+      "afterSha256": "f57333559ee95be230b4ed37b42aa0fbb10395e3bb49b0014ade821c93ee58a0",
+      "bytes": 3795,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-handover.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-handover.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-handover.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-handover.test.js",
+          "time": "2026-09-15T16:56:21.231Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-line-history.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-line-history.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/backend/scripts/master-r2-line-history.test.js",
+        "time": "2026-09-15T16:20:57.440Z"
+      },
+      "afterSha256": "c46c94ca510c5c99ab7c09e5157f275654248bb65ee7b2d781df8e9bb96ee687",
+      "bytes": 2773,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-line-history.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-line-history.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-line-history.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/backend/scripts/master-r2-line-history.test.js",
+          "time": "2026-09-15T16:20:57.440Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-line-history.test.js",
+          "sha256": "506bf17ee32b9ce320c834f4be9339e5a686dcc37ba3ec69fece55365473c65c",
+          "bytes": 2749,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-line-test-before-correction/backend/scripts/master-r2-line-history.test.js",
+          "time": "2026-09-15T16:21:42.947Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-membership-future.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-membership-future.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-before/backend/scripts/master-r2-membership-future.test.js",
+        "time": "2026-09-15T16:14:57.711Z"
+      },
+      "afterSha256": "7290cfdf94accb1fcfe113c45b3b81826cea2d6439ec4961882ef1b942f3ac1e",
+      "bytes": 5858,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-membership-future.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-membership-future.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-membership-future.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-before/backend/scripts/master-r2-membership-future.test.js",
+          "time": "2026-09-15T16:14:57.711Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-membership-future.test.js",
+          "sha256": "09b4366c9e302e385d11b13dad0f2dbbb471b48d808602e949fde463e3161d60",
+          "bytes": 7933,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-current-01/backend/scripts/master-r2-membership-future.test.js",
+          "time": "2026-09-15T16:18:01.224Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-membership-future.test.js",
+          "sha256": "09b4366c9e302e385d11b13dad0f2dbbb471b48d808602e949fde463e3161d60",
+          "bytes": 7933,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-chat-chain-before/backend/scripts/master-r2-membership-future.test.js",
+          "time": "2026-09-15T17:13:47.711Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-memory.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-memory.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/scripts/master-r2-memory.cjs",
+        "time": "2026-09-15T13:11:46.599Z"
+      },
+      "afterSha256": "5085724fef7b46dd0157aa462c67cee48ae88b81fde362ad48ea8f1a98c7a98b",
+      "bytes": 7539,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-memory.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-memory.cjs.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-memory.cjs",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/scripts/master-r2-memory.cjs",
+          "time": "2026-09-15T13:11:46.599Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-memory.cjs",
+          "sha256": "5a1cef8dffdf62a21708e4c1466bee6f763d65c9423a81504a97ba69231f29c5",
+          "bytes": 7509,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-harness-red01/backend/scripts/master-r2-memory.cjs",
+          "time": "2026-09-15T13:27:26.739Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-memory.cjs",
+          "sha256": "5085724fef7b46dd0157aa462c67cee48ae88b81fde362ad48ea8f1a98c7a98b",
+          "bytes": 7539,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/B-before/backend/scripts/master-r2-memory.cjs",
+          "time": "2026-09-15T13:48:40.401Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-orders.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-orders.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-orders-before/backend/scripts/master-r2-orders.test.js",
+        "time": "2026-09-15T16:27:38.958Z"
+      },
+      "afterSha256": "f7bca82e7fa2199f66d60e5687701e1897c9d766f8618c64efaa64d0b9b96cb5",
+      "bytes": 5811,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-orders.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-orders.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-orders.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-orders-before/backend/scripts/master-r2-orders.test.js",
+          "time": "2026-09-15T16:27:38.958Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-orders.test.js",
+          "sha256": "1aebd152c34754a6f8a4b5a9899501a09da82b748a0bdac6966b55efbcf27bda",
+          "bytes": 5447,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-orders-tests-before-correction/backend/scripts/master-r2-orders.test.js",
+          "time": "2026-09-15T16:28:36.386Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-orders.test.js",
+          "sha256": "1aebd152c34754a6f8a4b5a9899501a09da82b748a0bdac6966b55efbcf27bda",
+          "bytes": 5447,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-tail-before/backend/scripts/master-r2-orders.test.js",
+          "time": "2026-09-15T16:41:34.467Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-position.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-position.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-orders-before/backend/scripts/master-r2-position.test.js",
+        "time": "2026-09-15T16:27:38.958Z"
+      },
+      "afterSha256": "5b6dfd7b844391b5fa9bbe0f0bceff0466e129dc1d528afa5f95998cb9a99281",
+      "bytes": 3502,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-position.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-position.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-position.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-orders-before/backend/scripts/master-r2-position.test.js",
+          "time": "2026-09-15T16:27:38.958Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-position.test.js",
+          "sha256": "d3c150477f3ec5bfe71fbf961360911e6215cc778423100e4d1f0d2008a4ff69",
+          "bytes": 3395,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-orders-tests-before-correction/backend/scripts/master-r2-position.test.js",
+          "time": "2026-09-15T16:28:36.386Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-provenance.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-provenance.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/C-before/backend/scripts/master-r2-provenance.test.js",
+        "time": "2026-09-15T14:01:41.039Z"
+      },
+      "afterSha256": "f13b8d99993913a5dce44a1177230ad19831fc0b8621959fd77283e5f2308368",
+      "bytes": 7744,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-provenance.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-provenance.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-provenance.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/C-before/backend/scripts/master-r2-provenance.test.js",
+          "time": "2026-09-15T14:01:41.039Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-provenance.test.js",
+          "sha256": "3072650c9e832d0126890897d24ed8567092f33434dcb2b36416956a40c971b2",
+          "bytes": 7744,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/C-hypothesis-before/backend/scripts/master-r2-provenance.test.js",
+          "time": "2026-09-15T14:02:48.228Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-publication-fixture.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-publication-fixture.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-publication-fixture.cjs",
+        "time": "2026-09-15T16:56:21.231Z"
+      },
+      "afterSha256": "206f27ca1846553cab82f49c081fc7073ca0b7406913e12da2bb338c6a5468ac",
+      "bytes": 5275,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-publication-fixture.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-publication-fixture.cjs.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-publication-fixture.cjs",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-publication-fixture.cjs",
+          "time": "2026-09-15T16:56:21.231Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-publication-fixture.cjs",
+          "sha256": "a6bc1e08e21654e0540a24b6e4e524033045cdc390a2c831e172d9926f7516b6",
+          "bytes": 5045,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-ipc-bridge-before/backend/scripts/master-r2-publication-fixture.cjs",
+          "time": "2026-09-15T17:04:00.266Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-publication-fixture.cjs",
+          "sha256": "c3895c2bfb34aa7fe5201643f0cf16d929a039cad6968378ae4830d87aa88d4b",
+          "bytes": 5115,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-browser-bridge-contract-before/backend/scripts/master-r2-publication-fixture.cjs",
+          "time": "2026-09-15T17:13:06.738Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-publication.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-publication.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/B-before/backend/scripts/master-r2-publication.test.js",
+        "time": "2026-09-15T13:48:40.401Z"
+      },
+      "afterSha256": "75e0fd97520a281c1e0a3570d2c1621d3e2d84d9abee6ef23979fcc2fd529490",
+      "bytes": 9670,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-publication.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-publication.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-publication.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/B-before/backend/scripts/master-r2-publication.test.js",
+          "time": "2026-09-15T13:48:40.401Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-publication.test.js",
+          "sha256": "579dcf12acdc3822782a6f08b7905cc8e61eb9099801f2b5d2a8a1aeab71163d",
+          "bytes": 11128,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/B-prepatch/backend/scripts/master-r2-publication.test.js",
+          "time": "2026-09-15T13:49:34.329Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-publication.test.js",
+          "sha256": "f88ba3032e7d49c5e60a268cc926e05aaeb737d5759ff42dbdcd602ffdba540d",
+          "bytes": 13894,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-publication.test.js",
+          "time": "2026-09-15T16:56:21.231Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-quality-replay.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-quality-replay.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/scripts/master-r2-quality-replay.test.js",
+        "time": "2026-09-15T16:43:40.487Z"
+      },
+      "afterSha256": "109854fe817367b518770da7bd1e3d7dadc59c71503272f89eed23714e9e8f67",
+      "bytes": 2487,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-quality-replay.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-quality-replay.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-quality-replay.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/scripts/master-r2-quality-replay.test.js",
+          "time": "2026-09-15T16:43:40.487Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-related-replay.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-related-replay.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/scripts/master-r2-related-replay.test.js",
+        "time": "2026-09-15T13:38:26.471Z"
+      },
+      "afterSha256": "20886ea65ba793ee27da4926bb0a7b8ddd7ab16c15fc36633ae30d9cf820b63a",
+      "bytes": 12957,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-related-replay.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-related-replay.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-related-replay.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/scripts/master-r2-related-replay.test.js",
+          "time": "2026-09-15T13:38:26.471Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-related-replay.test.js",
+          "sha256": "371528dd8788ea4bae8cf26b9d743c9b4b2d6ec7b483f4b311999f253c513068",
+          "bytes": 10842,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-prepatch/backend/scripts/master-r2-related-replay.test.js",
+          "time": "2026-09-15T13:40:00.115Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-related-replay.test.js",
+          "sha256": "e38899cd8fd5e7a418a63a6dabbe104441903c43ee45508152491da761301a95",
+          "bytes": 12925,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-extra-prepatch/backend/scripts/master-r2-related-replay.test.js",
+          "time": "2026-09-15T13:42:54.397Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-replay.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-replay.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/scripts/master-r2-replay.test.js",
+        "time": "2026-09-15T13:11:46.599Z"
+      },
+      "afterSha256": "6bb29fa0bc13a2bfc4961f6f7f0780064f9d0f0827466b9f1ac489b793b4da35",
+      "bytes": 17857,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-replay.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-replay.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-replay.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/scripts/master-r2-replay.test.js",
+          "time": "2026-09-15T13:11:46.599Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-replay.test.js",
+          "sha256": "2a5588ac501d39c6c4e7eaec1465fe25f7789f994751ced81dcb46a2e771cc8f",
+          "bytes": 19440,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-harness-red01/backend/scripts/master-r2-replay.test.js",
+          "time": "2026-09-15T13:27:26.739Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-replay.test.js",
+          "sha256": "584082a1c30973f4dbe1eb6236df7e7e3a6b88188c941d6b04aada92788c6010",
+          "bytes": 21845,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-null-comment-prepatch/backend/scripts/master-r2-replay.test.js",
+          "time": "2026-09-15T13:52:52.714Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-replay.test.js",
+          "sha256": "584082a1c30973f4dbe1eb6236df7e7e3a6b88188c941d6b04aada92788c6010",
+          "bytes": 21845,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-replay.test.js",
+          "time": "2026-09-15T16:56:21.231Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-service-bridge.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-service-bridge.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-service-bridge.cjs",
+        "time": "2026-09-15T16:56:21.231Z"
+      },
+      "afterSha256": "834c440b11b2720dbb7642a926e615c24d9f51acf88a234c8e6d3cd79cc9a9a5",
+      "bytes": 5080,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-service-bridge.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-service-bridge.cjs.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-service-bridge.cjs",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-service-bridge.cjs",
+          "time": "2026-09-15T16:56:21.231Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-stock-replay.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-stock-replay.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-tail-before/backend/scripts/master-r2-stock-replay.test.js",
+        "time": "2026-09-15T16:41:34.467Z"
+      },
+      "afterSha256": "4baa8c3466412f2d71c54e285b4021e6fe5b96302145a59cb2fe6035922aa82b",
+      "bytes": 2815,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-stock-replay.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-stock-replay.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-stock-replay.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-tail-before/backend/scripts/master-r2-stock-replay.test.js",
+          "time": "2026-09-15T16:41:34.467Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-task-chain.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-task-chain.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-task-chain-before/backend/scripts/master-r2-task-chain.test.js",
+        "time": "2026-09-15T17:00:35.392Z"
+      },
+      "afterSha256": "45070859c6a9a0ec60e4fc095d8c8a1e4c8783ae7b17cbf5814919319333184c",
+      "bytes": 5655,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-task-chain.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-task-chain.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-task-chain.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-task-chain-before/backend/scripts/master-r2-task-chain.test.js",
+          "time": "2026-09-15T17:00:35.392Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-task-chain.test.js",
+          "sha256": "eb638be4de3e4f85036ca30ae7790a32923125f50d1a3301878bb2c111c8ec0d",
+          "bytes": 5312,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-task-chain-fixture-correction/backend/scripts/master-r2-task-chain.test.js",
+          "time": "2026-09-15T17:01:06.614Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-task-chain.test.js",
+          "sha256": "beba78759969291cbf73f6a236b75dca1fe7ed7e97c4065cfbee1e4f343082ff",
+          "bytes": 5331,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-task-chain-count-correction/backend/scripts/master-r2-task-chain.test.js",
+          "time": "2026-09-15T17:01:36.917Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-task-chain.test.js",
+          "sha256": "47de87dc1390138ed2bcc2b90175b84ffcfeab9630d4507bb8ccb6111d99ae1d",
+          "bytes": 5469,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-task-chain-recovery-correction/backend/scripts/master-r2-task-chain.test.js",
+          "time": "2026-09-15T17:02:11.709Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-task-fixture.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-task-fixture.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-task-fixture.cjs",
+        "time": "2026-09-15T16:56:21.231Z"
+      },
+      "afterSha256": "0b58caa4b7e70e1c5e291b5070495a9d4ce2a2c51dd4149c158d3b5c36211f92",
+      "bytes": 4780,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-task-fixture.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-task-fixture.cjs.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-task-fixture.cjs",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-bridge-fixtures-before/backend/scripts/master-r2-task-fixture.cjs",
+          "time": "2026-09-15T16:56:21.231Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-r2-wash-lifecycle.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r2-wash-lifecycle.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-wash-before/backend/scripts/master-r2-wash-lifecycle.test.js",
+        "time": "2026-09-15T16:33:14.556Z"
+      },
+      "afterSha256": "d7c47bdb203a2ee7d7c0830ec47df01e0537f3e5c3bf13f2880fe4111517d095",
+      "bytes": 7625,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-r2-wash-lifecycle.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-r2-wash-lifecycle.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r2-wash-lifecycle.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-wash-before/backend/scripts/master-r2-wash-lifecycle.test.js",
+          "time": "2026-09-15T16:33:14.556Z"
+        },
+        {
+          "owner": "backend/scripts/master-r2-wash-lifecycle.test.js",
+          "sha256": "db1528ce4a3638e36ae268cbe75091229f2fd1fc0b16075e81550ce581458a60",
+          "bytes": 7599,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-wash-test-before-correction/backend/scripts/master-r2-wash-lifecycle.test.js",
+          "time": "2026-09-15T16:33:34.179Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/scripts/master-task-replay-boundary.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": "22763e5dfd86a9dba9bdc56b64d4ab54822f3466690b27eb3aacb231f3821999",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/scripts/master-task-replay-boundary.test.js",
+      "absenceReceipt": null,
+      "afterSha256": "a8bc60c59efed1b24ff8b30a187d549d336559536589300cb5a05867ec4410ad",
+      "bytes": 2706,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/scripts/master-task-replay-boundary.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/scripts/master-task-replay-boundary.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-task-replay-boundary.test.js",
+          "sha256": "22763e5dfd86a9dba9bdc56b64d4ab54822f3466690b27eb3aacb231f3821999",
+          "bytes": 2468,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/scripts/master-task-replay-boundary.test.js",
+          "time": "2026-09-15T13:11:46.599Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/announcements/announcements.service.ts",
+      "kind": "product",
+      "beforeSha256": "e97cdedd0c07367730dfff821e42ca9d9fb04c88aebd74a698f0212a3cf7bb3a",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/B-before/backend/src/modules/announcements/announcements.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "dff3e2cd004dc6a70975af2b839ae5a752780f6a98d3e4ecb9ddd6ee4b2c7a57",
+      "bytes": 44004,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/announcements/announcements.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/announcements/announcements.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/announcements/announcements.service.ts",
+          "sha256": "e97cdedd0c07367730dfff821e42ca9d9fb04c88aebd74a698f0212a3cf7bb3a",
+          "bytes": 43061,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/B-before/backend/src/modules/announcements/announcements.service.ts",
+          "time": "2026-09-15T13:48:40.401Z"
+        },
+        {
+          "owner": "backend/src/modules/announcements/announcements.service.ts",
+          "sha256": "e97cdedd0c07367730dfff821e42ca9d9fb04c88aebd74a698f0212a3cf7bb3a",
+          "bytes": 43061,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/B-prepatch/backend/src/modules/announcements/announcements.service.ts",
+          "time": "2026-09-15T13:49:34.329Z"
+        },
+        {
+          "owner": "backend/src/modules/announcements/announcements.service.ts",
+          "sha256": "dff3e2cd004dc6a70975af2b839ae5a752780f6a98d3e4ecb9ddd6ee4b2c7a57",
+          "bytes": 44004,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/AB-source-current/backend/src/modules/announcements/announcements.service.ts",
+          "time": "2026-09-15T13:58:10.934Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/attachments/attachments.service.ts",
+      "kind": "product",
+      "beforeSha256": "10ca8ee3534b3a2d1e699f6603e7cfd23052491b2309cef91dba274eda01c876",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-chat-chain-before/backend/src/modules/attachments/attachments.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "b9353200842657096ce5d43a84dbf016c4781bb3dcdc08708a75a4871b59f7a0",
+      "bytes": 36374,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/attachments/attachments.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/attachments/attachments.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/attachments/attachments.service.ts",
+          "sha256": "10ca8ee3534b3a2d1e699f6603e7cfd23052491b2309cef91dba274eda01c876",
+          "bytes": 36310,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-chat-chain-before/backend/src/modules/attachments/attachments.service.ts",
+          "time": "2026-09-15T17:13:47.711Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "kind": "product",
+      "beforeSha256": "f9a6fabe619162fd0bfdb8f8e0be4bfa3d4f160f7a72ec60fa78b98a55f91fbb",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/src/modules/chats/chats.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "e3217fb5b72f05661d04bb00c619e2c02ec61d1984475bf9ecb807fa0f2f5c40",
+      "bytes": 81708,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/chats/chats.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/chats/chats.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/chats/chats.service.ts",
+          "sha256": "f9a6fabe619162fd0bfdb8f8e0be4bfa3d4f160f7a72ec60fa78b98a55f91fbb",
+          "bytes": 82914,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/src/modules/chats/chats.service.ts",
+          "time": "2026-09-15T13:38:26.471Z"
+        },
+        {
+          "owner": "backend/src/modules/chats/chats.service.ts",
+          "sha256": "f9a6fabe619162fd0bfdb8f8e0be4bfa3d4f160f7a72ec60fa78b98a55f91fbb",
+          "bytes": 82914,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-extra-prepatch/backend/src/modules/chats/chats.service.ts",
+          "time": "2026-09-15T13:42:54.397Z"
+        },
+        {
+          "owner": "backend/src/modules/chats/chats.service.ts",
+          "sha256": "d3d77637ed825d5bca8369e88becf1661295f7484c8376f8152d7f8a27725b8f",
+          "bytes": 83294,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/AB-source-current/backend/src/modules/chats/chats.service.ts",
+          "time": "2026-09-15T13:58:10.934Z"
+        },
+        {
+          "owner": "backend/src/modules/chats/chats.service.ts",
+          "sha256": "d3d77637ed825d5bca8369e88becf1661295f7484c8376f8152d7f8a27725b8f",
+          "bytes": 83294,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-before/backend/src/modules/chats/chats.service.ts",
+          "time": "2026-09-15T16:14:57.711Z"
+        },
+        {
+          "owner": "backend/src/modules/chats/chats.service.ts",
+          "sha256": "e8960d3aabe671eded2512f2b0abaa9c2dfef999287d5c10696f84a9223dbb94",
+          "bytes": 81584,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-current-01/backend/src/modules/chats/chats.service.ts",
+          "time": "2026-09-15T16:18:01.224Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/checklists/checklists.service.ts",
+      "kind": "product",
+      "beforeSha256": "bf9c78b048b86a64cb5de451a463bafbdaf9b1a8d06873f350600ccd23f37e9f",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/src/modules/checklists/checklists.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "30c4dc834637801d79d7173dd949c091195974b284c940f47f8532714453c975",
+      "bytes": 143127,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/checklists/checklists.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/checklists/checklists.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/checklists/checklists.service.ts",
+          "sha256": "bf9c78b048b86a64cb5de451a463bafbdaf9b1a8d06873f350600ccd23f37e9f",
+          "bytes": 142725,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/src/modules/checklists/checklists.service.ts",
+          "time": "2026-09-15T13:38:26.471Z"
+        },
+        {
+          "owner": "backend/src/modules/checklists/checklists.service.ts",
+          "sha256": "bf9c78b048b86a64cb5de451a463bafbdaf9b1a8d06873f350600ccd23f37e9f",
+          "bytes": 142725,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-prepatch/backend/src/modules/checklists/checklists.service.ts",
+          "time": "2026-09-15T13:40:00.115Z"
+        },
+        {
+          "owner": "backend/src/modules/checklists/checklists.service.ts",
+          "sha256": "17b9c1cbf5f5135b16ec0e97b8ff6e0cb0ee5650967dae5b78bf110574da0c5c",
+          "bytes": 142969,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/AB-source-current/backend/src/modules/checklists/checklists.service.ts",
+          "time": "2026-09-15T13:58:10.934Z"
+        },
+        {
+          "owner": "backend/src/modules/checklists/checklists.service.ts",
+          "sha256": "17b9c1cbf5f5135b16ec0e97b8ff6e0cb0ee5650967dae5b78bf110574da0c5c",
+          "bytes": 142969,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-tail-before/backend/src/modules/checklists/checklists.service.ts",
+          "time": "2026-09-15T16:41:34.467Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/defrost/defrost.service.ts",
+      "kind": "product",
+      "beforeSha256": "cd5f2121f048c86eae28cfd79e5e5eeabd93de18941ea971e160f5f1a71e7037",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-defrost-line-replay-before/backend/src/modules/defrost/defrost.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "d96dcce89cc671ac992c8b02444e3f102eccf33300f2a492c665b04a9d5adc9a",
+      "bytes": 33514,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/defrost/defrost.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/defrost/defrost.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/defrost/defrost.service.ts",
+          "sha256": "cd5f2121f048c86eae28cfd79e5e5eeabd93de18941ea971e160f5f1a71e7037",
+          "bytes": 33255,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-defrost-line-replay-before/backend/src/modules/defrost/defrost.service.ts",
+          "time": "2026-09-15T16:53:09.637Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/employee/employee.service.ts",
+      "kind": "product",
+      "beforeSha256": "affb762c567c7b283a7851fc541ceed00a61ea49a6db38735ebe031c76671d66",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/src/modules/employee/employee.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "6c8c25def3e628d38e0f7993eacde347878ba17d01ccbabdc317558163fc178f",
+      "bytes": 54270,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/employee/employee.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/employee/employee.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/employee/employee.service.ts",
+          "sha256": "affb762c567c7b283a7851fc541ceed00a61ea49a6db38735ebe031c76671d66",
+          "bytes": 52557,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/src/modules/employee/employee.service.ts",
+          "time": "2026-09-15T13:38:26.471Z"
+        },
+        {
+          "owner": "backend/src/modules/employee/employee.service.ts",
+          "sha256": "affb762c567c7b283a7851fc541ceed00a61ea49a6db38735ebe031c76671d66",
+          "bytes": 52557,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-prepatch/backend/src/modules/employee/employee.service.ts",
+          "time": "2026-09-15T13:40:00.115Z"
+        },
+        {
+          "owner": "backend/src/modules/employee/employee.service.ts",
+          "sha256": "b62fdf46b3f0425ba0a2f44a361a146ec89b9b6474855ecd87c68a3881f2c69b",
+          "bytes": 54212,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-extra-prepatch/backend/src/modules/employee/employee.service.ts",
+          "time": "2026-09-15T13:42:54.397Z"
+        },
+        {
+          "owner": "backend/src/modules/employee/employee.service.ts",
+          "sha256": "6c8c25def3e628d38e0f7993eacde347878ba17d01ccbabdc317558163fc178f",
+          "bytes": 54270,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/AB-source-current/backend/src/modules/employee/employee.service.ts",
+          "time": "2026-09-15T13:58:10.934Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/error-report/error-report.service.ts",
+      "kind": "product",
+      "beforeSha256": "21a857067b145797cce3229ab73b5dc9de721c9ffd81593ffc8d66014fb30847",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/src/modules/error-report/error-report.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "04a4f70cb1adb7cbce17fa6e804931da3e4b3949f9af89efbc89724e88faf9da",
+      "bytes": 11661,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/error-report/error-report.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/error-report/error-report.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/error-report/error-report.service.ts",
+          "sha256": "21a857067b145797cce3229ab73b5dc9de721c9ffd81593ffc8d66014fb30847",
+          "bytes": 11227,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/src/modules/error-report/error-report.service.ts",
+          "time": "2026-09-15T16:43:40.487Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/line/line.service.ts",
+      "kind": "product",
+      "beforeSha256": "48296e4f49eefdd8d116910271c4bb742bd6588e0821e906a016038cbaa146bd",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/backend/src/modules/line/line.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "3a0c52b875be7241776583fae49e94fbbe828ea0d8a0f53ddc40b7291825dc47",
+      "bytes": 164600,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/line/line.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/line/line.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/line/line.service.ts",
+          "sha256": "48296e4f49eefdd8d116910271c4bb742bd6588e0821e906a016038cbaa146bd",
+          "bytes": 164291,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/backend/src/modules/line/line.service.ts",
+          "time": "2026-09-15T16:20:57.440Z"
+        },
+        {
+          "owner": "backend/src/modules/line/line.service.ts",
+          "sha256": "48296e4f49eefdd8d116910271c4bb742bd6588e0821e906a016038cbaa146bd",
+          "bytes": 164291,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-line-source-before/backend/src/modules/line/line.service.ts",
+          "time": "2026-09-15T16:22:20.396Z"
+        },
+        {
+          "owner": "backend/src/modules/line/line.service.ts",
+          "sha256": "2f5499228ca5107cb11a085a0c1bb87ccd195e2e77be12405ebc21dbf2df9aa4",
+          "bytes": 164370,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-defrost-line-replay-before/backend/src/modules/line/line.service.ts",
+          "time": "2026-09-15T16:53:09.637Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/okk/okk.service.ts",
+      "kind": "product",
+      "beforeSha256": "326a47248cf06ce0c34f2760a55e0f25a2e2b03340f651d1b3de3003bf6c8c29",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/src/modules/okk/okk.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "9c779ff15225f11e9ef8fa06b3b44c087b17af14aa63b504f74a8ede3df61542",
+      "bytes": 26130,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/okk/okk.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/okk/okk.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/okk/okk.service.ts",
+          "sha256": "326a47248cf06ce0c34f2760a55e0f25a2e2b03340f651d1b3de3003bf6c8c29",
+          "bytes": 25807,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/src/modules/okk/okk.service.ts",
+          "time": "2026-09-15T16:43:40.487Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/orders/orders.service.ts",
+      "kind": "product",
+      "beforeSha256": "433655ea186e022ff7fbb5d2474e61c08001a36db10d980c8c6dc13ad48390ec",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-orders-before/backend/src/modules/orders/orders.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "993d604957146ce8ba2e0e333a374c83283f6d1ce9689bbdb8470d509b557f94",
+      "bytes": 49057,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/orders/orders.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/orders/orders.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/orders/orders.service.ts",
+          "sha256": "433655ea186e022ff7fbb5d2474e61c08001a36db10d980c8c6dc13ad48390ec",
+          "bytes": 48635,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-orders-before/backend/src/modules/orders/orders.service.ts",
+          "time": "2026-09-15T16:27:38.958Z"
+        },
+        {
+          "owner": "backend/src/modules/orders/orders.service.ts",
+          "sha256": "59710136205d7674902b8997b38a83ae6c48402a68c3935665efcae2ee96ef03",
+          "bytes": 49021,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-tail-before/backend/src/modules/orders/orders.service.ts",
+          "time": "2026-09-15T16:41:34.467Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/returns/returns.service.ts",
+      "kind": "product",
+      "beforeSha256": "c26f604a003cc02bdb3778dd30a2d9d80fdfc19d96a36f71f3b5cb4b5b1ff7a1",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/src/modules/returns/returns.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "4b16ad1a7116a1c8adf6ab720be90a661fc681c5f1df5ae360349585705e5a20",
+      "bytes": 19141,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/returns/returns.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/returns/returns.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/returns/returns.service.ts",
+          "sha256": "c26f604a003cc02bdb3778dd30a2d9d80fdfc19d96a36f71f3b5cb4b5b1ff7a1",
+          "bytes": 18763,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/src/modules/returns/returns.service.ts",
+          "time": "2026-09-15T16:43:40.487Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "kind": "product",
+      "beforeSha256": "e6a4f7bc9cc00fe11a595dddcc5155657fdb76b26514ada41eb6259d990cd7a4",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/src/modules/shift/shift.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "94a1ec9032936ae01e769f10f9d254ff394db49c1b5286250dbb1209500dc578",
+      "bytes": 136427,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/shift/shift.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/shift/shift.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/shift/shift.service.ts",
+          "sha256": "e6a4f7bc9cc00fe11a595dddcc5155657fdb76b26514ada41eb6259d990cd7a4",
+          "bytes": 133780,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-before/backend/src/modules/shift/shift.service.ts",
+          "time": "2026-09-15T13:38:26.471Z"
+        },
+        {
+          "owner": "backend/src/modules/shift/shift.service.ts",
+          "sha256": "e6a4f7bc9cc00fe11a595dddcc5155657fdb76b26514ada41eb6259d990cd7a4",
+          "bytes": 133780,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-related-prepatch/backend/src/modules/shift/shift.service.ts",
+          "time": "2026-09-15T13:40:00.115Z"
+        },
+        {
+          "owner": "backend/src/modules/shift/shift.service.ts",
+          "sha256": "f0836a2f74612d452b8c16e163a493890bcbcb2e8a2039f0ef1ca0077ea7da79",
+          "bytes": 135045,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/AB-source-current/backend/src/modules/shift/shift.service.ts",
+          "time": "2026-09-15T13:58:10.934Z"
+        },
+        {
+          "owner": "backend/src/modules/shift/shift.service.ts",
+          "sha256": "f0836a2f74612d452b8c16e163a493890bcbcb2e8a2039f0ef1ca0077ea7da79",
+          "bytes": 135045,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-before/backend/src/modules/shift/shift.service.ts",
+          "time": "2026-09-15T16:14:57.711Z"
+        },
+        {
+          "owner": "backend/src/modules/shift/shift.service.ts",
+          "sha256": "94a1ec9032936ae01e769f10f9d254ff394db49c1b5286250dbb1209500dc578",
+          "bytes": 136427,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-replay-current-01/backend/src/modules/shift/shift.service.ts",
+          "time": "2026-09-15T16:18:01.224Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/stock/stock.service.ts",
+      "kind": "product",
+      "beforeSha256": "4a1e4734b569c914a9efa2a97d4fde4d2f85be5a83ce67783873311e7db73d98",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/src/modules/stock/stock.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "ea2428ef1a2fc8fde07217ce9285a8a9abb8bad8ffc385bf7ddb32fd5ba560fc",
+      "bytes": 8525,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/stock/stock.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/stock/stock.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/stock/stock.service.ts",
+          "sha256": "4a1e4734b569c914a9efa2a97d4fde4d2f85be5a83ce67783873311e7db73d98",
+          "bytes": 8202,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-quality-replay-before/backend/src/modules/stock/stock.service.ts",
+          "time": "2026-09-15T16:43:40.487Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/task/task.service.ts",
+      "kind": "product",
+      "beforeSha256": "92159e590632fc6c190c01cfcb1dd9841bdf16674452f882c9a582a4a4326bd1",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/src/modules/task/task.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "947de3145e4116d5d9df56dd58d63bce90df3638dd91ab38e585bdded925acd3",
+      "bytes": 45887,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/task/task.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/task/task.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/task/task.service.ts",
+          "sha256": "92159e590632fc6c190c01cfcb1dd9841bdf16674452f882c9a582a4a4326bd1",
+          "bytes": 44851,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/src/modules/task/task.service.ts",
+          "time": "2026-09-15T13:11:46.599Z"
+        },
+        {
+          "owner": "backend/src/modules/task/task.service.ts",
+          "sha256": "92159e590632fc6c190c01cfcb1dd9841bdf16674452f882c9a582a4a4326bd1",
+          "bytes": 44851,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-product-prepatch/backend/src/modules/task/task.service.ts",
+          "time": "2026-09-15T13:29:48.694Z"
+        },
+        {
+          "owner": "backend/src/modules/task/task.service.ts",
+          "sha256": "06523186ed1b28e12209eeae2c9b8feddfbaa4a46c2da5bf36c6634bf51af920",
+          "bytes": 44949,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-null-comment-prepatch/backend/src/modules/task/task.service.ts",
+          "time": "2026-09-15T13:52:52.714Z"
+        },
+        {
+          "owner": "backend/src/modules/task/task.service.ts",
+          "sha256": "947de3145e4116d5d9df56dd58d63bce90df3638dd91ab38e585bdded925acd3",
+          "bytes": 45887,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/AB-source-current/backend/src/modules/task/task.service.ts",
+          "time": "2026-09-15T13:58:10.934Z"
+        }
+      ]
+    },
+    {
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "kind": "product",
+      "beforeSha256": "66dadbee88a1694fa3a9672e31837b7b1d1a8e462d14b18feb72a4e2bd056f8c",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/src/modules/wash/wash.service.ts",
+      "absenceReceipt": null,
+      "afterSha256": "4973ec3b2274499396c54d5bb03c2fe5a44e8e07168635791ac37d9adfbc9633",
+      "bytes": 75430,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/backend/src/modules/wash/wash.service.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/backend/src/modules/wash/wash.service.ts.diff",
+      "versions": [
+        {
+          "owner": "backend/src/modules/wash/wash.service.ts",
+          "sha256": "66dadbee88a1694fa3a9672e31837b7b1d1a8e462d14b18feb72a4e2bd056f8c",
+          "bytes": 72295,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-replay-before/backend/src/modules/wash/wash.service.ts",
+          "time": "2026-09-15T13:11:46.599Z"
+        },
+        {
+          "owner": "backend/src/modules/wash/wash.service.ts",
+          "sha256": "66dadbee88a1694fa3a9672e31837b7b1d1a8e462d14b18feb72a4e2bd056f8c",
+          "bytes": 72295,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-product-prepatch/backend/src/modules/wash/wash.service.ts",
+          "time": "2026-09-15T13:29:48.694Z"
+        },
+        {
+          "owner": "backend/src/modules/wash/wash.service.ts",
+          "sha256": "3c811299be88120976ce59a434d3b2e6692b74809be712b0b1541a8741ee372d",
+          "bytes": 74582,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/A-null-comment-prepatch/backend/src/modules/wash/wash.service.ts",
+          "time": "2026-09-15T13:52:52.714Z"
+        },
+        {
+          "owner": "backend/src/modules/wash/wash.service.ts",
+          "sha256": "4973ec3b2274499396c54d5bb03c2fe5a44e8e07168635791ac37d9adfbc9633",
+          "bytes": 75430,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/AB-source-current/backend/src/modules/wash/wash.service.ts",
+          "time": "2026-09-15T13:58:10.934Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/component-contracts.spec.ts",
+      "kind": "test-or-support",
+      "beforeSha256": "9c578f3c9bd81b3b2f785f40c02a4c413c9bd89643cb55b71d8bbf09c2a8a28f",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-form-tail-before/frontend/e2e/component-contracts.spec.ts",
+      "absenceReceipt": null,
+      "afterSha256": "2a763236a51416a522bcad7592d7c41db1fe37ef5a7dd6e9596306651b54bf36",
+      "bytes": 22551,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/e2e/component-contracts.spec.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/e2e/component-contracts.spec.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/component-contracts.spec.ts",
+          "sha256": "9c578f3c9bd81b3b2f785f40c02a4c413c9bd89643cb55b71d8bbf09c2a8a28f",
+          "bytes": 19556,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-form-tail-before/frontend/e2e/component-contracts.spec.ts",
+          "time": "2026-09-15T17:20:05.349Z"
+        },
+        {
+          "owner": "frontend/e2e/component-contracts.spec.ts",
+          "sha256": "2536ff65cb663f14787f8b02b985e6883f13ecd0d071b462120d8e596448f06f",
+          "bytes": 22498,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-form-tail-focus-before/frontend/e2e/component-contracts.spec.ts",
+          "time": "2026-09-15T17:23:21.382Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/helpers/components.tsx",
+      "kind": "test-or-support",
+      "beforeSha256": "85aae1a9e582e32d7ec29cb634f1829266531a7e8c3e9186394bedacf42cf885",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-form-tail-before/frontend/e2e/helpers/components.tsx",
+      "absenceReceipt": null,
+      "afterSha256": "ae86452672802bf47416663d1f8c4149d35352829b8a70165abf73149871cf96",
+      "bytes": 7031,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/e2e/helpers/components.tsx",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/e2e/helpers/components.tsx.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/helpers/components.tsx",
+          "sha256": "85aae1a9e582e32d7ec29cb634f1829266531a7e8c3e9186394bedacf42cf885",
+          "bytes": 6564,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-form-tail-before/frontend/e2e/helpers/components.tsx",
+          "time": "2026-09-15T17:20:05.349Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/helpers/master-r2-bridge.ts",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/helpers/master-r2-bridge.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-ipc-bridge-before/frontend/e2e/helpers/master-r2-bridge.ts",
+        "time": "2026-09-15T17:04:00.266Z"
+      },
+      "afterSha256": "af2ec2fdf4b4c9219f43ba15fdb539d41a5855889c4333fa8e363c1611f95dcb",
+      "bytes": 1124,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/e2e/helpers/master-r2-bridge.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/e2e/helpers/master-r2-bridge.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/helpers/master-r2-bridge.ts",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-ipc-bridge-before/frontend/e2e/helpers/master-r2-bridge.ts",
+          "time": "2026-09-15T17:04:00.266Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/helpers/master-r2-reporter.ts",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/helpers/master-r2-reporter.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/G-infra-before/frontend/e2e/helpers/master-r2-reporter.ts",
+        "time": "2026-09-15T17:33:32.472Z"
+      },
+      "afterSha256": "e48419057201ed61f70d4628a827946578ee6e71950ff7c88be397da7590efbe",
+      "bytes": 1487,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/e2e/helpers/master-r2-reporter.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/e2e/helpers/master-r2-reporter.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/helpers/master-r2-reporter.ts",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/G-infra-before/frontend/e2e/helpers/master-r2-reporter.ts",
+          "time": "2026-09-15T17:33:32.472Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/master-r2-bridge.spec.ts",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r2-bridge.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-ipc-bridge-before/frontend/e2e/master-r2-bridge.spec.ts",
+        "time": "2026-09-15T17:04:00.266Z"
+      },
+      "afterSha256": "784700544a84975960c92ee06a7f5b16c8397f7b4cd02ce42e033be85da7455b",
+      "bytes": 7734,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/e2e/master-r2-bridge.spec.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/e2e/master-r2-bridge.spec.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/master-r2-bridge.spec.ts",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-ipc-bridge-before/frontend/e2e/master-r2-bridge.spec.ts",
+          "time": "2026-09-15T17:04:00.266Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r2-bridge.spec.ts",
+          "sha256": "25fc9fc8eb59d58fbccc48211bc3fb27d0264e27546c7a330285c59d98028bc2",
+          "bytes": 7277,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-browser-bridge-locator-before/frontend/e2e/master-r2-bridge.spec.ts",
+          "time": "2026-09-15T17:11:32.814Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r2-bridge.spec.ts",
+          "sha256": "d1b41ea20d54c289e6ddcd175ce7853d7674ae7387e6cbd158d9243d51aca717",
+          "bytes": 7614,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-browser-bridge-contract-before/frontend/e2e/master-r2-bridge.spec.ts",
+          "time": "2026-09-15T17:13:06.738Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r2-bridge.spec.ts",
+          "sha256": "3f709b91799e129bfcc9b1c1fa96e38428cecdf6ecf38238939b4793389576e5",
+          "bytes": 7712,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-browser-bridge-navigation-before/frontend/e2e/master-r2-bridge.spec.ts",
+          "time": "2026-09-15T17:14:11.641Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/master-r2-profile.spec.ts",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r2-profile.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-profile-before/frontend/e2e/master-r2-profile.spec.ts",
+        "time": "2026-09-15T16:47:43.835Z"
+      },
+      "afterSha256": "0494d0623bcda5c834e94514b7d9a8e335f19eab11ac92cef262869c8c7c929f",
+      "bytes": 3306,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/e2e/master-r2-profile.spec.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/e2e/master-r2-profile.spec.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/master-r2-profile.spec.ts",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-profile-before/frontend/e2e/master-r2-profile.spec.ts",
+          "time": "2026-09-15T16:47:43.835Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r2-profile.spec.ts",
+          "sha256": "2c32cb3fb25a14da5f680e34309edd7af242ae44443696450f6d93440949be2a",
+          "bytes": 2680,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-profile-harness-before/frontend/e2e/master-r2-profile.spec.ts",
+          "time": "2026-09-15T16:50:51.526Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r2-profile.spec.ts",
+          "sha256": "6524e2ce73f673eb6033388682889efdb71f3c778514ba7ed95a562b5ff088f5",
+          "bytes": 2699,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/G-profile-text-before/frontend/e2e/master-r2-profile.spec.ts",
+          "time": "2026-09-15T17:48:41.191Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/master-r2-return.spec.ts",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r2-return.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-form-tail-before/frontend/e2e/master-r2-return.spec.ts",
+        "time": "2026-09-15T17:20:05.349Z"
+      },
+      "afterSha256": "53634559eb4d4dee58995369ef1388c0f57d999dfb95bae3212392a104e78ede",
+      "bytes": 12260,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/e2e/master-r2-return.spec.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/e2e/master-r2-return.spec.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/master-r2-return.spec.ts",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-form-tail-before/frontend/e2e/master-r2-return.spec.ts",
+          "time": "2026-09-15T17:20:05.349Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r2-return.spec.ts",
+          "sha256": "c4d62daa22dd18c708d2047a1c4faa8a690f518cca2d3182d189ffa3b62ebf5b",
+          "bytes": 8793,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-return-selector-before/frontend/e2e/master-r2-return.spec.ts",
+          "time": "2026-09-15T17:25:04.849Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r2-return.spec.ts",
+          "sha256": "c9fa006821f7aeb688d96ebf61e43709557ba9a2d2cce991de8eaf0c9b7482d8",
+          "bytes": 8799,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-return-dto-before/frontend/e2e/master-r2-return.spec.ts",
+          "time": "2026-09-15T17:26:15.987Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r2-return.spec.ts",
+          "sha256": "1f54b5b28c5cefdb603d4ef2d9970901be1b6602965c331c112165e8e08f73c9",
+          "bytes": 8852,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-people-scroll-before/frontend/e2e/master-r2-return.spec.ts",
+          "time": "2026-09-15T17:27:07.965Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r2-return.spec.ts",
+          "sha256": "0bda807f2ebab74115f678c2edcef3fb5c1f3aba5162feeb4724c247fa00a193",
+          "bytes": 11434,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/G-profile-text-before/frontend/e2e/master-r2-return.spec.ts",
+          "time": "2026-09-15T17:48:41.191Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/master.playwright.config.ts",
+      "kind": "test-or-support",
+      "beforeSha256": "6ab11c3c6e0af18cff9a459e4bab44b93fede15dcf2c58c094b4e3e7a24cf0b7",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-profile-before/frontend/e2e/master.playwright.config.ts",
+      "absenceReceipt": null,
+      "afterSha256": "3ded68c98c971249e2cac7dadbd89e3ee76a2308605986f26957ec14f8d9ee80",
+      "bytes": 1095,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/e2e/master.playwright.config.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/e2e/master.playwright.config.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/master.playwright.config.ts",
+          "sha256": "6ab11c3c6e0af18cff9a459e4bab44b93fede15dcf2c58c094b4e3e7a24cf0b7",
+          "bytes": 1035,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-profile-before/frontend/e2e/master.playwright.config.ts",
+          "time": "2026-09-15T16:47:43.835Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/package.json",
+      "kind": "dependency-or-config",
+      "beforeSha256": "dc4323dc0684c6963613966e81ec2285857a035a88d66808f8500f23e7a2d5e6",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-owner-before/frontend/package.json",
+      "absenceReceipt": null,
+      "afterSha256": "5116d091608dc87b9e2daa5cc16229747aa304bb2acf088f5d6a09ee94fc2978",
+      "bytes": 11308,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/package.json",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/package.json.diff",
+      "versions": [
+        {
+          "owner": "frontend/package.json",
+          "sha256": "dc4323dc0684c6963613966e81ec2285857a035a88d66808f8500f23e7a2d5e6",
+          "bytes": 11060,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-owner-before/frontend/package.json",
+          "time": "2026-09-15T14:08:46.802Z"
+        },
+        {
+          "owner": "frontend/package.json",
+          "sha256": "94449bf024df11aff49580efb17fa76f5e1617a1d3e09a9839d50c7c3950bc32",
+          "bytes": 11252,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-infra-before/frontend/package.json",
+          "time": "2026-09-15T16:05:32.428Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/scripts/master-r2-preview.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/scripts/master-r2-preview.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-profile-before/frontend/scripts/master-r2-preview.cjs",
+        "time": "2026-09-15T16:47:43.835Z"
+      },
+      "afterSha256": "6977f21fe2a4f46c191c3239c760874b2fa21b540e491b3be0cdd3dcdee34570",
+      "bytes": 1476,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/scripts/master-r2-preview.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/scripts/master-r2-preview.cjs.diff",
+      "versions": [
+        {
+          "owner": "frontend/scripts/master-r2-preview.cjs",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-profile-before/frontend/scripts/master-r2-preview.cjs",
+          "time": "2026-09-15T16:47:43.835Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/scripts/master-r2-type-contract.test.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/scripts/master-r2-type-contract.test.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/frontend/scripts/master-r2-type-contract.test.cjs",
+        "time": "2026-09-15T16:20:57.440Z"
+      },
+      "afterSha256": "937de339261d34e654c1bc86aaf84c5dcec4af40a1d1a840b74d14029a83d283",
+      "bytes": 2830,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/scripts/master-r2-type-contract.test.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/scripts/master-r2-type-contract.test.cjs.diff",
+      "versions": [
+        {
+          "owner": "frontend/scripts/master-r2-type-contract.test.cjs",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/frontend/scripts/master-r2-type-contract.test.cjs",
+          "time": "2026-09-15T16:20:57.440Z"
+        },
+        {
+          "owner": "frontend/scripts/master-r2-type-contract.test.cjs",
+          "sha256": "c17629d00d7fcc31986a6ae682a3761249d81faac4f0dd3f7b611bb017844fbc",
+          "bytes": 2816,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-line-source-before/frontend/scripts/master-r2-type-contract.test.cjs",
+          "time": "2026-09-15T16:22:20.396Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/scripts/master-r2-typecheck.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/scripts/master-r2-typecheck.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-owner-before/frontend/scripts/master-r2-typecheck.cjs",
+        "time": "2026-09-15T14:08:46.802Z"
+      },
+      "afterSha256": "6438a54253ac8f1e17f036b50180a42f727cb64158803d83800efd9320f7f8d6",
+      "bytes": 2982,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/scripts/master-r2-typecheck.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/scripts/master-r2-typecheck.cjs.diff",
+      "versions": [
+        {
+          "owner": "frontend/scripts/master-r2-typecheck.cjs",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-owner-before/frontend/scripts/master-r2-typecheck.cjs",
+          "time": "2026-09-15T14:08:46.802Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/components/AttachmentPreviewList.tsx",
+      "kind": "product",
+      "beforeSha256": "8d4248233b67ea9bed6d7fde85f8e3689b3ee08ace72a55eb4373c06f5d2e477",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/components/AttachmentPreviewList.tsx",
+      "absenceReceipt": null,
+      "afterSha256": "d21d37652b3c190724a0ab7f4034fde34784d9711b09d0775941f559b7cfa93a",
+      "bytes": 20688,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/components/AttachmentPreviewList.tsx",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/components/AttachmentPreviewList.tsx.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/components/AttachmentPreviewList.tsx",
+          "sha256": "8d4248233b67ea9bed6d7fde85f8e3689b3ee08ace72a55eb4373c06f5d2e477",
+          "bytes": 20341,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/components/AttachmentPreviewList.tsx",
+          "time": "2026-09-15T16:09:51.408Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/offline/sync-engine.ts",
+      "kind": "product",
+      "beforeSha256": "12b2b52fd33b4ee06c59cc71c53a996d630d9aa3b067826ae531f17b883dcddf",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/frontend/src/offline/sync-engine.ts",
+      "absenceReceipt": null,
+      "afterSha256": "bbbdb980241e85e666feb9fbcb0ae8e169b987b45b37d7c696a063d3d95a9555",
+      "bytes": 189,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/offline/sync-engine.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/offline/sync-engine.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/offline/sync-engine.ts",
+          "sha256": "12b2b52fd33b4ee06c59cc71c53a996d630d9aa3b067826ae531f17b883dcddf",
+          "bytes": 534,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/frontend/src/offline/sync-engine.ts",
+          "time": "2026-09-15T16:20:57.440Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/screens/AdminConfigScreen.tsx",
+      "kind": "product",
+      "beforeSha256": "08a3c208a99cbb777b1bf1bff29ad91ca2f82e41a34a9357dccd3a0d654ab255",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/AdminConfigScreen.tsx",
+      "absenceReceipt": null,
+      "afterSha256": "86f676d62314f6c411ec4ab361ec9d6ba0d88a5c3e99e561d2e6290818f63eb8",
+      "bytes": 228378,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/screens/AdminConfigScreen.tsx",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/screens/AdminConfigScreen.tsx.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/screens/AdminConfigScreen.tsx",
+          "sha256": "08a3c208a99cbb777b1bf1bff29ad91ca2f82e41a34a9357dccd3a0d654ab255",
+          "bytes": 228362,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/AdminConfigScreen.tsx",
+          "time": "2026-09-15T16:09:51.408Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/screens/ArchiveScreen.tsx",
+      "kind": "product",
+      "beforeSha256": "d9294f11cc5debe9497cb5a01b1ab078160141504c21e01da391d4414a84e2a8",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/ArchiveScreen.tsx",
+      "absenceReceipt": null,
+      "afterSha256": "511ea5e171a0ba8e17f34bb5326d7b6ce2dec462e85010a76ecb822bdf57da60",
+      "bytes": 48700,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/screens/ArchiveScreen.tsx",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/screens/ArchiveScreen.tsx.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/screens/ArchiveScreen.tsx",
+          "sha256": "d9294f11cc5debe9497cb5a01b1ab078160141504c21e01da391d4414a84e2a8",
+          "bytes": 48762,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/ArchiveScreen.tsx",
+          "time": "2026-09-15T16:09:51.408Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/screens/ChatsScreen.tsx",
+      "kind": "product",
+      "beforeSha256": "5ae31be9263fe343029a06a93efab14b5285ddc198362986500ed373de716007",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/ChatsScreen.tsx",
+      "absenceReceipt": null,
+      "afterSha256": "c961553c2f08bb3391781bc1fb088ef539d423c8ede1cbe03c1430b1ee8943a6",
+      "bytes": 95136,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/screens/ChatsScreen.tsx",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/screens/ChatsScreen.tsx.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/screens/ChatsScreen.tsx",
+          "sha256": "5ae31be9263fe343029a06a93efab14b5285ddc198362986500ed373de716007",
+          "bytes": 95089,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/ChatsScreen.tsx",
+          "time": "2026-09-15T16:09:51.408Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "kind": "product",
+      "beforeSha256": "f04b2f26e6f1422a588708de220ffddb4d62654cea3d702a707d894d2cf0454b",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-people-scroll-before/frontend/src/screens/PeopleScreen.tsx",
+      "absenceReceipt": null,
+      "afterSha256": "5c87cb4df8171897f24558f01ec10e3d79c59b9667a354296f3565b374c3b827",
+      "bytes": 36458,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/screens/PeopleScreen.tsx",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/screens/PeopleScreen.tsx.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/screens/PeopleScreen.tsx",
+          "sha256": "f04b2f26e6f1422a588708de220ffddb4d62654cea3d702a707d894d2cf0454b",
+          "bytes": 35608,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-people-scroll-before/frontend/src/screens/PeopleScreen.tsx",
+          "time": "2026-09-15T17:27:07.965Z"
+        },
+        {
+          "owner": "frontend/src/screens/PeopleScreen.tsx",
+          "sha256": "5c87cb4df8171897f24558f01ec10e3d79c59b9667a354296f3565b374c3b827",
+          "bytes": 36458,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/G-profile-text-before/frontend/src/screens/PeopleScreen.tsx",
+          "time": "2026-09-15T17:48:41.191Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "kind": "product",
+      "beforeSha256": "c5313acc0e54e342c29ae3e02409c9e5fbafa063e5525e3e08f30b5b85ca5684",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/ShiftPeopleScreen.tsx",
+      "absenceReceipt": null,
+      "afterSha256": "9b57a684602c55e6ab19f29d8c0f8a01fc80be30fa79395877145eb359d4def1",
+      "bytes": 347035,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/screens/ShiftPeopleScreen.tsx",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/screens/ShiftPeopleScreen.tsx.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+          "sha256": "c5313acc0e54e342c29ae3e02409c9e5fbafa063e5525e3e08f30b5b85ca5684",
+          "bytes": 346887,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/ShiftPeopleScreen.tsx",
+          "time": "2026-09-15T16:09:51.408Z"
+        },
+        {
+          "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+          "sha256": "6ab7688811aee4ece9d398227988fab7e0553c07235928915ae87a291f719b22",
+          "bytes": 346956,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/E-line-source-before/frontend/src/screens/ShiftPeopleScreen.tsx",
+          "time": "2026-09-15T16:22:20.396Z"
+        },
+        {
+          "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+          "sha256": "1e0fb2533740bd2bec92d718c074bad4aa0c73b66f6750bf0591202c44515fc3",
+          "bytes": 346968,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/F-profile-before/frontend/src/screens/ShiftPeopleScreen.tsx",
+          "time": "2026-09-15T16:47:43.835Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "kind": "product",
+      "beforeSha256": "a61ba83934b89b0e5ab3c7463643684d212f60be24b43bfa324b11211f73757f",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/WashScreen.tsx",
+      "absenceReceipt": null,
+      "afterSha256": "5753587abd5ccbd4fbb7d2950fc615eef35da9244f2945b2a00607aab24a2121",
+      "bytes": 54166,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/screens/WashScreen.tsx",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/screens/WashScreen.tsx.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/screens/WashScreen.tsx",
+          "sha256": "a61ba83934b89b0e5ab3c7463643684d212f60be24b43bfa324b11211f73757f",
+          "bytes": 54164,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/screens/WashScreen.tsx",
+          "time": "2026-09-15T16:09:51.408Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/store/app.store.ts",
+      "kind": "product",
+      "beforeSha256": "7d5a10b674a7168adf473337517f046e299072c5eca9e863f2acb6c8d4bac13b",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/store/app.store.ts",
+      "absenceReceipt": null,
+      "afterSha256": "d3d6ab1a23fb6519c8b42e2efda1a62c886d794ff0bb49ce4075fb2fb1325ca0",
+      "bytes": 26067,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/store/app.store.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/store/app.store.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/store/app.store.ts",
+          "sha256": "7d5a10b674a7168adf473337517f046e299072c5eca9e863f2acb6c8d4bac13b",
+          "bytes": 26015,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-source-before/frontend/src/store/app.store.ts",
+          "time": "2026-09-15T16:09:51.408Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/store/shift-store.ts",
+      "kind": "product",
+      "beforeSha256": "b1c866764b78f0ed40c223f1105d387928d28c07f1ff928c3ffd8c94cfe2daff",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/frontend/src/store/shift-store.ts",
+      "absenceReceipt": null,
+      "afterSha256": "e1055737cd0571854d9555265af2451219a9078bb9dfb7ceaebf20f56553a9bb",
+      "bytes": 713,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/store/shift-store.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/store/shift-store.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/store/shift-store.ts",
+          "sha256": "b1c866764b78f0ed40c223f1105d387928d28c07f1ff928c3ffd8c94cfe2daff",
+          "bytes": 286,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-legacy-before/frontend/src/store/shift-store.ts",
+          "time": "2026-09-15T16:20:57.440Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/styles.css",
+      "kind": "product",
+      "beforeSha256": "382fb863aa4339ed202854a3741b7edb06e69cd3d497643a2859ea9fdb1aa1b4",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/G-profile-text-before/frontend/src/styles.css",
+      "absenceReceipt": null,
+      "afterSha256": "6ecc6933ee5d53399d6c820b6793a25c05c4b2299f9884333a17bd1e7d94b406",
+      "bytes": 448613,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/src/styles.css",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/src/styles.css.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/styles.css",
+          "sha256": "382fb863aa4339ed202854a3741b7edb06e69cd3d497643a2859ea9fdb1aa1b4",
+          "bytes": 448006,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/G-profile-text-before/frontend/src/styles.css",
+          "time": "2026-09-15T17:48:41.191Z"
+        },
+        {
+          "owner": "frontend/src/styles.css",
+          "sha256": "15f72ada1738061d8f0e55570e9d431967616dad18d030b1471f4e4a760ed02b",
+          "bytes": 448624,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/G-profile-text-cascade-before/frontend/src/styles.css",
+          "time": "2026-09-15T17:51:05.844Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/tsconfig.json",
+      "kind": "dependency-or-config",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/tsconfig.json",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-owner-before/frontend/tsconfig.json",
+        "time": "2026-09-15T14:08:46.802Z"
+      },
+      "afterSha256": "a6bba5f9caa9212d7c7ea83533ed6764c42b44ac5523b2e28ad6586335e9e8ca",
+      "bytes": 472,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/frontend/tsconfig.json",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/frontend/tsconfig.json.diff",
+      "versions": [
+        {
+          "owner": "frontend/tsconfig.json",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-owner-before/frontend/tsconfig.json",
+          "time": "2026-09-15T14:08:46.802Z"
+        }
+      ]
+    },
+    {
+      "owner": "package-lock.json",
+      "kind": "dependency-or-config",
+      "beforeSha256": "ddf3b46c37037ca1844f66677106aa068448b0f61bd091655447823775e888cf",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-owner-before/package-lock.json",
+      "absenceReceipt": null,
+      "afterSha256": "42f9edd28e9901021f29e36529ab276e7aaae427809a7f9ce54da5a49ecdb523",
+      "bytes": 256102,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/source-after/package-lock.json",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/diffs/package-lock.json.diff",
+      "versions": [
+        {
+          "owner": "package-lock.json",
+          "sha256": "ddf3b46c37037ca1844f66677106aa068448b0f61bd091655447823775e888cf",
+          "bytes": 254569,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/snapshots/D-owner-before/package-lock.json",
+          "time": "2026-09-15T14:08:46.802Z"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "test-or-support": 36,
+    "product": 26,
+    "dependency-or-config": 3
+  },
+  "lineage": "Only R2 differences; entire dirty git diff is not attributed to this run. New files lacking explicit initial ABSENT retain that gap."
+}

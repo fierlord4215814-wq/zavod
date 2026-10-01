@@ -1,0 +1,34 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-membership-future.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-membership-future.test.js"
+index c1bdab17..7f835f2d 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-membership-future.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-membership-future.test.js"
+@@ -50,3 +50,29 @@ test('R2-A/E-J03 future WASH first create retry changes no factual assignment',a
+   // No assignment/user writes or factual reader is supplied: any such access fails.
+   assert.ok(f.writes.every(w=>['plannedShiftAssignment','processedOperation'].includes(w.label)));
+ });
++for(const sample of [
++ ['DAY','2030-01-01T07:59:59+03:00','2030-01-01T08:00:00+03:00',true],
++ ['DAY','2030-01-01T19:59:59+03:00','2030-01-01T20:00:00+03:00',false],
++ ['NIGHT','2030-01-01T19:59:59+03:00','2030-01-01T20:00:00+03:00',true],
++ ['NIGHT','2030-01-01T23:59:59+03:00','2030-01-02T00:00:00+03:00',true],
++ ['NIGHT','2030-01-02T07:59:59+03:00','2030-01-02T08:00:00+03:00',false],
++])test(`R3-C3 existing future ${sample[0]} first and saved-result across ${sample[2]} policy=${sample[3]?'read':'deny'}`,async()=>{
++ const oldMode=process.env.NODE_ENV,oldNow=process.env.ZAVOD_INTERNAL_TEST_NOW;
++ process.env.NODE_ENV='test';process.env.ZAVOD_INTERNAL_TEST_NOW='2029-12-31T12:00:00+03:00';
++ try{
++  const f=futureFixture();f.body.shiftType=sample[0];f.rows.length=0;f.operations.length=0;
++  process.env.ZAVOD_INTERNAL_TEST_NOW=sample[1];const first=await f.call(),writes=f.writes.length;
++  process.env.ZAVOD_INTERNAL_TEST_NOW=sample[2];
++  if(sample[3])assert.equal((await f.call()).id,first.id);else await assert.rejects(f.call(),denied);
++  assert.equal(f.writes.length,writes);assert.equal(f.rows.length,1);
++  // A separate first command must follow the same established current/past boundary.
++  f.body.operationId='fresh-after-boundary';f.rows.length=0;f.operations.length=0;
++  if(sample[3])assert.ok((await f.call()).id);else {await assert.rejects(f.call(),denied);assert.equal(f.rows.length,0);}
++ }finally{if(oldMode===undefined)delete process.env.NODE_ENV;else process.env.NODE_ENV=oldMode;if(oldNow===undefined)delete process.env.ZAVOD_INTERNAL_TEST_NOW;else process.env.ZAVOD_INTERNAL_TEST_NOW=oldNow;}
++});
++for(const action of ['create','release'])test(`R3-C3 future ${action} lost response replay emits no second update`,async()=>{
++ const f=futureFixture();f.operations.length=0;f.row.releasedAt=null;if(action==='create')f.rows.length=0;
++ const call=()=>action==='create'?f.call():f.service.releaseFutureShiftAssignment(f.user,f.row.id,{operationId:'future-release'});
++ const first=await call(),writes=f.writes.length,audits=f.audits.length,events=f.events.length;
++ const replay=await call();assert.equal(replay.id,first.id);assert.equal(f.writes.length,writes);assert.equal(f.audits.length,audits);assert.equal(events,1);assert.equal(f.events.length,events);
++});

@@ -1,0 +1,38 @@
+{
+  "status": "IN_PROGRESS",
+  "steps": [
+    {
+      "name": "self-start-C",
+      "status": 201,
+      "id": "6ad98530-d5f1-4bd5-840d-e0d70ffd420e"
+    },
+    {
+      "name": "UI-assignment-worker-second-page",
+      "status": 201,
+      "id": "0dd18ff7-e33e-48da-a26f-202e07a66350",
+      "ms": 1690
+    },
+    {
+      "name": "UI-home-new-provenance-no-stale-approved-feedback",
+      "status": 201
+    },
+    {
+      "name": "UI-request-both-open-pages",
+      "status": 201,
+      "id": "b13c9d8e-f95d-43d9-a7a7-4f7c469eb6ff",
+      "ms": 254
+    }
+  ],
+  "startedAt": "2026-09-26T18:19:30.843Z",
+  "a0Before": {
+    "digest": "e52828331c1a39f41aaed9971315c31c9a3125621e0d954e11535f78834da62e",
+    "counts": {
+      "userFactoryAccess": 32,
+      "assignment": 1,
+      "shiftSession": 12,
+      "shiftReturnRequest": 0,
+      "auditLog": 101
+    }
+  },
+  "error": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').filter({ has: getByRole('heading', { name: 'Отклонить запрос', exact: true }) }) to be hidden\u001b[22m\n\u001b[2m    62 × locator resolved to visible <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop action-modal-backdrop\">…</div>\u001b[22m\n"
+}

@@ -1,0 +1,126 @@
+diff --git a/frontend/src/styles.css b/frontend/src/styles.css
+--- a/frontend/src/styles.css
++++ b/frontend/src/styles.css
+@@
++  /* Targeted review correction: these owners retain dark-only foregrounds or
++     surfaces after the Gray/Light palette is selected. Dark stays unchanged. */
++  :root:is([data-theme="gray"], [data-theme="light"]) :is(
++    .mobile-sheet-header h2,
++    .section-subhead h3,
++    .admin-screen .admin-task-nav-group strong
++  ) {
++    color: var(--text-strong);
++    text-shadow: none;
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .shift-log-scope-note {
++    border-color: var(--warning-border);
++    background: var(--warning-soft);
++    color: var(--text-main);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .tasks-screen > .tab-row .primary-button {
++    border-color: rgba(241, 201, 104, 0.78);
++    background: linear-gradient(180deg, #e7b94e 0%, #d6a13a 48%, #b77a20 100%);
++    color: #11100d;
++    text-shadow: none;
++    box-shadow: var(--shadow-gold), var(--button-shadow);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .live-refresh-pill:not(.updated) {
++    border-color: var(--border-medium);
++    background: var(--theme-subtle-surface);
++    color: var(--text-secondary);
++    box-shadow: var(--card-highlight), var(--button-shadow);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .live-refresh-pill.updated {
++    border-color: var(--success-border);
++    background: var(--success-soft);
++    color: var(--success);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .announcement-mobile-bar {
++    border-color: var(--premium-border);
++    background: var(--theme-shell-surface);
++    color: var(--text-main);
++    box-shadow: var(--card-highlight), var(--surface-shadow);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .announcement-mobile-bar strong {
++    color: var(--text-strong);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .announcement-mobile-bar span {
++    color: var(--text-secondary);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .announcement-tabs button:not(.active) {
++    border-color: var(--border-medium);
++    background: var(--theme-control-surface);
++    color: var(--text-main);
++    box-shadow: var(--card-highlight), var(--button-shadow);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .announcement-tabs button.active {
++    border-color: var(--premium-border-strong);
++    background: var(--warning-soft);
++    color: var(--gold-text);
++    box-shadow: var(--shadow-gold);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) :is(
++    .people-shift-tabs,
++    .people-category-tabs,
++    .orders-stock-tabs
++  ) {
++    border-color: var(--border-medium);
++    background: var(--theme-subtle-surface);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) :is(
++    .people-shift-tabs,
++    .people-category-tabs,
++    .orders-stock-tabs
++  ) > button:not(.active):not([aria-pressed="true"]) {
++    border-color: transparent;
++    background: transparent;
++    color: var(--text-secondary);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) :is(
++    .people-shift-tabs,
++    .people-category-tabs,
++    .orders-stock-tabs
++  ) > button:is(.active, [aria-pressed="true"]) {
++    border-color: var(--premium-border-strong);
++    background: var(--warning-soft);
++    color: var(--gold-text);
++    box-shadow: var(--card-highlight), var(--shadow-gold);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .admin-screen .wizard-choice-grid .factory-chip {
++    border-color: var(--border-medium);
++    background: var(--theme-control-surface);
++    color: var(--text-main);
++    box-shadow: var(--card-highlight), var(--button-shadow);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .admin-screen .wizard-choice-grid .factory-chip span {
++    color: var(--text-secondary);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .admin-screen .wizard-choice-grid .factory-chip.active {
++    border-color: var(--success-border);
++    background: var(--success-soft);
++    color: var(--success);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .form-grid .checkbox-row {
++    color: var(--text-main);
++  }
++
++  :root:is([data-theme="gray"], [data-theme="light"]) .primary-button:disabled {
++    color: var(--text-main);
++    opacity: 0.88;
++  }

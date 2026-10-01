@@ -1,0 +1,2517 @@
+{
+  "status": "PASS_UI_USERS_BLOCK_REVOKE_DOWNGRADE_MULTI_FACTORY_STALE_DENIAL",
+  "checks": {
+    "adminBlock": {
+      "blockedStale": 403,
+      "unblockedRelogin": 200
+    },
+    "adminRevoke": {
+      "stale": 403,
+      "restoredRelogin": 200
+    },
+    "roleDowngrade": {
+      "stale": 403,
+      "meRole": "WORKER",
+      "reloginRole": "WORKER",
+      "chat": 403
+    },
+    "multiFactory": {
+      "oneUserId": "ef149f06-99ba-4811-9511-909f832c0794",
+      "inA": {
+        "role": "OTHER",
+        "departmentId": null,
+        "jobTitleId": null,
+        "isActive": true,
+        "isGuest": false
+      },
+      "inC": {
+        "role": "TECH_ELECTRIC",
+        "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+        "jobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+        "isActive": true,
+        "isGuest": false
+      },
+      "revokedC": 403,
+      "retainedA": {
+        "status": 200,
+        "role": "OTHER",
+        "isGuest": false,
+        "factoryId": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca"
+      }
+    },
+    "limitedMaster": {
+      "overview": 403,
+      "factoryEdit": 403,
+      "roles": 403,
+      "delegation": 403
+    },
+    "defaultMaster": {
+      "overview": 403,
+      "factoryEdit": 403,
+      "roles": 403,
+      "delegation": 403,
+      "delegationPermission": false
+    },
+    "factoryHeaderSubstitution": {
+      "status": 403,
+      "code": "FORBIDDEN"
+    },
+    "crossFactoryAdminObject": {
+      "status": 409,
+      "code": "CONFLICT",
+      "unchanged": true,
+      "contract": "factory-scoped lookup returns conflict not found"
+    }
+  },
+  "error": "Expected values to be strictly equal:\n\n409 !== 403\n",
+  "failureUi": "Учебная площадка C ADMIN01\n\nЗавод\n\nОнлайн · Администратор Администратор У.\nАдминистрирование\n\nЦентр управления заводами, пользователями, ролями, правами, отделами, службами, линиями, позициями, шаблонами, рабочими зонами и настройками.\n\nЗаводы\n2\nАктивные заводы\n2\nПользователи\n4\nЛинии\n1\nПозиции: 1\nШаблоны: 1\nПредупреждения конфигурации\nБез доступа: 0\nБез отдела: 1\nЛинии без позиций: 0\nЛинии без шаблонов: 0\nРоли без прав: 0\nЗавод\nСоздание, копирование и общая готовность площадки.\nОбзор\nЗаводы\nЛюди\nДоступы, отделы, службы и понятные должности.\nПользователи и доступы\nОтделы и службы\nДолжности и роли\nПроизводство\nЛинии, позиции, составы и повременные зоны.\nЛинии и позиции\nПозиции на линиях\nШаблоны состава\nПовременщики / рабочие зоны\nБезопасность и модули\nПрава, настройки модулей и аудит изменений.\nРоли и права\nНастройки модулей\nВосстановление\nДиагностика данных\nАудит действий админки\nПользователи с доступом\n\nПоказаны только пользователи, у которых есть доступ к выбранному заводу. Остальные пользователи системы не смешиваются с этим контекстом.\n\nВыдать доступ к выбранному заводу\n?\n\nДоступ выдаётся конкретному пользователю и конкретному заводу. Общая служба сама по себе не даёт доступ ко всем площадкам.\n\nПользователь\n?\nВыберите пользователя\nАдминистратор Учебный\nПриёмочный Руководитель Заводович\nПриёмочный Участник Заводович\nПриёмочный Специалист Заводович\nЗавод\n?\nУчебная площадка C ADMIN01\nРоль\n?\nАдминистратор\nРуководство\nОКК\nТехнолог\nМастер\nРаботник\nСклад\nДругое\nМеханик\nЭлектрик\nХолодильная служба\nКИПиА\nСантехник\nНаёмный работник\nСтарший наёмных работников\nОтдел / служба\n?\nБез отдела\nКонтроль C\nСборка C\nДолжность\n?\nБез должности\nОператор участка C\nРуководитель участка C\nВыдать доступ\nЗаявки гостей на назначение\n\nПоказаны только заявки выбранного завода, которые входят в ваши полномочия.\n\nНовых нет\nЗаявок на назначение сейчас нет.\nДать права как у сотрудника\n\nВыберите сотрудника-образец и получателя. Перед назначением система покажет точный итог.\n\nЗавод: Учебная площадка C ADMIN01\nКак это работает\nУ кого взять права\n?\nПриёмочный Р. З.\nРуководитель участка C · Сборка C\nКому выдать права\n?\nПриёмочный Р. З.\nРуководитель участка C · Сборка C\nПроверить права\nНазначить в мой отдел\nНедоступные выдающему пользователю и административные права не копируются.\nВыберите сотрудника-образец и получателя. Перед применением сервер покажет точный итог: какие права можно выдать, а какие полностью скрыты.\nАдминистратор Учебный\nАдминистратор\nБез подразделения · должность не указана\nАктивен\n?\nПрофиль\nЗаблокировать\nПриёмочный Руководитель Заводович\nМастер\nСборка C · Руководитель участка C\nАктивен\n?\nПрофиль\nЗаблокировать\nПриёмочный Участник Заводович\nРаботник\nСборка C · Оператор участка C\nАктивен\n?\nПрофиль\nЗаблокировать\nПриёмочный Специалист Заводович\nЭлектрик\nСборка C · Оператор участка C\nАктивен\n?\nПрофиль\nЗаблокировать\nСмена\nИстория смен\nЛюди\nАдминка\nАдминистрирование\nЛинии\nЗаявки\nМойка\nОКК\nНекондиция\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\nСтатистика / Аудит\nСообщить об ошибке\nНастройки",
+  "peerState": {
+    "role": "TECH_ELECTRIC",
+    "blockedAt": null
+  },
+  "snapshot": {
+    "at": "2026-09-26T14:36:56.045Z",
+    "user": {
+      "id": "ef149f06-99ba-4811-9511-909f832c0794",
+      "role": "TECH_ELECTRIC",
+      "blockedAt": null
+    },
+    "access": [
+      {
+        "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+        "role": "TECH_ELECTRIC",
+        "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+        "jobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+        "companyId": null,
+        "isActive": true,
+        "isGuest": false
+      },
+      {
+        "factoryId": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca",
+        "role": "OTHER",
+        "departmentId": null,
+        "jobTitleId": null,
+        "companyId": null,
+        "isActive": true,
+        "isGuest": true
+      }
+    ],
+    "overrides": [],
+    "rolePermissions": [
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.departments.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.departments.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.factories.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.factories.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.lines.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.lines.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.overview.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.roles.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.roles.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.users.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "admin.users.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "announcements.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "announcements.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "announcements.settings.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "announcements.settings.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "assignments.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "audit.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "chats.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "chats.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "chats.settings.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "chats.settings.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "checklists.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "checklists.runs.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "checklists.runs.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "checklists.runs.self",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "checklists.settings.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "checklists.settings.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "checklists.templates.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "checklists.templates.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "company.members.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "company.members.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "config.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "defrost.calendar.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "defrost.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "defrost.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "defrost.settings.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "defrost.settings.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "factory.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "lines.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "okk.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "okk.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "ops.audit.full",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "ops.audit.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "ops.events.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "ops.overview.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "ops.statistics.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "orders.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "orders.items.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "orders.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "orders.request",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "orders.requests.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "orders.restock",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "orders.settings.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "orders.settings.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "orders.take",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "people.notes.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "people.notes.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "people.profile.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "people.recommendations.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "people.skills.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "returns.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "returns.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift-log.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift-log.important.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift-log.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift-log.reads.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.contractor-lead.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.current.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.current.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.future.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.future.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.past.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.return.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.self.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.self.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.settings.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "shift.settings.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "stock.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "stock.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.create",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.escalation.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.read-receipts.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.redirect",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.settings.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.settings.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "users.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "users.password.reset",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.control.create",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.control.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.issue.create",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.issue.resolve",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.message.create",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.okk-review.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.okk-review.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.read",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.settings.manage",
+        "isActive": true
+      },
+      {
+        "role": "ADMIN",
+        "permissionCode": "wash.settings.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "announcements.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "announcements.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "announcements.settings.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "audit.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "chats.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "chats.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "checklists.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "checklists.runs.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "checklists.runs.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "checklists.runs.self",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "checklists.templates.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "checklists.templates.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "defrost.calendar.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "defrost.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "defrost.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "lines.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "okk.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "ops.audit.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "ops.events.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "ops.overview.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "ops.statistics.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "orders.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "orders.items.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "orders.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "orders.request",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "orders.requests.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "orders.restock",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "orders.take",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "people.notes.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "people.notes.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "people.profile.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "people.recommendations.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "people.skills.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "returns.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "returns.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift-log.archive.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift-log.important.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift-log.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift-log.reads.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift.current.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift.future.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "shift.past.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "stock.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "tasks.escalation.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "tasks.read-receipts.read",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "wash.control.create",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "wash.control.manage",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "wash.issue.create",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "wash.issue.resolve",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "wash.message.create",
+        "isActive": true
+      },
+      {
+        "role": "MANAGEMENT",
+        "permissionCode": "wash.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "checklists.runs.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "checklists.runs.self",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "checklists.templates.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "lines.manage",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "okk.manage",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "okk.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "orders.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "orders.request",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "orders.take",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "returns.manage",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "returns.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "tasks.create",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "wash.issue.create",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "wash.issue.resolve",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "wash.okk-review.manage",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "wash.okk-review.read",
+        "isActive": true
+      },
+      {
+        "role": "OKK",
+        "permissionCode": "wash.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "checklists.runs.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "checklists.runs.self",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "checklists.templates.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "defrost.calendar.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "defrost.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "lines.manage",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "orders.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "orders.request",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "orders.take",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "returns.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "TECHNOLOG",
+        "permissionCode": "wash.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "assignments.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "checklists.runs.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "checklists.runs.self",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "checklists.templates.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "defrost.calendar.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "defrost.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "lines.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "okk.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "orders.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "orders.request",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "orders.take",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "people.recommendations.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "people.skills.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "returns.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift-log.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift.current.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift.current.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift.future.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift.future.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift.past.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "shift.return.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "tasks.create",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "tasks.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "tasks.read-receipts.read",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "tasks.redirect",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "wash.control.create",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "wash.control.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "wash.issue.create",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "wash.issue.resolve",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "wash.manage",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "wash.message.create",
+        "isActive": true
+      },
+      {
+        "role": "MASTER",
+        "permissionCode": "wash.read",
+        "isActive": true
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "chats.read",
+        "isActive": false
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "chats.write",
+        "isActive": false
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "defrost.read",
+        "isActive": true
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "shift.self.manage",
+        "isActive": true
+      },
+      {
+        "role": "WORKER",
+        "permissionCode": "shift.self.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "orders.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "orders.restock",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "orders.take",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "returns.manage",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "returns.read",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "STORE",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "OTHER",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "OTHER",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "OTHER",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "OTHER",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "OTHER",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "OTHER",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "shift.current.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "shift.future.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_MECHANIC",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "shift.current.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "shift.future.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_ELECTRIC",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "defrost.calendar.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "defrost.manage",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "defrost.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "shift.current.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "shift.future.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_HOLOD",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "shift.current.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "shift.future.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_KIPIA",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "chats.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "chats.write",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "factory.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "lines.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "notifications.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "people.profile.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "people.skills.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "shift-log.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "shift-log.create",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "shift-log.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "shift.current.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "shift.future.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "tasks.comment",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "tasks.done",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "tasks.read",
+        "isActive": true
+      },
+      {
+        "role": "TECH_SANTECHNIK",
+        "permissionCode": "tasks.take",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR",
+        "permissionCode": "announcements.read",
+        "isActive": false
+      },
+      {
+        "role": "CONTRACTOR",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR",
+        "permissionCode": "shift.self.manage",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR",
+        "permissionCode": "shift.self.read",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "announcements.create",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "announcements.read",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "chats.access",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "company.members.manage",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "company.members.read",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "people.phone.read",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "people.read",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "returns.publication.read",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "shift.contractor-lead.manage",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "shift.self.manage",
+        "isActive": true
+      },
+      {
+        "role": "CONTRACTOR_LEAD",
+        "permissionCode": "shift.self.read",
+        "isActive": true
+      }
+    ]
+  },
+  "restored": {
+    "status": "PASS_EXACT_ACCESS_ROLE_BLOCK_OVERRIDES_PERMISSIONS_RESTORED",
+    "userId": "ef149f06-99ba-4811-9511-909f832c0794",
+    "factories": [
+      "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca"
+    ],
+    "mechanism": "audited canonical HTTP; no SQL writes"
+  },
+  "audit": [
+    {
+      "action": "ADMIN_USER_BLOCKED",
+      "entityId": "ef149f06-99ba-4811-9511-909f832c0794",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:28:47.967Z"
+    },
+    {
+      "action": "ADMIN_USER_UNBLOCKED",
+      "entityId": "ef149f06-99ba-4811-9511-909f832c0794",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:30:20.367Z"
+    },
+    {
+      "action": "ADMIN_USER_BLOCKED",
+      "entityId": "ef149f06-99ba-4811-9511-909f832c0794",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:32:09.859Z"
+    },
+    {
+      "action": "ADMIN_USER_UNBLOCKED",
+      "entityId": "ef149f06-99ba-4811-9511-909f832c0794",
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:32:10.986Z"
+    }
+  ]
+}

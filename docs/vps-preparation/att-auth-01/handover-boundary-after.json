@@ -1,0 +1,27 @@
+{
+  "fixture": "isolated persisted immutable snapshot binding, not live handover lifecycle acceptance",
+  "id": "5e55460b-d61e-4771-a962-e16e8bff0121",
+  "attachmentId": "8aa27053-0a98-44ff-84f5-0c228f6618f1",
+  "sha256": "0bcaaa657e8f92b57bef2e9294de0633ae9431de802935d1d055e9663a4dbdd7",
+  "textSha256": "8a46a90315a65655a2db5c70210644ecd59320981ceec757959192fe7e1c67c1",
+  "sourceEdit": 409,
+  "sourceComment": 409,
+  "attachmentUpload": 201,
+  "status": "PASS_IMMUTABLE_READ_WITHOUT_FILE_MUTATION",
+  "checks": [
+    {
+      "role": "ADMIN",
+      "file": 200,
+      "sha256": "0bcaaa657e8f92b57bef2e9294de0633ae9431de802935d1d055e9663a4dbdd7",
+      "upload": 403,
+      "deactivate": 403
+    },
+    {
+      "role": "MASTER",
+      "file": 200,
+      "sha256": "0bcaaa657e8f92b57bef2e9294de0633ae9431de802935d1d055e9663a4dbdd7",
+      "upload": 403,
+      "deactivate": 403
+    }
+  ]
+}

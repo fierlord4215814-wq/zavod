@@ -1,0 +1,20 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {FileBlob,SpreadsheetFile} from '@oai/artifact-tool';
+const input=new URL('../okk-archive-export.xlsx',import.meta.url);
+const wb=await SpreadsheetFile.importXlsx(await FileBlob.load(input.pathname.replace(/^\/([A-Z]:)/i,'$1')));
+const summary=await wb.inspect({kind:'sheet',include:'id,name',maxChars:3000});
+console.log(summary.ndjson);
+const sheet=wb.worksheets.getItem('ОКК');
+const values=sheet.getUsedRange().values;
+console.log(JSON.stringify(values));
+assert.ok(values.flat().some(v=>String(v)==='Учебное фото ОКК LOCAL03'));
+assert.ok(values.flat().some(v=>String(v)==='УЧ-ФОТО-03'));
+// Current server export has correctiveActions, not completionMark: assert its actual columns.
+assert.equal(values.length,2);
+assert.equal(values[1][values[0].indexOf('Количество')],'2 гофры');
+assert.equal(values[1][values[0].indexOf('Корректирующие действия')],'Учебный визуальный контроль сохранён');
+assert.equal(values[1][values[0].indexOf('Статус')],'Завершено');
+assert.ok(!/storagePath|passwordHash|Bearer\s|C:\\Users|eyJ[A-Za-z0-9_-]{30}/.test(JSON.stringify(values)));
+await fs.writeFile(new URL('../okk-export-readback.json',import.meta.url),JSON.stringify({status:'PASS_CONTENT_READ_ONLY',sheet:'ОКК',rows:values.length,values},null,2));
+console.log(JSON.stringify({status:'PASS_CONTENT_READ_ONLY',sheet:'ОКК',rows:values.length}));

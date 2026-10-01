@@ -1,0 +1,152 @@
+{
+  "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+  "error": "locator.inputValue: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.defrost-action-modal').getByLabel('Комментарий', { exact: true })\u001b[22m\n",
+  "errorText": "Завод LOCAL-01\n\nЗавод\n\nОнлайн · Мастер Пользователь +.\n15\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nМойка\n\nАктивные мойки по линиям: задания, проблемы, фото, комментарии и ОКК-проверка в одном рабочем месте.\n\nСоздать задание\nНачать мойку\n●\nАктивные\n1\n!\nПроблемы\n0\nЗ\nЗадания\n0\nО\nОКК ждут\n1\nАктивные 1\nЗадания 0\nАрхив 2\nУчебная линия А LOCAL03\nС 25.09.2026, 09:16:09\nДлится: 0 мин\nЛюдей 0\nПроблем 0\nЗаданий 0\nОКК: ожидает\nМойка началась\nЛюди\nОткрыть",
+  "secondText": "Завод LOCAL-01\n\nЗавод\n\nОнлайн · Холодильная служба Пользователь +.\n5\nОттайка\n\nБыстрая фиксация оттайки и запуска в работу по производственным линиям.\n\n▶\nВ работе\n0\n❄\nНа оттайке\n0\nПоставить на оттайку\nОбдул шоковую камеру\nЗапустить в работу\nЛиния находится на мойке. Нельзя одновременно начать оттайку.\nПо выбранному состоянию линий нет.\nПоставить на оттайку\nЗакрыть\n\nВыберите линию. Дата и время будут взяты автоматически.\n\nКомментарий\nЛиния находится на мойке. Нельзя одновременно начать оттайку.\nУчебная линия А LOCAL03\nЗапущено в работу в 19:32\nСмена\nЛюди\nЛинии\nЗаявки\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\n5\nСообщить об ошибке\nНастройки",
+  "washId": "45e0ee03-f6d6-49ae-9c22-4d26ad930eae",
+  "conflict": {
+    "status": 409,
+    "body": {
+      "code": "CONFLICT",
+      "message": "Линия находится на мойке. Нельзя одновременно начать оттайку."
+    },
+    "request": {
+      "comment": "Учебный повтор после конфликта мойки LOCAL03",
+      "operationId": "dcf6bac7-e355-497b-b236-2df29bd8e027"
+    }
+  },
+  "conflictCount": 1,
+  "washComplete": {
+    "status": 201,
+    "request": {
+      "operationId": "8cfe991e-c62e-4e55-b8e4-8253457f7364"
+    }
+  },
+  "start": {
+    "status": 201,
+    "body": {
+      "id": "ab733708-7016-44fe-9fbd-d313ef6e0910",
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+      "lineName": null,
+      "status": "ACTIVE",
+      "eventType": "DEFROST",
+      "eventTypeLabel": "Оттайка",
+      "startAt": "2026-09-25T06:17:50.856Z",
+      "endAt": null,
+      "durationSeconds": null,
+      "comment": "Учебный повтор после конфликта мойки LOCAL03",
+      "endComment": null,
+      "startedById": "d5ed946c-e7c3-4fb2-b1ae-61de31b7da30",
+      "endedById": null,
+      "createdAt": "2026-09-25T06:17:50.864Z",
+      "updatedAt": "2026-09-25T06:17:50.864Z"
+    },
+    "request": {
+      "comment": "Учебный повтор после конфликта мойки LOCAL03",
+      "operationId": "dcf6bac7-e355-497b-b236-2df29bd8e027"
+    }
+  },
+  "eventId": "ab733708-7016-44fe-9fbd-d313ef6e0910",
+  "startReplay": {
+    "status": 201,
+    "body": {
+      "id": "ab733708-7016-44fe-9fbd-d313ef6e0910",
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+      "lineName": null,
+      "status": "ACTIVE",
+      "eventType": "DEFROST",
+      "eventTypeLabel": "Оттайка",
+      "startAt": "2026-09-25T06:17:50.856Z",
+      "endAt": null,
+      "durationSeconds": null,
+      "comment": "Учебный повтор после конфликта мойки LOCAL03",
+      "endComment": null,
+      "startedById": "d5ed946c-e7c3-4fb2-b1ae-61de31b7da30",
+      "endedById": null,
+      "createdAt": "2026-09-25T06:17:50.864Z",
+      "updatedAt": "2026-09-25T06:17:50.864Z"
+    }
+  },
+  "washReplay": {
+    "status": 201,
+    "body": {
+      "id": "45e0ee03-f6d6-49ae-9c22-4d26ad930eae",
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+      "targetType": "LINE",
+      "objectName": null,
+      "objectDescription": null,
+      "startedById": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+      "status": "DONE",
+      "createdAt": "2026-09-25T06:16:09.036Z",
+      "updatedAt": "2026-09-25T06:17:50.818Z",
+      "deletedAt": null,
+      "completedAt": "2026-09-25T06:17:50.803Z",
+      "version": 2
+    }
+  },
+  "complete": {
+    "status": 201,
+    "body": {
+      "id": "ab733708-7016-44fe-9fbd-d313ef6e0910",
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+      "startedById": "d5ed946c-e7c3-4fb2-b1ae-61de31b7da30",
+      "endedById": "d5ed946c-e7c3-4fb2-b1ae-61de31b7da30",
+      "startAt": "2026-09-25T06:17:50.856Z",
+      "endAt": "2026-09-25T06:17:51.274Z",
+      "durationSeconds": 0,
+      "status": "COMPLETED",
+      "eventType": "DEFROST",
+      "comment": "Учебный повтор после конфликта мойки LOCAL03",
+      "endComment": "Учебная оттайка после мойки завершена LOCAL03",
+      "createdAt": "2026-09-25T06:17:50.864Z",
+      "updatedAt": "2026-09-25T06:17:51.275Z"
+    },
+    "request": {
+      "comment": "Учебная оттайка после мойки завершена LOCAL03",
+      "operationId": "301012a5-6fff-42b6-b9c8-8c272797d864"
+    }
+  },
+  "completeReplay": {
+    "status": 201,
+    "body": {
+      "id": "ab733708-7016-44fe-9fbd-d313ef6e0910",
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+      "lineName": null,
+      "status": "COMPLETED",
+      "eventType": "DEFROST",
+      "eventTypeLabel": "Оттайка",
+      "startAt": "2026-09-25T06:17:50.856Z",
+      "endAt": "2026-09-25T06:17:51.274Z",
+      "durationSeconds": 0,
+      "comment": "Учебный повтор после конфликта мойки LOCAL03",
+      "endComment": "Учебная оттайка после мойки завершена LOCAL03",
+      "startedById": "d5ed946c-e7c3-4fb2-b1ae-61de31b7da30",
+      "endedById": "d5ed946c-e7c3-4fb2-b1ae-61de31b7da30",
+      "createdAt": "2026-09-25T06:17:50.864Z",
+      "updatedAt": "2026-09-25T06:17:51.275Z"
+    }
+  },
+  "sql": {
+    "wash": {
+      "id": "45e0ee03-f6d6-49ae-9c22-4d26ad930eae",
+      "status": "DONE"
+    },
+    "defrost": {
+      "id": "ab733708-7016-44fe-9fbd-d313ef6e0910",
+      "status": "COMPLETED",
+      "startAt": "2026-09-25T06:17:50.856Z",
+      "endAt": "2026-09-25T06:17:51.274Z",
+      "durationSeconds": 0
+    },
+    "line": {
+      "id": "56359bdd-14cb-451c-9500-1e2551d1264a",
+      "status": "STOP"
+    }
+  },
+  "status": "PASS_UI_WASH_CONFLICT_RETRY_AND_REPLAY"
+}

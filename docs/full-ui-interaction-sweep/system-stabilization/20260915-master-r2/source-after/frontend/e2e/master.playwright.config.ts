@@ -1,0 +1,19 @@
+import { defineConfig, devices } from '@playwright/test';
+import path from 'node:path';
+
+if (!['20260915-maximum-integration', '20260915-master-r2'].includes(process.env.MASTER_BATCH ?? '') || !process.env.FRONTEND_SERIES_RUN) {
+  throw new Error('Explicit master batch and immutable run ID are required. No runtime autostart.');
+}
+export default defineConfig({
+  testDir: '.',
+  testMatch: ['master-integration.spec.ts', 'frontend-series.spec.ts', 'component-contracts.spec.ts', 'module-journeys.spec.ts', 'review-variants.spec.ts', 'master-r2-*.spec.ts'],
+  timeout: 45_000,
+  expect: { timeout: 8_000 },
+  fullyParallel: false,
+  workers: 1,
+  retries: 0,
+  reporter: [['list']],
+  webServer: [],
+  outputDir: path.resolve(__dirname, '../../docs/full-ui-interaction-sweep/system-stabilization', process.env.MASTER_BATCH, 'evidence', process.env.FRONTEND_SERIES_RUN, 'runner-artifacts'),
+  use: { ...devices['Desktop Chrome'], channel: 'msedge', baseURL: 'http://127.0.0.1:5173', serviceWorkers: 'block', trace: 'off', screenshot: 'only-on-failure', video: 'off', actionTimeout: 10_000 },
+});

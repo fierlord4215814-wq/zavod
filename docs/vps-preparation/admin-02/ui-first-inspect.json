@@ -1,0 +1,153 @@
+{
+  "status": "PASS_EDGE_HARNESS_REAL_LOGIN_OWN_C",
+  "master": "MASTER",
+  "worker": "WORKER",
+  "version": "/assets/index-CNmjzcK2.js",
+  "masterText": "Ограниченная площадка С\n\nЗавод\n\nОнлайн · Мастер Приёмочный М.\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nСмена\n\nРабочий стол мастера: линии, люди, назначения, заявки и мойка.\n\n≡\nВ работе\n0\n●\nЛюди на смене\n0\nⅡ\nПростой\n0\n!\nЗаявки\n0\nНа производственных линиях:\n0 из 0\nТекущая смена · Ограниченная площадка С\n26.09.2026 · Ночь · 20:00–08:00\nВыбрать смену\n⌄\nПередача смены откроется в 06:00.\nНет новых событий\nЗапросы на возврат\n\nНет ожидающих запросов\n\nЛинии в работе\n0\nРаботающих линий сейчас нет\nПовременщики и рабочие зоны\n2\nПовременная работа\nПовременщики\nУкомплектовано\nНужно: 0\nНазначено: 0\nНе хватает: 0\nОткрыть повременщиков\nРабочая зона\nРабочая зона\nУкомплектовано\nНужно: 0\nНазначено: 0\nНе хватает: 0\nОткрыть рабочую зону\nЛинии на мойке\n0\nЛиний на мойке сейчас нет\nОстановленные линии\n1\nЛиния приёмки\nОстановлена\nЛюди 0/—\nСостав не выбран\nПростой\nОстановить\nПодробнее\nПлан\nЗапустить новую линию\nНа смене\n0\nНа текущей смене пока нет сотрудников.",
+  "workerText": "Ограниченная площадка С\n\nЗавод\n\nОнлайн · Работник Приёмочный Р.\nСмена\nЛюди\nИстория смен\nОттайка\nЕщё\nСмена\n\nВаша смена и текущее назначение.\n\n≡\nВ работе\n0\nНа мойке: 0\n●\nЛюди на смене\n0\nⅡ\nПростой\n0\nНа производственных линиях:\n0 из 0\nТекущая смена · Ограниченная площадка С\n26.09.2026 · Ночь · 20:00–08:00\nВыбрать смену\n⌄\nНет новых событий\nЛинии в работе\n0\nРаботающих линий сейчас нет\nПовременщики\n1\nПовременная работа\nПовременщики\n0/0\nНужно: 0\nНазначено: 0\nНе хватает: 0\nЛинии на мойке\n0\nЛиний на мойке сейчас нет\nОстановленные линии\n1\nЛиния приёмки\nОстановлена\nЛюди 0/—\nСостав не выбран\nПодробнее\nМоя смена\n0\nНа текущей смене пока нет сотрудников.",
+  "requests": [
+    {
+      "path": "/api/auth/login",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/auth/assignment-request",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/notifications/unread-count",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/tasks",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/chats",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/announcements/current",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift/settings",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift/return-requests",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift/timeline",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/lines/downtime-reasons",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/health",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift/people",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/work-areas",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift-log/handover/availability",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift-log/handover/previous",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift/settings",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift/return-requests",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift/timeline",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/work-areas",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/lines",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    },
+    {
+      "path": "/api/shift/people",
+      "method": "GET",
+      "status": 200,
+      "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da"
+    }
+  ]
+}

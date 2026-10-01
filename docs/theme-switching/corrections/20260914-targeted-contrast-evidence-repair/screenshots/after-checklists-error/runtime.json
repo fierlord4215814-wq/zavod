@@ -1,0 +1,42 @@
+{
+  "phase": "after",
+  "batch": "20260914-targeted-contrast-evidence-repair",
+  "screenshots": [],
+  "apiReads": [
+    "/auth/me",
+    "/auth/me",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/auth/assignment-request",
+    "/error-reports",
+    "/error-reports",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/checklists/workspace",
+    "/checklists/templates/library",
+    "/checklists/workspace",
+    "/checklists/templates/library",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks"
+  ],
+  "apiWrites": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response",
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response",
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response"
+  ],
+  "requestFailures": [],
+  "isolatedFixtureWrites": [],
+  "computedStyles": []
+}

@@ -1,0 +1,19 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\D069-before\\frontend\\src\\screens\\FactorySelectScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\FactorySelectScreen.tsx"
+index 5e6b2c3d..ed6f905c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\D069-before\\frontend\\src\\screens\\FactorySelectScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\FactorySelectScreen.tsx"
+@@ -1,5 +1,6 @@
+ ﻿import React, { FormEvent, useState } from 'react';
+ import { apiClient } from '../api/client';
++import { PwaInstallButton } from '../components/PwaInstallButton';
+ import { PremiumSheet } from '../components/PremiumShell';
+ import { useMobileBackLayer } from '../navigation/mobile-back';
+ import {
+@@ -397,6 +398,7 @@ export function FactorySelectScreen() {
+             }}>
+               Регистрация
+             </button>
++            <PwaInstallButton />
+           </form>
+         )}
+ 

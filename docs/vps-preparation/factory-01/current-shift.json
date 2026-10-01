@@ -1,0 +1,302 @@
+{
+  "status": "PASS_T1_CURRENT_UI_HTTP_SQL_SECOND_PAGES",
+  "work": [
+    "9125a431-9d33-47d2-8763-08889bc2ab52",
+    "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+    "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+    "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a"
+  ],
+  "assigned": [
+    {
+      "user": "WORKER",
+      "id": "25270c00-d5ea-45a5-89da-36df6fa492cd",
+      "line": "9125a431-9d33-47d2-8763-08889bc2ab52",
+      "position": "d2cf7010-6645-4e3b-bf33-8cc78596dcfe",
+      "uiHttp": 201,
+      "secondUiMs": null,
+      "recoveredAfterHarnessCloseError": true
+    },
+    {
+      "user": "WORKER02",
+      "id": "e1a7e4b2-3e52-45c5-81ea-bb078bd6697f",
+      "line": "9125a431-9d33-47d2-8763-08889bc2ab52",
+      "position": "b078d27d-4efc-47f5-99e6-f5cd8a4e2e78",
+      "uiHttp": 201,
+      "secondUiMs": 1670,
+      "recoveredAfterHarnessCloseError": false
+    },
+    {
+      "user": "WORKER04",
+      "id": "636f595e-81be-4ead-afd5-37fff9afddd2",
+      "line": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+      "position": "9e692458-1d60-416e-8f1e-801d291e66ff",
+      "uiHttp": 201,
+      "secondUiMs": 2497,
+      "recoveredAfterHarnessCloseError": false
+    },
+    {
+      "user": "WORKER05",
+      "id": "bd8c992d-2b2f-425c-9632-f169ebf2c784",
+      "line": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+      "position": "c9f947c9-3674-4552-9bb4-bde2535a8436",
+      "uiHttp": 201,
+      "secondUiMs": 2427,
+      "recoveredAfterHarnessCloseError": false
+    },
+    {
+      "user": "WORKER07",
+      "id": "236704d7-7c00-4a96-bde5-81ed2c31d297",
+      "line": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+      "position": "7dd4ab34-12ca-4305-90a5-8abe2e5b1869",
+      "uiHttp": 201,
+      "secondUiMs": 2515,
+      "recoveredAfterHarnessCloseError": false
+    },
+    {
+      "user": "WORKER08",
+      "id": "b6f1818c-78a2-4d3a-be6a-c54759fe6784",
+      "line": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+      "position": "974798bb-b399-4464-b118-b8e3d6bdc33a",
+      "uiHttp": 201,
+      "secondUiMs": 2450,
+      "recoveredAfterHarnessCloseError": false
+    },
+    {
+      "user": "WORKER10",
+      "id": "31b4e238-65b5-486c-844c-af0f5113d323",
+      "line": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+      "position": "d47e178c-bac9-434d-a60b-19fb2875d893",
+      "uiHttp": 201,
+      "secondUiMs": 2448,
+      "recoveredAfterHarnessCloseError": false
+    },
+    {
+      "user": "WORKER11",
+      "id": "15dee750-d4bc-4893-8ee5-6cf8123b8567",
+      "line": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+      "position": "4f024836-b12a-4ca6-9a8a-3d2870af5ca1",
+      "uiHttp": 201,
+      "secondUiMs": 2405,
+      "recoveredAfterHarnessCloseError": false
+    }
+  ],
+  "steps": [
+    {
+      "step": "line-work",
+      "id": "9125a431-9d33-47d2-8763-08889bc2ab52",
+      "uiHttp": 200,
+      "secondUiMs": 1283
+    },
+    {
+      "step": "line-work",
+      "id": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+      "uiHttp": 200,
+      "secondUiMs": 769
+    },
+    {
+      "step": "line-work",
+      "id": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+      "uiHttp": 200,
+      "secondUiMs": 832
+    },
+    {
+      "step": "line-work",
+      "id": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+      "uiHttp": 200,
+      "secondUiMs": 729
+    },
+    {
+      "step": "self-start-existing-API",
+      "actor": "WORKER",
+      "status": 201
+    },
+    {
+      "step": "self-start-existing-API",
+      "actor": "WORKER02",
+      "status": 201
+    },
+    {
+      "step": "self-start-existing-API",
+      "actor": "WORKER04",
+      "status": 201
+    },
+    {
+      "step": "self-start-existing-API",
+      "actor": "WORKER05",
+      "status": 201
+    },
+    {
+      "step": "self-start-existing-API",
+      "actor": "WORKER07",
+      "status": 201
+    },
+    {
+      "step": "self-start-existing-API",
+      "actor": "WORKER08",
+      "status": 201
+    },
+    {
+      "step": "self-start-existing-API",
+      "actor": "WORKER10",
+      "status": 201
+    },
+    {
+      "step": "self-start-existing-API",
+      "actor": "WORKER11",
+      "status": 201
+    },
+    {
+      "step": "request1",
+      "uiHttp": 201,
+      "secondUiMs": 308
+    },
+    {
+      "step": "request2",
+      "uiHttp": 201,
+      "secondUiMs": 314
+    }
+  ],
+  "ui": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Мастер Учебный-Мастер-01 Т.\n7\nСмена\n\nРабочий стол мастера: линии, люди, назначения, заявки и мойка.\n\n≡\nВ работе\n4\n●\nЛюди на смене\n8\nⅡ\nПростой\n0\n!\nЗаявки\n0\nНа производственных линиях:\n8 из 12\nТекущая смена · УЧЕБНЫЙ ЗАВОД T1\n26.09.2026 · Ночь · 20:00–08:00\nВыбрать смену\n⌄\nПередача смены откроется в 06:00.\nОбновлено: назначения на линии изменились\nНа смене\nСвободные сначала, затем уже распределённые сотрудники\nСвободные: 0\nРаспределены: 1\nПоиск по ФИО, роли, линии\nВыбрать из неотмеченных\nВыбран для следующего назначения: Учебный-Работник-01 Тестовый\nСвободные\n0\nСвободных работников или наёмных сотрудников нет\nРаспределены\n1\nУЧ\nУчебный-Работник-01 Тестовый\nРаботник · УЧ — Производство T1\nЛиния: УЧ-Линия 1 · УЧ-Позиция 1.1 · слот 1\nПереназначить\n\nНавык проверяется по выбранной линии и позиции: зелёный — прямое совпадение, золотой — схожий навык, нейтральный — без подтверждённого совпадения.\n\nЗакрыть\nЗапросы на возврат\n\nНет ожидающих запросов\n\nЛинии в работе\n4\nУЧ-Линия 1\nРаботает\nЛюди 2/3\nУЧ-Состав линии 1\nПростой\nОстановить\nПодробнее\nПлан\nУЧ-Линия 2\nРаботает\nЛюди 2/3\nУЧ-Состав линии 2\nПростой\nОстановить\nПодробнее\nПлан\nУЧ-Линия 3\nРаботает\nЛюди 2/3\nУЧ-Состав линии 3\nПростой\nОстановить\nПодробнее\nПлан\nУЧ-Линия 4\nРаботает\nЛюди 2/3\nУЧ-Состав линии 4\nПростой\nОстановить\nПодробнее\nПлан\nПовременщики и рабочие зоны\n0\nРабочие зоны пока не настроены\nЛинии на мойке\n0\nЛиний на мойке сейчас нет\nОстановленные линии\n0\nОстановленных линий нет\nЗапустить новую линию\nНа смене\n8\nУЧ\nУчебный-Работник-01 Тестовый\nУЧ — Производство T1 · Работник\nПодробнее\nУЧ\nУчебный-Работник-02 Тестовый\nУЧ — Производство T1 · Работник\nПодробнее\nУЧ\nУчебный-Работник-04 Тестовый\nУЧ — Производство T1 · Работник\nПодробнее\nУЧ\nУчебный-Работник-05 Тестовый\nУЧ — Производство T1 · Работник\nПодробнее\nУЧ\nУчебный-Работник-07 Тестовый\nУЧ — Производство T1 · Работник\nПодробнее\nУЧ\nУчебный-Работник-08 Тестовый\nУЧ — Производство T1 · Работник\nПодробнее\nУЧ\nУчебный-Работник-10 Тестовый\nУЧ — Производство T1 · Работник\nПодробнее\nУЧ\nУчебный-Работник-11 Тестовый\nУЧ — Производство T1 · Работник\nПодробнее\nУЧ-Линия 1\nУЧ-Состав линии 1\nРаботает\nЛюдей\n2\nсейчас\nПо плану\n3\nмест\nЗаявок\n0\nактивных\nСобытий\n1\nза смену\nЗафиксировать простой\nВсе действия\nПозиции\n3\nПОЗИЦИЯ\nУЧ-Позиция 1.1 #1\nУЧ\nУчебный-Работник-01 Тестовый\nНазначен\nДействия\nПОЗИЦИЯ\nУЧ-Позиция 1.2 #1\nУЧ\nУчебный-Работник-02 Тестовый\nНазначен\nДействия\nПОЗИЦИЯ\nУЧ-Позиция 1.3 #1\nСотрудник не назначен\nНе назначен\nНазначить\nПоследнее событие\nЛиния запущена\n26.09.2026, 23:02:56 · Сотрудник\nНастройки и активность\n0\nЗакрыть\nПлан\nОбновить\nСмена\nЛюди\nЛинии\nЗаявки\nМойка\nОКК\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\n7\nСообщить об ошибке\nНастройки",
+  "previousErrors": [
+    "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').getByRole('button', { name: /^(Закрыть|Закрыть окно)$/ }).filter({ visible: true }).last()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" class=\"secondary-button\">Закрыть</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button disabled type=\"button\" class=\"primary-button compact-action\">Назначить</button> from <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop sheet-backdrop\" data-testid=\"person-first-slot-picker\" aria-labelledby=\"person-first-slot-title\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"modal-actions sticky-actions line-dashboard-footer\">…</div> from <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div class=\"modal-actions sticky-actions line-dashboard-footer\">…</div> from <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+    "locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog').filter({ has: getByRole('heading', { name: 'Отправить сотрудника домой', exact: true }) }).getByLabel('Комментарий при отправке домой')\u001b[22m\n",
+    "POST /assignments/line: 409 Сотрудника можно перемещать не чаще одного раза в 5 минут.\n\n409 !== 201\n",
+    "page.waitForResponse: Timeout 15000ms exceeded while waiting for event \"response\""
+  ],
+  "home": true,
+  "request1": "6ed85584-1696-4e4e-b4bd-78cfed220554",
+  "rejected": {
+    "status": 200,
+    "secondUiMs": 585
+  },
+  "request2": "e3c6c4ab-b016-4a98-87a9-35fdb557d2b3",
+  "approved": {
+    "status": 200,
+    "secondUiMs": 643,
+    "noAutomaticAssignment": true
+  },
+  "reassigned": "d11bdb10-3f22-4374-9e5f-e538944c4277",
+  "arrival": {
+    "status": 201,
+    "body": {
+      "id": "c2051d60-18f1-46af-b77b-a30c94d91052",
+      "submissionId": "071f1052-1672-489c-a243-97eb8f44a2b4",
+      "contractorUserId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+      "status": "PROPOSED",
+      "actualStatus": "ARRIVED",
+      "actualById": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+      "actualAt": "2026-09-26T20:14:31.346Z",
+      "masterComment": null,
+      "decidedById": null,
+      "decidedAt": null,
+      "createdAt": "2026-09-26T20:14:31.339Z",
+      "updatedAt": "2026-09-26T20:14:31.346Z",
+      "version": 2
+    },
+    "secondUiMs": 3178
+  },
+  "contractorAssigned": "1578f177-21f0-4aa3-97b6-2e8d079d36b0",
+  "pause": {
+    "status": 200,
+    "preserved": [
+      "1578f177-21f0-4aa3-97b6-2e8d079d36b0",
+      "e1a7e4b2-3e52-45c5-81ea-bb078bd6697f",
+      "d11bdb10-3f22-4374-9e5f-e538944c4277"
+    ]
+  },
+  "stop": {
+    "status": 200,
+    "contractorReleasedByCanonicalSTOP": true,
+    "secondUiMs": 3146
+  },
+  "sql": {
+    "activeAssignments": [
+      {
+        "id": "636f595e-81be-4ead-afd5-37fff9afddd2",
+        "userId": "596f6f50-cfba-4cf4-a43e-82225e3a708d",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "positionId": "9e692458-1d60-416e-8f1e-801d291e66ff"
+      },
+      {
+        "id": "bd8c992d-2b2f-425c-9632-f169ebf2c784",
+        "userId": "f2242297-6c2d-4cdc-a25b-330647f64d28",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "positionId": "c9f947c9-3674-4552-9bb4-bde2535a8436"
+      },
+      {
+        "id": "236704d7-7c00-4a96-bde5-81ed2c31d297",
+        "userId": "32be9b5b-3e13-420b-abbe-808707a60afa",
+        "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "positionId": "7dd4ab34-12ca-4305-90a5-8abe2e5b1869"
+      },
+      {
+        "id": "b6f1818c-78a2-4d3a-be6a-c54759fe6784",
+        "userId": "393fe669-5b68-4f49-85e3-c36e55451c9f",
+        "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "positionId": "974798bb-b399-4464-b118-b8e3d6bdc33a"
+      },
+      {
+        "id": "31b4e238-65b5-486c-844c-af0f5113d323",
+        "userId": "5ab7bbc5-84a0-44c1-abae-ba28a55e5a12",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "positionId": "d47e178c-bac9-434d-a60b-19fb2875d893"
+      },
+      {
+        "id": "15dee750-d4bc-4893-8ee5-6cf8123b8567",
+        "userId": "e8ba2d30-0bbb-4e58-bc4b-3a38aa7012ce",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "positionId": "4f024836-b12a-4ca6-9a8a-3d2870af5ca1"
+      }
+    ],
+    "activeSessions": [
+      {
+        "id": "9e87e4da-1725-4ded-9e80-cf7b97606848",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f"
+      },
+      {
+        "id": "228bd01b-53ee-493a-990a-88da64b69171",
+        "userId": "8288c785-94ce-4914-89bc-7d0303632ab9"
+      },
+      {
+        "id": "2fff40fd-b674-438d-8deb-a014773dc762",
+        "userId": "596f6f50-cfba-4cf4-a43e-82225e3a708d"
+      },
+      {
+        "id": "d09dcefe-a9cd-4c07-ad26-de6ff8aca925",
+        "userId": "f2242297-6c2d-4cdc-a25b-330647f64d28"
+      },
+      {
+        "id": "5d48354b-656c-4288-ae4f-0a588748d7a7",
+        "userId": "32be9b5b-3e13-420b-abbe-808707a60afa"
+      },
+      {
+        "id": "e7160719-b50a-49b1-950a-f243d8f4fc06",
+        "userId": "393fe669-5b68-4f49-85e3-c36e55451c9f"
+      },
+      {
+        "id": "f7bf75bd-16ca-452c-86d9-251da6d627db",
+        "userId": "5ab7bbc5-84a0-44c1-abae-ba28a55e5a12"
+      },
+      {
+        "id": "86c2e463-59e2-4f42-8e12-64ff28adf32a",
+        "userId": "e8ba2d30-0bbb-4e58-bc4b-3a38aa7012ce"
+      },
+      {
+        "id": "0f119cd6-d097-42dc-88e6-ebd8a845f3fb",
+        "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1"
+      }
+    ],
+    "returnRequests": [
+      {
+        "id": "e3c6c4ab-b016-4a98-87a9-35fdb557d2b3",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "status": "APPROVED"
+      },
+      {
+        "id": "6ed85584-1696-4e4e-b4bd-78cfed220554",
+        "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "status": "REJECTED"
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+diff --git a/frontend/src/components/DeviceAccessPanel.tsx b/frontend/src/components/DeviceAccessPanel.tsx
+new file mode 100644
+--- /dev/null
++++ b/frontend/src/components/DeviceAccessPanel.tsx
+@@ -0,0 +1,63 @@
++import React, { useEffect, useRef, useState } from 'react';
++
++type Device = 'camera' | 'microphone';
++type Access = PermissionState | 'unknown' | 'unavailable';
++const label: Record<Access, string> = { granted: 'Разрешено браузером', denied: 'Запрещено в настройках сайта', prompt: 'Разрешение ещё не предоставлено', unknown: 'Браузер не сообщает статус', unavailable: 'Недоступно в этом браузере или адресе' };
++export function DeviceAccessPanel() {
++  const [access, setAccess] = useState<Record<Device, Access>>({ camera: 'unknown', microphone: 'unknown' });
++  const [busy, setBusy] = useState<Device | null>(null);
++  const [message, setMessage] = useState('');
++  const mounted = useRef(true), attempt = useRef(0);
++  useEffect(() => {
++    mounted.current = true;
++    let generation = 0;
++    const cleanups: Array<() => void> = [];
++    const refresh = async () => {
++      const current = ++generation;
++      cleanups.splice(0).forEach(remove => remove());
++      for (const device of ['camera', 'microphone'] as const) {
++        if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
++          if (mounted.current && current === generation) setAccess(value => ({ ...value, [device]: 'unavailable' }));
++          continue;
++        }
++        try {
++          const permission = await navigator.permissions.query({ name: device as PermissionName });
++          if (!mounted.current || current !== generation) return;
++          const update = () => setAccess(value => ({ ...value, [device]: permission.state }));
++          update(); permission.addEventListener('change', update); cleanups.push(() => permission.removeEventListener('change', update));
++        } catch { if (mounted.current && current === generation) setAccess(value => ({ ...value, [device]: 'unknown' })); }
++      }
++    };
++    const onFocus = () => void refresh();
++    void refresh(); window.addEventListener('focus', onFocus);
++    return () => { mounted.current = false; generation++; attempt.current++; cleanups.forEach(remove => remove()); window.removeEventListener('focus', onFocus); };
++  }, []);
++  const check = async (device: Device) => {
++    if (busy) return;
++    const current = ++attempt.current;
++    setBusy(device); setMessage('');
++    let stream: MediaStream | undefined;
++    try {
++      if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) throw new DOMException('', 'SecurityError');
++      stream = await navigator.mediaDevices.getUserMedia(device === 'camera' ? { video: true, audio: false } : { audio: true, video: false });
++      if (mounted.current && current === attempt.current) { setAccess(value => ({ ...value, [device]: 'granted' })); setMessage('Доступ проверен. Пробный поток остановлен. Запись не сохранялась и не отправлялась.'); }
++    } catch (error) {
++      if (!mounted.current || current !== attempt.current) return;
++      const name = error instanceof DOMException ? error.name : '';
++      setMessage(name === 'NotAllowedError' ? 'Доступ не предоставлен. Проверьте разрешение для этого сайта в настройках браузера.' : name === 'NotFoundError' ? 'Устройство не найдено.' : name === 'NotReadableError' ? 'Устройство занято другим приложением.' : name === 'SecurityError' ? 'Для проверки нужен поддерживаемый браузер и защищённый адрес HTTPS.' : 'Не удалось проверить устройство. Повторите попытку.');
++    } finally {
++      stream?.getTracks().forEach(track => track.stop());
++      if (mounted.current && current === attempt.current) setBusy(null);
++    }
++  };
++  return <section className="section-card compact settings-section-card device-access-panel">
++    <h3>Камера и микрофон</h3>
++    <p className="helper-text">Проверка включает только выбранное устройство и сразу останавливает его. Ничего не записывается и не отправляется.</p>
++    {(['camera', 'microphone'] as const).map(device => <div className="position-row" key={device}>
++      <div><strong>{device === 'camera' ? 'Веб-камера' : 'Микрофон'}</strong><span>{label[access[device]]}</span></div>
++      <button className="secondary-button compact-action" type="button" disabled={Boolean(busy) || access[device] === 'unavailable'} onClick={() => void check(device)}>{busy === device ? 'Проверяю…' : device === 'camera' ? 'Проверить камеру' : 'Проверить микрофон'}</button>
++    </div>)}
++    <p className="helper-text">Кнопка «Камера» в форме вложений открывает системный выбор фото отдельно от веб-камеры. Его отмена не означает запрет доступа и не удаляет выбранные файлы.</p>
++    {message ? <p className="helper-text" role="status">{message}</p> : null}
++  </section>;
++}

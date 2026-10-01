@@ -1,0 +1,3361 @@
+{
+  "status": "PRODUCT_MISMATCHES",
+  "reference": {
+    "start": "2026-09-19T21:00:00.000Z",
+    "end": "2026-09-27T21:00:00.000Z",
+    "asOf": "2026-09-27T16:07:44.819Z",
+    "rows": [
+      {
+        "METRIC": "summary.totalLostMinutes",
+        "USER_MEANING": "Сумма STOP/PAUSE времени отдельных линий",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+        ],
+        "TIME_BASIS": "пересечение периода до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum unique line-event clipped minutes",
+        "UNIT": "машино-минуты",
+        "EXPECTED": 4599
+      },
+      {
+        "METRIC": "summary.downtimeCount",
+        "USER_MEANING": "Количество непустых интервалов простоя",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+        ],
+        "TIME_BASIS": "на asOf / пересечение периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count distinct primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 9
+      },
+      {
+        "METRIC": "summary.openDowntimeCount",
+        "USER_MEANING": "Открытые простои на asOf",
+        "SOURCE_ROWS": [
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+        ],
+        "TIME_BASIS": "на asOf / пересечение периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count distinct primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 4
+      },
+      {
+        "METRIC": "summary.tasksTotal",
+        "USER_MEANING": "Заявки, пересекающие период",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "на asOf / пересечение периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count distinct primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 8
+      },
+      {
+        "METRIC": "summary.tasksOpen",
+        "USER_MEANING": "Открытые на asOf",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "на asOf / пересечение периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count distinct primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.tasksCompleted",
+        "USER_MEANING": "Завершённые в выборке",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "на asOf / пересечение периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count distinct primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 8
+      },
+      {
+        "METRIC": "summary.urgentOpenTasks",
+        "USER_MEANING": "Срочные открытые",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "на asOf / пересечение периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count distinct primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.overdueLongTasks",
+        "USER_MEANING": "Открытые LONG за сроком",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "на asOf / пересечение периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count distinct primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.averageDowntimeMinutes",
+        "USER_MEANING": "average Downtime; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "round(sum(samples)/N)",
+        "UNIT": "минуты",
+        "EXPECTED": 511
+      },
+      {
+        "METRIC": "summary.medianDowntimeMinutes",
+        "USER_MEANING": "median Downtime; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+        "UNIT": "минуты",
+        "EXPECTED": 36
+      },
+      {
+        "METRIC": "summary.p90DowntimeMinutes",
+        "USER_MEANING": "p90 Downtime; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+        "UNIT": "минуты",
+        "EXPECTED": 1193
+      },
+      {
+        "METRIC": "summary.averageResponseMinutes",
+        "USER_MEANING": "average Response; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "round(sum(samples)/N)",
+        "UNIT": "минуты",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.medianResponseMinutes",
+        "USER_MEANING": "median Response; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+        "UNIT": "минуты",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.p90ResponseMinutes",
+        "USER_MEANING": "p90 Response; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+        "UNIT": "минуты",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.averageExecutionMinutes",
+        "USER_MEANING": "average Execution; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "round(sum(samples)/N)",
+        "UNIT": "минуты",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.medianExecutionMinutes",
+        "USER_MEANING": "median Execution; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+        "UNIT": "минуты",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.p90ExecutionMinutes",
+        "USER_MEANING": "p90 Execution; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+        "UNIT": "минуты",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.averageResolutionMinutes",
+        "USER_MEANING": "average Resolution; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "round(sum(samples)/N)",
+        "UNIT": "минуты",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.medianResolutionMinutes",
+        "USER_MEANING": "median Resolution; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+        "UNIT": "минуты",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.p90ResolutionMinutes",
+        "USER_MEANING": "p90 Resolution; отсутствующее измерение исключено",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "завершённая фаза до asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+        "UNIT": "минуты",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "summary.tenMinuteDailyEffect.potentialMinutes",
+        "USER_MEANING": "Условный потенциал, не деньги и не измеренная производительность",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+        ],
+        "TIME_BASIS": "период",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "min(lost, 10*weekdays)",
+        "UNIT": "минуты",
+        "EXPECTED": 50
+      },
+      {
+        "METRIC": "lineEvents.stop",
+        "USER_MEANING": "События STOP",
+        "SOURCE_ROWS": [
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197"
+        ],
+        "TIME_BASIS": "timestamp in [from,to)",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count events",
+        "UNIT": "записи",
+        "EXPECTED": 5
+      },
+      {
+        "METRIC": "lineEvents.pause",
+        "USER_MEANING": "События PAUSE",
+        "SOURCE_ROWS": [
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82"
+        ],
+        "TIME_BASIS": "timestamp in [from,to)",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count events",
+        "UNIT": "записи",
+        "EXPECTED": 4
+      },
+      {
+        "METRIC": "lineEvents.work",
+        "USER_MEANING": "События WORK",
+        "SOURCE_ROWS": [
+          "050ad490-228c-452c-95dc-231610985e19",
+          "1dc67455-70b2-4a7c-aea6-c2ff0133f894",
+          "63cf2706-97da-40a0-899b-bc87fb232d40",
+          "6c6a398e-3dbc-4b7e-bf89-f177d59dcf70",
+          "86c9ab2b-e37b-4df7-be15-af3f1f21b1fd",
+          "9c9e0896-28f2-4e99-afc9-e1a8996b077d",
+          "c7b9f313-06e1-41a4-b18c-950b1e638c02",
+          "df7507e8-f2f8-47e6-a2d2-bd88bade93d4",
+          "e81b90f0-aa0c-483d-b204-eafdeabf1074"
+        ],
+        "TIME_BASIS": "timestamp in [from,to)",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count events",
+        "UNIT": "записи",
+        "EXPECTED": 9
+      },
+      {
+        "METRIC": "lineEvents.downtimeLinkedTasks",
+        "USER_MEANING": "Заявки с точной связью event ID",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "выборка заявок",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task.lineStatusEventId in interval IDs",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "quality.okkDefects",
+        "USER_MEANING": "Число записей, архивирование не стирает исторический результат",
+        "SOURCE_ROWS": [
+          "588b6d3e-f722-47ec-b055-5752cc2a3375"
+        ],
+        "TIME_BASIS": "создано в период",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count primary IDs including canonical archive",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "quality.stockDefects",
+        "USER_MEANING": "Число записей, архивирование не стирает исторический результат",
+        "SOURCE_ROWS": [
+          "bd20c979-119e-4651-a625-38d76c83baa3"
+        ],
+        "TIME_BASIS": "создано в период",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count primary IDs including canonical archive",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "quality.returns",
+        "USER_MEANING": "Число записей, архивирование не стирает исторический результат",
+        "SOURCE_ROWS": [
+          "faf19f9f-65a3-4d00-ae6e-61adc3f656fa"
+        ],
+        "TIME_BASIS": "создано в период",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count primary IDs including canonical archive",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "quality.stockDefectQuantities",
+        "USER_MEANING": "Текущее сохранённое количество в записях периода; не исторический снимок объёма",
+        "SOURCE_ROWS": [
+          "bd20c979-119e-4651-a625-38d76c83baa3"
+        ],
+        "TIME_BASIS": "current quantity of period records",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "group by unit, sum each row once; no release ledger addition",
+        "UNIT": "по единицам",
+        "EXPECTED": [
+          {
+            "unit": "гофры",
+            "quantity": 14
+          }
+        ]
+      },
+      {
+        "METRIC": "checklists.started",
+        "USER_MEANING": "Запуск / периодическая проверка: started",
+        "SOURCE_ROWS": [
+          "3c9899a3-4f1b-46c5-ae33-40468065103d",
+          "98d9dcfd-3d52-400e-89ba-936654bdc8a9",
+          "9fab8b3c-6b6c-48a0-925f-6c6e9692a76f",
+          "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+          "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+          "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+          "fe49f6ab-b260-4bba-b66a-98371214989b"
+        ],
+        "TIME_BASIS": "соответствующее событие в период",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct parent/check IDs; closed-parent never current",
+        "UNIT": "записи",
+        "EXPECTED": 7
+      },
+      {
+        "METRIC": "checklists.active",
+        "USER_MEANING": "Запуск / периодическая проверка: active",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "на asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct parent/check IDs; closed-parent never current",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "checklists.runsCompleted",
+        "USER_MEANING": "Запуск / периодическая проверка: runsCompleted",
+        "SOURCE_ROWS": [
+          "3c9899a3-4f1b-46c5-ae33-40468065103d",
+          "98d9dcfd-3d52-400e-89ba-936654bdc8a9",
+          "9fab8b3c-6b6c-48a0-925f-6c6e9692a76f",
+          "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+          "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+          "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+          "fe49f6ab-b260-4bba-b66a-98371214989b"
+        ],
+        "TIME_BASIS": "соответствующее событие в период",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct parent/check IDs; closed-parent never current",
+        "UNIT": "записи",
+        "EXPECTED": 7
+      },
+      {
+        "METRIC": "checklists.checksCompleted",
+        "USER_MEANING": "Запуск / периодическая проверка: checksCompleted",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "соответствующее событие в период",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct parent/check IDs; closed-parent never current",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "checklists.checksOverdue",
+        "USER_MEANING": "Запуск / периодическая проверка: checksOverdue",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "на asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct parent/check IDs; closed-parent never current",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "checklists.manuallyClosed",
+        "USER_MEANING": "Запуск / периодическая проверка: manuallyClosed",
+        "SOURCE_ROWS": [
+          "3c9899a3-4f1b-46c5-ae33-40468065103d",
+          "98d9dcfd-3d52-400e-89ba-936654bdc8a9",
+          "9fab8b3c-6b6c-48a0-925f-6c6e9692a76f",
+          "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+          "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+          "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+          "fe49f6ab-b260-4bba-b66a-98371214989b"
+        ],
+        "TIME_BASIS": "соответствующее событие в период",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct parent/check IDs; closed-parent never current",
+        "UNIT": "записи",
+        "EXPECTED": 7
+      },
+      {
+        "METRIC": "checklists.shiftClosed",
+        "USER_MEANING": "Запуск / периодическая проверка: shiftClosed",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "соответствующее событие в период",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct parent/check IDs; closed-parent never current",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "wash.active",
+        "USER_MEANING": "Родители/проблемы/мини-задания отдельно: active",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "на asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count unique primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "wash.completed",
+        "USER_MEANING": "Родители/проблемы/мини-задания отдельно: completed",
+        "SOURCE_ROWS": [
+          "1ac06d5b-b2d2-4a3f-b0d3-0bfee8c08647"
+        ],
+        "TIME_BASIS": "пересечение/событие периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count unique primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "wash.issues",
+        "USER_MEANING": "Родители/проблемы/мини-задания отдельно: issues",
+        "SOURCE_ROWS": [
+          "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7"
+        ],
+        "TIME_BASIS": "пересечение/событие периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count unique primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "wash.openIssues",
+        "USER_MEANING": "Родители/проблемы/мини-задания отдельно: openIssues",
+        "SOURCE_ROWS": [],
+        "TIME_BASIS": "на asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count unique primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "wash.miniTasks",
+        "USER_MEANING": "Родители/проблемы/мини-задания отдельно: miniTasks",
+        "SOURCE_ROWS": [
+          "fd8e2907-cdf9-40fa-8c1b-6fb067601442"
+        ],
+        "TIME_BASIS": "пересечение/событие периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count unique primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "wash.miniTasksDone",
+        "USER_MEANING": "Родители/проблемы/мини-задания отдельно: miniTasksDone",
+        "SOURCE_ROWS": [
+          "fd8e2907-cdf9-40fa-8c1b-6fb067601442"
+        ],
+        "TIME_BASIS": "пересечение/событие периода",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "count unique primary IDs",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].lostMinutes",
+        "USER_MEANING": "УЧ-Линия 2 / lostMinutes",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 1190
+      },
+      {
+        "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].downtimeCount",
+        "USER_MEANING": "УЧ-Линия 2 / downtimeCount",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 2
+      },
+      {
+        "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].openTasks",
+        "USER_MEANING": "УЧ-Линия 2 / openTasks",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].downtimeSharePercent",
+        "USER_MEANING": "УЧ-Линия 2 / downtimeSharePercent",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 10.6
+      },
+      {
+        "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].planCompletionPercent",
+        "USER_MEANING": "УЧ-Линия 2 / planCompletionPercent",
+        "SOURCE_ROWS": [
+          "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+          "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": null
+      },
+      {
+        "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].lostMinutes",
+        "USER_MEANING": "УЧ-Линия 1 / lostMinutes",
+        "SOURCE_ROWS": [
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 1193
+      },
+      {
+        "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].downtimeCount",
+        "USER_MEANING": "УЧ-Линия 1 / downtimeCount",
+        "SOURCE_ROWS": [
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 2
+      },
+      {
+        "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].openTasks",
+        "USER_MEANING": "УЧ-Линия 1 / openTasks",
+        "SOURCE_ROWS": [
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].downtimeSharePercent",
+        "USER_MEANING": "УЧ-Линия 1 / downtimeSharePercent",
+        "SOURCE_ROWS": [
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 10.6
+      },
+      {
+        "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].planCompletionPercent",
+        "USER_MEANING": "УЧ-Линия 1 / planCompletionPercent",
+        "SOURCE_ROWS": [
+          "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+          "10782695-321f-46c3-b0be-96d7eb4e8684",
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": null
+      },
+      {
+        "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].lostMinutes",
+        "USER_MEANING": "УЧ-Линия 4 / lostMinutes",
+        "SOURCE_ROWS": [
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 1108
+      },
+      {
+        "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].downtimeCount",
+        "USER_MEANING": "УЧ-Линия 4 / downtimeCount",
+        "SOURCE_ROWS": [
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 4
+      },
+      {
+        "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].openTasks",
+        "USER_MEANING": "УЧ-Линия 4 / openTasks",
+        "SOURCE_ROWS": [
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].downtimeSharePercent",
+        "USER_MEANING": "УЧ-Линия 4 / downtimeSharePercent",
+        "SOURCE_ROWS": [
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 9.9
+      },
+      {
+        "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].planCompletionPercent",
+        "USER_MEANING": "УЧ-Линия 4 / planCompletionPercent",
+        "SOURCE_ROWS": [
+          "aa971061-8a07-4bb7-8f7f-fa708317040f",
+          "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+          "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+          "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+          "c388de27-6483-4d8d-9fa3-538bae90b762",
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": null
+      },
+      {
+        "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].lostMinutes",
+        "USER_MEANING": "УЧ-Линия 3 / lostMinutes",
+        "SOURCE_ROWS": [
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 1108
+      },
+      {
+        "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].downtimeCount",
+        "USER_MEANING": "УЧ-Линия 3 / downtimeCount",
+        "SOURCE_ROWS": [
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].openTasks",
+        "USER_MEANING": "УЧ-Линия 3 / openTasks",
+        "SOURCE_ROWS": [
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].downtimeSharePercent",
+        "USER_MEANING": "УЧ-Линия 3 / downtimeSharePercent",
+        "SOURCE_ROWS": [
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": 9.9
+      },
+      {
+        "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].planCompletionPercent",
+        "USER_MEANING": "УЧ-Линия 3 / planCompletionPercent",
+        "SOURCE_ROWS": [
+          "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "период / asOf",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "sum/count/mean from primary rows",
+        "UNIT": "записи",
+        "EXPECTED": null
+      },
+      {
+        "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].received",
+        "USER_MEANING": "УЧ — Механики / received",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 2
+      },
+      {
+        "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].closed",
+        "USER_MEANING": "УЧ — Механики / closed",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 2
+      },
+      {
+        "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].open",
+        "USER_MEANING": "УЧ — Механики / open",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].averageResponseMinutes",
+        "USER_MEANING": "УЧ — Механики / averageResponseMinutes",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].maxResponseMinutes",
+        "USER_MEANING": "УЧ — Механики / maxResponseMinutes",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].onTimePercent",
+        "USER_MEANING": "УЧ — Механики / onTimePercent",
+        "SOURCE_ROWS": [
+          "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+          "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 100
+      },
+      {
+        "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].received",
+        "USER_MEANING": "УЧ — Электрики / received",
+        "SOURCE_ROWS": [
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].closed",
+        "USER_MEANING": "УЧ — Электрики / closed",
+        "SOURCE_ROWS": [
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].open",
+        "USER_MEANING": "УЧ — Электрики / open",
+        "SOURCE_ROWS": [
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].averageResponseMinutes",
+        "USER_MEANING": "УЧ — Электрики / averageResponseMinutes",
+        "SOURCE_ROWS": [
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].maxResponseMinutes",
+        "USER_MEANING": "УЧ — Электрики / maxResponseMinutes",
+        "SOURCE_ROWS": [
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].onTimePercent",
+        "USER_MEANING": "УЧ — Электрики / onTimePercent",
+        "SOURCE_ROWS": [
+          "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 100
+      },
+      {
+        "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].received",
+        "USER_MEANING": "УЧ — Холодильная служба / received",
+        "SOURCE_ROWS": [
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].closed",
+        "USER_MEANING": "УЧ — Холодильная служба / closed",
+        "SOURCE_ROWS": [
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].open",
+        "USER_MEANING": "УЧ — Холодильная служба / open",
+        "SOURCE_ROWS": [
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].averageResponseMinutes",
+        "USER_MEANING": "УЧ — Холодильная служба / averageResponseMinutes",
+        "SOURCE_ROWS": [
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].maxResponseMinutes",
+        "USER_MEANING": "УЧ — Холодильная служба / maxResponseMinutes",
+        "SOURCE_ROWS": [
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].onTimePercent",
+        "USER_MEANING": "УЧ — Холодильная служба / onTimePercent",
+        "SOURCE_ROWS": [
+          "d9c14660-d422-43a4-93ff-6927e1443f1a"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 100
+      },
+      {
+        "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].received",
+        "USER_MEANING": "УЧ — КИПиА / received",
+        "SOURCE_ROWS": [
+          "c388de27-6483-4d8d-9fa3-538bae90b762"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].closed",
+        "USER_MEANING": "УЧ — КИПиА / closed",
+        "SOURCE_ROWS": [
+          "c388de27-6483-4d8d-9fa3-538bae90b762"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].open",
+        "USER_MEANING": "УЧ — КИПиА / open",
+        "SOURCE_ROWS": [
+          "c388de27-6483-4d8d-9fa3-538bae90b762"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].averageResponseMinutes",
+        "USER_MEANING": "УЧ — КИПиА / averageResponseMinutes",
+        "SOURCE_ROWS": [
+          "c388de27-6483-4d8d-9fa3-538bae90b762"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].maxResponseMinutes",
+        "USER_MEANING": "УЧ — КИПиА / maxResponseMinutes",
+        "SOURCE_ROWS": [
+          "c388de27-6483-4d8d-9fa3-538bae90b762"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].onTimePercent",
+        "USER_MEANING": "УЧ — КИПиА / onTimePercent",
+        "SOURCE_ROWS": [
+          "c388de27-6483-4d8d-9fa3-538bae90b762"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 100
+      },
+      {
+        "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].received",
+        "USER_MEANING": "УЧ — Сантехники / received",
+        "SOURCE_ROWS": [
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].closed",
+        "USER_MEANING": "УЧ — Сантехники / closed",
+        "SOURCE_ROWS": [
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].open",
+        "USER_MEANING": "УЧ — Сантехники / open",
+        "SOURCE_ROWS": [
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].averageResponseMinutes",
+        "USER_MEANING": "УЧ — Сантехники / averageResponseMinutes",
+        "SOURCE_ROWS": [
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].maxResponseMinutes",
+        "USER_MEANING": "УЧ — Сантехники / maxResponseMinutes",
+        "SOURCE_ROWS": [
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].onTimePercent",
+        "USER_MEANING": "УЧ — Сантехники / onTimePercent",
+        "SOURCE_ROWS": [
+          "b44bd86b-ae20-43bf-9048-88347acd4e14"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 100
+      },
+      {
+        "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].received",
+        "USER_MEANING": "УЧ — Технологи / received",
+        "SOURCE_ROWS": [
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].closed",
+        "USER_MEANING": "УЧ — Технологи / closed",
+        "SOURCE_ROWS": [
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].open",
+        "USER_MEANING": "УЧ — Технологи / open",
+        "SOURCE_ROWS": [
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].averageResponseMinutes",
+        "USER_MEANING": "УЧ — Технологи / averageResponseMinutes",
+        "SOURCE_ROWS": [
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].maxResponseMinutes",
+        "USER_MEANING": "УЧ — Технологи / maxResponseMinutes",
+        "SOURCE_ROWS": [
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].onTimePercent",
+        "USER_MEANING": "УЧ — Технологи / onTimePercent",
+        "SOURCE_ROWS": [
+          "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 100
+      },
+      {
+        "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].received",
+        "USER_MEANING": "УЧ — Руководство T1 / received",
+        "SOURCE_ROWS": [
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].closed",
+        "USER_MEANING": "УЧ — Руководство T1 / closed",
+        "SOURCE_ROWS": [
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 1
+      },
+      {
+        "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].open",
+        "USER_MEANING": "УЧ — Руководство T1 / open",
+        "SOURCE_ROWS": [
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].averageResponseMinutes",
+        "USER_MEANING": "УЧ — Руководство T1 / averageResponseMinutes",
+        "SOURCE_ROWS": [
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].maxResponseMinutes",
+        "USER_MEANING": "УЧ — Руководство T1 / maxResponseMinutes",
+        "SOURCE_ROWS": [
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 0
+      },
+      {
+        "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].onTimePercent",
+        "USER_MEANING": "УЧ — Руководство T1 / onTimePercent",
+        "SOURCE_ROWS": [
+          "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+        ],
+        "TIME_BASIS": "task selection; completed denominator for on-time",
+        "FILTERS": "selected factory; optional applicable line/department/shift",
+        "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+        "UNIT": "записи",
+        "EXPECTED": 100
+      }
+    ],
+    "intervals": [
+      {
+        "id": "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "minutes": 36,
+        "open": false,
+        "start": 1790453814171,
+        "end": 1790456000657,
+        "reason": "TECHNICAL",
+        "comment": "Учебная репетиция T1: STOP"
+      },
+      {
+        "id": "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "minutes": 1154,
+        "open": true,
+        "start": 1790456031848,
+        "end": 1790525264819,
+        "reason": "TECHNICAL",
+        "comment": "Учебная репетиция T1: STOP"
+      },
+      {
+        "id": "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "minutes": 0,
+        "open": false,
+        "start": 1790453678602,
+        "end": 1790453679766,
+        "reason": "TECHNICAL",
+        "comment": "Учебная репетиция T1: PAUSE"
+      },
+      {
+        "id": "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "minutes": 1193,
+        "open": true,
+        "start": 1790453680888,
+        "end": 1790525264819,
+        "reason": "TECHNICAL",
+        "comment": "Учебная репетиция T1: STOP"
+      },
+      {
+        "id": "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "minutes": 0,
+        "open": false,
+        "start": 1790458636142,
+        "end": 1790458637630,
+        "reason": "TECHNICAL",
+        "comment": "Учебная репетиция T1: PAUSE"
+      },
+      {
+        "id": "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "minutes": 0,
+        "open": false,
+        "start": 1790458643208,
+        "end": 1790458644496,
+        "reason": "TECHNICAL",
+        "comment": "Учебная репетиция T1: PAUSE"
+      },
+      {
+        "id": "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "minutes": 0,
+        "open": false,
+        "start": 1790458649955,
+        "end": 1790458651104,
+        "reason": "TECHNICAL",
+        "comment": "Учебная репетиция T1: PAUSE"
+      },
+      {
+        "id": "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "lineId": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "minutes": 1108,
+        "open": true,
+        "start": 1790458796905,
+        "end": 1790525264819,
+        "reason": "TECHNICAL",
+        "comment": "Учебная репетиция T1: STOP"
+      },
+      {
+        "id": "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+        "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "minutes": 1108,
+        "open": true,
+        "start": 1790458795510,
+        "end": 1790525264819,
+        "reason": "TECHNICAL",
+        "comment": "Учебная репетиция T1: STOP"
+      }
+    ],
+    "taskIds": [
+      "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+      "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+      "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+      "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+      "b44bd86b-ae20-43bf-9048-88347acd4e14",
+      "c388de27-6483-4d8d-9fa3-538bae90b762",
+      "d9c14660-d422-43a4-93ff-6927e1443f1a",
+      "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+    ],
+    "notes": [
+      "Accepted nearest-rank p50 is lower central value for even N, not interpolated median.",
+      "Checklist COMPLETED occurrence differs from manually CLOSED run/check; no row-count inflation.",
+      "No product aggregator or time/visibility helper imports. Known primary set must be separately checked for fixture eligibility."
+    ]
+  },
+  "rows": [
+    {
+      "METRIC": "summary.totalLostMinutes",
+      "USER_MEANING": "Сумма STOP/PAUSE времени отдельных линий",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+      ],
+      "TIME_BASIS": "пересечение периода до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum unique line-event clipped minutes",
+      "UNIT": "машино-минуты",
+      "EXPECTED": 4599,
+      "API_ACTUAL": 4599,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.downtimeCount",
+      "USER_MEANING": "Количество непустых интервалов простоя",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+      ],
+      "TIME_BASIS": "на asOf / пересечение периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count distinct primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 9,
+      "API_ACTUAL": 9,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.openDowntimeCount",
+      "USER_MEANING": "Открытые простои на asOf",
+      "SOURCE_ROWS": [
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+      ],
+      "TIME_BASIS": "на asOf / пересечение периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count distinct primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 4,
+      "API_ACTUAL": 4,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.tasksTotal",
+      "USER_MEANING": "Заявки, пересекающие период",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "на asOf / пересечение периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count distinct primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 8,
+      "API_ACTUAL": 8,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.tasksOpen",
+      "USER_MEANING": "Открытые на asOf",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "на asOf / пересечение периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count distinct primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.tasksCompleted",
+      "USER_MEANING": "Завершённые в выборке",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "на asOf / пересечение периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count distinct primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 8,
+      "API_ACTUAL": 8,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.urgentOpenTasks",
+      "USER_MEANING": "Срочные открытые",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "на asOf / пересечение периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count distinct primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.overdueLongTasks",
+      "USER_MEANING": "Открытые LONG за сроком",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "на asOf / пересечение периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count distinct primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.averageDowntimeMinutes",
+      "USER_MEANING": "average Downtime; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "round(sum(samples)/N)",
+      "UNIT": "минуты",
+      "EXPECTED": 511,
+      "API_ACTUAL": 511,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.medianDowntimeMinutes",
+      "USER_MEANING": "median Downtime; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+      "UNIT": "минуты",
+      "EXPECTED": 36,
+      "API_ACTUAL": 36,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.p90DowntimeMinutes",
+      "USER_MEANING": "p90 Downtime; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+      "UNIT": "минуты",
+      "EXPECTED": 1193,
+      "API_ACTUAL": 1193,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.averageResponseMinutes",
+      "USER_MEANING": "average Response; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "round(sum(samples)/N)",
+      "UNIT": "минуты",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.medianResponseMinutes",
+      "USER_MEANING": "median Response; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+      "UNIT": "минуты",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.p90ResponseMinutes",
+      "USER_MEANING": "p90 Response; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+      "UNIT": "минуты",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.averageExecutionMinutes",
+      "USER_MEANING": "average Execution; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "round(sum(samples)/N)",
+      "UNIT": "минуты",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.medianExecutionMinutes",
+      "USER_MEANING": "median Execution; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+      "UNIT": "минуты",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.p90ExecutionMinutes",
+      "USER_MEANING": "p90 Execution; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+      "UNIT": "минуты",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.averageResolutionMinutes",
+      "USER_MEANING": "average Resolution; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "round(sum(samples)/N)",
+      "UNIT": "минуты",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.medianResolutionMinutes",
+      "USER_MEANING": "median Resolution; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+      "UNIT": "минуты",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.p90ResolutionMinutes",
+      "USER_MEANING": "p90 Resolution; отсутствующее измерение исключено",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "завершённая фаза до asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sorted[ceil(N*p)-1] (nearest rank)",
+      "UNIT": "минуты",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "summary.tenMinuteDailyEffect.potentialMinutes",
+      "USER_MEANING": "Условный потенциал, не деньги и не измеренная производительность",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e"
+      ],
+      "TIME_BASIS": "период",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "min(lost, 10*weekdays)",
+      "UNIT": "минуты",
+      "EXPECTED": 50,
+      "API_ACTUAL": 50,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lineEvents.stop",
+      "USER_MEANING": "События STOP",
+      "SOURCE_ROWS": [
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197"
+      ],
+      "TIME_BASIS": "timestamp in [from,to)",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count events",
+      "UNIT": "записи",
+      "EXPECTED": 5,
+      "API_ACTUAL": 5,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lineEvents.pause",
+      "USER_MEANING": "События PAUSE",
+      "SOURCE_ROWS": [
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82"
+      ],
+      "TIME_BASIS": "timestamp in [from,to)",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count events",
+      "UNIT": "записи",
+      "EXPECTED": 4,
+      "API_ACTUAL": 4,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lineEvents.work",
+      "USER_MEANING": "События WORK",
+      "SOURCE_ROWS": [
+        "050ad490-228c-452c-95dc-231610985e19",
+        "1dc67455-70b2-4a7c-aea6-c2ff0133f894",
+        "63cf2706-97da-40a0-899b-bc87fb232d40",
+        "6c6a398e-3dbc-4b7e-bf89-f177d59dcf70",
+        "86c9ab2b-e37b-4df7-be15-af3f1f21b1fd",
+        "9c9e0896-28f2-4e99-afc9-e1a8996b077d",
+        "c7b9f313-06e1-41a4-b18c-950b1e638c02",
+        "df7507e8-f2f8-47e6-a2d2-bd88bade93d4",
+        "e81b90f0-aa0c-483d-b204-eafdeabf1074"
+      ],
+      "TIME_BASIS": "timestamp in [from,to)",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count events",
+      "UNIT": "записи",
+      "EXPECTED": 9,
+      "API_ACTUAL": 9,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lineEvents.downtimeLinkedTasks",
+      "USER_MEANING": "Заявки с точной связью event ID",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "выборка заявок",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task.lineStatusEventId in interval IDs",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "quality.okkDefects",
+      "USER_MEANING": "Число записей, архивирование не стирает исторический результат",
+      "SOURCE_ROWS": [
+        "588b6d3e-f722-47ec-b055-5752cc2a3375"
+      ],
+      "TIME_BASIS": "создано в период",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count primary IDs including canonical archive",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "FAIL_SQL_HTTP"
+    },
+    {
+      "METRIC": "quality.stockDefects",
+      "USER_MEANING": "Число записей, архивирование не стирает исторический результат",
+      "SOURCE_ROWS": [
+        "bd20c979-119e-4651-a625-38d76c83baa3"
+      ],
+      "TIME_BASIS": "создано в период",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count primary IDs including canonical archive",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "FAIL_SQL_HTTP"
+    },
+    {
+      "METRIC": "quality.returns",
+      "USER_MEANING": "Число записей, архивирование не стирает исторический результат",
+      "SOURCE_ROWS": [
+        "faf19f9f-65a3-4d00-ae6e-61adc3f656fa"
+      ],
+      "TIME_BASIS": "создано в период",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count primary IDs including canonical archive",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "FAIL_SQL_HTTP"
+    },
+    {
+      "METRIC": "quality.stockDefectQuantities",
+      "USER_MEANING": "Текущее сохранённое количество в записях периода; не исторический снимок объёма",
+      "SOURCE_ROWS": [
+        "bd20c979-119e-4651-a625-38d76c83baa3"
+      ],
+      "TIME_BASIS": "current quantity of period records",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "group by unit, sum each row once; no release ledger addition",
+      "UNIT": "по единицам",
+      "EXPECTED": [
+        {
+          "unit": "гофры",
+          "quantity": 14
+        }
+      ],
+      "API_ACTUAL": null,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "FAIL_SQL_HTTP"
+    },
+    {
+      "METRIC": "checklists.started",
+      "USER_MEANING": "Запуск / периодическая проверка: started",
+      "SOURCE_ROWS": [
+        "3c9899a3-4f1b-46c5-ae33-40468065103d",
+        "98d9dcfd-3d52-400e-89ba-936654bdc8a9",
+        "9fab8b3c-6b6c-48a0-925f-6c6e9692a76f",
+        "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+        "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+        "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+        "fe49f6ab-b260-4bba-b66a-98371214989b"
+      ],
+      "TIME_BASIS": "соответствующее событие в период",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct parent/check IDs; closed-parent never current",
+      "UNIT": "записи",
+      "EXPECTED": 7,
+      "API_ACTUAL": 7,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "checklists.active",
+      "USER_MEANING": "Запуск / периодическая проверка: active",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "на asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct parent/check IDs; closed-parent never current",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "checklists.runsCompleted",
+      "USER_MEANING": "Запуск / периодическая проверка: runsCompleted",
+      "SOURCE_ROWS": [
+        "3c9899a3-4f1b-46c5-ae33-40468065103d",
+        "98d9dcfd-3d52-400e-89ba-936654bdc8a9",
+        "9fab8b3c-6b6c-48a0-925f-6c6e9692a76f",
+        "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+        "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+        "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+        "fe49f6ab-b260-4bba-b66a-98371214989b"
+      ],
+      "TIME_BASIS": "соответствующее событие в период",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct parent/check IDs; closed-parent never current",
+      "UNIT": "записи",
+      "EXPECTED": 7,
+      "API_ACTUAL": 7,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "checklists.checksCompleted",
+      "USER_MEANING": "Запуск / периодическая проверка: checksCompleted",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "соответствующее событие в период",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct parent/check IDs; closed-parent never current",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "checklists.checksOverdue",
+      "USER_MEANING": "Запуск / периодическая проверка: checksOverdue",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "на asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct parent/check IDs; closed-parent never current",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "checklists.manuallyClosed",
+      "USER_MEANING": "Запуск / периодическая проверка: manuallyClosed",
+      "SOURCE_ROWS": [
+        "3c9899a3-4f1b-46c5-ae33-40468065103d",
+        "98d9dcfd-3d52-400e-89ba-936654bdc8a9",
+        "9fab8b3c-6b6c-48a0-925f-6c6e9692a76f",
+        "bae5cf96-28ed-4693-8fd4-726b0ff95c37",
+        "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+        "bf9d8f0b-d8e6-4240-923a-e47ea51c8f09",
+        "fe49f6ab-b260-4bba-b66a-98371214989b"
+      ],
+      "TIME_BASIS": "соответствующее событие в период",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct parent/check IDs; closed-parent never current",
+      "UNIT": "записи",
+      "EXPECTED": 7,
+      "API_ACTUAL": 7,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "checklists.shiftClosed",
+      "USER_MEANING": "Запуск / периодическая проверка: shiftClosed",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "соответствующее событие в период",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct parent/check IDs; closed-parent never current",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "wash.active",
+      "USER_MEANING": "Родители/проблемы/мини-задания отдельно: active",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "на asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count unique primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "wash.completed",
+      "USER_MEANING": "Родители/проблемы/мини-задания отдельно: completed",
+      "SOURCE_ROWS": [
+        "1ac06d5b-b2d2-4a3f-b0d3-0bfee8c08647"
+      ],
+      "TIME_BASIS": "пересечение/событие периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count unique primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "wash.issues",
+      "USER_MEANING": "Родители/проблемы/мини-задания отдельно: issues",
+      "SOURCE_ROWS": [
+        "0a9ffb9c-a102-42e6-a44e-e48b2e5baed7"
+      ],
+      "TIME_BASIS": "пересечение/событие периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count unique primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "wash.openIssues",
+      "USER_MEANING": "Родители/проблемы/мини-задания отдельно: openIssues",
+      "SOURCE_ROWS": [],
+      "TIME_BASIS": "на asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count unique primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "wash.miniTasks",
+      "USER_MEANING": "Родители/проблемы/мини-задания отдельно: miniTasks",
+      "SOURCE_ROWS": [
+        "fd8e2907-cdf9-40fa-8c1b-6fb067601442"
+      ],
+      "TIME_BASIS": "пересечение/событие периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count unique primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "wash.miniTasksDone",
+      "USER_MEANING": "Родители/проблемы/мини-задания отдельно: miniTasksDone",
+      "SOURCE_ROWS": [
+        "fd8e2907-cdf9-40fa-8c1b-6fb067601442"
+      ],
+      "TIME_BASIS": "пересечение/событие периода",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "count unique primary IDs",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].lostMinutes",
+      "USER_MEANING": "УЧ-Линия 2 / lostMinutes",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 1190,
+      "API_ACTUAL": 1190,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].downtimeCount",
+      "USER_MEANING": "УЧ-Линия 2 / downtimeCount",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 2,
+      "API_ACTUAL": 2,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].openTasks",
+      "USER_MEANING": "УЧ-Линия 2 / openTasks",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].downtimeSharePercent",
+      "USER_MEANING": "УЧ-Линия 2 / downtimeSharePercent",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 10.6,
+      "API_ACTUAL": 10.6,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[40ce951f-bf4e-4692-b5a1-7334001b0a08].planCompletionPercent",
+      "USER_MEANING": "УЧ-Линия 2 / planCompletionPercent",
+      "SOURCE_ROWS": [
+        "6e6b5563-6f35-4740-bdad-e4dfa3eb4674",
+        "4b74b98e-3e7e-4bc9-adea-5a9ae1a6db42",
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": null,
+      "API_ACTUAL": null,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].lostMinutes",
+      "USER_MEANING": "УЧ-Линия 1 / lostMinutes",
+      "SOURCE_ROWS": [
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 1193,
+      "API_ACTUAL": 1193,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].downtimeCount",
+      "USER_MEANING": "УЧ-Линия 1 / downtimeCount",
+      "SOURCE_ROWS": [
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 2,
+      "API_ACTUAL": 2,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].openTasks",
+      "USER_MEANING": "УЧ-Линия 1 / openTasks",
+      "SOURCE_ROWS": [
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].downtimeSharePercent",
+      "USER_MEANING": "УЧ-Линия 1 / downtimeSharePercent",
+      "SOURCE_ROWS": [
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 10.6,
+      "API_ACTUAL": 10.6,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9125a431-9d33-47d2-8763-08889bc2ab52].planCompletionPercent",
+      "USER_MEANING": "УЧ-Линия 1 / planCompletionPercent",
+      "SOURCE_ROWS": [
+        "4c3b17a5-15ad-4701-a90d-3ddaf0270785",
+        "10782695-321f-46c3-b0be-96d7eb4e8684",
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87",
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": null,
+      "API_ACTUAL": null,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].lostMinutes",
+      "USER_MEANING": "УЧ-Линия 4 / lostMinutes",
+      "SOURCE_ROWS": [
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 1108,
+      "API_ACTUAL": 1108,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].downtimeCount",
+      "USER_MEANING": "УЧ-Линия 4 / downtimeCount",
+      "SOURCE_ROWS": [
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 4,
+      "API_ACTUAL": 4,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].openTasks",
+      "USER_MEANING": "УЧ-Линия 4 / openTasks",
+      "SOURCE_ROWS": [
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].downtimeSharePercent",
+      "USER_MEANING": "УЧ-Линия 4 / downtimeSharePercent",
+      "SOURCE_ROWS": [
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 9.9,
+      "API_ACTUAL": 9.9,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a].planCompletionPercent",
+      "USER_MEANING": "УЧ-Линия 4 / planCompletionPercent",
+      "SOURCE_ROWS": [
+        "aa971061-8a07-4bb7-8f7f-fa708317040f",
+        "dd86f3f8-452d-4ed5-800f-6272ae97ed82",
+        "28d43c88-99b3-437d-9d65-1a833a6ef6ff",
+        "e7b69988-aaf0-4a8c-b616-bb09a414b197",
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e",
+        "c388de27-6483-4d8d-9fa3-538bae90b762",
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": null,
+      "API_ACTUAL": null,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].lostMinutes",
+      "USER_MEANING": "УЧ-Линия 3 / lostMinutes",
+      "SOURCE_ROWS": [
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 1108,
+      "API_ACTUAL": 1108,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].downtimeCount",
+      "USER_MEANING": "УЧ-Линия 3 / downtimeCount",
+      "SOURCE_ROWS": [
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].openTasks",
+      "USER_MEANING": "УЧ-Линия 3 / openTasks",
+      "SOURCE_ROWS": [
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].downtimeSharePercent",
+      "USER_MEANING": "УЧ-Линия 3 / downtimeSharePercent",
+      "SOURCE_ROWS": [
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": 9.9,
+      "API_ACTUAL": 9.9,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "lines[ea1dc28d-75c4-4a86-8823-2746f738ad6f].planCompletionPercent",
+      "USER_MEANING": "УЧ-Линия 3 / planCompletionPercent",
+      "SOURCE_ROWS": [
+        "30d73e3a-9ad8-49f1-ba90-7ce093c8a54e",
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "период / asOf",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "sum/count/mean from primary rows",
+      "UNIT": "записи",
+      "EXPECTED": null,
+      "API_ACTUAL": null,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].received",
+      "USER_MEANING": "УЧ — Механики / received",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 2,
+      "API_ACTUAL": 2,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].closed",
+      "USER_MEANING": "УЧ — Механики / closed",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 2,
+      "API_ACTUAL": 2,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].open",
+      "USER_MEANING": "УЧ — Механики / open",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].averageResponseMinutes",
+      "USER_MEANING": "УЧ — Механики / averageResponseMinutes",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].maxResponseMinutes",
+      "USER_MEANING": "УЧ — Механики / maxResponseMinutes",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[9aba6e08-18c6-49fc-9912-1fcd4896fc89].onTimePercent",
+      "USER_MEANING": "УЧ — Механики / onTimePercent",
+      "SOURCE_ROWS": [
+        "6213c36b-c83c-411c-acfe-e89e77ae22ce",
+        "a37bfba1-9b33-44c2-a9f8-a3cef8644c87"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 100,
+      "API_ACTUAL": 100,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].received",
+      "USER_MEANING": "УЧ — Электрики / received",
+      "SOURCE_ROWS": [
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].closed",
+      "USER_MEANING": "УЧ — Электрики / closed",
+      "SOURCE_ROWS": [
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].open",
+      "USER_MEANING": "УЧ — Электрики / open",
+      "SOURCE_ROWS": [
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].averageResponseMinutes",
+      "USER_MEANING": "УЧ — Электрики / averageResponseMinutes",
+      "SOURCE_ROWS": [
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].maxResponseMinutes",
+      "USER_MEANING": "УЧ — Электрики / maxResponseMinutes",
+      "SOURCE_ROWS": [
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[faa32c69-e185-4969-a545-ba884986045f].onTimePercent",
+      "USER_MEANING": "УЧ — Электрики / onTimePercent",
+      "SOURCE_ROWS": [
+        "a9d57ef0-f7b2-46a1-942e-8302d670dfe3"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 100,
+      "API_ACTUAL": 100,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].received",
+      "USER_MEANING": "УЧ — Холодильная служба / received",
+      "SOURCE_ROWS": [
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].closed",
+      "USER_MEANING": "УЧ — Холодильная служба / closed",
+      "SOURCE_ROWS": [
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].open",
+      "USER_MEANING": "УЧ — Холодильная служба / open",
+      "SOURCE_ROWS": [
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].averageResponseMinutes",
+      "USER_MEANING": "УЧ — Холодильная служба / averageResponseMinutes",
+      "SOURCE_ROWS": [
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].maxResponseMinutes",
+      "USER_MEANING": "УЧ — Холодильная служба / maxResponseMinutes",
+      "SOURCE_ROWS": [
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8].onTimePercent",
+      "USER_MEANING": "УЧ — Холодильная служба / onTimePercent",
+      "SOURCE_ROWS": [
+        "d9c14660-d422-43a4-93ff-6927e1443f1a"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 100,
+      "API_ACTUAL": 100,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].received",
+      "USER_MEANING": "УЧ — КИПиА / received",
+      "SOURCE_ROWS": [
+        "c388de27-6483-4d8d-9fa3-538bae90b762"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].closed",
+      "USER_MEANING": "УЧ — КИПиА / closed",
+      "SOURCE_ROWS": [
+        "c388de27-6483-4d8d-9fa3-538bae90b762"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].open",
+      "USER_MEANING": "УЧ — КИПиА / open",
+      "SOURCE_ROWS": [
+        "c388de27-6483-4d8d-9fa3-538bae90b762"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].averageResponseMinutes",
+      "USER_MEANING": "УЧ — КИПиА / averageResponseMinutes",
+      "SOURCE_ROWS": [
+        "c388de27-6483-4d8d-9fa3-538bae90b762"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].maxResponseMinutes",
+      "USER_MEANING": "УЧ — КИПиА / maxResponseMinutes",
+      "SOURCE_ROWS": [
+        "c388de27-6483-4d8d-9fa3-538bae90b762"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[b6f3bd41-6820-4137-a28d-c4335f245751].onTimePercent",
+      "USER_MEANING": "УЧ — КИПиА / onTimePercent",
+      "SOURCE_ROWS": [
+        "c388de27-6483-4d8d-9fa3-538bae90b762"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 100,
+      "API_ACTUAL": 100,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].received",
+      "USER_MEANING": "УЧ — Сантехники / received",
+      "SOURCE_ROWS": [
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].closed",
+      "USER_MEANING": "УЧ — Сантехники / closed",
+      "SOURCE_ROWS": [
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].open",
+      "USER_MEANING": "УЧ — Сантехники / open",
+      "SOURCE_ROWS": [
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].averageResponseMinutes",
+      "USER_MEANING": "УЧ — Сантехники / averageResponseMinutes",
+      "SOURCE_ROWS": [
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].maxResponseMinutes",
+      "USER_MEANING": "УЧ — Сантехники / maxResponseMinutes",
+      "SOURCE_ROWS": [
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[6cdab967-9071-47cc-ab50-29d8a22b34fb].onTimePercent",
+      "USER_MEANING": "УЧ — Сантехники / onTimePercent",
+      "SOURCE_ROWS": [
+        "b44bd86b-ae20-43bf-9048-88347acd4e14"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 100,
+      "API_ACTUAL": 100,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].received",
+      "USER_MEANING": "УЧ — Технологи / received",
+      "SOURCE_ROWS": [
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].closed",
+      "USER_MEANING": "УЧ — Технологи / closed",
+      "SOURCE_ROWS": [
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].open",
+      "USER_MEANING": "УЧ — Технологи / open",
+      "SOURCE_ROWS": [
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].averageResponseMinutes",
+      "USER_MEANING": "УЧ — Технологи / averageResponseMinutes",
+      "SOURCE_ROWS": [
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].maxResponseMinutes",
+      "USER_MEANING": "УЧ — Технологи / maxResponseMinutes",
+      "SOURCE_ROWS": [
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[78218e97-dc2e-4c5e-ac34-61bec98713bd].onTimePercent",
+      "USER_MEANING": "УЧ — Технологи / onTimePercent",
+      "SOURCE_ROWS": [
+        "df6cb92f-8ca0-4205-b13c-b0d5eb7a8494"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 100,
+      "API_ACTUAL": 100,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].received",
+      "USER_MEANING": "УЧ — Руководство T1 / received",
+      "SOURCE_ROWS": [
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].closed",
+      "USER_MEANING": "УЧ — Руководство T1 / closed",
+      "SOURCE_ROWS": [
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 1,
+      "API_ACTUAL": 1,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].open",
+      "USER_MEANING": "УЧ — Руководство T1 / open",
+      "SOURCE_ROWS": [
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].averageResponseMinutes",
+      "USER_MEANING": "УЧ — Руководство T1 / averageResponseMinutes",
+      "SOURCE_ROWS": [
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].maxResponseMinutes",
+      "USER_MEANING": "УЧ — Руководство T1 / maxResponseMinutes",
+      "SOURCE_ROWS": [
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 0,
+      "API_ACTUAL": 0,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    },
+    {
+      "METRIC": "departments[75c6a132-651c-4d98-8505-0ce4380c0470].onTimePercent",
+      "USER_MEANING": "УЧ — Руководство T1 / onTimePercent",
+      "SOURCE_ROWS": [
+        "67ff9a58-04be-40b7-8d72-0cf7bac4cb1e"
+      ],
+      "TIME_BASIS": "task selection; completed denominator for on-time",
+      "FILTERS": "selected factory; optional applicable line/department/shift",
+      "FORMULA": "distinct task IDs; on-time DONE / all DONE",
+      "UNIT": "записи",
+      "EXPECTED": 100,
+      "API_ACTUAL": 100,
+      "UI_ACTUAL": "PENDING_PAIRED_UI",
+      "STATUS": "PASS_SQL_HTTP"
+    }
+  ]
+}

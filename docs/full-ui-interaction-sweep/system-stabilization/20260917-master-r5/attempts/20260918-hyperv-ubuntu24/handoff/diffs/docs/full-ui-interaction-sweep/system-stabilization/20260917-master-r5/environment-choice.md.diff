@@ -1,0 +1,18 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md"
+index 2a1addf5..a7c9fd4f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\environment-choice.md"
+@@ -1,4 +1,12 @@
+-# Предварительный выбор среды — Windows Sandbox; установка не началась
++# Текущая среда — Hyper-V + Ubuntu24.04, ожидается ручная перезагрузка
++
++Continuation08cd10ab18.09 явно выбрала один Hyper-V/Linux путь и разрешила новую штатную UAC-попытку после platform review.19.09 signed native DISM PID51652/actualTokenElevated=true завершён exit3010;7 Hyper-V features2→1, unrelated delta0. HypervisorPresent=false, log подтверждает reboot required=yes и /NoRestart. **Компоненты включены; guest/isolation/stack ещё NOT_RUN.** Сейчас STOP до сообщения пользователя о ручной перезагрузке, затем actual host readiness → та же stage2 VM →3–9, без повторного installer.
++
++Полное обоснование/официальные источники/current toolchain/ограниченный ресурсный бюджет и Linux autoinstall/SSH/closed execution/export plan: [compatibility-and-budget](attempts/20260918-hyperv-ubuntu24/compatibility-and-budget.md). Actual official checksum signature verification — `image-metadata-verification.json`, ISO не скачан. WinPS5.1 helper18.09 отказал до загрузки .ps1; policy не меняли, [native decision](attempts/20260918-hyperv-ubuntu24/native-dism-01/decision.md) описывает тот же штатный DISM feature enable. Это не повтор отменённого Sandbox UAC и не конкурирующий механизм.
++
++Ни PowerShell Direct для Ubuntu, ни manifest-as-proof не предполагаются; реальный round-trip/guestidentity/default-deny gate должны быть проверены до bootstrap. Guest initial2CPU/4GiB/16GiB cap, host floor10GiB; фактический диск после DISM41,331,564,544bytes. Windows остаётся хостом, рабочая PG не трогается, OS/dependencies/security не понижаются/не обновляются ради совместимости. Новые source/build identities Linux фиксировать отдельно от исторических Windows. Полная [текущая передача](final-report.md).
++
++## История17.09 — отозванный предварительный Sandbox выбор, не текущая инструкция
+ 
+ 17.09.2026 inventory: Windows10 Pro22H2 build19045.6456/x64, i7-6700K4cores/8threads, firmware virtualization+SLAT+VMMonitor=true, HypervisorPresent=false; RAM17,137,594,368bytes, свободно7,732,696KiB; C: свободно42,146,291,712bytes. Sandbox.exe пока отсутствует. DISM feature read требует настоящего administrator token, tool escalation само по себе его не выдаёт. Это отдельный UAC, не отсутствие поддержки аппаратуры.
+ 

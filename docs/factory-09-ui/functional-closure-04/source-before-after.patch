@@ -1,0 +1,1083 @@
+diff --git "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\backend\\src\\modules\\admin\\admin.controller.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.controller.ts"
+index 3fc73c78..81376253 100644
+--- "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\backend\\src\\modules\\admin\\admin.controller.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.controller.ts"
+@@ -171,6 +171,12 @@ export class AdminController {
+     return this.adminService.setTechnologOkkAccess(user, id, body);
+   }
+ 
++  @Patch('users/:id/production-manager-access')
++  @RequirePermission('admin.users.manage')
++  async setProductionManagerAccess(@Param('id') id: string, @Body() body: { factoryId?: string; enabled?: boolean; reason?: string }, @CurrentUser() user: UserContext) {
++    return this.adminService.setProductionManagerAccess(user, id, body);
++  }
++
+   @Post('users/:id/role-department/preview')
+   @RequirePermission('admin.users.manage')
+   async previewRoleDepartment(@Param('id') id: string, @Body() body: any, @CurrentUser() user: UserContext) {
+diff --git "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\backend\\src\\modules\\admin\\admin.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.service.ts"
+index b8a98d2b..a0330735 100644
+--- "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\backend\\src\\modules\\admin\\admin.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.service.ts"
+@@ -41,6 +41,12 @@ const DELEGATION_AUTHORITY_PERMISSION = 'admin.users.manage';
+ const DELEGATABLE_OPERATOR_ROLES: UserRole[] = [UserRole.WORKER];
+ const OPERATIONAL_DELEGATION_PERMISSIONS = ['assignments.manage', 'shift.future.manage', 'shift.current.manage', 'lines.manage'];
+ const TECHNOLOG_OKK_PERMISSION_CODES = ['okk.read', 'okk.manage', 'wash.okk-review.read', 'wash.okk-review.manage'] as const;
++const PRODUCTION_MANAGER_PERMISSION_CODES = [
++  'admin.users.read', 'admin.users.manage',
++  'admin.departments.read', 'admin.departments.manage',
++  'admin.roles.read', 'admin.roles.manage',
++  'admin.lines.read', 'admin.lines.manage',
++] as const;
+ 
+ type AdminDb = Prisma.TransactionClient | PrismaService['db'];
+ 
+@@ -546,7 +552,11 @@ export class AdminService {
+ 
+   async users(user: UserContext, filters: UserFilters = {}) {
+     const factoryId = filters.factoryId || user.selectedFactoryId;
+-    this.assertAdminFactoryScope(user, factoryId);
++    this.assertProductionFactoryScope(user, factoryId, 'admin.users.read');
++    if (!user.isAdmin) {
++      await this.prisma.db.$transaction((tx) => this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.users.read'));
++      if (filters.hasFactoryAccess === 'false') return [];
++    }
+     const manageableFactoryIds = filters.hasFactoryAccess === 'false'
+       ? (await this.prisma.db.userFactoryAccess.findMany({
+           where: {
+@@ -695,6 +705,12 @@ export class AdminService {
+     const reason = String(body.reason ?? '').trim() || 'Назначение по заявке гостя';
+ 
+     const result = await this.prisma.db.$transaction(async (tx) => {
++      if (user.role === UserRole.MANAGEMENT) {
++        const localProfile = await tx.userPermissionOverride.findUnique({
++          where: { userId_factoryId_permissionCode: { userId: user.userId, factoryId: request.factoryId, permissionCode: 'admin.users.manage' } },
++        });
++        if (localProfile) await this.assertProductionManagerActiveTx(tx, user, request.factoryId, 'admin.users.manage');
++      }
+       const targetAccess = await tx.userFactoryAccess.findUnique({
+         where: { userId_factoryId: { userId: request.requestedById, factoryId: request.factoryId } },
+         include: { user: true },
+@@ -702,8 +718,13 @@ export class AdminService {
+       if (!targetAccess || !targetAccess.isActive || !targetAccess.isGuest || targetAccess.user.blockedAt || targetAccess.user.deletedAt) {
+         throw new ConflictError('Гостевой доступ пользователя уже изменён или недоступен.');
+       }
++      if (user.role === UserRole.MANAGEMENT && await tx.userFactoryAccess.findFirst({
++        where: { userId: request.requestedById, factoryId: { not: request.factoryId } },
++      })) {
++        throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Руководитель не назначает пользователя другого завода.' });
++      }
+       const jobTitleId = body.jobTitleId?.trim() || null;
+-      await this.assertJobTitleScopeTx(tx, jobTitleId, request.factoryId, request.departmentId);
++      await this.assertJobTitleScopeTx(tx, jobTitleId, request.factoryId, request.departmentId, request.requestedRole);
+       await this.assertAccessOrganizationContextTx(
+         tx,
+         request.requestedRole,
+@@ -790,6 +811,12 @@ export class AdminService {
+     }
+     const expectedVersion = Number(body.expectedVersion ?? request.version);
+     const decided = await this.prisma.db.$transaction(async (tx) => {
++      if (user.role === UserRole.MANAGEMENT) {
++        const localProfile = await tx.userPermissionOverride.findUnique({
++          where: { userId_factoryId_permissionCode: { userId: user.userId, factoryId: request.factoryId, permissionCode: 'admin.users.manage' } },
++        });
++        if (localProfile) await this.assertProductionManagerActiveTx(tx, user, request.factoryId, 'admin.users.manage');
++      }
+       const claimed = await tx.assignmentRequest.updateMany({
+         where: { id: request.id, status: AssignmentRequestStatus.PENDING, version: expectedVersion },
+         data: {
+@@ -1344,7 +1371,7 @@ export class AdminService {
+         && body.jobTitleId === undefined
+         && body.companyId === undefined;
+       if (!onlyDeactivatesAccess) {
+-        await this.assertJobTitleScopeTx(tx, nextJobTitleId ?? null, factoryId, nextDepartmentId ?? null);
++        await this.assertJobTitleScopeTx(tx, nextJobTitleId ?? null, factoryId, nextDepartmentId ?? null, nextRole);
+         const legacyContractorWithoutCompany = (nextRole === UserRole.CONTRACTOR || nextRole === UserRole.CONTRACTOR_LEAD) && !nextCompanyId;
+         if (changesOrganization || !legacyContractorWithoutCompany) {
+           await this.assertAccessOrganizationContextTx(tx, nextRole, nextDepartmentId, nextCompanyId, factoryId);
+@@ -1387,17 +1414,37 @@ export class AdminService {
+ 
+   async grantFactoryAccess(user: UserContext, userId: string, body: { factoryId?: string; role?: UserRole; departmentId?: string | null; jobTitleId?: string | null; companyId?: string | null; isGuest?: boolean; reason?: string }) {
+     const factoryId = body.factoryId || user.selectedFactoryId;
+-    this.assertAdminFactoryScope(user, factoryId);
++    this.assertProductionFactoryScope(user, factoryId, 'admin.users.manage');
+     const role = body.role ?? UserRole.WORKER;
+     const result = await this.prisma.db.$transaction(async (tx) => {
++      await this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.users.manage');
+       const [target, factory] = await Promise.all([
+         tx.user.findFirst({ where: { id: userId, deletedAt: null } }),
+         tx.factory.findFirst({ where: { id: factoryId, deletedAt: null } }),
+       ]);
+       if (!target) throw new ConflictError('Пользователь не найден');
+       if (!factory) throw new ConflictError('Завод не найден');
++      if (!user.isAdmin) {
++        if (userId === user.userId || role === UserRole.ADMIN || role === UserRole.MANAGEMENT || body.isGuest === true) {
++          throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нельзя назначить равную, вышестоящую роль или себя.' });
++        }
++        await tx.$queryRaw`SELECT id FROM "UserFactoryAccess" WHERE "userId" = ${userId} AND "factoryId" = ${factoryId} FOR UPDATE`;
++        const existing = await tx.userFactoryAccess.findUnique({ where: { userId_factoryId: { userId, factoryId } } });
++        const otherFactoryAccess = await tx.userFactoryAccess.findFirst({ where: { userId, factoryId: { not: factoryId } } });
++        if (!existing?.isActive || otherFactoryAccess || existing.role === UserRole.ADMIN || existing.role === UserRole.MANAGEMENT
++          || (!existing.isGuest && (role !== existing.role || (body.companyId ?? null) !== (existing.companyId ?? null)))) {
++          throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Можно назначать только действующих гостей или нижестоящих сотрудников одного завода без изменения фирмы и роли.' });
++        }
++      }
+       await this.assertAccessOrganizationContextTx(tx, role, body.departmentId ?? null, body.companyId ?? null, factoryId);
+-      await this.assertJobTitleScopeTx(tx, body.jobTitleId ?? null, factoryId, body.departmentId ?? null);
++      if (!user.isAdmin && body.departmentId) {
++        const localDepartment = await tx.department.findFirst({ where: { id: body.departmentId, factoryId, scope: DepartmentScope.LOCAL, isActive: true, deletedAt: null } });
++        if (!localDepartment) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Руководитель назначает только локальный отдел своего завода.' });
++      }
++      const title = await this.assertJobTitleScopeTx(tx, body.jobTitleId ?? null, factoryId, body.departmentId ?? null, role);
++      if (!user.isAdmin && title && (title.factoryId !== factoryId || title.baseRole !== role)) {
++        throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Должность должна соответствовать подчинённой роли выбранного завода.' });
++      }
+       const updated = await tx.userFactoryAccess.upsert({
+         where: { userId_factoryId: { userId, factoryId } },
+         create: {
+@@ -1460,7 +1507,7 @@ export class AdminService {
+         : (body.departmentId !== undefined && body.departmentId !== access.departmentId ? null : access.jobTitleId);
+       const nextRole = body.role ?? access.role;
+       const nextCompanyId = body.companyId !== undefined ? body.companyId : access.companyId;
+-      await this.assertJobTitleScopeTx(tx, nextJobTitleId ?? null, factoryId, nextDepartmentId ?? null);
++      await this.assertJobTitleScopeTx(tx, nextJobTitleId ?? null, factoryId, nextDepartmentId ?? null, nextRole);
+       await this.assertAccessOrganizationContextTx(tx, nextRole, nextDepartmentId, nextCompanyId, factoryId);
+       const updated = await tx.userFactoryAccess.update({
+         where: { userId_factoryId: { userId, factoryId } },
+@@ -1535,6 +1582,53 @@ export class AdminService {
+     return result;
+   }
+ 
++  async setProductionManagerAccess(user: UserContext, userId: string, body: { factoryId?: string; enabled?: boolean; reason?: string }) {
++    const factoryId = body.factoryId || user.selectedFactoryId;
++    this.assertAdminFactoryScope(user, factoryId);
++    if (typeof body.enabled !== 'boolean') throw new ConflictError('Укажите состояние локальных полномочий.');
++    const reason = body.reason?.trim();
++    if (!reason) throw new ConflictError('Укажите причину изменения доступа.');
++    const result = await this.prisma.db.$transaction(async (tx) => {
++      const access = await tx.userFactoryAccess.findUnique({
++        where: { userId_factoryId: { userId, factoryId } },
++        include: { factory: true, user: true, jobTitle: true },
++      });
++      if (!access || !access.isActive || access.isGuest || access.role !== UserRole.MANAGEMENT
++        || access.jobTitle?.factoryId !== factoryId || access.jobTitle.baseRole !== UserRole.MANAGEMENT
++        || !access.factory.isActive || access.factory.deletedAt
++        || access.user.deletedAt || access.user.blockedAt || access.user.passwordResetRequired) {
++        throw new ConflictError('Нужен действующий начальник производства с локальной должностью выбранного завода.');
++      }
++      const catalog = await tx.permission.findMany({
++        where: { code: { in: [...PRODUCTION_MANAGER_PERMISSION_CODES] } },
++        select: { code: true },
++      });
++      if (catalog.length !== PRODUCTION_MANAGER_PERMISSION_CODES.length) throw new ConflictError('Каталог локальных прав руководителя неполон.');
++      const previous = await tx.userPermissionOverride.findMany({
++        where: { userId, factoryId, permissionCode: { in: [...PRODUCTION_MANAGER_PERMISSION_CODES] } },
++        select: { permissionCode: true, effect: true },
++      });
++      for (const permissionCode of PRODUCTION_MANAGER_PERMISSION_CODES) {
++        await tx.userPermissionOverride.upsert({
++          where: { userId_factoryId_permissionCode: { userId, factoryId, permissionCode } },
++          create: { userId, factoryId, permissionCode, effect: body.enabled ? PermissionEffect.ALLOW : PermissionEffect.DENY },
++          update: { effect: body.enabled ? PermissionEffect.ALLOW : PermissionEffect.DENY },
++        });
++      }
++      await this.auditService.writeTx(tx, {
++        userId: user.userId,
++        factoryId,
++        action: body.enabled ? 'PRODUCTION_MANAGER_LOCAL_ENABLED' : 'PRODUCTION_MANAGER_LOCAL_DISABLED',
++        entityType: 'User',
++        entityId: userId,
++        details: { targetId: userId, permissionCodes: [...PRODUCTION_MANAGER_PERMISSION_CODES], previous, reason },
++      });
++      return { factoryId, userId, enabled: body.enabled, role: access.role };
++    });
++    this.wsService.notifyAuthChanged(userId, factoryId);
++    return result;
++  }
++
+   async updateBlockStatus(user: UserContext, userId: string, body: { blocked: boolean; reason?: string }) {
+     this.assertAdmin(user);
+     const result = await this.prisma.db.$transaction(async (tx) => {
+@@ -1725,6 +1819,11 @@ export class AdminService {
+     if (actorIsAdmin) {
+       return { allowed: true, reason: null, target, actorIsAdmin };
+     }
++    if (actorAccess.role === UserRole.MANAGEMENT && actor.permissionOverrides.some((override) => (
++      override.factoryId === user.selectedFactoryId && override.permissionCode === 'admin.users.manage'
++    ))) {
++      return { allowed: false, reason: 'Локальный производственный профиль не управляет восстановлением паролей.', target, actorIsAdmin };
++    }
+     if (targetAccess.role === UserRole.ADMIN || targetAccess.role === UserRole.MANAGEMENT) {
+       return { allowed: false, reason: 'Нельзя сбросить пароль равного или вышестоящего сотрудника.', target, actorIsAdmin };
+     }
+@@ -2555,7 +2654,8 @@ export class AdminService {
+   }
+ 
+   async departments(user: UserContext, factoryId = user.selectedFactoryId) {
+-    this.assertAdminFactoryScope(user, factoryId);
++    this.assertProductionFactoryScope(user, factoryId, 'admin.departments.read');
++    if (!user.isAdmin) await this.prisma.db.$transaction((tx) => this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.departments.read'));
+     const departments = await this.prisma.db.department.findMany({
+       where: { deletedAt: null, OR: [{ factoryId }, { scope: 'GLOBAL' }] },
+       include: { factory: true, _count: { select: { userAccess: true } } },
+@@ -2574,7 +2674,8 @@ export class AdminService {
+   }
+ 
+   async externalCompanies(user: UserContext, factoryId = user.selectedFactoryId) {
+-    this.assertAdminFactoryScope(user, factoryId);
++    this.assertProductionFactoryScope(user, factoryId, 'admin.departments.read');
++    if (!user.isAdmin) await this.prisma.db.$transaction((tx) => this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.departments.read'));
+     const companies = await this.prisma.db.externalCompany.findMany({
+       where: { factoryId },
+       include: {
+@@ -2750,16 +2851,20 @@ export class AdminService {
+   }
+ 
+   async createDepartment(user: UserContext, body: DepartmentBody) {
+-    this.assertAdmin(user);
+     const name = body.name?.trim();
+     if (!name) throw new ConflictError('Название отдела обязательно');
+     const scope = body.scope === 'GLOBAL' ? DepartmentScope.GLOBAL : DepartmentScope.LOCAL;
+     const factoryId = scope === DepartmentScope.GLOBAL ? null : (body.factoryId || user.selectedFactoryId);
+-    if (factoryId) this.assertAdminFactoryScope(user, factoryId);
++    if (!user.isAdmin && (scope !== DepartmentScope.LOCAL || !factoryId)) {
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Можно настраивать только локальные отделы выбранного завода.' });
++    }
++    if (factoryId) this.assertProductionFactoryScope(user, factoryId, 'admin.departments.manage');
++    else this.assertAdmin(user);
+     const code = this.normalizeAdminCode(body.code || name);
+     const normalizedName = this.normalizeOrganizationName(name);
+     if (!code) throw new ConflictError('Код отдела обязателен');
+     return this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin && factoryId) await this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.departments.manage');
+       if (factoryId) await this.assertFactoryExistsTx(tx, factoryId);
+       const duplicate = await tx.department.findFirst({ where: { factoryId, deletedAt: null, OR: [{ code }, { normalizedName }] } });
+       if (duplicate) throw new ConflictError('Отдел или служба с таким названием или кодом уже существует');
+@@ -2779,15 +2884,24 @@ export class AdminService {
+   }
+ 
+   async updateDepartment(user: UserContext, departmentId: string, body: DepartmentBody) {
+-    this.assertAdmin(user);
++    if (!user.isAdmin) this.assertProductionFactoryScope(user, user.selectedFactoryId, 'admin.departments.manage');
++    else this.assertAdmin(user);
+     return this.prisma.db.$transaction(async (tx) => {
+       const current = await tx.department.findFirst({ where: { id: departmentId, deletedAt: null } });
+       if (!current) throw new ConflictError('Отдел или служба не найдены');
+-      if (current.factoryId) this.assertAdminFactoryScope(user, current.factoryId);
++      if (!user.isAdmin) {
++        await this.assertProductionManagerActiveTx(tx, user, user.selectedFactoryId, 'admin.departments.manage');
++        if (current.factoryId !== user.selectedFactoryId || current.scope !== DepartmentScope.LOCAL
++          || body.scope === 'GLOBAL' || (body.factoryId !== undefined && body.factoryId !== current.factoryId)
++          || body.isActive === false) {
++          throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Можно редактировать только действующий локальный отдел своего завода.' });
++        }
++      }
++      if (current.factoryId && user.isAdmin) this.assertAdminFactoryScope(user, current.factoryId);
+       if (current.factoryId && current.factoryId !== (body.factoryId || current.factoryId)) await this.assertFactoryExistsTx(tx, current.factoryId);
+       const scope = body.scope === 'GLOBAL' ? DepartmentScope.GLOBAL : body.scope === 'LOCAL' ? DepartmentScope.LOCAL : current.scope;
+       const nextFactoryId = scope === DepartmentScope.GLOBAL ? null : (body.factoryId !== undefined ? body.factoryId : current.factoryId ?? user.selectedFactoryId);
+-      if (nextFactoryId) this.assertAdminFactoryScope(user, nextFactoryId);
++      if (nextFactoryId) this.assertProductionFactoryScope(user, nextFactoryId, 'admin.departments.manage');
+       if (nextFactoryId) await this.assertFactoryExistsTx(tx, nextFactoryId);
+       const code = body.code !== undefined ? this.normalizeAdminCode(body.code || current.code) : current.code;
+       const name = body.name?.trim() || current.name;
+@@ -2827,7 +2941,8 @@ export class AdminService {
+   }
+ 
+   async jobTitles(user: UserContext, factoryId = user.selectedFactoryId) {
+-    this.assertAdminFactoryScope(user, factoryId);
++    this.assertProductionFactoryScope(user, factoryId, 'admin.roles.read');
++    if (!user.isAdmin) await this.prisma.db.$transaction((tx) => this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.roles.read'));
+     const titles = await this.prisma.db.jobTitle.findMany({
+       where: { deletedAt: null, OR: [{ factoryId }, { factoryId: null }] },
+       include: { department: true, factory: true, parentJobTitle: true, childJobTitles: true },
+@@ -2837,23 +2952,31 @@ export class AdminService {
+   }
+ 
+   async createJobTitle(user: UserContext, body: JobTitleBody) {
+-    this.assertAdmin(user);
+     const name = body.name?.trim();
+     if (!name) throw new ConflictError('Название должности обязательно');
+     const baseRole = body.baseRole ?? UserRole.WORKER;
+     const shiftDurationHours = this.normalizeJobTitleShiftDuration(body.shiftDurationHours);
+     const factoryId = body.factoryId === null ? null : (body.factoryId || user.selectedFactoryId);
+-    if (factoryId) this.assertAdminFactoryScope(user, factoryId);
++    if (!user.isAdmin && (!factoryId || ([UserRole.ADMIN, UserRole.MANAGEMENT] as UserRole[]).includes(baseRole))) {
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Можно создавать только подчинённые должности своего завода.' });
++    }
++    if (factoryId) this.assertProductionFactoryScope(user, factoryId, 'admin.roles.manage');
++    else this.assertAdmin(user);
+     const code = this.normalizeAdminCode(body.code || name);
+     return this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin && factoryId) await this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.roles.manage');
+       if (factoryId) await this.assertFactoryExistsTx(tx, factoryId);
+       await this.assertDepartmentBelongsToFactoryTx(tx, body.departmentId ?? null, factoryId);
++      if (!user.isAdmin && body.departmentId && !(await tx.department.findFirst({ where: { id: body.departmentId, factoryId, scope: DepartmentScope.LOCAL, isActive: true, deletedAt: null } }))) {
++        throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Должность руководителя относится только к локальному отделу.' });
++      }
+       const parentJobTitle = await this.assertJobTitleParentTx(tx, {
+         jobTitleId: null,
+         parentJobTitleId: body.parentJobTitleId ?? null,
+         factoryId,
+         departmentId: body.departmentId ?? null,
+       });
++      if (!user.isAdmin && parentJobTitle && parentJobTitle.factoryId !== factoryId) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Родительская должность должна принадлежать выбранному заводу.' });
+       const duplicate = await tx.jobTitle.findFirst({ where: { factoryId, code, deletedAt: null } });
+       if (duplicate) throw new ConflictError('Должность с таким кодом уже существует');
+       const title = await tx.jobTitle.create({
+@@ -2884,23 +3007,36 @@ export class AdminService {
+   }
+ 
+   async updateJobTitle(user: UserContext, jobTitleId: string, body: JobTitleBody) {
+-    this.assertAdmin(user);
++    if (!user.isAdmin) this.assertProductionFactoryScope(user, user.selectedFactoryId, 'admin.roles.manage');
++    else this.assertAdmin(user);
+     return this.prisma.db.$transaction(async (tx) => {
+       const current = await tx.jobTitle.findFirst({ where: { id: jobTitleId }, include: { department: true, factory: true, parentJobTitle: true, childJobTitles: true } });
+       if (!current) throw new ConflictError('Должность не найдена');
+-      if (current.factoryId) this.assertAdminFactoryScope(user, current.factoryId);
++      if (!user.isAdmin) {
++        await this.assertProductionManagerActiveTx(tx, user, user.selectedFactoryId, 'admin.roles.manage');
++        if (current.factoryId !== user.selectedFactoryId || ([UserRole.ADMIN, UserRole.MANAGEMENT] as UserRole[]).includes(current.baseRole)
++          || body.factoryId === null || (body.factoryId !== undefined && body.factoryId !== current.factoryId)
++          || (body.baseRole && ([UserRole.ADMIN, UserRole.MANAGEMENT] as UserRole[]).includes(body.baseRole)) || body.isActive === false) {
++          throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Можно редактировать только подчинённую должность своего завода.' });
++        }
++      }
++      if (current.factoryId && user.isAdmin) this.assertAdminFactoryScope(user, current.factoryId);
+       const factoryId = body.factoryId === undefined ? current.factoryId : body.factoryId;
+       const nextFactoryId = factoryId === null ? null : (factoryId || user.selectedFactoryId);
+-      if (nextFactoryId) this.assertAdminFactoryScope(user, nextFactoryId);
++      if (nextFactoryId) this.assertProductionFactoryScope(user, nextFactoryId, 'admin.roles.manage');
+       const nextDepartmentId = body.departmentId !== undefined ? body.departmentId : current.departmentId;
+       if (nextFactoryId) await this.assertFactoryExistsTx(tx, nextFactoryId);
+       await this.assertDepartmentBelongsToFactoryTx(tx, nextDepartmentId, nextFactoryId);
++      if (!user.isAdmin && nextDepartmentId && !(await tx.department.findFirst({ where: { id: nextDepartmentId, factoryId: user.selectedFactoryId, scope: DepartmentScope.LOCAL, isActive: true, deletedAt: null } }))) {
++        throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Должность руководителя относится только к локальному отделу.' });
++      }
+       const parentJobTitle = await this.assertJobTitleParentTx(tx, {
+         jobTitleId,
+         parentJobTitleId: body.parentJobTitleId === undefined ? current.parentJobTitleId : body.parentJobTitleId,
+         factoryId: nextFactoryId,
+         departmentId: nextDepartmentId,
+       });
++      if (!user.isAdmin && parentJobTitle && parentJobTitle.factoryId !== user.selectedFactoryId) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Родительская должность должна принадлежать выбранному заводу.' });
+       const code = body.code !== undefined ? this.normalizeAdminCode(body.code || current.code) : current.code;
+       const shiftDurationHours = this.normalizeJobTitleShiftDuration(body.shiftDurationHours, current.shiftDurationHours);
+       const duplicate = await tx.jobTitle.findFirst({ where: { id: { not: jobTitleId }, factoryId: nextFactoryId, code, deletedAt: null } });
+@@ -2943,14 +3079,18 @@ export class AdminService {
+     });
+   }
+ 
+-  private async assertJobTitleScopeTx(tx: Prisma.TransactionClient, jobTitleId: string | null, factoryId: string, departmentId: string | null) {
++  private async assertJobTitleScopeTx(tx: Prisma.TransactionClient, jobTitleId: string | null, factoryId: string, departmentId: string | null, role?: UserRole) {
+     if (!jobTitleId) return null;
+     const title = await tx.jobTitle.findFirst({
+       where: { id: jobTitleId, deletedAt: null },
+       include: { department: true, factory: true },
+     });
+     if (!title || !title.isActive) throw new ConflictError('Должность не найдена или отключена.');
+-    if ((title.departmentId ?? null) !== (departmentId ?? null)) {
++    const contractorRole = role === UserRole.CONTRACTOR || role === UserRole.CONTRACTOR_LEAD;
++    if (contractorRole && (departmentId || title.baseRole !== role || title.factoryId !== factoryId || title.department?.factoryId !== factoryId)) {
++      throw new ConflictError('Должность наёмного работника должна соответствовать роли и выбранному заводу.');
++    }
++    if (!contractorRole && (title.departmentId ?? null) !== (departmentId ?? null)) {
+       throw new ConflictError('Должность должна относиться к выбранному отделу.');
+     }
+     if (title.factoryId && title.factoryId !== factoryId) {
+@@ -3080,6 +3220,11 @@ export class AdminService {
+     const factoryId = factoryIdOverride || user.selectedFactoryId;
+     if (!factoryId) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Не выбран завод.' });
+     const isFullAdmin = user.isAdmin && user.role === UserRole.ADMIN;
++    if (!isFullAdmin && user.role === UserRole.MANAGEMENT && await this.prisma.db.userPermissionOverride.findUnique({
++      where: { userId_factoryId_permissionCode: { userId: user.userId, factoryId, permissionCode: 'admin.users.manage' } },
++    })) {
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Локальный профиль руководителя использует отдельное назначение без копирования персональных прав.' });
++    }
+     if (factoryId !== user.selectedFactoryId) {
+       throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нельзя выдавать права в другом заводе.' });
+     }
+@@ -3295,6 +3440,11 @@ export class AdminService {
+     if (sourceUserId === targetUserId) throw new ConflictError('Нельзя копировать права пользователя самому себе.');
+ 
+     const isFullAdmin = user.isAdmin && user.role === UserRole.ADMIN;
++    if (!isFullAdmin && user.role === UserRole.MANAGEMENT && await this.prisma.db.userPermissionOverride.findUnique({
++      where: { userId_factoryId_permissionCode: { userId: user.userId, factoryId, permissionCode: 'admin.users.manage' } },
++    })) {
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Локальный профиль руководителя не копирует персональные права.' });
++    }
+     if (factoryId !== user.selectedFactoryId) {
+       throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нельзя выдавать права в другом заводе.' });
+     }
+@@ -3613,7 +3763,8 @@ export class AdminService {
+   }
+ 
+   async linesConfig(user: UserContext, factoryId = user.selectedFactoryId) {
+-    this.assertAdminFactoryScope(user, factoryId);
++    this.assertProductionFactoryScope(user, factoryId, 'admin.lines.read');
++    if (!user.isAdmin) await this.prisma.db.$transaction((tx) => this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.lines.read'));
+     const lines = await this.prisma.db.line.findMany({
+       where: { factoryId },
+       include: {
+@@ -3754,7 +3905,8 @@ export class AdminService {
+   }
+ 
+   async lineConfig(user: UserContext, lineId: string) {
+-    this.assertAdmin(user);
++    this.assertProductionFactoryScope(user, user.selectedFactoryId, 'admin.lines.read');
++    if (!user.isAdmin) await this.prisma.db.$transaction((tx) => this.assertProductionManagerActiveTx(tx, user, user.selectedFactoryId, 'admin.lines.read'));
+     const line = await this.prisma.db.line.findFirst({
+       where: { id: lineId, factoryId: user.selectedFactoryId },
+       include: {
+@@ -3768,10 +3920,12 @@ export class AdminService {
+ 
+   async createLine(user: UserContext, body: LineBody) {
+     const factoryId = body.factoryId || user.selectedFactoryId;
+-    this.assertAdminFactoryScope(user, factoryId);
++    this.assertProductionFactoryScope(user, factoryId, 'admin.lines.manage');
++    if (!user.isAdmin && body.isActive === false) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нельзя создавать отключённую линию.' });
+     const name = body.name?.trim();
+     if (!name) throw new ConflictError('Название линии обязательно');
+     const result = await this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin) await this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.lines.manage');
+       await this.assertFactoryExistsTx(tx, factoryId);
+       const duplicate = await tx.line.findFirst({ where: { factoryId, name, deletedAt: null } });
+       if (duplicate) throw new ConflictError('Линия с таким названием уже существует');
+@@ -3794,11 +3948,13 @@ export class AdminService {
+   }
+ 
+   async updateLine(user: UserContext, lineId: string, body: LineBody) {
+-    this.assertAdmin(user);
++    this.assertProductionFactoryScope(user, user.selectedFactoryId, 'admin.lines.manage');
++    if (!user.isAdmin && body.isActive === false) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Начальник производства не отключает линию через конфигурацию.' });
+     if (body.status) {
+       throw new ConflictError('Рабочий статус линии меняется только в разделе «Линии».');
+     }
+     const result = await this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin) await this.assertProductionManagerActiveTx(tx, user, user.selectedFactoryId, 'admin.lines.manage');
+       const current = await tx.line.findFirst({
+         where: { id: lineId, factoryId: user.selectedFactoryId },
+         include: { positions: true, staffingTemplates: { include: { items: { include: { position: true } } } } },
+@@ -3848,11 +4004,12 @@ export class AdminService {
+   }
+ 
+   async createPosition(user: UserContext, lineId: string, body: LinePositionBody) {
+-    this.assertAdmin(user);
++    this.assertProductionFactoryScope(user, user.selectedFactoryId, 'admin.lines.manage');
+     if (!body.name?.trim()) throw new ConflictError('Название позиции обязательно');
+     const name = body.name.trim();
+     const displayName = body.displayName?.trim() || name;
+     const result = await this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin) await this.assertProductionManagerActiveTx(tx, user, user.selectedFactoryId, 'admin.lines.manage');
+       const line = await tx.line.findFirst({ where: { id: lineId, factoryId: user.selectedFactoryId, deletedAt: null } });
+       if (!line) throw new ConflictError('Линия не найдена');
+       const normalizedName = this.normalizePositionName(displayName);
+@@ -3886,8 +4043,10 @@ export class AdminService {
+   }
+ 
+   async updatePosition(user: UserContext, lineId: string, positionId: string, body: LinePositionBody) {
+-    this.assertAdmin(user);
++    this.assertProductionFactoryScope(user, user.selectedFactoryId, 'admin.lines.manage');
++    if (!user.isAdmin && body.isActive === false) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Начальник производства не отключает позицию.' });
+     const result = await this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin) await this.assertProductionManagerActiveTx(tx, user, user.selectedFactoryId, 'admin.lines.manage');
+       const position = await tx.linePosition.findFirst({
+         where: { id: positionId, lineId, factoryId: user.selectedFactoryId },
+         include: { line: true },
+@@ -4020,7 +4179,8 @@ export class AdminService {
+   }
+ 
+   async workAreasConfig(user: UserContext, factoryId = user.selectedFactoryId) {
+-    this.assertAdminFactoryScope(user, factoryId);
++    this.assertProductionFactoryScope(user, factoryId, 'admin.lines.read');
++    if (!user.isAdmin) await this.prisma.db.$transaction((tx) => this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.lines.read'));
+     const areas = await this.prisma.db.workArea.findMany({
+       where: { factoryId, deletedAt: null },
+       include: { positions: { where: { deletedAt: null }, orderBy: [{ sortOrder: 'asc' }, { createdAt: 'asc' }] } },
+@@ -4031,12 +4191,17 @@ export class AdminService {
+ 
+   async createWorkArea(user: UserContext, body: WorkAreaBody) {
+     const factoryId = body.factoryId || user.selectedFactoryId;
+-    this.assertAdminFactoryScope(user, factoryId);
++    this.assertProductionFactoryScope(user, factoryId, 'admin.lines.manage');
++    if (!user.isAdmin && body.isActive === false) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нельзя создавать отключённую рабочую зону.' });
+     const name = body.name?.trim();
+     if (!name) throw new ConflictError('Название рабочей зоны обязательно');
+     return this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin) await this.assertProductionManagerActiveTx(tx, user, factoryId, 'admin.lines.manage');
+       await this.assertFactoryExistsTx(tx, factoryId);
+       await this.assertDepartmentBelongsToFactoryTx(tx, body.departmentId ?? null, factoryId);
++      if (!user.isAdmin && body.departmentId && !(await tx.department.findFirst({ where: { id: body.departmentId, factoryId, scope: DepartmentScope.LOCAL, isActive: true, deletedAt: null } }))) {
++        throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Рабочая зона относится только к локальному отделу своего завода.' });
++      }
+       const duplicate = await tx.workArea.findFirst({ where: { factoryId, name, deletedAt: null } });
+       if (duplicate) throw new ConflictError('Рабочая зона с таким названием уже существует');
+       const area = await tx.workArea.create({
+@@ -4063,17 +4228,23 @@ export class AdminService {
+   }
+ 
+   async updateWorkArea(user: UserContext, workAreaId: string, body: WorkAreaBody) {
+-    this.assertAdmin(user);
++    this.assertProductionFactoryScope(user, user.selectedFactoryId, 'admin.lines.manage');
++    if (!user.isAdmin && body.isActive === false) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Начальник производства не отключает рабочую зону.' });
+     return this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin) await this.assertProductionManagerActiveTx(tx, user, user.selectedFactoryId, 'admin.lines.manage');
+       const current = await tx.workArea.findFirst({
+         where: { id: workAreaId, factoryId: user.selectedFactoryId },
+         include: { positions: true },
+       });
+       if (!current) throw new ConflictError('Рабочая зона не найдена');
+       const factoryId = body.factoryId || current.factoryId;
+-      this.assertAdminFactoryScope(user, factoryId);
++      this.assertProductionFactoryScope(user, factoryId, 'admin.lines.manage');
+       await this.assertFactoryExistsTx(tx, factoryId);
+-      await this.assertDepartmentBelongsToFactoryTx(tx, body.departmentId !== undefined ? body.departmentId : current.departmentId, factoryId);
++      const nextDepartmentId = body.departmentId !== undefined ? body.departmentId : current.departmentId;
++      await this.assertDepartmentBelongsToFactoryTx(tx, nextDepartmentId, factoryId);
++      if (!user.isAdmin && nextDepartmentId && !(await tx.department.findFirst({ where: { id: nextDepartmentId, factoryId, scope: DepartmentScope.LOCAL, isActive: true, deletedAt: null } }))) {
++        throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Рабочая зона относится только к локальному отделу своего завода.' });
++      }
+       const nextName = body.name?.trim() || current.name;
+       const duplicate = await tx.workArea.findFirst({ where: { id: { not: workAreaId }, factoryId, name: nextName, deletedAt: null } });
+       if (duplicate) throw new ConflictError('Рабочая зона с таким названием уже существует');
+@@ -4109,10 +4280,11 @@ export class AdminService {
+   }
+ 
+   async createWorkAreaPosition(user: UserContext, workAreaId: string, body: WorkAreaPositionBody) {
+-    this.assertAdmin(user);
++    this.assertProductionFactoryScope(user, user.selectedFactoryId, 'admin.lines.manage');
+     const title = body.title?.trim();
+     if (!title) throw new ConflictError('Название позиции рабочей зоны обязательно');
+     return this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin) await this.assertProductionManagerActiveTx(tx, user, user.selectedFactoryId, 'admin.lines.manage');
+       const area = await tx.workArea.findFirst({
+         where: { id: workAreaId, factoryId: user.selectedFactoryId, deletedAt: null },
+       });
+@@ -4132,8 +4304,10 @@ export class AdminService {
+   }
+ 
+   async updateWorkAreaPosition(user: UserContext, workAreaId: string, positionId: string, body: WorkAreaPositionBody) {
+-    this.assertAdmin(user);
++    this.assertProductionFactoryScope(user, user.selectedFactoryId, 'admin.lines.manage');
++    if (!user.isAdmin && body.isActive === false) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Начальник производства не отключает позицию рабочей зоны.' });
+     return this.prisma.db.$transaction(async (tx) => {
++      if (!user.isAdmin) await this.assertProductionManagerActiveTx(tx, user, user.selectedFactoryId, 'admin.lines.manage');
+       const position = await tx.workAreaPosition.findFirst({
+         where: {
+           id: positionId,
+@@ -4918,6 +5092,43 @@ export class AdminService {
+     }
+   }
+ 
++  private assertProductionFactoryScope(user: UserContext, factoryId: string, permissionCode: typeof PRODUCTION_MANAGER_PERMISSION_CODES[number]) {
++    if (user.isAdmin && user.role === UserRole.ADMIN) return this.assertAdminFactoryScope(user, factoryId);
++    if (!factoryId || factoryId !== user.selectedFactoryId || user.isGuest
++      || user.role !== UserRole.MANAGEMENT || !user.permissions.includes(permissionCode)) {
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет локального права управления выбранным заводом.' });
++    }
++  }
++
++  private async assertProductionManagerActiveTx(
++    tx: Prisma.TransactionClient,
++    user: UserContext,
++    factoryId: string,
++    permissionCode: typeof PRODUCTION_MANAGER_PERMISSION_CODES[number],
++  ) {
++    this.assertProductionFactoryScope(user, factoryId, permissionCode);
++    if (user.isAdmin && user.role === UserRole.ADMIN) return;
++    await tx.$queryRaw`SELECT id FROM "UserFactoryAccess" WHERE "userId" = ${user.userId} AND "factoryId" = ${factoryId} FOR UPDATE`;
++    const access = await tx.userFactoryAccess.findUnique({
++      where: { userId_factoryId: { userId: user.userId, factoryId } },
++      include: { user: true, factory: true, jobTitle: true },
++    });
++    if (!access || !access.isActive || access.isGuest || access.role !== UserRole.MANAGEMENT
++      || access.user.blockedAt || access.user.deletedAt || access.user.passwordResetRequired
++      || !access.factory.isActive || access.factory.deletedAt
++      || access.jobTitle?.factoryId !== factoryId || access.jobTitle.baseRole !== UserRole.MANAGEMENT) {
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Локальные полномочия руководителя недействительны.' });
++    }
++    const codes = [...new Set(['admin.users.manage', permissionCode])];
++    const overrides = await tx.userPermissionOverride.findMany({
++      where: { userId: user.userId, factoryId, permissionCode: { in: codes } },
++      select: { permissionCode: true, effect: true },
++    });
++    if (!codes.every((code) => overrides.some((override) => override.permissionCode === code && override.effect === PermissionEffect.ALLOW))) {
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Локальные полномочия руководителя отозваны.' });
++    }
++  }
++
+   private assertAssignmentRequestReviewer(user: UserContext) {
+     if (user.isGuest || (!user.isAdmin && !user.permissions.includes('admin.users.manage') && !user.permissions.includes('company.members.manage'))) {
+       throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет права рассматривать заявки на назначение.' });
+@@ -4927,6 +5138,7 @@ export class AdminService {
+   private canReviewAssignmentRequest(user: UserContext, actorAccess: any, request: any) {
+     if (request.factoryId !== user.selectedFactoryId) return false;
+     if (user.isAdmin) return true;
++    if (request.requestedById === user.userId || ([UserRole.ADMIN, UserRole.MANAGEMENT] as UserRole[]).includes(request.requestedRole)) return false;
+     if (request.requestedRole === UserRole.CONTRACTOR) {
+       return Boolean(
+         user.permissions.includes('company.members.manage')
+@@ -4936,7 +5148,7 @@ export class AdminService {
+       );
+     }
+     if (!user.permissions.includes('admin.users.manage')) return false;
+-    if (user.role === UserRole.MANAGEMENT) return true;
++    if (user.role === UserRole.MANAGEMENT) return Boolean(actorAccess?.isActive && !actorAccess?.isGuest && actorAccess.role === UserRole.MANAGEMENT);
+     if (!user.departmentId || request.departmentId !== user.departmentId) return false;
+     if (request.requestedRole === UserRole.MASTER) return user.role === UserRole.MASTER;
+     return true;
+diff --git "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\backend\\src\\modules\\line\\line.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\line\\line.service.ts"
+index 8f9846fc..8d39080e 100644
+--- "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\backend\\src\\modules\\line\\line.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\line\\line.service.ts"
+@@ -176,7 +176,7 @@ export class LineService {
+       eventActorIds.length
+         ? this.prisma.db.user.findMany({
+             where: { id: { in: eventActorIds }, blockedAt: null, deletedAt: null },
+-            select: { id: true },
++            select: { id: true, lastName: true, firstName: true, middleName: true },
+           })
+         : Promise.resolve([]),
+     ]);
+@@ -1070,7 +1070,14 @@ export class LineService {
+     return result;
+   }
+ 
+-  private safeLinePersonName(user: { id?: string | null; userId?: string | null; displayName?: string | null } | null | undefined) {
++  private safeLinePersonName(user: {
++    id?: string | null;
++    userId?: string | null;
++    displayName?: string | null;
++    lastName?: string | null;
++    firstName?: string | null;
++    middleName?: string | null;
++  } | null | undefined) {
+     const displayName = pilotDisplayName(user);
+     const sourceId = user?.id ?? user?.userId ?? '';
+     if (/^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(displayName)) return 'Сотрудник';
+diff --git "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\backend\\src\\modules\\task\\task.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+index 154095ca..77b794c6 100644
+--- "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\backend\\src\\modules\\task\\task.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+@@ -800,7 +800,7 @@ export class TaskService {
+   }
+ 
+   private taskInclude(withHistory = false) {
+-    const userLabelSelect = { id: true, phone: true, normalizedPhone: true } as const;
++    const userLabelSelect = { id: true, lastName: true, firstName: true, middleName: true } as const;
+     return {
+       line: true,
+       createdBy: { select: userLabelSelect },
+diff --git "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\frontend\\src\\screens\\AdminConfigScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+index 73c90653..a75cd4ee 100644
+--- "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\frontend\\src\\screens\\AdminConfigScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+@@ -202,12 +202,21 @@ type StaffingTemplateDraft = {
+ type StaffingControlContext = {
+   allowed: boolean;
+   reason: string | null;
+-  mode: 'ADMIN' | 'JOB_TITLE_HIERARCHY' | 'DENIED';
++  mode: 'ADMIN' | 'PRODUCTION_MANAGER' | 'JOB_TITLE_HIERARCHY' | 'DENIED';
+   jobTitleName: string | null;
+   factory: { id: string; name: string };
+   lines: LineConfigRow[];
+ };
+ 
++type ScopedProductionData = {
++  users: AdminUser[];
++  departments: DepartmentRow[];
++  jobTitles: JobTitleRow[];
++  lines: LineConfigRow[];
++  areas: WorkAreaRow[];
++  companies: ExternalCompanyRow[];
++};
++
+ type StaffingRemapPreview = {
+   lineVersion: number;
+   targetTemplate: { id: string; name: string } | null;
+@@ -885,6 +894,22 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+   const { currentUser, selectedFactoryId: activeFactoryId } = useAppStore();
+   const [data, setData] = useState<AdminData | null>(null);
+   const [staffingContext, setStaffingContext] = useState<StaffingControlContext | null>(null);
++  const [scopedProduction, setScopedProduction] = useState<ScopedProductionData | null>(null);
++  const [scopedUserId, setScopedUserId] = useState('');
++  const [scopedRole, setScopedRole] = useState('WORKER');
++  const [scopedDepartmentId, setScopedDepartmentId] = useState('');
++  const [scopedJobTitleId, setScopedJobTitleId] = useState('');
++  const [scopedCompanyId, setScopedCompanyId] = useState('');
++  const [scopedTitleId, setScopedTitleId] = useState('');
++  const [scopedTitleDescription, setScopedTitleDescription] = useState('');
++  const [scopedLineId, setScopedLineId] = useState('');
++  const [scopedLineName, setScopedLineName] = useState('');
++  const [scopedPositionId, setScopedPositionId] = useState('');
++  const [scopedPositionName, setScopedPositionName] = useState('');
++  const [scopedAreaId, setScopedAreaId] = useState('');
++  const [scopedAreaDescription, setScopedAreaDescription] = useState('');
++  const [scopedDepartmentEditId, setScopedDepartmentEditId] = useState('');
++  const [scopedDepartmentName, setScopedDepartmentName] = useState('');
+   const [loading, setLoading] = useState(true);
+   const [busy, setBusy] = useState(false);
+   const [errorText, setErrorText] = useState<string | null>(null); const [noticeText, setNoticeText] = useState<string | null>(null);
+@@ -1117,24 +1142,44 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+     return context;
+   };
+ 
++  const loadScopedProduction = async (factoryId: string) => {
++    const suffix = `?factoryId=${encodeURIComponent(factoryId)}`;
++    const [users, departments, jobTitles, lines, areas, companies] = await Promise.all([
++      apiClient.get<AdminUser[]>(`/admin/users${suffix}`),
++      apiClient.get<DepartmentRow[]>(`/admin/departments${suffix}`),
++      apiClient.get<JobTitleRow[]>(`/admin/job-titles${suffix}`),
++      apiClient.get<LineConfigRow[]>(`/admin/lines${suffix}`),
++      apiClient.get<WorkAreaRow[]>(`/admin/work-areas${suffix}`),
++      apiClient.get<ExternalCompanyRow[]>(`/admin/external-companies${suffix}`),
++    ]);
++    const value = { users, departments, jobTitles, lines, areas, companies };
++    setScopedProduction(value);
++    return value;
++  };
++
+   const load = async (factoryId?: string) => {
+     setLoading(true);
+     setErrorText(null);
+     try {
+       const canLoadOverview = Boolean(currentUser?.isAdmin || currentUser?.permissions.includes('admin.overview.read'));
+       if (!canLoadOverview) {
++        const localFactoryId = factoryId || activeFactoryId;
+         const [delegationValue, staffingValue] = await Promise.all([
+           loadDelegationContext(factoryId || selectedFactoryId || undefined).catch(() => null),
+           loadStaffingContext().catch(() => null),
+         ]);
+-        if (!delegationValue && !staffingValue?.allowed) {
++        const scopedValue = currentUser?.role === 'MANAGEMENT' && currentUser.permissions.includes('admin.users.manage') && localFactoryId
++          ? await loadScopedProduction(localFactoryId).catch(() => null)
++          : null;
++        if (!scopedValue) setScopedProduction(null);
++        if (!delegationValue && !staffingValue?.allowed && !scopedValue) {
+           throw new Error('Нет доступных административных действий.');
+         }
+         setData(null);
+         setAccessCandidates([]);
+         setDelegationContext(delegationValue);
+         setStaffingContext(staffingValue);
+-        setSelectedFactoryId(delegationValue?.factory.id ?? staffingValue?.factory.id ?? '');
++        setSelectedFactoryId(delegationValue?.factory.id ?? staffingValue?.factory.id ?? localFactoryId ?? '');
+         setSection(staffingValue?.allowed ? 'Шаблоны состава' : 'Пользователи и доступы');
+         setDelegationPreview(null);
+         return;
+@@ -1193,6 +1238,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+         `/admin/users?factoryId=${encodeURIComponent(activeFactoryId)}&hasFactoryAccess=false`,
+       );
+       setStaffingContext(staffingContextValue);
++      setScopedProduction(null);
+       setDelegationContext(delegationValue);
+       applyDelegationDefaults(delegationValue);
+       if (setupOptionsValue) {
+@@ -1754,7 +1800,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+       factoryId: selectedFactoryId,
+       role: accessForm.role,
+       departmentId: contractorRole ? null : accessForm.departmentId || null,
+-      jobTitleId: contractorRole ? null : accessForm.jobTitleId || null,
++      jobTitleId: accessForm.jobTitleId || null,
+       companyId: contractorRole ? accessForm.companyId || null : null,
+       reason: 'Выдача доступа к заводу из админки',
+     });
+@@ -2538,7 +2584,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+                 ...current,
+                 role: event.target.value,
+                 departmentId: ['CONTRACTOR', 'CONTRACTOR_LEAD'].includes(event.target.value) ? '' : current.departmentId,
+-                jobTitleId: ['CONTRACTOR', 'CONTRACTOR_LEAD'].includes(event.target.value) ? '' : current.jobTitleId,
++                jobTitleId: '',
+                 companyId: ['CONTRACTOR', 'CONTRACTOR_LEAD'].includes(event.target.value) ? current.companyId : '',
+               }))}
+             >
+@@ -2546,15 +2592,26 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+             </select>
+           </label>
+           {['CONTRACTOR', 'CONTRACTOR_LEAD'].includes(accessForm.role) ? (
+-            <label>
+-              <AdminFieldLabel helpTitle="Фирма наёмных работников" helpText="Фирма относится только к выбранному заводу и не даёт доступ к другим площадкам.">
+-                Фирма
+-              </AdminFieldLabel>
+-              <select value={accessForm.companyId} onChange={(event) => setAccessForm((current) => ({ ...current, companyId: event.target.value }))}>
+-                <option value="">Выберите фирму</option>
+-                {externalCompanies.filter((company) => company.isActive).map((company) => <option key={company.id} value={company.id}>{company.name}</option>)}
+-              </select>
+-            </label>
++            <>
++              <label>
++                <AdminFieldLabel helpTitle="Фирма наёмных работников" helpText="Фирма относится только к выбранному заводу и не даёт доступ к другим площадкам.">
++                  Фирма
++                </AdminFieldLabel>
++                <select value={accessForm.companyId} onChange={(event) => setAccessForm((current) => ({ ...current, companyId: event.target.value }))}>
++                  <option value="">Выберите фирму</option>
++                  {externalCompanies.filter((company) => company.isActive).map((company) => <option key={company.id} value={company.id}>{company.name}</option>)}
++                </select>
++              </label>
++              <label>
++                <AdminFieldLabel helpTitle="Должность наёмного работника" helpText="Должность должна соответствовать роли и выбранному заводу. Принадлежность к фирме задаётся отдельно и не даёт прав внутреннего отдела.">
++                  Должность
++                </AdminFieldLabel>
++                <select value={accessForm.jobTitleId} onChange={(event) => setAccessForm((current) => ({ ...current, jobTitleId: event.target.value }))}>
++                  <option value="">Без должности</option>
++                  {activeJobTitles.filter((title) => title.baseRole === accessForm.role && title.factoryId === selectedFactoryId && pilotVisibleLocalDepartments.some((department) => department.id === title.departmentId)).map((title) => <option key={title.id} value={title.id}>{title.name}</option>)}
++                </select>
++              </label>
++            </>
+           ) : (
+             <>
+               <label>
+@@ -2794,6 +2851,31 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+                   </div>
+                 );
+               })() : null}
++              {selectedProfile.selectedFactoryAccess?.role === 'MANAGEMENT' && selectedProfile.selectedFactoryAccess.isActive ? (() => {
++                const managerCodes = ['admin.users.read', 'admin.users.manage', 'admin.departments.read', 'admin.departments.manage', 'admin.roles.read', 'admin.roles.manage', 'admin.lines.read', 'admin.lines.manage'];
++                const enabled = managerCodes.every((code) => selectedProfile.permissionsSummary.includes(code));
++                return (
++                  <div className="admin-section-block">
++                    <h4>Локальное управление производством</h4>
++                    <p>Только выбранный завод и подчинённые. Глобальные роли, другие заводы и ADMIN остаются недоступными.</p>
++                    <span className="tag">{enabled ? 'Локальные полномочия доступны' : 'Локальные полномочия не выданы'}</span>
++                    <button className="secondary-button" type="button" disabled={busy} onClick={() => setPendingAction({
++                      title: enabled ? 'Отключить локальное управление' : 'Включить локальное управление',
++                      description: `Только для ${pilotUserName(selectedProfile.id, selectedProfile.displayName)} на выбранном заводе.`,
++                      consequences: ['Роль MANAGEMENT и другие заводы не меняются.', 'Нельзя назначать ADMIN, равных или самого себя.'],
++                      requireReason: true,
++                      requireText: 'УПРАВЛЕНИЕ',
++                      run: (reason) => apiClient.patch(`/admin/users/${selectedProfile.id}/production-manager-access`, {
++                        factoryId: selectedFactoryId,
++                        enabled: !enabled,
++                        reason,
++                      }),
++                    })}>
++                      {enabled ? 'Отключить локальное управление' : 'Включить локальное управление'}
++                    </button>
++                  </div>
++                );
++              })() : null}
+               {selectedProfile.safety.warnings.length ? <h4>Предупреждения безопасности</h4> : null}
+               <div className="line-meta">
+                 {selectedProfile.safety.warnings.map((warning) => <span className="tag stop" key={warning}>{warning}</span>)}
+@@ -3520,7 +3602,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+               value={templateForm.lineId}
+               disabled={Boolean(templateForm.templateId)}
+               onChange={(event) => {
+-                const line = (data?.lines ?? []).find((item) => item.id === event.target.value) ?? null;
++                const line = lines.find((item) => item.id === event.target.value) ?? null;
+                 setTemplateForm({ templateId: '', lineId: event.target.value, name: '', items: staffingTemplateDraftItems(line) });
+               }}
+             >
+@@ -4031,6 +4113,99 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+     );
+   };
+ 
++  const renderScopedProduction = () => {
++    if (!scopedProduction) return null;
++    const localDepartments = scopedProduction.departments.filter((item) => item.factoryId === selectedFactoryId && item.scope === 'LOCAL' && item.isActive);
++    const localTitles = scopedProduction.jobTitles.filter((item) => item.factoryId === selectedFactoryId && item.isActive && !item.deletedAt);
++    const selectedUser = scopedProduction.users.find((item) => item.id === scopedUserId);
++    const guest = Boolean(selectedUser?.selectedFactoryAccess?.isGuest);
++    const contractor = scopedRole === 'CONTRACTOR' || scopedRole === 'CONTRACTOR_LEAD';
++    const availableRoles = ['MASTER', 'TECHNOLOG', 'OKK', 'TECH_MECHANIC', 'TECH_KIPIA', 'TECH_ELECTRIC', 'TECH_HOLOD', 'TECH_SANTECHNIK', 'STORE', 'WORKER', 'CONTRACTOR', 'CONTRACTOR_LEAD', 'OTHER'];
++    return <section className="card admin-card wide" data-testid="production-manager-local-panel">
++      <h3>Производство выбранного завода</h3>
++      <p>Только локальные отделы, должности, линии и нижестоящие сотрудники. Общие справочники и другие заводы здесь недоступны.</p>
++      <div className="admin-setup-panel">
++        <h4>Сотрудник своего завода</h4>
++        <div className="form-grid compact-grid">
++          <label>Сотрудник<select value={scopedUserId} onChange={(event) => {
++            const row = scopedProduction.users.find((item) => item.id === event.target.value);
++            const access = row?.selectedFactoryAccess;
++            setScopedUserId(row?.id ?? ''); setScopedRole(access?.isGuest ? 'WORKER' : access?.role ?? 'WORKER');
++            setScopedDepartmentId(access?.departmentId ?? ''); setScopedJobTitleId(access?.jobTitleId ?? ''); setScopedCompanyId(access?.companyId ?? '');
++          }}><option value="">Выберите сотрудника</option>
++            {scopedProduction.users.filter((item) => item.selectedFactoryAccess?.factoryId === selectedFactoryId
++              && item.selectedFactoryAccess.isActive && !['ADMIN', 'MANAGEMENT'].includes(item.selectedFactoryAccess.role)
++              && item.id !== currentUser?.userId).map((item) => <option key={item.id} value={item.id}>{item.displayName} · {item.selectedFactoryAccess?.isGuest ? 'Гость' : roleLabel(item.selectedFactoryAccess?.role ?? '')}</option>)}
++          </select></label>
++          <label>Роль<select value={scopedRole} disabled={!guest} onChange={(event) => { setScopedRole(event.target.value); setScopedDepartmentId(''); setScopedJobTitleId(''); setScopedCompanyId(''); }}>
++            {availableRoles.map((role) => <option key={role} value={role}>{roleLabel(role)}</option>)}
++          </select></label>
++          {contractor ? <label>Фирма<select value={scopedCompanyId} disabled={!guest} onChange={(event) => setScopedCompanyId(event.target.value)}><option value="">Выберите фирму</option>{scopedProduction.companies.filter((item) => item.factoryId === selectedFactoryId && item.isActive).map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>
++            : <label>Отдел<select value={scopedDepartmentId} onChange={(event) => { setScopedDepartmentId(event.target.value); setScopedJobTitleId(''); }}><option value="">Без отдела</option>{localDepartments.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>}
++          <label>Должность<select value={scopedJobTitleId} onChange={(event) => setScopedJobTitleId(event.target.value)}><option value="">Без должности</option>{localTitles.filter((item) => item.baseRole === scopedRole && (contractor || item.departmentId === scopedDepartmentId)).map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>
++        </div>
++        <button className="primary-button" type="button" disabled={busy || !scopedUserId || (contractor && !scopedCompanyId)} onClick={() => void quickAction(async () => {
++          await apiClient.post(`/admin/users/${scopedUserId}/factory-access`, { factoryId: selectedFactoryId, role: scopedRole,
++            departmentId: contractor ? null : scopedDepartmentId || null, companyId: contractor ? scopedCompanyId : null,
++            jobTitleId: scopedJobTitleId || null, isGuest: false, reason: 'Локальное назначение руководителем производства' });
++        })}>Сохранить локальное назначение</button>
++      </div>
++      <div className="admin-setup-panel">
++        <h4>Локальный отдел</h4>
++        <div className="form-grid compact-grid"><label>Отдел<select value={scopedDepartmentEditId} onChange={(event) => {
++          const row = localDepartments.find((item) => item.id === event.target.value); setScopedDepartmentEditId(row?.id ?? ''); setScopedDepartmentName(row?.name ?? '');
++        }}><option value="">Выберите отдел</option>{localDepartments.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>
++          <label>Название<input value={scopedDepartmentName} onChange={(event) => setScopedDepartmentName(event.target.value)} /></label></div>
++        <button className="secondary-button" type="button" disabled={busy || !scopedDepartmentEditId || !scopedDepartmentName.trim()} onClick={() => void quickAction(async () => {
++          await apiClient.patch(`/admin/departments/${scopedDepartmentEditId}`, { name: scopedDepartmentName, reason: 'Локальное редактирование руководителем производства' });
++        })}>Сохранить отдел</button>
++      </div>
++      <div className="admin-setup-panel">
++        <h4>Локальная должность</h4>
++        <div className="form-grid compact-grid"><label>Должность<select value={scopedTitleId} onChange={(event) => {
++          const row = localTitles.find((item) => item.id === event.target.value); setScopedTitleId(row?.id ?? ''); setScopedTitleDescription(row?.description ?? '');
++        }}><option value="">Выберите должность</option>{localTitles.filter((item) => !['ADMIN', 'MANAGEMENT'].includes(item.baseRole)).map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>
++          <label>Описание<input value={scopedTitleDescription} onChange={(event) => setScopedTitleDescription(event.target.value)} /></label></div>
++        <button className="secondary-button" type="button" disabled={busy || !scopedTitleId} onClick={() => void quickAction(async () => {
++          await apiClient.patch(`/admin/job-titles/${scopedTitleId}`, { description: scopedTitleDescription, reason: 'Локальное редактирование руководителем производства' });
++        })}>Сохранить должность</button>
++      </div>
++      <div className="admin-setup-panel">
++        <h4>Линия</h4>
++        <div className="form-grid compact-grid"><label>Линия<select value={scopedLineId} onChange={(event) => {
++          const row = scopedProduction.lines.find((item) => item.id === event.target.value); setScopedLineId(row?.id ?? ''); setScopedLineName(row?.name ?? '');
++        }}><option value="">Выберите линию</option>{scopedProduction.lines.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>
++          <label>Название<input value={scopedLineName} onChange={(event) => setScopedLineName(event.target.value)} /></label></div>
++        <button className="secondary-button" type="button" disabled={busy || !scopedLineId || !scopedLineName.trim()} onClick={() => void quickAction(async () => {
++          await apiClient.patch(`/admin/lines/${scopedLineId}`, { name: scopedLineName, reason: 'Локальное редактирование руководителем производства' });
++        })}>Сохранить линию</button>
++      </div>
++      <div className="admin-setup-panel">
++        <h4>Позиция линии</h4>
++        <div className="form-grid compact-grid"><label>Позиция<select value={scopedPositionId} onChange={(event) => {
++          const position = scopedProduction.lines.flatMap((line) => line.positions).find((item) => item.id === event.target.value);
++          setScopedPositionId(position?.id ?? ''); setScopedPositionName(position?.displayName || position?.name || '');
++        }}><option value="">Выберите позицию</option>{scopedProduction.lines.flatMap((line) => line.positions.map((position) => ({ line, position }))).filter(({ position }) => position.isActive && !position.deletedAt).map(({ line, position }) => <option key={position.id} value={position.id}>{line.name} · {position.displayName || position.name}</option>)}</select></label>
++          <label>Название для отображения<input value={scopedPositionName} onChange={(event) => setScopedPositionName(event.target.value)} /></label></div>
++        <button className="secondary-button" type="button" disabled={busy || !scopedPositionId || !scopedPositionName.trim()} onClick={() => void quickAction(async () => {
++          const line = scopedProduction.lines.find((item) => item.positions.some((position) => position.id === scopedPositionId));
++          if (!line) throw new Error('Позиция не найдена в выбранном заводе.');
++          await apiClient.patch(`/admin/lines/${line.id}/positions/${scopedPositionId}`, { displayName: scopedPositionName, reason: 'Локальное редактирование руководителем производства' });
++        })}>Сохранить позицию</button>
++      </div>
++      <div className="admin-setup-panel">
++        <h4>Рабочая зона</h4>
++        <div className="form-grid compact-grid"><label>Зона<select value={scopedAreaId} onChange={(event) => {
++          const row = scopedProduction.areas.find((item) => item.id === event.target.value); setScopedAreaId(row?.id ?? ''); setScopedAreaDescription(row?.description ?? '');
++        }}><option value="">Выберите рабочую зону</option>{scopedProduction.areas.filter((item) => item.factoryId === selectedFactoryId && item.isActive).map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>
++          <label>Описание<input value={scopedAreaDescription} onChange={(event) => setScopedAreaDescription(event.target.value)} /></label></div>
++        <button className="secondary-button" type="button" disabled={busy || !scopedAreaId} onClick={() => void quickAction(async () => {
++          await apiClient.patch(`/admin/work-areas/${scopedAreaId}`, { description: scopedAreaDescription, reason: 'Локальное редактирование руководителем производства' });
++        })}>Сохранить зону</button>
++      </div>
++    </section>;
++  };
++
+   const renderSection = () => {
+     if (section === 'Обзор') return renderAdminOverview();
+     if (section === 'Заводы') return renderFactoryBuilder();
+@@ -4107,7 +4282,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+ 
+           {renderSection()}
+         </>
+-      ) : delegationContext || staffingContext?.allowed ? (
++      ) : delegationContext || staffingContext?.allowed || scopedProduction ? (
+         <>
+           <section className="card admin-card wide scoped-admin-summary" data-testid="scoped-admin-control-plane">
+             <div className="line-title-row">
+@@ -4115,7 +4290,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+                 <h3>Управление в пределах своих полномочий</h3>
+                 <p>Полная админка скрыта. Доступны только подтверждённые иерархией действия выбранного завода.</p>
+               </div>
+-              <span className="tag">Завод: {staffingContext?.factory.name ?? delegationContext?.factory.name}</span>
++              <span className="tag">Завод: {staffingContext?.factory.name ?? delegationContext?.factory.name ?? 'Выбранный завод'}</span>
+             </div>
+             {staffingContext?.allowed ? (
+               <div className="admin-help-strip" data-testid="staffing-authority-basis">
+@@ -4123,6 +4298,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+               </div>
+             ) : null}
+           </section>
++          {renderScopedProduction()}
+           {staffingContext?.allowed ? renderTemplates(staffingContext.lines) : null}
+           {delegationContext ? (
+             <section className="card admin-card wide">
+diff --git "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\frontend\\src\\screens\\ChecklistsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+index b69ed465..943f6379 100644
+--- "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\frontend\\src\\screens\\ChecklistsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+@@ -1680,6 +1680,20 @@ export function ChecklistsScreen() {
+     return { phase: 'overdue' as const, dueAt, remainingMs };
+   };
+   const completedChecksCount = (run: ChecklistRun) => (run.checks ?? []).filter((check) => check.status === 'COMPLETED').length;
++  const periodicArchiveSummary = (run: ChecklistRun) => {
++    const latestCheck = (run.checks ?? []).reduce<ChecklistRunCheck | null>(
++      (latest, check) => !latest || check.sequence > latest.sequence ? check : latest,
++      null,
++    );
++    const latestRows = latestCheck?.rows ?? [];
++    const latestDone = latestRows.filter((row) => row.status !== 'PENDING').length;
++    const latestLabel = latestCheck?.status === 'COMPLETED'
++      ? 'Последняя проверка завершена'
++      : latestCheck
++        ? `Последняя проверка не завершена: ${latestDone} из ${latestRows.length} пунктов`
++        : 'Проверок пока нет';
++    return { completed: completedChecksCount(run), latestLabel };
++  };
+   const nextCheckText = (run: ChecklistRun) => {
+     if (run.status === 'CLOSED' || run.status === 'AUTO_CLOSED') return displayLabel(checklistRunStatusLabels, run.status);
+     if (isPeriodicChecklistRun(run)) {
+@@ -1754,8 +1768,17 @@ export function ChecklistsScreen() {
+         </span>
+       </div>
+       <div className="checklist-run-progress">
+-        <span>{runProgress(run).done} из {runProgress(run).total || 0} пунктов</span>
+-        <div className="guided-progress-bar"><span style={{ width: `${runProgress(run).percent}%` }} /></div>
++        {isPeriodicChecklistRun(run) ? (
++          <>
++            <span>Завершено проверок: {periodicArchiveSummary(run).completed}</span>
++            <span>{periodicArchiveSummary(run).latestLabel}</span>
++          </>
++        ) : (
++          <>
++            <span>{runProgress(run).done} из {runProgress(run).total || 0} пунктов</span>
++            <div className="guided-progress-bar"><span style={{ width: `${runProgress(run).percent}%` }} /></div>
++          </>
++        )}
+       </div>
+       <span className="checklist-run-action">Открыть прохождение</span>
+     </button>
+@@ -1831,6 +1854,8 @@ export function ChecklistsScreen() {
+ 
+   const renderArchiveRunCard = (run: ChecklistRun) => {
+     const progress = runProgress(run);
++    const periodic = isPeriodicChecklistRun(run);
++    const periodicSummary = periodicArchiveSummary(run);
+     return (
+       <article className="panel-card checklist-archive-compact-card" key={run.id}>
+         <div className="checklist-archive-compact-main">
+@@ -1843,8 +1868,17 @@ export function ChecklistsScreen() {
+           </span>
+         </div>
+         <div className="checklist-archive-compact-progress">
+-          <span>{progress.done} из {progress.total} пунктов</span>
+-          <div className="guided-progress-bar"><span style={{ width: `${progress.percent}%` }} /></div>
++          {periodic ? (
++            <>
++              <span>Завершено проверок: {periodicSummary.completed}</span>
++              <span>{periodicSummary.latestLabel}</span>
++            </>
++          ) : (
++            <>
++              <span>{progress.done} из {progress.total} пунктов</span>
++              <div className="guided-progress-bar"><span style={{ width: `${progress.percent}%` }} /></div>
++            </>
++          )}
+         </div>
+         <button className="secondary-button" onClick={() => setSelectedRun(run)} type="button">Открыть</button>
+       </article>
+diff --git "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\frontend\\src\\screens\\ShiftPeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+index 44c5af14..c2ec3672 100644
+--- "a/C:\\Users\\79164\\AppData\\Local\\Zavod-MES4\\source-before-functional04\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+@@ -3135,6 +3135,7 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+       <div className="current-shift-person-copy">
+         <strong>{shortPersonName(person.userId, person.displayName)}</strong>
+         <span>{person.departmentName ?? person.companyName ?? 'Подразделение не указано'} · {roleLabels[person.role] ?? person.role}</span>
++        {person.sharedPresenceSourceFactoryName ? <span>Общая служба · явка на заводе «{person.sharedPresenceSourceFactoryName}»</span> : null}
+       </div>
+       <button className="secondary-button compact-action" type="button" onClick={() => void openProfile(person.userId)}>Подробнее</button>
+     </article>

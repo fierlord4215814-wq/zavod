@@ -1,0 +1,294 @@
+{
+  "at": "2026-09-20T06:17:42.719Z",
+  "observationAt": "2026-09-20T09:11:21.9628047+03:00",
+  "status": "BLOCKED_CONSOLE_OBSERVATION_PERMISSION_NOT_LIVE_ACCEPTANCE",
+  "host": {
+    "features": [
+      {
+        "Name": "Microsoft-Hyper-V-All",
+        "InstallState": 1
+      },
+      {
+        "Name": "Microsoft-Hyper-V",
+        "InstallState": 1
+      },
+      {
+        "Name": "Microsoft-Hyper-V-Tools-All",
+        "InstallState": 1
+      },
+      {
+        "Name": "Microsoft-Hyper-V-Management-PowerShell",
+        "InstallState": 1
+      },
+      {
+        "Name": "Microsoft-Hyper-V-Hypervisor",
+        "InstallState": 1
+      },
+      {
+        "Name": "Microsoft-Hyper-V-Services",
+        "InstallState": 1
+      },
+      {
+        "Name": "Microsoft-Hyper-V-Management-Clients",
+        "InstallState": 1
+      }
+    ],
+    "executionPolicy": "RemoteSigned",
+    "cpuReported": {
+      "Name": "Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz",
+      "AddressWidth": 64,
+      "VirtualizationFirmwareEnabled": false,
+      "SecondLevelAddressTranslationExtensions": false,
+      "VMMonitorModeExtensions": false
+    },
+    "hyperVModuleAvailable": true,
+    "edition": "Professional",
+    "totalRamBytes": 17137594368,
+    "vmHostReadError": "У вас нет разрешения на выполнение этой задачи. Обратитесь к администратору политики авторизации для компьютера \"DESKTOP-MTJSKD2\".",
+    "build": "19045",
+    "at": "2026-09-20T08:25:57.8054491+03:00",
+    "vmmsStatus": "Running",
+    "actualAdminToken": false,
+    "freeDiskBytes": 50506760192,
+    "workingPostgresqlQueried": false,
+    "powershellExecutable": "C:\\Users\\79164\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "cpuReportInterpretation": "Hypervisor already running; do not treat hidden capability flags as a request to modify firmware",
+    "freeRamBytes": 9026576384,
+    "vmHostRead": null,
+    "lastBoot": "2026-09-20T08:03:28.5000000+03:00",
+    "hypervisorPresent": true,
+    "dep": true,
+    "disMRepeated": false,
+    "systemChanges": false
+  },
+  "vmIdentity": {
+    "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+    "name": "Zavod-Master-R5-Ubuntu24",
+    "bios": [
+      {
+        "BIOSGUID": "D00FD8A4-6628-433C-BD34-00A7CB7DD174",
+        "VirtualSystemIdentifier": "99A158DA-C247-422C-AE11-109485A92B1F"
+      }
+    ],
+    "vhd": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\ubuntu24.vhdx",
+    "geometry": {
+      "Size": 17179869184,
+      "FileSize": 4194304,
+      "VhdType": 3,
+      "VhdFormat": 3,
+      "ParentPath": ""
+    },
+    "network": {
+      "prefix": "10.243.53.0/30",
+      "guestIp": "10.243.53.2",
+      "hostIp": "10.243.53.1"
+    },
+    "switchId": "afaaea6b-1d7e-4ec7-beb2-5c7bf8750beb",
+    "switchType": "Internal",
+    "createdAt": "2026-09-20T08:26:31.5890962+03:00"
+  },
+  "coordinator": {
+    "status": "PRESENT_VERIFY_RECORDED_START_IDENTITY",
+    "hasExited": false,
+    "name": "pwsh",
+    "start": "2026-09-20T08:26:22.4640876+03:00",
+    "pid": 9056,
+    "sameOwnedProcessIdentity": true,
+    "actualTokenProof": "vm-control-before.json",
+    "actualTokenElevatedAtCreation": true
+  },
+  "shutdown": {
+    "request": "000006",
+    "requested": true,
+    "executionStartIndependentlyObserved": false,
+    "terminal": null,
+    "status": "PENDING_EXECUTION_AND_COMPLETION_UNVERIFIED",
+    "force": false,
+    "turnOff": false
+  },
+  "coordinatorExit": {
+    "request": "000007",
+    "terminal": null,
+    "status": "QUEUED_UNVERIFIED"
+  },
+  "lastConfirmedVmState": {
+    "at": "2026-09-20T08:34:36.9332094+03:00",
+    "state": 2,
+    "meaning": "RUNNING"
+  },
+  "currentVmOffProven": false,
+  "observer": {
+    "approval": "REQUESTED_NOT_RECEIVED",
+    "uacRequestExists": false,
+    "executed": false
+  },
+  "image": {
+    "partialSha256": "5b43b905c627aab711e1348439944a99792ac6bebdba48feab88d54a8dcbc40c",
+    "curlExit": 0,
+    "rangeStatus": "EXACT_HTTP206_BYTES_PROVEN",
+    "status": "FULL_OFFICIAL_IMAGE_HASH_VERIFIED_NOT_BOOTED",
+    "sha256": "97f3d7ffb032c3eb3b23d2c8be9cc76e60c2c1f2c0146ba5ba9fe01cafae0fd8",
+    "at": "2026-09-20T08:32:13.5076040+03:00",
+    "bytes": 4080486400,
+    "freeDiskAfter": 45997510656,
+    "tailBytes": 414750467,
+    "path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\ubuntu-24.04.5-live-server-amd64.iso",
+    "partialPreserved": true,
+    "workingDbAccessed": false,
+    "tailPath": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\ubuntu-24.04.5-live-server-amd64.iso.tail-20260920"
+  },
+  "seedMetadata": {
+    "path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\private\\seed.iso",
+    "defaultGateway": null,
+    "rootSsh": false,
+    "diskGuard": "Microsoft VM, exactly one blank 16GiB disk /dev/sda, before partitioning",
+    "hostReboot": false,
+    "bytes": 59392,
+    "appUser": "r5app without sudo",
+    "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+    "pgOsUser": "r5pg",
+    "volume": "cidata",
+    "status": "OWN_CONFIG_MEDIA_CREATED_NOT_GUEST_INSTALLED",
+    "productStarted": false,
+    "dnsServers": [],
+    "hostFirewallChanged": false,
+    "guestIp": "10.243.53.2",
+    "opsUser": "r5ops separate privileged preparation only",
+    "source": "ubuntu-server confirmed from actual ISO",
+    "at": "2026-09-20T08:32:42.0789411+03:00",
+    "privateKeysExported": false,
+    "sha256": "4bfdf5debe2b2d3f966946358e546d1d08d98419218e991a6d8f305ce3396ea7",
+    "sshPasswordAuth": false,
+    "keyFingerprint": "256 SHA256:nu9PA6m+dmxuaubuKjJs/xLeN1y87htKxgJaOCqcIRs zavod-r5-own-guest-ops (ED25519)"
+  },
+  "sourcePayload": {
+    "path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\clean-source-20260920-01.tar",
+    "bytes": 6896128,
+    "sha256": "eb829db148e8a2067dcf9e0cb9ad9ce8e63b361f8a13fade5f67fb7a9f973016",
+    "entryCount": 338,
+    "fullSourceEntryReadback": true
+  },
+  "guestInstall": "UNVERIFIED_NO_NATIVE_CONSOLE",
+  "guestTransfer": "NOT_RUN",
+  "canaryRoundTrip": "NOT_RUN",
+  "isolationProof": "NOT_RUN",
+  "appStack": "NOT_RUN",
+  "appDbFixtures": [],
+  "ownFixtureCleanup": "N_A_NONE_CREATED",
+  "workingRuntimeDataCleanup": "UNKNOWN_NOT_INSPECTED",
+  "workingDbAccessed": false,
+  "workingDataEnvUploadsChanged": false,
+  "disMRepeated": false,
+  "hostRestartRequested": false,
+  "proxyStarted": false,
+  "freeDiskAtFinalObservation": 45962416128,
+  "ownedFilesMetadata": [
+    {
+      "lastWrite": "2026-09-20T08:31:50.3209399+03:00",
+      "relative": "ubuntu-24.04.5-live-server-amd64.iso",
+      "bytes": 4080486400,
+      "contentRead": false
+    },
+    {
+      "lastWrite": "2026-09-19T20:13:18.8114455+03:00",
+      "relative": "ubuntu-24.04.5-live-server-amd64.iso.part",
+      "bytes": 3665735933,
+      "contentRead": false
+    },
+    {
+      "lastWrite": "2026-09-20T08:31:26.4584383+03:00",
+      "relative": "ubuntu-24.04.5-live-server-amd64.iso.tail-20260920",
+      "bytes": 414750467,
+      "contentRead": false
+    },
+    {
+      "lastWrite": "2026-09-20T08:47:02.7482339+03:00",
+      "relative": "clean-source-20260920-01.tar",
+      "bytes": 6896128,
+      "contentRead": false
+    },
+    {
+      "lastWrite": "2026-09-20T09:11:21.9622810+03:00",
+      "relative": "vm/ubuntu24.vhdx",
+      "bytes": 4194304,
+      "contentRead": false
+    }
+  ],
+  "queueCopies": [
+    {
+      "name": "000001.request.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000001.request.json",
+      "bytes": 80,
+      "sha256": "23b2f852ead292c7b1d1152e5847e179f1fc835a7389d67a3b474fbd1a1371c8"
+    },
+    {
+      "name": "000001.result.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000001.result.json",
+      "bytes": 368,
+      "sha256": "8076cc5906672d4e23ff5206e158a9c0ea17049f2b61d6d5b01ca3bfed88a66f"
+    },
+    {
+      "name": "000002.request.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000002.request.json",
+      "bytes": 67,
+      "sha256": "2ff11328454ce9f7a3f9e0c44cac3e0d581a12f0b39329ba84feab5944284239"
+    },
+    {
+      "name": "000002.result.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000002.result.json",
+      "bytes": 1555,
+      "sha256": "21254bcf95c0d29e16ca63f36861b34a6af73c9c9575dd043698b6fd6afecf9e"
+    },
+    {
+      "name": "000003.request.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000003.request.json",
+      "bytes": 78,
+      "sha256": "3dc29a08510924177e7d0cfb18900a32429ee1d04bd8027e2dc9ccc877b2aff4"
+    },
+    {
+      "name": "000003.result.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000003.result.json",
+      "bytes": 344,
+      "sha256": "1da2178f27e8061a35379d2b65f92b4f19229ae2be619a335fe3be0227091183"
+    },
+    {
+      "name": "000004.request.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000004.request.json",
+      "bytes": 70,
+      "sha256": "6c54a90fa9848cdde26ebef2d0cfc28a9831445fce3eb6f5f212b5488589b201"
+    },
+    {
+      "name": "000004.result.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000004.result.json",
+      "bytes": 199,
+      "sha256": "09d6f31ee47292ca553a2d65521f2cc0e0030f887569db7b81cd413f3dba19d0"
+    },
+    {
+      "name": "000005.request.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000005.request.json",
+      "bytes": 70,
+      "sha256": "6c54a90fa9848cdde26ebef2d0cfc28a9831445fce3eb6f5f212b5488589b201"
+    },
+    {
+      "name": "000005.result.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000005.result.json",
+      "bytes": 199,
+      "sha256": "18db685d752c39558015da1b6c0ca0a592a52d3d8f8840754e386d45133bf329"
+    },
+    {
+      "name": "000006.request.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000006.request.json",
+      "bytes": 71,
+      "sha256": "101d76f27749bbfe7eba763e3afd532fdab6ceceafc6e546eb25a2f36e41d675"
+    },
+    {
+      "name": "000007.request.json",
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/attempts/20260920-vm-control/control-evidence/000007.request.json",
+      "bytes": 79,
+      "sha256": "531d9ecf05a4fda1e24956ebd0db10bbfb73b56316a94b14543911c1ac2ab5ef"
+    }
+  ],
+  "automaticForceOrCleanup": false,
+  "lifecycleLimit": "Outer 8h loop deadline cannot interrupt a blocking synchronous cmdlet; queued shutdown has no start receipt. Do not infer execution or completion.",
+  "handoffHarnessCorrection": "handoff-attempt1-error.json; previous immutable snapshots verified and reused, not overwritten"
+}

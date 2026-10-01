@@ -1,0 +1,16 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\src\\modules\\orders\\orders.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+index 7dce4a1c..23a927fa 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\src\\modules\\orders\\orders.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+@@ -387,6 +387,11 @@ export class OrdersService {
+           },
+         });
+         if (!existingMovement) throw new ConflictError('Результат действия больше недоступен. Обновите остатки.');
++        // Movement input is immutable; do not validate it against a possibly
++        // changed item unit or apply the stock delta a second time.
++        if (existingMovement.quantity !== this.positive(quantityValue, 'Укажите количество.') || existingMovement.comment !== comment) {
++          throw new ConflictError('Этот идентификатор уже использован с другими данными. Обновите остатки.');
++        }
+         const currentItem = await tx.minimumStockItem.findFirst({ where: { id, ...this.itemWhere(user, { includeArchive: 'true' }) } });
+         if (!currentItem) throw new ConflictError('Позиция остатка не найдена.');
+         const departmentLabels = await this.departmentLabels(user.selectedFactoryId, [currentItem.departmentId]);

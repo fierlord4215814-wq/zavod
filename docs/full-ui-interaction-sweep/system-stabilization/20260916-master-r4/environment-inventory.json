@@ -1,0 +1,90 @@
+{
+  "at": "2026-09-16T17:24:54.248Z",
+  "mode": "READ_ONLY_INSTALLED_RUNTIME_INVENTORY",
+  "known": [
+    {
+      "path": "C:/Program Files/Docker/Docker/resources/bin/docker.exe",
+      "exists": false
+    },
+    {
+      "path": "C:/Program Files/RedHat/Podman/podman.exe",
+      "exists": false
+    },
+    {
+      "path": "C:/Program Files/containerd/containerd.exe",
+      "exists": false
+    },
+    {
+      "path": "C:/Program Files/Rancher Desktop/resources/resources/win32/bin/docker.exe",
+      "exists": false
+    },
+    {
+      "path": "C:/Program Files/PostgreSQL/18/bin/postgres.exe",
+      "exists": true
+    },
+    {
+      "path": "C:/Program Files/PostgreSQL/18/bin/initdb.exe",
+      "exists": true
+    }
+  ],
+  "calls": [
+    {
+      "program": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-NonInteractive",
+        "-Command",
+        "Get-Command docker,podman,nerdctl -ErrorAction SilentlyContinue | Select-Object Name,Source | ConvertTo-Json -Compress; [pscustomobject]@{Lxss=(Test-Path 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Lxss'); Docker=(Test-Path 'HKLM:\\SOFTWARE\\Docker Inc.'); Podman=(Test-Path 'HKLM:\\SOFTWARE\\Red Hat\\Podman')} | ConvertTo-Json -Compress"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "{\"Lxss\":false,\"Docker\":false,\"Podman\":false}\r\n",
+      "stderr": ""
+    },
+    {
+      "program": "C:/Windows/System32/wsl.exe",
+      "args": [
+        "--status"
+      ],
+      "exitCode": 50,
+      "signal": null,
+      "error": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "program": "C:/Program Files/PostgreSQL/18/bin/postgres.exe",
+      "args": [
+        "--version"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "postgres (PostgreSQL) 18.3\r\n",
+      "stderr": ""
+    }
+  ],
+  "environmentNames": [
+    "APPDATA",
+    "ComSpec",
+    "LOCALAPPDATA",
+    "PATH",
+    "PATHEXT",
+    "ProgramData",
+    "ProgramFiles",
+    "ProgramFiles(x86)",
+    "SystemRoot",
+    "TEMP",
+    "TMP",
+    "USERPROFILE",
+    "windir"
+  ],
+  "workingDbAccessed": false,
+  "workingServicesQueried": false,
+  "workingPathsOpened": false,
+  "servicesStarted": false,
+  "fixturesCreated": false,
+  "verdict": "BLOCKED_ENV_C1_TECHNICAL_ISOLATION_UNAVAILABLE",
+  "reason": "No installed container runtime found in PATH/known installations; WSL status exit50 and no Lxss. PostgreSQL18.3 native binaries exist but a same-account standalone process is not filesystem/egress confinement. Creating a cluster does not meet requested technical exclusion. Runtime installation/firewall changes are outside authority. No initdb/bootstrap attempted."
+}

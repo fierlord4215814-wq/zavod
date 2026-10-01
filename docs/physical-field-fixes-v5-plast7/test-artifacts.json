@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-08-09T09:00:03.2695276Z",
+  "status": "PASS_WITH_PHYSICAL_PENDING",
+  "browserRuntime": {
+    "status": "PASS",
+    "primaryViewport": 390,
+    "layoutViewports": [360, 430],
+    "desktopSmoke": true
+  },
+  "checks": {
+    "backendBuild": "PASS",
+    "frontendBuild": "PASS",
+    "lineHumanPresenter": "29 passed, 0 failed",
+    "plast5Browser": "2 passed, 0 failed",
+    "plast6Browser": "PASS",
+    "websocketLocal": "PASS",
+    "websocketPublic": "PASS",
+    "publicFrontend": 200,
+    "publicApiHealth": 200,
+    "publicManifest": 200,
+    "publicServiceWorker": 200,
+    "secureContext": true,
+    "serviceWorkerActive": true,
+    "serviceWorkerVersion": "zavod-shell-v6",
+    "diffCheck": "PASS",
+    "promptAlertConfirmScan": "PASS",
+    "mojibakeScan": "PASS",
+    "sensitiveValueScan": "PASS"
+  },
+  "cleanup": {
+    "activeTestAnnouncements": 0,
+    "activeTestChats": 0,
+    "activeTestOkkRecords": 0,
+    "activeTestReturnRecords": 0,
+    "preexistingEntitiesDeleted": 0,
+    "strategy": "existing archive/deactivate endpoints; audit and immutable history retained"
+  },
+  "screenshots": [
+    "screenshots/01-line-actions-390.png",
+    "screenshots/02-profile-history-390.png",
+    "screenshots/03-announcement-viewer-390.png",
+    "screenshots/04-chat-5plus-gallery-390.png",
+    "screenshots/05-okk-partial-release-390.png",
+    "screenshots/06-returns-archive-390.png"
+  ],
+  "physicalRuntime": {
+    "publicUrl": "https://moved-correlation-varieties-cope.trycloudflare.com",
+    "publicHealthUrl": "https://moved-correlation-varieties-cope.trycloudflare.com/api/health",
+    "backendPid": 17316,
+    "frontendPid": 14620,
+    "tunnelPid": 11016,
+    "keepAwakePid": 9736,
+    "runtimeStartedAt": "2026-08-09T11:51:01.8510453+03:00",
+    "qrPath": "C:\\Users\\79164\\Documents\\work\\.codex-runtime\\physical-field-fixes-v5-plast7\\physical-ready-qr.png"
+  },
+  "physicalPhoneGate": "PENDING"
+}

@@ -1,0 +1,80 @@
+{
+  "attempt": "late-after-lead-final",
+  "proof": "real HTTP response held, never fabricated; own group only",
+  "actors": {
+    "owner": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+    "member": "3287708e-d87b-4376-b406-d42343441e08",
+    "memberRole": "CONTRACTOR_LEAD"
+  },
+  "chatId": "668ed1a4-57f0-47fa-8a0d-fcde136a6554",
+  "title": "Учебный поздний ответ LOCAL03 late-after-lead-final",
+  "messageId": "b9ab38b8-780a-4a19-b19e-a95e312a6dc2",
+  "fileId": "04b1c598-7782-4537-ae8a-74e20bf71d8d",
+  "uploadRetrySameId": true,
+  "range": {
+    "status": 200,
+    "contentRange": null,
+    "acceptRanges": null,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813",
+    "verdict": "CHARACTERIZED_200_FULL_BODY_NO_RANGE_CONTRACT"
+  },
+  "abort": {
+    "status": 200,
+    "point": "after headers, before application body consumption",
+    "error": "AbortError"
+  },
+  "newContextRetry": {
+    "status": 200,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813"
+  },
+  "invitedUiMessage": "7b219b5d-d625-4bdb-b37d-38d7ca04c410",
+  "invitedSecondUiMs": 104,
+  "invitedUiButtons": {
+    "create": 0,
+    "directory": 0
+  },
+  "backLateRefresh": "PASS_REAL_HELD_HTTP_NO_REOPEN",
+  "heldResponse": {
+    "status": 200,
+    "heldAt": "2026-09-25T05:46:41.762Z"
+  },
+  "removedAt": "2026-09-25T05:46:42.340Z",
+  "removedUi": true,
+  "freshDetail": 403,
+  "freshFile": 403,
+  "trace": {
+    "events": [],
+    "exposed": [],
+    "releasedAt": 7719.199999999721
+  },
+  "finalDialog": 0,
+  "sql": {
+    "messages": 1,
+    "attachments": 1,
+    "member": {
+      "removedAt": "2026-09-25T05:46:42.329Z",
+      "leftAt": null,
+      "canRead": false
+    }
+  },
+  "status": "PASS_LATE_RESPONSE_NO_REOPEN",
+  "restricted": {
+    "WORKER": {
+      "list": 403,
+      "detail": 403,
+      "file": 403,
+      "menuAbsent": true,
+      "newChatFrames": 0
+    },
+    "CONTRACTOR": {
+      "list": 403,
+      "detail": 403,
+      "file": 403,
+      "menuAbsent": true,
+      "newChatFrames": 0
+    }
+  },
+  "finallyArchive": 200
+}

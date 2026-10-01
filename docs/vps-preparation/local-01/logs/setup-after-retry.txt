@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "checks": 25,
+  "results": [
+    "every production Dockerfile COPY source exists in staged context",
+    "staging includes Prisma migrations, foundation and bootstrap",
+    "staging excludes seed, tests, host dependencies and private runtime",
+    "synthetic private canaries do not enter staged context",
+    "PostgreSQL storage marker is created on a new dedicated path",
+    "PostgreSQL parent contract grants traversal without listing or broad write",
+    "ambiguous pre-existing PostgreSQL directory is refused",
+    "overlapping persistent paths are refused",
+    "persistent storage cannot overlap the source workspace",
+    "failed first build leaves an owned configuration for exact retry",
+    "exact prepare retry resumes without replacing configuration or secrets",
+    "headless prepare rejects invalid configuration before Docker phases",
+    "first start stops after migration and foundation with exact first-admin status",
+    "the exact DB service is waited healthy before migration",
+    "DB wait failure prevents migration, foundation and app",
+    "migration failure prevents foundation and application start",
+    "foundation failure prevents application start",
+    "schema readiness failure prevents application start",
+    "explicit bootstrap runs in container through protected stdin then starts application",
+    "credential is absent from command log and public output",
+    "lost-response repeat is diagnostic and does not issue new bootstrap",
+    "repeat start serves readiness and never invokes bootstrap or dev seed",
+    "update requires a reviewed backup path",
+    "update builds from staged context and reruns migration/foundation before app",
+    "Compose keeps PostgreSQL 18 PGDATA under persistent parent mount and loopback HTTP"
+  ]
+}

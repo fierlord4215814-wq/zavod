@@ -1,0 +1,18 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+index 089640af..33ed8e9d 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+@@ -1,6 +1,12 @@
+ # Full UI Interaction Sweep — gap register
+ 
+-## Current source layer — MASTER R5 VM checkpoint, 20.09.2026
++## Current source layer — MASTER R5 existing VM observation, 20.09.2026 16:34+03
++
++MASTER_R5_STATUS=BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. ENV-C1 не закрыт. Read-only UAC теперь approved/executed: actual same VMRunning/BIOS/Gen2/VHDX/media и PID9056/start/commandline подтверждены. Нет associated jobs, но SHUTDOWN000006/EXIT000007 без результатов; будущий эффект очереди не исключён. Безопасное завершение старого helper требует наблюдаемого wait/prompt state, не force и не второго контроллера.
++
++Thumbnail actual Byte[]614404/153604 при expected614400/153600, return0; причинаextra4bytes UNKNOWN, validity не ослаблялась. VMConnect без elevation: access denied; computer-use capture SetIsBorderRequired0x80004002, native guest frames0. Это уточнения ENV-C1/harness/lifecycle, не новые продуктовые findings и не изменения P-count. Все5gates/newjourneys/tests/fixes0;036P1live-pending,063P2 original1286→1213UNKNOWN,014/050/replay/publication без новых решений. Main6matrices/P0/P1/P2=0/1/10/954of957 не переприняты. [Полный результат](system-stabilization/20260917-master-r5/final-report.md), [продолжение](system-stabilization/20260917-master-r5/resume-prompt.txt).
++
++## Historical source layer — MASTER R5 VM checkpoint, 20.09.2026 morning
+ 
+ MASTER_R5_STATUS=BLOCKED_CONSOLE_OBSERVATION_PERMISSION; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. ENV-C1 частично продвинут: fresh boot/Hyper-V/DEP/resources, новый approved UAC actual admin token, одна Gen2 VM/собственный16GiBdisk/internal link, full official ISOhash/clean source byteproof. **ENV-C1 не закрыт**: actual guest console/install/isolation/transfer/stack NOT_RUN/UNVERIFIED. Capture helper дважды отказал на image-size guard despite return0, причина raw format UNKNOWN; отдельный read-only observer требует нового explicit UAC approval, ещё NOT_RUN. Graceful ownVMshutdown08:48 пока безterminal, PID9056alive08:55; Off/stopUNVERIFIED, noForce. Это environment/harness/lifecycle boundaries, не новые product findings/P-counts.
+ 

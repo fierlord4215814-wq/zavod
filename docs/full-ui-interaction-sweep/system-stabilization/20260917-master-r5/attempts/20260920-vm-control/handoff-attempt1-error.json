@@ -1,0 +1,24 @@
+{
+  "classification": "HANDOFF_HARNESS_ERROR_NOT_PRODUCT_TEST",
+  "source": "Preserved terminal result of the first finalization attempt on 2026-09-20; exact time not recorded",
+  "errors": [
+    {
+      "helper": "observe-final-runtime.ps1",
+      "phase": "PARSE_BEFORE_EXECUTION",
+      "line": 10,
+      "message": "Missing closing '}' in statement block or type definition.",
+      "runtimeSnapshotCreated": false
+    },
+    {
+      "helper": "finalize-boundary.cjs",
+      "phase": "READ_RUNTIME_OBSERVATION_AFTER_IDENTITY_SNAPSHOTS",
+      "line": 24,
+      "message": "ENOENT: no such file or directory, open final-runtime-observation.json",
+      "reason": "The caller incorrectly continued after the PowerShell parser error.",
+      "partialOutputsPreserved": ["handoff/after", "handoff/diffs", "references/current-parent-matrices", "final-identities.json"]
+    }
+  ],
+  "correction": "Add missing outer loop brace; parse before invocation. Continue in a separate completion helper which verifies and reuses immutable partial outputs without overwriting them.",
+  "productTestsExecuted": false,
+  "vmOrDatabaseMutation": false
+}

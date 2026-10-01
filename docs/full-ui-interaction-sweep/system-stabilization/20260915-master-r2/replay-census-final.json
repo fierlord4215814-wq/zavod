@@ -1,0 +1,456 @@
+{
+  "count": 45,
+  "scope": "existing ProcessedOperation read methods + immediate create/membership callers; distinct direct operationId stores are supplemental, not denominator inflation",
+  "rows": [
+    {
+      "id": "ChatsService.addMember",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 372,
+      "methodSha256": "2843e4b809906b5a3eed8b0bd3170544e7a630461926c2d0be2664f519cb7381",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ChatsService.removeMember",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 449,
+      "methodSha256": "3283f38d53b1d77b8473fecaf96b44eb4aeebbc84acac3a7882b18d90b88f973",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ChatsService.leave",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 504,
+      "methodSha256": "938c058eb0a77ee2fe38e52ed13957309dd39d5c4ef98cd3ccac7641d183afe7",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ChatsService.updateMemberRole",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 554,
+      "methodSha256": "f0ef257e64bf8e55ae6663ea86be8cfdad32757198f64738f05245fdf7202295",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ChatsService.transferOwnership",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 606,
+      "methodSha256": "7bad43d6689bfea77669239fb63d1a13e92fca71fb2857d2bb934a08231d82b8",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ChatsService.setDirectCommunicationBlock",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 663,
+      "methodSha256": "29e986c59df89338fd865dba2213974357dc667af7657b068a310583ce58b4a2",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ChatsService.processedMembershipReplayTx",
+      "owner": "backend/src/modules/chats/chats.service.ts",
+      "line": 1603,
+      "methodSha256": "fd6ea5145b73d34ae6533a3a0de732763794f5da72150f9ab60394e54d7478b5",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ChecklistsService.completeRow",
+      "owner": "backend/src/modules/checklists/checklists.service.ts",
+      "line": 671,
+      "methodSha256": "58df7480e693f9c60de1382cf6c0d18a2c98e384f2da581cec85a70a8b42803c",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ChecklistsService.completeCurrentCheck",
+      "owner": "backend/src/modules/checklists/checklists.service.ts",
+      "line": 751,
+      "methodSha256": "247b7a1e641726fd4459615189637cadc0b8d2e8774646a4e62060481898a029",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "DefrostService.start",
+      "owner": "backend/src/modules/defrost/defrost.service.ts",
+      "line": 223,
+      "methodSha256": "e877e497e89c3fe93c1c2eabb2719518c7c4d4dd7d4ef687774a6116efa52c46",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "DefrostService.end",
+      "owner": "backend/src/modules/defrost/defrost.service.ts",
+      "line": 304,
+      "methodSha256": "b302896dcfaa0a32876255713fa3e89adb2c6cf6baaa6c8cce7860d3be91478d",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "DefrostService.completeToday",
+      "owner": "backend/src/modules/defrost/defrost.service.ts",
+      "line": 387,
+      "methodSha256": "b17048f77dd6057311f4f43d1adb2dcd0e9abd3fd9afb91a3a02c763c8c48834",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "DefrostService.markShockChamberBlown",
+      "owner": "backend/src/modules/defrost/defrost.service.ts",
+      "line": 413,
+      "methodSha256": "48dfdd0ca9f260661e1a13e87b08dcdf0d9cb09c49ac8ed6fa6cbc366e3439c8",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "EmployeeService.assignToLine",
+      "owner": "backend/src/modules/employee/employee.service.ts",
+      "line": 52,
+      "methodSha256": "adfa1bc9587382fc2bbe30a58e2f64f167990f06ae2a38d1b0ae8630a9ecc345",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "EmployeeService.assignToWash",
+      "owner": "backend/src/modules/employee/employee.service.ts",
+      "line": 341,
+      "methodSha256": "a3dc04b63e507a51955386011dd390f4d0cd6bf907e48e00b1614860f2ee605c",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "EmployeeService.assignToWorkArea",
+      "owner": "backend/src/modules/employee/employee.service.ts",
+      "line": 526,
+      "methodSha256": "812a12e7263d34bb21be9700d4c3f67b75d2381bf5ee7b70084f8b9ed601dd48",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ErrorReportService.create",
+      "owner": "backend/src/modules/error-report/error-report.service.ts",
+      "line": 76,
+      "methodSha256": "48d87f579a892c614b782db5b2b8a9e938a3b6831a1b14495c7fbb33c8843d73",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ErrorReportService.findProcessedCreate",
+      "owner": "backend/src/modules/error-report/error-report.service.ts",
+      "line": 212,
+      "methodSha256": "307c80e51b9ea98357a6d7d134ff3fe880fea6759417c52ff88f6325138bea6f",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "LineService.assignPlannedSlot",
+      "owner": "backend/src/modules/line/line.service.ts",
+      "line": 1524,
+      "methodSha256": "65c0b1c291f2619bdbef1be7d87987c95218f6217b4c3510c595883f4d43ca4f",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "LineService.applyPlanningTemplate",
+      "owner": "backend/src/modules/line/line.service.ts",
+      "line": 1746,
+      "methodSha256": "fb0034c0fb5a086afddde27f0a2a8f91b8caeff604804c743139b25d04a2d311",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "LineService.applyTemplateActivation",
+      "owner": "backend/src/modules/line/line.service.ts",
+      "line": 2390,
+      "methodSha256": "84c64a184f73319d1da442242ecbbac62a412c1bd349fccf267705f0b3d6d3ea",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "OkkService.createRecord",
+      "owner": "backend/src/modules/okk/okk.service.ts",
+      "line": 60,
+      "methodSha256": "29348bec1ec1cd90555e8606408477d949a661ce4893ede96d31689b670f8fa0",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "OkkService.findProcessedCreate",
+      "owner": "backend/src/modules/okk/okk.service.ts",
+      "line": 362,
+      "methodSha256": "811e07ff8f52ab729eede40e98e1710c95634b69dc0c3cae11812ab7a2a61bcc",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "OrdersService.move",
+      "owner": "backend/src/modules/orders/orders.service.ts",
+      "line": 362,
+      "methodSha256": "e7cd97bd604bdf0209cf43246b728398de817e9e6091511f4e680d9ea2f33f62",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "OrdersService.createRequestTx",
+      "owner": "backend/src/modules/orders/orders.service.ts",
+      "line": 458,
+      "methodSha256": "ad56de59e7f3bebd1314af33a74ea143f155152f4c666dff8a57a35c7cc7b634",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ReturnsService.createReturn",
+      "owner": "backend/src/modules/returns/returns.service.ts",
+      "line": 23,
+      "methodSha256": "6eca3ef900d942de338bb9712cd83cc0d7b4141f47a1dafee3f8d0b9cad2c437",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ReturnsService.findProcessedCreate",
+      "owner": "backend/src/modules/returns/returns.service.ts",
+      "line": 271,
+      "methodSha256": "2b5143005ca672d255c572fddb4293128c7db66b7185881fc3d32addcd8f6fca",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ShiftService.activateCurrentLinePlan",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 412,
+      "methodSha256": "06016d65f0183fd7746ee5721cd4cbdb4cb5699ed5417e2e6b775230b53a224b",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ShiftService.activateCurrentWorkAreaPlan",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 505,
+      "methodSha256": "49c18791b569060612fe37c4afb8811b50163b2342c54a43f7b02d053e6af6d5",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ShiftService.createFutureShiftAssignment",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 1071,
+      "methodSha256": "99303df2610130e566e4d2b601be6637f0df3ca66f77f60a4ca5257cf2828ab6",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ShiftService.releaseFutureShiftAssignment",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 1314,
+      "methodSha256": "551c311e9095dea0508929d0b608c0ef5ac8db0caa836c7c0b94453a42c4b306",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ShiftService.createContractorSubmission",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 2049,
+      "methodSha256": "04fc7c8b96b47bd905fd2514cc9b07f894f768e2bb6a4b42c47b56899aad7f68",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ShiftService.updateContractorActualStatus",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 2154,
+      "methodSha256": "bc8bd06e5fb004c54e133664256fbc44604f38b93ab489b100a13662f22cc6a6",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "ShiftService.addContractorCurrentArrival",
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "line": 2279,
+      "methodSha256": "476f9ae2269f6baa352265eedea12e015390132d6dceed37b68a920b77822e21",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "StockService.createDefect",
+      "owner": "backend/src/modules/stock/stock.service.ts",
+      "line": 19,
+      "methodSha256": "19f60e9abd0f6bbfbbeb63aa2fdb8a3bec90805ea0a500995518fe2849eedcee",
+      "processedRead": false,
+      "helperCall": true,
+      "resultKey": false,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "StockService.findProcessedCreate",
+      "owner": "backend/src/modules/stock/stock.service.ts",
+      "line": 137,
+      "methodSha256": "964819eeabf6ad2652f7e016dafa6577d1a40f8835c89458bf099d3fa9b646dd",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "TaskService.createTask",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 62,
+      "methodSha256": "f3651d839399243204a2d3f58291498f539c752041b9fc7da40d716e4ba9e2e2",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "TaskService.takeTask",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 241,
+      "methodSha256": "897216a4b06994d46783008040d28d1e19b55e9787aebf4638242fad965ea690",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "TaskService.completeTask",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 298,
+      "methodSha256": "28468632f58c2af83fbdebe26a8e2faceb445bfee1f3fc52dff5b784368c07e9",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "TaskService.redirectTask",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 370,
+      "methodSha256": "b0614bab6a488a7bd2d28e0f5b1f359af83c0b9ff071b846a5bd42b3670f4a85",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "TaskService.addComment",
+      "owner": "backend/src/modules/task/task.service.ts",
+      "line": 460,
+      "methodSha256": "ccb7c3cab8025aff6da0acdb24eece0e37fb25dfdc46f4d06cbe9f133e1d8191",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "WashService.startWash",
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "line": 300,
+      "methodSha256": "90a56247c49d71db96849a5f7b8e36b0dfe5a25871772d5359ddd187ecd004b1",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "WashService.addMessage",
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "line": 477,
+      "methodSha256": "617605e408495294d3371029120cc0f4bdbf54bc378296af4ef8b6b2a835a08e",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "WashService.addIssue",
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "line": 520,
+      "methodSha256": "1080c4a249bf9a7570faede9efa784fcba04027fdb1decf92824b6c816dbe69d",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    },
+    {
+      "id": "WashService.completeWash",
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "line": 811,
+      "methodSha256": "fefabc90cc3f1b1c8927ef39622bf93e4f37762d3dcfb05d8b6b005bc3e67cd0",
+      "processedRead": true,
+      "helperCall": false,
+      "resultKey": true,
+      "status": "STATIC_ENUMERATED_NOT_BLANKET_VERIFIED"
+    }
+  ]
+}

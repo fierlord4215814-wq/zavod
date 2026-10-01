@@ -1,0 +1,109 @@
+{
+  "phase": "after",
+  "batch": "20260914-tc14-label-visibility-evidence",
+  "screenshots": [
+    {
+      "file": "desktop-gray-gallery-checkbox-visible.png",
+      "capturedAt": "2026-09-14T10:04:12.558Z",
+      "productStyleFingerprint": "a11237e29ee59a56356218c13289686c55eda6cf236a34716bc35d2eca124eb7",
+      "harnessFingerprint": "62f28fb8286f29f68918f4d5b0f0846d517fd04ef388e03ff6dbd34e914e394d",
+      "theme": "gray",
+      "width": 1440,
+      "overflowX": 0,
+      "bodyBackground": "rgba(0, 0, 0, 0)",
+      "textColor": "rgb(0, 0, 0)",
+      "role": "Static isolated gallery",
+      "selectedTheme": "gray",
+      "oldReviewId": "TC14-IMG-0003",
+      "sourceRelativePath": "screenshots/after-checklists/desktop-gray-gallery-checkbox.png",
+      "state": "tc14-gallery-checkbox-visible",
+      "visibilityStatus": "BLOCKED",
+      "scrollMethod": "scrollIntoView-center"
+    }
+  ],
+  "apiReads": [],
+  "apiWrites": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "requestFailures": [
+    {
+      "url": "http://127.0.0.1:5173/src/styles.css",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "isolatedFixtureWrites": [],
+  "computedStyles": [],
+  "visibilityChecks": [
+    {
+      "caseId": "TC14-IMG-0003-visible",
+      "scrollMethod": "scrollIntoView-center",
+      "role": "Static isolated gallery",
+      "selectedTheme": "gray",
+      "width": 1440,
+      "oldReviewId": "TC14-IMG-0003",
+      "sourceRelativePath": "screenshots/after-checklists/desktop-gray-gallery-checkbox.png",
+      "text": "Выбранный пункт с длинной подписью",
+      "rect": {
+        "x": 8,
+        "y": 402.125,
+        "width": 1378.984375,
+        "height": 39.171875,
+        "right": 1386.984375,
+        "bottom": 441.296875
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "effectiveClip": {
+        "left": 0,
+        "top": 0,
+        "right": 1440,
+        "bottom": 844
+      },
+      "clippingAncestors": [],
+      "fullyInsideClip": true,
+      "hitTestClear": false,
+      "fullyVisible": false,
+      "points": [
+        {
+          "x": 14,
+          "y": 407.021484375,
+          "topTag": "LABEL",
+          "topClass": "field-label",
+          "targetOwnsHit": false
+        },
+        {
+          "x": 1380.984375,
+          "y": 407.021484375,
+          "topTag": "LABEL",
+          "topClass": "checkbox-row",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 697.4921875,
+          "y": 421.7109375,
+          "topTag": "DIV",
+          "topClass": "form-grid",
+          "targetOwnsHit": false
+        },
+        {
+          "x": 14,
+          "y": 436.400390625,
+          "topTag": "LABEL",
+          "topClass": "checkbox-row",
+          "targetOwnsHit": true
+        },
+        {
+          "x": 1380.984375,
+          "y": 436.400390625,
+          "topTag": "DIV",
+          "topClass": "form-grid",
+          "targetOwnsHit": false
+        }
+      ]
+    }
+  ]
+}

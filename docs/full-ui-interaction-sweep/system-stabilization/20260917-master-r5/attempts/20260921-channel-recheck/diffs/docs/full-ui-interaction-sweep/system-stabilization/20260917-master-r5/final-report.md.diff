@@ -1,0 +1,34 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-channel-recheck\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+index 59090b70..e032a3c4 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-channel-recheck\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\final-report.md"
+@@ -1,4 +1,28 @@
+-# MASTER R5 — результат21.09.2026: source исправлен, доступ к гостю блокирован
++# MASTER R5 — актуальный результат21.09: генератор10/10, guest channel блокирован
++
++MASTER_R5_STATUS=BLOCKED_TOOL_CAPABILITY. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. PHYSICAL_PHONE=PENDING. FINAL_STOP=STOP. Последнее повторное поручение4576acc6 сохранено в `attempts/20260921-channel-recheck/continuation-request.txt`; новых бизнес-функций/нового sweep/R6 нет.
++
++## Дельта последнего продолжения
++
++Source fix из предыдущего продолжения сохранён **без изменений**; actual seed и VM по-прежнему не исправлялись. Устранён только недостающий host prerequisite трёх проверок: официальный GNU `install`8.32 получен из Git for Windows SDK, pinned commit `7bce035fdd241ad7d8aa9aa073a22ec6dfb64f05`, Git blob `087bc8f10ba3166e4694d57c06010329286d97dd`,148448bytes, SHA256 `23b01a97c735f224f76804b306e19b5ba15649d0a9db620a172e480ba80533ab`. Собственный каталог `.r5-runtime/provisioning-install-087bc8f10ba3`; нет SDK/system install, изменения Codex runtime или глобального PATH. GPLv3+ подтверждена official source/`--version`, binary не включён в review ZIP. Две предшествующие ошибки получения лицензии403/timeout сохранены, не переписаны в PASS. [Utility receipt](attempts/20260921-channel-recheck/utility-download.json).
++
++Тот же неизменный10-case provisioning harness выполнен с этой dependency в child PATH: **10 PASS / 0 FAIL / 0 BLOCKED**, native exit0. В том числе success/repeat, copy failure без marker и marker-write failure с сохранённой partial-copy evidence. [Фактический результат](attempts/20260921-guest-recovery/run-04-official-install/generator-results.json).7PASS/3BLOCKED ниже — предыдущая история, а не текущий итог. Это **host synthetic checks**, не Ubuntu permissions/dash/guest behavior, не продуктовые controls и не новые live gates. Повтор только этого малого harness обоснован изменением его runtime prerequisite, не полный sweep.
++
++Свежий computer-use26.915.31945 нашёл отсутствие прежнего viewer, открыл только штатный connection dialog14364/start17:00:57.905609. Capture снова дважды `SetIsBorderRequired failed: Интерфейс не поддерживается (0x80004002)`. Accessibility показала non-admin access denied к localhost; guest console/output нет. Диалог закрыт обычным Alt+F4; сначала окно ещё существовало, последующее окно отсутствует и CIM PID14364 отсутствует17:03:51 — именно последующая проверка подтверждает закрытие. Никакой UAC/new controller/guest key input/VM boot/reboot/shutdown/seed rewrite/SSH auth. Рабочая DB/service не опрашивались. [Наблюдения](attempts/20260921-channel-recheck/channel-observations.json).
++
++## Текущая граница и остаток
++
++По навыку computer-use нельзя вводить команды вслепую; технический capture failure не устраняется ещё одним разрешением на shell. Наблюдаемый SSH также не установлен; probe16:08 — история, не новая проверка, причина UNKNOWN. Последнее независимое VM state Off16:09 не повышено до current continuous observation. Уточнение пользователю: был ли выполнен один app-only restart Codex после прошлого checkpoint. **Ответ пока не получен; restart не объявляется выполненным.** Если уже был, повторять его по кругу не следует — требуется восстановить поддерживаемый канал наблюдения/управления. Без него guest repair/isolation/stack остаются блокированы. Не менять Windows/защиту/VPN/питание и не boot старый autoinstall вслепую.
++
++После канала — guest config/logs/target/proof/0–2 effects/packages/bootloader/finalization → nondestructive recovery → installed identity/canary/clean payload/dependencies/close prep → isolation → own PostgreSQL/actual stack → все пять live gates → все применимые32journeys/1407edges → original0631286→1213 → final strict types/builds/Prisma/regression/visual review. Исторические549Node/177browser не выполнялись заново. Все пять gates поимённо в live-gate-matrix остаются0/NOT_RUN; product fixes0, новых schemas/deps/builds0, original063OPEN/UNKNOWN,036live-pending,014/050/replay/publication decisions прежние.
++
++Существующие16owners имеют before/after/diffs в последней attempt; из них original generator неизменён. Frozen215product/config132build72harness/6main matrices и **пять** прежних ZIP сверяются отдельно. Main954/957semantic controls/P0/P1/P2=0/1/10 — сохранённая история, не новая приёмка. Новых valid screenshots0. Protected working data untouched; own PG/app fixtures0, только retained host synthetic files. Собственные install/harness процессы штатно завершились; current viewer14364 закрыт; нового runtime writer нет. Library/account memory NOT_WRITTEN.
++
++[Полный текущий результат и ссылки на evidence](attempts/20260921-channel-recheck/result.md), [source delta](attempts/20260921-channel-recheck/source-delta-manifest.json), [checkpoint](progress.md), [resume](resume-prompt.txt). **[Единый актуальный review ZIP](zavod-master-r5-channel-recheck-20260921.zip)** дополнен этой попыткой; [package receipt](attempts/20260921-channel-recheck/package-receipt.json) содержит фактический SHA/размер/full-entry readback и retention5previous ZIP. Ниже сохранён предыдущий полный отчёт; его7/3, живой15316 и ссылки на прежний пакет — исторические.
++
++---
++
++## Исторический результат21.09 до повторного поручения: source исправлен, доступ блокирован
+ 
+ MASTER_R5_STATUS=BLOCKED_TOOL_CAPABILITY. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. PHYSICAL_PHONE=PENDING. FINAL_STOP=STOP. Это тот же R5; никакой новый sweep/R6 не начат. Ниже сохранена вся прежняя история; её устаревшие статусы и временные запреты не являются текущим checkpoint.
+ 

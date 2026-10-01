@@ -1,0 +1,22 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\WashScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\WashScreen.tsx"
+index f70323fa..3a6daf81 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\WashScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\WashScreen.tsx"
+@@ -7,7 +7,7 @@ import { AttachmentPicker } from '../components/AttachmentPicker';
+ import { AttachmentPreviewList } from '../components/AttachmentPreviewList';
+ import { PremiumKpiStrip, PremiumSectionHeader } from '../components/PremiumShell';
+ import { useMobileBackLayer } from '../navigation/mobile-back';
+-import { appStore, Attachment, Line, useAppStore, WashSession } from '../store/app.store';
++import { appStore, Attachment, Line, useAppStore, WashSession, type WashControlItem } from '../store/app.store';
+ import { isPilotFixtureText } from '../utils/pilot-ui';
+ 
+ type WashModal = 'request' | 'start' | 'message' | 'issue' | 'control' | 'review' | 'complete' | 'resolveIssue' | 'finishControl' | null;
+@@ -128,7 +128,7 @@ function isIssueOpen(issue: WashSession['issues'][number]) {
+   return issue.status !== 'RESOLVED' && !issue.resolvedAt;
+ }
+ 
+-function isControlOpen(item: WashSession['controlItems'][number]) {
++function isControlOpen(item: WashControlItem) {
+   return !['DONE', 'CANCELLED'].includes(String(item.status));
+ }
+ 

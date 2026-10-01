@@ -1,0 +1,24 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\I-source-updates-before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+index a5fbb429..a1e23abf 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\I-source-updates-before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+@@ -1,6 +1,18 @@
+ # Full UI Interaction Sweep — gap register
+ 
+-## Current source layer — MASTER R2, 15.09.2026
++## Current source layer — MASTER R3, 16.09.2026
++
++MASTER_R3_STATUS=PARTIAL_WITH_EXPLICIT_BLOCKERS. [Root/result matrix](system-stabilization/20260915-master-r3/root-result-matrix.md), [evidence и финальный отчёт](system-stabilization/20260915-master-r3/final-report.md), [консолидированный остаток](system-stabilization/20260915-master-r3/decision-queue.md) — current semantic layer. Исторические findings ниже сохранены; main sweep PAUSED_BY_USER / NOT_ACCEPTED, MAIN_FULL_SWEEP_RESUMED=NO.
++
++UI-SWEEP-063 P2: исправлены подтверждённые People list/profile readiness, stale unlock/scroll и late profile/context callbacks. Original1286→1213 НЕ объяснён: NOT_REPRODUCED_WITH_LIMITS, не CLOSED. Final6scheduled+12untracedlayout cases, manual-scroll cancellation/rapidBack и12retainedreturn PASS не отменяют старый intermittentFAIL. Функциональной зависимости от036 нет. R2-F-PRISTINE-BACK: existing focus-first доказан настоящим Back; безfocus один Back, сfocus сначалаblur. R2-F-OPTION: shared typed draft/unavailable validation исправлены, actual People consumer иwholeaffectedbranch проверены.
++
++R3 source/isolated fixes также устранили obsolete JSON/blob/XHR/latePOST послеrevoke/ABA; changed-input replay в immutable WashRequest, stockmovement иquantityrelease; новый UUID приunchanged Wash/Defrost/Checklistretry; лишнийfutureplanWSfanout; ложный all-read announcement empty text. Это scoped guarantees, не новые автоматически сложенные P1. Четыре прежних R2 security/publication roots preserved; UI-036 P1 IMPLEMENTED/ISOLATED_PROVEN/LIVE_PENDING с actualAudit/IPC delta, не новое завершение livegate.
++
++014 P2 BLOCKED_FACT: originalP17C marker найден, actor/start/resultKey/parent authoritativechain отсутствует.050 P2/MI-CLS — тот же root: finite29reader dependency/legacy analysis, broadPILOT безопасно не сужен безpersistedalternatives. Durable replay kind/input, временные окна иexpired/future publication остались точными policy rows. J15 automaticOKK→Task CONTRACT_ABSENT; existingquantity3+7 readers доказаны, новаяфункция не создана.5live gates/physical PENDING; preparedgate defaultdeny,17guardcases,executionNO.
++
++H current:489backend/3WS/2type/165browser unique PASS; builds/genuineReact/offlineschemaPASS.128native frames VIEWED, не все432captured. Own13productfiles имеютactualregressions, sourcecopiesbytechecked. Шестьparentmatrices иhistorical954/957/P0=0/P1=1/P2=10 неизменны/непереприняты. LibraryPERSISTENCE_PENDING; realcleanupUNKNOWN; ownstaticpreviewSTOPPED. Один полныйR3пакет — [INDEX](system-stabilization/20260915-master-r3/INDEX.md).
++
++## Previous source layer — MASTER R2, 15.09.2026 (superseded above)
+ 
+ MASTER_R2_STATUS=PARTIAL_WITH_EXPLICIT_BLOCKERS. Main sweep PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. [Current root matrix](system-stabilization/20260915-master-r2/root-result-matrix.md), [финальный отчёт](system-stabilization/20260915-master-r2/final-report.md), [остаток и решения](system-stabilization/20260915-master-r2/decision-queue.md) supersede прежние «patch stopped / negative FAIL» для MI-SEC-01 и MI-PUB-01. Исторические raw findings ниже не удалены.
+ 

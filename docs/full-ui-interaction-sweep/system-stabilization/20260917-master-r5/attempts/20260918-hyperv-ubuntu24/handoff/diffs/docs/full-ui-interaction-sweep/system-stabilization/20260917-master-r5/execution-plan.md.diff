@@ -1,0 +1,19 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\execution-plan.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\execution-plan.md"
+index 291b06cc..95a3ad88 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\execution-plan.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\handoff\\after\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\execution-plan.md"
+@@ -16,11 +16,11 @@ MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. Working
+ |8|После lastproduct freeze → expectedIDs → одна применимая R4+R5 final regression, builds/strictReact/Prisma/livechains/visuals|Не повторять549/177 ради счётчика/замены live; retain raw failures and affected harness repeats |
+ |9|Own runtime identity/stop или sandbox export-before-close; preserveownvolume; semantic parentupdates; один ZIP+fullreadback|No oldevidence overwrite; Library only actualwrite/readback; FINAL_STOP |
+ 
+-## Фактическое исполнение на остановке
++## Фактическое исполнение на остановке19.09.2026
+ 
+ 1: COMPLETED_TARGETED_BASELINE (207 product+8 config,132 build,72 harness совпадают с R4).
+-2: BLOCKED_UAC_CANCELLED; дополнительно COMPATIBILITY_REVIEW_REQUIRED для Playwright1.60/Win10guest. Не установлен ни один механизм; elevated feature state/reboot UNKNOWN.
++2: WAITING_MANUAL_REBOOT. После нового разрешения08cd10ab выбрана Hyper-V + Ubuntu24.04, platform/image-signature/resource/transfer/export review выполнен. Signed native DISM через visible UAC: actual admin token=true, PID51652 exit3010,7 Hyper-V features2→1/no unrelated delta, /NoRestart. HypervisorPresent=false до reboot. Guest/round-trip/isolation ещё NOT_RUN; stage2 НЕ завершён.
+ 3–8: NOT_RUN_ENVIRONMENT_GATE; ноль новых live/Node/browser cases, fixtures, builds и screenshots. Это не failed product assertions и не новая приёмка старых результатов.
+ 9: SAFE_BOUNDARY_HANDOFF — parent source update, собственная дельта, receipts и ZIP readback; полная программа R5 НЕ завершена.
+ 
+-Безопасная независимая работа после UAC: закончена официальная проверка совместимости и подготовлен handoff. Payload/guest launcher/fixtures ещё не созданы — не стоит закреплять неподтверждённый Windows-only вариант. Следующий разрешённый runtime-шаг требует нового подтверждения после отменённого UAC и окончательного выбора одного совместимого пути. Нет основания автоматически перезагружать или требовать перезагрузку сейчас.
++Безопасная работа после DISM3010 ограничена checkpoint/current docs/собственной дельтой/пакетом. Автоматического reboot/hidden startup нет. После сообщения пользователя о ручной перезагрузке: новый boot и Hyper-V/RAM/disk → официальный ISO download/fullhash → одна ограниченная Gen2 Ubuntu VM → online prep/clean transfer/реальный canary round-trip → actual closed network/mount/identity/default-deny gate → stages3–9. Не повторять уже выполненный feature enable; старые Sandbox/WinPS5.1 failure receipts сохранять. Guest provisioning ещё не выполнен; один writer/browser worker/heavycommand, никаких host working DB операций.

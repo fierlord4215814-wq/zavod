@@ -1,0 +1,62 @@
+[
+  {
+    "id": "3350a4292325cbe56c0d",
+    "newStatus": "PARTIAL_EXACT_BRANCH_WITNESSES",
+    "testFile": "backend/scripts/master-r2-publication.test.js",
+    "branches": "Actual Notifications receiver for new read, already-read replay and postcommit notice failure recovery; exact entity and unread/readAt response",
+    "assertions": [
+      "assert.equal(f.notice.readAt, null);",
+      "assert.equal((await f.notification.unreadCount(f.user)).count, 0);",
+      "const replay = await f.controller.acknowledge(f.user, f.row.id); assert.equal(replay.id, f.reads[0].id);"
+    ],
+    "run": "G2-backend-contracts-01",
+    "limit": "2 source bindings exercised by named branches; no actual WS/push/SQL delivery internals"
+  },
+  {
+    "id": "69fa0124488117ede273",
+    "newStatus": "PARTIAL_BOUNDARY_BRANCH_WITNESS",
+    "testFile": "backend/scripts/master-r2-publication.test.js",
+    "branches": "First successful ack emits exactly one ACKNOWLEDGED audit; replay/concurrent winner adds none",
+    "assertions": [
+      "assert.equal(f.audits.filter(item => item.action === 'ANNOUNCEMENT_ACKNOWLEDGED').length, 1);"
+    ],
+    "run": "G2-backend-contracts-01",
+    "limit": "Strict audit collector observes invocation; actual AuditService persistence receiver not executed"
+  },
+  {
+    "id": "210134d7d738c83c9901",
+    "newStatus": "PARTIAL_BOUNDARY_BRANCH_WITNESS",
+    "testFile": "backend/scripts/master-r2-handover.test.js",
+    "branches": "Ordinary record read writes one receipt; archived snapshot read writes none",
+    "assertions": [
+      "await f.controller.markRead(f.user,ordinary.id);assert.equal(f.reads.length,1);",
+      "assert.equal(f.writes.length,writes);assert.equal(f.reads.length,1);"
+    ],
+    "run": "G2-backend-contracts-01",
+    "limit": "Archive negative is different controller path; not blanket both audit receiver outcomes"
+  },
+  {
+    "id": "8b909a3d727555370a62",
+    "newStatus": "PARTIAL_EXACT_REPLAY_BRANCH_WITNESS",
+    "testFile": "backend/scripts/master-r2-task-chain.test.js",
+    "branches": "First take creates factual state; foreign/revoked current context denied in original and replay corpus",
+    "assertions": [
+      "await service.takeTask(row.id,first,'bridge-take');",
+      "assert.equal(f.tasks.length,1);"
+    ],
+    "run": "G2-backend-contracts-01; original MI-SEC-01 + replay corpus",
+    "limit": "Repository modeled fail-closed; all nested notification/audit/fanout branches not inferred"
+  },
+  {
+    "id": "7bc715c4a9e38c727890",
+    "newStatus": "PARTIAL_EXACT_COMMAND_BRANCH_WITNESS",
+    "testFile": "backend/scripts/master-r2-task-chain.test.js",
+    "branches": "Actual Task state remains one entity through two actors/redirect/take/complete replay, no second business row",
+    "assertions": [
+      "assert.equal(f.tasks.length,1);",
+      "const moved=await service.redirectTask(row.id,first,redirect);"
+    ],
+    "run": "G2-backend-contracts-01",
+    "limit": "Stored operation ownership and no-double-write further asserted in replay corpus; not SQL operation-lock proof"
+  }
+]

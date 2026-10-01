@@ -1,0 +1,15 @@
+import React, { useState, useSyncExternalStore } from 'react';
+import { pwaInstallStore, requestPwaInstall } from '../utils/pwa-install';
+
+export function PwaInstallButton() {
+  const state = useSyncExternalStore(pwaInstallStore.subscribe, pwaInstallStore.getSnapshot, pwaInstallStore.getSnapshot);
+  const [help, setHelp] = useState(false);
+  const labels = { unavailable: 'Установить приложение', available: 'Установить приложение', prompting: 'Ожидаю решение браузера…', accepted: 'Запрос установки принят', cancelled: 'Установка отменена', installed: 'Приложение установлено', error: 'Установка сейчас недоступна' };
+  return <div className="pwa-install-control">
+    <button className="secondary-button" type="button" disabled={state === 'installed' || state === 'prompting'} onClick={() => {
+      if (state === 'available') void requestPwaInstall(); else setHelp(!help);
+    }}>{labels[state]}</button>
+    {state === 'accepted' ? <p className="helper-text" role="status">Браузер принял запрос. Дождитесь завершения установки и откройте приложение с устройства.</p> : null}
+    {help ? <p className="helper-text" role="status">Если браузер предлагает установку, откройте его меню и выберите «Установить приложение». На iPhone в Safari: «Поделиться» → «На экран Домой». Если такого пункта нет, продолжайте работать в браузере. Добавление ярлыка не гарантирует установку приложения. Для сохранения действий требуется связь с сервером.</p> : null}
+  </div>;
+}

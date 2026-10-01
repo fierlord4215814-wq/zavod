@@ -1,0 +1,90 @@
+{
+  "status": "EVIDENCE_GAP_NOT_PRODUCT_DEFECT",
+  "owner": "frontend/src/screens/AdminConfigScreen.tsx",
+  "sharedDialog": "pendingAction / runPendingAction / AdminConfirmDialog",
+  "acceptance": "Each branch needs its own inactive browser fixture, exact command and refreshed/reopened result, cancel and history Back with no command. Interception does not prove backend persistence or authority. Real backend writes require separately proven safe fixture isolation.",
+  "countPolicy": "Companion branch inventory; no source control PASS or surface denominator change from source inspection.",
+  "branches": [
+    {
+      "id": "factory",
+      "line": 2207,
+      "predicate": "!selectedFactory.isActive",
+      "command": "PATCH /admin/factories/:id/status",
+      "payload": "isActive:true",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: no protected text/reason, exact status PATCH and refreshed action after reload at four widths. No real factory status or backend authority proof."
+    },
+    {
+      "id": "factory-access",
+      "line": 2656,
+      "predicate": "!access.isActive",
+      "command": "PATCH /admin/users/:id/factory-access",
+      "payload": "factoryId, isActive:true",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: exact factoryId payload, Cancel/history Back and same profile active after reload at four widths. Backend access authority absent."
+    },
+    {
+      "id": "job-title",
+      "line": 2765,
+      "predicate": "!title.isActive",
+      "command": "PATCH /admin/job-titles/:id",
+      "payload": "isActive:true",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: exact PATCH/default reason, Cancel/history Back, active state and enabled fields after reload at four widths. Backend proof absent."
+    },
+    {
+      "id": "company",
+      "line": 2885,
+      "predicate": "!company.isActive",
+      "command": "PATCH /admin/external-companies/:id",
+      "payload": "isActive:true; reason optional",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: exact Restore, Cancel/history Back, active result after reload at four widths; runtime-admin-company-restore-isolated.json. Backend/physical proof remains absent."
+    },
+    {
+      "id": "department",
+      "line": 3093,
+      "predicate": "!department.isActive",
+      "command": "PATCH /admin/departments/:id/status",
+      "payload": "isActive:true",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: Cancel/history Back, visible 409 and retry, exact payload and active row after reload. Backend proof absent."
+    },
+    {
+      "id": "line",
+      "line": 3228,
+      "predicate": "Boolean(line.deletedAt)",
+      "command": "PATCH /admin/lines/:id",
+      "payload": "isActive:true",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: deletedAt Restore, expanded parent after Back, exact PATCH, Disable action after reload; backend proof absent."
+    },
+    {
+      "id": "line-position",
+      "line": 3344,
+      "predicate": "!position.isActive",
+      "command": "PATCH /admin/lines/:lineId/positions/:id",
+      "payload": "isActive:true",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: separate exact PATCH/reason and Cancel/history Back/reload at four widths; backend proof absent."
+    },
+    {
+      "id": "staffing-template",
+      "line": 3488,
+      "predicate": "!template.isActive",
+      "command": "PATCH /admin/lines/:lineId/staffing-templates/:id",
+      "payload": "isActive:true",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: separate exact PATCH/reason and Cancel/history Back/reload at four widths; backend proof absent."
+    },
+    {
+      "id": "work-area",
+      "line": 3583,
+      "predicate": "area.isActive === false",
+      "command": "PATCH /admin/work-areas/:id",
+      "payload": "isActive:true",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: separate exact PATCH/reason and Cancel/history Back/reload at four widths; backend proof absent."
+    },
+    {
+      "id": "work-area-position",
+      "line": 3604,
+      "predicate": "position.isActive === false",
+      "command": "PATCH /admin/work-areas/:areaId/positions/:id",
+      "payload": "isActive:true",
+      "evidence": "UI_BROWSER_ISOLATED_PASS: separate exact PATCH/reason and Cancel/history Back/reload at four widths; backend proof absent."
+    }
+  ],
+  "next": "All ten UI-only Restore branches now exercised. Backend persistence/authority and remaining whole-sweep gaps still unproved; inspect visual-gap register for next independent bounded action."
+}

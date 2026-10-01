@@ -1,0 +1,325 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\task-notify-01\\before\\backend\\src\\modules\\task\\task.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+index 5e9e4ec3..41c09d05 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\task-notify-01\\before\\backend\\src\\modules\\task\\task.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+@@ -1,4 +1,4 @@
+-import { ForbiddenException, Injectable } from '@nestjs/common';
++import { ForbiddenException, Injectable, Logger } from '@nestjs/common';
+ import { AttachmentEntityType, Prisma, TaskStatus, TaskType, UserRole } from '@prisma/client';
+ import { AuditService } from '../../common/audit.service';
+ import { ConflictError } from '../../common/errors/conflict.exception';
+@@ -49,6 +49,8 @@ const TASK_ASSIGNEE_BLOCKED_ROLES: UserRole[] = [
+ 
+ @Injectable()
+ export class TaskService {
++  private readonly logger = new Logger(TaskService.name);
++
+   constructor(
+     private readonly prisma: PrismaService,
+     private readonly wsService: WsService,
+@@ -90,7 +92,7 @@ export class TaskService {
+         if (existing.createdById !== actor.userId || existing.operationId !== params.operationId) {
+           throw new ConflictError('Идентификатор действия уже использован для другой операции. Обновите экран.');
+         }
+-        return { task: this.serializeTask(existing), changed: false };
++        return { task: this.serializeTask(existing), changed: false, notifications: [] };
+       }
+ 
+       let lineId = params.lineId || null;
+@@ -181,11 +183,18 @@ export class TaskService {
+         entityId: task.id,
+         details: { lineId, lineStatusEventId, type, departmentRecipientIds: departmentIds, assigneeUserIds, deadlineAt },
+       });
+-      return { task: this.serializeTask(task), changed: true };
++      const notifications = await this.notificationsService.persistTaskCreatedTx(tx, task);
++      return { task: this.serializeTask(task), changed: true, notifications };
+     });
+     if (result.changed) {
+-      await this.notificationsService.notifyTaskCreated(result.task as any);
+-      this.wsService.broadcast(WS_EVENTS.TASK_UPDATED, result.task);
++      // Persistence errors above propagate and roll back the entire create.
++      // A committed Task must not become an HTTP failure due to realtime delivery.
++      await this.notificationsService.publishCommittedNotifications(result.notifications);
++      try {
++        this.wsService.broadcast(WS_EVENTS.TASK_UPDATED, result.task);
++      } catch {
++        this.logger.warn('Committed task invalidation failed; durable state remains available.');
++      }
+     }
+     return result.task;
+   }
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\task-notify-01\\before\\backend\\src\\modules\\notifications\\notifications.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\notifications\\notifications.service.ts"
+index 8947f9ec..841f1455 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\task-notify-01\\before\\backend\\src\\modules\\notifications\\notifications.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\notifications\\notifications.service.ts"
+@@ -1,4 +1,4 @@
+-import { BadRequestException, ForbiddenException, Injectable } from '@nestjs/common';
++import { BadRequestException, ForbiddenException, Injectable, Logger } from '@nestjs/common';
+ import { Notification, NotificationSeverity, Prisma, UserRole } from '@prisma/client';
+ import { AuditService } from '../../common/audit.service';
+ import { lockOperationKeys, operationLockKey } from '../../common/operation-lock';
+@@ -31,6 +31,16 @@ type NotificationCreateInput = {
+   expiresAt?: Date | null;
+ };
+ 
++type TaskCreatedNotificationSource = {
++  id: string;
++  factoryId: string;
++  createdById: string;
++  description: string | null;
++  departmentRecipients?: Array<{ departmentId: string; active: boolean }>;
++  recipients?: Array<{ departmentId: string }>;
++  assignees?: Array<{ userId: string; active?: boolean }>;
++};
++
+ const NOTIFICATION_SOURCE_CONTRACTS: Record<string, { route: string; permissions: string[] }> = {
+   TASK: { route: 'tasks', permissions: ['tasks.read'] },
+   ORDER_REQUEST: { route: 'orders', permissions: ['orders.read'] },
+@@ -49,6 +59,8 @@ const NOTIFICATION_SOURCE_CONTRACTS: Record<string, { route: string; permissions
+ 
+ @Injectable()
+ export class NotificationsService {
++  private readonly logger = new Logger(NotificationsService.name);
++
+   constructor(
+     private readonly prisma: PrismaService,
+     private readonly auditService: AuditService,
+@@ -135,31 +147,34 @@ export class NotificationsService {
+   }
+ 
+   async createOnce(input: NotificationCreateInput) {
+-    const result = await this.prisma.db.$transaction(async (tx) => {
+-      await lockOperationKeys(tx, [operationLockKey.notification(this.sameEventKey(input))]);
+-      const existing = await tx.notification.findFirst({ where: this.sameEventWhere(input) });
+-      if (existing) return { notification: existing, created: false };
+-      const notification = await tx.notification.create({
+-        data: {
+-          factoryId: input.factoryId ?? null,
+-          departmentId: input.departmentId ?? null,
+-          userId: input.userId ?? null,
+-          type: input.type,
+-          title: input.title,
+-          message: input.message,
+-          entityType: input.entityType ?? null,
+-          entityId: input.entityId ?? null,
+-          operationId: input.operationId ?? null,
+-          severity: input.severity ?? NotificationSeverity.INFO,
+-          expiresAt: input.expiresAt ?? null,
+-        },
+-      });
+-      return { notification, created: true };
+-    });
++    const result = await this.prisma.db.$transaction((tx) => this.createOnceTx(tx, input));
+     if (result.created) await this.publishNotification(result.notification);
+     return result;
+   }
+ 
++  // Persistence only: the caller owns commit/rollback and subsequent publication.
++  async createOnceTx(tx: Prisma.TransactionClient, input: NotificationCreateInput) {
++    await lockOperationKeys(tx, [operationLockKey.notification(this.sameEventKey(input))]);
++    const existing = await tx.notification.findFirst({ where: this.sameEventWhere(input) });
++    if (existing) return { notification: existing, created: false };
++    const notification = await tx.notification.create({
++      data: {
++        factoryId: input.factoryId ?? null,
++        departmentId: input.departmentId ?? null,
++        userId: input.userId ?? null,
++        type: input.type,
++        title: input.title,
++        message: input.message,
++        entityType: input.entityType ?? null,
++        entityId: input.entityId ?? null,
++        operationId: input.operationId ?? null,
++        severity: input.severity ?? NotificationSeverity.INFO,
++        expiresAt: input.expiresAt ?? null,
++      },
++    });
++    return { notification, created: true };
++  }
++
+   async pushStatus(user: UserContext) {
+     this.ensurePushAllowed(user);
+     const activeSubscriptions = await this.prisma.db.pushSubscription.count({
+@@ -303,7 +318,14 @@ export class NotificationsService {
+   }
+ 
+   async createForDepartment(factoryId: string, departmentId: string, input: Omit<NotificationCreateInput, 'factoryId' | 'departmentId' | 'userId'>) {
+-    const access = await this.prisma.db.userFactoryAccess.findMany({
++    return this.createForUsers(
++      await this.departmentRecipientIds(this.prisma.db, factoryId, departmentId),
++      { ...input, factoryId, departmentId },
++    );
++  }
++
++  private async departmentRecipientIds(tx: Prisma.TransactionClient, factoryId: string, departmentId: string) {
++    const access = await tx.userFactoryAccess.findMany({
+       where: {
+         factoryId,
+         isActive: true,
+@@ -314,10 +336,7 @@ export class NotificationsService {
+       },
+       select: { userId: true },
+     });
+-    return this.createForUsers(
+-      [...new Set(access.map((item) => item.userId).filter((userId) => this.isOperationalNotificationRecipient(userId)))],
+-      { ...input, factoryId, departmentId },
+-    );
++    return [...new Set(access.map((item) => item.userId).filter((userId) => this.isOperationalNotificationRecipient(userId)))];
+   }
+ 
+   async createForFactory(factoryId: string, input: Omit<NotificationCreateInput, 'factoryId' | 'departmentId' | 'userId'>) {
+@@ -356,31 +375,48 @@ export class NotificationsService {
+     return this.createForUsers(access.map((item) => item.userId), { ...input, factoryId });
+   }
+ 
+-  async notifyTaskCreated(task: { id: string; factoryId: string; createdById: string; description: string; departmentRecipients?: Array<{ departmentId: string; active: boolean }>; recipients?: Array<{ departmentId: string }>; assignees?: Array<{ userId: string; active?: boolean }> }) {
+-    const title = 'Новая заявка';
+-    const message = task.description;
+-    const assigneeIds = task.assignees?.filter((item) => item.active !== false).map((item) => item.userId) ?? [];
+-    await this.createForUsers(assigneeIds, {
++  async notifyTaskCreated(task: TaskCreatedNotificationSource) {
++    const notifications = await this.prisma.db.$transaction((tx) => this.persistTaskCreatedTx(tx, task));
++    await this.publishCommittedNotifications(notifications);
++  }
++
++  async persistTaskCreatedTx(tx: Prisma.TransactionClient, task: TaskCreatedNotificationSource) {
++    const input: NotificationCreateInput = {
+       factoryId: task.factoryId,
+       type: 'TASK_CREATED',
+-      title,
+-      message,
++      title: 'Новая заявка',
++      message: task.description ?? '',
+       entityType: 'TASK',
+       entityId: task.id,
+       severity: NotificationSeverity.INFO,
+-    });
++    };
++    const notifications: Notification[] = [];
++    const persistForUsers = async (userIds: string[], departmentId: string | null) => {
++      for (const userId of [...new Set(userIds.filter(Boolean))]) {
++        const result = await this.createOnceTx(tx, { ...input, departmentId, userId });
++        if (result.created) notifications.push(result.notification);
++      }
++    };
++    const assigneeIds = task.assignees?.filter((item) => item.active !== false).map((item) => item.userId) ?? [];
++    await persistForUsers(assigneeIds, null);
+     const recipients = task.departmentRecipients?.filter((item) => item.active).map((item) => ({ departmentId: item.departmentId }))
+       ?? task.recipients
+       ?? [];
+     for (const recipient of recipients) {
+-      await this.createForDepartment(task.factoryId, recipient.departmentId, {
+-        type: 'TASK_CREATED',
+-        title,
+-        message,
+-        entityType: 'TASK',
+-        entityId: task.id,
+-        severity: NotificationSeverity.INFO,
+-      });
++      await persistForUsers(await this.departmentRecipientIds(tx, task.factoryId, recipient.departmentId), recipient.departmentId);
++    }
++    return notifications;
++  }
++
++  // Only committed rows may be passed here. A failed transport must neither undo
++  // durable state nor prevent publication attempts for the remaining recipients.
++  async publishCommittedNotifications(notifications: Notification[]) {
++    for (const notification of notifications) {
++      try {
++        await this.publishNotification(notification);
++      } catch {
++        this.logger.warn('Committed notification publication failed; in-app state remains available.');
++      }
+     }
+   }
+ 
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\task-notify-01\\before\\App.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+index 7c772f27..9eb6699d 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\task-notify-01\\before\\App.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+@@ -233,7 +233,7 @@ export default function App() {
+   const [deviceError, setDeviceError] = useState<string | null>(null);
+   const [pushStatus, setPushStatus] = useState<PushStatus | null>(null);
+   const [pendingNotificationIntent, setPendingNotificationIntent] = useState<NotificationNavigationIntent | null>(null);
+-  const [pendingNotificationScreen, setPendingNotificationScreen] = useState<{ screen: Screen; epoch: number } | null>(null);
++  const [pendingNotificationScreen, setPendingNotificationScreen] = useState<{ screen: Screen; epoch: number; taskId?: string } | null>(null);
+   const notificationNavigationInFlight = useRef(new Map<string, Promise<void>>());
+   const notificationNavigationSequence = useRef(0);
+   const asyncContextEpoch = useRef(0);
+@@ -528,14 +528,19 @@ export default function App() {
+     const targetDefinition = SCREEN_DEFINITIONS.find((item) => item.code === sourceRoute);
+     if (!targetDefinition) throw new Error('Связанный раздел больше недоступен.');
+     const targetHeaders = { 'x-factory-id': sourceFactoryId };
++    let taskId: string | undefined;
+ 
+     if (intent.notificationId) {
+-      await apiClient.request(`/notifications/${encodeURIComponent(intent.notificationId)}/read`, {
++      const notification = await apiClient.request<NotificationItem>(`/notifications/${encodeURIComponent(intent.notificationId)}/read`, {
+         method: 'POST',
+         body: '{}',
+         headers: targetHeaders,
+       });
+       if (!isCurrent()) return;
++      // Use the guarded server row, not a client-supplied object identity.
++      if (sourceRoute === 'tasks' && notification.entityType === 'TASK' && notification.factoryId === sourceFactoryId) {
++        taskId = notification.entityId || undefined;
++      }
+       if (sourceFactoryId === selectedFactoryId) {
+         const unread = await apiClient.request<{ count: number }>('/notifications/unread-count', { headers: targetHeaders }).catch(() => null);
+         if (!isCurrent()) return;
+@@ -563,7 +568,7 @@ export default function App() {
+         selectedFactoryId: me.selectedFactoryId,
+         authStatus: 'ready',
+       });
+-      setPendingNotificationScreen({ screen: targetDefinition.id, epoch: asyncContextEpoch.current });
++      setPendingNotificationScreen({ screen: targetDefinition.id, epoch: asyncContextEpoch.current, taskId });
+       return;
+     }
+ 
+@@ -576,7 +581,7 @@ export default function App() {
+       selectedFactoryId: me.selectedFactoryId,
+       authStatus: 'ready',
+     });
+-    setPendingNotificationScreen({ screen: targetDefinition.id, epoch: asyncContextEpoch.current });
++    setPendingNotificationScreen({ screen: targetDefinition.id, epoch: asyncContextEpoch.current, taskId });
+   };
+ 
+   const openNotificationSource = (intent: NotificationNavigationIntent) => {
+@@ -719,8 +724,14 @@ export default function App() {
+       return;
+     }
+     const target = pendingNotificationScreen.screen;
++    const taskId = pendingNotificationScreen.taskId;
+     setPendingNotificationScreen(null);
+-    openScreen(target);
++    if (target === 'Tasks' && taskId) {
++      // Reuse linked-task navigation, including dirty-form and context guards.
++      window.dispatchEvent(new CustomEvent('zavod:navigate', { detail: { screen: target, taskId } }));
++    } else {
++      openScreen(target);
++    }
+   }, [pendingNotificationScreen, visibleScreens]);
+ 
+   useBodyScrollLock(mobileMoreOpen);
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\task-notify-01\\before\\master-r2-task-fixture.cjs" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-task-fixture.cjs"
+index c94a8d66..13ddbc8e 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\task-notify-01\\before\\master-r2-task-fixture.cjs"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-task-fixture.cjs"
+@@ -32,7 +32,13 @@ function taskFixture() {
+   } }, 'userFactoryAccess');
+   let failAdapter = null;
+   const notice = name => async (...args) => { notifications.push({ name, args: copy(args) }); if (failAdapter === name) { failAdapter = null; throw Error('R2_ADAPTER_UNAVAILABLE'); } };
+-  const notifier = strict(Object.fromEntries(['notifyTaskCreated', 'notifyTaskTaken', 'notifyTaskDone', 'notifyTaskRedirected', 'resolveEntityNotifications'].map(name => [name, notice(name)])), 'notifications');
++  // TASK-NOTIFY-01 compatibility: model the split persistence/publication seam.
++  // This fixture still makes no PostgreSQL rollback claim; real SQL proof is separate.
++  const notifier = strict({
++    ...Object.fromEntries(['notifyTaskTaken', 'notifyTaskDone', 'notifyTaskRedirected', 'resolveEntityNotifications'].map(name => [name, notice(name)])),
++    persistTaskCreatedTx: async (tx, task) => { assert.equal(tx, m.db); return [copy(task)]; },
++    publishCommittedNotifications: async tasks => { for (const task of tasks) await notice('notifyTaskCreated')(task); },
++  }, 'notifications');
+   const service = new TaskService({ db: m.db }, m.ws, strict({ sendPush: async () => {} }, 'push'), m.audit, m.attachments, notifier, strict({}, 'directory'));
+   const create = (operationId = 'r2-task-create', user = actor) => service.createTask({ actor: user, operationId, description: 'Проверить ограждение', assigneeUserIds: [actor.userId] });
+   return { ...m, tasks, assignees, recipients, comments, histories, notifications, service, create, failAdapter: name => { failAdapter = name; } };

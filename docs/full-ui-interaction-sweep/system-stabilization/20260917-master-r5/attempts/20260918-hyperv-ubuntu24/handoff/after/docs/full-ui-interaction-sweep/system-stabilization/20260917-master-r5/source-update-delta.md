@@ -1,0 +1,7 @@
+# Source sync R5
+
+Repository source of truth: `README.md`, `docs/full-ui-interaction-sweep/progress.md`, `docs/full-ui-interaction-sweep/visual-gap-register.md`.19.09 current R5 слой обновлён на WAITING_MANUAL_REBOOT: signed DISM/actual admin token/exit3010, guest/isolation/live0. R4 history сохранена; старые17.09/18.09 ошибки и исходные receipts не переписаны.6parentmatrices, product/build/schema/config/harness не менялись, отдельный final byte receipt. R5 live/journey/expected-actual matrices получили только текущую причину NOT_RUN и continuation context, не новые PASS/IDs/counts.
+
+Исходный batch17.09 был ABSENT по root baseline; named continuation attempts/20260918-hyperv-ubuntu24 была ABSENT18.09 по её baseline. До новых правок12existing docs сохранены в before, ещё3R5matrix snapshots до смены reason сверены с прежним package readback. Current after/diffs/перечень изменённых файлов/final byte retention/runtime и source-delta-manifest теперь в named attempt. Root одноимённые receipts17.09 остаются историческими. Накопленный dirty worktree не собственная дельта R5. Новые файлы этого продолжения — только docs/public verification metadata/limited helpers/receipts/package, product fixes0; выполненная системная запись7Hyper-V components отдельно в runtime receipt.
+
+Library/account memory: NOT_WRITTEN / PERSISTENCE_PENDING. Нет ни успешного external write, ни readback, поэтому синхронизация вне repo не объявляется. Для будущего sync передать final-report/decision-queue/resume и фактический receipt пакета, не старый R4-only blocker.

@@ -1,0 +1,48 @@
+--- /dev/null
++++ backend/scripts/master-r2-chat-chain.test.js
+@@ -0,0 +1,45 @@
++require('./master-offline-guard.cjs');require('reflect-metadata');
++const {test}=require('node:test'),assert=require('node:assert/strict');
++const {chatFixture}=require('./master-r2-chat-fixture.cjs');
++const {strict,copy,denied}=require('./master-r2-memory.cjs');
++const {installAuthority,withIdentity}=require('./master-r2-authority-fixture.cjs');
++const {ChatsService}=require('../dist/modules/chats/chats.service'),{ChatsController}=require('../dist/modules/chats/chats.controller');
++const {AttachmentsService}=require('../dist/modules/attachments/attachments.service'),{AttachmentsController}=require('../dist/modules/attachments/attachments.controller');
++const {PermissionGuard}=require('../dist/common/permission.guard'),{Reflector}=require('@nestjs/core');
++function chain(){
++ const f=chatFixture('transfer'),files=[],reads=[],storageReads=[];
++ const accesses=f.users.map(u=>({id:'access-'+u.id,userId:u.id,factoryId:f.user.selectedFactoryId,isActive:true,isGuest:false,deactivatedAt:null,role:'MASTER',departmentId:f.user.departmentId,companyId:null,factory:{isActive:true,deletedAt:null},user:u,department:null}));
++ f.data.userFactoryAccess=f.model('userFactoryAccess',accesses,{includes:['user','department']});
++ const {resolve}=installAuthority(f,f.users,accesses,{MASTER:f.user.permissions});
++ f.data.chatSettings=f.model('chatSettings',[{id:'settings',factoryId:f.user.selectedFactoryId,chatEnabled:true,deleteWindowMinutes:15,editWindowMinutes:15}]);
++ f.data.chatRead=f.model('chatRead',reads,{compounds:['chatId_userId']});f.data.chatMessageReaction=f.model('chatMessageReaction',[],{includes:['user']});f.data.chatPoll=f.model('chatPoll',[],{includes:['options','votes']});
++ f.data.chatMessage=f.model('chatMessage',f.messages,{includes:['chat'],compounds:['authorId_operationId'],unique:[['authorId','operationId']],enrich:r=>({...r,chat:{...copy(f.chat),members:copy(f.members)}})});
++ f.data.attachment=f.model('attachment',files);
++ const storage=strict({readStorageFile:async key=>{assert.equal(key,'memory-only-buffer');storageReads.push(key);return Buffer.from('Изолированное содержимое');}});
++ const attachments=new AttachmentsService({db:f.db},storage,f.audit),service=new ChatsService({db:f.db},f.audit,attachments,f.ws),controller=new ChatsController(service),fileController=new AttachmentsController(attachments),guard=new PermissionGuard(new Reflector(),f.audit);
++ const call=async(c,method,user,args)=>{await guard.canActivate({getClass:()=>c.constructor,getHandler:()=>c.constructor.prototype[method],switchToHttp:()=>({getRequest:()=>({user,method:'ISOLATED',url:method})})});return c[method](...args);};
++ const context=id=>resolve(id,f.user.selectedFactoryId);
++ const addFile=message=>{const row={id:'message-file',factoryId:f.user.selectedFactoryId,entityType:'CHAT_MESSAGE',entityId:message.id,uploadedById:message.authorId,originalName:'Осмотр.txt',mimeType:'text/plain',kind:'FILE',sizeBytes:44,storagePath:'memory-only-buffer',deletedAt:null};files.push(row);return row;};
++ return {...f,context,files,reads,storageReads,attachments,service,controller,fileController,call,addFile};
++}
++test('R2-E-J20 actual ownership message reader attachment controller revoke retry delete restore chain',()=>withIdentity(async()=>{
++ const f=chain(),u=await f.context(f.user.userId),target=await f.context('membership-target');
++ const transferred=await f.call(f.controller,'transferOwnership',u,[u,f.chat.id,{userId:target.userId,operationId:'ownership-transfer'}]);assert.equal(transferred.userId,target.userId);
++ const body={text:'Проверьте ограждение линии',operationId:'message-operation'},message=await f.call(f.controller,'createMessage',u,[u,f.chat.id,body]);await f.service.markRead(u,f.chat.id);
++ assert.equal(message.chatId,f.chat.id);assert.equal((await f.service.createMessage(u,f.chat.id,body)).id,message.id);await f.service.markRead(u,f.chat.id);
++ const file=f.addFile(message),detail=await f.call(f.controller,'detail',target,[target,f.chat.id,{}]);assert.equal(detail.messages.find(r=>r.id===message.id).attachments[0].id,file.id);
++ const metadata=await f.call(f.fileController,'metadata',target,[file.id,target]);assert.equal(metadata.id,file.id);assert.ok(!Object.hasOwn(metadata,'storagePath'));
++ const headers={},response=strict({setHeader:(k,v)=>headers[k]=v,send:b=>{assert.equal(b.toString(),'Изолированное содержимое');}});await f.call(f.fileController,'file',target,[file.id,target,response]);assert.equal(headers['Content-Type'],'text/plain');assert.equal(f.storageReads.length,1);
++ await f.call(f.controller,'removeMember',target,[target,f.chat.id,u.userId,{operationId:'remove-old-owner'}]);
++ const before=JSON.stringify({messages:f.messages,files:f.files}),writes=f.writes.length;
++ for(const probe of [()=>f.service.detail(u,f.chat.id),()=>f.service.createMessage(u,f.chat.id,body),()=>f.service.transferOwnership(u,f.chat.id,{userId:target.userId,operationId:'ownership-transfer'}),()=>f.service.deleteMessage(u,f.chat.id,message.id),()=>f.attachments.getMetadata(u,file.id),()=>f.attachments.getFile(u,file.id),()=>f.attachments.deactivate(u,file.id)])await assert.rejects(probe(),denied);
++ assert.equal(f.writes.length,writes);assert.equal(JSON.stringify({messages:f.messages,files:f.files}),before);assert.equal(f.storageReads.length,1);
++ await f.service.addMember(target,f.chat.id,{userId:u.userId,operationId:'restore-old-owner'});assert.equal((await f.service.detail(u,f.chat.id)).messages.find(r=>r.id===message.id).id,message.id);assert.equal((await f.attachments.getMetadata(u,file.id)).id,file.id);
++ const nonAuthor=await f.context('membership-third');await assert.rejects(f.service.deleteMessage(nonAuthor,f.chat.id,message.id),denied);await assert.rejects(f.attachments.deactivate(nonAuthor,file.id),denied);
++}));
++for(const tombstone of ['removedAt','leftAt'])for(const reader of ['getMetadata','getFile'])test(`R2-E-J20 ${tombstone} active flags cannot override canonical denied chat attachment ${reader}`,()=>withIdentity(async()=>{
++ const f=chain(),u=await f.context(f.user.userId),message=await f.service.createMessage(u,f.chat.id,{text:'Проверка крепления',operationId:'tombstone-message'});await f.service.markRead(u,f.chat.id);const file=f.addFile(message);
++ f.members[0][tombstone]=new Date(); // persisted legacy/tombstone precondition; do not assume canRead is enough.
++ await assert.rejects(f.service.detail(u,f.chat.id),denied);await assert.rejects(f.attachments[reader](u,file.id),denied);assert.equal(f.storageReads.length,0);
++}));
++

@@ -1,0 +1,22 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-quality-replay-before\\backend\\src\\modules\\error-report\\error-report.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\error-report\\error-report.service.ts"
+index 3468b0fa..6b4ca755 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-quality-replay-before\\backend\\src\\modules\\error-report\\error-report.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\error-report\\error-report.service.ts"
+@@ -214,11 +214,14 @@ export class ErrorReportService {
+     const processed = await tx.processedOperation.findUnique({
+       where: { userId_operationId: { userId: user.userId, operationId } },
+     });
+-    if (!processed?.resultKey) return null;
+-    return tx.errorReport.findFirst({
+-      where: { id: processed.resultKey, factoryId: user.selectedFactoryId },
++    if (!processed) return null;
++    if (!processed.resultKey) throw new BadRequestException({ code: 'NOT_FOUND', message: 'Результат действия больше недоступен. Обновите список.' });
++    const existing = await tx.errorReport.findFirst({
++      where: { id: processed.resultKey, factoryId: user.selectedFactoryId, authorId: user.userId },
+       include: { author: true, factory: true, closedBy: true },
+     });
++    if (!existing) throw new BadRequestException({ code: 'NOT_FOUND', message: 'Результат действия больше недоступен. Обновите список.' });
++    return existing;
+   }
+ 
+   private async withAttachments(reports: any[]) {

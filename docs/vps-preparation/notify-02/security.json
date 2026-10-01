@@ -1,0 +1,1124 @@
+{
+  "status": "PARTIAL_SIX_OWNERS_GUARDS_RETAINED_UNRELATED_ADMIN_GUEST_ATTACHMENT_GAP",
+  "cases": [
+    {
+      "key": "request-department",
+      "event": "ORDER_REQUEST_CREATED",
+      "id": "26471e64-e2be-4ff2-9975-be4038ba4d67",
+      "recipient": "ADMIN",
+      "activeSource": 200,
+      "activeFile": 200,
+      "states": [
+        {
+          "state": "revoked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/26471e64-e2be-4ff2-9975-be4038ba4d67",
+              "status": 403
+            },
+            {
+              "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216",
+              "status": 403
+            },
+            {
+              "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "guest",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/26471e64-e2be-4ff2-9975-be4038ba4d67",
+              "status": 403
+            },
+            {
+              "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216",
+              "status": 200
+            },
+            {
+              "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216/file",
+              "status": 200
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "blocked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/26471e64-e2be-4ff2-9975-be4038ba4d67",
+              "status": 403
+            },
+            {
+              "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216",
+              "status": 403
+            },
+            {
+              "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "deleted",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/26471e64-e2be-4ff2-9975-be4038ba4d67",
+              "status": 403
+            },
+            {
+              "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216",
+              "status": 403
+            },
+            {
+              "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        }
+      ],
+      "foreign": [
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/orders/requests/26471e64-e2be-4ff2-9975-be4038ba4d67",
+          "status": 409
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216/file",
+          "status": 403
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/orders/requests/26471e64-e2be-4ff2-9975-be4038ba4d67",
+          "status": 409
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216/file",
+          "status": 403
+        }
+      ],
+      "closed": true
+    },
+    {
+      "key": "request-factory",
+      "event": "ORDER_REQUEST_CREATED",
+      "id": "5def11e9-156a-4a51-b68f-4709c304c6c0",
+      "recipient": "STORE",
+      "activeSource": 409,
+      "activeFile": 200,
+      "sharedRestricted": true,
+      "states": [
+        {
+          "state": "revoked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/5def11e9-156a-4a51-b68f-4709c304c6c0",
+              "status": 403
+            },
+            {
+              "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46",
+              "status": 403
+            },
+            {
+              "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "guest",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/5def11e9-156a-4a51-b68f-4709c304c6c0",
+              "status": 403
+            },
+            {
+              "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46",
+              "status": 403
+            },
+            {
+              "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "blocked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/5def11e9-156a-4a51-b68f-4709c304c6c0",
+              "status": 403
+            },
+            {
+              "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46",
+              "status": 403
+            },
+            {
+              "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "deleted",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/5def11e9-156a-4a51-b68f-4709c304c6c0",
+              "status": 403
+            },
+            {
+              "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46",
+              "status": 403
+            },
+            {
+              "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        }
+      ],
+      "foreign": [
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/orders/requests/5def11e9-156a-4a51-b68f-4709c304c6c0",
+          "status": 403
+        },
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46/file",
+          "status": 403
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/orders/requests/5def11e9-156a-4a51-b68f-4709c304c6c0",
+          "status": 409
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/attachments/edfa36ad-ce69-4745-afba-e53b99a7bf46/file",
+          "status": 403
+        }
+      ],
+      "closed": true
+    },
+    {
+      "key": "low-stock",
+      "event": "ORDER_STOCK_BELOW_THRESHOLD",
+      "id": "95c84b87-5f99-4a58-94b1-20fbeea15a19",
+      "recipient": "MANAGEMENT",
+      "activeSource": 409,
+      "activeFile": 200,
+      "sharedRestricted": true,
+      "states": [
+        {
+          "state": "revoked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/items/95c84b87-5f99-4a58-94b1-20fbeea15a19",
+              "status": 403
+            },
+            {
+              "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f",
+              "status": 403
+            },
+            {
+              "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "guest",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/items/95c84b87-5f99-4a58-94b1-20fbeea15a19",
+              "status": 403
+            },
+            {
+              "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f",
+              "status": 403
+            },
+            {
+              "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "blocked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/items/95c84b87-5f99-4a58-94b1-20fbeea15a19",
+              "status": 403
+            },
+            {
+              "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f",
+              "status": 403
+            },
+            {
+              "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "deleted",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/items/95c84b87-5f99-4a58-94b1-20fbeea15a19",
+              "status": 403
+            },
+            {
+              "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f",
+              "status": 403
+            },
+            {
+              "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        }
+      ],
+      "foreign": [
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/orders/items/95c84b87-5f99-4a58-94b1-20fbeea15a19",
+          "status": 403
+        },
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f/file",
+          "status": 403
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/orders/items/95c84b87-5f99-4a58-94b1-20fbeea15a19",
+          "status": 409
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/attachments/ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f/file",
+          "status": 403
+        }
+      ],
+      "closed": true
+    },
+    {
+      "key": "request-close",
+      "event": "ORDER_REQUEST_CLOSED",
+      "id": "f9800bc9-47d4-4a5a-85d9-5bbfcf4500d0",
+      "recipient": "MANAGEMENT",
+      "activeSource": 200,
+      "activeFile": 200,
+      "sharedRestricted": false,
+      "states": [
+        {
+          "state": "revoked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/f9800bc9-47d4-4a5a-85d9-5bbfcf4500d0",
+              "status": 403
+            },
+            {
+              "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187",
+              "status": 403
+            },
+            {
+              "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "guest",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/f9800bc9-47d4-4a5a-85d9-5bbfcf4500d0",
+              "status": 403
+            },
+            {
+              "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187",
+              "status": 403
+            },
+            {
+              "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "blocked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/f9800bc9-47d4-4a5a-85d9-5bbfcf4500d0",
+              "status": 403
+            },
+            {
+              "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187",
+              "status": 403
+            },
+            {
+              "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "deleted",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/orders/requests/f9800bc9-47d4-4a5a-85d9-5bbfcf4500d0",
+              "status": 403
+            },
+            {
+              "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187",
+              "status": 403
+            },
+            {
+              "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        }
+      ],
+      "foreign": [
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/orders/requests/f9800bc9-47d4-4a5a-85d9-5bbfcf4500d0",
+          "status": 403
+        },
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187/file",
+          "status": 403
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/orders/requests/f9800bc9-47d4-4a5a-85d9-5bbfcf4500d0",
+          "status": 409
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/attachments/90ab3ae1-cea8-41d9-abd7-e4b242816187/file",
+          "status": 403
+        }
+      ],
+      "closed": true
+    },
+    {
+      "key": "task-done",
+      "event": "TASK_DONE",
+      "id": "a773f9b7-6de7-4773-a6ba-700b3250d69d",
+      "recipient": "MASTER",
+      "activeSource": 200,
+      "activeFile": 200,
+      "sharedRestricted": false,
+      "states": [
+        {
+          "state": "revoked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/a773f9b7-6de7-4773-a6ba-700b3250d69d",
+              "status": 403
+            },
+            {
+              "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b",
+              "status": 403
+            },
+            {
+              "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "guest",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/a773f9b7-6de7-4773-a6ba-700b3250d69d",
+              "status": 403
+            },
+            {
+              "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b",
+              "status": 403
+            },
+            {
+              "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "blocked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/a773f9b7-6de7-4773-a6ba-700b3250d69d",
+              "status": 403
+            },
+            {
+              "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b",
+              "status": 403
+            },
+            {
+              "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "deleted",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/a773f9b7-6de7-4773-a6ba-700b3250d69d",
+              "status": 403
+            },
+            {
+              "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b",
+              "status": 403
+            },
+            {
+              "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        }
+      ],
+      "foreign": [
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/tasks/a773f9b7-6de7-4773-a6ba-700b3250d69d",
+          "status": 403
+        },
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b/file",
+          "status": 403
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/tasks/a773f9b7-6de7-4773-a6ba-700b3250d69d",
+          "status": 409
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/attachments/c985bcaf-eccd-46e8-921e-b538f9f87b6b/file",
+          "status": 403
+        }
+      ],
+      "closed": true
+    },
+    {
+      "key": "task-redirect",
+      "event": "TASK_REDIRECTED",
+      "id": "a53dac56-8954-43bd-8e11-2b43fc5cd455",
+      "recipient": "TECH_ELECTRIC",
+      "activeSource": 200,
+      "activeFile": 200,
+      "sharedRestricted": false,
+      "states": [
+        {
+          "state": "revoked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/a53dac56-8954-43bd-8e11-2b43fc5cd455",
+              "status": 403
+            },
+            {
+              "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012",
+              "status": 403
+            },
+            {
+              "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "guest",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/a53dac56-8954-43bd-8e11-2b43fc5cd455",
+              "status": 403
+            },
+            {
+              "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012",
+              "status": 403
+            },
+            {
+              "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "blocked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/a53dac56-8954-43bd-8e11-2b43fc5cd455",
+              "status": 403
+            },
+            {
+              "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012",
+              "status": 403
+            },
+            {
+              "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "deleted",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/a53dac56-8954-43bd-8e11-2b43fc5cd455",
+              "status": 403
+            },
+            {
+              "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012",
+              "status": 403
+            },
+            {
+              "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        }
+      ],
+      "foreign": [
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/tasks/a53dac56-8954-43bd-8e11-2b43fc5cd455",
+          "status": 403
+        },
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012/file",
+          "status": 403
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/tasks/a53dac56-8954-43bd-8e11-2b43fc5cd455",
+          "status": 409
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/attachments/f3f3f93e-f324-44cd-ad91-fc750e98a012/file",
+          "status": 403
+        }
+      ],
+      "laterReassigned": {
+        "source": 403,
+        "file": 403,
+        "historicalPersonalNoticeMayRemain": false,
+        "doesNotGrantSourceAccess": true
+      },
+      "closed": true
+    },
+    {
+      "key": "task-escalated",
+      "event": "TASK_LONG_ESCALATED",
+      "id": "75053749-049c-4fd5-9ee6-f59fe00432ff",
+      "recipient": "TECH_KIPIA",
+      "activeSource": 200,
+      "activeFile": 200,
+      "sharedRestricted": false,
+      "states": [
+        {
+          "state": "revoked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/75053749-049c-4fd5-9ee6-f59fe00432ff",
+              "status": 403
+            },
+            {
+              "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00",
+              "status": 403
+            },
+            {
+              "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "guest",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/75053749-049c-4fd5-9ee6-f59fe00432ff",
+              "status": 403
+            },
+            {
+              "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00",
+              "status": 403
+            },
+            {
+              "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "blocked",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/75053749-049c-4fd5-9ee6-f59fe00432ff",
+              "status": 403
+            },
+            {
+              "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00",
+              "status": 403
+            },
+            {
+              "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        },
+        {
+          "state": "deleted",
+          "fixture": "exact SQL flags in isolated owned copy; original values restored",
+          "denials": [
+            {
+              "path": "/tasks/75053749-049c-4fd5-9ee6-f59fe00432ff",
+              "status": 403
+            },
+            {
+              "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00",
+              "status": 403
+            },
+            {
+              "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00/file",
+              "status": 403
+            },
+            {
+              "path": "/notifications",
+              "status": 403
+            },
+            {
+              "path": "/notifications/unread-count",
+              "status": 403
+            }
+          ],
+          "markRead": 403,
+          "wsReconnect": 403,
+          "historicalRowsUnchanged": true
+        }
+      ],
+      "foreign": [
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/tasks/75053749-049c-4fd5-9ee6-f59fe00432ff",
+          "status": 403
+        },
+        {
+          "kind": "recipient-without-UFA",
+          "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00/file",
+          "status": 403
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/tasks/75053749-049c-4fd5-9ee6-f59fe00432ff",
+          "status": 409
+        },
+        {
+          "kind": "admin-other-selected-factory",
+          "path": "/attachments/a723b672-b634-4601-9a8f-c5f88bcbce00/file",
+          "status": 403
+        }
+      ],
+      "closed": true
+    }
+  ],
+  "priorObservation": {
+    "key": "request-department",
+    "state": "guest",
+    "path": "/attachments/b8f1b3eb-1a9e-443c-8a69-6507afc05fb3",
+    "status": 200,
+    "id": "6c4b94c5-3fd5-4ad4-a258-6b5132386618",
+    "fileId": "b8f1b3eb-1a9e-443c-8a69-6507afc05fb3"
+  },
+  "findings": [
+    {
+      "key": "request-department",
+      "state": "guest",
+      "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216",
+      "status": 200,
+      "id": "26471e64-e2be-4ff2-9975-be4038ba4d67",
+      "fileId": "32650fad-a943-41b8-81a0-82ecb39d3216",
+      "expected": 403,
+      "classification": "PROVEN_CURRENT_ATTACHMENT_ADMIN_GUEST_DENIAL_GAP",
+      "ownerUnchanged": true
+    },
+    {
+      "key": "request-department",
+      "state": "guest",
+      "path": "/attachments/32650fad-a943-41b8-81a0-82ecb39d3216/file",
+      "status": 200,
+      "id": "26471e64-e2be-4ff2-9975-be4038ba4d67",
+      "fileId": "32650fad-a943-41b8-81a0-82ecb39d3216",
+      "expected": 403,
+      "classification": "PROVEN_CURRENT_ATTACHMENT_ADMIN_GUEST_DENIAL_GAP",
+      "ownerUnchanged": true
+    },
+    {
+      "key": "request-factory",
+      "id": "5def11e9-156a-4a51-b68f-4709c304c6c0",
+      "fileId": "edfa36ad-ce69-4745-afba-e53b99a7bf46",
+      "sourceHttp": 409,
+      "fileHttp": 200,
+      "expectedFile": 403,
+      "classification": "PROVEN_ORDERS_ATTACHMENT_SOURCE_SCOPE_MISMATCH",
+      "ownerUnchanged": true
+    },
+    {
+      "key": "low-stock",
+      "id": "95c84b87-5f99-4a58-94b1-20fbeea15a19",
+      "fileId": "ae6ee6a7-4f5a-4d7e-94d4-a0b56b85e53f",
+      "sourceHttp": 409,
+      "fileHttp": 200,
+      "expectedFile": 403,
+      "classification": "PROVEN_ORDERS_ATTACHMENT_SOURCE_SCOPE_MISMATCH",
+      "ownerUnchanged": true
+    }
+  ],
+  "latestObservation": {
+    "key": "task-escalated",
+    "state": "deleted",
+    "path": "/notifications/unread-count",
+    "status": 403,
+    "id": "75053749-049c-4fd5-9ee6-f59fe00432ff",
+    "fileId": "a723b672-b634-4601-9a8f-c5f88bcbce00"
+  },
+  "harnessObservations": [
+    "Expected values to be strictly equal:\n\n409 !== 200\n",
+    "request-factory/active-file\n\n200 !== 403\n"
+  ]
+}

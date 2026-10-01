@@ -1,0 +1,57 @@
+--- /dev/null
++++ frontend/e2e/master-r2-bridge.spec.ts
+@@ -0,0 +1,54 @@
++import {expect,test,Page} from '@playwright/test';
++import {isolate,json,open,shot,records,save,errors,unknown,linkedReplies,installEvidenceHooks} from './helpers/frontend-series';
++import {serviceBridge} from './helpers/master-r2-bridge';
++installEvidenceHooks();
++async function attach(page:Page,bridge:ReturnType<typeof serviceBridge>,mode:'publication'|'handover'){
++  await isolate(page,{role:'MASTER',replies:async(r,p)=>{
++    const isBridge=p==='/auth/me'||(mode==='publication'?p.startsWith('/announcements')||['/notifications','/notifications/unread-count'].includes(p):p.startsWith('/shift-log'));
++    if(isBridge){const url=new URL(r.request().url()),response=await bridge.rpc({path:p,method:r.request().method(),query:Object.fromEntries(url.searchParams),body:r.request().postDataJSON(),factory:r.request().headers()['x-factory-id']});await json(r,response.ok?response.value:{message:response.message},response.ok?200:response.status);return true;}
++    return linkedReplies(r,p);
++  }});
++  await page.setViewportSize({width:390,height:844});await page.goto('/');
++}
++test('R2-E-J19 real browser controller service ack failure retry notification report personal archive',async({page})=>{
++  const b=serviceBridge('publication');
++  try{
++    await attach(page,b,'publication');await open(page,'Объявления');await expect(page.getByRole('heading',{name:'Регламент смены',exact:true})).toBeVisible();
++    await b.rpc({command:'rejectRead'});await page.getByRole('button',{name:'Ознакомлен',exact:true}).click();await expect(page.getByText('Ошибка сервера. Повторите позже.',{exact:true})).toBeVisible();expect(b.traffic.some(r=>r.direction==='reply'&&r.status===503)).toBe(true);
++    let state=(await b.rpc({command:'inspect'})).value;expect(state.reads).toHaveLength(0);expect(state.notices[0].readAt).toBeNull();
++    await shot(page,'J19-actual-service-503',{layer:'browser-IPC-actual-controller-guard-service',state:'failed-ack-no-read'});
++    await b.rpc({command:'allowRead'});await page.getByRole('button',{name:'Ознакомлен',exact:true}).click();
++    await expect.poll(async()=>((await b.rpc({command:'inspect'})).value.reads.length)).toBe(1);
++    const report=await b.rpc({path:'/announcements/publication-announcement/ack-report'});expect(report.ok).toBe(true);expect(report.value.totals).toEqual({all:1,acknowledged:1,pending:0});
++    const replay=await b.rpc({path:'/announcements/publication-announcement/ack',method:'POST'});expect(replay.ok).toBe(true);
++    state=(await b.rpc({command:'inspect'})).value;expect(state.reads).toHaveLength(1);expect(state.notices[0].readAt).not.toBeNull();
++    // The actual UI keeps the acknowledged card for its existing450ms transition.
++    // A committed service row alone is not proof that the UI count has settled.
++    await expect(page.locator('.announcement-mobile-bar')).toContainText('Новых нет');
++    await page.locator('.announcement-tabs').getByRole('button',{name:'Архив',exact:true}).click();await expect(page.locator('.announcement-archive-card')).toContainText('Регламент смены');await page.locator('.announcement-archive-card').getByRole('button',{name:'Открыть',exact:true}).click();
++    await expect(page.locator('.announcement-archive-detail')).toContainText('Проверьте ограждение перед началом работы');await shot(page,'J19-actual-personal-archive',{layer:'browser-IPC-actual-controller-guard-service',entityId:'publication-announcement'});
++    await page.goBack();await expect(page.locator('.announcement-archive-detail')).toBeHidden();
++    await b.rpc({command:'revoke'});const denied=await b.rpc({path:'/announcements/publication-announcement/ack',method:'POST'});expect(denied.ok).toBe(false);expect(denied.status).toBe(403);expect((await b.rpc({command:'inspect'})).value.reads).toHaveLength(1);
++    expect(b.traffic.filter(r=>r.direction==='reply'&&!r.ok&&![403,503].includes(r.status))).toEqual([]);expect(unknown).toEqual([]);expect(errors).toEqual([]);
++  }finally{records.push({bridge:'IPC-only',pid:b.pid,traffic:b.traffic});save();await b.close();}
++});
++test('R2-E-J14 real browser handover exact payload service saved snapshot reader ordinary comment archive readonly',async({page})=>{
++  const b=serviceBridge('handover'),comment='Следующей смене: проверить датчик.\nУпаковку оставить на линии.';
++  try{
++    await attach(page,b,'handover');await open(page,'Смена');await page.getByRole('button',{name:'Передать смену',exact:true}).click();
++    await page.getByLabel('Комментарий следующей смене',{exact:true}).fill('  '+comment+'  ');await page.getByLabel('Комментарий следующей смене',{exact:true}).blur();await page.getByRole('button',{name:'Передать следующей смене',exact:true}).click();
++    await expect(page.getByText('Смена уже передана',{exact:true})).toBeVisible();await expect(page.locator('.handover-comment-block')).toContainText(comment);
++    const state=(await b.rpc({command:'inspect'})).value,id=state.logs[0].id;expect(state.logs).toHaveLength(1);const received=state.ledger.find((r:any)=>r.receiver==='ShiftLogController.createHandover');expect(received.args[0].comment).toBe(comment);
++    const repeated=await b.rpc({path:`/shift-log/${id}`});expect(repeated.value.handover.snapshot.comment).toBe(comment);expect(repeated.value.handover.snapshot.sections.lines[0].lineId).toBe('handover-line');
++    await shot(page,'J14-actual-saved-handover',{layer:'browser-IPC-actual-controller-guard-service',entityId:id,state:'exact-saved-comment'});await page.goBack();
++    const ordinary=await b.rpc({path:'/shift-log',method:'POST',body:{text:'Обычная запись: проверить крепление',title:'Осмотр смены'}});expect(ordinary.ok).toBe(true);expect(ordinary.value.handover).toBeNull();await b.rpc({path:`/shift-log/${ordinary.value.id}/comment`,method:'POST',body:{text:'Отдельный комментарий к записи'}});
++    await open(page,'Пересменка');await page.locator('.shift-log-card').filter({hasText:'Осмотр смены'}).click();await expect(page.getByRole('dialog')).toContainText('Обычная запись: проверить крепление');await expect(page.getByRole('dialog')).toContainText('Отдельный комментарий к записи');await page.goBack();
++    const readsBefore=(await b.rpc({command:'inspect'})).value.reads.length;expect(readsBefore).toBe(1);
++    await b.rpc({command:'archiveSnapshotFixture',entityId:id});await page.locator('.segmented-control').getByRole('button',{name:'Архив',exact:true}).click();await expect.poll(()=>b.traffic.some(r=>r.direction==='request'&&r.path==='/shift-log/archive')).toBe(true);await page.locator('.shift-log-card').filter({hasText:'Автоматическая сводка передачи смены'}).click();
++    await expect(page.getByRole('dialog')).toContainText('Неизменяемый снимок');await expect(page.getByRole('dialog')).toContainText(comment);await expect(page.getByRole('dialog')).toContainText('только просмотр');expect((await b.rpc({command:'inspect'})).value.reads).toHaveLength(readsBefore);
++    for(const name of ['Комментарий','Файл','Закрыть важное'])await expect(page.getByRole('dialog').getByRole('button',{name,exact:true})).toHaveCount(0);
++    await shot(page,'J14-actual-archive-readonly',{layer:'browser-IPC-actual-controller-guard-service',entityId:id,state:'archive-memory-precondition-no-new-receipt'});await page.goBack();
++    expect(b.traffic.filter(r=>r.direction==='reply'&&!r.ok)).toEqual([]);expect(unknown).toEqual([]);expect(errors).toEqual([]);
++  }finally{records.push({bridge:'IPC-only',pid:b.pid,traffic:b.traffic});save();await b.close();}
++});
++

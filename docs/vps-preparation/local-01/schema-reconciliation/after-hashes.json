@@ -1,0 +1,158 @@
+{
+  "capturedAt": "2026-09-23T20:06:21.1254818Z",
+  "status": "SCHEMA_RECONCILIATION_PASS_POSTGRESQL18_WINDOWS__LOCAL01_PARTIAL_BLOCKED_ENVIRONMENT",
+  "sourceIdentitySha256": "adf61e1ea1fb85ef0f48f3283e1b45d1424f69b334ee7ff91e6994278eb88f04",
+  "note": "Selected source/review identity, not a Docker image, Linux runtime, working DB, or VPS proof. No secrets or data files.",
+  "files": [
+    {
+      "path": "backend/prisma/schema.prisma",
+      "bytes": 84880,
+      "sha256": "43ceafbf56c34116b3db2fd40ded805d99276f5d68d28b5e7b68f745ef48df2a"
+    },
+    {
+      "path": "backend/prisma/migrations/20260923193000_local01_schema_contract_reconciliation/migration.sql",
+      "bytes": 772,
+      "sha256": "5492af7f4dbfc56203a0830bd070edb215401051fcc0363fdc37034d67454f00"
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-postgres-integration.js",
+      "bytes": 43683,
+      "sha256": "ca5595cffb097625c11e8b9555d5c7ddbce446d9aedda1e7672be558b8241779"
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-regression.js",
+      "bytes": 24921,
+      "sha256": "c01918eb47196c1bf0dcc9713451381a27ff0280011d6818fb3c9e130af3c32e"
+    },
+    {
+      "path": "backend/scripts/local-01-schema-client-probe.js",
+      "bytes": 2617,
+      "sha256": "9c46d7bd56a28e783b1f98d97ece1a9bd523ac3e5a19806302ab533089b0d942"
+    },
+    {
+      "path": "setup/local-01-schema-package-review.ps1",
+      "bytes": 7354,
+      "sha256": "de3fc3f6d39ee1a307fa1ad6d49e82716b2ceb2babbc7c79acdd7e840a5da095"
+    },
+    {
+      "path": "docs/vps-preparation/handoff.md",
+      "bytes": 32865,
+      "sha256": "45498d3eb5b436caa9a3a49ab08dfd1f2466a079528b946cc91c0dc10b1b7cfc"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/plan.md",
+      "bytes": 11396,
+      "sha256": "533debb02199d8d5ee258bc55156eb83da39435bc2cd7681ec464b4f042a1a3e"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/report.md",
+      "bytes": 19388,
+      "sha256": "9c9c103fbe8810c7d1ab494cdaab0b91116dfe2ffd4d48133b2ee53ab00d276b"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/before-hashes.json",
+      "bytes": 1324,
+      "sha256": "85a4810bfb2d8aa98629916e3b70ad042c83801d54718d7c5974d361a2ecd4ae"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/catalog-readback.sql",
+      "bytes": 2505,
+      "sha256": "0342d74156603c8693430de16b3f5af4041ee38e9ce91e16c88ef6e11a538695"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/constraint-probes.sql",
+      "bytes": 8549,
+      "sha256": "cad421165c96f8916f1dbfe29aa91a4999451a8a3721213cb0213efafb2f68fb"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/catalog-before.txt",
+      "bytes": 9220,
+      "sha256": "3f3833b2d9d8e920d78e5151e8e3ad5127e8e2c6c325d755756efaea2f5ef53e"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/catalog-after.txt",
+      "bytes": 9509,
+      "sha256": "b67619a88afd8d87b1876935cc608bba3029f2b6f0a59c3945c76b79c9375bac"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/catalog-diff-after.txt",
+      "bytes": 27,
+      "sha256": "31eaa3b7c2211e831cd8357f91ad509858bc94ce2c61cd1f5eca207e59539e57"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/expected-fk-only-diff-after-copy.txt",
+      "bytes": 89,
+      "sha256": "f3d3b1dd66bafad2b7fc90253e7d9bd13702b0e2fa3be7bf41f11fdff5565695"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/fresh-diff.json",
+      "bytes": 271,
+      "sha256": "c7203e27f4eca4e33a129c99dbf3bfef5b50b8da5ad3aba0677fa473c79ad177"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/upgrade-diff.json",
+      "bytes": 273,
+      "sha256": "9795a6d667ec8c094305cb22dc3898c3da14870554d43df6c9b9fd7cd574a14e"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/repeat-upgrade-diff.json",
+      "bytes": 280,
+      "sha256": "3e6584fd11bbf974249ecd17a894c074ed0bc798963b5984b257569d52f6efe1"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/constraint-probes-final.txt",
+      "bytes": 1989,
+      "sha256": "070c585f62c4176a043a24362682b7d4f2728a3704dea46aa8188d3d8300e7ea"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/client-create-probe.txt",
+      "bytes": 134,
+      "sha256": "cafb7b17a442358eb3999e37e79f57e88c871176b13be593c85edbe1a409b444"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/prisma-validate-after-copy.txt",
+      "bytes": 98,
+      "sha256": "25ed99279b7cadd2f020f513c9b9e5e47bf809a71cff881d3dd5be5e81db7177"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/prisma-generate-owned.txt",
+      "bytes": 360,
+      "sha256": "306eb229c843a989897f586bc9fcc8a26791c7b110d2acb32c45f472eea0f016"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/backend-build-final.txt",
+      "bytes": 57,
+      "sha256": "0a6b3cef8ab4192f257cbf2fcfe8aa24486c1e3fcb4a188a56f9309e8906c02e"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/prep01-regression-final.txt",
+      "bytes": 5001,
+      "sha256": "a683f69e5bc836d34eb35beff73a526c8ed0176cee6fd964a9d07bbd0e7adf7c"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/prep02-regression-final.txt",
+      "bytes": 1893,
+      "sha256": "46aa95efdce55b850cae3f3469654fcabea51e9c73a2d1736f65a7554f7b7820"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/auth-regression-final.txt",
+      "bytes": 369,
+      "sha256": "c0c2f5929a8e0e89b88dbc3f37dbd90c6e9fa07addb1e96f2ad0842c737c307a"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/integration-full-final.txt",
+      "bytes": 48189,
+      "sha256": "174a2b33be8ac262e8003c959278f291a7e7737a61ef1fc6c43f3cd2c06c46c9"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/schema-reconciliation/cleanup-receipt.json",
+      "bytes": 1014,
+      "sha256": "8e88c0fec3f618da309572208780124d8d73a75bb55fbdb30723d176680c57ff"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/native-prep01-integration.txt",
+      "bytes": 3238,
+      "sha256": "c3ecc10906e12baa80da12028c4362fd730fd3d00d88fc417149739c7b246106"
+    }
+  ]
+}

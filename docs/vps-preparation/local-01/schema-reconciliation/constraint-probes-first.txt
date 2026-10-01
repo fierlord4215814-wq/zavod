@@ -1,0 +1,82 @@
+Pager usage is off.
+BEGIN
+INSERT 0 1
+INSERT 0 2
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+DIRECT_TEXT_UUID_DEFAULTS
+ generated_count | all_uuid_text 
+-----------------+---------------
+              10 | t
+(1 row)
+
+CREATE FUNCTION
+ORDER_SETTINGS_FK_NEGATIVE
+     expect_constraint_failure     
+-----------------------------------
+ PASS OrderSettings_factoryId_fkey
+(1 row)
+
+DEPARTMENT_PARTIAL_UNIQUE_POSITIVE_NEGATIVE
+INSERT 0 1
+         expect_constraint_failure          
+--------------------------------------------
+ PASS Department_active_normalized_name_key
+(1 row)
+
+CHAT_SINGLE_OWNER_POSITIVE_NEGATIVE
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+    expect_constraint_failure     
+----------------------------------
+ PASS ChatMember_single_owner_key
+(1 row)
+
+DURATION_POSITIVE_NEGATIVE
+INSERT 0 1
+       expect_constraint_failure        
+----------------------------------------
+ PASS JobTitle_shiftDurationHours_check
+(1 row)
+
+INSERT 0 1
+       expect_constraint_failure       
+---------------------------------------
+ PASS ShiftSession_durationHours_check
+(1 row)
+
+QUANTITY_RELEASE_POSITIVE_NEGATIVE
+INSERT 0 1
+INSERT 0 1
+               expect_constraint_failure               
+-------------------------------------------------------
+ PASS QuantityReleaseOperation_positive_quantity_check
+(1 row)
+
+             expect_constraint_failure              
+----------------------------------------------------
+ PASS QuantityReleaseOperation_quantity_chain_check
+(1 row)
+
+             expect_constraint_failure             
+---------------------------------------------------
+ PASS QuantityReleaseOperation_source_parent_check
+(1 row)
+
+SUCCESSFUL_FIXTURE_COUNTS_BEFORE_ROLLBACK
+ valid_release | valid_settings | single_owner 
+---------------+----------------+--------------
+             1 |              1 |            1
+(1 row)
+
+ROLLBACK

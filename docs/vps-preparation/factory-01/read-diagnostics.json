@@ -1,0 +1,110 @@
+{
+  "OKK": {
+    "runs": [
+      {
+        "id": "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+        "status": 200
+      },
+      {
+        "id": "3c9899a3-4f1b-46c5-ae33-40468065103d",
+        "status": 409,
+        "message": "Запуск чек-листа не найден."
+      }
+    ]
+  },
+  "OKK02": {
+    "runs": [
+      {
+        "id": "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+        "status": 409,
+        "message": "Запуск чек-листа не найден."
+      },
+      {
+        "id": "3c9899a3-4f1b-46c5-ae33-40468065103d",
+        "status": 200
+      }
+    ]
+  },
+  "ADMIN": {
+    "runs": [
+      {
+        "id": "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+        "status": 200
+      },
+      {
+        "id": "3c9899a3-4f1b-46c5-ae33-40468065103d",
+        "status": 200
+      }
+    ]
+  },
+  "MANAGEMENT": {
+    "runs": [
+      {
+        "id": "bea819e5-44da-4050-9c7a-26e1a1c93f1e",
+        "status": 409,
+        "message": "Запуск чек-листа не найден."
+      },
+      {
+        "id": "3c9899a3-4f1b-46c5-ae33-40468065103d",
+        "status": 409,
+        "message": "Запуск чек-листа не найден."
+      }
+    ],
+    "directory": {
+      "status": 200,
+      "body": [
+        {
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "displayName": "Учебный Администратор",
+          "role": "ADMIN",
+          "departmentId": null,
+          "departmentName": null,
+          "phoneLabel": "+7 *** ***-50-00",
+          "employeeState": "AVAILABLE",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+        },
+        {
+          "userId": "a1b3b030-b58b-42e0-b6d3-86a79edcc1d1",
+          "displayName": "Учебный-Подрядчик-01 Тестовый",
+          "role": "CONTRACTOR",
+          "departmentId": null,
+          "departmentName": null,
+          "phoneLabel": "+7 *** ***-50-27",
+          "employeeState": "AVAILABLE",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+        },
+        {
+          "userId": "e13945c9-26e7-4bc2-bc4c-6de8ea61d944",
+          "displayName": "Учебный-Подрядчик-02 Тестовый",
+          "role": "CONTRACTOR",
+          "departmentId": null,
+          "departmentName": null,
+          "phoneLabel": "+7 *** ***-50-28",
+          "employeeState": "AVAILABLE",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+        },
+        {
+          "userId": "d05f9680-0d3d-4c33-bf72-639b390450b0",
+          "displayName": "Учебный-Руководитель-01 Тестовый",
+          "role": "MANAGEMENT",
+          "departmentId": "75c6a132-651c-4d98-8505-0ce4380c0470",
+          "departmentName": "УЧ — Руководство T1",
+          "phoneLabel": "+7 *** ***-50-01",
+          "employeeState": "AVAILABLE",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+        },
+        {
+          "userId": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+          "displayName": "Учебный-Старший-подрядчика-01 Тестовый",
+          "role": "CONTRACTOR_LEAD",
+          "departmentId": null,
+          "departmentName": null,
+          "phoneLabel": "+7 *** ***-50-26",
+          "employeeState": "AVAILABLE",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+        }
+      ]
+    },
+    "indexName": "Учебный-Механик-01 Тестовый"
+  }
+}

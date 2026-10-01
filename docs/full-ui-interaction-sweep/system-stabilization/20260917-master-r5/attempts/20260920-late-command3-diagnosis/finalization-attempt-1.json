@@ -1,0 +1,18 @@
+{
+  "kind": "EVIDENCE_WRITER_DIAGNOSTIC_NOT_PRODUCT_TEST",
+  "command": "finalize-evidence.ps1",
+  "exitCode": 1,
+  "error": "Evidence diff failed",
+  "atLine": 26,
+  "completedBeforeFailure": "One immutable after/README.md snapshot; no final-evidence.json",
+  "readOnlyRecheck": {
+    "gitDiffExitCode": 1,
+    "stderrStartsWith": "warning: in the working copy of",
+    "fullRecheckStderr": "Not captured in first table-formatted output; per-file exact stderr retained by corrected writer"
+  },
+  "cause": "Evidence writer incorrectly treated any git stderr as fatal, although no-index diff exit 1 means differences; line-ending warnings are recorded separately now",
+  "correction": "Accept only documented no-index exit 0/1, retain stderr; resume only an existing partial artifact with identical SHA256; never overwrite",
+  "productExecuted": false,
+  "guestInput": false,
+  "vmMutation": false
+}

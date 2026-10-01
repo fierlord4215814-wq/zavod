@@ -1,0 +1,16 @@
+# MASTER R5 — текущий existing-VM checkpoint20.09.2026 16:34+03
+
+MASTER_R5_STATUS=BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS; GOAL_ACCEPTANCE=NOT_ACCEPTED. Main UI Sweep PAUSED_BY_USER / NOT_ACCEPTED. Не Pilot Ready, не новый sweep.
+
+Hyper-V готов; VM99a158da-c247-422c-ae11-109485a92b1f не пересоздавалась. Новый разрешённый read-only observer PID8296 подтвердил Running/Gen2/BIOS/ownVHDX/media и old9056/start/commandline; завершился. Jobs=[] не разрешает000006SHUTDOWN/000007EXIT безresults/terminal,9056 жив. Thumbnail имеет extra4bytes; guard не ослаблялся. VMConnectnonadmin access denied; computer-usecapture0x80004002. Viewer9616 штатно закрыт, guestconsoleUNVERIFIED. Нужны последние строки oldhelper иnativeownVMframe; до этого не второйcontroller/guestinput/install. Все5gates/новыеjourneys/producttests0.
+
+- [Единый отчёт](final-report.md), [checkpoint](progress.md), [план1–9](execution-plan.md), [точное продолжение](resume-prompt.txt).
+- Current receipts: attempts/20260920-existing-vm/. continuation-request/baseline, observerUAC/start/terminal, old-helper-identity, oldqueuebefore/after, vmstate/jobs, thumbnailprobes, vmconnect-observation. Product/guest execution не доказаны.
+- Current retention/runtime/delta: environment-runtime-receipt.json, final-identities.json, source-delta-manifest.json, changed-files.txt, before/after/diffs в той жеattempt.15owners до текущих правок сохранены separately; priorhelpers неизменны.
+- Новый reviewZIP: zavod-master-r5-existing-vm-observation-20260920.zip. Полный entry SHA256 readback/размер/hash — attempts/20260920-existing-vm/package-receipt.json. Не объявлять verified безreceipt.
+- Пять gates/32journeys: live-gate-matrix.json, journey-matrix.json, expected-actual.json;0новых live executions, requirements/case identities не сокращены.
+- [Очередь решений](decision-queue.md), [весь остаток/телефон](remaining-live-and-physical.md), [native retention](native-evidence-index.md), [source sync](source-update-delta.md).
+- Три исторических ZIP сохранены: zavod-master-r5-checkpoint.zip17.09, zavod-master-r5-hyperv-reboot-20260919.zip, zavod-master-r5-vm-checkpoint-20260920.zip (274entries/3307725bytes/SHA8a262b0c5b0cccd3d51a3103758b6a1244549bb6a9986b396edd3b29efa77ee2). Postreboot cancellation draft19.09 НЕ создавался. Oldreceipts не currentruntime.
+- Runtime .r5-runtime/master-r5-ubuntu24 сохраняется отдельно: VHDX/ISO/oldpartial/tail/source tar и private seed/key. Не включать private/DB/ISO/VHDX в review ZIP. Ничего не удалять ради места.
+
+Следующий шаг — ответ о состоянии старого helper и observedguestconsole. ObserverUAC уже использован; новыйmutatingcontroller условно разрешён только после завершениястарого/проверкиочереди. Старые installers/VM creation/guards не перезапускать. Рабочую PostgreSQL/service/env/uploads/history не читать. SOURCE_SYNC=REPO_LOCAL_ONLY; Library PERSISTENCE_PENDING.

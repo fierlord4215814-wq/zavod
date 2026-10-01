@@ -1,0 +1,20 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-publication.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-publication.test.js"
+index 0531fd8b..3855fabf 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-publication.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-publication.test.js"
+@@ -95,3 +95,15 @@ for (const scenario of ['other-authorized-factory', 'revoked', 'factory-disabled
+   await assert.rejects(f.controller.acknowledge(current, f.row.id), denied); await assert.rejects(f.controller.detail(current, f.row.id), denied);
+   assert.equal(f.reads.length, 1); assert.equal(f.reads[0].id, first.id); assert.deepEqual(f.writes, before);
+ });
++for(const archive of [false,true])for(const state of ['expired','future','archived','archived-future','deleted'])test(`R3-C4 saved ACK current state ${state} archive=${archive}`,async()=>{
++ const f=fixture(archive,'current','IMPORTANT');const first=await f.controller.acknowledge(f.user,f.row.id),writes=f.writes.length,audits=f.audits.length;
++ if(state==='expired')f.row.visibleUntil=new Date(Date.now()-1000);
++ if(state.includes('future'))f.row.visibleFrom=new Date(Date.now()+86400000);
++ if(state.startsWith('archived'))f.row.archivedAt=new Date();
++ if(state==='deleted')f.row.deletedAt=new Date();
++ if(archive&&state.startsWith('archived'))assert.equal((await f.controller.acknowledge(f.user,f.row.id)).id,first.id);else await assert.rejects(f.controller.acknowledge(f.user,f.row.id),denied);
++ assert.equal(f.reads.length,1);assert.equal(f.reads[0].id,first.id);assert.equal(f.writes.length,writes);
++ // A denied replay deliberately adds a security audit, not another ACK.
++ assert.equal(f.audits.filter(row=>row.action==='ANNOUNCEMENT_ACKNOWLEDGED').length,1);
++ assert.equal(f.audits.length,audits+(archive&&state.startsWith('archived')?0:1));
++});

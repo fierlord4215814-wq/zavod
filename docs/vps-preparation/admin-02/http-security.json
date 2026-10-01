@@ -1,0 +1,155 @@
+{
+  "status": "PASS_REAL_HTTP_AUTH_GUARDS_SCOPED_PROVENANCE_AND_CONCURRENT_DECISIONS",
+  "checks": [
+    {
+      "name": "SENT_HOME_C_REQUEST_A0_DENY",
+      "status": 409,
+      "message": "У сотрудника есть действующая смена или назначение на другом заводе. Сначала завершите их на той площадке."
+    },
+    {
+      "name": "WORKER_CANNOT_MANAGE_RETURN",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "WORKER_CANNOT_SEND_HOME",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "RETURN_DISABLED",
+      "status": 409,
+      "message": "Запросы на возврат на этом заводе отключены."
+    },
+    {
+      "name": "STALE_TOKEN_revoked_REQUEST_DENY",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "MASTER_TARGET_revoked_SEND_HOME_DENY",
+      "status": 409,
+      "message": "У сотрудника нет активного доступа к этому заводу."
+    },
+    {
+      "name": "STALE_TOKEN_guest_REQUEST_DENY",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "MASTER_TARGET_guest_SEND_HOME_DENY",
+      "status": 409,
+      "message": "У сотрудника нет активного доступа к этому заводу."
+    },
+    {
+      "name": "STALE_TOKEN_blocked_REQUEST_DENY",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "MASTER_TARGET_blocked_SEND_HOME_DENY",
+      "status": 409,
+      "message": "У сотрудника нет активного доступа к этому заводу."
+    },
+    {
+      "name": "STALE_TOKEN_deleted_REQUEST_DENY",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "MASTER_TARGET_deleted_SEND_HOME_DENY",
+      "status": 409,
+      "message": "У сотрудника нет активного доступа к этому заводу."
+    },
+    {
+      "name": "SENT_HOME_C_REQUEST_A0_DENY",
+      "status": 409,
+      "message": "У сотрудника есть действующая смена или назначение на другом заводе. Сначала завершите их на той площадке."
+    },
+    {
+      "name": "WORKER_CANNOT_MANAGE_RETURN",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "WORKER_CANNOT_SEND_HOME",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "RETURN_DISABLED",
+      "status": 409,
+      "message": "Запросы на возврат на этом заводе отключены."
+    },
+    {
+      "name": "STALE_TOKEN_revoked_REQUEST_DENY",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "MASTER_TARGET_revoked_SEND_HOME_DENY",
+      "status": 409,
+      "message": "У сотрудника нет активного доступа к этому заводу."
+    },
+    {
+      "name": "STALE_TOKEN_guest_REQUEST_DENY",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "MASTER_TARGET_guest_SEND_HOME_DENY",
+      "status": 409,
+      "message": "У сотрудника нет активного доступа к этому заводу."
+    },
+    {
+      "name": "STALE_TOKEN_blocked_REQUEST_DENY",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "MASTER_TARGET_blocked_SEND_HOME_DENY",
+      "status": 409,
+      "message": "У сотрудника нет активного доступа к этому заводу."
+    },
+    {
+      "name": "STALE_TOKEN_deleted_REQUEST_DENY",
+      "status": 403,
+      "message": "Недостаточно прав для этого действия."
+    },
+    {
+      "name": "MASTER_TARGET_deleted_SEND_HOME_DENY",
+      "status": 409,
+      "message": "У сотрудника нет активного доступа к этому заводу."
+    },
+    {
+      "name": "VALID_C_REQUEST",
+      "status": 201
+    },
+    {
+      "name": "DUPLICATE_PENDING",
+      "status": 409,
+      "message": "Запрос на возврат уже ожидает решения мастера."
+    },
+    {
+      "name": "FOREIGN_REQUEST_OBJECT",
+      "status": 409,
+      "message": "Запрос уже решён или недоступен. Обновите экран."
+    }
+  ],
+  "error": "POST /admin/users/7127a898-1129-4a11-8def-ac96557c2392/factory-access => 409: Пользователь не найден",
+  "requestId": "75dc6fb5-8188-4606-bb62-296ee40662e0",
+  "httpConcurrency": {
+    "statuses": [
+      200,
+      409
+    ],
+    "row": {
+      "id": "75dc6fb5-8188-4606-bb62-296ee40662e0",
+      "status": "APPROVED",
+      "decidedById": "972b69f5-b703-43ea-97a9-c9ecb2801600",
+      "decisionComment": null
+    },
+    "auditCount": 1
+  },
+  "safeReturnList": true
+}

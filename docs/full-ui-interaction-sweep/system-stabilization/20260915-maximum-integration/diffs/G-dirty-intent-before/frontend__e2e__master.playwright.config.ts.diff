@@ -1,0 +1,13 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-dirty-intent-before\\frontend\\e2e\\master.playwright.config.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\master.playwright.config.ts"
+index 9278dfa5..d098cd16 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-dirty-intent-before\\frontend\\e2e\\master.playwright.config.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\master.playwright.config.ts"
+@@ -6,7 +6,7 @@ if (process.env.MASTER_BATCH !== '20260915-maximum-integration' || !process.env.
+ }
+ export default defineConfig({
+   testDir: '.',
+-  testMatch: ['master-integration.spec.ts', 'frontend-series.spec.ts', 'component-contracts.spec.ts', 'module-journeys.spec.ts'],
++  testMatch: ['master-integration.spec.ts', 'frontend-series.spec.ts', 'component-contracts.spec.ts', 'module-journeys.spec.ts', 'review-variants.spec.ts'],
+   timeout: 45_000,
+   expect: { timeout: 8_000 },
+   fullyParallel: false,

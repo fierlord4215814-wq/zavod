@@ -1,0 +1,46 @@
+{
+  "runs": [
+    {
+      "name": "backend-build",
+      "exit": 0
+    },
+    {
+      "name": "frontend-typecheck",
+      "exit": 0
+    },
+    {
+      "name": "chat-policy",
+      "exit": 0
+    },
+    {
+      "name": "checklists",
+      "exit": 0
+    },
+    {
+      "name": "foundation-auth",
+      "exit": 0
+    },
+    {
+      "name": "chat-ui-state",
+      "exit": 0
+    },
+    {
+      "name": "people-presence",
+      "exit": 0
+    },
+    {
+      "name": "quality-realtime",
+      "exit": 0
+    },
+    {
+      "name": "quality-consumers",
+      "exit": 0
+    },
+    {
+      "name": "frontend-build",
+      "exit": 0
+    }
+  ],
+  "status": "PASS_ALL_CHANGE_IMPACT_BUILDS_TESTS",
+  "error": "Build failed with 2 errors:\nerror: Cannot read directory \"../..\": Access is denied.\nerror: Could not resolve \"C:\\\\Users\\\\79164\\\\Documents\\\\work\\\\frontend\\\\vite.config.ts\""
+}

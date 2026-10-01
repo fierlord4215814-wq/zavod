@@ -1,0 +1,29 @@
+// Sequential LOCAL03 UI probe; only the existing owned A line and actors.
+const {assert,chromium,login,api,navigate}=require('../local-02/harness.cjs');
+const {ownPrisma,verifyOwnDb}=require('../local-02/own-db.cjs');
+const fs=require('node:fs'),path=require('node:path');
+const lineId='56359bdd-14cb-451c-9500-1e2551d1264a',name='Учебная линия А LOCAL03';
+const out=path.join(__dirname,'current-line-ui.json');
+const ev=fs.existsSync(out)?JSON.parse(fs.readFileSync(out)):{lineId,startedAt:new Date().toISOString(),steps:{}};
+const save=()=>fs.writeFileSync(out,JSON.stringify(ev,null,2));
+const dialog=(p,t)=>p.getByRole('dialog').filter({has:p.getByRole('heading',{name:t,exact:true})});
+async function main(){const db=ownPrisma(),browser=await chromium.launch({channel:'msedge',headless:true});let a,b;
+ try{await verifyOwnDb(db);a=await login(browser,'ADMIN',1440);
+ if(!ev.baseline){const detail=await api(a.page,'GET',`/admin/lines/${lineId}`),board=await api(a.page,'GET',`/lines/${lineId}/assignment-board`);assert.equal(detail.status,200);assert.equal(board.status,200);ev.baseline={detail:detail.body,board:board.body};assert.equal(detail.body.name,name);assert.equal(detail.body.status,'STOP');save();}
+ if(!ev.positionId){const r=await api(a.page,'POST',`/admin/lines/${lineId}/positions`,{name:'Упаковщик LOCAL03',displayName:'Упаковщик LOCAL03',sortOrder:0,isExtraSlot:false,doesNotAffectShortage:false,isFlexibleSkillGroup:false,reason:'Одно учебное место для ролевой приёмки LOCAL03'});assert.equal(r.status,201,JSON.stringify(r.body));ev.positionId=r.body.id;save();}
+ if(!ev.templateId){const r=await api(a.page,'POST',`/admin/staffing-control/lines/${lineId}/templates`,{name:'Учебный состав LOCAL03 — 1 место',items:[{positionId:ev.positionId,requiredCount:1,minRequired:1,defaultPlanned:1,plannedCount:1,maxRequired:1,isFlexible:false,isExtraSlot:false,doesNotAffectShortage:false,sortOrder:0}],reason:'Одно учебное место для ролевой приёмки LOCAL03'});assert.equal(r.status,201,JSON.stringify(r.body));ev.templateId=r.body.id;save();}
+ ev.boardAfterSetup=(await api(a.page,'GET',`/lines/${lineId}/assignment-board`)).body;save();
+ await a.context.close();a=await login(browser,'MASTER',1440);b=await login(browser,'CONTRACTOR_LEAD',390);
+ await navigate(a.page,'Линии');
+ if(!ev.steps.work){await a.page.getByRole('button',{name:'Запустить новую линию',exact:true}).click();await a.page.locator('.modal-backdrop').filter({has:a.page.getByRole('heading',{name:'Запустить новую линию',exact:true})}).getByRole('button',{name:new RegExp(name)}).click();const d=dialog(a.page,'Вернуть в работу');const[r]=await Promise.all([a.page.waitForResponse(r=>r.url().endsWith(`/api/lines/${lineId}/status`)&&r.request().method()==='PATCH'),d.getByRole('button',{name:'Подтвердить',exact:true}).click()]);ev.steps.work={status:r.status(),body:await r.json()};save();assert.equal(r.status(),200);await d.waitFor({state:'hidden'});}
+ if(await a.page.locator('.line-detail-backdrop').isVisible())await a.page.locator('.line-detail-backdrop').getByRole('button',{name:'Закрыть',exact:true}).click();
+ await navigate(a.page,'Смена');await navigate(b.page,'Смена');
+ const leadCard=b.page.locator('.contractor-lead-workbench article.workforce-person-card').filter({hasText:'10-14'});await leadCard.waitFor();
+ if(!ev.steps.arrival){const add=leadCard.getByRole('button',{name:'Добавить как замену',exact:true});const t=Date.now();const[r]=await Promise.all([b.page.waitForResponse(r=>r.url().includes('/api/shift/')&&['POST','PATCH'].includes(r.request().method())),(await add.isVisible()?add:leadCard.getByRole('button',{name:'Прибыл',exact:true})).click()]);ev.steps.arrival={http:r.status(),body:await r.json()};save();assert.ok([200,201].includes(r.status()));await a.page.locator('.metric-card').filter({has:a.page.getByText('Люди на смене',{exact:true})}).getByText('1',{exact:true}).waitFor({timeout:18000});ev.steps.arrival.secondUiMs=Date.now()-t;save();}
+ await b.context.close();b=await login(browser,'CONTRACTOR',390);await navigate(b.page,'Смена');
+ if(!ev.steps.assignment){await a.page.locator('.metric-card').filter({has:a.page.getByText('Люди на смене',{exact:true})}).click();const c=a.page.locator('#shift-people-panel article').filter({hasText:'10-14'});await c.getByRole('button',{name:'Назначить',exact:true}).click();await a.page.locator('.assignment-target-option.target-line').click();await a.page.locator('.current-line-picker-sheet .working-line-option').filter({hasText:name}).click();await a.page.getByTestId('person-first-slot-picker').waitFor();ev.assignmentUi=(await a.page.getByTestId('person-first-slot-picker').innerText()).slice(0,5000);save();
+ const t=Date.now();const[r]=await Promise.all([a.page.waitForResponse(r=>r.url().endsWith('/api/assignments/line')&&r.request().method()==='POST'),a.page.getByTestId('person-first-slot-picker').locator('.slot-row').filter({hasText:'Упаковщик LOCAL03'}).getByRole('button',{name:'Назначить',exact:true}).click()]);ev.steps.assignment={status:r.status(),body:await r.json()};save();assert.equal(r.status(),201);await b.page.getByText(name,{exact:true}).first().waitFor({timeout:12000});ev.steps.assignment.secondUiMs=Date.now()-t;save();}
+ ev.masterText=(await a.page.locator('body').innerText()).slice(-5500);ev.contractorText=(await b.page.locator('body').innerText()).slice(-4000);ev.status='CURRENT_ASSIGNMENT_PHASE';save();console.log(JSON.stringify(ev.steps));
+ }catch(e){ev.error=e.message;if(a){ev.errorText=(await a.page.locator('body').innerText()).slice(-6500);await a.page.screenshot({path:path.join(__dirname,'current-line-error.png')});}if(b)ev.secondText=(await b.page.locator('body').innerText()).slice(-4500);save();throw e;}
+ finally{await db.$disconnect();await browser.close();}}
+main().catch(e=>{console.error(e.stack);process.exitCode=1;});

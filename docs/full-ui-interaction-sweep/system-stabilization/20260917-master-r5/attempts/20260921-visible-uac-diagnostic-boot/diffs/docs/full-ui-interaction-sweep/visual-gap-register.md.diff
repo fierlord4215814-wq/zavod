@@ -1,0 +1,17 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260921-visible-uac-diagnostic-boot\before\docs\full-ui-interaction-sweep\visual-gap-register.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\visual-gap-register.md', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+index b98d8b70..37a6764e 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-visible-uac-diagnostic-boot\\before\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\visual-gap-register.md"
+@@ -1,8 +1,8 @@
+ # Full UI Interaction Sweep — gap register
+ 
+-## Current source layer — MASTER R5 VHDX→SSH, 21.09.2026 22:29
++## Current source layer — MASTER R5 visibleUAC/DVD guard, 21.09.2026 23:11
+ 
+-MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_DIAGNOSTIC_BOOT; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. ENV-C1 не закрыт. Новая authority разрешила один existingVHDX diagnostic boot Hyper-V→SSH; native UAC отменён22:29:35, helper не стартовал. FreshVM/config/network/DVD/firmware/boot/SSH NOT_RUN. CurrentVM UNKNOWN/lastOff16:09 исторический; oldhelper завершён/reused9056 не трогать. Codex restart подтверждён, capture retries0. Generator corrected/10hostPASS сохранён без изменений; guest/isolation0. Не новое product finding и не ошибка гостевогоSSH.036/063/014/050 иP-counts неизменны. [Текущий результат](system-stabilization/20260917-master-r5/attempts/20260921-vhdx-ssh/result.md). Нужна одна новая явно одобренная UAC-попытка; нижние restart/capture/7из10 указания исторические.
++MASTER_R5_STATUS=BLOCKED_DVD_READBACK_GUARD_NEW_UAC_REQUIRED; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED. ENV-C1 открыт: новая visibleUAC successful/helper11600 elevated; freshexactVM Off/soleVHDX/network verified. VHDX-first/SecureBoot preserved; no-media guard остановил после2DVDcmdletcalls, objectreadbackпоказалстарыеISOpaths. Actualeject/cache root UNKNOWNдоfreshCIM; candidatepreparedNOT_EXECUTED, guardнеослаблен. Boot0/SSH0/guestrepair/isolation0. Это environment/helper discrepancy, не новыйproductfinding и не доказательство поврежденияUbuntu.036/063/014/050/Pcounts прежние. [Новыйрезультат](system-stabilization/20260917-master-r5/attempts/20260921-visible-uac-diagnostic-boot/result.md). ОдинUAC использован, дополнительный требуетновогоявногосогласия; cancelledUAC22:29 нижеисторический.
+ 
+ ## Historical source layer — MASTER R5 guest recovery, 21.09.2026
+ 

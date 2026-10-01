@@ -1,0 +1,201 @@
+{
+  "status": "PASS_C_INACTIVE_USERS_BLOCKED_ALL_UFA_REVOKED_FIXTURES_RETIRED_HISTORY_RETAINED",
+  "steps": [
+    {
+      "label": "worker-block",
+      "mechanism": "UI",
+      "status": 200
+    },
+    {
+      "label": "worker-A0-revoke",
+      "mechanism": "UI",
+      "status": 200
+    },
+    {
+      "label": "worker-C-revoke",
+      "mechanism": "UI",
+      "status": 200
+    },
+    {
+      "label": "master-block",
+      "mechanism": "UI",
+      "status": 200
+    },
+    {
+      "label": "master-A0-revoke",
+      "mechanism": "UI",
+      "status": 200
+    },
+    {
+      "label": "master-C-revoke",
+      "mechanism": "UI",
+      "status": 200
+    },
+    {
+      "label": "peer-A0-revoke",
+      "mechanism": "UI",
+      "status": 200
+    },
+    {
+      "label": "staffing-deactivate",
+      "path": "/admin/lines/3b82eb16-fb07-45f9-a58c-cf00746dbbee/staffing-templates/d27576b3-cb21-412e-8825-52c35b24ddd8",
+      "status": 200,
+      "mechanism": "UI preview/confirm -> HTTP"
+    },
+    {
+      "label": "position-deactivate",
+      "path": "/admin/lines/3b82eb16-fb07-45f9-a58c-cf00746dbbee/positions/08a1a333-d92f-4c4d-8963-ba98232a2f46",
+      "status": 200,
+      "mechanism": "UI preview/confirm -> HTTP"
+    },
+    {
+      "label": "line-deactivate",
+      "path": "/admin/lines/3b82eb16-fb07-45f9-a58c-cf00746dbbee",
+      "status": 200,
+      "mechanism": "UI preview/confirm -> HTTP"
+    },
+    {
+      "label": "job-title-a51e8892-08d0-41b9-a09d-eb85af8923f6",
+      "path": "/admin/job-titles/a51e8892-08d0-41b9-a09d-eb85af8923f6",
+      "status": 200,
+      "mechanism": "UI preview/confirm -> HTTP"
+    },
+    {
+      "label": "job-title-b502b908-e77c-44cf-9ed2-3032805511b7",
+      "path": "/admin/job-titles/b502b908-e77c-44cf-9ed2-3032805511b7",
+      "status": 200,
+      "mechanism": "UI preview/confirm -> HTTP"
+    },
+    {
+      "label": "department-4c36ed1a-bff2-4984-a64f-dfeed8aec361",
+      "path": "/admin/departments/4c36ed1a-bff2-4984-a64f-dfeed8aec361/status",
+      "status": 200,
+      "mechanism": "UI preview/confirm -> HTTP"
+    },
+    {
+      "label": "department-3b57436e-01ad-4e99-904f-b56b572633cc",
+      "path": "/admin/departments/3b57436e-01ad-4e99-904f-b56b572633cc/status",
+      "status": 200,
+      "mechanism": "UI preview/confirm -> HTTP"
+    },
+    {
+      "label": "company-deactivate",
+      "path": "/admin/external-companies/bfdd8685-be5b-47d7-a397-04c742b79ebb",
+      "status": 200,
+      "mechanism": "UI preview/confirm -> HTTP"
+    },
+    {
+      "label": "factory-deactivate",
+      "path": "/admin/factories/7615c315-5c00-415b-92d6-39182af7ea0a/status",
+      "status": 200,
+      "mechanism": "UI preview/confirm -> HTTP"
+    }
+  ],
+  "historyBefore": {
+    "user": 4,
+    "assignment": 2,
+    "shiftSession": 1,
+    "task": 1,
+    "chat": 4,
+    "chatMessage": 9,
+    "announcement": 3,
+    "checklistTemplate": 3,
+    "checklistRun": 2,
+    "attachment": 8,
+    "washSession": 1,
+    "defrostEvent": 2,
+    "minimumStockItem": 1,
+    "line": 1,
+    "linePosition": 1,
+    "lineStaffingTemplate": 1,
+    "jobTitle": 2,
+    "department": 3
+  },
+  "jobDuplicateCode": 409,
+  "staleWorkerHeld": true,
+  "staleDenied": 403,
+  "auditUiRows": 20,
+  "error": "\nInvalid `p.factory.findUnique()` invocation in\nC:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\cleanup-c.cjs:20:518\n\n  17 const company='bfdd8685-be5b-47d7-a397-04c742b79ebb';if((await p.externalCompany.findUnique({where:{id:company},select:{isActive:true}})).isActive){await section(a.page,'Должности и роли');const row=a.page.locator('article.admin-row').filter({has:a.page.getByText('Подрядчик C — приёмка',{exact:true})});await perform(a.page,'company-deactivate',`/admin/external-companies/${company}`,()=>row.getByRole('button',{name:'Отключить',exact:true}).click());}\n  18 await section(a.page,'Аудит действий админки');await a.page.getByRole('heading',{name:'Аудит изменений',exact:true}).waitFor();ev.auditUiRows=await a.page.locator('.admin-list article.admin-row').count();assert(ev.auditUiRows>0);await a.page.screenshot({path:path.join(__dirname,'audit-before-c-retired.png')});\n  19 if((await p.factory.findUnique({where:{id:ids.factory},select:{isActive:true}})).isActive){await section(a.page,'Заводы');const card=a.page.locator('.factory-context-card');await card.getByRole('button',{name:'Деактивировать',exact:true}).click();const d=a.page.getByRole('dialog').last();if(await a.page.locator('#admin-confirm-text').count())await a.page.locator('#admin-confirm-text').fill('ПОДТВЕРДИТЬ');await perform(a.page,'factory-deactivate',`/admin/factories/${ids.factory}/status`,async()=>{});}\n→ 20 ev.final={factory:await p.factory.findUnique({\n       select: {\n         _count: {\n           select: {\n             _all: true\n           }\n         }\n       },\n       where: {\n         factoryId: \"7615c315-5c00-415b-92d6-39182af7ea0a\",\n         isActive: true,\n         deletedAt: null,\n         ~~~~~~~~~\n     ?   AND?: ChecklistTemplateWhereInput | ChecklistTemplateWhereInput[],\n     ?   OR?: ChecklistTemplateWhereInput[],\n     ?   NOT?: ChecklistTemplateWhereInput | ChecklistTemplateWhereInput[],\n     ?   id?: StringFilter | String,\n     ?   departmentId?: StringFilter | String,\n     ?   name?: StringFilter | String,\n     ?   description?: StringNullableFilter | String | Null,\n     ?   scope?: EnumChecklistTemplateScopeFilter | ChecklistTemplateScope,\n     ?   lineId?: StringNullableFilter | String | Null,\n     ?   assignmentRoles?: JsonNullableFilter,\n     ?   assignmentUserIds?: JsonNullableFilter,\n     ?   shiftType?: EnumShiftTypeNullableFilter | ShiftType | Null,\n     ?   frequencyRule?: StringFilter | String,\n     ?   frequencyHours?: IntNullableFilter | Int | Null,\n     ?   frequencyIntervalUnit?: StringNullableFilter | String | Null,\n     ?   frequencyIntervalValue?: IntNullableFilter | Int | Null,\n     ?   isMandatory?: BoolFilter | Boolean,\n     ?   launchRoles?: JsonNullableFilter,\n     ?   archiveRoles?: JsonNullableFilter,\n     ?   createdById?: StringFilter | String,\n     ?   createdAt?: DateTimeFilter | DateTime,\n     ?   updatedAt?: DateTimeFilter | DateTime,\n     ?   archivedAt?: DateTimeNullableFilter | DateTime | Null,\n     ?   department?: DepartmentScalarRelationFilter | DepartmentWhereInput,\n     ?   rows?: ChecklistTemplateRowListRelationFilter,\n     ?   runs?: ChecklistRunListRelationFilter\n       }\n     })\n\nUnknown argument `deletedAt`. Available options are marked with ?.",
+  "ui": "Завод\n\nВход, первый запуск и выбор завода\n\nТелефон\nПароль\nВойти\n\nЕсли администратор выдал временный код, введите его в поле пароля. Код одноразовый и имеет ограниченный срок действия.\n\nРегистрация\nУстановить приложение\nВыберите рабочий завод\n\nПоказаны только заводы, к которым вам назначен доступ.\n\nВыбрать завод\nВыберите завод\n\nВыберите завод, в котором будете работать сейчас.\n\nНазад\nЧистый завод LOCAL-03 final C0\nАдминистратор\n›",
+  "final": {
+    "factory": {
+      "id": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "code": "admin01-c",
+      "isActive": false,
+      "deletedAt": null
+    },
+    "users": [
+      {
+        "id": "ef149f06-99ba-4811-9511-909f832c0794",
+        "blockedAt": "2026-09-26T14:43:07.675Z",
+        "factoryAccess": [
+          {
+            "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+            "isActive": false
+          },
+          {
+            "factoryId": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca",
+            "isActive": false
+          }
+        ]
+      },
+      {
+        "id": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+        "blockedAt": "2026-09-26T16:26:33.765Z",
+        "factoryAccess": [
+          {
+            "factoryId": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca",
+            "isActive": false
+          },
+          {
+            "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+            "isActive": false
+          }
+        ]
+      },
+      {
+        "id": "601fb913-9de5-4e89-8319-387a8045b54b",
+        "blockedAt": "2026-09-26T16:26:39.647Z",
+        "factoryAccess": [
+          {
+            "factoryId": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca",
+            "isActive": false
+          },
+          {
+            "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+            "isActive": false
+          }
+        ]
+      }
+    ],
+    "activeAssignments": 0,
+    "activeSessions": 0,
+    "activeTemplates": 0,
+    "activeLines": 0,
+    "activeDepartments": 0,
+    "activeJobs": 0,
+    "activeGroups": 0
+  },
+  "historyAfter": {
+    "user": 4,
+    "assignment": 2,
+    "shiftSession": 1,
+    "task": 1,
+    "chat": 4,
+    "chatMessage": 9,
+    "announcement": 3,
+    "checklistTemplate": 3,
+    "checklistRun": 2,
+    "attachment": 8,
+    "washSession": 1,
+    "defrostEvent": 2,
+    "minimumStockItem": 1,
+    "line": 1,
+    "linePosition": 1,
+    "lineStaffingTemplate": 1,
+    "jobTitle": 2,
+    "department": 3
+  },
+  "readbackAt": "2026-09-26T16:31:26.038Z",
+  "harnessNote": "Final UI deactivation committed. A subsequent read-only count used deletedAt instead of ChecklistTemplate.archivedAt; corrected readback only, no reactivation or mutation."
+}

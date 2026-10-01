@@ -1,0 +1,677 @@
+{
+  "status": "PASS_ADMIN_UI_STRUCTURE_HIERARCHY_4_LINES_12_POSITIONS",
+  "departments": {
+    "mechanics": {
+      "id": "9aba6e08-18c6-49fc-9912-1fcd4896fc89",
+      "name": "УЧ — Механики",
+      "code": "mechanics",
+      "scope": "GLOBAL",
+      "factoryId": null
+    },
+    "electric": {
+      "id": "faa32c69-e185-4969-a545-ba884986045f",
+      "name": "УЧ — Электрики",
+      "code": "electric",
+      "scope": "GLOBAL",
+      "factoryId": null
+    },
+    "holod": {
+      "id": "f4ef96b0-ba3c-48fd-8e5c-59634b02b4f8",
+      "name": "УЧ — Холодильная служба",
+      "code": "holod",
+      "scope": "GLOBAL",
+      "factoryId": null
+    },
+    "kipia": {
+      "id": "b6f3bd41-6820-4137-a28d-c4335f245751",
+      "name": "УЧ — КИПиА",
+      "code": "kipia",
+      "scope": "GLOBAL",
+      "factoryId": null
+    },
+    "santechnik": {
+      "id": "6cdab967-9071-47cc-ab50-29d8a22b34fb",
+      "name": "УЧ — Сантехники",
+      "code": "santechnik",
+      "scope": "GLOBAL",
+      "factoryId": null
+    },
+    "technolog": {
+      "id": "78218e97-dc2e-4c5e-ac34-61bec98713bd",
+      "name": "УЧ — Технологи",
+      "code": "technolog",
+      "scope": "GLOBAL",
+      "factoryId": null
+    },
+    "other": {
+      "id": "8d971982-067d-4610-bdfe-ac8b8c82fad8",
+      "name": "УЧ — Другие службы",
+      "code": "service-other",
+      "scope": "GLOBAL",
+      "factoryId": null
+    },
+    "production": {
+      "id": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+      "name": "УЧ — Производство T1",
+      "scope": "LOCAL",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+    },
+    "okk": {
+      "id": "1058716d-7e90-4f87-ad02-dfecf13ec8db",
+      "name": "УЧ — ОКК T1",
+      "scope": "LOCAL",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+    },
+    "store": {
+      "id": "edd9b576-9fe7-408a-8992-7ee57ea5d0d5",
+      "name": "УЧ — Склад T1",
+      "scope": "LOCAL",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+    },
+    "management": {
+      "id": "75c6a132-651c-4d98-8505-0ce4380c0470",
+      "name": "УЧ — Руководство T1",
+      "scope": "LOCAL",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+    }
+  },
+  "jobs": {
+    "management": {
+      "id": "18f8805b-715b-4afe-9275-b72c53676804",
+      "name": "Учебный — Руководитель производства",
+      "role": "MANAGEMENT",
+      "department": "management",
+      "parent": null
+    },
+    "master": {
+      "id": "5685bc9c-fabb-4082-8782-62d8087163a7",
+      "name": "Учебный — Мастер смены",
+      "role": "MASTER",
+      "department": "production",
+      "parent": null
+    },
+    "senior": {
+      "id": "4cc67475-46a1-4b7f-a52f-526913452731",
+      "name": "Учебный — Старший работник",
+      "role": "WORKER",
+      "department": "production",
+      "parent": "master"
+    },
+    "worker": {
+      "id": "e5e95e45-8421-4c89-9375-15a58f3c84e3",
+      "name": "Учебный — Работник производства",
+      "role": "WORKER",
+      "department": "production",
+      "parent": "senior"
+    },
+    "technolog": {
+      "id": "2d9c7157-ec75-44a4-9bfd-41dcaaa1e112",
+      "name": "Учебный — Технолог",
+      "role": "TECHNOLOG",
+      "department": "technolog",
+      "parent": null
+    },
+    "okk": {
+      "id": "bde2c3be-6d57-4e39-908f-d7df4a6dfd32",
+      "name": "Учебный — Специалист ОКК",
+      "role": "OKK",
+      "department": "okk",
+      "parent": null
+    },
+    "store": {
+      "id": "c7eef2a7-34cf-4330-99aa-f82b177b0743",
+      "name": "Учебный — Кладовщик",
+      "role": "STORE",
+      "department": "store",
+      "parent": null
+    },
+    "mechanics": {
+      "id": "d857c307-ba8b-4061-bb81-4311dd6268d6",
+      "name": "Учебный — Механик",
+      "role": "TECH_MECHANIC",
+      "department": "mechanics",
+      "parent": null
+    },
+    "electric": {
+      "id": "e04d65ed-6e6c-4d92-8830-be838edc7f67",
+      "name": "Учебный — Электрик",
+      "role": "TECH_ELECTRIC",
+      "department": "electric",
+      "parent": null
+    },
+    "holod": {
+      "id": "18afde5e-303b-4b05-9695-5bab021bd1a6",
+      "name": "Учебный — Специалист холодильной службы",
+      "role": "TECH_HOLOD",
+      "department": "holod",
+      "parent": null
+    },
+    "kipia": {
+      "id": "f596434b-8d7f-4c3c-a937-95451b7de118",
+      "name": "Учебный — Специалист КИПиА",
+      "role": "TECH_KIPIA",
+      "department": "kipia",
+      "parent": null
+    },
+    "santechnik": {
+      "id": "bd194261-5dda-4a03-8522-5f28396f8276",
+      "name": "Учебный — Сантехник",
+      "role": "TECH_SANTECHNIK",
+      "department": "santechnik",
+      "parent": null
+    },
+    "lead": {
+      "id": "9bbc544e-92ec-476e-a6c9-c16d9067c358",
+      "name": "Учебный — Старший подрядчика",
+      "role": "CONTRACTOR_LEAD",
+      "department": null,
+      "parent": null
+    },
+    "contractor": {
+      "id": "2db48842-4a0c-444a-a238-e1060746f54b",
+      "name": "Учебный — Наёмный работник",
+      "role": "CONTRACTOR",
+      "department": null,
+      "parent": null
+    },
+    "other": {
+      "id": "420f41e3-2fa5-4085-b87d-2eee50727c1c",
+      "name": "Учебный — Другой специалист",
+      "role": "OTHER",
+      "department": "other",
+      "parent": null
+    }
+  },
+  "lines": [
+    {
+      "id": "9125a431-9d33-47d2-8763-08889bc2ab52",
+      "number": 1,
+      "name": "УЧ-Линия 1",
+      "positions": [
+        {
+          "id": "d2cf7010-6645-4e3b-bf33-8cc78596dcfe",
+          "name": "УЧ-Позиция 1.1",
+          "number": 1,
+          "skillCode": "t1_line1_position1"
+        },
+        {
+          "id": "b078d27d-4efc-47f5-99e6-f5cd8a4e2e78",
+          "name": "УЧ-Позиция 1.2",
+          "number": 2,
+          "skillCode": "t1_line1_position2"
+        },
+        {
+          "id": "1c9601f4-67b4-4c42-a9bc-51a68e7f8ff5",
+          "name": "УЧ-Позиция 1.3",
+          "number": 3,
+          "skillCode": "t1_line1_position3"
+        }
+      ],
+      "template": "4de4d56e-d8a5-4f6b-a9aa-8ca8a4dd7593"
+    },
+    {
+      "id": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+      "number": 2,
+      "name": "УЧ-Линия 2",
+      "positions": [
+        {
+          "id": "9e692458-1d60-416e-8f1e-801d291e66ff",
+          "name": "УЧ-Позиция 2.1",
+          "number": 1,
+          "skillCode": "t1_line2_position1"
+        },
+        {
+          "id": "c9f947c9-3674-4552-9bb4-bde2535a8436",
+          "name": "УЧ-Позиция 2.2",
+          "number": 2,
+          "skillCode": "t1_line2_position2"
+        },
+        {
+          "id": "3ec61c76-43dc-482f-ba16-9d1ee5e2973b",
+          "name": "УЧ-Позиция 2.3",
+          "number": 3,
+          "skillCode": "t1_line2_position3"
+        }
+      ],
+      "template": "c0b202d7-6117-49dd-9634-a182374df3e2"
+    },
+    {
+      "id": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+      "number": 3,
+      "name": "УЧ-Линия 3",
+      "positions": [
+        {
+          "id": "7dd4ab34-12ca-4305-90a5-8abe2e5b1869",
+          "name": "УЧ-Позиция 3.1",
+          "number": 1,
+          "skillCode": "t1_line3_position1"
+        },
+        {
+          "id": "974798bb-b399-4464-b118-b8e3d6bdc33a",
+          "name": "УЧ-Позиция 3.2",
+          "number": 2,
+          "skillCode": "t1_line3_position2"
+        },
+        {
+          "id": "d4940b70-284d-45bf-a2d8-f55c5d613ba5",
+          "name": "УЧ-Позиция 3.3",
+          "number": 3,
+          "skillCode": "t1_line3_position3"
+        }
+      ],
+      "template": "cdb6d321-7863-4ceb-82fa-db584a6ad1dd"
+    },
+    {
+      "id": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+      "number": 4,
+      "name": "УЧ-Линия 4",
+      "positions": [
+        {
+          "id": "d47e178c-bac9-434d-a60b-19fb2875d893",
+          "name": "УЧ-Позиция 4.1",
+          "number": 1,
+          "skillCode": "t1_line4_position1"
+        },
+        {
+          "id": "4f024836-b12a-4ca6-9a8a-3d2870af5ca1",
+          "name": "УЧ-Позиция 4.2",
+          "number": 2,
+          "skillCode": "t1_line4_position2"
+        },
+        {
+          "id": "6ec221c3-e5dd-4ad8-b4ef-900ee3feeb00",
+          "name": "УЧ-Позиция 4.3",
+          "number": 3,
+          "skillCode": "t1_line4_position3"
+        }
+      ],
+      "template": "8737ae71-bb51-4ba5-a7c5-008ada02c8f0"
+    }
+  ],
+  "steps": [
+    {
+      "key": "create-T1",
+      "method": "POST",
+      "path": "/admin/factories/setup/create",
+      "status": 201,
+      "at": "2026-09-26T19:45:51.956Z"
+    },
+    {
+      "key": "global-mechanics",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:39.093Z"
+    },
+    {
+      "key": "global-electric",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:39.745Z"
+    },
+    {
+      "key": "global-holod",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:40.210Z"
+    },
+    {
+      "key": "global-kipia",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:40.871Z"
+    },
+    {
+      "key": "global-santechnik",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:41.322Z"
+    },
+    {
+      "key": "global-technolog",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:42.011Z"
+    },
+    {
+      "key": "global-other",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:42.459Z"
+    },
+    {
+      "key": "department-production",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:43.135Z"
+    },
+    {
+      "key": "department-okk",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:43.589Z"
+    },
+    {
+      "key": "department-store",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:44.271Z"
+    },
+    {
+      "key": "department-management",
+      "method": "POST",
+      "path": "/admin/departments",
+      "status": 201,
+      "at": "2026-09-26T19:46:44.723Z"
+    },
+    {
+      "key": "job-management",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:45.470Z"
+    },
+    {
+      "key": "job-master",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:46.123Z"
+    },
+    {
+      "key": "job-senior",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:46.592Z"
+    },
+    {
+      "key": "job-worker",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:47.194Z"
+    },
+    {
+      "key": "job-technolog",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:47.857Z"
+    },
+    {
+      "key": "job-okk",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:48.339Z"
+    },
+    {
+      "key": "job-store",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:48.909Z"
+    },
+    {
+      "key": "job-mechanics",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:49.589Z"
+    },
+    {
+      "key": "job-electric",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:50.058Z"
+    },
+    {
+      "key": "job-holod",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:50.745Z"
+    },
+    {
+      "key": "job-kipia",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:51.210Z"
+    },
+    {
+      "key": "job-santechnik",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:51.877Z"
+    },
+    {
+      "key": "job-lead",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:52.376Z"
+    },
+    {
+      "key": "job-contractor",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:53.028Z"
+    },
+    {
+      "key": "job-other",
+      "method": "POST",
+      "path": "/admin/job-titles",
+      "status": 201,
+      "at": "2026-09-26T19:46:53.506Z"
+    },
+    {
+      "key": "company",
+      "method": "POST",
+      "path": "/admin/external-companies",
+      "status": 201,
+      "at": "2026-09-26T19:46:53.974Z"
+    },
+    {
+      "key": "line-1",
+      "method": "POST",
+      "path": "/admin/lines",
+      "status": 201,
+      "at": "2026-09-26T19:46:54.694Z"
+    },
+    {
+      "key": "position-1-1",
+      "method": "POST",
+      "path": "/admin/lines/9125a431-9d33-47d2-8763-08889bc2ab52/positions",
+      "status": 201,
+      "at": "2026-09-26T19:46:55.406Z"
+    },
+    {
+      "key": "position-1-2",
+      "method": "POST",
+      "path": "/admin/lines/9125a431-9d33-47d2-8763-08889bc2ab52/positions",
+      "status": 201,
+      "at": "2026-09-26T19:46:56.061Z"
+    },
+    {
+      "key": "position-1-3",
+      "method": "POST",
+      "path": "/admin/lines/9125a431-9d33-47d2-8763-08889bc2ab52/positions",
+      "status": 201,
+      "at": "2026-09-26T19:46:56.737Z"
+    },
+    {
+      "key": "staffing-1",
+      "method": "POST",
+      "path": "/admin/staffing-control/lines/9125a431-9d33-47d2-8763-08889bc2ab52/templates",
+      "status": 201,
+      "at": "2026-09-26T19:46:57.690Z"
+    },
+    {
+      "key": "line-2",
+      "method": "POST",
+      "path": "/admin/lines",
+      "status": 201,
+      "at": "2026-09-26T19:46:58.387Z"
+    },
+    {
+      "key": "position-2-1",
+      "method": "POST",
+      "path": "/admin/lines/40ce951f-bf4e-4692-b5a1-7334001b0a08/positions",
+      "status": 201,
+      "at": "2026-09-26T19:46:59.070Z"
+    },
+    {
+      "key": "position-2-2",
+      "method": "POST",
+      "path": "/admin/lines/40ce951f-bf4e-4692-b5a1-7334001b0a08/positions",
+      "status": 201,
+      "at": "2026-09-26T19:46:59.727Z"
+    },
+    {
+      "key": "position-2-3",
+      "method": "POST",
+      "path": "/admin/lines/40ce951f-bf4e-4692-b5a1-7334001b0a08/positions",
+      "status": 201,
+      "at": "2026-09-26T19:47:00.212Z"
+    },
+    {
+      "key": "staffing-2",
+      "method": "POST",
+      "path": "/admin/staffing-control/lines/40ce951f-bf4e-4692-b5a1-7334001b0a08/templates",
+      "status": 201,
+      "at": "2026-09-26T19:47:01.192Z"
+    },
+    {
+      "key": "line-3",
+      "method": "POST",
+      "path": "/admin/lines",
+      "status": 201,
+      "at": "2026-09-26T19:47:01.850Z"
+    },
+    {
+      "key": "position-3-1",
+      "method": "POST",
+      "path": "/admin/lines/ea1dc28d-75c4-4a86-8823-2746f738ad6f/positions",
+      "status": 201,
+      "at": "2026-09-26T19:47:02.560Z"
+    },
+    {
+      "key": "position-3-2",
+      "method": "POST",
+      "path": "/admin/lines/ea1dc28d-75c4-4a86-8823-2746f738ad6f/positions",
+      "status": 201,
+      "at": "2026-09-26T19:47:03.218Z"
+    },
+    {
+      "key": "position-3-3",
+      "method": "POST",
+      "path": "/admin/lines/ea1dc28d-75c4-4a86-8823-2746f738ad6f/positions",
+      "status": 201,
+      "at": "2026-09-26T19:47:03.675Z"
+    },
+    {
+      "key": "staffing-3",
+      "method": "POST",
+      "path": "/admin/staffing-control/lines/ea1dc28d-75c4-4a86-8823-2746f738ad6f/templates",
+      "status": 201,
+      "at": "2026-09-26T19:47:04.586Z"
+    },
+    {
+      "key": "line-4",
+      "method": "POST",
+      "path": "/admin/lines",
+      "status": 201,
+      "at": "2026-09-26T19:47:05.274Z"
+    },
+    {
+      "key": "position-4-1",
+      "method": "POST",
+      "path": "/admin/lines/9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a/positions",
+      "status": 201,
+      "at": "2026-09-26T19:47:05.952Z"
+    },
+    {
+      "key": "position-4-2",
+      "method": "POST",
+      "path": "/admin/lines/9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a/positions",
+      "status": 201,
+      "at": "2026-09-26T19:47:06.640Z"
+    },
+    {
+      "key": "position-4-3",
+      "method": "POST",
+      "path": "/admin/lines/9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a/positions",
+      "status": 201,
+      "at": "2026-09-26T19:47:07.106Z"
+    },
+    {
+      "key": "staffing-4",
+      "method": "POST",
+      "path": "/admin/staffing-control/lines/9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a/templates",
+      "status": 201,
+      "at": "2026-09-26T19:47:08.124Z"
+    }
+  ],
+  "factory": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+  "previousErrors": [
+    "Canonical shared service absent:mechanics"
+  ],
+  "company": "305d0d81-4d41-49ba-bcf9-1a757b4c4779",
+  "cycleDenials": [
+    {
+      "parentJobTitleId": "5685bc9c-fabb-4082-8782-62d8087163a7",
+      "status": 409
+    },
+    {
+      "parentJobTitleId": "e5e95e45-8421-4c89-9375-15a58f3c84e3",
+      "status": 409
+    }
+  ],
+  "sql": {
+    "factory": {
+      "id": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "name": "УЧЕБНЫЙ ЗАВОД T1",
+      "code": "test-factory-t1",
+      "isActive": true
+    },
+    "departments": 11,
+    "jobs": 15,
+    "lines": [
+      {
+        "id": "9125a431-9d33-47d2-8763-08889bc2ab52",
+        "name": "УЧ-Линия 1",
+        "defaultStaffingTemplateId": "4de4d56e-d8a5-4f6b-a9aa-8ca8a4dd7593"
+      },
+      {
+        "id": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "name": "УЧ-Линия 2",
+        "defaultStaffingTemplateId": "c0b202d7-6117-49dd-9634-a182374df3e2"
+      },
+      {
+        "id": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+        "name": "УЧ-Линия 3",
+        "defaultStaffingTemplateId": "cdb6d321-7863-4ceb-82fa-db584a6ad1dd"
+      },
+      {
+        "id": "9583a871-2cbf-4ae4-b47b-f0ef01ffbb9a",
+        "name": "УЧ-Линия 4",
+        "defaultStaffingTemplateId": "8737ae71-bb51-4ba5-a7c5-008ada02c8f0"
+      }
+    ],
+    "positions": 12
+  }
+}

@@ -1,0 +1,405 @@
+{
+  "status": "PASS_A_B_C_AND_PARTIAL_FANOUT_REAL_SQL_HTTP",
+  "cases": [
+    {
+      "label": "A_before_task_insert",
+      "barrier": "Task",
+      "waiterPid": 18468,
+      "phase": "INSERT",
+      "relations": [
+        {
+          "relname": "ProcessedOperation",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowExclusiveLock",
+          "granted": false
+        }
+      ],
+      "independentTaskVisibleBeforeCancel": false,
+      "firstHttp": 500,
+      "rolledBack": {
+        "tasks": [],
+        "processed": [],
+        "history": [],
+        "audit": [],
+        "notifications": []
+      },
+      "retryHttp": 201,
+      "saved": {
+        "tasks": [
+          {
+            "id": "3e9cb81c-ed52-4c0a-ad28-389d95f7cf96",
+            "status": "NEW",
+            "operationId": "task-notify-01-A_before_task_insert"
+          }
+        ],
+        "processed": [
+          {
+            "id": "9a474271-ba75-4e4b-acc3-c388d4b6beaa",
+            "resultKey": "3e9cb81c-ed52-4c0a-ad28-389d95f7cf96"
+          }
+        ],
+        "history": [
+          {
+            "id": "c66c02e3-dcb4-48fa-b01b-046a28c8af46",
+            "taskId": "3e9cb81c-ed52-4c0a-ad28-389d95f7cf96",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "aa6f9cde-75fc-47da-a0be-e70556e5bacc",
+            "entityId": "3e9cb81c-ed52-4c0a-ad28-389d95f7cf96",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "5e420cc8-ec46-46ed-ae38-862e1dde33ef",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "3e9cb81c-ed52-4c0a-ad28-389d95f7cf96",
+            "createdAt": "2026-09-26T23:10:06.515Z"
+          }
+        ]
+      },
+      "stableReplay": true,
+      "partialRowsBeforeCancel": null,
+      "secondUi": "API/SQL case; normal two-page proof separate"
+    },
+    {
+      "label": "B_after_task_before_processed",
+      "barrier": "ProcessedOperation",
+      "waiterPid": 22592,
+      "phase": "INSERT",
+      "relations": [
+        {
+          "relname": "ProcessedOperation",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "RowExclusiveLock",
+          "granted": false
+        },
+        {
+          "relname": "Task",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowShareLock",
+          "granted": true
+        }
+      ],
+      "independentTaskVisibleBeforeCancel": false,
+      "firstHttp": 500,
+      "rolledBack": {
+        "tasks": [],
+        "processed": [],
+        "history": [],
+        "audit": [],
+        "notifications": []
+      },
+      "retryHttp": 201,
+      "saved": {
+        "tasks": [
+          {
+            "id": "364c6e5d-078f-401c-b19b-8aef75c263c2",
+            "status": "NEW",
+            "operationId": "task-notify-01-B_after_task_before_processed"
+          }
+        ],
+        "processed": [
+          {
+            "id": "5e8c74d5-a87b-4074-8e54-18f4cb9b2ad4",
+            "resultKey": "364c6e5d-078f-401c-b19b-8aef75c263c2"
+          }
+        ],
+        "history": [
+          {
+            "id": "f2519346-d396-4bb1-98c4-c2f54861e84a",
+            "taskId": "364c6e5d-078f-401c-b19b-8aef75c263c2",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "5a9d632f-7617-4304-882f-b3d710817d0b",
+            "entityId": "364c6e5d-078f-401c-b19b-8aef75c263c2",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "66d867cf-a58f-4a2c-8b5f-09c35e5d06eb",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "364c6e5d-078f-401c-b19b-8aef75c263c2",
+            "createdAt": "2026-09-26T23:10:06.866Z"
+          }
+        ]
+      },
+      "stableReplay": true,
+      "partialRowsBeforeCancel": null,
+      "secondUi": "API/SQL case; normal two-page proof separate"
+    },
+    {
+      "label": "C_same_notification_fault",
+      "barrier": "Notification",
+      "waiterPid": 24564,
+      "phase": "SELECT",
+      "relations": [
+        {
+          "relname": "AuditLog",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Notification",
+          "mode": "AccessShareLock",
+          "granted": false
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowShareLock",
+          "granted": true
+        },
+        {
+          "relname": "TaskHistory",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        }
+      ],
+      "independentTaskVisibleBeforeCancel": false,
+      "firstHttp": 500,
+      "rolledBack": {
+        "tasks": [],
+        "processed": [],
+        "history": [],
+        "audit": [],
+        "notifications": []
+      },
+      "retryHttp": 201,
+      "saved": {
+        "tasks": [
+          {
+            "id": "e6eeda10-1992-49a0-b160-369f5d4bbc90",
+            "status": "NEW",
+            "operationId": "task-notify-01-C_same_notification_fault"
+          }
+        ],
+        "processed": [
+          {
+            "id": "c50f604e-6e6c-4690-ab54-c8a9d6334a28",
+            "resultKey": "e6eeda10-1992-49a0-b160-369f5d4bbc90"
+          }
+        ],
+        "history": [
+          {
+            "id": "b5435549-f35d-47b0-916b-040db3695227",
+            "taskId": "e6eeda10-1992-49a0-b160-369f5d4bbc90",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "cbb4bf30-9230-480f-89d0-6528e0f94367",
+            "entityId": "e6eeda10-1992-49a0-b160-369f5d4bbc90",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "236da01a-9d8d-4bdc-8cd6-bc7273ab153d",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "e6eeda10-1992-49a0-b160-369f5d4bbc90",
+            "createdAt": "2026-09-26T23:10:07.114Z"
+          }
+        ]
+      },
+      "stableReplay": true,
+      "partialRowsBeforeCancel": null,
+      "secondUi": "API/SQL case; normal two-page proof separate"
+    },
+    {
+      "label": "C_partial_fanout_two_inserted",
+      "barrier": "AFTER INSERT count=2 advisory barrier",
+      "waiterPid": 14508,
+      "phase": "INSERT",
+      "relations": [
+        {
+          "relname": "AuditLog",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Notification",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Notification",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "ProcessedOperation",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "AccessShareLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        },
+        {
+          "relname": "Task",
+          "mode": "RowShareLock",
+          "granted": true
+        },
+        {
+          "relname": "TaskHistory",
+          "mode": "RowExclusiveLock",
+          "granted": true
+        }
+      ],
+      "independentTaskVisibleBeforeCancel": false,
+      "firstHttp": 500,
+      "rolledBack": {
+        "tasks": [],
+        "processed": [],
+        "history": [],
+        "audit": [],
+        "notifications": []
+      },
+      "retryHttp": 201,
+      "saved": {
+        "tasks": [
+          {
+            "id": "bf9c4bbe-719d-4fd2-ba6c-3f752a421fda",
+            "status": "NEW",
+            "operationId": "task-notify-01-C_partial_fanout_two_inserted"
+          }
+        ],
+        "processed": [
+          {
+            "id": "b7b89642-356b-4a02-8271-3fabd0a6c6e6",
+            "resultKey": "bf9c4bbe-719d-4fd2-ba6c-3f752a421fda"
+          }
+        ],
+        "history": [
+          {
+            "id": "e076742e-b2f7-43a2-b8ab-ba07a177b376",
+            "taskId": "bf9c4bbe-719d-4fd2-ba6c-3f752a421fda",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "audit": [
+          {
+            "id": "b4eea223-5685-48a7-b3e4-f8b1a81bad4b",
+            "entityId": "bf9c4bbe-719d-4fd2-ba6c-3f752a421fda",
+            "action": "TASK_CREATED"
+          }
+        ],
+        "notifications": [
+          {
+            "id": "04d1531f-936a-42cb-aa01-064158d0baf3",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "bf9c4bbe-719d-4fd2-ba6c-3f752a421fda",
+            "createdAt": "2026-09-26T23:10:07.432Z"
+          },
+          {
+            "id": "0e8ebdf9-2452-46a0-a988-88db938beb9b",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "bf9c4bbe-719d-4fd2-ba6c-3f752a421fda",
+            "createdAt": "2026-09-26T23:10:07.434Z"
+          },
+          {
+            "id": "0f5a95af-a720-4730-96ef-fc14b54030c0",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+            "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+            "type": "TASK_CREATED",
+            "entityId": "bf9c4bbe-719d-4fd2-ba6c-3f752a421fda",
+            "createdAt": "2026-09-26T23:10:07.442Z"
+          },
+          {
+            "id": "89044665-5719-4e9f-8e56-5f5e0840f109",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "3f146f43-f72b-4851-9760-0de60e0791ba",
+            "departmentId": null,
+            "type": "TASK_CREATED",
+            "entityId": "bf9c4bbe-719d-4fd2-ba6c-3f752a421fda",
+            "createdAt": "2026-09-26T23:10:07.430Z"
+          },
+          {
+            "id": "a5814d63-2151-44fe-bd0e-690f5667d54d",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+            "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+            "type": "TASK_CREATED",
+            "entityId": "bf9c4bbe-719d-4fd2-ba6c-3f752a421fda",
+            "createdAt": "2026-09-26T23:10:07.440Z"
+          }
+        ]
+      },
+      "stableReplay": true,
+      "partialRowsBeforeCancel": 2,
+      "secondUi": "API/SQL case; normal two-page proof separate"
+    }
+  ]
+}

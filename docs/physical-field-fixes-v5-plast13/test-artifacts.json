@@ -1,0 +1,161 @@
+{
+  "marker": "__PFFV5_P13_1787614567776-10314c__",
+  "runId": "1787614567776-10314c",
+  "startedAt": "2026-08-24T23:36:07.776Z",
+  "status": "PASS",
+  "before": {
+    "emptyActual": 1,
+    "populatedActual": 2,
+    "emptyNightPlan": 0,
+    "populatedNightPlan": 2
+  },
+  "r1": {
+    "screens": [
+      {
+        "screen": "Смена",
+        "viewport": "390x844",
+        "x": 195,
+        "y": 633,
+        "maxScroll": 2775,
+        "before": 0,
+        "after": 195
+      },
+      {
+        "screen": "Смена",
+        "viewport": "360x800",
+        "x": 180,
+        "y": 600,
+        "maxScroll": 2949,
+        "before": 0,
+        "after": 195
+      },
+      {
+        "screen": "Смена",
+        "viewport": "430x900",
+        "x": 215,
+        "y": 675,
+        "maxScroll": 2691,
+        "before": 0,
+        "after": 195
+      },
+      {
+        "screen": "Shift",
+        "viewport": "390x844",
+        "postCleanup": true,
+        "x": 195,
+        "y": 633,
+        "maxScroll": 2981,
+        "before": 0,
+        "after": 195
+      },
+      {
+        "screen": "Checklists",
+        "viewport": "390x844",
+        "postCleanup": true,
+        "x": 195,
+        "y": 633,
+        "maxScroll": 1744,
+        "before": 0,
+        "after": 195
+      },
+      {
+        "screen": "Ops",
+        "viewport": "390x844",
+        "postCleanup": true,
+        "x": 195,
+        "y": 633,
+        "maxScroll": 4996,
+        "before": 0,
+        "after": 317
+      },
+      {
+        "screen": "Admin",
+        "viewport": "390x844",
+        "postCleanup": true,
+        "x": 195,
+        "y": 633,
+        "maxScroll": 3105,
+        "before": 0,
+        "after": 195
+      }
+    ],
+    "nestedSheet": {
+      "x": 195,
+      "y": 701.4125,
+      "maxScroll": 393,
+      "before": 0,
+      "after": 294
+    }
+  },
+  "r2": {
+    "optionCount": 11,
+    "unauthorizedHidden": true,
+    "unauthorizedContextDowngradedToGuest": true,
+    "unauthorizedOperationalApiDenied": 403,
+    "selectedFactoryMatchesAllowedOption": true,
+    "androidBackClosesTopLayer": true,
+    "keyboardSafe": true,
+    "viewports": [
+      "360x800",
+      "390x844",
+      "430x900"
+    ]
+  },
+  "r3": {
+    "boundaryResult": {
+      "shiftDate": "2026-08-13",
+      "shiftType": "NIGHT",
+      "factoryCount": 1,
+      "assignmentsClosed": 3,
+      "sessionsClosed": 3,
+      "planned": 2,
+      "activated": 2,
+      "alreadyHandled": 0,
+      "skipped": 0
+    },
+    "emptyActual": 0,
+    "populatedActualCount": 2,
+    "populatedSlots": [
+      1,
+      2
+    ],
+    "unplannedCarryoverCount": 0,
+    "exactExpectedPeople": true,
+    "exactBoundaryStart": true,
+    "continuationVisibleAt2001": true
+  },
+  "cleanup": {
+    "inventory": {
+      "factories": 0,
+      "lines": 0,
+      "accesses": 0,
+      "assignments": 0,
+      "plannedAssignments": 0,
+      "sessions": 0,
+      "shiftPlans": 0
+    },
+    "physicalDeletes": 0,
+    "factory4Unchanged": true
+  },
+  "postCleanup": {
+    "factory4Login": true,
+    "shift": true,
+    "linesReadModel": 200,
+    "personFirstReadModel": 200,
+    "slotFirstReadModel": 200,
+    "androidBack": true,
+    "realtimeOnline": true,
+    "markerFactoriesVisible": 0
+  },
+  "screenshots": [
+    "01-factory-picker-modal-390.png",
+    "02-one-finger-long-screen-390.png",
+    "03-empty-boundary-0-of-2.png",
+    "05-continuation-indicator.png",
+    "04-populated-boundary-exact-people.png"
+  ],
+  "factory4HashBefore": "c7b56456d2c0e3bfa0a9fb45c5d46e57ddfdde59d209ae7a34feaeeb3697c934",
+  "factory4HashAfter": "c7b56456d2c0e3bfa0a9fb45c5d46e57ddfdde59d209ae7a34feaeeb3697c934",
+  "physicalDeletes": 0,
+  "migration": "NOT_REQUIRED"
+}

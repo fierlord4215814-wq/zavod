@@ -1,0 +1,22 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\ChatsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChatsScreen.tsx"
+index 28930aa7..0e68bbae 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\ChatsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChatsScreen.tsx"
+@@ -1142,7 +1142,7 @@ export function ChatsScreen() {
+   };
+ 
+   let previousDay = '';
+-  let previousAuthor = '';
++  let previousAuthor: string | null | undefined = '';
+   let previousCreatedAt = 0;
+ 
+   return (
+@@ -1300,7 +1300,7 @@ export function ChatsScreen() {
+                       {showDay ? <div className="messenger-date-divider">{currentDay}</div> : null}
+                       <article
+                         className={`chat-message messenger-message ${isOwn ? 'own' : ''} ${showAuthor ? '' : 'grouped'} ${message.kind === 'SYSTEM' ? 'system' : ''}`}
+-                        data-participant-accent={!isOwn && message.kind !== 'SYSTEM' ? participantAccent(selected.id, message.authorId) : undefined}
++                        data-participant-accent={!isOwn && message.kind !== 'SYSTEM' && message.authorId ? participantAccent(selected.id, message.authorId) : undefined}
+                       >
+                         {showAuthor && message.authorProfile ? (
+                           <button

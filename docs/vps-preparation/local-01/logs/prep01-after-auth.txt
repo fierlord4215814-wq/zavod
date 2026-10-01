@@ -1,0 +1,178 @@
+{
+  "status": "PASS",
+  "checks": 40,
+  "results": [
+    {
+      "name": "canonical permission codes are unique",
+      "ok": true,
+      "details": {
+        "count": 119
+      }
+    },
+    {
+      "name": "canonical role grants are unique",
+      "ok": true,
+      "details": {
+        "count": 461
+      }
+    },
+    {
+      "name": "every canonical role grant references a canonical permission",
+      "ok": true
+    },
+    {
+      "name": "system catalog contains no demo identity or credential marker",
+      "ok": true
+    },
+    {
+      "name": "immutable permission SQL snapshot matches canonical catalog",
+      "ok": true,
+      "details": {
+        "count": 119
+      }
+    },
+    {
+      "name": "permission SQL snapshot contains no role grants or demo rows",
+      "ok": true
+    },
+    {
+      "name": "all historical role grants reference the canonical permission catalog",
+      "ok": true
+    },
+    {
+      "name": "all pre-existing migration files retain their baseline checksum",
+      "ok": true,
+      "details": {
+        "count": 53
+      }
+    },
+    {
+      "name": "dev seed reuses canonical system catalog",
+      "ok": true
+    },
+    {
+      "name": "production commands do not invoke dev seed",
+      "ok": true
+    },
+    {
+      "name": "PostgreSQL harness requires an explicit admin target and has no working DATABASE_URL or .env fallback",
+      "ok": true
+    },
+    {
+      "name": "Prisma migration commands run from the isolated temporary project",
+      "ok": true
+    },
+    {
+      "name": "legacy short password hashes remain verifiable for ordinary login",
+      "ok": true
+    },
+    {
+      "name": "new password policy accepts password phrases and rejects weak new values",
+      "ok": true
+    },
+    {
+      "name": "clean foundation installs system definitions and canonical role defaults once",
+      "ok": true
+    },
+    {
+      "name": "repeat foundation preserves an administrator-disabled role grant",
+      "ok": true
+    },
+    {
+      "name": "foundation adopts a populated identity database without rewriting role policy",
+      "ok": true
+    },
+    {
+      "name": "first-admin bootstrap creates exactly one factory, admin, access and audit",
+      "ok": true
+    },
+    {
+      "name": "exact lost-response repeat is diagnostic and makes no changes",
+      "ok": true
+    },
+    {
+      "name": "same metadata with a different bootstrap credential is refused",
+      "ok": true
+    },
+    {
+      "name": "bootstrap refuses a nonempty identity or factory state",
+      "ok": true
+    },
+    {
+      "name": "bootstrap transaction rolls back partial factory and user creation",
+      "ok": true
+    },
+    {
+      "name": "recovery claim advances auth epoch even within the same clock tick",
+      "ok": true
+    },
+    {
+      "name": "phone plus wrong recovery credential cannot obtain setup authority",
+      "ok": true
+    },
+    {
+      "name": "a recovery credential issued for another user cannot obtain setup authority",
+      "ok": true
+    },
+    {
+      "name": "an expired recovery credential cannot obtain setup authority",
+      "ok": true
+    },
+    {
+      "name": "revoked factory access cannot consume a recovery credential",
+      "ok": true
+    },
+    {
+      "name": "a soft-deleted identity cannot consume a recovery credential",
+      "ok": true
+    },
+    {
+      "name": "one recovery credential is consumed successfully by only one concurrent client",
+      "ok": true
+    },
+    {
+      "name": "consumed recovery credential hash is removed",
+      "ok": true
+    },
+    {
+      "name": "password setup returns no ordinary access token and requires a new login",
+      "ok": true
+    },
+    {
+      "name": "used setup token cannot be replayed",
+      "ok": true
+    },
+    {
+      "name": "ordinary login works with the newly installed password",
+      "ok": true
+    },
+    {
+      "name": "revoked factory access prevents completion with an already issued setup token",
+      "ok": true
+    },
+    {
+      "name": "administrator reset advances auth epoch beyond previous timestamp",
+      "ok": true
+    },
+    {
+      "name": "authorized administrator receives exactly one functional recovery credential",
+      "ok": true
+    },
+    {
+      "name": "recovery credential is not persisted or written to audit in plaintext",
+      "ok": true
+    },
+    {
+      "name": "immediate recovery reissue advances auth epoch again",
+      "ok": true
+    },
+    {
+      "name": "reissue explicitly revokes the previous credential and leaves one active credential",
+      "ok": true
+    },
+    {
+      "name": "blocked assigning administrator cannot issue a recovery credential",
+      "ok": true
+    }
+  ]
+}

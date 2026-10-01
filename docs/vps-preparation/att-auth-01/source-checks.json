@@ -1,0 +1,167 @@
+{
+  "status": "PASS_TWO_EXISTING_PRODUCT_OWNERS_ONE_SHARED_PREDICATE_TWO_TESTS_ONE_RUNTIME_TARGET",
+  "files": [
+    {
+      "path": "backend/src/modules/attachments/attachments.service.ts",
+      "before": "d36cc45b2c7e836bce9466779b8ddf97826caea88d0ae12af99c889a0bc6b7e4",
+      "after": "30942f6ce8b8e4d357dd9003119c464e0773d3dee0e022270e134d277ffb8400",
+      "changed": true
+    },
+    {
+      "path": "backend/src/modules/attachments/attachments.controller.ts",
+      "before": "ab3b8e362d72f6ae63d090cb80106ee6e89853f9afbd77318914ebaa34633cc6",
+      "after": "ab3b8e362d72f6ae63d090cb80106ee6e89853f9afbd77318914ebaa34633cc6",
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/attachments/file-storage.service.ts",
+      "before": "5cca9ca6935de0aab129d4f5ec84d79bd0aa4b57680584f813530ad656328cf2",
+      "after": "5cca9ca6935de0aab129d4f5ec84d79bd0aa4b57680584f813530ad656328cf2",
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/orders/orders.service.ts",
+      "before": "f18814ef96245cdbee44c9eb4aa7f1e1117aad75ce262c61c942599209b1b1f2",
+      "after": "9bd03acc2205cfea580374bfea6d20eb54dbc14c83d2ebf97906f61762bedc5c",
+      "changed": true
+    },
+    {
+      "path": "backend/src/modules/orders/orders.controller.ts",
+      "before": "029fab90abe6836ba05ae662fd0362000df2a59262751ad884c36d12423577ef",
+      "after": "029fab90abe6836ba05ae662fd0362000df2a59262751ad884c36d12423577ef",
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/user-context.service.ts",
+      "before": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993",
+      "after": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993",
+      "changed": false
+    },
+    {
+      "path": "backend/src/common/permission.guard.ts",
+      "before": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925",
+      "after": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925",
+      "changed": false
+    },
+    {
+      "path": "backend/src/modules/admin/admin.service.ts",
+      "before": "b0ac5f74200267e5cf942af9ab05e1cf275a6af0e92fdb67b36e684c3ceddc67",
+      "after": "b0ac5f74200267e5cf942af9ab05e1cf275a6af0e92fdb67b36e684c3ceddc67",
+      "changed": false
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "before": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e",
+      "after": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e",
+      "changed": false
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/stand.ps1",
+      "before": "0add8c11fa8aae0c7f4d669f6d026266962b3b6f50a8ff87ed472d4b4f10ba42",
+      "after": "35d575e8c68fd98d5c8c15a53b7ecef3a95e98d1131b4acdcde91e95dbcec685",
+      "changed": true
+    },
+    {
+      "path": "frontend/src/api/attachment-preview-resource.ts",
+      "before": "145ffe9aac2de3901ddf95f785c12e3c369bc6902c89622825819fdb9614cfb8",
+      "after": "145ffe9aac2de3901ddf95f785c12e3c369bc6902c89622825819fdb9614cfb8",
+      "changed": false
+    },
+    {
+      "path": "frontend/src/components/AttachmentPreviewList.tsx",
+      "before": "d21d37652b3c190724a0ab7f4034fde34784d9711b09d0775941f559b7cfa93a",
+      "after": "d21d37652b3c190724a0ab7f4034fde34784d9711b09d0775941f559b7cfa93a",
+      "changed": false
+    }
+  ],
+  "newFiles": [
+    {
+      "path": "backend/src/modules/orders/orders-source-authority.ts",
+      "sha256": "a4520de8e237da590492cf6f09f25bb3d5d7ca68f7b140ff82a310b38b5315b8"
+    },
+    {
+      "path": "backend/scripts/att-auth-01.test.cjs",
+      "sha256": "52218eb5fdeca5af0e6b8b6089ff47867d80277abcdff9e6fe4fd83d2e1d1950"
+    },
+    {
+      "path": "backend/scripts/att-auth-01-archive.test.cjs",
+      "sha256": "03784bdb57a1271e12ae02a6e7b5cd057d95c768da9814e50625f3e124a6f82f"
+    }
+  ],
+  "scans": [
+    {
+      "path": "backend/src/modules/attachments/attachments.service.ts",
+      "replacementCharacter": false,
+      "newBrowserDialogs": false
+    },
+    {
+      "path": "backend/src/modules/orders/orders.service.ts",
+      "replacementCharacter": false,
+      "newBrowserDialogs": false
+    },
+    {
+      "path": "docs/vps-preparation/factory-01/stand.ps1",
+      "replacementCharacter": false,
+      "newBrowserDialogs": false
+    },
+    {
+      "path": "backend/src/modules/orders/orders-source-authority.ts",
+      "replacementCharacter": false,
+      "newBrowserDialogs": false
+    },
+    {
+      "path": "backend/scripts/att-auth-01.test.cjs",
+      "replacementCharacter": false,
+      "newBrowserDialogs": false
+    },
+    {
+      "path": "backend/scripts/att-auth-01-archive.test.cjs",
+      "replacementCharacter": false,
+      "newBrowserDialogs": false
+    }
+  ],
+  "ordersNotificationSeamsUnchanged": true,
+  "taskCreatedAndNotify02OwnersRetained": true,
+  "migrations": "57_UNCHANGED",
+  "retainedZips": [
+    {
+      "path": "docs/vps-preparation/factory-01/review-pack-factory01-20260927.zip",
+      "bytes": 17137570,
+      "sha256": "a05db2aaaf6b3ab115b40abc7c893087032fa789c588577dd7439cc283a33114"
+    },
+    {
+      "path": "docs/vps-preparation/task-notify-01/review-pack-task-notify01-20260927.zip",
+      "bytes": 1052262,
+      "sha256": "78f52dcfe002ab11def845921f0731f1e5f495b48891a7fc706f6cc6f7e01e38"
+    },
+    {
+      "path": "docs/vps-preparation/notify-02/review-pack-notify02-20260927.zip",
+      "bytes": 2173389,
+      "sha256": "ab8ced781ddb9cd1c75ba7f4bc92bcc0186726d0970b58d8e755f3dd0e45ab2b"
+    }
+  ],
+  "builds": [
+    {
+      "path": "backend/dist/main.js",
+      "before": "db062ade8787028decd1718f8f316010ab438f7f726d716b90b5cb2a610109ce",
+      "after": "db062ade8787028decd1718f8f316010ab438f7f726d716b90b5cb2a610109ce"
+    },
+    {
+      "path": "backend/dist/modules/attachments/attachments.service.js",
+      "before": "82dd38e47a199446b8d9cbf530359cf3adeb0b4a4b85738b326e005f26342ef6",
+      "after": "fb700819f5dd2dc81f8ab91a0a72baec9ecf578d6c189dc9e8ccd5f8d53fbdd7"
+    },
+    {
+      "path": "backend/dist/modules/orders/orders.service.js",
+      "before": "3f14b8ffc897c74cf9f788c53ddf7b43002002d4d6766ee13ad0773e8857b716",
+      "after": "0247ddb65fce53864d3cc34feb96e7d53ad9591b9404f8c16b2e34939caa1839"
+    },
+    {
+      "path": "frontend/dist/index.html",
+      "before": "4d9d9689438fecd96d38a66cb4a854e4a6a8286f22b0892ed4bf023c7a405acb",
+      "after": "4d9d9689438fecd96d38a66cb4a854e4a6a8286f22b0892ed4bf023c7a405acb"
+    }
+  ],
+  "frontendUnchanged": true,
+  "sourceIdentity": "776c522fda1f119756a7f8882ffaa26f3fec345e8ecc45cd4524f177d36ef68c"
+}

@@ -1,0 +1,21 @@
+✔ ADMIN guest denied before bytes, even when denial audit fails (2.7542ms)
+✔ ORDER_REQUEST own/admin positive; shared/other/no-department denied before bytes (2.8467ms)
+✔ ORDER_REQUEST archived read retained; upload/delete denied even for ADMIN (1.5927ms)
+✔ ORDER_REQUEST attachment factory differs from selected/parent: deny (0.2822ms)
+✔ MINIMUM_STOCK_ITEM own/admin positive; shared/other/no-department denied before bytes (0.6374ms)
+✔ MINIMUM_STOCK_ITEM archived read retained; upload/delete denied even for ADMIN (0.5508ms)
+✔ MINIMUM_STOCK_ITEM attachment factory differs from selected/parent: deny (0.3136ms)
+✔ MINIMUM_STOCK_MOVEMENT own/admin positive; shared/other/no-department denied before bytes (1.2169ms)
+✔ MINIMUM_STOCK_MOVEMENT archived read retained; upload/delete denied even for ADMIN (0.6978ms)
+✔ MINIMUM_STOCK_MOVEMENT attachment factory differs from selected/parent: deny (0.3045ms)
+✔ movement parent factory authoritative even when movement factory matches selected (0.2282ms)
+✔ replay checks stored object, not just new permitted target (0.3544ms)
+✔ same lawful replay returns same safe metadata without bytes/write/duplicate (0.2676ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 367.1029

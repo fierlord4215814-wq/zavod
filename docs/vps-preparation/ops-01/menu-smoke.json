@@ -1,0 +1,3103 @@
+{
+  "status": "PASS_ADMIN_MANAGEMENT_ALL_PERMITTED_TOP_MENUS_1440_390",
+  "actors": [
+    {
+      "key": "ADMIN",
+      "width": 1440,
+      "allowed": [
+        "Смена",
+        "История смен",
+        "Люди",
+        "Админка",
+        "Линии",
+        "Заявки",
+        "Мойка",
+        "ОКК",
+        "Некондиция",
+        "Заказы / Остатки",
+        "Чек-листы",
+        "Оттайка",
+        "Возвраты на производство",
+        "Пересменка / Журнал",
+        "Чаты",
+        "Объявления",
+        "Архив",
+        "Уведомления",
+        "Статистика / Аудит",
+        "Сообщить об ошибке"
+      ],
+      "notPermitted": [
+        "Главная"
+      ],
+      "cases": [
+        {
+          "section": "Смена",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Смена"
+          ],
+          "characters": 1159,
+          "http": [
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287073
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287074
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287074
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287074
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287074
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287074
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287078
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287079
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287194
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287197
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287310
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287314
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287327
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287333
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "История смен",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "История смен"
+          ],
+          "characters": 187,
+          "http": [
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287452
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287452
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287454
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287454
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287462
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287465
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287468
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287468
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287475
+            },
+            {
+              "path": "/api/shift/past",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287527
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Люди",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Люди"
+          ],
+          "characters": 2429,
+          "http": [
+            {
+              "path": "/api/shift/past",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287601
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287656
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287683
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Админка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Администрирование"
+          ],
+          "characters": 178,
+          "http": [
+            {
+              "path": "/api/admin/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287819
+            },
+            {
+              "path": "/api/admin/shift-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287846
+            },
+            {
+              "path": "/api/checklists/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287846
+            },
+            {
+              "path": "/api/orders/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287846
+            },
+            {
+              "path": "/api/admin/task-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287847
+            },
+            {
+              "path": "/api/admin/wash-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287848
+            },
+            {
+              "path": "/api/admin/defrost-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287849
+            },
+            {
+              "path": "/api/admin/announcement-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287857
+            },
+            {
+              "path": "/api/admin/chat-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287857
+            },
+            {
+              "path": "/api/admin/roles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287888
+            },
+            {
+              "path": "/api/admin/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287888
+            },
+            {
+              "path": "/api/admin/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287889
+            },
+            {
+              "path": "/api/admin/factories",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287890
+            },
+            {
+              "path": "/api/admin/lines-config",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287894
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287901
+            },
+            {
+              "path": "/api/admin/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287907
+            },
+            {
+              "path": "/api/admin/job-titles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287925
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287925
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529287928
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Линии",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Линии"
+          ],
+          "characters": 849,
+          "http": [
+            {
+              "path": "/api/admin/roles/MASTER/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288131
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288222
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288239
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288241
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288242
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288243
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Заявки",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Заявки"
+          ],
+          "characters": 349,
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288369
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288369
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288370
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288384
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288390
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Мойка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Мойка"
+          ],
+          "characters": 255,
+          "http": [
+            {
+              "path": "/api/wash/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288551
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288569
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288579
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "ОКК",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "ОКК"
+          ],
+          "characters": 143,
+          "http": [
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288715
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288733
+            },
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288733
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288753
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288762
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Некондиция",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Некондиция"
+          ],
+          "characters": 250,
+          "http": [
+            {
+              "path": "/api/stock",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529288862
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Заказы / Остатки",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Заказы / Остатки"
+          ],
+          "characters": 675,
+          "http": [
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289034
+            },
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289035
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289044
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289055
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289075
+            },
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289077
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Чек-листы",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Чек-листы"
+          ],
+          "characters": 229,
+          "http": [
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289212
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289244
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289256
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289270
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289290
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Оттайка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Оттайка"
+          ],
+          "characters": 192,
+          "http": [
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289348
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289407
+            },
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289434
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Возвраты на производство",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Возвраты на производство"
+          ],
+          "characters": 161,
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289570
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289580
+            },
+            {
+              "path": "/api/returns/publication-lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289592
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Пересменка / Журнал",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Пересменка"
+          ],
+          "characters": 263,
+          "http": [
+            {
+              "path": "/api/shift-log",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289769
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289783
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Чаты",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Чаты"
+          ],
+          "characters": 463,
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289940
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289951
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529289952
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Объявления",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Объявления"
+          ],
+          "characters": 285,
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290123
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290124
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Архив",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Архив"
+          ],
+          "characters": 639,
+          "http": [
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290282
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Уведомления",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Уведомления"
+          ],
+          "characters": 3528,
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290463
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290463
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Статистика / Аудит",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Статистика / Аудит"
+          ],
+          "characters": 6373,
+          "http": [
+            {
+              "path": "/api/ops/operations/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290648
+            },
+            {
+              "path": "/api/ops/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290696
+            },
+            {
+              "path": "/api/ops/module-summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290709
+            },
+            {
+              "path": "/api/ops/audit",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290722
+            },
+            {
+              "path": "/api/ops/events",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529290727
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Сообщить об ошибке",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Сообщить об ошибке"
+          ],
+          "characters": 3890,
+          "http": [
+            {
+              "path": "/api/error-reports",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529292116
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        }
+      ],
+      "errors": [],
+      "authReadback": {
+        "role": "ADMIN",
+        "isAdmin": true,
+        "isGuest": false
+      },
+      "bootstrapHttp": [
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790529286917
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790529287019
+        }
+      ]
+    },
+    {
+      "key": "ADMIN",
+      "width": 390,
+      "allowed": [
+        "Смена",
+        "История смен",
+        "Люди",
+        "Админка",
+        "Линии",
+        "Заявки",
+        "Мойка",
+        "ОКК",
+        "Некондиция",
+        "Заказы / Остатки",
+        "Чек-листы",
+        "Оттайка",
+        "Возвраты на производство",
+        "Пересменка / Журнал",
+        "Чаты",
+        "Объявления",
+        "Архив",
+        "Уведомления",
+        "Статистика / Аудит",
+        "Сообщить об ошибке"
+      ],
+      "notPermitted": [
+        "Главная"
+      ],
+      "cases": [
+        {
+          "section": "Смена",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Смена"
+          ],
+          "characters": 1159,
+          "http": [
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294267
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294267
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294336
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294338
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294345
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294356
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "История смен",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "История смен"
+          ],
+          "characters": 187,
+          "http": [
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294608
+            },
+            {
+              "path": "/api/shift/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294610
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294612
+            },
+            {
+              "path": "/api/shift/return-requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294612
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294612
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294614
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294615
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294617
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294620
+            },
+            {
+              "path": "/api/shift/past",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294743
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Люди",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Люди"
+          ],
+          "characters": 2429,
+          "http": [
+            {
+              "path": "/api/shift/past",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529294888
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295005
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295041
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Админка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Администрирование"
+          ],
+          "characters": 178,
+          "http": [
+            {
+              "path": "/api/admin/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295229
+            },
+            {
+              "path": "/api/admin/shift-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295257
+            },
+            {
+              "path": "/api/admin/task-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295257
+            },
+            {
+              "path": "/api/orders/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295258
+            },
+            {
+              "path": "/api/admin/wash-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295258
+            },
+            {
+              "path": "/api/checklists/settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295258
+            },
+            {
+              "path": "/api/admin/defrost-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295258
+            },
+            {
+              "path": "/api/admin/chat-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295258
+            },
+            {
+              "path": "/api/admin/announcement-settings",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295263
+            },
+            {
+              "path": "/api/admin/roles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295295
+            },
+            {
+              "path": "/api/admin/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295296
+            },
+            {
+              "path": "/api/admin/factories",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295296
+            },
+            {
+              "path": "/api/admin/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295296
+            },
+            {
+              "path": "/api/admin/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295339
+            },
+            {
+              "path": "/api/admin/lines-config",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295340
+            },
+            {
+              "path": "/api/admin/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295341
+            },
+            {
+              "path": "/api/admin/job-titles",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295342
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295342
+            },
+            {
+              "path": "/api/admin/factories/e3d1c2ce-f596-461d-9c97-705d176cc25a/context",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295378
+            },
+            {
+              "path": "/api/admin/recovery",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295378
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Линии",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Линии"
+          ],
+          "characters": 849,
+          "http": [
+            {
+              "path": "/api/admin/roles/MASTER/permissions",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295525
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295599
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295615
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295618
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295618
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295619
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Заявки",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Заявки"
+          ],
+          "characters": 348,
+          "http": [
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295851
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295873
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295873
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529295925
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Мойка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Мойка"
+          ],
+          "characters": 255,
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296074
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296150
+            },
+            {
+              "path": "/api/wash/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296164
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296201
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "ОКК",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "ОКК"
+          ],
+          "characters": 143,
+          "http": [
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296339
+            },
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296350
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296356
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296377
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296381
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Некондиция",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Некондиция"
+          ],
+          "characters": 250,
+          "http": [
+            {
+              "path": "/api/stock",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296555
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Заказы / Остатки",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Заказы / Остатки"
+          ],
+          "characters": 675,
+          "http": [
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296785
+            },
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296798
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296806
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296823
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296849
+            },
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296849
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Чек-листы",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Чек-листы"
+          ],
+          "characters": 229,
+          "http": [
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529296980
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297049
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297070
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297071
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Оттайка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Оттайка"
+          ],
+          "characters": 192,
+          "http": [
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297093
+            },
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297158
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297203
+            },
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297237
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Возвраты на производство",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Возвраты на производство"
+          ],
+          "characters": 161,
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297473
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297486
+            },
+            {
+              "path": "/api/returns/publication-lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297499
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Пересменка / Журнал",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Пересменка"
+          ],
+          "characters": 263,
+          "http": [
+            {
+              "path": "/api/shift-log",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297684
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297699
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Чаты",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1"
+          ],
+          "characters": 463,
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297931
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297941
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529297968
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Объявления",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1"
+          ],
+          "characters": 285,
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298202
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298214
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Архив",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Архив"
+          ],
+          "characters": 639,
+          "http": [
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298441
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Уведомления",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Уведомления"
+          ],
+          "characters": 3528,
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298666
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298667
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Статистика / Аудит",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Статистика / Аудит"
+          ],
+          "characters": 6373,
+          "http": [
+            {
+              "path": "/api/ops/operations/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298914
+            },
+            {
+              "path": "/api/ops/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298953
+            },
+            {
+              "path": "/api/ops/module-summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298960
+            },
+            {
+              "path": "/api/ops/events",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298971
+            },
+            {
+              "path": "/api/ops/audit",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529298981
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Сообщить об ошибке",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Сообщить об ошибке"
+          ],
+          "characters": 3890,
+          "http": [
+            {
+              "path": "/api/error-reports",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529300162
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        }
+      ],
+      "errors": [],
+      "authReadback": {
+        "role": "ADMIN",
+        "isAdmin": true,
+        "isGuest": false
+      },
+      "bootstrapHttp": [
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790529293993
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790529294145
+        }
+      ]
+    },
+    {
+      "key": "MANAGEMENT",
+      "width": 1440,
+      "allowed": [
+        "Смена",
+        "Люди",
+        "Линии",
+        "Заявки",
+        "Мойка",
+        "ОКК",
+        "Некондиция",
+        "Заказы / Остатки",
+        "Чек-листы",
+        "Оттайка",
+        "Возвраты на производство",
+        "Пересменка / Журнал",
+        "Чаты",
+        "Объявления",
+        "Архив",
+        "Уведомления",
+        "Статистика / Аудит",
+        "Сообщить об ошибке"
+      ],
+      "notPermitted": [
+        "Главная",
+        "История смен",
+        "Админка"
+      ],
+      "cases": [
+        {
+          "section": "Смена",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Смена"
+          ],
+          "characters": 811,
+          "http": [
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529301837
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529301837
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529301838
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529301838
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529301845
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529301849
+            },
+            {
+              "path": "/api/shift-log/handover/previous",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529301864
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302037
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302037
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302046
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Люди",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Люди"
+          ],
+          "characters": 285,
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302075
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302121
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302151
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Линии",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Линии"
+          ],
+          "characters": 849,
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302293
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302310
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302311
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302311
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302311
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Заявки",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Заявки"
+          ],
+          "characters": 319,
+          "http": [
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302464
+            },
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302464
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302467
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302477
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302492
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Мойка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Мойка"
+          ],
+          "characters": 243,
+          "http": [
+            {
+              "path": "/api/wash/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302633
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302650
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302650
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "ОКК",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "ОКК"
+          ],
+          "characters": 133,
+          "http": [
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302797
+            },
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302812
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302815
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Некондиция",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Некондиция"
+          ],
+          "characters": 232,
+          "http": [
+            {
+              "path": "/api/stock",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529302947
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Заказы / Остатки",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Заказы / Остатки"
+          ],
+          "characters": 272,
+          "http": [
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303116
+            },
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303116
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303117
+            },
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303130
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303131
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Чек-листы",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Чек-листы"
+          ],
+          "characters": 218,
+          "http": [
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303297
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303314
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303325
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303338
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303352
+            },
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303368
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303379
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Оттайка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Оттайка"
+          ],
+          "characters": 192,
+          "http": [
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303461
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Возвраты на производство",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Возвраты на производство"
+          ],
+          "characters": 161,
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303601
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303602
+            },
+            {
+              "path": "/api/returns/publication-lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303614
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Пересменка / Журнал",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Пересменка"
+          ],
+          "characters": 256,
+          "http": [
+            {
+              "path": "/api/shift-log",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303762
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Чаты",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Чаты"
+          ],
+          "characters": 285,
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303937
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303938
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529303940
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Объявления",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Объявления"
+          ],
+          "characters": 285,
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304097
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304105
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Архив",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Архив"
+          ],
+          "characters": 639,
+          "http": [
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304261
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Уведомления",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Уведомления"
+          ],
+          "characters": 1706,
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304429
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304430
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Статистика / Аудит",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Статистика / Аудит"
+          ],
+          "characters": 6373,
+          "http": [
+            {
+              "path": "/api/ops/operations/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304620
+            },
+            {
+              "path": "/api/ops/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304655
+            },
+            {
+              "path": "/api/ops/module-summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304663
+            },
+            {
+              "path": "/api/ops/events",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304673
+            },
+            {
+              "path": "/api/ops/audit",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529304679
+            }
+          ],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "section": "Сообщить об ошибке",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Сообщить об ошибке"
+          ],
+          "characters": 487,
+          "http": [],
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        }
+      ],
+      "errors": [],
+      "authReadback": {
+        "role": "MANAGEMENT",
+        "isAdmin": false,
+        "isGuest": false
+      },
+      "bootstrapHttp": [
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790529301675
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790529301766
+        }
+      ]
+    },
+    {
+      "key": "MANAGEMENT",
+      "width": 390,
+      "allowed": [
+        "Смена",
+        "Люди",
+        "Линии",
+        "Заявки",
+        "Мойка",
+        "ОКК",
+        "Некондиция",
+        "Заказы / Остатки",
+        "Чек-листы",
+        "Оттайка",
+        "Возвраты на производство",
+        "Пересменка / Журнал",
+        "Чаты",
+        "Объявления",
+        "Архив",
+        "Уведомления",
+        "Статистика / Аудит",
+        "Сообщить об ошибке"
+      ],
+      "notPermitted": [
+        "Главная",
+        "История смен",
+        "Админка"
+      ],
+      "cases": [
+        {
+          "section": "Смена",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Смена"
+          ],
+          "characters": 811,
+          "http": [
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307318
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307318
+            },
+            {
+              "path": "/api/auth/assignment-request",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307382
+            },
+            {
+              "path": "/api/shift-log/handover/previous",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307383
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307383
+            },
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307451
+            },
+            {
+              "path": "/api/shift/timeline",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307522
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307527
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Люди",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Люди"
+          ],
+          "characters": 285,
+          "http": [
+            {
+              "path": "/api/shift/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307556
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307604
+            },
+            {
+              "path": "/api/people",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307698
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307764
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Линии",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Линии"
+          ],
+          "characters": 849,
+          "http": [
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307843
+            },
+            {
+              "path": "/api/lines/downtime-reasons",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307857
+            },
+            {
+              "path": "/api/health",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307858
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307862
+            },
+            {
+              "path": "/api/work-areas",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529307866
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Заявки",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Заявки"
+          ],
+          "characters": 319,
+          "http": [
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308025
+            },
+            {
+              "path": "/api/tasks/assignee-candidates",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308030
+            },
+            {
+              "path": "/api/tasks/recipient-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308033
+            },
+            {
+              "path": "/api/tasks/archive/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308044
+            },
+            {
+              "path": "/api/tasks/board",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308061
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Мойка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Мойка"
+          ],
+          "characters": 243,
+          "http": [
+            {
+              "path": "/api/wash/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308268
+            },
+            {
+              "path": "/api/wash",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308283
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308347
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "ОКК",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "ОКК"
+          ],
+          "characters": 133,
+          "http": [
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308500
+            },
+            {
+              "path": "/api/okk",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308509
+            },
+            {
+              "path": "/api/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308516
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Некондиция",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Некондиция"
+          ],
+          "characters": 232,
+          "http": [
+            {
+              "path": "/api/stock",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308695
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Заказы / Остатки",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Заказы / Остатки"
+          ],
+          "characters": 272,
+          "http": [
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308916
+            },
+            {
+              "path": "/api/orders/summary",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308916
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308923
+            },
+            {
+              "path": "/api/orders/requests",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308938
+            },
+            {
+              "path": "/api/orders/items",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529308938
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Чек-листы",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Чек-листы"
+          ],
+          "characters": 218,
+          "http": [
+            {
+              "path": "/api/checklists/templates/library",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309086
+            },
+            {
+              "path": "/api/checklists/workspace",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309102
+            },
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309113
+            },
+            {
+              "path": "/api/directory/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309122
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309136
+            },
+            {
+              "path": "/api/checklists/archive",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309158
+            },
+            {
+              "path": "/api/checklists/archive/by-template",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309170
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Оттайка",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Оттайка"
+          ],
+          "characters": 192,
+          "http": [
+            {
+              "path": "/api/defrost/lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309323
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Возвраты на производство",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Возвраты на производство"
+          ],
+          "characters": 161,
+          "http": [
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309513
+            },
+            {
+              "path": "/api/returns",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309532
+            },
+            {
+              "path": "/api/returns/publication-lines",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309543
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Пересменка / Журнал",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Пересменка"
+          ],
+          "characters": 256,
+          "http": [
+            {
+              "path": "/api/shift-log",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309734
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Чаты",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1"
+          ],
+          "characters": 285,
+          "http": [
+            {
+              "path": "/api/directory/departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309951
+            },
+            {
+              "path": "/api/directory/users",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309956
+            },
+            {
+              "path": "/api/chats",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529309968
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Объявления",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1"
+          ],
+          "characters": 285,
+          "http": [
+            {
+              "path": "/api/announcements/audience-departments",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529310173
+            },
+            {
+              "path": "/api/announcements/current",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529310186
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Архив",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Архив"
+          ],
+          "characters": 639,
+          "http": [
+            {
+              "path": "/api/archive/options",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529310362
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Уведомления",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Уведомления"
+          ],
+          "characters": 1706,
+          "http": [
+            {
+              "path": "/api/notifications",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529310551
+            },
+            {
+              "path": "/api/notifications/unread-count",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529310551
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Статистика / Аудит",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Статистика / Аудит"
+          ],
+          "characters": 314,
+          "http": [
+            {
+              "path": "/api/ops/operations/overview",
+              "method": "GET",
+              "status": 200,
+              "at": 1790529310833
+            }
+          ],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        },
+        {
+          "section": "Сообщить об ошибке",
+          "headings": [
+            "УЧЕБНЫЙ ЗАВОД T1",
+            "Сообщить об ошибке"
+          ],
+          "characters": 487,
+          "http": [],
+          "viewport": {
+            "width": 390,
+            "height": 900
+          }
+        }
+      ],
+      "errors": [],
+      "authReadback": {
+        "role": "MANAGEMENT",
+        "isAdmin": false,
+        "isGuest": false
+      },
+      "bootstrapHttp": [
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790529307155
+        },
+        {
+          "path": "/api/auth/me",
+          "method": "GET",
+          "status": 200,
+          "at": 1790529307295
+        }
+      ]
+    }
+  ]
+}

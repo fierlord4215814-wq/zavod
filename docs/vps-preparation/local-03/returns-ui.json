@@ -1,0 +1,92 @@
+{
+  "name": "Учебный возврат LOCAL03",
+  "attempts": [
+    {
+      "at": "2026-09-24T16:13:49.014Z",
+      "kind": "create",
+      "secondUi": false,
+      "sql": {
+        "id": "141b7644-cfdf-4c6c-a732-3b5fb8031303",
+        "productName": "Учебный возврат LOCAL03",
+        "article": "УЧ-0301",
+        "quantity": 8,
+        "unit": "шт.",
+        "status": "ACTIVE"
+      },
+      "http": 200,
+      "actualRead": {
+        "id": "141b7644-cfdf-4c6c-a732-3b5fb8031303",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "createdById": "8aab468c-2433-4b1e-8295-84238dc64495",
+        "description": "Учебный возврат LOCAL03 - Учебная проверка упаковки и сохранения полей",
+        "photoUrl": "attachment-pending",
+        "receivedAt": "2026-09-24T16:13:48.975Z",
+        "productionDate": null,
+        "article": "УЧ-0301",
+        "productName": "Учебный возврат LOCAL03",
+        "mismatchReason": "Учебная проверка упаковки и сохранения полей",
+        "quantity": 8,
+        "unit": "шт.",
+        "lineId": null,
+        "decision": null,
+        "completionMark": null,
+        "completedByUserId": null,
+        "completedByNameSnapshot": null,
+        "correctiveActionsComment": null,
+        "status": "ACTIVE",
+        "completedAt": null,
+        "archivedAt": null,
+        "archivedById": null,
+        "createdAt": "2026-09-24T16:13:48.975Z",
+        "updatedAt": "2026-09-24T16:13:48.976Z",
+        "deletedAt": null,
+        "line": null,
+        "author": {
+          "id": "8aab468c-2433-4b1e-8295-84238dc64495",
+          "displayName": "Сотрудник",
+          "role": "STORE",
+          "roleLabel": "Кладовщик"
+        },
+        "retentionDays": 14,
+        "attachments": [
+          {
+            "id": "12c5fbff-7901-4f45-840e-401e089561c2",
+            "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+            "uploadedById": "8aab468c-2433-4b1e-8295-84238dc64495",
+            "entityType": "RETURN_RECORD",
+            "entityId": "141b7644-cfdf-4c6c-a732-3b5fb8031303",
+            "kind": "PHOTO",
+            "operationId": "fb5d567b-1f72-4d74-bb31-474d851a67ec",
+            "originalName": "Возврат-LOCAL03.png",
+            "mimeType": "image/png",
+            "sizeBytes": 1478,
+            "publicUrl": "/attachments/12c5fbff-7901-4f45-840e-401e089561c2/file",
+            "width": null,
+            "height": null,
+            "durationSec": null,
+            "createdAt": "2026-09-24T16:13:48.999Z",
+            "deletedAt": null
+          }
+        ],
+        "availableActions": [
+          "read"
+        ],
+        "quantitySummary": {
+          "original": "8",
+          "released": "0",
+          "remaining": "8",
+          "unit": "шт.",
+          "canRelease": false,
+          "unavailableReason": null
+        },
+        "releaseHistory": []
+      }
+    }
+  ],
+  "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Возврат на производство', exact: true }).getByLabel('Единица', { exact: true })\u001b[22m\n",
+  "id": "141b7644-cfdf-4c6c-a732-3b5fb8031303",
+  "file": {
+    "id": "12c5fbff-7901-4f45-840e-401e089561c2",
+    "sha256": "4e33966e9eff98bb1d6647f3ec6818e9b31e06f7c3f4161512b769b956b1b93d"
+  }
+}

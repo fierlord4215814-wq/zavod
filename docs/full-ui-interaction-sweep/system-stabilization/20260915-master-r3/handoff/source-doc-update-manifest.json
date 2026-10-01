@@ -1,0 +1,82 @@
+{
+  "at": "2026-09-15T22:11:38.565Z",
+  "entries": [
+    {
+      "owner": "README.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/I-source-updates-before/README.md",
+        "sha256": "f9210518a2103d388c2bd69fce95bf03245c9f8fd3bf64011366bbad98859b51",
+        "bytes": 67,
+        "originalSha256": "f9210518a2103d388c2bd69fce95bf03245c9f8fd3bf64011366bbad98859b51"
+      },
+      "after": {
+        "path": "README.md",
+        "sha256": "d65ca5e17781b801b63f1536934b9e7471e73c06c9da920f2b30c54aefcfbc8a",
+        "bytes": 903
+      },
+      "diff": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/handoff/doc-diffs/README.md.diff"
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/progress.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/I-source-updates-before/docs/full-ui-interaction-sweep/progress.md",
+        "sha256": "f650f47dd1547f339f6a092d53aaa09cae920ed6ef7ea7b7f161c0afd1964784",
+        "bytes": 797413,
+        "originalSha256": "f650f47dd1547f339f6a092d53aaa09cae920ed6ef7ea7b7f161c0afd1964784"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/progress.md",
+        "sha256": "6626739c2f2358be529b906347dd15daeccf1c5e0992724ef223450728e56de4",
+        "bytes": 800297
+      },
+      "diff": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/handoff/doc-diffs/docs/full-ui-interaction-sweep/progress.md.diff"
+    },
+    {
+      "owner": "docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "before": {
+        "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/I-source-updates-before/docs/full-ui-interaction-sweep/visual-gap-register.md",
+        "sha256": "3d7014efd76fe6ac48b6057bbac788209c8ad136eafbcd6180f156ba396d70b3",
+        "bytes": 207897,
+        "originalSha256": "3d7014efd76fe6ac48b6057bbac788209c8ad136eafbcd6180f156ba396d70b3"
+      },
+      "after": {
+        "path": "docs/full-ui-interaction-sweep/visual-gap-register.md",
+        "sha256": "b10fb8b45d952daa1577379bdc0c982067cac01165a42b1f2b9742596b309780",
+        "bytes": 210946
+      },
+      "diff": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/handoff/doc-diffs/docs/full-ui-interaction-sweep/visual-gap-register.md.diff"
+    }
+  ],
+  "priorPackages": [
+    {
+      "sha256": "5aa19aa7afdf9dd8f4fb6b26f71d119628b7257b56e7c09ae6f36ec44dc45ca2",
+      "bytes": 4619369,
+      "name": "review-sources-tests-logs.zip",
+      "readback": "ALL_ENTRIES_SHA256_VERIFIED",
+      "entries": 821,
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/review-sources-tests-logs.zip",
+      "recheckedUnchanged": true
+    },
+    {
+      "sha256": "cd66e16854283407dcef3560dfab263bf66467199bc09d77e5dfb0a7db3ce633",
+      "bytes": 30513782,
+      "name": "review-native-evidence.zip",
+      "readback": "ALL_ENTRIES_SHA256_VERIFIED",
+      "entries": 445,
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/review-native-evidence.zip",
+      "recheckedUnchanged": true
+    },
+    {
+      "bytes": 920429,
+      "name": "master-r2-review.zip",
+      "sha256": "9714d59c3e913be161db524df68f176c1b3f0fefd2acd2fbec71e8b6d7240bd4",
+      "readback": "ALL_ENTRIES_SHA256_VERIFIED",
+      "entries": 77,
+      "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/master-r2-review.zip",
+      "recheckedUnchanged": true
+    }
+  ],
+  "mainSweep": "PAUSED_BY_USER / NOT_ACCEPTED",
+  "library": "PERSISTENCE_PENDING",
+  "scope": "Only current semantic report pointers. Existing findings/evidence/parent matrix bytes retained; source product/test hashes in source-delta-manifest-v2."
+}

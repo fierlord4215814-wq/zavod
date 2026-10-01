@@ -1,0 +1,82 @@
+{
+  "status": "CONFIRMED_NOTIFICATION_OPENS_SECTION_NOT_EXACT_TASK",
+  "taskId": "74e06d00-5deb-442c-ba06-3eb3f751fd6b",
+  "requests": [
+    {
+      "path": "/api/notifications/189076b6-17d2-484c-83e6-ccc641b05b81/read",
+      "method": "POST",
+      "status": 201,
+      "at": 1790464695960
+    },
+    {
+      "path": "/api/notifications/unread-count",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464695971
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464695992
+    },
+    {
+      "path": "/api/chats",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464696046
+    },
+    {
+      "path": "/api/notifications/unread-count",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464696046
+    },
+    {
+      "path": "/api/announcements/current",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464696046
+    },
+    {
+      "path": "/api/tasks",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464696053
+    },
+    {
+      "path": "/api/tasks/recipient-departments",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464696059
+    },
+    {
+      "path": "/api/archive/options",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464696061
+    },
+    {
+      "path": "/api/tasks/assignee-candidates",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464696066
+    },
+    {
+      "path": "/api/tasks/board",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464696083
+    },
+    {
+      "path": "/api/tasks/archive/summary",
+      "method": "GET",
+      "status": 200,
+      "at": 1790464696087
+    }
+  ],
+  "detailRequests": 0,
+  "dialogs": 0,
+  "cardVisible": true,
+  "priorHarnessWait": "TECH does not have create button; corrected to actual tasks-screen selector"
+}

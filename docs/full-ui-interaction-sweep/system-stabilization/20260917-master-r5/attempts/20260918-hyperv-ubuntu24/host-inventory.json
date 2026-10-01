@@ -1,0 +1,100 @@
+{
+  "commands": [
+    {
+      "name": "ssh.exe",
+      "present": true,
+      "path": "C:\\WINDOWS\\System32\\OpenSSH\\ssh.exe"
+    },
+    {
+      "name": "scp.exe",
+      "present": true,
+      "path": "C:\\WINDOWS\\System32\\OpenSSH\\scp.exe"
+    },
+    {
+      "name": "ssh-keygen.exe",
+      "present": true,
+      "path": "C:\\WINDOWS\\System32\\OpenSSH\\ssh-keygen.exe"
+    },
+    {
+      "name": "tar.exe",
+      "present": true,
+      "path": "C:\\WINDOWS\\system32\\tar.exe"
+    },
+    {
+      "name": "gpg.exe",
+      "present": false,
+      "path": null
+    }
+  ],
+  "at": "2026-09-18T09:44:06.0432644+03:00",
+  "actualAdministratorToken": false,
+  "disk": {
+    "DeviceID": "C:",
+    "FileSystem": "NTFS",
+    "Size": 499493367808,
+    "FreeSpace": 42097651712
+  },
+  "windows": {
+    "ProductName": "Windows 10 Pro",
+    "EditionID": "Professional",
+    "DisplayVersion": "22H2",
+    "CurrentBuild": "19045",
+    "UBR": 6456,
+    "InstallationType": "Client"
+  },
+  "purpose": "READ_ONLY_HYPERV_UBUNTU24_COMPATIBILITY",
+  "computer": {
+    "TotalPhysicalMemory": 17137594368,
+    "HypervisorPresent": false
+  },
+  "os": {
+    "Caption": "Майкрософт Windows 10 Pro",
+    "Version": "10.0.19045",
+    "BuildNumber": "19045",
+    "OSArchitecture": "64-разрядная",
+    "FreePhysicalMemory": 8527692,
+    "LastBootUpTime": "2026-09-16T20:09:27.245326+03:00",
+    "DataExecutionPrevention_Available": true,
+    "DataExecutionPrevention_SupportPolicy": 2
+  },
+  "workingPostgresqlServiceDataEnvUploadsRead": false,
+  "cpu": {
+    "Name": "Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz",
+    "AddressWidth": 64,
+    "NumberOfCores": 4,
+    "NumberOfLogicalProcessors": 8,
+    "VirtualizationFirmwareEnabled": true,
+    "SecondLevelAddressTranslationExtensions": true,
+    "VMMonitorModeExtensions": true
+  },
+  "features": [
+    {
+      "Name": "Microsoft-Hyper-V-All",
+      "InstallState": 2
+    },
+    {
+      "Name": "Microsoft-Hyper-V",
+      "InstallState": 2
+    },
+    {
+      "Name": "Microsoft-Hyper-V-Tools-All",
+      "InstallState": 2
+    },
+    {
+      "Name": "Microsoft-Hyper-V-Management-PowerShell",
+      "InstallState": 2
+    },
+    {
+      "Name": "Microsoft-Hyper-V-Hypervisor",
+      "InstallState": 2
+    },
+    {
+      "Name": "Microsoft-Hyper-V-Services",
+      "InstallState": 2
+    },
+    {
+      "Name": "Microsoft-Hyper-V-Management-Clients",
+      "InstallState": 2
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "productFingerprint": "6ae29f473c26b5d0dbe657f52c32cfebaff3c198abd5bb177eedf81e0ab1cfdc",
+  "id": "MI-R2-ORD-01",
+  "owners": [
+    {
+      "path": "backend/src/modules/orders/orders.service.ts",
+      "sha256": "3cf44648254032e20d65026a6c873408e0f5083a26ee66cb10d6284b8e5fa177",
+      "bytes": 49539
+    },
+    {
+      "path": "backend/src/modules/stock/stock.service.ts",
+      "sha256": "ea2428ef1a2fc8fde07217ce9285a8a9abb8bad8ffc385bf7ddb32fd5ba560fc",
+      "bytes": 8525
+    }
+  ],
+  "required": "Quantity10 minimum5 TAKE3 then retry leaves7; changed input denied where immutable; RESTOCK3 once returns10; contested different TAKE7 keys one success one refusal; exact movement/history/archive/audit IDs; cross-factory deny.",
+  "witnesses": [
+    {
+      "id": "754600fead05cd64",
+      "title": "R2-E-J18 active OrderRequest detail is the same visible current entity",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "151702cd45b6437e",
+      "title": "R2-A order create replay observes the same current entity read classification",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7f62f97d5e8e7ac4",
+      "title": "R2-E-J18 OrderRequest ORDERED lifecycle retry readers and granular rights",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6dae65a227d5c2b4",
+      "title": "R2-E-J18 OrderRequest NOT_NEEDED lifecycle retry readers and granular rights",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "22bcc135ccfe47ce",
+      "title": "R2-A/E-J18 create replay null-result",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "68ee63e1b268973b",
+      "title": "R2-A/E-J18 create replay wrong-owner",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "87eb431cbdf3d143",
+      "title": "R2-A/E-J18 create replay wrong-source-type",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9b45aa49f0186254",
+      "title": "R2-A/E-J18 create replay foreign-result",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "29e5e20a4a6d62da",
+      "title": "R2-A/E-J18 create replay wrong-department",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9c02a43a36412301",
+      "title": "R2-E-J18 notification failure after create does not duplicate business result",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "ad32de3478774728",
+      "title": "R2-E-J18 simultaneous different close decisions have one memory winner",
+      "file": "backend/scripts/master-r2-orders.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4e1f3718446a4bba",
+      "title": "R2-A/E-J18 stock take replay archived-current-read",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "95c7c8cd53123e53",
+      "title": "R2-A/E-J18 stock take replay null-result",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "277c756cdb565204",
+      "title": "R2-A/E-J18 stock take replay wrong-type",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1cce11569541575d",
+      "title": "R2-A/E-J18 stock take replay wrong-item",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d73bf10f952ae3b9",
+      "title": "R2-A/E-J18 stock take replay wrong-actor",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2029ffeda36515af",
+      "title": "R2-A/E-J18 stock take replay foreign",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9e1d6bf326dbfecd",
+      "title": "R2-A/E-J18 stock take replay department-revoked",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7a98147d8bc3bc88",
+      "title": "R2-A/E-J18 stock restock replay archived-current-read",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "c6b831e4c745284e",
+      "title": "R2-A/E-J18 stock restock replay null-result",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "041b5342b3ae371a",
+      "title": "R2-A/E-J18 stock restock replay wrong-type",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "baad8c68054a1779",
+      "title": "R2-A/E-J18 stock restock replay wrong-item",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4f50b65a4d309589",
+      "title": "R2-A/E-J18 stock restock replay wrong-actor",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e5be2d983b7ffac9",
+      "title": "R2-A/E-J18 stock restock replay foreign",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7a3a375875cda1ed",
+      "title": "R2-A/E-J18 stock restock replay department-revoked",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6a4acf24ef4ce2e1",
+      "title": "R3-C2 stock take replay denies changed quantity",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "afb4fb7d7c31e24f",
+      "title": "R3-C2 stock take replay denies changed comment",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9fa440ebea2f5723",
+      "title": "R3-C2 stock restock replay denies changed quantity",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "bf2be3fa66c3a2a7",
+      "title": "R3-C2 stock restock replay denies changed comment",
+      "file": "backend/scripts/master-r2-stock-replay.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    }
+  ],
+  "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+  "isolated": {
+    "cases": 29,
+    "status": "SCOPED_REVALIDATED_NOT_LIVE"
+  },
+  "liveTestStack": {
+    "cases": 0,
+    "status": "NOT_RUN_BLOCKED_ENV_C1_TECHNICAL_ISOLATION_UNAVAILABLE"
+  },
+  "physical": "PENDING"
+}

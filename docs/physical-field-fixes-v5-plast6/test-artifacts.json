@@ -1,0 +1,120 @@
+{
+  "generatedAt": "2026-08-09T07:38:50.260Z",
+  "runId": "1786261128750_18852",
+  "marker": "__PFFV5_P6_1786261128750_18852__",
+  "status": "PASS",
+  "testRecords": {
+    "okk": [
+      {
+        "id": "c7158efe-0c3c-4cf4-b6f3-f78aba643038",
+        "finalState": "ARCHIVED"
+      },
+      {
+        "id": "d2362189-221e-4c8b-b8a8-c1aa50d3abbb",
+        "finalState": "ARCHIVED"
+      }
+    ],
+    "returns": [
+      {
+        "id": "e55d2b90-a0b9-4b8a-a829-8c30157615a7",
+        "finalState": "ARCHIVED"
+      }
+    ]
+  },
+  "partialOperationIds": [
+    "8471a900-3aed-4238-a529-cdede3916c0c",
+    "1f069a2f-554e-486f-8ea8-b93199b0e051",
+    "1106311f-0412-46d7-847f-bdfba17614ef",
+    "df283fa8-cc14-4228-a4e7-9d1e875165bf",
+    "3d5e4285-62f3-4585-9987-792ba0fe1a3e",
+    "62ae1ad6-6ce8-4eb7-9b88-665b08ceeca2"
+  ],
+  "auditActions": [
+    "OKK_QUANTITY_PARTIALLY_RELEASED",
+    "RETURN_QUANTITY_PARTIALLY_RELEASED"
+  ],
+  "cleanup": {
+    "activeTestOkkRecords": 0,
+    "activeTestReturnRecords": 0,
+    "activeTestPartialOperations": 0,
+    "preexistingEntitiesDeleted": 0,
+    "strategy": "existing archive endpoints; immutable ledger and audit retained"
+  },
+  "checks": {
+    "passed": [
+      "fresh backend health",
+      "existing role permissions are reused",
+      "OKK create main",
+      "OKK create concurrent",
+      "Return create main",
+      "OKK initial summary is 52 / 0 / 52",
+      "Return initial summary is 52 / 0 / 52",
+      "OKK over-release denied",
+      "OKK zero release denied",
+      "OKK negative release denied",
+      "OKK empty comment denied",
+      "unit spoof is denied",
+      "WORKER direct mutation denied",
+      "blocked user direct mutation denied",
+      "cross-factory source mutation denied",
+      "realtime client connected",
+      "module summary available before release",
+      "OKK release 30",
+      "OKK 52 -> 30 -> 22 is server-derived",
+      "OKK original quantity stays immutable",
+      "realtime is emitted after committed operation exists",
+      "partial operation is not double-counted as a new case",
+      "OKK public read model shows 52 / 30 / 22 and immutable history",
+      "OKK duplicate operationId is idempotent",
+      "OKK retry creates no second operation",
+      "OKK original edit after release denied",
+      "OKK partial operation is visible in archive without parent duplication",
+      "OKK release 10",
+      "OKK sequential release leaves 12",
+      "OKK release full remainder 12",
+      "OKK full release archives parent and preserves full history",
+      "fully released OKK parent is absent from active list",
+      "concurrent 30 + 30 is atomic with one conflict",
+      "Return over-release denied",
+      "Return comment required",
+      "Return release 30",
+      "Return 52 -> 30 -> 22 preserves original and history",
+      "Return duplicate operationId is idempotent",
+      "Return retry creates no second operation",
+      "Return original edit after release denied",
+      "Return partial operation is visible in archive without parent duplication",
+      "Return full remainder 22",
+      "Return full release archives parent and preserves history",
+      "fully released Return parent is absent from active list",
+      "all successful releases are immutable ledger operations",
+      "audit records before/released/after/comment for each successful operation",
+      "pre-existing archived OKK and Return records are unchanged",
+      "cleanup leaves no active OKK test records",
+      "cleanup leaves no active Return test records",
+      "cleanup leaves no partial operation attached to an active test parent",
+      "cleanup physically deletes no pre-existing entity"
+    ],
+    "failed": []
+  },
+  "browser": {
+    "status": "PASS",
+    "runId": "1786264443620_13268",
+    "marker": "__PFFV5_P6_1786264443620_13268__",
+    "okkRecord": {
+      "id": "6c84e7c9-c563-4cdb-91ee-cc612c275e0d",
+      "finalState": "ARCHIVED"
+    },
+    "returnRecord": {
+      "id": "08232895-4a9b-44ab-a5e1-8c42a2a3e5fd",
+      "finalState": "ARCHIVED"
+    },
+    "cleanup": [
+      "OKK archived",
+      "Return already archived or unavailable"
+    ],
+    "screenshots": [
+      "1786264443620_13268-mobile-390-okk.png",
+      "1786264443620_13268-mobile-390-return-archive.png"
+    ]
+  }
+}

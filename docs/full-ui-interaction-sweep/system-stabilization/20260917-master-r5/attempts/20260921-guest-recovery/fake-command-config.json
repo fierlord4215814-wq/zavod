@@ -1,0 +1,168 @@
+{
+  "powershellVersion": "7.6.5",
+  "sideEffects": false,
+  "config": {
+    "autoinstall": {
+      "late-commands": [
+        [
+          "curtin",
+          "in-target",
+          "--target=/target",
+          "--",
+          "useradd",
+          "--create-home",
+          "--shell",
+          "/bin/bash",
+          "r5app"
+        ],
+        [
+          "curtin",
+          "in-target",
+          "--target=/target",
+          "--",
+          "useradd",
+          "--create-home",
+          "--shell",
+          "/usr/sbin/nologin",
+          "r5pg"
+        ],
+        [
+          "sh",
+          "-c",
+          "install -m 0440 /dev/null /target/etc/sudoers.d/90-r5ops; printf \"r5ops ALL=(ALL) NOPASSWD:ALL\\n\" > /target/etc/sudoers.d/90-r5ops"
+        ],
+        [
+          "sh",
+          "-c",
+          "set -eu; test -f /run/r5-new-disk-proof; test \"$(cat /run/r5-new-disk-proof)\" = \"R5_NEW_OWN_16G_DISK_ONLY\"; install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"%s\\n\" \"11111111-2222-4333-8444-555555555555\" > /target/etc/r5-provision-instance"
+        ]
+      ]
+    }
+  },
+  "vmId": "11111111-2222-4333-8444-555555555555",
+  "legacyArgv": [
+    "sh",
+    "-c",
+    "install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"",
+    "11111111-2222-4333-8444-555555555555",
+    "\\n\" > /target/etc/r5-provision-instance"
+  ],
+  "types": [
+    {
+      "count": 9,
+      "argv": [
+        {
+          "value": "curtin",
+          "type": "System.String"
+        },
+        {
+          "value": "in-target",
+          "type": "System.String"
+        },
+        {
+          "value": "--target=/target",
+          "type": "System.String"
+        },
+        {
+          "value": "--",
+          "type": "System.String"
+        },
+        {
+          "value": "useradd",
+          "type": "System.String"
+        },
+        {
+          "value": "--create-home",
+          "type": "System.String"
+        },
+        {
+          "value": "--shell",
+          "type": "System.String"
+        },
+        {
+          "value": "/bin/bash",
+          "type": "System.String"
+        },
+        {
+          "value": "r5app",
+          "type": "System.String"
+        }
+      ]
+    },
+    {
+      "count": 9,
+      "argv": [
+        {
+          "value": "curtin",
+          "type": "System.String"
+        },
+        {
+          "value": "in-target",
+          "type": "System.String"
+        },
+        {
+          "value": "--target=/target",
+          "type": "System.String"
+        },
+        {
+          "value": "--",
+          "type": "System.String"
+        },
+        {
+          "value": "useradd",
+          "type": "System.String"
+        },
+        {
+          "value": "--create-home",
+          "type": "System.String"
+        },
+        {
+          "value": "--shell",
+          "type": "System.String"
+        },
+        {
+          "value": "/usr/sbin/nologin",
+          "type": "System.String"
+        },
+        {
+          "value": "r5pg",
+          "type": "System.String"
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "argv": [
+        {
+          "value": "sh",
+          "type": "System.String"
+        },
+        {
+          "value": "-c",
+          "type": "System.String"
+        },
+        {
+          "value": "install -m 0440 /dev/null /target/etc/sudoers.d/90-r5ops; printf \"r5ops ALL=(ALL) NOPASSWD:ALL\\n\" > /target/etc/sudoers.d/90-r5ops",
+          "type": "System.String"
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "argv": [
+        {
+          "value": "sh",
+          "type": "System.String"
+        },
+        {
+          "value": "-c",
+          "type": "System.String"
+        },
+        {
+          "value": "set -eu; test -f /run/r5-new-disk-proof; test \"$(cat /run/r5-new-disk-proof)\" = \"R5_NEW_OWN_16G_DISK_ONLY\"; install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"%s\\n\" \"11111111-2222-4333-8444-555555555555\" > /target/etc/r5-provision-instance",
+          "type": "System.String"
+        }
+      ]
+    }
+  ]
+}

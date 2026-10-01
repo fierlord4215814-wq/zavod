@@ -1,0 +1,635 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.HyperV.PowerShell.VMFirmware</T>
+      <T>Microsoft.HyperV.PowerShell.VMComponentObject</T>
+      <T>Microsoft.HyperV.PowerShell.VirtualizationObject</T>
+      <T>System.Object</T>
+    </TN>
+    <ToString>VMFirmware (VMName = 'Zavod-Master-R5-Ubuntu24') [VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+    <Props>
+      <Obj N="BootOrder" RefId="1">
+        <TN RefId="1">
+          <T>Microsoft.HyperV.PowerShell.VMBootSource[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <Obj RefId="2">
+            <TN RefId="2">
+              <T>Microsoft.HyperV.PowerShell.VMBootSource</T>
+              <T>Microsoft.HyperV.PowerShell.VMComponentObject</T>
+              <T>Microsoft.HyperV.PowerShell.VirtualizationObject</T>
+              <T>System.Object</T>
+            </TN>
+            <ToString>VMBootSource (Description = 'Ubuntu', VMName = 'Zavod-Master-R5-Ubuntu24') [FirmwarePath = 'HD(1,GPT,BC5EA385-EA53-49AE-8E11-C9CD7AC6CF62,0x800,0x100000)/\EFI\ubuntu\shimx64.efi', VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+            <Props>
+              <Obj N="BootType" RefId="3">
+                <TN RefId="3">
+                  <T>Microsoft.HyperV.PowerShell.VMBootSourceType</T>
+                  <T>System.Enum</T>
+                  <T>System.ValueType</T>
+                  <T>System.Object</T>
+                </TN>
+                <ToString>File</ToString>
+                <I32>3</I32>
+              </Obj>
+              <S N="Description">Ubuntu</S>
+              <S N="FirmwarePath">HD(1,GPT,BC5EA385-EA53-49AE-8E11-C9CD7AC6CF62,0x800,0x100000)/\EFI\ubuntu\shimx64.efi</S>
+              <Nil N="Device" />
+              <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+              <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+              <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMSnapshotName"></S>
+              <Obj N="CimSession" RefId="4">
+                <TN RefId="4">
+                  <T>Microsoft.Management.Infrastructure.CimSession</T>
+                  <T>System.Object</T>
+                </TN>
+                <ToString>CimSession: .</ToString>
+                <Props>
+                  <Nil N="ComputerName" />
+                  <G N="InstanceId">5f03b21d-72c6-4a0c-aac0-18dd0a54dd80</G>
+                </Props>
+              </Obj>
+              <S N="ComputerName">DESKTOP-MTJSKD2</S>
+              <B N="IsDeleted">false</B>
+            </Props>
+            <MS>
+              <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMCheckpointName"></S>
+            </MS>
+          </Obj>
+          <Obj RefId="5">
+            <TNRef RefId="2" />
+            <ToString>VMBootSource (Description = 'EFI SCSI Device', VMName = 'Zavod-Master-R5-Ubuntu24') [FirmwarePath = 'AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,1)', VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+            <Props>
+              <Obj N="BootType" RefId="6">
+                <TNRef RefId="3" />
+                <ToString>Drive</ToString>
+                <I32>1</I32>
+              </Obj>
+              <S N="Description">EFI SCSI Device</S>
+              <S N="FirmwarePath">AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,1)</S>
+              <Obj N="Device" RefId="7">
+                <TN RefId="5">
+                  <T>Microsoft.HyperV.PowerShell.DvdDrive</T>
+                  <T>Microsoft.HyperV.PowerShell.Drive</T>
+                  <T>Microsoft.HyperV.PowerShell.DriveBase</T>
+                  <T>Microsoft.HyperV.PowerShell.VMDevice</T>
+                  <T>Microsoft.HyperV.PowerShell.VMComponentObject</T>
+                  <T>Microsoft.HyperV.PowerShell.VirtualizationObject</T>
+                  <T>System.Object</T>
+                </TN>
+                <ToString>DvdDrive (Name = 'DVD-дисковод on SCSI controller number 0 at location 1', VMName = 'Zavod-Master-R5-Ubuntu24') [Id = 'Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\09FD599E-E2CF-486E-B3A1-106668B922D6\0\1\D', VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+                <Props>
+                  <Obj N="DvdMediaType" RefId="8">
+                    <TN RefId="6">
+                      <T>Microsoft.HyperV.PowerShell.DvdMediaType</T>
+                      <T>System.Enum</T>
+                      <T>System.ValueType</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>ISO</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <S N="Path">C:\Users\79164\Documents\work\.r5-runtime\master-r5-ubuntu24\ubuntu-24.04.5-live-server-amd64.iso</S>
+                  <I32 N="ControllerLocation">1</I32>
+                  <I32 N="ControllerNumber">0</I32>
+                  <Obj N="ControllerType" RefId="9">
+                    <TN RefId="7">
+                      <T>Microsoft.HyperV.PowerShell.ControllerType</T>
+                      <T>System.Enum</T>
+                      <T>System.ValueType</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>SCSI</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <S N="Name">DVD-дисковод on SCSI controller number 0 at location 1</S>
+                  <S N="PoolName">Primordial</S>
+                  <S N="Id">Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\09FD599E-E2CF-486E-B3A1-106668B922D6\0\1\D</S>
+                  <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+                  <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+                  <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+                  <S N="VMSnapshotName"></S>
+                  <Ref N="CimSession" RefId="4" />
+                  <S N="ComputerName">DESKTOP-MTJSKD2</S>
+                  <B N="IsDeleted">false</B>
+                </Props>
+                <MS>
+                  <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+                  <S N="VMCheckpointName"></S>
+                </MS>
+              </Obj>
+              <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+              <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+              <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMSnapshotName"></S>
+              <Ref N="CimSession" RefId="4" />
+              <S N="ComputerName">DESKTOP-MTJSKD2</S>
+              <B N="IsDeleted">false</B>
+            </Props>
+            <MS>
+              <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMCheckpointName"></S>
+            </MS>
+          </Obj>
+          <Obj RefId="10">
+            <TNRef RefId="2" />
+            <ToString>VMBootSource (Description = 'EFI Network', VMName = 'Zavod-Master-R5-Ubuntu24') [FirmwarePath = 'AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,635161F83EDFC546913FF2D2F965ED0E74246E779A61DE448B946A013EB76DF4)/MAC(000000000000)/MessagingPath(0000000000000000000000000000000000000000000000)', VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+            <Props>
+              <Obj N="BootType" RefId="11">
+                <TNRef RefId="3" />
+                <ToString>Network</ToString>
+                <I32>2</I32>
+              </Obj>
+              <S N="Description">EFI Network</S>
+              <S N="FirmwarePath">AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,635161F83EDFC546913FF2D2F965ED0E74246E779A61DE448B946A013EB76DF4)/MAC(000000000000)/MessagingPath(0000000000000000000000000000000000000000000000)</S>
+              <Obj N="Device" RefId="12">
+                <TN RefId="8">
+                  <T>Microsoft.HyperV.PowerShell.VMNetworkAdapter</T>
+                  <T>Microsoft.HyperV.PowerShell.VMNetworkAdapterBase</T>
+                  <T>Microsoft.HyperV.PowerShell.VMDevice</T>
+                  <T>Microsoft.HyperV.PowerShell.VMComponentObject</T>
+                  <T>Microsoft.HyperV.PowerShell.VirtualizationObject</T>
+                  <T>System.Object</T>
+                </TN>
+                <ToString>VMNetworkAdapter (Name = 'Сетевой адаптер', VMName = 'Zavod-Master-R5-Ubuntu24') [VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+                <Props>
+                  <B N="ClusterMonitored">true</B>
+                  <S N="MacAddress">025A56051901</S>
+                  <U32 N="MediaType">0</U32>
+                  <B N="DynamicMacAddressEnabled">false</B>
+                  <B N="InterruptModeration">true</B>
+                  <B N="AllowPacketDirect">false</B>
+                  <B N="NumaAwarePlacement">false</B>
+                  <B N="IsLegacy">false</B>
+                  <B N="IsSynthetic">true</B>
+                  <Obj N="IPAddresses" RefId="13">
+                    <TN RefId="9">
+                      <T>System.String[]</T>
+                      <T>System.Array</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <LST />
+                  </Obj>
+                  <Obj N="DeviceNaming" RefId="14">
+                    <TN RefId="10">
+                      <T>Microsoft.HyperV.PowerShell.OnOffState</T>
+                      <T>System.Enum</T>
+                      <T>System.ValueType</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>Off</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <U32 N="IovWeight">0</U32>
+                  <U32 N="IovQueuePairsRequested">1</U32>
+                  <Obj N="IovInterruptModeration" RefId="15">
+                    <TN RefId="11">
+                      <T>Microsoft.HyperV.PowerShell.IovInterruptModerationValue</T>
+                      <T>System.Enum</T>
+                      <T>System.ValueType</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>Default</ToString>
+                    <I32>0</I32>
+                  </Obj>
+                  <U32 N="PacketDirectNumProcs">0</U32>
+                  <U32 N="PacketDirectModerationCount">64</U32>
+                  <U32 N="PacketDirectModerationInterval">1000000</U32>
+                  <U32 N="IovQueuePairsAssigned">0</U32>
+                  <I32 N="IovUsage">0</I32>
+                  <Nil N="VirtualFunction" />
+                  <Obj N="MandatoryFeatureId" RefId="16">
+                    <TNRef RefId="9" />
+                    <LST />
+                  </Obj>
+                  <Ref N="MandatoryFeatureName" RefId="16" />
+                  <S N="PoolName"></S>
+                  <B N="Connected">true</B>
+                  <S N="SwitchName">Zavod-R5-Internal-20260920</S>
+                  <Nil N="AdapterId" />
+                  <S N="TestReplicaPoolName"></S>
+                  <S N="TestReplicaSwitchName"></S>
+                  <Nil N="StatusDescription" />
+                  <Nil N="Status" />
+                  <B N="IsManagementOs">false</B>
+                  <B N="IsExternalAdapter">false</B>
+                  <S N="Id">Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\A9CAAB35-DFFE-45A9-A54A-A5F1321594DA</S>
+                  <G N="SwitchId">afaaea6b-1d7e-4ec7-beb2-5c7bf8750beb</G>
+                  <Obj N="AclList" RefId="17">
+                    <TN RefId="12">
+                      <T>System.Collections.Generic.List`1[[Microsoft.HyperV.PowerShell.VMNetworkAdapterAclSetting, Microsoft.HyperV.PowerShell.Objects, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <LST />
+                  </Obj>
+                  <Obj N="ExtendedAclList" RefId="18">
+                    <TN RefId="13">
+                      <T>System.Collections.Generic.List`1[[Microsoft.HyperV.PowerShell.VMNetworkAdapterExtendedAclSetting, Microsoft.HyperV.PowerShell.Objects, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <LST />
+                  </Obj>
+                  <Obj N="IsolationSetting" RefId="19">
+                    <TN RefId="14">
+                      <T>Microsoft.HyperV.PowerShell.VMNetworkAdapterIsolationSetting</T>
+                      <T>Microsoft.HyperV.PowerShell.VMNetworkAdapterFeatureBase</T>
+                      <T>Microsoft.HyperV.PowerShell.VMNetworkingFeatureBase</T>
+                      <T>Microsoft.HyperV.PowerShell.VirtualizationObject</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>VMNetworkAdapterIsolationSetting</ToString>
+                    <Props>
+                      <Obj N="IsolationMode" RefId="20">
+                        <TN RefId="15">
+                          <T>Microsoft.HyperV.PowerShell.VMNetworkAdapterIsolationMode</T>
+                          <T>System.Enum</T>
+                          <T>System.ValueType</T>
+                          <T>System.Object</T>
+                        </TN>
+                        <ToString>None</ToString>
+                        <By>0</By>
+                      </Obj>
+                      <B N="AllowUntaggedTraffic">false</B>
+                      <I32 N="DefaultIsolationID">0</I32>
+                      <Obj N="MultiTenantStack" RefId="21">
+                        <TNRef RefId="10" />
+                        <ToString>Off</ToString>
+                        <I32>1</I32>
+                      </Obj>
+                      <Ref N="ParentAdapter" RefId="12" />
+                      <B N="IsTemplate">true</B>
+                      <Ref N="CimSession" RefId="4" />
+                      <S N="ComputerName">DESKTOP-MTJSKD2</S>
+                      <B N="IsDeleted">false</B>
+                    </Props>
+                  </Obj>
+                  <Obj N="RoutingDomainList" RefId="22">
+                    <TN RefId="16">
+                      <T>System.Collections.Generic.List`1[[Microsoft.HyperV.PowerShell.VMNetworkAdapterRoutingDomainSetting, Microsoft.HyperV.PowerShell.Objects, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <LST />
+                  </Obj>
+                  <Obj N="VlanSetting" RefId="23">
+                    <TN RefId="17">
+                      <T>Microsoft.HyperV.PowerShell.VMNetworkAdapterVlanSetting</T>
+                      <T>Microsoft.HyperV.PowerShell.VMNetworkAdapterFeatureBase</T>
+                      <T>Microsoft.HyperV.PowerShell.VMNetworkingFeatureBase</T>
+                      <T>Microsoft.HyperV.PowerShell.VirtualizationObject</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>VMNetworkAdapterVlanSetting</ToString>
+                    <Props>
+                      <Obj N="OperationMode" RefId="24">
+                        <TN RefId="18">
+                          <T>Microsoft.HyperV.PowerShell.VMNetworkAdapterVlanMode</T>
+                          <T>System.Enum</T>
+                          <T>System.ValueType</T>
+                          <T>System.Object</T>
+                        </TN>
+                        <ToString>Untagged</ToString>
+                        <I32>0</I32>
+                      </Obj>
+                      <I32 N="AccessVlanId">0</I32>
+                      <I32 N="NativeVlanId">0</I32>
+                      <Obj N="AllowedVlanIdList" RefId="25">
+                        <TN RefId="19">
+                          <T>System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]</T>
+                          <T>System.Object</T>
+                        </TN>
+                        <LST />
+                      </Obj>
+                      <S N="AllowedVlanIdListString"></S>
+                      <Obj N="PrivateVlanMode" RefId="26">
+                        <TN RefId="20">
+                          <T>Microsoft.HyperV.PowerShell.VMNetworkAdapterPrivateVlanMode</T>
+                          <T>System.Enum</T>
+                          <T>System.ValueType</T>
+                          <T>System.Object</T>
+                        </TN>
+                        <ToString>0</ToString>
+                        <I32>0</I32>
+                      </Obj>
+                      <I32 N="PrimaryVlanId">0</I32>
+                      <I32 N="SecondaryVlanId">0</I32>
+                      <Nil N="SecondaryVlanIdList" />
+                      <Nil N="SecondaryVlanIdListString" />
+                      <Ref N="ParentAdapter" RefId="12" />
+                      <B N="IsTemplate">true</B>
+                      <Ref N="CimSession" RefId="4" />
+                      <S N="ComputerName">DESKTOP-MTJSKD2</S>
+                      <B N="IsDeleted">false</B>
+                    </Props>
+                  </Obj>
+                  <Nil N="BandwidthSetting" />
+                  <Obj N="CurrentIsolationMode" RefId="27">
+                    <TNRef RefId="15" />
+                    <ToString>Vlan</ToString>
+                    <By>3</By>
+                  </Obj>
+                  <Obj N="MacAddressSpoofing" RefId="28">
+                    <TNRef RefId="10" />
+                    <ToString>Off</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <Obj N="DhcpGuard" RefId="29">
+                    <TNRef RefId="10" />
+                    <ToString>On</ToString>
+                    <I32>0</I32>
+                  </Obj>
+                  <Obj N="RouterGuard" RefId="30">
+                    <TNRef RefId="10" />
+                    <ToString>On</ToString>
+                    <I32>0</I32>
+                  </Obj>
+                  <Obj N="PortMirroringMode" RefId="31">
+                    <TN RefId="21">
+                      <T>Microsoft.HyperV.PowerShell.VMNetworkAdapterPortMirroringMode</T>
+                      <T>System.Enum</T>
+                      <T>System.ValueType</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>None</ToString>
+                    <I32>0</I32>
+                  </Obj>
+                  <Obj N="IeeePriorityTag" RefId="32">
+                    <TNRef RefId="10" />
+                    <ToString>Off</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <U32 N="VirtualSubnetId">0</U32>
+                  <U32 N="DynamicIPAddressLimit">0</U32>
+                  <U32 N="StormLimit">0</U32>
+                  <Obj N="AllowTeaming" RefId="33">
+                    <TNRef RefId="10" />
+                    <ToString>Off</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <Obj N="FixSpeed10G" RefId="34">
+                    <TNRef RefId="10" />
+                    <ToString>Off</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <U32 N="VMQWeight">100</U32>
+                  <I64 N="IPsecOffloadMaxSA">512</I64>
+                  <B N="VrssEnabled">true</B>
+                  <B N="VrssEnabledRequested">true</B>
+                  <B N="VmmqEnabled">true</B>
+                  <B N="VmmqEnabledRequested">true</B>
+                  <U32 N="VrssMaxQueuePairs">0</U32>
+                  <U32 N="VrssMaxQueuePairsRequested">16</U32>
+                  <U32 N="VrssMinQueuePairs">0</U32>
+                  <U32 N="VrssMinQueuePairsRequested">1</U32>
+                  <Obj N="VrssQueueSchedulingMode" RefId="35">
+                    <TN RefId="22">
+                      <T>Microsoft.HyperV.PowerShell.VrssQueueSchedulingModeType</T>
+                      <T>System.Enum</T>
+                      <T>System.ValueType</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>StaticVrss</ToString>
+                    <I32>2</I32>
+                  </Obj>
+                  <Obj N="VrssQueueSchedulingModeRequested" RefId="36">
+                    <TNRef RefId="22" />
+                    <ToString>Dynamic</ToString>
+                    <I32>0</I32>
+                  </Obj>
+                  <B N="VrssExcludePrimaryProcessor">false</B>
+                  <B N="VrssExcludePrimaryProcessorRequested">false</B>
+                  <B N="VrssIndependentHostSpreading">false</B>
+                  <B N="VrssIndependentHostSpreadingRequested">false</B>
+                  <Obj N="VrssVmbusChannelAffinityPolicy" RefId="37">
+                    <TN RefId="23">
+                      <T>Microsoft.HyperV.PowerShell.VrssVmbusChannelAffinityPolicyType</T>
+                      <T>System.Enum</T>
+                      <T>System.ValueType</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>Strong</ToString>
+                    <I32>3</I32>
+                  </Obj>
+                  <Obj N="VrssVmbusChannelAffinityPolicyRequested" RefId="38">
+                    <TNRef RefId="23" />
+                    <ToString>Strong</ToString>
+                    <I32>3</I32>
+                  </Obj>
+                  <I32 N="VmqUsage">0</I32>
+                  <U32 N="IPsecOffloadSAUsage">0</U32>
+                  <B N="VFDataPathActive">false</B>
+                  <Nil N="VMQueue" />
+                  <U32 N="BandwidthPercentage">0</U32>
+                  <B N="IsTemplate">false</B>
+                  <S N="Name">Сетевой адаптер</S>
+                  <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+                  <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+                  <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+                  <S N="VMSnapshotName"></S>
+                  <Ref N="CimSession" RefId="4" />
+                  <S N="ComputerName">DESKTOP-MTJSKD2</S>
+                  <B N="IsDeleted">false</B>
+                </Props>
+                <MS>
+                  <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+                  <S N="VMCheckpointName"></S>
+                  <U32 N="VmmqQueuePairs">0</U32>
+                  <U32 N="VmmqQueuePairsRequested">16</U32>
+                </MS>
+              </Obj>
+              <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+              <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+              <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMSnapshotName"></S>
+              <Ref N="CimSession" RefId="4" />
+              <S N="ComputerName">DESKTOP-MTJSKD2</S>
+              <B N="IsDeleted">false</B>
+            </Props>
+            <MS>
+              <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMCheckpointName"></S>
+            </MS>
+          </Obj>
+          <Obj RefId="39">
+            <TNRef RefId="2" />
+            <ToString>VMBootSource (Description = 'EFI SCSI Device', VMName = 'Zavod-Master-R5-Ubuntu24') [FirmwarePath = 'AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,0)', VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+            <Props>
+              <Obj N="BootType" RefId="40">
+                <TNRef RefId="3" />
+                <ToString>Drive</ToString>
+                <I32>1</I32>
+              </Obj>
+              <S N="Description">EFI SCSI Device</S>
+              <S N="FirmwarePath">AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,0)</S>
+              <Obj N="Device" RefId="41">
+                <TN RefId="24">
+                  <T>Microsoft.HyperV.PowerShell.HardDiskDrive</T>
+                  <T>Microsoft.HyperV.PowerShell.Drive</T>
+                  <T>Microsoft.HyperV.PowerShell.DriveBase</T>
+                  <T>Microsoft.HyperV.PowerShell.VMDevice</T>
+                  <T>Microsoft.HyperV.PowerShell.VMComponentObject</T>
+                  <T>Microsoft.HyperV.PowerShell.VirtualizationObject</T>
+                  <T>System.Object</T>
+                </TN>
+                <ToString>HardDiskDrive (Name = 'Жесткий диск on SCSI controller number 0 at location 0', VMName = 'Zavod-Master-R5-Ubuntu24') [Id = 'Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\09FD599E-E2CF-486E-B3A1-106668B922D6\0\0\D', VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+                <Props>
+                  <S N="Path">C:\Users\79164\Documents\work\.r5-runtime\master-r5-ubuntu24\vm\ubuntu24.vhdx</S>
+                  <Nil N="DiskNumber" />
+                  <U64 N="MaximumIOPS">0</U64>
+                  <U64 N="MinimumIOPS">0</U64>
+                  <G N="QoSPolicyID">00000000-0000-0000-0000-000000000000</G>
+                  <B N="SupportPersistentReservations">false</B>
+                  <Obj N="WriteHardeningMethod" RefId="42">
+                    <TN RefId="25">
+                      <T>Microsoft.HyperV.PowerShell.CacheAttributes</T>
+                      <T>System.Enum</T>
+                      <T>System.ValueType</T>
+                      <T>System.Object</T>
+                    </TN>
+                    <ToString>Default</ToString>
+                    <I32>0</I32>
+                  </Obj>
+                  <I32 N="ControllerLocation">0</I32>
+                  <I32 N="ControllerNumber">0</I32>
+                  <Obj N="ControllerType" RefId="43">
+                    <TNRef RefId="7" />
+                    <ToString>SCSI</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <S N="Name">Жесткий диск on SCSI controller number 0 at location 0</S>
+                  <S N="PoolName">Primordial</S>
+                  <S N="Id">Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\09FD599E-E2CF-486E-B3A1-106668B922D6\0\0\D</S>
+                  <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+                  <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+                  <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+                  <S N="VMSnapshotName"></S>
+                  <Ref N="CimSession" RefId="4" />
+                  <S N="ComputerName">DESKTOP-MTJSKD2</S>
+                  <B N="IsDeleted">false</B>
+                </Props>
+                <MS>
+                  <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+                  <S N="VMCheckpointName"></S>
+                </MS>
+              </Obj>
+              <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+              <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+              <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMSnapshotName"></S>
+              <Ref N="CimSession" RefId="4" />
+              <S N="ComputerName">DESKTOP-MTJSKD2</S>
+              <B N="IsDeleted">false</B>
+            </Props>
+            <MS>
+              <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMCheckpointName"></S>
+            </MS>
+          </Obj>
+          <Obj RefId="44">
+            <TNRef RefId="2" />
+            <ToString>VMBootSource (Description = 'EFI SCSI Device', VMName = 'Zavod-Master-R5-Ubuntu24') [FirmwarePath = 'AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,2)', VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+            <Props>
+              <Obj N="BootType" RefId="45">
+                <TNRef RefId="3" />
+                <ToString>Drive</ToString>
+                <I32>1</I32>
+              </Obj>
+              <S N="Description">EFI SCSI Device</S>
+              <S N="FirmwarePath">AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,2)</S>
+              <Obj N="Device" RefId="46">
+                <TNRef RefId="5" />
+                <ToString>DvdDrive (Name = 'DVD-дисковод on SCSI controller number 0 at location 2', VMName = 'Zavod-Master-R5-Ubuntu24') [Id = 'Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\09FD599E-E2CF-486E-B3A1-106668B922D6\0\2\D', VMId = '99a158da-c247-422c-ae11-109485a92b1f']</ToString>
+                <Props>
+                  <Obj N="DvdMediaType" RefId="47">
+                    <TNRef RefId="6" />
+                    <ToString>ISO</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <S N="Path">C:\Users\79164\Documents\work\.r5-runtime\master-r5-ubuntu24\private\seed.iso</S>
+                  <I32 N="ControllerLocation">2</I32>
+                  <I32 N="ControllerNumber">0</I32>
+                  <Obj N="ControllerType" RefId="48">
+                    <TNRef RefId="7" />
+                    <ToString>SCSI</ToString>
+                    <I32>1</I32>
+                  </Obj>
+                  <S N="Name">DVD-дисковод on SCSI controller number 0 at location 2</S>
+                  <S N="PoolName">Primordial</S>
+                  <S N="Id">Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\09FD599E-E2CF-486E-B3A1-106668B922D6\0\2\D</S>
+                  <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+                  <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+                  <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+                  <S N="VMSnapshotName"></S>
+                  <Ref N="CimSession" RefId="4" />
+                  <S N="ComputerName">DESKTOP-MTJSKD2</S>
+                  <B N="IsDeleted">false</B>
+                </Props>
+                <MS>
+                  <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+                  <S N="VMCheckpointName"></S>
+                </MS>
+              </Obj>
+              <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+              <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+              <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMSnapshotName"></S>
+              <Ref N="CimSession" RefId="4" />
+              <S N="ComputerName">DESKTOP-MTJSKD2</S>
+              <B N="IsDeleted">false</B>
+            </Props>
+            <MS>
+              <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+              <S N="VMCheckpointName"></S>
+            </MS>
+          </Obj>
+        </LST>
+      </Obj>
+      <Obj N="PreferredNetworkBootProtocol" RefId="49">
+        <TN RefId="26">
+          <T>Microsoft.HyperV.PowerShell.IPProtocolPreference</T>
+          <T>System.Enum</T>
+          <T>System.ValueType</T>
+          <T>System.Object</T>
+        </TN>
+        <ToString>IPv4</ToString>
+        <I32>0</I32>
+      </Obj>
+      <Obj N="SecureBoot" RefId="50">
+        <TNRef RefId="10" />
+        <ToString>On</ToString>
+        <I32>0</I32>
+      </Obj>
+      <G N="SecureBootTemplateId">272e7447-90a4-4563-a4b9-8e4ab00526ce</G>
+      <S N="SecureBootTemplate">MicrosoftUEFICertificateAuthority</S>
+      <Obj N="ConsoleMode" RefId="51">
+        <TN RefId="27">
+          <T>Microsoft.HyperV.PowerShell.ConsoleModeType</T>
+          <T>System.Enum</T>
+          <T>System.ValueType</T>
+          <T>System.Object</T>
+        </TN>
+        <ToString>Default</ToString>
+        <I32>0</I32>
+      </Obj>
+      <Obj N="PauseAfterBootFailure" RefId="52">
+        <TNRef RefId="10" />
+        <ToString>Off</ToString>
+        <I32>1</I32>
+      </Obj>
+      <G N="VMId">99a158da-c247-422c-ae11-109485a92b1f</G>
+      <S N="VMName">Zavod-Master-R5-Ubuntu24</S>
+      <G N="VMSnapshotId">00000000-0000-0000-0000-000000000000</G>
+      <S N="VMSnapshotName"></S>
+      <Ref N="CimSession" RefId="4" />
+      <S N="ComputerName">DESKTOP-MTJSKD2</S>
+      <B N="IsDeleted">false</B>
+    </Props>
+    <MS>
+      <G N="VMCheckpointId">00000000-0000-0000-0000-000000000000</G>
+      <S N="VMCheckpointName"></S>
+    </MS>
+  </Obj>
+</Objs>

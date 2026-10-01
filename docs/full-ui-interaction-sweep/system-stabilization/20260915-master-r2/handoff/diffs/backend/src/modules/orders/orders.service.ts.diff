@@ -1,0 +1,59 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-orders-before\\backend\\src\\modules\\orders\\orders.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+index 746e93e7..7dce4a1c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-orders-before\\backend\\src\\modules\\orders\\orders.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+@@ -260,7 +260,7 @@ export class OrdersService {
+ 
+   async request(user: UserContext, id: string) {
+     const request = await this.prisma.db.orderRequest.findFirst({
+-      where: { id, ...this.requestWhere(user, { archive: 'true' }) },
++      where: { id, ...this.requestWhere(user, {}, 'ENTITY') },
+       include: { sourceItem: true },
+     });
+     if (!request) throw new ConflictError('Заявка на заказ не найдена.');
+@@ -387,8 +387,8 @@ export class OrdersService {
+           },
+         });
+         if (!existingMovement) throw new ConflictError('Результат действия больше недоступен. Обновите остатки.');
+-        const currentItem = await tx.minimumStockItem.findFirst({ where: { id, ...this.itemWhere(user, { active: 'true' }) } });
+-        if (!currentItem) throw new ConflictError('Активная позиция остатка не найдена.');
++        const currentItem = await tx.minimumStockItem.findFirst({ where: { id, ...this.itemWhere(user, { includeArchive: 'true' }) } });
++        if (!currentItem) throw new ConflictError('Позиция остатка не найдена.');
+         const departmentLabels = await this.departmentLabels(user.selectedFactoryId, [currentItem.departmentId]);
+         return {
+           item: this.serializeItem(currentItem, settings, [], departmentLabels.get(currentItem.departmentId ?? '')),
+@@ -463,9 +463,16 @@ export class OrdersService {
+       ]);
+       if (data.operationId) {
+         const processed = await tx.processedOperation.findUnique({ where: { userId_operationId: { userId: user.userId, operationId: data.operationId } } });
+-        if (processed?.resultKey) {
+-          const existing = await tx.orderRequest.findFirst({ where: { id: processed.resultKey, ...this.requestWhere(user, {}) }, include: { sourceItem: true } });
+-          if (!existing) throw new ConflictError('Результат действия больше недоступен. Обновите список.');
++        if (processed) {
++          if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите список.');
++          const existing = await tx.orderRequest.findFirst({ where: {
++            id: processed.resultKey,
++            ...this.requestWhere(user, {}, 'ENTITY'),
++            createdById: user.userId,
++            sourceType: data.sourceType,
++            sourceItemId: data.sourceItemId,
++          }, include: { sourceItem: true } });
++          if (!existing || this.isRuntimeOrderRequestNoise(existing)) throw new ConflictError('Результат действия больше недоступен. Обновите список.');
+           return { request: existing, created: false };
+         }
+       }
+@@ -537,12 +544,12 @@ export class OrdersService {
+     return where;
+   }
+ 
+-  private requestWhere(user: UserContext, query: any): Prisma.OrderRequestWhereInput {
++  private requestWhere(user: UserContext, query: any, selection: 'LIST' | 'ENTITY' = 'LIST'): Prisma.OrderRequestWhereInput {
+     const archive = query.archive === 'true';
+     const status = query.status && Object.values(OrderRequestStatus).includes(query.status) ? query.status : null;
+     const where: Prisma.OrderRequestWhereInput = {
+       factoryId: user.selectedFactoryId,
+-      ...(archive
++      ...(selection === 'ENTITY' ? {} : archive
+         ? status
+           ? { status }
+           : { status: { in: [OrderRequestStatus.ORDERED, OrderRequestStatus.NOT_NEEDED, OrderRequestStatus.CLOSED_RESERVED] } }

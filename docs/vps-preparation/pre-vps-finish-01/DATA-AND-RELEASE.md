@@ -1,0 +1,19 @@
+# Данные и кандидат релиза
+
+## Что передавать
+
+`source-candidate-20260930-final.zip` — **единственный текущий кандидат исходников** после двух адресных исправлений; прежний `source-candidate-20260930.zip` сохранён как история, не предназначен для VPS. Это не image и не копия `mes`. Состав формируется действующим `setup/deployment-context.js:collectBuildFiles` плюс `docker-compose.production.yml`, действующие `setup/zavod-setup.js`/`storage-contract.js`, UI мастера и шаблон HTTPS. `RELEASE-MANIFEST.json` внутри содержит каждый файл, размер и SHA-256. Не включены `.env`, runtime config, credentials, DB dumps, uploads, `node_modules`, тестовые helpers, чужие ZIP. `backend/prisma/seed.js` и `factory09-test-guests-03.cjs` не входят в Docker context и production entrypoint. Lockfile и версии зависимостей сохранены. `APP_VERSION` backend и `VITE_APP_VERSION` frontend получают один ID от установщика; фактические Linux image digest записываются уже на VPS. ZIP checksum не доказывает Linux build.
+
+Публичный сервер создаётся с новой изолированной БД и пустой историей. Не переносить туда `mes` целиком и не направлять dev/test к серверной БД. Обновление source/image не заменяет DB локальным dump. Предыдущий принятый image и полный backup сохранять до успешных health/readback; downgrade при несовместимой новой схеме не автоматизировать.
+
+## Структура №4/№9
+
+Owner: `AdminService.exportFactoryConfig`, `validateFactoryConfigFile`, `importFactoryConfig` и UI `/admin/factories/:id/config-export`, `/admin/factories/config-import/preview`, `/admin/factories/config-import/create`. Экспорт/preview выполняются после предоставления подтверждённой цели обычным ADMIN; заблокированный локальный backend не запускаем. Конфигурация переносит локальные отделы, глобальные service refs, линии с позициями/штатными шаблонами, рабочие зоны, должности, module settings и теперь каталожные камеры. Ссылки `lineLocalKey`/другие локальные ключи сопоставляются заново, старые instance UUID не являются grant. После импорта отдельно readback 9 линий №9, 48 **мест**, 12/24-часовых должностей, двух фирм только по решению владельца, шаблонов и камер; реальные люди из этого не возникают. Две будущие отдельные камеры №9 создаются только через UI на сервере, не копируются из несуществующих записей `mes`.
+
+Состав существующих локальных учебных данных закреплён [exact manifest 22 профилей](../../factory-09-ui/test-guests-03/manifest.md); исключать по exact User.id/UFA, а не по имени с «9». Три прежних тестовых межзаводских специалиста в локальной `mes`: `pilot-tech-kipia-1`, `mobile-tech-electric`, `mobile-tech-holod`; их UFA/пароли/историю автоматически не переносить. Старые пилотные/демонстрационные люди №4, известные короткие credentials, явки, операции, чаты, заявки, файлы и персональные grants также не входят в clean source/config import. Перед любым отбором реальных людей/фирм/истории требуется отдельное решение пользователя и exact allowlist. Известные 106 отсутствующих файлов по старым Attachment №4 не «исцеляются» чистым импортом.
+
+## Обновления и старая PWA
+
+Перед совместимым update: подтверждённая instance/release identity, закрытая согласованная резервная пара, новая версия/миграции, проверенный образ, `/ready` + `/version`, UI и сохранение. `updatePending` и прежние image IDs не снимать при FIRST_ADMIN_REQUIRED или неготовом приложении. Действующий `setup` не обещает автоматический rollback DB; использовать управляемый STOP/recovery.
+
+В открытой PWA перед обновлением оператор просит завершить/сохранить черновик; после reload/reconnect клиент должен заново получить права, версию, точный `checkId` и текущую редакцию, не отправлять старый ответ к новому обходу и не дублировать фото/действия. Source-контракты идемпотентности сохраняются; реальная двухоконная/offline проверка — VPS live gate, не source PASS.

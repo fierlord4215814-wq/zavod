@@ -1,0 +1,25 @@
+diff --git a/docs/theme-switching/corrections/20260914-tc14-label-visibility-evidence/baseline-source/styles.before-tc14.css b/frontend/src/styles.css
+index ef98e1fb..e34fb09e 100644
+--- a/docs/theme-switching/corrections/20260914-tc14-label-visibility-evidence/baseline-source/styles.before-tc14.css
++++ b/frontend/src/styles.css
+@@ -21515,16 +21515,20 @@ body.pwa-standalone {
+   }
+ 
+   :root:is([data-theme="gray"], [data-theme="light"]) .admin-screen .wizard-choice-grid .factory-chip.active {
+     border-color: var(--success-border);
+     background: var(--success-soft);
+     color: var(--success);
+   }
+ 
++  :root:is([data-theme="gray"], [data-theme="light"]) .modal-card .form-grid > label:not(.checkbox-row) {
++    color: var(--text-main);
++  }
++
+   :root:is([data-theme="gray"], [data-theme="light"]) .form-grid .checkbox-row {
+     color: var(--text-main);
+   }
+ 
+   :root:is([data-theme="gray"], [data-theme="light"]) .primary-button:disabled {
+     color: var(--text-main);
+     opacity: 0.88;
+   }

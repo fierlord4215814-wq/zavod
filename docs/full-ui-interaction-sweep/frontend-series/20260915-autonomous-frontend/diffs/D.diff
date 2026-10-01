@@ -1,0 +1,164 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\D-before\\frontend\\src\\components\\ActionModal.tsx" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\D-after\\frontend\\src\\components\\ActionModal.tsx"
+index 6ebd30d6..fb1ada8f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\D-before\\frontend\\src\\components\\ActionModal.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\D-after\\frontend\\src\\components\\ActionModal.tsx"
+@@ -42,7 +42,16 @@ export function ActionModal({
+   dirty = false,
+   className = '',
+ }: ActionModalProps) {
+-  const [values, setValues] = useState<Record<string, string | boolean>>({});
++  const [{ values, baseline }, setForm] = useState(() => {
++    const initial: Record<string, string | boolean> = {};
++    fields.forEach((field) => {
++      initial[field.name] = field.type === 'checkbox' ? Boolean(field.defaultValue) : String(field.defaultValue ?? '');
++    });
++    return { values: initial, baseline: { ...initial } };
++  });
++  const setValues = (update: (current: Record<string, string | boolean>) => Record<string, string | boolean>) => {
++    setForm((current) => ({ ...current, values: update(current.values) }));
++  };
+   const [discardOpen, setDiscardOpen] = useState(false);
+   const errorRef = useRef<HTMLDivElement>(null);
+   useBodyScrollLock(true);
+@@ -54,16 +63,18 @@ export function ActionModal({
+   ].join(':')).join('||'), [fields]);
+ 
+   useEffect(() => {
+-    setValues((current) => {
++    setForm((current) => {
+       const next: Record<string, string | boolean> = {};
++      const nextBaseline: Record<string, string | boolean> = {};
+       fields.forEach((field) => {
+-        if (Object.prototype.hasOwnProperty.call(current, field.name)) {
+-          next[field.name] = current[field.name];
+-          return;
+-        }
+-        next[field.name] = field.type === 'checkbox' ? Boolean(field.defaultValue) : String(field.defaultValue ?? '');
++        const edited = Object.prototype.hasOwnProperty.call(current.values, field.name)
++          && current.values[field.name] !== current.baseline[field.name];
++        const defaultValue = field.type === 'checkbox' ? Boolean(field.defaultValue) : String(field.defaultValue ?? '');
++        // Late defaults update pristine fields atomically with their baseline; drafts keep both.
++        next[field.name] = edited ? current.values[field.name] : defaultValue;
++        nextBaseline[field.name] = edited ? current.baseline[field.name] : defaultValue;
+       });
+-      return next;
++      return { values: next, baseline: nextBaseline };
+     });
+   }, [fieldsSignature]);
+ 
+@@ -72,14 +83,7 @@ export function ActionModal({
+     errorRef.current?.scrollIntoView({ block: 'center', inline: 'nearest' });
+   }, [errorText]);
+ 
+-  const defaultValues = React.useMemo(() => {
+-    const next: Record<string, string | boolean> = {};
+-    fields.forEach((field) => {
+-      next[field.name] = field.type === 'checkbox' ? Boolean(field.defaultValue) : String(field.defaultValue ?? '');
+-    });
+-    return next;
+-  }, [fieldsSignature]);
+-  const hasChanges = dirty || JSON.stringify(values) !== JSON.stringify(defaultValues);
++  const hasChanges = dirty || Object.keys(values).some((name) => values[name] !== baseline[name]);
+   const requestCancel = () => {
+     if (busy) return;
+     if (hasChanges) setDiscardOpen(true);
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\D-before\\frontend\\e2e\\frontend-series.spec.ts" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\D-after\\frontend\\e2e\\frontend-series.spec.ts"
+index 4df37e7a..75de51dd 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\D-before\\frontend\\e2e\\frontend-series.spec.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\frontend-series\\20260915-autonomous-frontend\\snapshots\\D-after\\frontend\\e2e\\frontend-series.spec.ts"
+@@ -337,3 +337,95 @@ test('Series C error retry duplicate adapters and foreign denial',async({page})=
+   await page.reload(); await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible(); expect(reads).toBe(6);
+   expect(unknown).toEqual([]); expect(errors).toEqual([]);
+ });
++
++async function modalState(page: Page) {
++  return page.locator('.action-modal-backdrop form').evaluate(form=>{
++    const key=Object.keys(form).find(k=>k.startsWith('__reactFiber'))!;
++    let fiber=(form as any)[key];
++    while(fiber&&!fiber.memoizedProps?.fields) fiber=fiber.return;
++    const props=fiber?.memoizedProps;
++    return {title:props?.title,defaults:props?.fields?.map((f:any)=>({name:f.name,type:f.type,defaultValue:f.defaultValue})),firstHook:fiber?.memoizedState?.memoizedState,dom:[...form.querySelectorAll<HTMLInputElement>('input,textarea,select')].map(e=>({name:e.name,value:e.value,checked:e.checked})),active:document.activeElement?.tagName};
++  });
++}
++test('Series D controlled async baseline and real Browser Back',async({page})=>{
++  test.setTimeout(120000);
++  let armed=false; let release:(()=>void)|undefined; let now=Date.parse('2026-09-15T00:00:00Z');
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/health') {
++      if(armed) {armed=false; await new Promise<void>(resolve=>{release=resolve;}); now+=120000;}
++      await json(route,{status:'ok',timestamp:new Date(now).toISOString()});return true;
++    }
++    return linkedReplies(route,p);
++  }});
++  await page.goto('/'); await open(page,'Линии');
++  const sizes=before?[1440,390]:[1440,1440,1440,390,390,390,360,430];
++  for(const [i,width] of sizes.entries()) {
++    await page.setViewportSize({width,height:844});
++    armed=true; release=undefined;
++    await page.locator('.line-card').getByRole('button',{name:'Простой',exact:true}).click();
++    const modal=page.locator('.action-modal-backdrop'); await expect(modal).toBeVisible();
++    await expect.poll(()=>Boolean(release)).toBe(true);
++    const initial=await modalState(page);
++    release!();
++    await expect.poll(async()=>JSON.stringify((await modalState(page)).defaults)).not.toBe(JSON.stringify(initial.defaults));
++    const arrived=await modalState(page);
++    records.push({case:'D-async-arrival',width,iteration:i,initial,arrived});save();
++    if(i===0||width!==sizes[i-1]) await shot(page,`D-${width}-untouched-arrival-${i}`,{state:'untouched-after-async',initial,arrived});
++    await page.goBack();
++    if(before) {
++      await expect(page.getByRole('heading',{name:'Изменения не сохранены',exact:true})).toBeVisible();
++      await shot(page,`D-${width}-false-dirty-${i}`,{state:'FALSE_DIRTY_REPRODUCED'});
++      await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();
++    } else await expect(modal).toBeHidden();
++    await expect(modal).toBeHidden();
++    await page.locator('.line-card').getByRole('button',{name:'Простой',exact:true}).click();
++    await modal.getByLabel('Комментарий',{exact:true}).fill(`Черновик ${i}`);
++    await page.goBack(); // Focus-first contract: blur, then logical layer Back.
++    await expect(modal).toBeVisible();
++    await page.goBack();
++    await expect(page.getByRole('heading',{name:'Изменения не сохранены',exact:true})).toBeVisible();
++    await page.getByRole('button',{name:'Остаться',exact:true}).click();
++    await expect(modal.getByLabel('Комментарий',{exact:true})).toHaveValue(`Черновик ${i}`);
++    await page.goBack();
++    await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();
++    await expect(modal).toBeHidden();
++    expect(await page.evaluate(()=>getComputedStyle(document.body).overflow)).not.toBe('hidden');
++  }
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});
++
++test('Series D real nested People number checkbox and reopen',async({page})=>{
++  test.setTimeout(60000);
++  const worker={...person,role:'WORKER',employeeState:'AVAILABLE',skills:[{id:'series-skill',lineId:'series-line',lineName:'Линия фасовки',positionId:'series-position',positionName:'Упаковщик',experienceCount:4,level:'Подтверждён',color:'GREEN',recommended:true}]};
++  await isolate(page,{replies:async(route,p)=>{
++    if(p==='/people') {await json(route,{people:[worker],groups:{}});return true;}
++    if(p==='/people/series-person') {await json(route,worker);return true;}
++    return linkedReplies(route,p);
++  }}); await page.goto('/');
++  for(const width of [1440,390]) {
++    await page.setViewportSize({width,height:844}); await open(page,'Люди');
++    await page.locator('.people-compact-row').first().click();
++    await page.getByRole('button',{name:/Навыки по линиям/}).click();
++    await page.getByRole('button',{name:'Изменить',exact:true}).click();
++    const modal=page.locator('.action-modal-backdrop');
++    await expect(modal.getByLabel('Фактический опыт',{exact:true})).toHaveValue('4');
++    await expect(modal.getByLabel('Навык активен',{exact:true})).toBeChecked();
++    await page.goBack(); await expect(modal).toBeVisible(); // autofocus blur
++    await page.goBack(); await expect(modal).toBeHidden();
++    await expect(page.locator('.profile-card')).toBeVisible();
++    await page.getByRole('button',{name:'Изменить',exact:true}).click();
++    await modal.getByLabel('Навык активен',{exact:true}).uncheck();
++    await page.goBack(); await page.goBack();
++    await expect(page.getByRole('heading',{name:'Изменения не сохранены',exact:true})).toBeVisible();
++    await page.getByRole('button',{name:'Остаться',exact:true}).click();
++    await expect(modal.getByLabel('Навык активен',{exact:true})).not.toBeChecked();
++    await shot(page,`D-${width}-nested-checkbox-preserved`,{state:'real-People-consumer-stay',role:'ADMIN'});
++    await page.goBack(); await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();
++    await expect(modal).toBeHidden(); await expect(page.locator('.profile-card')).toBeVisible();
++    await page.getByRole('button',{name:'Изменить',exact:true}).click();
++    await expect(modal.getByLabel('Навык активен',{exact:true})).toBeChecked();
++    await page.goBack(); await page.goBack(); await expect(modal).toBeHidden();
++    await page.goBack(); await expect(page.locator('.profile-card')).toBeHidden();
++  }
++  expect(unknown).toEqual([]); expect(errors).toEqual([]);
++});

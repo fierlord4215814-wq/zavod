@@ -1,0 +1,224 @@
+{
+  "capturedAt": "2026-09-23T19:08:36.2983724Z",
+  "status": "PARTIAL_BLOCKED_ENVIRONMENT",
+  "schemaDrift": "FAIL_FRESH_AND_UPGRADE",
+  "sourceIdentitySha256": "ceb22676b6fef9569e321ab319b0a1d3bd7f0688b0ee92f55d364d975fbf45de",
+  "note": "Selected source/review identity, not a built Docker image or Linux runtime identity. No secrets, databases, uploads or old evidence packs.",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 1199,
+      "sha256": "0f49b2c01550511e834ef789af37385eb0b45cf1187635dc9d2f7e1731e580da"
+    },
+    {
+      "path": "package.json",
+      "bytes": 5624,
+      "sha256": "a199ad4d4f4a6bb03c398fdb09da288c489c5ce460c5f83b65d016213a30b5d6"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 256102,
+      "sha256": "42f9edd28e9901021f29e36529ab276e7aaae427809a7f9ce54da5a49ecdb523"
+    },
+    {
+      "path": "docker-compose.production.yml",
+      "bytes": 1732,
+      "sha256": "751179455d0696fc9b5b02c08a7231c2b8fd9df8bf9dae6170aa3102e519bf40"
+    },
+    {
+      "path": "backend/Dockerfile.production",
+      "bytes": 661,
+      "sha256": "a222bb8675ed24edf4f7870127d61dc2bf1ef49f2fe948f92417d020ce0cf436"
+    },
+    {
+      "path": "frontend/Dockerfile.production",
+      "bytes": 576,
+      "sha256": "c9d743aa726c122bddaae60892fe672a60866e4ba76e6ef782a25ddb6836a79e"
+    },
+    {
+      "path": "backend/package.json",
+      "bytes": 19657,
+      "sha256": "9e6b0b3d41aa0c2caa0ada8f790ae40d69a88510ccbff1bb5254737897b65790"
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "bytes": 83697,
+      "sha256": "16e8f460f5d5370e3c24e9dd58ea7d394b082a691e5ea620dacac06969491e52"
+    },
+    {
+      "path": "backend/prisma/system-foundation.cjs",
+      "bytes": 21746,
+      "sha256": "78f4d8ab4d144f20b7ec1bc5c5086cd9a69d4ff264b445536c083cc972990cdf"
+    },
+    {
+      "path": "backend/src/modules/auth/auth.service.ts",
+      "bytes": 33793,
+      "sha256": "6312e2a1693caeaa268ce18591559802e2f69f3ad776b3c2f0953c0e6fa463c4"
+    },
+    {
+      "path": "backend/src/common/system-foundation.ts",
+      "bytes": 2943,
+      "sha256": "029f6a3cf0be642cce85434bc3096ae1f049ed285aab47d90a22053163a46704"
+    },
+    {
+      "path": "backend/src/common/first-admin-bootstrap.ts",
+      "bytes": 7653,
+      "sha256": "d1c8d74493d576de95abef068b8baf86373a7f810903b5aada24a9cd4f027440"
+    },
+    {
+      "path": "backend/src/common/user-context.service.ts",
+      "bytes": 7492,
+      "sha256": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993"
+    },
+    {
+      "path": "backend/src/ws/ws.service.ts",
+      "bytes": 8204,
+      "sha256": "d56bd0787cd14d37864af8cdc1869598e255d309fedf656b8af2f1279039a179"
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-regression.js",
+      "bytes": 24193,
+      "sha256": "2d16e511d2b0abe2ceb958966304a1f6a9146e0e946bdb83aab800c31312cf0f"
+    },
+    {
+      "path": "backend/scripts/vps-prep-01-postgres-integration.js",
+      "bytes": 36749,
+      "sha256": "40415a72b75956090be19055c8ebb0faa0f8af8494343b19eaf341cbc4efc9b0"
+    },
+    {
+      "path": "backend/scripts/local-01-auth-regression.js",
+      "bytes": 6555,
+      "sha256": "9eca6bf5d5f378a4022db3052241fbcf750432cc1b465338d6aa859b2f5666d4"
+    },
+    {
+      "path": "setup/storage-contract.js",
+      "bytes": 6165,
+      "sha256": "a445eb752629941c2f03bb0a42e8b73b203ac109a1ae4cb746796259ca8041ac"
+    },
+    {
+      "path": "setup/deployment-context.js",
+      "bytes": 3802,
+      "sha256": "c15bb87e7fca40e64a8b52089955cefe18aa4c3d4b6ba207aeb6004a3fcc6f93"
+    },
+    {
+      "path": "setup/zavod-setup.js",
+      "bytes": 54374,
+      "sha256": "e4b50e68ce55e245b205c341b35fdb3eef481861c2ca7f38b6e636ba369e1bed"
+    },
+    {
+      "path": "setup/vps-prep-02-regression.js",
+      "bytes": 16268,
+      "sha256": "bcad3bc9315c4d7509c52cf173a24d84f28272ec95ad8ea0d90cfaf84887886e"
+    },
+    {
+      "path": "setup/vps-prep-02-docker-shim.js",
+      "bytes": 1770,
+      "sha256": "cc2da383335b37203ced82b66a890159eb02b4387d64bdab65854c9e405b1cda"
+    },
+    {
+      "path": "setup/local-01-package-review.ps1",
+      "bytes": 5665,
+      "sha256": "12e2cf73593e0d54a1d322fb0aa53b1b8043296c0676d643be35ecf07272ae46"
+    },
+    {
+      "path": "docs/vps-preparation/handoff.md",
+      "bytes": 31525,
+      "sha256": "93dbd275860a9ad4e940894e3215a91fc915a80943d81d7a4e20bcae3c3e86f5"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-01/review-report.md",
+      "bytes": 5156,
+      "sha256": "c86d7ebbbfd80a36eb422d4f3bf7ff0260af83c11a15c7fb0950d4ce1fac201a"
+    },
+    {
+      "path": "docs/vps-preparation/vps-prep-02/review-report.md",
+      "bytes": 3049,
+      "sha256": "82dd21b09392ddf0fec3d71f8e5cfbc7a770eb1196ebdf2265992f4fa92e7a47"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/before-hashes.json",
+      "bytes": 3700,
+      "sha256": "fe0d5c8d49dff8812382511b3bb0fa78c664ce49cb40bbc8fad05101438b0701"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/plan.md",
+      "bytes": 6293,
+      "sha256": "188e8f721ad5dd63d176ff9d8c4eb0db9760396e844b6b4d28d93a47a1127bcf"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/report.md",
+      "bytes": 12252,
+      "sha256": "c91c6b144a81af449945884ca5cdea5dfefe0d12e36318c770fb8b568ec0e037"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/auth-before.txt",
+      "bytes": 112,
+      "sha256": "f90daaa623f9172bce605f4b0f000b768024a4c380113a3ec68b97179654b7ea"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/auth-after-final.txt",
+      "bytes": 369,
+      "sha256": "c0c2f5929a8e0e89b88dbc3f37dbd90c6e9fa07addb1e96f2ad0842c737c307a"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/storage-before.txt",
+      "bytes": 107,
+      "sha256": "0c875adad8e3cb85cbd9ad0ae37fef391d95f4e8593f7266d1757c60fdacd1cd"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/setup-before.txt",
+      "bytes": 88,
+      "sha256": "3e944482196478469800949f8ce54e01433b2fdf099fb74b1535c159bb959d4a"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/retry-before.txt",
+      "bytes": 103,
+      "sha256": "47bccda9f5804b2f2b66fd66605d654061e40c665611876da7eac3045ae3234d"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/registration-before.txt",
+      "bytes": 99,
+      "sha256": "685689d2db540a1db35e0bea63c50eeaa0c23337c9fd5fed51f6d15e160829c3"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/backup-before.txt",
+      "bytes": 97,
+      "sha256": "e801a162fe09f2890c30eba98f5fac59b5ff4a4332c38231530e4d8a9f33f13a"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/setup-after-final.txt",
+      "bytes": 1893,
+      "sha256": "46aa95efdce55b850cae3f3469654fcabea51e9c73a2d1736f65a7554f7b7820"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/prep01-after-final.txt",
+      "bytes": 4869,
+      "sha256": "a6e539054856cd68c2acea06b349cf78c6e6cc171e9abf34a554ff9ad857f51a"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/backend-build.txt",
+      "bytes": 57,
+      "sha256": "0a6b3cef8ab4192f257cbf2fcfe8aa24486c1e3fcb4a188a56f9309e8906c02e"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/native-initdb.txt",
+      "bytes": 801,
+      "sha256": "3c887828bb123f8452ee5c4c731e66e9b6eb1fd19412a600f2ff728c86e9c640"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/native-prep01-integration.txt",
+      "bytes": 3238,
+      "sha256": "c3ecc10906e12baa80da12028c4362fd730fd3d00d88fc417149739c7b246106"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/native-prep01-continued.txt",
+      "bytes": 400,
+      "sha256": "0e6dcb0d6e73a1e443c788b673ef709870e90e858611b983982e8636b84c270a"
+    },
+    {
+      "path": "docs/vps-preparation/local-01/logs/native-prep01-http-ws.txt",
+      "bytes": 1413,
+      "sha256": "3aea4a47fb08186d6c4d91547aabe543b526344e40e9aa14ccee5527766672e7"
+    }
+  ]
+}

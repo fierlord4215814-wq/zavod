@@ -1,0 +1,49 @@
+{
+  "status": "FAIL_SCHEMA_DRIFT",
+  "prisma": "6.0.0",
+  "databaseCount": 4,
+  "summary": [
+    {
+      "route": "fresh",
+      "migration": "PASS",
+      "drift": "FAIL",
+      "foundation": "PASS",
+      "bootstrap": "PASS",
+      "cleanCounts": {
+        "factories": 1,
+        "users": 1,
+        "accesses": 1,
+        "audits": 1
+      }
+    },
+    {
+      "route": "synthetic-upgrade",
+      "oldChecksums": "PASS",
+      "additiveMigration": "PASS",
+      "drift": "FAIL",
+      "adminPolicyPreserved": "PASS",
+      "nonemptyBootstrapRefused": "PASS"
+    },
+    {
+      "route": "bootstrap-concurrency",
+      "clients": 2,
+      "created": 1,
+      "differentCredentialRefused": 1
+    },
+    {
+      "route": "bootstrap-rollback",
+      "failpoint": "after-user",
+      "partialRows": 0
+    }
+  ],
+  "schemaDriftFindings": [
+    {
+      "label": "fresh schema drift",
+      "sha256": "c2aed5cb54f9509cbd683ee1ae725ff0768c4463ed1dc420c1dae7d9d8055dc0"
+    },
+    {
+      "label": "upgrade schema drift",
+      "sha256": "4fafeacf535ff94c3736386d4d2af06384e59fe812043af3934616135b9253b4"
+    }
+  ]
+}

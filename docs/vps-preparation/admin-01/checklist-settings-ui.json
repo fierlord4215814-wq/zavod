@@ -1,0 +1,33 @@
+{
+  "status": "PASS_PAUSE_RULE_UI_RUN_RESUME_CLOSE_ARCHIVE_WINDOW0_DENY",
+  "name": "Учебная пауза конфигуратора C ADMIN01",
+  "original": {
+    "requirePauseComment": true
+  },
+  "templateId": "952b9ef2-d13b-4110-8444-0bbdf56c7600",
+  "createdSecondUiMs": 537,
+  "runId": "e4d738a0-bee1-41de-9a1a-4186163e8c54",
+  "requiredSeen": false,
+  "before": {
+    "requirePauseComment": false,
+    "uiRequired": true
+  },
+  "restored": true,
+  "paused": true,
+  "resumed": true,
+  "pauseRequiredDenial": 409,
+  "closed": true,
+  "postCloseWindow0": {
+    "status": 409,
+    "message": "Закрытые пункты чек-листа доступны только для просмотра."
+  },
+  "postClosePolicy": "Positive grace-period UI re-entry remains POLICY_PENDING; no implementation decision taken.",
+  "finishError": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.checklist-template-card').filter({ has: getByText('Учебная пауза конфигуратора C ADMIN01', { exact: true }) }).getByRole('button', { name: 'В архив', exact: true })\u001b[22m\n",
+  "finishUi": "Учебная площадка C ADMIN01\n\nЗавод\n\nОнлайн · Мастер Приёмочный Р.\n9\n\nОТДЕЛОВОЙ КОНТРОЛЬ\n\nЧек-листы\n\nТекущие проверки, сроки и выполнение по вашему отделу.\n\n✓\nВ работе\n0\n+\nДоступные\n1\n▤\nАрхив\n2\nВ работе\n0\nСейчас у вас нет чек-листов в работе.\nНачать новый чек-лист\nСмена\nЛюди\nЛинии\nЗаявки\nМойка\nОКК\nЗаказы / Остатки\nЧек-листы\nОттайка\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\n9\nСообщить об ошибке\nНастройки",
+  "archived": true,
+  "sql": {
+    "status": "CLOSED",
+    "closedAt": "2026-09-26T15:49:26.116Z",
+    "pauseComment": "Пауза"
+  }
+}

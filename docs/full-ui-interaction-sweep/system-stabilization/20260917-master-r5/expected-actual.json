@@ -1,0 +1,57 @@
+{
+  "currentContinuation": {
+    "checkpoint": "2026-09-22_075519_PROVIDER_READBACK_UAC_CANCELLED",
+    "environment": "BLOCKED_UAC_CANCELLED_PROVIDER_READBACK",
+    "uacOutcome": "NATIVE_CANCELLED_CAUSE_UNKNOWN_HELPER_NOT_INVOKED",
+    "uacFailureAt": "2026-09-22T07:55:19.8839519+03:00",
+    "newVmProviderReadback": "NOT_RUN_NO_ELEVATED_TOKEN",
+    "lastKnownVm": "HISTORICAL_OFF_20260921_231111",
+    "lastKnownFirmwareVhdxFirstConfirmed": true,
+    "dvdEjectPostcondition": "UNKNOWN_FRESH_PROVIDER_READBACK_PENDING",
+    "diagnosticBootExecuted": false,
+    "sshExecuted": false,
+    "guestRepairExecuted": false,
+    "providerHelperPrepared": true,
+    "providerHelperExecuted": false,
+    "providerGuardChecks": {
+      "pass": 7,
+      "scope": "HOST_SYNTHETIC_NOT_VM_NOT_PRODUCT"
+    },
+    "sourceDefect": "RETAINED_CORRECTED_GENERATOR_TEN_HOST_PASS_NOT_RERUN",
+    "generatorCorrectionAppliedPreviously": true,
+    "actualSeedRegenerated": false,
+    "newProductCases": 0,
+    "newLiveCases": 0,
+    "newRealJourneys": 0,
+    "captureRetries": 0,
+    "automaticUacRetry": false,
+    "evidence": "attempts/20260922-provider-dvd-boot/result.md"
+  },
+  "stage": 8,
+  "result": "NOT_RUN_ENVIRONMENT_GATE",
+  "r5FinalGenerationFrozen": false,
+  "expectedR5Ids": null,
+  "actualR5CaseResults": [],
+  "executedR5Node": 0,
+  "executedR5Browser": 0,
+  "executedR5Live": 0,
+  "nodeBrowserHistoricalCatalog": {
+    "source": "references/R4/handoff/final-test-manifest.json",
+    "counts": {
+      "backendServiceContracts": 489,
+      "clientVmContracts": 55,
+      "types": 2,
+      "wsClientFakeTransport": 3,
+      "node": 549,
+      "browser": 177,
+      "finalFailed": 0,
+      "finalNotRun": 0
+    },
+    "isR5Execution": false
+  },
+  "typesBuildsPrisma": "NOT_RUN_R5_PRODUCT_UNCHANGED",
+  "runtimeInstallFailureClass": "UAC_CANCELLED_NO_HELPER_NO_VM_OPERATION",
+  "nativeR5Captured": 0,
+  "nativeR5Viewed": 0,
+  "historicalOwnProcessOrderingCorrection": "Full stack compatibility review completed after unsuccessful UAC; selection withdrawn pending supported guest path"
+}

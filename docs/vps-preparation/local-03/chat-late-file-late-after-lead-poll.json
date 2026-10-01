@@ -1,0 +1,34 @@
+{
+  "attempt": "late-after-lead-poll",
+  "proof": "real HTTP response held, never fabricated; own group only",
+  "actors": {
+    "owner": "eac28d5f-8a7a-4b61-b292-41d69d486165",
+    "member": "3287708e-d87b-4376-b406-d42343441e08",
+    "memberRole": "CONTRACTOR_LEAD"
+  },
+  "chatId": "b8914041-4947-4a12-b302-c59f6977eb5d",
+  "title": "Учебный поздний ответ LOCAL03 late-after-lead-poll",
+  "messageId": "bb83eeb6-48ad-4d4a-928c-922442d3f3bd",
+  "fileId": "7cdd73c3-6025-49db-ac03-7fdf8a9b9342",
+  "uploadRetrySameId": true,
+  "range": {
+    "status": 200,
+    "contentRange": null,
+    "acceptRanges": null,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813",
+    "verdict": "CHARACTERIZED_200_FULL_BODY_NO_RANGE_CONTRACT"
+  },
+  "abort": {
+    "status": 200,
+    "point": "after headers, before application body consumption",
+    "error": "AbortError"
+  },
+  "newContextRetry": {
+    "status": 200,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813"
+  },
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.messenger-chat-card').filter({ hasText: 'Учебный поздний ответ LOCAL03 late-after-lead-poll' })\u001b[22m\n",
+  "finallyArchive": 200
+}

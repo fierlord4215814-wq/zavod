@@ -1,0 +1,2 @@
+// Redact private storage-relative names from this task's generated receipt only.
+const o=require('./own.cjs'),r=require('./copy.json');let n=0;for(const f of r.files)if(f.relative){f.fileKey=o.sha(Buffer.from(f.relative));delete f.relative;n++;}o.receipt('copy',r);o.receipt('manifest-redaction',{privateStorageNamesReplacedByOneWayKeys:n,byteSizeAndContentShaPreserved:true,sourceFilesModified:false});console.log('PASS private names hashed in review manifest: '+n);

@@ -1,0 +1,87 @@
+{
+  "at": "2026-09-20T18:55:54.2359047+03:00",
+  "status": "SOURCE_ARRAY_QUOTING_DEFECT_CONFIRMED_GUEST_BINDING_PENDING",
+  "source": {
+    "path": "docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\create-seed-media.ps1",
+    "sha256": "3964a3d034f5e97f3cd9d0c621699519ed5de4da9a73f099973e7121a9104a9a",
+    "lineNumber": 50,
+    "expression": "@('sh','-c','install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"'+$r5Vm.vmId+'\\n\" > /target/etc/r5-provision-instance')"
+  },
+  "powershell": "7.6.5",
+  "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+  "original": {
+    "argumentCount": 5,
+    "argv": [
+      "sh",
+      "-c",
+      "install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"",
+      "99a158da-c247-422c-ae11-109485a92b1f",
+      "\\n\" > /target/etc/r5-provision-instance"
+    ],
+    "syntax": {
+      "pid": 8844,
+      "arguments": [
+        "-n",
+        "-c",
+        "install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"",
+        "99a158da-c247-422c-ae11-109485a92b1f",
+        "\\n\" > /target/etc/r5-provision-instance"
+      ],
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "99a158da-c247-422c-ae11-109485a92b1f: -c: line 1: unexpected EOF while looking for matching `\"'\n",
+      "parseOnly": true,
+      "payloadExecuted": false,
+      "guestShell": false,
+      "normalExit": true
+    }
+  },
+  "candidate": {
+    "expression": "@('sh','-c',('install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"'+$r5Vm.vmId+'\\n\" > /target/etc/r5-provision-instance'))",
+    "argumentCount": 3,
+    "argv": [
+      "sh",
+      "-c",
+      "install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"99a158da-c247-422c-ae11-109485a92b1f\\n\" > /target/etc/r5-provision-instance"
+    ],
+    "syntax": {
+      "pid": 15280,
+      "arguments": [
+        "-n",
+        "-c",
+        "install -m 0644 /run/r5-new-disk-proof /target/var/log/r5-new-disk-proof; printf \"99a158da-c247-422c-ae11-109485a92b1f\\n\" > /target/etc/r5-provision-instance"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "parseOnly": true,
+      "payloadExecuted": false,
+      "guestShell": false,
+      "normalExit": true
+    },
+    "appliedToGenerator": false,
+    "appliedToSeed": false,
+    "executedInGuest": false
+  },
+  "shell": {
+    "path": "C:\\Users\\79164\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\usr\\bin\\sh.exe",
+    "sha256": "fc362aae1f217d34d02237d99527839dd6cf85b37c7a0277109400bfa0faa594",
+    "scope": "Host Git sh, Bash sh-mode; NOT Ubuntu guest /bin/sh"
+  },
+  "knownInputs": [
+    "vm-created.json:vmId",
+    "installer:/run/r5-new-disk-proof from early-command",
+    "installer:mounted /target",
+    "installer:install and printf"
+  ],
+  "privateSeedActualRead": "ACCESS_DENIED_PREVIOUS_READ_IN_SAME_TURN; no ACL changes or retry",
+  "guestConfigurationAndStderr": "NOT_YET_READ",
+  "guestCommands0to2": "USER_REPORTED_SUCCESS; actual target files/users NOT_YET_READ",
+  "productChanges": 0,
+  "productTests": 0,
+  "vmMutation": false,
+  "guestInput": false,
+  "uac": false,
+  "reboot": false,
+  "reinstall": false
+}

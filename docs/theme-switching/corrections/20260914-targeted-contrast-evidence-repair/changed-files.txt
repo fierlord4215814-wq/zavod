@@ -1,0 +1,30 @@
+Files changed by this targeted correction
+=========================================
+
+Product presentation
+--------------------
+frontend/src/styles.css
+  Before SHA-256: F6C42DCE49B15F9EE2A6F16BB8E958DE7270EB3345E2F4DA261F28EE30E02734
+  Final SHA-256:  01AD09437159036198ED3DED733BA224E8DA1FDEB52F7263E494851753DCC92B
+  Change: Gray/Light-only semantic correction for the reviewed headings, controls, checkbox text and disabled primary.
+
+Test/evidence harness
+---------------------
+frontend/e2e/three-themes.spec.ts
+  Before SHA-256: E0B98351B9E8E0D8734F4DDDB392B1950FE9E65DEEFB495A7A17F776C074E34C
+  Final SHA-256:  E31D666BAD11D3134E0B3F7F5F6B806856FA4BA5649C7AEBF5B2F0841C047CEA
+  Change: correction batch partitioning, current Checklists DTO fixtures, filled/empty/error states, computed-style and screenshot indexes, bounded targeted tests.
+
+Evidence/documentation
+----------------------
+docs/theme-switching/corrections/20260914-targeted-contrast-evidence-repair/
+docs/full-ui-interaction-sweep/progress.md (append-only impact link; main sweep remains paused)
+
+Explicitly not changed by this task
+-----------------------------------
+frontend/src/App.tsx SHA-256 4FFD326E93059DDF45E3E0EABC872628EE9180BEA228731DE9EDF59D4E2DDAAC
+frontend/src/theme.ts SHA-256 9F57F204E4840A1D7C97DFCB7A00FD4338D05D60E3AF7D7756FD390438B8EC34
+frontend/index.html SHA-256 5F71C93252EF1BCDD851814BC6C9070DAC18259C28888D5C1D21D4B2485CC841
+backend, PostgreSQL, Prisma/schema/migrations/seed, .env, uploads, Cloudflare, real business data, PWA/media/Back owners
+
+The worktree was already broadly dirty/untracked before this task. Unrelated status entries are preserved and are not attributed here.

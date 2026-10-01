@@ -1,0 +1,150 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\D060-before\\frontend\\src\\components\\AttachmentPreviewList.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\components\\AttachmentPreviewList.tsx"
+index b2dc3dcf..bf671e1c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\D060-before\\frontend\\src\\components\\AttachmentPreviewList.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\components\\AttachmentPreviewList.tsx"
+@@ -1,9 +1,9 @@
+ ﻿import * as React from 'react';
+ import { useEffect, useRef, useState } from 'react';
+-import { BASE_URL } from '../api/client';
++import { acquireAttachmentPreview } from '../api/attachment-preview-resource';
+ import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
+ import { useMobileBackLayer } from '../navigation/mobile-back';
+-import { getApiContext, type Attachment } from '../store/app.store';
++import { type Attachment } from '../store/app.store';
+ import { isPilotFixtureText } from '../utils/pilot-ui';
+ 
+ void React;
+@@ -22,10 +22,6 @@ function formatSize(size: number) {
+   return `${(size / 1024 / 1024).toFixed(1)} МБ`;
+ }
+ 
+-function fileUrl(attachment: Attachment) {
+-  return `${BASE_URL}/attachments/${attachment.id}/file`;
+-}
+-
+ function attachmentLabel(attachment: Attachment) {
+   if (attachment.mimeType.startsWith('image/')) return 'Фото';
+   if (attachment.mimeType.startsWith('video/')) return 'Видео';
+@@ -66,7 +62,9 @@ export function AttachmentPreviewList({
+   const [previewScale, setPreviewScale] = useState(1);
+   const [errorText, setErrorText] = useState<string | null>(null);
+   const viewerTouchStartX = useRef<number | null>(null);
++  const previewSequence = useRef(0);
+   const closePreview = () => {
++    previewSequence.current++;
+     setPreview(null);
+     setPreviewScale(1);
+     setErrorText(null);
+@@ -77,38 +75,35 @@ export function AttachmentPreviewList({
+   const [failedReasons, setFailedReasons] = useState<Record<string, string>>({});
+   const [objectUrls, setObjectUrls] = useState<Record<string, string>>({});
+   const objectUrlsRef = useRef<Record<string, string>>({});
++  const resources = useRef(new Map<string, ReturnType<typeof acquireAttachmentPreview>>());
++  const mounted = useRef(true);
+ 
+   useEffect(() => {
++    mounted.current = true;
+     return () => {
+-      Object.values(objectUrlsRef.current).forEach((url) => URL.revokeObjectURL(url));
++      mounted.current = false; previewSequence.current++;
++      resources.current.forEach(resource => resource.release()); resources.current.clear();
+       objectUrlsRef.current = {};
+     };
+   }, []);
+ 
+   const ensureObjectUrl = async (attachment: Attachment) => {
+-    if (objectUrlsRef.current[attachment.id]) return objectUrlsRef.current[attachment.id];
+-    const context = getApiContext();
+-    const headers: Record<string, string> = {
+-      ...(context.userId ? { 'x-user-id': context.userId } : {}),
+-      ...(context.factoryId ? { 'x-factory-id': context.factoryId } : {}),
+-      ...(context.authToken ? { Authorization: `Bearer ${context.authToken}` } : {}),
+-    };
++    if (!mounted.current) return null;
++    let resource = resources.current.get(attachment.id);
++    if (resource && !resource.isCurrent()) { resource.release(); resources.current.delete(attachment.id); resource = undefined; }
++    if (!resource) {
++      resource = acquireAttachmentPreview(attachment.id, () => {
++        if (!mounted.current) return;
++        previewSequence.current++; setPreview(null);
++        objectUrlsRef.current = {}; setObjectUrls({});
++        setFailedIds(new Set(resources.current.keys()));
++        setFailedReasons({}); setErrorText('Контекст доступа изменился. Откройте файл повторно.');
++      });
++      resources.current.set(attachment.id, resource);
++    }
+     try {
+-      const response = await fetch(fileUrl(attachment), { headers });
+-      if (!response.ok) {
+-        let message = response.status === 403 ? 'Нет прав для просмотра.' : response.status === 404 ? 'Файл отсутствует в хранилище.' : 'Не удалось загрузить файл.';
+-        try {
+-          const text = await response.text();
+-          const data = text ? JSON.parse(text) : null;
+-          if (data?.message) message = String(data.message);
+-        } catch {
+-          // Keep the safe generic reason.
+-        }
+-        throw new Error(message);
+-      }
+-      const blob = await response.blob();
+-      if (!blob.size) throw new Error('Файл повреждён или пустой.');
+-      const url = URL.createObjectURL(blob);
++      const url = await resource.load();
++      if (!mounted.current || !resource.isCurrent()) return null;
+       objectUrlsRef.current = { ...objectUrlsRef.current, [attachment.id]: url };
+       setObjectUrls(objectUrlsRef.current);
+       setFailedIds((current) => {
+@@ -125,6 +120,7 @@ export function AttachmentPreviewList({
+       });
+       return url;
+     } catch (error) {
++      if (!mounted.current || !resource.isCurrent()) return null;
+       const reason = error instanceof Error ? error.message : 'Не удалось загрузить файл.';
+       markFailed(attachment, reason);
+       setErrorText(reason);
+@@ -133,6 +129,12 @@ export function AttachmentPreviewList({
+   };
+ 
+   useEffect(() => {
++    for (const [id, resource] of resources.current) {
++      if (attachments.some(attachment => attachment.id === id)) continue;
++      resource.release(); resources.current.delete(id);
++      const next = { ...objectUrlsRef.current }; delete next[id]; objectUrlsRef.current = next; setObjectUrls(next);
++      if (preview?.id === id) closePreview();
++    }
+     attachments
+       .filter((attachment) => isImage(attachment) || isVideo(attachment) || isAudio(attachment))
+       .forEach((attachment) => {
+@@ -146,9 +148,12 @@ export function AttachmentPreviewList({
+   const imageAttachments = attachments.filter(isImage);
+ 
+   const openPreview = async (attachment: Attachment) => {
++    const sequence = ++previewSequence.current;
+     setErrorText(null);
++    // Open a cancellable loading layer immediately. Back must invalidate its await.
++    setPreview(attachment); setPreviewScale(1);
+     const url = await ensureObjectUrl(attachment);
+-    if (!url) setErrorText(failedReasons[attachment.id] ?? 'Не удалось загрузить файл.');
++    if (!mounted.current || sequence !== previewSequence.current) return;
+     setPreviewScale(1);
+     setPreview(attachment);
+   };
+@@ -159,7 +164,9 @@ export function AttachmentPreviewList({
+     const nextIndex = Math.min(imageAttachments.length - 1, Math.max(0, currentIndex + direction));
+     if (nextIndex === currentIndex) return;
+     const next = imageAttachments[nextIndex];
++    const sequence = ++previewSequence.current;
+     await ensureObjectUrl(next);
++    if (!mounted.current || sequence !== previewSequence.current) return;
+     setPreviewScale(1);
+     setPreview(next);
+   };
+@@ -358,7 +365,7 @@ export function AttachmentPreviewList({
+               <button className="secondary-button" type="button" onClick={closePreview}>Закрыть</button>
+             </div>
+             {errorText ? <div className="empty-state error-state compact">{errorText}</div> : null}
+-            {isImage(preview) && objectUrls[preview.id] ? (
++            {!objectUrls[preview.id] ? <div className="empty-state compact">{failedIds.has(preview.id) ? 'Файл недоступен. Закройте окно и повторите открытие.' : 'Загрузка файла…'}</div> : isImage(preview) ? (
+               <div
+                 className="attachment-image-stage"
+                 onTouchStart={(event) => {

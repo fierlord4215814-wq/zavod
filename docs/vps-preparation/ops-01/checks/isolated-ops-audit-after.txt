@@ -1,0 +1,48 @@
+✖ audit combines exact action, module and denial predicates (11.9649ms)
+✔ audit stable snapshot clamps selected period and factory stays canonical (1.668ms)
+✔ audit scans beyond first 800 before search/page; stable two-field order (35.9866ms)
+✔ personal notice predicate is also bounded to selected or global factory (0.7806ms)
+✔ nearest-rank empty/single/odd/even/duplicates [] (1.0397ms)
+✔ nearest-rank empty/single/odd/even/duplicates [9] (0.1153ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4,100] (0.1039ms)
+✔ nearest-rank empty/single/odd/even/duplicates [1,2,3,4] (0.0833ms)
+✔ nearest-rank empty/single/odd/even/duplicates [2,2,2,9] (0.1176ms)
+✔ missing phase is not zero; negative duration rejected (0.1486ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"invalid"} (1.9522ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-02-31"} (2.0521ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31","dateTo":"2026-08-30"} (1.3477ms)
+✔ invalid/empty/reversed explicit range is rejected {"dateFrom":"2026-08-31T08:00:00+03:00","dateTo":"2026-08-31T08:00:00+03:00"} (0.7734ms)
+✔ calendar period Moscow half-open and 93-day cap remain (3.0798ms)
+✔ department on-time denominator does not subtract still-open overdue tasks (0.51ms)
+✔ time-only downtime context excludes exact interval end (1.6118ms)
+✔ shift clipping intersects an interval, not only its starting label (2.6233ms)
+✔ open interval clipped to asOf, independent lines not merged (1.0955ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 18
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 475.0766
+
+✖ failing tests:
+
+test at backend\scripts\ops-01-audit.test.cjs:4:1
+✖ audit combines exact action, module and denial predicates (11.9649ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(w.AND.some(x=>x.action?.startsWith==='TASK_'))
+  
+      at TestContext.<anonymous> (C:\Users\79164\Documents\work\backend\scripts\ops-01-audit.test.cjs:4:267)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

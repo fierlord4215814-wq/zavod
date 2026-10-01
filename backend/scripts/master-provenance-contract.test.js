@@ -1,0 +1,81 @@
+require('./master-offline-guard.cjs');
+require('reflect-metadata');
+const assert=require('node:assert/strict');
+const {test}=require('node:test');
+const visibility=require('../dist/common/pilot-visibility');
+const {ArchiveService}=require('../dist/modules/archive/archive.service');
+const {AdminService}=require('../dist/modules/admin/admin.service');
+const {AnnouncementsService}=require('../dist/modules/announcements/announcements.service');
+const fs=require('node:fs'),path=require('node:path'),ts=require('typescript'),Module=require('node:module');
+const baselineFile=path.resolve(__dirname,'../../docs/full-ui-interaction-sweep/system-stabilization/20260915-maximum-integration/snapshots/E046-050-053-before/backend/src/common/pilot-visibility.ts');
+const baselineModule={exports:{}};
+new Function('require','module','exports',ts.transpileModule(fs.readFileSync(baselineFile,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText)(Module.createRequire(path.resolve(__dirname,'../dist/common/pilot-visibility.js')),baselineModule,baselineModule.exports);
+const stamp='1789400000000';
+test('042 archive predicate includes existing realtime operation provenance without title guessing',()=>{
+  const archive=Object.create(ArchiveService.prototype);
+  assert.equal(archive.isArchiveFixture('ordinary-person','id',`realtime-v1-task-${stamp}`,`Realtime v1 task ${stamp}`),true);
+  assert.equal(archive.isArchiveFixture('ordinary-person','id','business-operation',`Realtime v1 task ${stamp}`),false);
+  assert.equal(archive.includeArchiveFixtures({isAdmin:true,userId:'test-admin'},{includeDiagnostics:'true'}),true);
+  assert.equal(archive.includeArchiveFixtures({isAdmin:false,userId:'test-admin'},{includeDiagnostics:'true'}),false);
+  assert.equal(archive.includeArchiveFixtures({isAdmin:true,userId:'ordinary-person'},{includeDiagnostics:'true'}),false);
+});
+test('046 exact generator announcement title AND body; human lookalikes remain ordinary',()=>{
+  for(const [title,body] of [
+    [`Плановое уведомление ${stamp}`,'Проверка адресного realtime без раскрытия содержимого.'],
+    [`Проверка объявления отдела ${stamp}`,'Объявление для отдела руководства в служебной проверке.'],
+    [`Проверка объявления завода ${stamp}`,'Активное объявление для всего завода в служебной проверке.'],
+  ]) {
+    assert.equal(visibility.hasPilotFixtureMarker('ordinary-uuid',title,body),true);
+    assert.equal(visibility.hasPilotFixtureMarker('ordinary-uuid',title,'Рабочее объявление о порядке смены'),false);
+    assert.equal(visibility.hasPilotFixtureMarker('ordinary-uuid',title+' — производство',body),false);
+  }
+});
+test('050 exact company generators, Cyrillic endings and real externalCompanies consumer',async()=>{
+  const names=[`Временная фирма А ${Number(stamp).toString(36)}`,`Временная фирма Б ${Number(stamp).toString(36)}`,'PILOT Фирма наёмных работников v1.0'];
+  for(const name of names)assert.equal(visibility.hasPilotFixtureMarker(name),true,name);
+  const ordinary=['Временная фирма А','Временная фирма Альфа 123','Фирма наёмных работников v1.0','Test производство 123','Компания тестирования','Пилотная фирма-партнёр'];
+  for(const name of ordinary)assert.equal(visibility.hasPilotFixtureMarker(name),false,name);
+  const admin=Object.create(AdminService.prototype);
+  let query;
+  admin.prisma={db:{externalCompany:{findMany:async(options)=>{query=options;return [...names,...ordinary].map((name,i)=>({id:'company'+i,factoryId:'factory',name,isActive:i%2===0,_count:{userAccess:0,assignmentRequests:0},userAccess:[]}));}}}};
+  const result=await admin.externalCompanies({isAdmin:true,role:'ADMIN',selectedFactoryId:'factory',userId:'ordinary-person',permissions:['admin.read']});
+  assert.equal(query.where.factoryId,'factory');assert.deepEqual(result.map(r=>r.name),ordinary);
+  await assert.rejects(admin.externalCompanies({isAdmin:false,role:'WORKER',selectedFactoryId:'factory',userId:'ordinary-person',permissions:[]},'foreign'),error=>error.getStatus?.()===403);
+});
+test('Legacy PILOT prefix rule unchanged; human-name collision is an explicit decision gap, not new regression',()=>{
+  const value='PILOT Фирма-партнёр';
+  assert.equal(baselineModule.exports.hasPilotFixtureMarker(value),true);
+  assert.equal(visibility.hasPilotFixtureMarker(value),true);
+  // This proves baseline compatibility ONLY, not intended ordinary visibility.
+});
+
+function strict(value,label='repository'){return new Proxy(value,{get(target,key){if(typeof key==='symbol'||key==='then')return target[key];if(!(key in target))throw Error(`UNMOCKED ${label}.${key}`);return target[key];}});}
+const actor={isAdmin:true,isGuest:false,role:'ADMIN',userId:'ordinary-person',selectedFactoryId:'factory',departmentId:null,permissions:['archive.read','tasks.read','announcements.read','announcements.archive.read']};
+test('042 actual archive summary details department projection and diagnostic inclusion agree',async()=>{
+  const base={factoryId:'factory',deletedAt:null,createdById:actor.userId,createdAt:new Date('2026-09-10T05:00:00Z'),startedAt:new Date('2026-09-10T05:02:00Z'),doneAt:null,updatedAt:new Date('2026-09-10T05:02:00Z'),status:'IN_PROGRESS',type:'URGENT',lineId:null,line:null,departmentRecipients:[{active:true,departmentId:'production',department:{name:'Производство'}}],assignees:[],history:[]};
+  const rows=[{...base,id:'normal',description:'Проверить Test 123 на линии',operationId:'ordinary-op'},{...base,id:'fixture',description:`Realtime v1 task ${stamp}`,operationId:`realtime-v1-task-${stamp}`}];
+  const service=new ArchiveService({db:strict({lineEvent:strict({findMany:async q=>{assert.equal(q.where.line.factoryId,'factory');return [];}}),task:strict({findMany:async q=>rows.filter(r=>r.factoryId===q.where.factoryId)}),user:strict({findMany:async()=>[]})})});
+  const query={dateFrom:'2026-09-10',dateTo:'2026-09-10'};
+  assert.equal((await service.downtimeSummary(actor,query)).tasks.total,1);
+  const detail=await service.downtimeItems(actor,query);assert.equal(detail.total,1);assert.equal(detail.items[0].id,'normal');
+  assert.equal((await service.downtimeByDepartments(actor,query))[0].tasksTotal,1);
+  assert.equal((await service.downtimeSummary({...actor,userId:'test-admin'},{...query,includeDiagnostics:'true'})).tasks.total,2);
+  await assert.rejects(service.downtimeSummary({...actor,isAdmin:false,role:'WORKER'},query),error=>error.getStatus?.()===403);
+  rows[0].factoryId='foreign';assert.equal((await service.downtimeItems(actor,query)).total,0);
+});
+test('046 actual current unread archive lists share exact title-body filtering',async()=>{
+  const base={id:'announcement',factoryId:'factory',departmentId:null,authorId:'ordinary-person',author:{id:'ordinary-person',role:'ADMIN'},audienceDepartments:[],reads:[],visibleFrom:new Date('2026-09-01'),visibleUntil:new Date('2099-01-01'),deletedAt:null,archivedAt:null,priority:'IMPORTANT'};
+  const rows=[{...base,id:'fixture',title:`Плановое уведомление ${stamp}`,text:'Проверка адресного realtime без раскрытия содержимого.'},{...base,id:'normal',title:`Плановое уведомление ${stamp}`,text:'Рабочее объявление о порядке смены'}];
+  const settings={guestCanRead:false};
+  const service=new AnnouncementsService({db:strict({announcement:strict({findMany:async q=>{assert.ok(JSON.stringify(q.where).includes('factory'));return rows;}}),user:strict({findUnique:async()=>({blockedAt:null,deletedAt:null})}),announcementSettings:strict({findUnique:async()=>settings})})},strict({write:async()=>{}}),strict({listForEntities:async(_type,ids)=>new Map(ids.map(id=>[id,[]]))}),strict({}),strict({}));
+  assert.deepEqual((await service.list(actor)).map(r=>r.id),['normal']);
+  assert.deepEqual((await service.unread(actor)).map(r=>r.id),['normal']);
+  assert.deepEqual((await service.archiveList(actor)).map(r=>r.id),['normal']);
+  assert.equal((await service.current(actor)).total,1);
+  await assert.rejects(service.list({...actor,isGuest:true,isAdmin:false}),error=>error.getStatus?.()===403);
+});
+test('053 exact scheduler/mf-service factory codes; unrelated human names and similar prefixes survive',()=>{
+  const positive=[...['граница','изоляция','конкурентность','защита'].map(name=>`scheduler-${name}-${stamp}-a1b2c3`),...['a','b','c','d'].map(code=>`mf-service-${code}`)];
+  for(const value of positive)assert.equal(visibility.hasRuntimeFixtureMarker(value),true,value);
+  for(const value of ['scheduler-production','mf-service-main','mf-service-aa','scheduler-граница-123','Наш scheduler-граница','Завод 123 Test'])assert.equal(visibility.hasRuntimeFixtureMarker(value),false,value);
+});

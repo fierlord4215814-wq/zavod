@@ -1,0 +1,227 @@
+{
+  "status": "PASS_LIMITED_MASTER_UI_COPY_BELOW_DENIALS_IDENTITY_RELOGIN",
+  "checks": {
+    "limitedMaster": {
+      "isAdmin": false,
+      "overview": 403,
+      "visibleDelegation": true
+    },
+    "consumer": {
+      "role": "WORKER",
+      "chat": 403,
+      "isAdmin": false
+    },
+    "identityPasswordHistoryUnchanged": true,
+    "retry": "SAME_EFFECT_NEW_AUDIT_NO_OPERATION_ID_CONTRACT",
+    "equalSourceDenied": 403,
+    "selfEscalationDenied": 403,
+    "otherFactoryDenied": 403,
+    "equalTargetDenied": 403,
+    "blockedSourceDenied": 403,
+    "nonDelegatableAdmin": 403
+  },
+  "isolation": {
+    "database": "zavod_local02_admin01_clean",
+    "host": "127.0.0.1:15436",
+    "exactlyFourOwnedTrainingUsers": true,
+    "userIds": [
+      "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "601fb913-9de5-4e89-8319-387a8045b54b",
+      "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+      "ef149f06-99ba-4811-9511-909f832c0794"
+    ],
+    "backendVersion": "ADMIN01-20260926-CLEAN",
+    "originalC1NotTarget": true
+  },
+  "authorityOriginally": false,
+  "applied": {
+    "http": 201,
+    "role": "WORKER",
+    "jobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+    "changedOverrides": {
+      "upsertedAllows": 0,
+      "upsertedDenies": 0,
+      "deletedOverrides": 0
+    }
+  },
+  "audit": [
+    {
+      "action": "ADMIN_USER_PERMISSION_DELEGATED",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "userId": "601fb913-9de5-4e89-8319-387a8045b54b",
+      "entityId": "ef149f06-99ba-4811-9511-909f832c0794",
+      "createdAt": "2026-09-26T14:41:40.702Z",
+      "details": {
+        "reason": "ADMIN01: подтверждённое назначение подчинённого по образцу, без переноса личности",
+        "nextRole": "WORKER",
+        "newAccess": {
+          "role": "WORKER",
+          "isGuest": false,
+          "isActive": true,
+          "companyId": null,
+          "jobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+          "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+          "jobTitleName": "Оператор участка C"
+        },
+        "oldAccess": {
+          "role": "TECH_ELECTRIC",
+          "isGuest": false,
+          "isActive": true,
+          "companyId": null,
+          "jobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+          "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+          "jobTitleName": "Оператор участка C"
+        },
+        "addedCount": 1,
+        "sourceRole": "WORKER",
+        "hiddenCount": 2,
+        "removedCount": 17,
+        "sourceUserId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+        "targetUserId": "ef149f06-99ba-4811-9511-909f832c0794",
+        "nextJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+        "upsertedAllows": 0,
+        "upsertedDenies": 0,
+        "addedPermissions": [
+          "defrost.read"
+        ],
+        "deletedOverrides": 0,
+        "nextDepartmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+        "nextJobTitleName": "Оператор участка C",
+        "sourceJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+        "jobTitleHierarchy": {
+          "source": {
+            "mode": "job-title-tree",
+            "reason": null,
+            "allowed": true,
+            "checked": true,
+            "actorJobTitleId": "b502b908-e77c-44cf-9ed2-3032805511b7",
+            "candidateJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6"
+          },
+          "target": {
+            "mode": "job-title-tree",
+            "reason": null,
+            "allowed": true,
+            "checked": true,
+            "actorJobTitleId": "b502b908-e77c-44cf-9ed2-3032805511b7",
+            "candidateJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6"
+          },
+          "checked": true
+        },
+        "grantedPermissions": [
+          "announcements.read",
+          "defrost.read",
+          "notifications.read",
+          "people.profile.read",
+          "people.skills.read",
+          "returns.publication.read"
+        ],
+        "nextDepartmentName": "Сборка C",
+        "previousJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+        "removedPermissions": [
+          "announcements.create",
+          "chats.access",
+          "chats.read",
+          "chats.write",
+          "factory.read",
+          "lines.read",
+          "people.phone.read",
+          "people.read",
+          "shift-log.comment",
+          "shift-log.create",
+          "shift-log.read",
+          "shift.current.read",
+          "shift.future.read",
+          "tasks.comment",
+          "tasks.done",
+          "tasks.read",
+          "tasks.take"
+        ],
+        "sourceJobTitleName": "Оператор участка C",
+        "previousJobTitleName": "Оператор участка C"
+      }
+    },
+    {
+      "action": "ADMIN_USER_PERMISSION_DELEGATED",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "userId": "601fb913-9de5-4e89-8319-387a8045b54b",
+      "entityId": "ef149f06-99ba-4811-9511-909f832c0794",
+      "createdAt": "2026-09-26T14:41:43.042Z",
+      "details": {
+        "reason": "ADMIN01: подтверждённое назначение подчинённого по образцу, без переноса личности",
+        "nextRole": "WORKER",
+        "newAccess": {
+          "role": "WORKER",
+          "isGuest": false,
+          "isActive": true,
+          "companyId": null,
+          "jobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+          "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+          "jobTitleName": "Оператор участка C"
+        },
+        "oldAccess": {
+          "role": "WORKER",
+          "isGuest": false,
+          "isActive": true,
+          "companyId": null,
+          "jobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+          "departmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+          "jobTitleName": "Оператор участка C"
+        },
+        "addedCount": 0,
+        "sourceRole": "WORKER",
+        "hiddenCount": 2,
+        "removedCount": 0,
+        "sourceUserId": "6f66e0eb-30bf-4bb3-993d-ee165f175373",
+        "targetUserId": "ef149f06-99ba-4811-9511-909f832c0794",
+        "nextJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+        "upsertedAllows": 0,
+        "upsertedDenies": 0,
+        "addedPermissions": [],
+        "deletedOverrides": 0,
+        "nextDepartmentId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+        "nextJobTitleName": "Оператор участка C",
+        "sourceJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+        "jobTitleHierarchy": {
+          "source": {
+            "mode": "job-title-tree",
+            "reason": null,
+            "allowed": true,
+            "checked": true,
+            "actorJobTitleId": "b502b908-e77c-44cf-9ed2-3032805511b7",
+            "candidateJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6"
+          },
+          "target": {
+            "mode": "job-title-tree",
+            "reason": null,
+            "allowed": true,
+            "checked": true,
+            "actorJobTitleId": "b502b908-e77c-44cf-9ed2-3032805511b7",
+            "candidateJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6"
+          },
+          "checked": true
+        },
+        "grantedPermissions": [
+          "announcements.read",
+          "defrost.read",
+          "notifications.read",
+          "people.profile.read",
+          "people.skills.read",
+          "returns.publication.read"
+        ],
+        "nextDepartmentName": "Сборка C",
+        "previousJobTitleId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+        "removedPermissions": [],
+        "sourceJobTitleName": "Оператор участка C",
+        "previousJobTitleName": "Оператор участка C"
+      }
+    }
+  ],
+  "personalOverrideUi": "NO_GENERIC_ALLOW_DENY_EDITOR; derived copy overrides only",
+  "authorityRestored": true,
+  "recipientRetired": {
+    "CActive": false,
+    "blocked": true,
+    "blockingFactory": "e9e7e7b2-6fcd-4b3a-9029-8b5917b580ca"
+  },
+  "cleanupObservation": "C revoke succeeded; subsequent block in C denied403 because target no longer accessible there. Block completed via own A0 where actor and target retain access."
+}

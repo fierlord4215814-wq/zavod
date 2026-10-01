@@ -1,0 +1,47 @@
+{
+  "requestId": "000006",
+  "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+  "at": "2026-09-20T18:03:32.6359961+03:00",
+  "status": "COMPLETED",
+  "operation": "SHUTDOWN",
+  "result": {
+    "vm": {
+      "Name": "Zavod-Master-R5-Ubuntu24",
+      "Id": "99a158da-c247-422c-ae11-109485a92b1f",
+      "State": 2,
+      "Generation": 2,
+      "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\Zavod-Master-R5-Ubuntu24",
+      "MemoryStartup": 4294967296,
+      "MemoryAssigned": 4294967296,
+      "ProcessorCount": 2,
+      "AutomaticStartAction": 2,
+      "AutomaticStopAction": 4,
+      "CheckpointType": 2,
+      "AutomaticCheckpointsEnabled": false
+    },
+    "network": [
+      {
+        "Name": "Сетевой адаптер",
+        "Id": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\A9CAAB35-DFFE-45A9-A54A-A5F1321594DA",
+        "MacAddress": "025A56051901",
+        "SwitchName": "Zavod-R5-Internal-20260920",
+        "SwitchId": "afaaea6b-1d7e-4ec7-beb2-5c7bf8750beb",
+        "Status": [
+          2
+        ]
+      }
+    ],
+    "at": "2026-09-20T18:03:32.3875712+03:00",
+    "freeRamBytes": 6420213760.0,
+    "disks": [
+      {
+        "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\ubuntu24.vhdx",
+        "ControllerType": 1,
+        "ControllerNumber": 0,
+        "ControllerLocation": 0
+      }
+    ],
+    "freeDiskBytes": 44743106560
+  },
+  "requestSha256": "101d76f27749bbfe7eba763e3afd532fdab6ceceafc6e546eb25a2f36e41d675"
+}

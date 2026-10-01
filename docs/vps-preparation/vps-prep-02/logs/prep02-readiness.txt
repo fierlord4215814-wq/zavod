@@ -1,0 +1,22 @@
+
+> backend@1.0.0 vps-prep:readiness-regression
+> node scripts/vps-prep-02-readiness-regression.js
+
+{
+  "status": "PASS",
+  "checks": 12,
+  "results": [
+    "complete migration history, foundation and active ADMIN are ready",
+    "missing migration refuses readiness",
+    "wrong migration checksum refuses readiness",
+    "failed unresolved migration refuses readiness",
+    "foundation marker absence refuses readiness",
+    "foundation version mismatch refuses readiness",
+    "missing active administrator has a distinct status",
+    "unavailable database refuses readiness",
+    "runtime readiness becomes unavailable during a database outage",
+    "runtime readiness recovers after the database returns",
+    "readiness endpoint returns 503 and a sanitized status",
+    "liveness remains a separate process check"
+  ]
+}

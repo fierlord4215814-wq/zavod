@@ -1,0 +1,116 @@
+{
+  "at": "2026-09-21T23:11:11.2069365+03:00",
+  "vhd": {
+    "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\ubuntu24.vhdx",
+    "VhdFormat": 3,
+    "VhdType": 3,
+    "Size": 17179869184,
+    "FileSize": 3829399552,
+    "ParentPath": "",
+    "Attached": false
+  },
+  "hostDisksOrWorkingResourcesAttached": false,
+  "hypervisor": true,
+  "dvd": [
+    {
+      "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\ubuntu-24.04.5-live-server-amd64.iso",
+      "ControllerNumber": 0,
+      "ControllerLocation": 1,
+      "Id": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\1\\D"
+    },
+    {
+      "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\private\\seed.iso",
+      "ControllerNumber": 0,
+      "ControllerLocation": 2,
+      "Id": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\2\\D"
+    }
+  ],
+  "freeDiskBytes": 39737823232,
+  "firmware": {
+    "pauseAfterBootFailure": "Off",
+    "bootOrder": [
+      {
+        "devicePath": null,
+        "deviceId": null,
+        "firmwarePath": "HD(1,GPT,BC5EA385-EA53-49AE-8E11-C9CD7AC6CF62,0x800,0x100000)/\\EFI\\ubuntu\\shimx64.efi",
+        "description": "Ubuntu",
+        "bootType": "File",
+        "deviceType": null
+      },
+      {
+        "devicePath": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\ubuntu-24.04.5-live-server-amd64.iso",
+        "deviceId": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\1\\D",
+        "firmwarePath": "AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,1)",
+        "description": "EFI SCSI Device",
+        "bootType": "Drive",
+        "deviceType": "Microsoft.HyperV.PowerShell.DvdDrive"
+      },
+      {
+        "devicePath": null,
+        "deviceId": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\A9CAAB35-DFFE-45A9-A54A-A5F1321594DA",
+        "firmwarePath": "AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,635161F83EDFC546913FF2D2F965ED0E74246E779A61DE448B946A013EB76DF4)/MAC(000000000000)/MessagingPath(0000000000000000000000000000000000000000000000)",
+        "description": "EFI Network",
+        "bootType": "Network",
+        "deviceType": "Microsoft.HyperV.PowerShell.VMNetworkAdapter"
+      },
+      {
+        "devicePath": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\ubuntu24.vhdx",
+        "deviceId": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\0\\D",
+        "firmwarePath": "AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,0)",
+        "description": "EFI SCSI Device",
+        "bootType": "Drive",
+        "deviceType": "Microsoft.HyperV.PowerShell.HardDiskDrive"
+      },
+      {
+        "devicePath": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\private\\seed.iso",
+        "deviceId": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\2\\D",
+        "firmwarePath": "AcpiEx(VMBus,0,0)/VenHw(9B17E5A2-0891-42DD-B653-80B5C22809BA,D96361BAA104294DB60572E2FFB1DC7F029EEBBEB38EE94DA20E132F60A78EB4)/Scsi(0,2)",
+        "description": "EFI SCSI Device",
+        "bootType": "Drive",
+        "deviceType": "Microsoft.HyperV.PowerShell.DvdDrive"
+      }
+    ],
+    "consoleMode": "Default",
+    "secureBootTemplateId": "272e7447-90a4-4563-a4b9-8e4ab00526ce",
+    "secureBootTemplate": "MicrosoftUEFICertificateAuthority",
+    "secureBoot": "On",
+    "preferredNetworkBootProtocol": "IPv4"
+  },
+  "freeRamBytes": 10269270016.0,
+  "biosGuid": "D00FD8A4-6628-433C-BD34-00A7CB7DD174",
+  "network": [
+    {
+      "Name": "Сетевой адаптер",
+      "Id": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\A9CAAB35-DFFE-45A9-A54A-A5F1321594DA",
+      "SwitchId": "afaaea6b-1d7e-4ec7-beb2-5c7bf8750beb",
+      "MacAddress": "025A56051901"
+    }
+  ],
+  "jobs": [],
+  "vm": {
+    "Name": "Zavod-Master-R5-Ubuntu24",
+    "Id": "99a158da-c247-422c-ae11-109485a92b1f",
+    "State": 3,
+    "Generation": 2,
+    "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\Zavod-Master-R5-Ubuntu24",
+    "MemoryStartup": 4294967296,
+    "MemoryAssigned": 0,
+    "ProcessorCount": 2,
+    "AutomaticStartAction": 2,
+    "AutomaticStopAction": 4,
+    "CheckpointType": 2,
+    "AutomaticCheckpointsEnabled": false
+  },
+  "hostBoot": "2026-09-21T22:12:54.5+03:00",
+  "disks": [
+    {
+      "Path": "C:\\Users\\79164\\Documents\\work\\.r5-runtime\\master-r5-ubuntu24\\vm\\ubuntu24.vhdx",
+      "DiskNumber": null,
+      "ControllerType": 1,
+      "ControllerNumber": 0,
+      "ControllerLocation": 0,
+      "Id": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\09FD599E-E2CF-486E-B3A1-106668B922D6\\0\\0\\D"
+    }
+  ],
+  "dep": true
+}

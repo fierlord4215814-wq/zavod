@@ -1,0 +1,237 @@
+{
+  "at": "2026-09-16T18:06:42.656Z",
+  "baselineProduct": "33318c278635e56d75458df104bb99a412fb0bd7868de6f52337c3d477783e3c",
+  "productFingerprint": "6ae29f473c26b5d0dbe657f52c32cfebaff3c198abd5bb177eedf81e0ab1cfdc",
+  "owners": [
+    {
+      "owner": "backend/scripts/master-r4-connectivity.test.js",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r4-connectivity.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/backend/scripts/master-r4-connectivity.test.js",
+        "time": "2026-09-16T17:26:34.045Z"
+      },
+      "afterSha256": "a0fbfb8e59d0a1f07bfc106cf97047cc1054b0c8dbed3dfd37a694839e7f7acd",
+      "bytes": 8535,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/source-after/backend/scripts/master-r4-connectivity.test.js",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/diffs/backend/scripts/master-r4-connectivity.test.js.diff",
+      "versions": [
+        {
+          "owner": "backend/scripts/master-r4-connectivity.test.js",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/backend/scripts/master-r4-connectivity.test.js",
+          "time": "2026-09-16T17:26:34.045Z"
+        },
+        {
+          "owner": "backend/scripts/master-r4-connectivity.test.js",
+          "sha256": "a0fbfb8e59d0a1f07bfc106cf97047cc1054b0c8dbed3dfd37a694839e7f7acd",
+          "bytes": 8535,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/H-harness-finish/backend/scripts/master-r4-connectivity.test.js",
+          "time": "2026-09-16T17:45:05.503Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/helpers/frontend-series.ts",
+      "kind": "test-or-support",
+      "beforeSha256": "7fcef9d5cfaaf5149276143313e9c078859fd0221c0f2c2e15749a4b1961b07d",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/e2e/helpers/frontend-series.ts",
+      "absenceReceipt": null,
+      "afterSha256": "9c2a2509f37649ec197b00d4cb7b2867d5b6c1135fe30fee94f06a9085826c25",
+      "bytes": 15049,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/source-after/frontend/e2e/helpers/frontend-series.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/diffs/frontend/e2e/helpers/frontend-series.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/helpers/frontend-series.ts",
+          "sha256": "7fcef9d5cfaaf5149276143313e9c078859fd0221c0f2c2e15749a4b1961b07d",
+          "bytes": 14868,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/e2e/helpers/frontend-series.ts",
+          "time": "2026-09-16T17:26:34.045Z"
+        },
+        {
+          "owner": "frontend/e2e/helpers/frontend-series.ts",
+          "sha256": "c92bb4a3bd222d7f91c93e3c0ffa550c25c1c5841c496a010a25e3d507a7dc73",
+          "bytes": 14968,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/H-readiness-before/frontend/e2e/helpers/frontend-series.ts",
+          "time": "2026-09-16T17:58:01.310Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/helpers/master-r2-reporter.ts",
+      "kind": "test-or-support",
+      "beforeSha256": "b5e56f6fe3a8a9500c486afd439daf299faa3646b6966d937f3ecea62fa63673",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/e2e/helpers/master-r2-reporter.ts",
+      "absenceReceipt": null,
+      "afterSha256": "7b1f18313a388844e293d78892b1a61344627d3c0285272dae7e62fd6f51e9ba",
+      "bytes": 1658,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/source-after/frontend/e2e/helpers/master-r2-reporter.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/diffs/frontend/e2e/helpers/master-r2-reporter.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/helpers/master-r2-reporter.ts",
+          "sha256": "b5e56f6fe3a8a9500c486afd439daf299faa3646b6966d937f3ecea62fa63673",
+          "bytes": 1636,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/e2e/helpers/master-r2-reporter.ts",
+          "time": "2026-09-16T17:26:34.045Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/master-r4-connectivity.spec.ts",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "ABSENT_BEFORE_CREATION",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r4-connectivity.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/e2e/master-r4-connectivity.spec.ts",
+        "time": "2026-09-16T17:26:34.045Z"
+      },
+      "afterSha256": "90ed762441fb50edb9384d16825c5b4028c523cb2b33df2514c1acf13d3f9f54",
+      "bytes": 4360,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/source-after/frontend/e2e/master-r4-connectivity.spec.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/diffs/frontend/e2e/master-r4-connectivity.spec.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/master-r4-connectivity.spec.ts",
+          "absent": true,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/e2e/master-r4-connectivity.spec.ts",
+          "time": "2026-09-16T17:26:34.045Z"
+        },
+        {
+          "owner": "frontend/e2e/master-r4-connectivity.spec.ts",
+          "sha256": "2562ffcc49474651c468f8ef6d55431626f4e661160df44bf3df5d864af7f5ca",
+          "bytes": 3221,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/H-harness-finish/frontend/e2e/master-r4-connectivity.spec.ts",
+          "time": "2026-09-16T17:45:05.503Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/e2e/master.playwright.config.ts",
+      "kind": "test-or-support",
+      "beforeSha256": "7da9cbfe85b7349ace7751cf921ad9ea4547a3fb5be48461ad22e912dc9517a2",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/e2e/master.playwright.config.ts",
+      "absenceReceipt": null,
+      "afterSha256": "4b2d972216cb2a6c1c3313774bc82dc75a5c93f73641789222172ee25f8f583a",
+      "bytes": 1264,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/source-after/frontend/e2e/master.playwright.config.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/diffs/frontend/e2e/master.playwright.config.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/e2e/master.playwright.config.ts",
+          "sha256": "7da9cbfe85b7349ace7751cf921ad9ea4547a3fb5be48461ad22e912dc9517a2",
+          "bytes": 1140,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/e2e/master.playwright.config.ts",
+          "time": "2026-09-16T17:26:34.045Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/scripts/master-r2-preview.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": null,
+      "beforeStatus": "INITIAL_INVENTORY_ABSENT_OR_EARLIEST_AVAILABLE",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/scripts/master-r2-preview.cjs",
+      "absenceReceipt": null,
+      "afterSha256": "59ef9e9ffa2c2e20d6c040d286973fba061c096f53b002afe23177ccf40eaa1b",
+      "bytes": 1545,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/source-after/frontend/scripts/master-r2-preview.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/diffs/frontend/scripts/master-r2-preview.cjs.diff",
+      "versions": [
+        {
+          "owner": "frontend/scripts/master-r2-preview.cjs",
+          "sha256": "6977f21fe2a4f46c191c3239c760874b2fa21b540e491b3be0cdd3dcdee34570",
+          "bytes": 1476,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/scripts/master-r2-preview.cjs",
+          "time": "2026-09-16T17:26:34.045Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/scripts/master-r2-typecheck.cjs",
+      "kind": "test-or-support",
+      "beforeSha256": "812051aa626b50c36c0566c7a402357ba4246cf2a27f43e95b83616ec072f05b",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/H-support-before/frontend/scripts/master-r2-typecheck.cjs",
+      "absenceReceipt": null,
+      "afterSha256": "c7305f02a19af876486f4544357ede2d9848a24cec084e6cddb94815944d662e",
+      "bytes": 3081,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/source-after/frontend/scripts/master-r2-typecheck.cjs",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/diffs/frontend/scripts/master-r2-typecheck.cjs.diff",
+      "versions": [
+        {
+          "owner": "frontend/scripts/master-r2-typecheck.cjs",
+          "sha256": "812051aa626b50c36c0566c7a402357ba4246cf2a27f43e95b83616ec072f05b",
+          "bytes": 3060,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/H-support-before/frontend/scripts/master-r2-typecheck.cjs",
+          "time": "2026-09-16T17:41:48.718Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/App.tsx",
+      "kind": "product",
+      "beforeSha256": "8dc5c3c25028a4021c77f71131b40454bbac21c529dfe684cbc7ef48cf8fc108",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-product-before/frontend/src/App.tsx",
+      "absenceReceipt": null,
+      "afterSha256": "f2f0e70d5f627c0ef099a6807437f41e7fd83ed32d5a49f076b96a38fffbebd9",
+      "bytes": 70752,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/source-after/frontend/src/App.tsx",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/diffs/frontend/src/App.tsx.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/App.tsx",
+          "sha256": "8dc5c3c25028a4021c77f71131b40454bbac21c529dfe684cbc7ef48cf8fc108",
+          "bytes": 70702,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-product-before/frontend/src/App.tsx",
+          "time": "2026-09-16T17:34:32.592Z"
+        }
+      ]
+    },
+    {
+      "owner": "frontend/src/api/client.ts",
+      "kind": "product",
+      "beforeSha256": "6795cc9e2e128c48c4460e7da24ece7a869b176fe087c6227ba8ece25904c074",
+      "beforeStatus": "EXACT_INITIAL_HASH",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/src/api/client.ts",
+      "absenceReceipt": null,
+      "afterSha256": "4ba7325a422a27a83b29f15aac66211d67120de112bcd867ef171fc1046cc7c1",
+      "bytes": 11859,
+      "afterPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/source-after/frontend/src/api/client.ts",
+      "diffPath": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/handoff/diffs/frontend/src/api/client.ts.diff",
+      "versions": [
+        {
+          "owner": "frontend/src/api/client.ts",
+          "sha256": "6795cc9e2e128c48c4460e7da24ece7a869b176fe087c6227ba8ece25904c074",
+          "bytes": 10203,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-before/frontend/src/api/client.ts",
+          "time": "2026-09-16T17:26:34.045Z"
+        },
+        {
+          "owner": "frontend/src/api/client.ts",
+          "sha256": "6795cc9e2e128c48c4460e7da24ece7a869b176fe087c6227ba8ece25904c074",
+          "bytes": 10203,
+          "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260916-master-r4/snapshots/B-product-before/frontend/src/api/client.ts",
+          "time": "2026-09-16T17:34:32.592Z"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "test-or-support": 7,
+    "product": 2
+  },
+  "lineage": "Only R4 differences; entire dirty git diff is not attributed to this run. New files lacking explicit initial ABSENT retain that gap."
+}

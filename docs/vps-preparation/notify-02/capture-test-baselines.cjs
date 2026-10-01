@@ -1,0 +1,3 @@
+const o=require('./own.cjs');const files=['backend/scripts/master-domain-contracts.test.js','backend/scripts/master-r2-replay.test.js'];
+o.assert(!o.fs.existsSync(o.path.join(__dirname,'additional-before.json')));
+const records=files.map(file=>{const source=o.path.join(o.root,file),target=o.path.join(__dirname,'before',file),bytes=o.fs.readFileSync(source);o.fs.mkdirSync(o.path.dirname(target),{recursive:true});o.fs.copyFileSync(source,target,o.fs.constants.COPYFILE_EXCL);return{path:file,sha256:o.sha(bytes),bytes:bytes.length};});o.receipt('additional-before',{files:records});console.log('PASS additional test baselines before compatibility edits');

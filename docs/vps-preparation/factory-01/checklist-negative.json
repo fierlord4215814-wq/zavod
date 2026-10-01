@@ -1,0 +1,25 @@
+{
+  "status": "PASS_INACTIVE_SECOND_PAGE_SCOPE_ARCHIVE_FILES_IMMUTABLE",
+  "inactive": {
+    "secondUiMs": 743,
+    "start": 409
+  },
+  "reactivatedUi": true,
+  "closedDenials": {
+    "MASTER02": {
+      "delete": 403,
+      "fileRead": 200
+    },
+    "ADMIN": {
+      "delete": 403,
+      "fileRead": 200
+    }
+  },
+  "foreign": {
+    "run": 409,
+    "reference": 403,
+    "result": 403
+  },
+  "archiveUiReadOnly": true,
+  "navigationNote": "Дальше navigates read-only archived points; it is not a mutation control."
+}

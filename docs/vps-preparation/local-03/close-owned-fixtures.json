@@ -1,0 +1,106 @@
+{
+  "steps": [
+    {
+      "entity": "stock",
+      "via": "ADMIN_UI",
+      "http": 201
+    },
+    {
+      "entity": "returns",
+      "via": "STORE_UI",
+      "http": 201
+    },
+    {
+      "entity": "checklist-template",
+      "via": "CANONICAL_API",
+      "http": 201
+    },
+    {
+      "entity": "staffing-template",
+      "via": "CANONICAL_API",
+      "http": 200
+    },
+    {
+      "entity": "line-position",
+      "via": "CANONICAL_API",
+      "http": 200
+    },
+    {
+      "entity": "line",
+      "via": "CANONICAL_API",
+      "http": 200
+    }
+  ],
+  "before": {
+    "line": {
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "status": "STOP",
+      "deletedAt": null,
+      "defaultStaffingTemplateId": "f9e8442b-2d5f-4578-a1ae-5cafaf8513a2"
+    },
+    "position": {
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+      "isActive": true,
+      "deletedAt": null
+    },
+    "staffing": {
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+      "isActive": true,
+      "deletedAt": null
+    },
+    "checklist": {
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "name": "Учебный обход десяти точек LOCAL03",
+      "isActive": false,
+      "archivedAt": "2026-09-26T11:18:10.393Z"
+    },
+    "stock": {
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "name": "Учебная некондиция LOCAL03",
+      "status": "ARCHIVED"
+    },
+    "returns": {
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "productName": "Учебный возврат LOCAL03",
+      "status": "ARCHIVED",
+      "archivedAt": "2026-09-26T11:18:10.367Z"
+    }
+  },
+  "error": "\nInvalid `db.assignment.count()` invocation in\nC:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\local-03\\close-owned-fixtures.cjs:7:128\n\n  4 if(before.stock.status!=='ARCHIVED'){await navigate(a.page,'Некондиция');await a.page.locator('.compact-record-card').filter({hasText:before.stock.name}).getByRole('button',{name:'Подробнее',exact:true}).click();const[r]=await Promise.all([a.page.waitForResponse(r=>r.url().endsWith(`/api/stock/${ids.stock}/archive`)&&r.request().method()==='POST'),a.page.getByRole('button',{name:'Архив',exact:true}).click()]);assert.equal(r.status(),201);ev.steps.push({entity:'stock',via:'ADMIN_UI',http:201});save();}\n  5 if(before.returns.status!=='ARCHIVED'){await navigate(b.page,'Возвраты на производство');const list=await api(b.page,'GET','/returns');assert.equal(list.status,200);const expected=list.body.find(x=>x.id===ids.returns);assert.ok(expected);const card=b.page.locator('.returns-publication-card').filter({hasText:expected.mismatchReason});assert.equal(await card.count(),1);await card.getByRole('button',{name:'Открыть',exact:true}).last().click();assert.equal(await b.page.locator('.returns-publication-detail').getByRole('heading').innerText(),expected.productName);await b.page.locator('.returns-publication-detail').getByRole('button',{name:'В архив',exact:true}).click();const d=b.page.getByRole('dialog',{name:'Перенести публикацию в архив?'});const[r]=await Promise.all([b.page.waitForResponse(r=>r.url().endsWith(`/api/returns/${ids.returns}/archive`)&&r.request().method()==='POST'),d.getByRole('button',{name:'В архив',exact:true}).click()]);assert.equal(r.status(),201);ev.steps.push({entity:'returns',via:'STORE_UI',http:201});save();}\n  6 if(before.checklist.isActive){const r=await api(a.page,'POST',`/checklists/templates/${ids.checklist}/archive`,{});assert.equal(r.status,201);ev.steps.push({entity:'checklist-template',via:'CANONICAL_API',http:201});save();}\n→ 7 const openAssignments=await db.assignment.count({\n      select: {\n        _count: {\n          select: {\n            _all: true\n          }\n        }\n      },\n      where: {\n        lineId: \"56359bdd-14cb-451c-9500-1e2551d1264a\",\n        status: {\n          notIn: [\n            \"DONE\",\n            \"CANCELLED\"\n          ]\n          ~~~~~~~~~~~~~\n        }\n      }\n    })\n\nInvalid value for argument `notIn`. Expected WashStatus.",
+  "preClose": {
+    "openAssignments": 0,
+    "activeWash": 0
+  },
+  "after": {
+    "line": {
+      "status": "STOP",
+      "deletedAt": "2026-09-26T11:18:43.803Z",
+      "defaultStaffingTemplateId": null
+    },
+    "position": {
+      "isActive": false,
+      "deletedAt": "2026-09-26T11:18:43.786Z"
+    },
+    "staffing": {
+      "isActive": false,
+      "deletedAt": "2026-09-26T11:18:43.761Z"
+    },
+    "checklist": {
+      "isActive": false,
+      "archivedAt": "2026-09-26T11:18:10.393Z"
+    },
+    "stock": {
+      "status": "ARCHIVED"
+    },
+    "returns": {
+      "status": "ARCHIVED",
+      "archivedAt": "2026-09-26T11:18:10.367Z"
+    },
+    "b": {
+      "isActive": false
+    }
+  },
+  "status": "PASS_OWN_FIXTURES_SOFT_CLOSED"
+}

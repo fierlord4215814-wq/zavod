@@ -1,0 +1,200 @@
+Режим Codex: сохранить GPT-6 Astra / «Макс.», ранее выбранный пользователем.
+
+MASTER R4 — «ЗАВОД» V1.0: ОТДЕЛЬНЫЙ РЕАЛЬНЫЙ ТЕСТОВЫЙ СТЕНД, ПЯТЬ ПРОВЕРОК ДОСТУПА, СКВОЗНАЯ ИНТЕГРАЦИЯ И ОСТАТОК R3
+
+Это одно поручение выполнить весь конечный пакет A–J. Не заканчивай после одного исправления, составления плана или очередного зелёного isolated-теста. После проверенного инкремента и сохранённого checkpoint переходи к следующему разрешённому этапу самостоятельно. Работа должна дать качественно новое доказательство: настоящий HTTP → middleware/auth → service → PostgreSQL/files → зависимые readers/UI, а не ещё один пересказ прежних memory-тестов.
+
+НОВОЕ РАЗРЕШЕНИЕ ЭТОГО ПОРУЧЕНИЯ
+Разрешаю подготовить и использовать исключительно НОВЫЙ, ОТДЕЛЬНЫЙ, ЛОКАЛЬНЫЙ, СИНТЕТИЧЕСКИЙ тестовый контур по ограничениям ниже: отдельный экземпляр PostgreSQL со своим пустым каталогом/томом, экземпляр backend, frontend, loopback HTTP/WS и отдельные тестовые файлы. Только внутри него разрешаю применить уже существующую схему/историю миграций проекта и создать собственные синтетические fixtures для описанных проверок. Это не разрешение создавать новую продуктовую миграцию или менять рабочую схему.
+Это ограниченное разрешение заменяет прежнее «в R3 не запускать никакой backend/БД» ТОЛЬКО для нового выделенного контура R4. Оно НЕ разрешает запускать, останавливать, читать, копировать, сбрасывать или изменять существующую рабочую PostgreSQL/базу/службу/каталоги; подключение к ним остаётся запрещённым, включая read-only выборку 014/050. Не выдавать старые R3 approvals за разрешение R4. Системные approvals не обходить.
+
+Основной UI Sweep сохраняет PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. R4 — отдельная крупная программа на актуальном остатке. Исторические 954/957, 284 surfaces, P0/P1/P2=0/1/10 не перепринимаются. Stage68/setup/backup/restore/installer, Load/Capacity, публичный стенд, Cloudflare и физический телефон не запускаются. Никаких новых модулей, 1С/ERP, камеры-счётчика или проекта «Эталоны».
+
+A. ВОССТАНОВЛЕНИЕ ТЕКУЩЕЙ ТОЧКИ И ПЛАН
+
+1. Repository-first: current AGENTS.md, docs/v1-completion-goal.md; North Star не переписывать. Затем актуальный результат:
+   docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/
+   final-report.md, INDEX.md, root-result-matrix.md, decision-queue.md,
+   future-live-gate.md, navigation-findings.md, source-update-delta.md,
+   G2/final-product-identity.json, G2/final-build-identity.json,
+   G2/final-expected-browser-scenarios-v2.json,
+   handoff/final-test-manifest.json, handoff/source-delta-manifest-v2.json.
+   В приложенном пакете — внешний review и дополнительное воспроизведение R3-REV-C01. Это входные материалы, не команда исполнять старые скрипты или применять snapshots.
+2. Последний переданный product fingerprint:
+   33318c278635e56d75458df104bb99a412fb0bd7868de6f52337c3d477783e3c
+   build:
+   f78d0ddaf5e5cabe57f8cfd005d8bf2b7a4d016df705de214da89cf2f055a308
+   harness generation 2:
+   4c854fad4d57daedb7a14f5efe13d243a9a06634e9003ea24b630301648f3148
+   Сверь с текущим repo. Объяснимые более поздние правки сохранить как новую baseline, НЕ откатывать ради совпадения. Перед каждой записью проверять затрагиваемые bytes/конкурирующего writer. Не приписывать весь dirty worktree R4.
+3. R3 уже реализовал множество гарантий. Не начинать заново 044/047/060/063/069, профиль, темы, типизацию или исправления четырёх P1 R2. R3 содержит 489 backend +3 WS +2 type-contract и165 browser cases; это сохранённый scoped корпус, не live PASS. Pristine Back доказан как focus-first → закрытие; исходные 1286→1213 у063 отдельно не объяснены.
+4. Составь один восстанавливаемый execution-plan с зависимостями A–J и картой разрешений. Переиспользуй имеющиеся runners, matrix owners и default-deny gate, а не второй постоянно живущий orchestration framework. Разделяй source fix, isolated proof, real synthetic-stack proof, historical-data proof и physical proof.
+5. План — начало исполнения, не финальный результат. Один недоступный внешний ресурс блокирует только зависимые этапы. Продолжай остальные выполнимые ветви, но не начинай новую функциональность ради заполнения времени.
+
+B. УСТРАНИТЬ R3-REV-C01 И ПРОВЕРИТЬ СВЯЗАННЫЕ СОСТОЯНИЯ СВЯЗИ
+
+Подтверждённый внешний witness: фактический frontend/src/api/client.ts после сетевого TypeError публикует «Нет связи с сервером. Действие не сохранено.». Следующий актуальный HTTP403 с корректным ответом «Нет доступа.» обрабатывается как отказ, но не снимает прежний connectivity notice. У supplied before сброс был, у R3 current он выполняется только после успешного результата. Следующий200 снимает notice. App-плашка выведена из current consumer; внешний reviewer не рендерил App. VM probe — материал для воспроизведения, не достаточная браузерная приёмка.
+
+Воспроизведи на current клиенте, затем минимально исправь существующего owner и проверь:
+- network error → актуальный403/409/404/422 → верное бизнес-сообщение без прежнего утверждения «сервера нет»;
+- network error →200/204 и новая сетевая ошибка после восстановления;
+- HTTP500/503, некорректный ответ/ошибка чтения body, timeout/AbortError: транспорт, доступность приложения и успех команды не смешиваются;
+- late error/late success после logout, revoke, смены завода и A→B→A не меняет connectivity/данные нового контекста;
+- одновременные запросы с обратным порядком завершения, отписка, закрытие слоя и retry не создают залипший или мигающий бесконечно notice;
+- JSON/blob/XHR/upload consumers — проверить фактические пути и общий owner, без второго источника статуса связи;
+- полученный HTTP-отказ не трактуется как успешная операция; потеря ответа после commit не доказывает, что действие не сохранено.
+
+Нужны client-level negative/positive tests и actual App/browser witness. На отдельном реальном стенде повтори ключевой network-loss → recovery →403 путь, не только intercepted route. Не ослабляй R3 epoch/context guards и не маскируй notice CSS. HTTP-ошибка от произвольного внешнего proxy не доказывает исправность всех сервисов: границу измерения явно назови.
+
+C. СОЗДАТЬ И ПРОВЕРИТЬ ИЗОЛЯЦИЮ СТЕНДА ДО ЗАПИСИ FIXTURES
+
+C1. Разрешённая инфраструктура и запреты
+- Использовать уже установленный подходящий Docker/контейнерный runtime либо имеющиеся PostgreSQL binaries для НОВОГО standalone экземпляра. Сначала harmless inventory, без глобального stop/restart. Не устанавливать системную службу, Docker Desktop, драйверы, firewall/certificate rules, расширения с повышенными правами и не обновлять host/runtime автоматически.
+- У каждого объекта уникальный R4 runId: новый контейнер/процесс, сеть при необходимости, DB volume/data-directory, database/user, file root, browser profile и временные secrets. Отдельное имя базы внутри рабочей PostgreSQL НЕ считается разрешённой изоляцией. Production/pilot/test-clone с рабочими данными не использовать.
+- Из процесса backend/runner технически исключить доступ к рабочей БД/каталогам/внешним адресам. Не наследовать реальные DATABASE_URL, JWT/SMTP/SMS/push credentials или Vite API URLs. Использовать минимальный allowlisted environment, собственный cwd/config и синтетические secrets; не загружать dotenv из рабочего repo. Никаких working uploads bind mounts, symlinks/reparse links или host PostgreSQL sockets.
+- Публиковать доступ только на 127.0.0.1 и свободных выделенных портах, отличных от обычных3000/5173/5432/5433. Внутренние адреса допустимы только в собственной manifest-bound сети стенда. Не переиспользовать найденный listener по совпадению номера. Не создавать публичную доступность, tunnel или QR.
+- Если нужен image/package — только необходимый совместимый официальный артефакт, без upgrade продукта, с фиксацией точной версии/digest и разрешённым доступом. Во время тестов внешняя сеть закрыта. Если требуются недоступные installation/network/admin approvals — не обходить: BLOCKED_ENV с точной причиной, продолжить B/D/H и доступные проверки.
+- Существующие .env, uploads, PGdata, backup и файлы пользователя не читать для наполнения стенда. Не делать dump/clone/restore производственных данных. Initdb допустим ТОЛЬКО в доказанно новом пустом собственном каталоге, никогда в найденном рабочем.
+
+C2. Положительное доказательство принадлежности
+До импорта product bootstrap и любых fixtures зафиксируй собственный provision receipt: environmentId/runId, PID+command/start time или container ID, bind addresses, выделенные порты, DB system/cluster identifier и database identity, нормализованные data/file paths, image/binary version, product/schema/config hashes. Независимо наблюдай actual identity, а не возвращай переданный approved manifest из observeIdentity(). Нельзя подставлять случайные «forbidden production hashes», чтобы пройти старый guard.
+
+Ключевое основание безопасности — прослеживаемое создание нового объекта и техническая невозможность доступа к существующим ресурсам. Для проверки запрещённых путей использовать безопасную конфигурационную metadata, не соединяться с рабочей БД ради её fingerprint. Если имеющийся R3 guard требует недоступного факта/отдельного manifest approval, сохрани default-deny. Допустимо адресно доработать ТЕСТОВЫЙ guard/provisioner с равноценным доказательством fresh-owned target и отрицательными тестами; нельзя заменять независимое наблюдение одним флагом или approval=observed.
+
+Разрешение этой команды относится ко всему новому контуру в указанных границах, не к заранее неизвестному рабочему ресурсу. Точный создаваемый manifest регистрируется до исполнения; approvals среды, когда они требуются, запрашиваются штатно одним конкретным запросом, без поддельной подписи/автоодобрения. Hash связывает байты, но сам по себе не является пользовательским разрешением.
+
+Проверить fail-closed: отсутствие intent/manifest, истёкшая identity, чужой PID/порт, путь вне разрешённого каталога, изменённый schema/product/adapter, подмена adapter dependency, отсутствующий run marker, неразрешённая сеть, рабочий DSN в environment и неучтённый fixture. Отказ должен происходить до опасного импорта/соединения/записи. --plan/status не должны запускать сервисы.
+
+C3. Настоящий backend, не mock под вывеской live
+Использовать actual Nest modules/controllers, глобальные middleware/filters/PermissionGuard/UserContext, реальный Prisma/PostgreSQL, FileStorage и WsService. Проверить parity с current main.ts/AppModule: авторизацию/CORS/filter/WS attachment нельзя потерять из-за отдельного launcher. Никаких fake users вместо auth middleware, подставленного Prisma, memory repositories или копий product business logic в LIVE_TEST_STACK cases.
+
+Перед bootstrap найти ВСЕ startup/interval effects по imports/onModuleInit: немедленный Shift maintenance, объявления/чек-листы/другие фоновые действия. Начальное окружение изолировать до запуска. Автоматические задания по умолчанию выключить для воспроизводимых gates через штатную возможность либо узкий явный test-only launcher seam; настоящий read/write сервис и guards не подменять. Не добавлять общий production backdoor/disable-security flag. Различия launcher с production сохранять в parity map и не выдавать выключенные background jobs за проверенные.
+
+Использовать уже существующие миграции на новом пустом synthetic target либо штатное эквивалентное воспроизведение текущей схемы с явно указанным пределом. Не править migration history и не генерировать новую migration. DB apply не должен брать fallback URL. Если нужной истории нет, фиксировать provisioning blocker, а не подгонять схему/Prisma mock.
+
+C4. Fixtures
+Сначала минимальный bootstrap собственных factories A/B, departments, current users/UFA/roles, затем остальные сущности через реальные API там, где это возможно. Bootstrap допустим только после isolation gate и только явным проверенным seed-модулем данной серии, не стандартным production seed или старыми P17C generators. Синтетический администратор не заменяет проверку обычных ролей.
+
+Регистрировать actual IDs, actor, parent, создание и допускаемые записи в fixture manifest. Не менять формат product ID ради r3-fixture-prefix из старого плана: UUID и другие IDs должны соответствовать DTO/БД, принадлежность доказывается creation receipt и run ledger, а не словом в имени. Не требовать от пользователя заранее знать IDs, которые выдаёт сервер. Для ID, которые появляются после bootstrap, вести append-only registry и повторно проверять принадлежность до следующей фазы.
+
+Файлы создавать самим: маленькое изображение, документ, допустимые audio/video fixtures с hash/bytes. Не брать uploads/переписку/контакты пользователя. Push/SMTP/SMS/APNs/FCM и внешние получатели выключены; настоящие внутристендовые WS/notifications/Audit не подменять collectors, когда заявляется интеграция.
+
+D. ПЯТЬ ОБЯЗАТЕЛЬНЫХ LIVE_TEST_STACK GATES — ОДНА СЕРИЯ
+
+Портировать существенные отрицательные/положительные assertions R2/R3, но пройти настоящий HTTP login/token → current middleware → guards → service → PostgreSQL/files. Не засчитывать500/timeout вместо ожидаемого403/409. На allowed проверять точный ID/поля/состояние, на deny — отсутствие чужого объекта/байтов/мутаций. Выбор завода, отдел, direct request и наличие UI-кнопки проверяются раздельно.
+
+D1. MI-SEC-01 и родственные replay branches
+Task create/take/complete/redirect, подтверждённые Wash request/start/message/issue/complete и связанные затронутые readers. Первый commit, потерянный ответ, повтор ТОГО ЖЕ intent/key, completed/closed-readable result, null/missing result, чужой target/entity type, другой selected factory, revoke/blocked/deleted identity. Для retry нет повторной мутации/списания/смены исполнителя/fanout. Сохраняется допустимый replay после завершения действия; не требовать повторно тех initial preconditions, которые успешное действие закономерно изменило.
+Два клиента/соединения, одно действие/ключ и разные ключи: проверить actual unique/advisory/row locking там, где owner его использует. Не оборачивать все HTTP-тесты общей тестовой rollback-транзакцией, скрывающей настоящие commits. Current opaque same-entity kind ambiguity — decision, не внезапно утверждённый409.
+
+D2. MI-PUB-01, ознакомление и получатели
+Active IMPORTANT/NORMAL; читатель с archive.read и без; global/own factory/department audience, посторонние и отозванные права. current list →detail →ACK →report →notification count/personal archive. Два concurrent ACK дают один read и исходный timestamp, без повторного ACK audit. Потеря ответа после commit, отказ последующего уведомления, retry. Проверять фактические записи Notifications/Audit и получателей WS, а не только вызов mock-функции.
+Current active-case исправлен; спорные expired-unread/archived-future правила не расширять. Для них сохранить characterization и понятное состояние UI/ошибку, не выдавать as-designed PASS без договорённости.
+
+D3. MI-R2-ORD-01 и учёт технического запаса
+Synthetic quantity10/minimum5: TAKE3→7, retry без повторного движения, изменённые quantity/comment с прежним key конфликтуют там, где это подтверждено неизменяемыми полями; RESTOCK3→10 один раз. Два разных TAKE7 из 10 — один успех и один корректный отказ, баланс неотрицательный. Проверять active/archived-readable item/request, те же movement IDs в detail/history/archive/audit и cross-factory deny. Не превращать технические запасы в учёт выпуска продукции/ERP.
+
+D4. MI-R2-CHAT-ATT-01 и защищённые файлы
+Реальный private chat/message → actual attachment upload →metadata и file bytes/hash. Member/owner/nonmember, remove/leave, stale flags, transfer и повторное предоставление доступа. После revoke/leave новые HTTP metadata/file запросы запрещены; уже открытый UI получает штатное invalidation/refresh, ресурс приложения освобождается и не переоткрывается поздним ответом. Отдельно stream/range/abort и retry на новом разрешённом контексте. Не обещать отозвать файл, уже сохранённый человеком вне приложения. Проверить canonical membership, не исправлять права тестовым пропуском.
+
+D5. UI-SWEEP-036 — пересменка/архив/вложения
+Создать отдельные ordinary log и immutable handover snapshot с различающимися комментариями; текущие/закрытые/soft-archived состояния получить штатным путём. Archive-only identity без ordinary read, normal-only без archive, current authorized management/master/admin и denied guest/blocked/revoked/foreign factory/department. archive list→точная detail→authorized attachment bytes→назад. Ordinary ?archive=true не bypass. Archive view не создаёт receipt/ACK/comment и не предлагает запись; прямые запрещённые write/upload/delete/important-close paths тоже deny, файлы/счётчики не меняются. Distinct comments не объединять и не трактовать как потерю данных. Актуализировать затронутые 19 ShiftLog bindings по смыслу/handler; не объявлять все 19 подтверждёнными по одному чтению.
+
+Для каждого из пяти gates записать SOURCE/ISOLATED/LIVE_TEST_STACK/PHYSICAL отдельно. Исправление конкретного дефекта на synthetic stack может быть VERIFIED_LIVE_TEST_STACK; развёртывание на рабочем ПК/данных и Pilot Ready из этого не следуют.
+
+E. ЗАВЕРШИТЬ ПРОВЕРКУ СВЯЗОК НА НАСТОЯЩИХ ПОЛУЧАТЕЛЯХ
+
+Не рисуй graph заново. Используй32 current journey definitions,1407 existing edge rows и actual owner impact. Для каждого реально исполняемого пути свяжи actor/factory/operation/entity/version/file/notification/audit IDs. Проверяется downstream результат, не только200у исходной кнопки.
+
+Обязательная связанная программа:
+1. Admin/UFA change →actual current access→видимое меню→прямой запрещённый запрос→уведомление/переход→logout/relogin/cache. Не хватит меню, которое просто скрылось.
+2. People/Shift/Lines/timeline →конкретная заявка (включая вне board300) →действие/вложение→notification/read→Back к правильному parent/date/filters/selection/scroll. Отказ/долгий ответ/смена factory/dirty Stay/busy/late ответ не меняет чужой контекст.
+3. Wash→request→start→line/defrost occupancy→complete→history/archive/Audit/Ops, те же реальные synthetic IDs. Проверить двойной Start/несовместимую оттайку, отрицательные и postcommit retry, не освобождать занятость фильтром.
+4. Checklist template→periodic run→typed answers0/false/empty→required attachment→error/retry→completion/archive→stats. Validation и readonly/deleted/revoked cases; настоящий файл не равен подставленному JSON metadata.
+5. OKK/Returns→QuantityRelease3+7→тот же сохранённый остаток/history/archive/Audit/Ops, без новой автоматической OKK→Task. J15 отсутствующий edge остаётся CONTRACT_ABSENT, не скрытый баг и не новая feature.
+6. Source list/detail →Archive→export→Ops/Audit: на выбранных затронутых категориях одинаковые query/factory/timezone/filters/IDs/counts. Прочитать фактически полученный экспорт, не лишь Content-Type; не менять формулы ради совпадения тестовых ожиданий.
+7. Настоящие два browser contexts/WS clients: current allowed recipient, foreign context, revoke, reconnect/resubscribe, старый поздний event, fallback refresh и отсутствие duplicate action. WS здесь локальный, не Cloudflare WSS/push/device proof.
+
+J03 / plan→fact: новое разрешение R4 включает ОДНУ выделенную проверку фактического ShiftService.runShiftMaintenance и его межмодульных последствий ТОЛЬКО на собственных synthetic данных. Автоматический интервал в общих тестах выключен; explicit clock/controlled call должен использовать существующего владельца, не новый scheduler. Проверить границы 08/20 и ночную business date, отсутствие незапланированного переноса, факт ровно из next plan и повторную идемпотентность там, где current contract позволяет воспроизведение. Старый полный Scheduler audit не повторять. Если корректно управлять временем без изменения Windows-clock/подмены бизнес-логики нельзя, оставить эту строку BLOCKED_ENV, не запускать бесконтрольный interval. Отключённые onModuleInit/таймеры — явный предел startup parity.
+
+Перечень выше — конечный интеграционный пласт, не основание превращать каждую найденную возможность в модуль. При фактическом новом дефекте в этой связке разрешена минимальная правка текущего owner с red→fix→same-scenario proof и downstream regression. Security/source исправления не запрещены только словом backend. Новая архитектура, schema change или неустановленная бизнес-политика блокирует эту правку и попадает в общий список решений.
+
+F. 063 И СОВМЕСТНЫЙ BACK/SCROLL/КОНТЕКСТ — НОВЫЕ СВИДЕТЕЛЬСТВА, НЕ БЕСКОНЕЧНЫЙ RETRY
+
+Сохранён исходный R2 MASTER failure 1286→1213. Не закрывай его тем, что R3 устранил другие гонки. На реальном synthetic UI повтори исходные фильтры, роль, размеры и путь People→profile→task→Back×3. Если новый run даёт именно расхождение, сохрани причинную трассу: offset при pointerdown, navigation/restore descriptors, готовность списка и высоту контента, body lock/unlock, фактический scroll owner, history/focus, порядок RAF и последующую пользовательскую прокрутку. Не логировать личные поля или секреты.
+
+Дальнейшая диагностика — только по отличающимся проверяемым гипотезам: clamp до полной геометрии; browser focus/anchor; конечная последовательность unlock/RAF; влияние реального ответа и рендера. Это гипотезы, не готовая причина. Серия по каждой гипотезе заранее конечна; два одинаковых цикла без нового факта не продолжать. Сохранить также непроинструментированный witness.
+
+Если доказана причина — минимальный canonical fix и проверка People/Shift/Tasks/notifications, pristine focus-first, edited Stay/discard, busy, позднего ответа старого контекста, вложенного preview, низкой высоты и трёх тем. Не использовать force click, искусственный scroll в конце теста, увеличение допуска на 73px, выключение focus или dirty guard. При отсутствии нового witness статус NOT_REPRODUCED_WITH_LIMITS/OPEN сохраняется с параметрами, а остальные этапы продолжаются.
+
+G. ОДИН ПАКЕТ РЕШЕНИЙ И ФАКТОВ, БЕЗ ВЫДУМАННОЙ ПОЛИТИКИ
+
+Этот этап НЕ разрешает произвольно принять за пользователя отсутствующий контракт. Уже установленное правило найди в current sources; реальное противоречие ему исправь. Иначе сформулируй короткую decision card: текущее поведение и эффект, два-три варианта, рекомендуемый вариант с последствиями, точный вопрос и заблокированная работа. В итоговом ответе нужен один консолидированный список, не запрос после каждой строки.
+
+- 014: marker __PFFV5_P17C_BROWSER_1788105576992__ и operation ...:wash-start уже найдены. Не искать их снова во всём проекте. Собрать исключительно новые доступные безопасные сохранённые receipts; protected business snapshots и рабочую БД не открывать. Без exact actor→operation→resultKey→parent relation не писать UNIQUE, не делать cleanup или projection fix. SQL read-only specification для отдельного будущего разрешения приложить, но не выполнять. На synthetic data проверить occupancy-safe принцип как самостоятельный контракт, не доказательство происхождения исторической записи.
+- 050/MI-CLS-01: current exact042/046/050/053 оставить. Broad PILOT human collision и documented legacy fixtures требуют provenance alternatives. Имена и source literals не являются доказательством происхождения persisted records. Сформировать покрытие human lookalikes/known fixtures/UNKNOWN и готовый ограниченный extractor, отключённый без отдельного доступа. Нельзя выпустить известные fixtures или спрятать реальные записи ради PASS.
+- REPLAY-KIND/INPUT: opaque ProcessedOperation не содержит durable kind/hash. R3 immutable payload checks уже сохранены. Рассмотреть существующее additive proposal с versioned canonical DTO и legacy UNKNOWN, но не добавлять поля/миграцию/backfill до отдельного решения. Synthetic stand не делает решение утверждённым. Данные разных команд с тем же key не приравнивать к одному intent; retry не должен автоматически переходить на новый key после неоднозначного commit.
+- REPLAY-TIME: отдельно committed-result read при current access за исходным window и новая мутация; current guards не снимать оптом. Не менять часы Windows, сменную логику08/20 и бизнес-дату.
+- PUBLICATION: expired unread/personal archive, late ACK, archived future — конкретные строки. Audience/factory/deleted deny сохранить. Не делать дополнительное archive capability универсальным разрешением будущих публикаций.
+- Missing option/pristine Back в R3 уже имеют установленный контракт; не возвращать их в список непринятых R2 политик. Физическая клавиатура отдельно.
+
+Решения, которые нельзя получить из данных, не закрывать ещё сотней characterization tests. Source/dependency/refactoring действия вне выбранного контракта недопустимы. Это не команда расширять бизнес-архитектуру.
+
+H. ОКОНЧАТЕЛЬНАЯ ОБЪЕДИНЁННАЯ РЕГРЕССИЯ
+
+После последней продуктовой правки зафиксировать product/config/schema/build и harness identity. Финальный expected-набор сохранить ДО запуска; учесть прежние489+3+2/165 именованные cases и новые R4 cases, а не ориентироваться на желаемое общее число. Применимый R3 корпус выполнить на итоговом продукте один раз в конце, не после каждого инкремента. Исключение строки требует причины и точного replacement, не удаления неудобного failure.
+
+Выполнить строгий actual React noEmit и backend/frontend build. Не ослаблять skipLibCheck, не добавлять @ts-ignore/nocheck/any ради PASS, не обновлять runtime версии и дизайн-систему. Offline Prisma validate отделить от применения существующих миграций на synthetic DB.
+
+На окончательном стенде повторить пять live gates и связки затронутых receiver/reader/UI. После изменения тестовой обвязки повторить весь её затронутый набор на тех же product bytes. Если product изменился после freeze — новая generation с соответствующей повторной приёмкой, не старая отметка PASS.
+
+Счётчики раздельно: cases/попытки/steps/HTTP calls/screenshots/edges/controls. Recovered failure не удалять. ENV/HARNESS причина доказывается, это не универсальная отговорка. Known063 и policy blockers остаются в финале даже при зелёных последних командах.
+
+Визуально проверить все новые финальные цели исправлений и выбранных настоящих browser journeys: Gray/Light/Dark,1440/360/390/430; низкую высоту и breakpoints — по изменяемой геометрии. Прежние пакеты всех тем не регенерировать без impact. Нативный кадр связывать с состоянием, readiness, ролью, темой, viewport и hashes. Для доступности — текстовые Range/effective clip/hit-test, обычный tap/click/scroll без force и CSS-маскировки. В review отмечать фактически просмотренный scope, не каждое сохранённое изображение.
+
+I. РЕСУРСЫ, ОСТАНОВКА И ФИЗИЧЕСКИЙ МАРШРУТ
+
+Один primary writer, один browser worker, одна тяжёлая команда. Два клиента/DB connections для проверки конкурентности допускаются внутри одного таргета — это не swarm и не нагрузочный тест. Сохранять checkpoint после фазы/существенного результата и примерно каждые20–30 минут длительной работы. Нет требования тратить ночь или весь лимит: законченная очередь останавливается; исчерпание контекста, выключение ПК или approval barrier получают точный resume.
+
+Не выполнять git reset/clean/stash/checkout/restore/rebase/commit/push, broad delete/cleanup, перезапись старых screenshots или чужих правок. Для ошибочной собственной дельты — адресное снятие по before hash, не операция над всем worktree.
+
+В конце остановить ТОЛЬКО принадлежащие R4 процессы/контейнеры после проверки identity, не taskkill всех node/cloudflared/PostgreSQL. Не удалять новый test volume/file root до review; сохранить ограниченный повторяемый start/stop plan. Никакого dump производства. Собственные файлы секретов защитить и не упаковывать. Если стенд заблокирован, доказать почему; не оставлять публичный или подозрительный listener. Существующие службы, питание, sleep и keep-awake не настраивать.
+
+Физический телефон сейчас не проверяется. Обновить один маршрут на будущую build identity: реальная установка/cold/update, камера/микрофон/галерея, отказ/отзыв/отмена, Back с фокусом/клавиатурой, offline/reconnect, темы. Не утверждать физический PASS по синтетической media. Не запускать Quick Tunnel и не заставлять пользователя устанавливать сертификаты ради зелёного отчёта. Публичный/телефонный стенд — последующее явное поручение.
+
+J. ЕДИНЫЙ REVIEW ПАКЕТ И ОБНОВЛЕНИЕ ИСТОЧНИКОВ
+
+Использовать новый R4 batch в существующей папке docs/full-ui-interaction-sweep/system-stabilization/. Сохранить:
+- START-HERE/INDEX, final-report, plan/progress/resume;
+- source before/after/ABSENT/diffs собственной дельты; current identities и harness dependencies;
+- environment/provision/observe/approval/parity/fixture/runtime receipts без credentials;
+- пять gate matrices и существующую карту32 journeys с именованными branch proofs, отрицательными проверками и остатком;
+- реальные команды/exit codes/logs и expected→actual IDs, безопасные HTTP/SQL/WS receipts, явные fault boundaries;
+- before/failure/final native PNG и review ledger, не только красивые кадры;
+- consolidated decisions, remaining-live-and-physical и физический маршрут;
+- семантическое обновление существующих parent progress/gap и source delta, но не fresh954/957 или новый глобальный P-level PASS.
+
+Не плодить альтернативные CURRENT_STATE или параллельные источники истины. Обновить существующих владельцев документации семантически: реализованное R3/R4, новое доказательство и оставшееся раздельно. Старые источники из входного ZIP не применять целиком поверх более актуальных. Library/saved memory не объявлять синхронизированными из-за локальной Markdown-записи.
+
+Собрать один самодостаточный ZIP, чтобы пользователь не искал несколько обязательных частей. Включить entry manifest/export plan, проверить все относительные ссылки. Собственного ZIP SHA внутри не требовать: внешняя receipt с размером/count/SHA создаётся после полного entry-by-entry readback. Недостающий original R3 export plan — документальный остаток: дополнить только передачу существующего плана; не регенерировать прошлую серию и не фальсифицировать историю. Бинарные bytes копировать как bytes, не UTF-8 строки. Не включать .env, tokens/cookies/storageState/private keys, DB dump, рабочие uploads, .git и node_modules. Синтетические fixtures и их безопасные метки явно обозначить.
+
+Финальный ответ пользователю короткий, все значения по факту:
+MASTER_R4_STATUS=READY_FOR_REVIEW | PARTIAL_WITH_EXPLICIT_BLOCKERS
+R3_REV_C01=<source/browser/real-stack status>
+UI_063_ORIGINAL_73PX=<confirmed root fixed / still unexplained with limits>
+REAL_SYNTHETIC_STACK=<created/executed or exact blocker>
+LIVE_TEST_GATES=<каждый из пяти: cases/scope/result>
+INTEGRATED_JOURNEYS=<named scope, не32 автоматических PASS>
+PRODUCT_FIXES=<перечень>
+FINAL_TYPES_BUILDS_REGRESSION=<точные единицы и final identity>
+PENDING_DECISIONS=<короткие вопросы, сгруппированные>
+WORKING_DB_ACCESSED=<должно быть NO; любое отклонение сообщить немедленно>
+WORKING_DATA_ENV_UPLOADS_CHANGED=<должно быть NO; не скрывать отклонение>
+MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED
+PHYSICAL_PWA_MEDIA_ANDROID_BACK=PENDING
+OWNED_RUNTIME=<что остановлено / точный остаток>
+REVIEW_ZIP=<путь, размер, SHA256, readback>
+SOURCE_SYNC=<repo/local/Library фактически>
+FINAL_STOP=STOP
+
+После всей разрешённой и выполнимой программы остановиться для review. Результат не Pilot Ready, не возобновление старого UI Sweep и не команда начать новый пласт автоматически. Не останавливаться после одной R3-REV-C01, пяти строк плана или первого внутреннего PASS, если осталась независимая разрешённая работа.

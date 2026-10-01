@@ -1,0 +1,618 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\src\\modules\\task\\task.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+index 41c09d05..154095ca 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\src\\modules\\task\\task.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+@@ -324,12 +324,16 @@ export class TaskService {
+         if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
+         if (processed.resultKey !== taskId) throw new ConflictError('Идентификатор действия уже использован для другой операции. Обновите экран.');
+         const existing = await this.loadReplayTaskTx(tx, processed.resultKey, user);
+-        return { task: this.serializeTask(existing), changed: false };
++        const resolution = await this.notificationsService.resolveEntityNotificationsTx(tx, user.selectedFactoryId, 'TASK', taskId);
++        return { task: this.serializeTask(existing), changed: false, resolution, notifications: [] };
+       }
+       const task = await tx.task.findFirst({ where: { id: taskId, factoryId: user.selectedFactoryId, deletedAt: null }, include: this.taskInclude() });
+       if (!task) throw new ConflictError('Заявка не найдена');
+       if (!this.canActOnTask(user, task)) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет прав закрыть заявку' });
+-      if (task.status === TaskStatus.DONE) return { task: this.serializeTask(task), changed: false };
++      if (task.status === TaskStatus.DONE) {
++        const resolution = await this.notificationsService.resolveEntityNotificationsTx(tx, user.selectedFactoryId, 'TASK', taskId);
++        return { task: this.serializeTask(task), changed: false, resolution, notifications: [] };
++      }
+       if (task.status !== TaskStatus.NEW && task.status !== TaskStatus.IN_PROGRESS) throw new ConflictError('Заявку нельзя закрыть из текущего статуса');
+ 
+       const now = factoryServerNow();
+@@ -374,12 +378,14 @@ export class TaskService {
+       });
+       const updatedTask = await tx.task.findUnique({ where: { id: taskId }, include: this.taskInclude() });
+       if (!updatedTask) throw new ConflictError('Заявка больше недоступна. Обновите экран.');
+-      return { task: this.serializeTask(updatedTask), changed: true };
++      const resolution = await this.notificationsService.resolveEntityNotificationsTx(tx, user.selectedFactoryId, 'TASK', taskId);
++      const notifications = await this.notificationsService.persistTaskDoneTx(tx, updatedTask);
++      return { task: this.serializeTask(updatedTask), changed: true, resolution, notifications };
+     });
+-    await this.notificationsService.resolveEntityNotifications(user.selectedFactoryId, 'TASK', taskId);
++    await this.notificationsService.publishCommittedResolution(result.resolution);
+     if (result.changed) {
+-      await this.notificationsService.notifyTaskDone(result.task as any);
+-      this.wsService.broadcast(WS_EVENTS.TASK_UPDATED, result.task);
++      await this.notificationsService.publishCommittedNotifications(result.notifications);
++      this.broadcastCommittedTaskUpdate(result.task);
+     }
+     return result.task;
+   }
+@@ -404,7 +410,7 @@ export class TaskService {
+           if (!processed.resultKey) throw new ConflictError('Результат действия больше недоступен. Обновите экран.');
+           if (processed.resultKey !== taskId) throw new ConflictError('Идентификатор действия уже использован для другой операции. Обновите экран.');
+           const existing = await this.loadReplayTaskTx(tx, taskId, user);
+-          return { task: this.serializeTask(existing), changed: false };
++          return { task: this.serializeTask(existing), changed: false, resolution: null, notifications: [] };
+         }
+       }
+       const task = await tx.task.findFirst({ where: { id: taskId, factoryId: user.selectedFactoryId, deletedAt: null }, include: this.taskInclude() });
+@@ -464,12 +470,15 @@ export class TaskService {
+         await tx.processedOperation.create({ data: { userId: user.userId, operationId: body.operationId, resultKey: taskId } });
+       }
+       const updated = await tx.task.findUnique({ where: { id: taskId }, include: this.taskInclude() });
+-      return { task: this.serializeTask(updated), changed: true };
++      if (!updated) throw new ConflictError('Заявка больше недоступна. Обновите экран.');
++      const resolution = await this.notificationsService.resolveEntityNotificationsTx(tx, user.selectedFactoryId, 'TASK', taskId);
++      const notifications = await this.notificationsService.persistTaskRedirectedTx(tx, updated);
++      return { task: this.serializeTask(updated), changed: true, resolution, notifications };
+     });
+     if (result.changed) {
+-      await this.notificationsService.resolveEntityNotifications(user.selectedFactoryId, 'TASK', taskId);
+-      await this.notificationsService.notifyTaskRedirected(taskId);
+-      this.wsService.broadcast(WS_EVENTS.TASK_UPDATED, result.task);
++      await this.notificationsService.publishCommittedResolution(result.resolution);
++      await this.notificationsService.publishCommittedNotifications(result.notifications);
++      this.broadcastCommittedTaskUpdate(result.task);
+     }
+     return result.task;
+   }
+@@ -604,24 +613,46 @@ export class TaskService {
+     });
+     const ids = [];
+     for (const task of tasks) {
+-      await this.prisma.db.$transaction(async (tx) => {
++      const result = await this.prisma.db.$transaction(async (tx) => {
++        await lockOperationKeys(tx, [operationLockKey.task(task.id)]);
++        // Recheck under the same task lock used by complete/redirect and other scans.
++        const current = await tx.task.findFirst({
++          where: {
++            id: task.id, factoryId: user.selectedFactoryId, type: TaskType.LONG,
++            status: { not: TaskStatus.DONE }, deadlineAt: { lt: now }, escalatedAt: null, deletedAt: null,
++          },
++          include: this.taskInclude(),
++        });
++        if (!current) return { changed: false, notifications: [] };
+         await tx.task.update({ where: { id: task.id }, data: { escalatedAt: new Date() } });
+-        await this.writeHistoryTx(tx, task.id, user.userId, 'TASK_LONG_ESCALATED', null, { deadlineAt: task.deadlineAt });
++        await this.writeHistoryTx(tx, task.id, user.userId, 'TASK_LONG_ESCALATED', null, { deadlineAt: current.deadlineAt });
+         await this.auditService.writeTx(tx, {
+           userId: user.userId,
+           factoryId: task.factoryId,
+           action: 'TASK_LONG_ESCALATED',
+           entityType: 'Task',
+           entityId: task.id,
+-          details: { deadlineAt: task.deadlineAt },
++          details: { deadlineAt: current.deadlineAt },
+         });
++        const notifications = await this.notificationsService.persistTaskLongEscalatedTx(tx, current);
++        return { changed: true, notifications };
+       });
+-      await this.notificationsService.notifyTaskLongEscalated(task.id);
+-      ids.push(task.id);
++      if (result.changed) {
++        await this.notificationsService.publishCommittedNotifications(result.notifications);
++        ids.push(task.id);
++      }
+     }
+     return { escalated: ids.length, taskIds: ids };
+   }
+ 
++  private broadcastCommittedTaskUpdate(task: { factoryId: string }) {
++    try {
++      this.wsService.broadcast(WS_EVENTS.TASK_UPDATED, task);
++    } catch {
++      this.logger.warn('Committed task invalidation failed; durable state remains available.');
++    }
++  }
++
+   async archiveSummary(user: UserContext, query: TaskArchiveQuery = {}) {
+     if (user.isGuest) throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к архиву заявок' });
+     const from = this.parseDate(query.dateFrom) ?? new Date(Date.now() - 30 * 86_400_000);
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\src\\modules\\notifications\\notifications.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\notifications\\notifications.service.ts"
+index 841f1455..4da6ccb5 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\src\\modules\\notifications\\notifications.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\notifications\\notifications.service.ts"
+@@ -298,23 +298,40 @@ export class NotificationsService {
+   }
+ 
+   async resolveEntityNotifications(factoryId: string, entityType: string, entityId: string) {
+-    const unread = await this.prisma.db.notification.findMany({
++    const result = await this.resolveEntityNotificationsTx(this.prisma.db, factoryId, entityType, entityId);
++    if (result.userIds.length) {
++      this.wsService.sendToUsers(result.userIds, WS_EVENTS.NOTIFICATIONS_COUNT_CHANGED, {
++        factoryId,
++        reason: 'entity_resolved',
++      });
++    }
++    return { count: result.count };
++  }
++
++  async resolveEntityNotificationsTx(tx: Prisma.TransactionClient, factoryId: string, entityType: string, entityId: string) {
++    const unread = await tx.notification.findMany({
+       where: { factoryId, entityType, entityId, readAt: null },
+       select: { userId: true },
+     });
+-    if (!unread.length) return { count: 0 };
+-    const result = await this.prisma.db.notification.updateMany({
++    if (!unread.length) return { count: 0, factoryId, userIds: [] as string[] };
++    const result = await tx.notification.updateMany({
+       where: { factoryId, entityType, entityId, readAt: null },
+       data: { readAt: new Date() },
+     });
+     const userIds = [...new Set(unread.map((item) => item.userId).filter((userId): userId is string => Boolean(userId)))];
+-    if (userIds.length) {
+-      this.wsService.sendToUsers(userIds, WS_EVENTS.NOTIFICATIONS_COUNT_CHANGED, {
+-        factoryId,
++    return { count: result.count, factoryId, userIds };
++  }
++
++  async publishCommittedResolution(result: { factoryId: string; userIds: string[] } | null) {
++    if (!result?.userIds.length) return;
++    try {
++      this.wsService.sendToUsers(result.userIds, WS_EVENTS.NOTIFICATIONS_COUNT_CHANGED, {
++        factoryId: result.factoryId,
+         reason: 'entity_resolved',
+       });
++    } catch {
++      this.logger.warn('Committed notification resolution publication failed; read state remains available.');
+     }
+-    return { count: result.count };
+   }
+ 
+   async createForDepartment(factoryId: string, departmentId: string, input: Omit<NotificationCreateInput, 'factoryId' | 'departmentId' | 'userId'>) {
+@@ -421,6 +438,11 @@ export class NotificationsService {
+   }
+ 
+   async notifyOrderRequestCreated(request: { id: string; factoryId: string; departmentId?: string | null; title: string; createdById: string }) {
++    const rows = await this.prisma.db.$transaction((tx) => this.persistOrderRequestCreatedTx(tx, request));
++    await this.publishCommittedNotifications(rows);
++  }
++
++  async persistOrderRequestCreatedTx(tx: Prisma.TransactionClient, request: { id: string; factoryId: string; departmentId?: string | null; title: string; createdById: string }) {
+     const input = {
+       type: 'ORDER_REQUEST_CREATED',
+       title: 'Новая заявка на заказ',
+@@ -430,15 +452,24 @@ export class NotificationsService {
+       severity: NotificationSeverity.WARNING,
+     };
+     if (request.departmentId) {
+-      await this.createForDepartment(request.factoryId, request.departmentId, input);
+-      return;
++      return this.persistForUsersTx(tx, await this.departmentRecipientIds(tx, request.factoryId, request.departmentId), {
++        ...input, factoryId: request.factoryId, departmentId: request.departmentId,
++      });
+     }
+-    await this.create({ ...input, factoryId: request.factoryId });
++    // Preserve the single factory-scoped row; do not expand it into personal rows.
++    const result = await this.createOnceTx(tx, { ...input, factoryId: request.factoryId });
++    return result.created ? [result.notification] : [];
+   }
+ 
+   async notifyLowStock(item: { id: string; factoryId: string; departmentId?: string | null; name: string; currentQuantity: number; minThreshold: number }) {
+-    const recipients = await this.usersByRoles(item.factoryId, [UserRole.MANAGEMENT, UserRole.ADMIN], item.departmentId ?? null);
+-    return this.createForUsers(recipients, {
++    const rows = await this.prisma.db.$transaction((tx) => this.persistLowStockTx(tx, item));
++    await this.publishCommittedNotifications(rows);
++    return { count: rows.length };
++  }
++
++  async persistLowStockTx(tx: Prisma.TransactionClient, item: { id: string; factoryId: string; departmentId?: string | null; name: string; currentQuantity: number; minThreshold: number }) {
++    const recipients = await this.usersByRolesTx(tx, item.factoryId, [UserRole.MANAGEMENT, UserRole.ADMIN], item.departmentId ?? null);
++    return this.persistForUsersTx(tx, recipients, {
+       factoryId: item.factoryId,
+       type: 'ORDER_STOCK_BELOW_THRESHOLD',
+       title: 'Остаток ниже порога',
+@@ -450,20 +481,24 @@ export class NotificationsService {
+   }
+ 
+   async notifyTaskLongEscalated(taskId: string) {
+-    const task = await this.prisma.db.task.findUnique({
+-      where: { id: taskId },
+-      include: { departmentRecipients: true, assignees: true },
++    const rows = await this.prisma.db.$transaction(async (tx) => {
++      const task = await tx.task.findUnique({ where: { id: taskId }, include: { departmentRecipients: true, assignees: true } });
++      return task ? this.persistTaskLongEscalatedTx(tx, task) : [];
+     });
+-    if (!task) return { count: 0 };
++    await this.publishCommittedNotifications(rows);
++    return { count: rows.length };
++  }
++
++  async persistTaskLongEscalatedTx(tx: Prisma.TransactionClient, task: TaskCreatedNotificationSource) {
+     const recipientIds = new Set<string>([task.createdById]);
+-    for (const assignee of task.assignees.filter((item) => item.active)) recipientIds.add(assignee.userId);
+-    const factoryManagers = await this.usersByRoles(task.factoryId, [UserRole.MANAGEMENT]);
++    for (const assignee of task.assignees?.filter((item) => item.active) ?? []) recipientIds.add(assignee.userId);
++    const factoryManagers = await this.usersByRolesTx(tx, task.factoryId, [UserRole.MANAGEMENT]);
+     factoryManagers.forEach((id) => recipientIds.add(id));
+-    for (const recipient of task.departmentRecipients.filter((item) => item.active)) {
+-      const managers = await this.usersByRoles(task.factoryId, [UserRole.MANAGEMENT], recipient.departmentId);
++    for (const recipient of task.departmentRecipients?.filter((item) => item.active) ?? []) {
++      const managers = await this.usersByRolesTx(tx, task.factoryId, [UserRole.MANAGEMENT], recipient.departmentId);
+       managers.forEach((id) => recipientIds.add(id));
+     }
+-    return this.createForUsers([...recipientIds], {
++    return this.persistForUsersTx(tx, [...recipientIds], {
+       factoryId: task.factoryId,
+       type: 'TASK_LONG_ESCALATED',
+       title: '\u041f\u0440\u043e\u0441\u0440\u043e\u0447\u0435\u043d\u0430 \u0434\u043e\u043b\u0433\u0430\u044f \u0437\u0430\u044f\u0432\u043a\u0430',
+@@ -576,14 +611,17 @@ export class NotificationsService {
+   }
+ 
+   async notifyTaskRedirected(taskId: string) {
+-    const task = await this.prisma.db.task.findUnique({
+-      where: { id: taskId },
+-      include: { departmentRecipients: true, assignees: true },
++    const rows = await this.prisma.db.$transaction(async (tx) => {
++      const task = await tx.task.findUnique({ where: { id: taskId }, include: { departmentRecipients: true, assignees: true } });
++      return task ? this.persistTaskRedirectedTx(tx, task) : [];
+     });
+-    if (!task) return { count: 0 };
+-    let count = 0;
+-    const assigneeIds = task.assignees.filter((item) => item.active).map((item) => item.userId);
+-    const assigneeResult = await this.createForUsers(assigneeIds, {
++    await this.publishCommittedNotifications(rows);
++    return { count: rows.length };
++  }
++
++  async persistTaskRedirectedTx(tx: Prisma.TransactionClient, task: TaskCreatedNotificationSource) {
++    const assigneeIds = task.assignees?.filter((item) => item.active).map((item) => item.userId) ?? [];
++    const rows = await this.persistForUsersTx(tx, assigneeIds, {
+       factoryId: task.factoryId,
+       type: 'TASK_REDIRECTED',
+       title: 'Заявка перенаправлена',
+@@ -592,23 +630,29 @@ export class NotificationsService {
+       entityId: task.id,
+       severity: NotificationSeverity.INFO,
+     });
+-    count += assigneeResult.count;
+-    for (const recipient of task.departmentRecipients.filter((item) => item.active)) {
+-      const departmentResult = await this.createForDepartment(task.factoryId, recipient.departmentId, {
++    for (const recipient of task.departmentRecipients?.filter((item) => item.active) ?? []) {
++      rows.push(...await this.persistForUsersTx(tx, await this.departmentRecipientIds(tx, task.factoryId, recipient.departmentId), {
++        factoryId: task.factoryId,
++        departmentId: recipient.departmentId,
+         type: 'TASK_REDIRECTED',
+         title: 'Заявка перенаправлена',
+         message: task.description ?? 'Заявка перенаправлена на новых получателей.',
+         entityType: 'TASK',
+         entityId: task.id,
+         severity: NotificationSeverity.INFO,
+-      });
+-      count += departmentResult.count;
++      }));
+     }
+-    return { count };
++    return rows;
+   }
+ 
+   async notifyTaskDone(task: { id: string; factoryId: string; createdById: string; description?: string | null }) {
+-    return this.createForUsers([task.createdById], {
++    const rows = await this.prisma.db.$transaction((tx) => this.persistTaskDoneTx(tx, task));
++    await this.publishCommittedNotifications(rows);
++    return { count: rows.length };
++  }
++
++  async persistTaskDoneTx(tx: Prisma.TransactionClient, task: { id: string; factoryId: string; createdById: string; description?: string | null }) {
++    return this.persistForUsersTx(tx, [task.createdById], {
+       factoryId: task.factoryId,
+       type: 'TASK_DONE',
+       title: 'Заявка закрыта',
+@@ -638,12 +682,18 @@ export class NotificationsService {
+   }
+ 
+   async notifyOrderRequestClosed(request: { id: string; factoryId: string; departmentId?: string | null; title: string; createdById: string; status: string }) {
++    const rows = await this.prisma.db.$transaction((tx) => this.persistOrderRequestClosedTx(tx, request));
++    await this.publishCommittedNotifications(rows);
++    return { count: rows.length };
++  }
++
++  async persistOrderRequestClosedTx(tx: Prisma.TransactionClient, request: { id: string; factoryId: string; departmentId?: string | null; title: string; createdById: string; status: string }) {
+     const recipients = new Set<string>([request.createdById]);
+     if (request.departmentId) {
+-      const managers = await this.usersByRoles(request.factoryId, [UserRole.MANAGEMENT], request.departmentId);
++      const managers = await this.usersByRolesTx(tx, request.factoryId, [UserRole.MANAGEMENT], request.departmentId);
+       managers.forEach((id) => recipients.add(id));
+     }
+-    return this.createForUsers([...recipients], {
++    return this.persistForUsersTx(tx, [...recipients], {
+       factoryId: request.factoryId,
+       departmentId: request.departmentId ?? null,
+       type: 'ORDER_REQUEST_CLOSED',
+@@ -923,8 +973,12 @@ export class NotificationsService {
+   }
+ 
+   private async usersByRoles(factoryId: string, roles: UserRole[], departmentId?: string | null) {
++    return this.usersByRolesTx(this.prisma.db, factoryId, roles, departmentId);
++  }
++
++  private async usersByRolesTx(tx: Prisma.TransactionClient, factoryId: string, roles: UserRole[], departmentId?: string | null) {
+     const uniqueRoles = [...new Set(roles)];
+-    const access = await this.prisma.db.userFactoryAccess.findMany({
++    const access = await tx.userFactoryAccess.findMany({
+       where: {
+         factoryId,
+         role: { in: uniqueRoles },
+@@ -939,6 +993,15 @@ export class NotificationsService {
+     return [...new Set(access.map((item) => item.userId).filter((userId) => this.isOperationalNotificationRecipient(userId)))];
+   }
+ 
++  private async persistForUsersTx(tx: Prisma.TransactionClient, userIds: string[], input: Omit<NotificationCreateInput, 'userId'>) {
++    const rows: Notification[] = [];
++    for (const userId of [...new Set(userIds.filter(Boolean))]) {
++      const result = await this.createOnceTx(tx, { ...input, userId });
++      if (result.created) rows.push(result.notification);
++    }
++    return rows;
++  }
++
+   private isOperationalNotificationRecipient(userId: string) {
+     return isDocumentedPilotTestActor(userId)
+       || (!isPilotFixtureUser(userId) && !isDiagnosticFixtureActor(userId));
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\scripts\\master-r2-task-fixture.cjs" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-task-fixture.cjs"
+index 13ddbc8e..5ff9ad1c 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\scripts\\master-r2-task-fixture.cjs"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-task-fixture.cjs"
+@@ -32,12 +32,18 @@ function taskFixture() {
+   } }, 'userFactoryAccess');
+   let failAdapter = null;
+   const notice = name => async (...args) => { notifications.push({ name, args: copy(args) }); if (failAdapter === name) { failAdapter = null; throw Error('R2_ADAPTER_UNAVAILABLE'); } };
+-  // TASK-NOTIFY-01 compatibility: model the split persistence/publication seam.
++  // NOTIFY-02 compatibility: model supplied-tx lifecycle seams and production publication.
+   // This fixture still makes no PostgreSQL rollback claim; real SQL proof is separate.
++  const { NotificationsService } = require('../dist/modules/notifications/notifications.service');
++  const publication = new NotificationsService({ db: m.db }, m.audit, m.ws, strict({}), strict({}));
++  publication.publishNotification = async row => notice(row.kind)(row.task);
++  publication.wsService = { sendToUsers: () => { if (failAdapter === 'resolveEntityNotifications') { failAdapter = null; throw Error('R2_ADAPTER_UNAVAILABLE'); } } };
+   const notifier = strict({
+-    ...Object.fromEntries(['notifyTaskTaken', 'notifyTaskDone', 'notifyTaskRedirected', 'resolveEntityNotifications'].map(name => [name, notice(name)])),
+-    persistTaskCreatedTx: async (tx, task) => { assert.equal(tx, m.db); return [copy(task)]; },
+-    publishCommittedNotifications: async tasks => { for (const task of tasks) await notice('notifyTaskCreated')(task); },
++    notifyTaskTaken: notice('notifyTaskTaken'),
++    ...Object.fromEntries(['Created','Done','Redirected'].map(kind => [`persistTask${kind}Tx`, async (tx, task) => { assert.equal(tx, m.db); return [{ kind: `notifyTask${kind}`, task: copy(task) }]; }])),
++    resolveEntityNotificationsTx: async (tx, factoryId) => { assert.equal(tx, m.db); return { count: 0, factoryId, userIds: [actor.userId] }; },
++    publishCommittedResolution: publication.publishCommittedResolution.bind(publication),
++    publishCommittedNotifications: publication.publishCommittedNotifications.bind(publication),
+   }, 'notifications');
+   const service = new TaskService({ db: m.db }, m.ws, strict({ sendPush: async () => {} }, 'push'), m.audit, m.attachments, notifier, strict({}, 'directory'));
+   const create = (operationId = 'r2-task-create', user = actor) => service.createTask({ actor: user, operationId, description: 'Проверить ограждение', assigneeUserIds: [actor.userId] });
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\src\\modules\\orders\\orders.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+index 5d600cac..6e36ff78 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\src\\modules\\orders\\orders.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+@@ -1,4 +1,4 @@
+-import { ForbiddenException, Injectable } from '@nestjs/common';
++import { ForbiddenException, Injectable, Logger } from '@nestjs/common';
+ import { AttachmentEntityType, MinimumStockMovementType, OrderRequestStatus, OrderRequestSourceType, Prisma } from '@prisma/client';
+ import { AuditService } from '../../common/audit.service';
+ import { dirtyStockReason } from '../../common/data-hygiene';
+@@ -31,6 +31,7 @@ const LEGACY_UNIT_MAP: Record<string, string> = {
+ 
+ @Injectable()
+ export class OrdersService {
++  private readonly logger = new Logger(OrdersService.name);
+   constructor(
+     private readonly prisma: PrismaService,
+     private readonly attachmentsService: AttachmentsService,
+@@ -307,7 +308,8 @@ export class OrdersService {
+         const existing = await tx.orderRequest.findFirst({ where: { id, ...this.requestWhere(user, { archive: 'true' }) } });
+         if (!existing) throw new ConflictError('Заявка на заказ не найдена или недоступна.');
+         if (existing.status !== closeStatus) throw new ConflictError('По заявке уже принято другое решение. Обновите список.');
+-        return { request: existing, changed: false };
++        const resolution = await this.notificationsService.resolveEntityNotificationsTx(tx, user.selectedFactoryId, 'ORDER_REQUEST', id);
++        return { request: existing, changed: false, resolution, notifications: [] };
+       }
+       const claimed = await tx.orderRequest.updateMany({
+         where: { id, factoryId: user.selectedFactoryId, status: OrderRequestStatus.ACTIVE },
+@@ -323,12 +325,14 @@ export class OrdersService {
+         entityId: id,
+         details: { oldValue: request.status, newValue: closeStatus, comment: body.comment ?? null },
+       });
+-      return { request: updated, changed: true };
++      const resolution = await this.notificationsService.resolveEntityNotificationsTx(tx, user.selectedFactoryId, 'ORDER_REQUEST', id);
++      const notifications = await this.notificationsService.persistOrderRequestClosedTx(tx, updated);
++      return { request: updated, changed: true, resolution, notifications };
+     });
+-    await this.notificationsService.resolveEntityNotifications(user.selectedFactoryId, 'ORDER_REQUEST', result.request.id);
++    await this.notificationsService.publishCommittedResolution(result.resolution);
+     if (result.changed) {
+-      await this.notificationsService.notifyOrderRequestClosed(result.request);
+-      this.broadcastOrdersUpdate(result.request, 'ORDER_REQUEST');
++      await this.notificationsService.publishCommittedNotifications(result.notifications);
++      this.broadcastCommittedOrdersUpdate(result.request, 'ORDER_REQUEST');
+     }
+     return (await this.serializeRequests([result.request], new Map()))[0];
+   }
+@@ -408,6 +412,7 @@ export class OrdersService {
+         return {
+           item: this.serializeItem(currentItem, settings, [], departmentLabels.get(currentItem.departmentId ?? '')),
+           changed: false,
++          notifications: [],
+         };
+       }
+       if (processed) throw new ConflictError('Этот идентификатор уже использован для другого действия. Обновите остатки.');
+@@ -445,6 +450,7 @@ export class OrdersService {
+         entityId: id,
+         details: { movementId: movement.id, beforeQuantity: item.currentQuantity, afterQuantity, quantity: Math.abs(delta), unit, comment },
+       });
++      let notifications: Awaited<ReturnType<NotificationsService['persistLowStockTx']>> = [];
+       if (type === MinimumStockMovementType.TAKE && afterQuantity <= item.minThreshold && settings.lowStockNotificationsEnabled) {
+         await this.auditService.writeTx(tx, {
+           userId: user.userId,
+@@ -454,18 +460,18 @@ export class OrdersService {
+           entityId: id,
+           details: { beforeQuantity: item.currentQuantity, afterQuantity, minThreshold: item.minThreshold, unit, notificationTodo: true },
+         });
++        notifications = await this.notificationsService.persistLowStockTx(tx, updated);
+       }
+       const departmentLabels = await this.departmentLabels(user.selectedFactoryId, [updated.departmentId]);
+       return {
+         item: this.serializeItem(updated, settings, [], departmentLabels.get(updated.departmentId ?? '')),
+         changed: true,
++        notifications,
+       };
+     });
+-    if (result.changed && type === MinimumStockMovementType.TAKE && result.item.belowThreshold && settings.lowStockNotificationsEnabled) {
+-      await this.notificationsService.notifyLowStock(result.item);
+-    }
+     if (result.changed) {
+-      this.broadcastOrdersUpdate(result.item, 'STOCK_ITEM');
++      await this.notificationsService.publishCommittedNotifications(result.notifications);
++      this.broadcastCommittedOrdersUpdate(result.item, 'STOCK_ITEM');
+     }
+     return result.item;
+   }
+@@ -488,7 +494,7 @@ export class OrdersService {
+             sourceItemId: data.sourceItemId,
+           }, include: { sourceItem: true } });
+           if (!existing || this.isRuntimeOrderRequestNoise(existing)) throw new ConflictError('Результат действия больше недоступен. Обновите список.');
+-          return { request: existing, created: false };
++          return { request: existing, created: false, notifications: [] };
+         }
+       }
+       await this.assertDepartmentScope(tx, user, data.departmentId ?? null);
+@@ -523,15 +529,24 @@ export class OrdersService {
+         entityId: request.id,
+         details: { sourceType: data.sourceType, sourceItemId: data.sourceItemId, requestedQuantity: data.requestedQuantity, reasonComment: data.reasonComment, notificationTodo: true },
+       });
+-      return { request, created: true };
++      const notifications = await this.notificationsService.persistOrderRequestCreatedTx(tx, request);
++      return { request, created: true, notifications };
+     });
+     if (result.created) {
+-      await this.notificationsService.notifyOrderRequestCreated(result.request);
+-      this.broadcastOrdersUpdate(result.request, 'ORDER_REQUEST');
++      await this.notificationsService.publishCommittedNotifications(result.notifications);
++      this.broadcastCommittedOrdersUpdate(result.request, 'ORDER_REQUEST');
+     }
+     return (await this.serializeRequests([result.request], new Map()))[0];
+   }
+ 
++  private broadcastCommittedOrdersUpdate(entity: { id?: string; factoryId?: string; status?: string }, entityType: 'STOCK_ITEM' | 'ORDER_REQUEST') {
++    try {
++      this.broadcastOrdersUpdate(entity, entityType);
++    } catch {
++      this.logger.warn('Committed order invalidation failed; durable state remains available.');
++    }
++  }
++
+   private broadcastOrdersUpdate(entity: { id?: string; factoryId?: string; status?: string }, entityType: 'STOCK_ITEM' | 'ORDER_REQUEST') {
+     this.wsService.broadcast(WS_EVENTS.ORDERS_UPDATED, {
+       id: entity.id,
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\scripts\\master-r2-orders.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-orders.test.js"
+index 164dbb00..96755e1e 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\scripts\\master-r2-orders.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-orders.test.js"
+@@ -9,7 +9,16 @@ function fixture(){
+   m.data.orderRequest=strict({...model,findUniqueOrThrow:async q=>{const row=await model.findUnique(q);assert.ok(row,'EXPLICIT fixture findUniqueOrThrow');return row;}});
+   m.data.department=m.model('department',departments);m.data.userFactoryAccess=m.model('userFactoryAccess',[{factoryId:user.selectedFactoryId,userId:user.userId,user:{id:user.userId,firstName:'Мария',lastName:'Складская'},department:{name:'Склад'}}]);
+   let failNotice=false;
+-  const notify=strict(Object.fromEntries(['notifyOrderRequestCreated','notifyOrderRequestClosed','resolveEntityNotifications'].map(name=>[name,async(...args)=>{notices.push({name,args:copy(args)});if(failNotice){failNotice=false;throw Object.assign(Error('NOTICE_UNAVAILABLE'),{getStatus:()=>503});}}])));
++  // Supplied-tx seam compatibility only; FIFO memory is not PostgreSQL rollback proof.
++  const {NotificationsService}=require('../dist/modules/notifications/notifications.service');
++  const publication=new NotificationsService({db:m.db},m.audit,m.ws,strict({}),strict({}));
++  publication.publishNotification=async row=>{notices.push({name:row.kind,args:[copy(row.request)]});if(failNotice){failNotice=false;throw Object.assign(Error('NOTICE_UNAVAILABLE'),{getStatus:()=>503});}};
++  const notify=strict({
++    ...Object.fromEntries(['Created','Closed'].map(kind=>[`persistOrderRequest${kind}Tx`,async(tx,request)=>{assert.equal(tx,m.db);return[{kind:`notifyOrderRequest${kind}`,request:copy(request)}];}])),
++    resolveEntityNotificationsTx:async(tx,factoryId)=>{assert.equal(tx,m.db);return{count:0,factoryId,userIds:[]};},
++    publishCommittedNotifications:publication.publishCommittedNotifications.bind(publication),
++    publishCommittedResolution:publication.publishCommittedResolution.bind(publication),
++  });
+   const service=new OrdersService({db:m.db},m.attachments,m.audit,notify,m.ws);
+   const body={title:'Перчатки рабочие',reasonComment:'Пополнение расходных материалов',requestedQuantity:12,unit:'шт',operationId:'order-create'};
+   return {...m,user,rows,notices,service,body,create:()=>service.createManualRequest(user,body),failNotice:()=>{failNotice=true;}};
+@@ -36,5 +45,5 @@ for(const scenario of ['null-result','wrong-owner','wrong-source-type','foreign-
+   if(scenario==='null-result')f.operations[0].resultKey=null;if(scenario==='wrong-owner')row.createdById='other-user';if(scenario==='wrong-source-type')row.sourceType='AUTO_FROM_STOCK';if(scenario==='foreign-result')row.factoryId='foreign';if(scenario==='wrong-department')row.departmentId='other-dept';
+   const writes=f.writes.length;await assert.rejects(f.create(),error=>{assert.ok(denied(error),error.stack);return true;});assert.equal(f.writes.length,writes);assert.equal(f.rows.length,1);
+ });
+-test('R2-E-J18 notification failure after create does not duplicate business result',async()=>{const f=fixture();f.failNotice();await assert.rejects(f.create(),e=>e.getStatus?.()===503);assert.equal(f.rows.length,1);const writes=f.writes.length;assert.equal((await f.create()).id,f.rows[0].id);assert.equal(f.writes.length,writes);});
++test('R2-E-J18 postcommit publication failure returns committed result without duplication',async()=>{const f=fixture();f.failNotice();assert.equal((await f.create()).id,f.rows[0].id);assert.equal(f.rows.length,1);const writes=f.writes.length;assert.equal((await f.create()).id,f.rows[0].id);assert.equal(f.writes.length,writes);});
+ test('R2-E-J18 simultaneous different close decisions have one memory winner',async()=>{const f=fixture(),row=await f.create();const results=await Promise.allSettled([f.service.closeRequest(f.user,row.id,{closeStatus:'ORDERED'}),f.service.closeRequest(f.user,row.id,{closeStatus:'NOT_NEEDED',comment:'Отмена'})]);assert.equal(results.filter(r=>r.status==='fulfilled').length,1);const rejected=results.find(r=>r.status==='rejected');assert.ok(denied(rejected.reason));assert.equal(f.rows[0].status,'ORDERED');assert.equal(f.audits.filter(a=>a.action==='ORDER_REQUEST_CLOSED').length,1);});
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\docs\\vps-preparation\\factory-01\\stand.ps1" "b/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\stand.ps1"
+index 521e3fa3..1247806f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\docs\\vps-preparation\\factory-01\\stand.ps1"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\stand.ps1"
+@@ -1,6 +1,6 @@
+-param([ValidateSet('Start','Stop','Switch','Quiesce')][string]$Action='Start',[ValidateSet('T1','Restore','Handover','HandoverRestore','TaskNotify')][string]$Target='T1',[string]$TestNow='',[ValidateSet('','before-publication','ws','push')][string]$NotificationFault='')
++param([ValidateSet('Start','Stop','Switch','Quiesce')][string]$Action='Start',[ValidateSet('T1','Restore','Handover','HandoverRestore','TaskNotify','Notify02')][string]$Target='T1',[string]$TestNow='',[ValidateSet('','before-publication','ws','push')][string]$NotificationFault='')
+ $ErrorActionPreference='Stop'
+-if($NotificationFault -and $Target -ne 'TaskNotify'){throw 'Transport faults are restricted to the isolated TaskNotify copy'}
++if($NotificationFault -and $Target -notin @('TaskNotify','Notify02')){throw 'Transport faults are restricted to the isolated notification copies'}
+ if($TestNow -and $Target -ne 'Handover'){throw 'Test clock is restricted to the isolated Handover copy'}
+ if($TestNow){$null=[DateTimeOffset]::Parse($TestNow)}
+ $factory01Runtime='C:\Users\79164\AppData\Local\Zavod-Factory01\run-20260926-t1'
+@@ -9,7 +9,7 @@ $pgData=Join-Path $factory01Runtime 'pgdata'
+ $pgCtl='C:\Program Files\PostgreSQL\18\bin\pg_ctl.exe'
+ $node='C:\Program Files\nodejs\node.exe'
+ $preview='"C:\Program Files\nodejs\node.exe" docs/vps-preparation/local-03/frontend-preview.cjs'
+-$database=@{T1='zavod_factory01_t1';Restore='zavod_factory01_restore';Handover='zavod_factory01_handover';HandoverRestore='zavod_factory01_handover_restore';TaskNotify='zavod_factory01_task_notify'}[$Target]
++$database=@{T1='zavod_factory01_t1';Restore='zavod_factory01_restore';Handover='zavod_factory01_handover';HandoverRestore='zavod_factory01_handover_restore';TaskNotify='zavod_factory01_task_notify';Notify02='zavod_factory01_notify02'}[$Target]
+ $version='FACTORY01-20260926-'+$Target.ToUpperInvariant()
+ $uploads=if($Target -eq 'T1'){Join-Path $factory01Runtime 'uploads'}else{Join-Path $factory01Runtime ($Target.ToLowerInvariant()+'/uploads')}
+ function Observe([int]$port){
+@@ -41,13 +41,13 @@ if($Action -notin @('Stop','Quiesce')){
+   $env:CORS_ALLOWED_ORIGINS='http://127.0.0.1:5173';$env:DISABLE_DB='false';$env:DEV_MODE='false';$env:ALLOW_TEST_AUTH_HEADERS='false'
+   Remove-Item Env:ZAVOD_INTERNAL_TEST_NOW -ErrorAction SilentlyContinue
+   Remove-Item Env:ZAVOD_INTERNAL_TEST_NOW_FILE -ErrorAction SilentlyContinue
+-  Remove-Item Env:NODE_OPTIONS,Env:TASK_NOTIFY_FAULT -ErrorAction SilentlyContinue
+-  if($NotificationFault){$env:TASK_NOTIFY_FAULT=$NotificationFault;$env:NODE_OPTIONS='--require=./docs/vps-preparation/task-notify-01/transport-fault.cjs'}
++  Remove-Item Env:NODE_OPTIONS,Env:TASK_NOTIFY_FAULT,Env:NOTIFY02_FAULT -ErrorAction SilentlyContinue
++  if($NotificationFault){if($Target -eq 'Notify02'){$env:NOTIFY02_FAULT=$NotificationFault;$env:NODE_OPTIONS='--require=./docs/vps-preparation/notify-02/transport-fault.cjs'}else{$env:TASK_NOTIFY_FAULT=$NotificationFault;$env:NODE_OPTIONS='--require=./docs/vps-preparation/task-notify-01/transport-fault.cjs'}}
+   if($TestNow){$env:NODE_ENV='test';$env:ZAVOD_INTERNAL_TEST_NOW=$TestNow}
+   $stamp=[DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss-fff')
+   $started=Start-Process -FilePath $node -ArgumentList 'backend/dist/main.js' -WorkingDirectory $factory01Root -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $factory01Runtime "logs/backend-$stamp.stdout.log") -RedirectStandardError (Join-Path $factory01Runtime "logs/backend-$stamp.stderr.log")
+   Remove-Item Env:DATABASE_URL,Env:JWT_SECRET,Env:FILE_STORAGE_ROOT -ErrorAction SilentlyContinue
+-  Remove-Item Env:NODE_OPTIONS,Env:TASK_NOTIFY_FAULT -ErrorAction SilentlyContinue
++  Remove-Item Env:NODE_OPTIONS,Env:TASK_NOTIFY_FAULT,Env:NOTIFY02_FAULT -ErrorAction SilentlyContinue
+   $ready=$false;for($i=0;$i -lt 60;$i++){Start-Sleep -Milliseconds 250;try{$ready=(Invoke-RestMethod 'http://127.0.0.1:3000/ready').ready}catch{};if($ready){break}}
+   if(!$ready -or (Observe 3000).pid -ne $started.Id){throw 'Own backend not ready'}
+  }
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\scripts\\master-domain-contracts.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-domain-contracts.test.js"
+index a88a21f6..b57e6687 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\scripts\\master-domain-contracts.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-domain-contracts.test.js"
+@@ -103,7 +103,8 @@ test('J18 actual stock movements threshold list detail retry and STORE request b
+  const m=memory(),who={...actor,role:'STORE',permissions:['orders.restock']};const rows=[{id:'memory-minimum',factoryId:who.selectedFactoryId,departmentId:who.departmentId,name:'Рабочая упаковка',currentQuantity:10,minThreshold:4,referenceQuantity:10,initialQuantity:10,unit:'шт',isActive:true,archivedAt:null,orderRequests:[],movements:[]}];const movements=[];
+  const base=m.model('minimumStockItem',rows);m.data.minimumStockItem=strict({...base,findFirst:async(q)=>{const found=await base.findFirst(q);return found?{...found,movements:movements.filter(r=>r.itemId===found.id)}:null;}});m.data.minimumStockMovement=m.model('movement',movements);m.data.orderRequest=m.model('order',[]);
+  m.data.orderSettings=strict({findUnique:async()=>({takeRequiresComment:true,restockRequiresComment:true,lowStockNotificationsEnabled:true})});m.data.department=strict({findMany:async({where})=>{assert.equal(where.OR[0].factoryId,who.selectedFactoryId);return[{id:who.departmentId,name:'Склад',scope:'FACTORY'}];}});
+- const notices=[];const orders=new OrdersService({db:m.db},m.attachments,m.audit,strict({notifyLowStock:async x=>notices.push(copy(x))}),m.ws);
++ // NOTIFY-02 supplied transaction seam; arithmetic expectations below are unchanged.
++ const notices=[];const orders=new OrdersService({db:m.db},m.attachments,m.audit,strict({persistLowStockTx:async(tx,x)=>{assert.equal(tx,m.db);notices.push(copy(x));return[];},publishCommittedNotifications:async rows=>assert.equal(rows.length,0)}),m.ws);
+  await assert.rejects(orders.take(who,rows[0].id,{quantity:1,comment:'',operationId:'blank'}),failStatus(409));await assert.rejects(orders.take(who,rows[0].id,{quantity:11,comment:'Расход',operationId:'over'}),failStatus(409));assert.equal(movements.length,0);
+  const command={quantity:6,comment:'Расход на упаковку',operationId:'memory-take'};assert.equal((await orders.take(who,rows[0].id,command)).currentQuantity,4);assert.equal(notices.length,1);assert.equal((await orders.summary(who)).belowThreshold,1);assert.equal((await orders.items(who,{}))[0].shortageStatus,'LOW');
+  await orders.take(who,rows[0].id,command);assert.equal(movements.length,1);assert.equal(notices.length,1);await assert.rejects(orders.take({...who,selectedFactoryId:'foreign'},rows[0].id,command),failStatus(409));
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\scripts\\master-r2-replay.test.js" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-replay.test.js"
+index d3a01c69..fa82988a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\notify-02\\before\\backend\\scripts\\master-r2-replay.test.js"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-replay.test.js"
+@@ -61,7 +61,9 @@ test('R2-A Task deterministic same/different operation interleavings preserve si
+   await Promise.all([f.service.takeTask(id, actor, 'r2-take-race'), f.service.takeTask(id, actor, 'r2-take-race'), f.service.takeTask(id, actor, 'r2-other-take')]);
+   assert.equal(f.histories.filter(item => item.action === 'TASK_TAKEN').length, 1);
+   f.failAdapter('resolveEntityNotifications');
+-  await assert.rejects(f.service.completeTask(id, actor, 'r2-done-recovery', 'Готово'), /R2_ADAPTER_UNAVAILABLE/);
++  // NOTIFY-02: postcommit unread WS failure must not imply business failure.
++  // The production publication method catches transport errors; SQL rollback is tested separately.
++  assert.equal((await f.service.completeTask(id, actor, 'r2-done-recovery', 'Готово')).status, 'DONE');
+   const before = copy(f.writes); const result = await f.service.completeTask(id, actor, 'r2-done-recovery', 'Готово');
+   assert.equal(result.status, 'DONE'); assert.deepEqual(f.writes, before); assert.equal(f.operations.filter(item => item.operationId === 'r2-done-recovery').length, 1);
+ });

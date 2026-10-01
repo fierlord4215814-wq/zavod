@@ -1,0 +1,7 @@
+Продолжи проект «Завод» из C:/Users/79164/Documents/work.
+
+Сначала полностью прочитай C:/Users/79164/Documents/work/docs/vps-preparation/handoff.md, затем актуальные AGENTS.md и docs/v1-completion-goal.md. Это новое узкое задание после сохранённого checkpoint: source-first подготовка чистой серверной установки существующего «Завода». Не возобновляй автоматически MASTER R5, UAC/DVD/Hyper-V/Ubuntu/SSH или основной UI Sweep.
+
+Сохрани dirty worktree и evidence. Не запускай VPS/Docker/app/БД, migrations, seed, cleanup и не создавай ADMIN без отдельного прямого разрешения. Используй контрольную копию и receipts по путям из handoff. Подготовь bounded план/минимальные необходимые изменения только после проверки существующих deploy/bootstrap/backup owners; demo seed и локальный полный dump для clean server запрещены. Все security/data-integrity/live-gate/physical gaps из handoff остаются открытыми.
+
+Текущий статус: MASTER_R5_EXECUTION=PAUSED_BY_PRIORITY_CHANGE; MASTER_R5_ACCEPTANCE=NOT_ACCEPTED; MASTER_R5_LAST_TECHNICAL_STATUS=BLOCKED_UAC_CANCELLED_PROVIDER_READBACK; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; CLEAN_SERVER_PREPARATION=NOT_STARTED; VPS_DEPLOYMENT=NOT_STARTED.

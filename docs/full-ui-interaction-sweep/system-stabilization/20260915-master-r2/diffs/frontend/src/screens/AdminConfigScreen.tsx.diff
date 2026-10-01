@@ -1,0 +1,15 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\AdminConfigScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+index fe21579b..3fbd1c22 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-source-before\\frontend\\src\\screens\\AdminConfigScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+@@ -2360,8 +2360,8 @@ export function AdminConfigScreen() {
+         {delegationPreview ? (
+           <div className={`delegation-preview ${delegationPreview.allowed ? '' : 'error-state'}`}>
+             <div className="line-meta">
+-              <span className="tag">Источник: {selectedSource?.displayName ?? delegationPreview.sourceName}</span>
+-              <span className="tag">Получатель: {selectedTarget?.displayName ?? delegationPreview.targetName}</span>
++              <span className="tag">Источник: {selectedSource?.displayName ?? delegationPreview.source.displayName}</span>
++              <span className="tag">Получатель: {selectedTarget?.displayName ?? delegationPreview.target.displayName}</span>
+               <span className="tag">Будет отдел: {delegationPreview.nextAccess.departmentName ?? 'Без отдела'}</span>
+               <span className="tag">Будет должность: {delegationPreview.nextAccess.jobTitleName ?? 'должность не указана'}</span>
+               <span className="tag">Будет роль: {roleLabel(delegationPreview.nextAccess.role)}</span>

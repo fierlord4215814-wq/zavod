@@ -1,0 +1,41 @@
+{
+  "startedAt": "2026-09-15T19:56:25.794Z",
+  "expected": [
+    {
+      "title": "R3-B2 actual App auth-context revoke invalidates People draft and Back owner",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 5,
+      "id": "25a7c6aa9f94"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-B2 actual App auth-context revoke invalidates People draft and Back owner",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 5,
+      "id": "25a7c6aa9f94",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 12321,
+      "errors": [
+        "TimeoutError: locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Текст', { exact: true })\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\B-context-red-01\\runner-artifacts\\master-r3-context-R3-B2-ac-cc413-People-draft-and-Back-owner\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\B-context-red-01\\runner-artifacts\\master-r3-context-R3-B2-ac-cc413-People-draft-and-Back-owner\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T19:56:39.685Z",
+  "status": "failed",
+  "listOnly": false
+}

@@ -1,0 +1,24 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\J-parent-before\\docs\\full-ui-interaction-sweep\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+index 532355f0..19ff3e63 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260916-master-r4\\snapshots\\J-parent-before\\docs\\full-ui-interaction-sweep\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\progress.md"
+@@ -1,6 +1,18 @@
+ # Full UI Interaction Sweep — progress
+ 
+-## Current source result — MASTER R3, 16.09.2026
++## Current source result — MASTER R4, 16.09.2026
++
++EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. Отдельная конечная программа R4: MASTER_R4_STATUS=PARTIAL_WITH_EXPLICIT_BLOCKERS. [Итог и точные границы](system-stabilization/20260916-master-r4/final-report.md), [единый review entrypoint](system-stabilization/20260916-master-r4/INDEX.md), [корни и остаток](system-stabilization/20260916-master-r4/root-result-matrix.md). После передачи — STOP для review, не продолжение основного sweep.
++
++R3-REV-C01 исправлен только в frontend API client/App: текущий HTTP-отказ снимает старую транспортную плашку, но не становится успехом; порядок наблюдений/epoch guards защищают новый контекст; сообщение больше не утверждает, что потерянный ответ означает несохранённое действие. 2 product +7 test/support owners — собственная дельта R4, прежние R2/R3 изменения сохранены отдельно. Product6ae29f473c26b5d0dbe657f52c32cfebaff3c198abd5bb177eedf81e0ab1cfdc; buildf5e0e44ff087abc892424d61761ccf2a2fbca0cbe5f295754356a75bd4e16e2d.
++
++Final549 Node PASS (489 backend +55 clientVM +3 WS-client +2 types),177 browser PASS (165 retained +12 new), retries0; strict actualReact0errors, обе сборки/offlinePrisma PASS. 36/36 новых финальных native targets просмотрены; всего47captures/38VIEWED. Три промежуточных low-height failures связаны с пропущенным animation barrier в capture0; harness исправлен без CSS/допусков, весь177-case affected набор повторён. Все raw failures сохранены. Эти cases/attempts/PNG не controls и не live proof.
++
++REAL_SYNTHETIC_STACK=BLOCKED_ENV_C1_TECHNICAL_ISOLATION_UNAVAILABLE: PostgreSQL binaries есть, подходящего установленного confinement runtime нет; новый cluster/backend/fixtures не создавались. Каждый из пяти live gates имеет0 real cases. Working DB/env/uploads/исторические business snapshots не читались/не менялись. Original0631286→1213 всё ещё UNKNOWN;036 isolated-proven/live-pending и не функциональная причина063. 19ShiftLoghandlers сверены по смыслу, не19freshPASS.014/050 требуют authoritative historical фактов; bounded specification готова, actual adapter не реализован/не разрешён. Replay/publication decisions и physical остаются в [общей очереди](system-stabilization/20260916-master-r4/decision-queue.md).
++
++Собственный static frontend PID13076/127.0.0.1:15464 остановлен после проверки identity; отсутствие PID/listener подтверждено. Рабочие службы/питание/Cloudflare не тронуты, real cleanup UNKNOWN. Parent six matrices unchanged:954/957 historical controls,284surfaces,P0/P1/P2=0/1/10 не переприняты. Source sync только repo/local; Library PERSISTENCE_PENDING.
++
++## Previous source result — MASTER R3, 16.09.2026
+ 
+ EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. Отдельная серия R3 завершила доступный объём A–H: MASTER_R3_STATUS=PARTIAL_WITH_EXPLICIT_BLOCKERS. [Итог](system-stabilization/20260915-master-r3/final-report.md), [причины и границы](system-stabilization/20260915-master-r3/root-result-matrix.md), [единый пакет/entrypoint](system-stabilization/20260915-master-r3/INDEX.md). После package readback — остановка для внешнего review, не продолжение sweep.
+ 

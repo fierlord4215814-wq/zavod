@@ -1,0 +1,182 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\before\\frontend\\src\\screens\\AdminConfigScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+index d2cd07dd..b965cdba 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\before\\frontend\\src\\screens\\AdminConfigScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+@@ -1,5 +1,5 @@
+ import * as React from 'react';
+-import { useEffect, useMemo, useState } from 'react';
++import { useEffect, useMemo, useRef, useState } from 'react';
+ import { apiClient } from '../api/client';
+ import { createOperationId } from '../api/operation';
+ import { AdminConfirmDialog } from '../components/AdminConfirmDialog';
+@@ -894,6 +894,8 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+   const [settingDrafts, setSettingDrafts] = useState<Record<string, SettingsMap>>({});
+   const [rolePreview, setRolePreview] = useState<RolePreview | null>(null);
+   const [selectedProfile, setSelectedProfile] = useState<AdminUserProfile | null>(null);
++  const [profileLoading, setProfileLoading] = useState(false);
++  const profileRequestRef = useRef(0);
+   const [passwordRecovery, setPasswordRecovery] = useState<{ recoveryCredential: string; recoveryExpiresAt: string; displayName: string } | null>(null);
+   const [factoryEdit, setFactoryEdit] = useState<{ name: string; code: string } | null>(null);
+   const [departmentEditId, setDepartmentEditId] = useState('');
+@@ -1248,13 +1250,16 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+   };
+ 
+   useEffect(() => {
++    profileRequestRef.current += 1;
+     setSelectedProfile(null);
++    setProfileLoading(false);
+     setPasswordRecovery(null);
+     setFactoryEdit(null);
+     setDepartmentEditId('');
+     setJobTitleEditId('');
+     setPositionEditId('');
+     void load(activeFactoryId);
++    return () => { profileRequestRef.current += 1; };
+   }, [currentUser?.userId, currentUser?.permissions.join('|'), activeFactoryId]);
+ 
+   const reloadFactory = async (factoryId: string) => {
+@@ -1362,10 +1367,14 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+   };
+ 
+   const openProfile = async (userId: string) => {
++    const request = ++profileRequestRef.current;
+     setErrorText(null); setNoticeText(null);
+     setIdentityError(null);
++    setSelectedProfile(null);
++    setProfileLoading(true);
+     try {
+       const profile = await apiClient.get<AdminUserProfile>(`/admin/users/${userId}`);
++      if (request !== profileRequestRef.current) return;
+       setSelectedProfile(profile);
+       setIdentityForm({
+         lastName: profile.lastName ?? '',
+@@ -1373,21 +1382,24 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+         middleName: profile.middleName ?? '',
+       });
+     } catch (error) {
+-      setErrorText(errorMessage(error));
++      if (request === profileRequestRef.current) setErrorText(errorMessage(error));
++    } finally {
++      if (request === profileRequestRef.current) setProfileLoading(false);
+     }
+   };
+ 
+   const saveIdentity = async () => {
+-    if (!selectedProfile || busy) return;
++    if (!selectedProfile || profileLoading || busy) return;
+     if (!identityForm.lastName.trim() || !identityForm.firstName.trim()) {
+       setIdentityError('Заполните фамилию и имя сотрудника.');
+       return;
+     }
+     setBusy(true);
+     setIdentityError(null);
++    const request = profileRequestRef.current;
+     try {
+       await apiClient.patch(`/admin/users/${selectedProfile.id}/identity`, identityForm);
+-      await openProfile(selectedProfile.id);
++      if (request === profileRequestRef.current) await openProfile(selectedProfile.id);
+       await load(selectedFactoryId);
+     } catch (error) {
+       setIdentityError(errorMessage(error));
+@@ -2631,7 +2643,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+               </HelpTooltip>
+             </span>
+             <div className="admin-inline-actions">
+-              <button className="secondary-button" type="button" onClick={() => void openProfile(user.id)}>Профиль</button>
++              <button className="secondary-button" type="button" disabled={busy} onClick={() => void openProfile(user.id)}>Профиль</button>
+               <button
+                 className="secondary-button"
+                 type="button"
+@@ -2650,7 +2662,8 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+           </article>
+         ))}
+       </div>
+-      {selectedProfile ? (
++      {profileLoading ? <div className="empty-state compact" role="status">Загружаю профиль…</div> : null}
++      {selectedProfile && !profileLoading ? (
+         <section className="card admin-card wide">
+           <div className="line-title-row">
+             <h3>Профиль пользователя: {pilotUserName(selectedProfile.id, selectedProfile.displayName)}</h3>
+@@ -2671,7 +2684,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+               >
+                 Сбросить пароль
+               </button>
+-              <button className="secondary-button" type="button" onClick={() => setSelectedProfile(null)}>Закрыть</button>
++              <button className="secondary-button" type="button" onClick={() => { profileRequestRef.current += 1; setSelectedProfile(null); }}>Закрыть</button>
+             </div>
+           </div>{noticeText ? <div className="empty-state compact success-state" role="status">{noticeText}</div> : null}
+           <div className="admin-subnav">
+@@ -2685,6 +2698,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+                 Фамилия
+                 <input
+                   value={identityForm.lastName}
++                  disabled={busy}
+                   onChange={(event) => setIdentityForm((current) => ({ ...current, lastName: event.target.value }))}
+                   autoComplete="family-name"
+                   maxLength={80}
+@@ -2694,6 +2708,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+                 Имя
+                 <input
+                   value={identityForm.firstName}
++                  disabled={busy}
+                   onChange={(event) => setIdentityForm((current) => ({ ...current, firstName: event.target.value }))}
+                   autoComplete="given-name"
+                   maxLength={80}
+@@ -2703,6 +2718,7 @@ export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (facto
+                 Отчество
+                 <input
+                   value={identityForm.middleName}
++                  disabled={busy}
+                   onChange={(event) => setIdentityForm((current) => ({ ...current, middleName: event.target.value }))}
+                   autoComplete="additional-name"
+                   maxLength={80}
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\before\\frontend\\src\\screens\\ChecklistsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+index e1968c24..d9fd3ee4 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\before\\frontend\\src\\screens\\ChecklistsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+@@ -532,6 +532,7 @@ export function ChecklistsScreen() {
+   const guidedRowRef = React.useRef<HTMLElement | null>(null);
+   const checkCompletionOperationRef = React.useRef<{ checkId: string; operationId: string } | null>(null);
+   const rowCompletionOperationRef = React.useRef<{ input: string; operationId: string } | null>(null);
++  const rowUploadOperationsRef = React.useRef(new WeakMap<File, Map<string, string>>());
+   const [showAllRows, setShowAllRows] = useState(false);
+   const [showFinalReview, setShowFinalReview] = useState(false);
+   const [dirtyRowIds, setDirtyRowIds] = useState<Set<string>>(() => new Set());
+@@ -888,7 +889,21 @@ export function ChecklistsScreen() {
+   };
+ 
+   const uploadFiles = async (entityType: string, entityId: string, files: File[]) => {
+-    await uploadAttachments(entityType, entityId, files);
++    const target = JSON.stringify([entityType, entityId]);
++    const operationIds = files.map((file) => {
++      let targets = rowUploadOperationsRef.current.get(file);
++      if (!targets) {
++        targets = new Map<string, string>();
++        rowUploadOperationsRef.current.set(file, targets);
++      }
++      let operationId = targets.get(target);
++      if (!operationId) {
++        operationId = crypto.randomUUID();
++        targets.set(target, operationId);
++      }
++      return operationId;
++    });
++    await uploadAttachments(entityType, entityId, files, { operationIds });
+   };
+ 
+   const rowNormText = (row: ChecklistTemplateRow | ChecklistRunRow) => {
+@@ -1855,11 +1870,12 @@ export function ChecklistsScreen() {
+     const showPrimary = !splitComposite || options?.compositeStep === 0;
+     const showPhoto = isPhotoChecklistRow(row) && (!splitComposite || options?.compositeStep === 1);
+     const showComment = !splitComposite || options?.compositeStep === 1;
+-    if (type === 'INFO') {
++    if (type === 'INFO' && !row.requiresPhoto && !row.requiresComment) {
+       return <div className="empty-state">Информационный пункт. Проверьте текст и нажмите “Дальше”.</div>;
+     }
+     return (
+       <div className="guided-answer-card">
++        {showPrimary && type === 'INFO' ? <div className="empty-state">Информационный пункт. Проверьте текст и добавьте настроенные подтверждения.</div> : null}
+         {splitComposite ? (
+           <div className="checklist-composite-step-label">
+             <strong>Шаг {(options?.compositeStep ?? 0) + 1} из 2</strong>

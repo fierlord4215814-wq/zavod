@@ -1,0 +1,40 @@
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\attempts\20260922-provider-dvd-boot\before\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\journey-matrix.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'C:\Users\79164\Documents\work\docs\full-ui-interaction-sweep\system-stabilization\20260917-master-r5\journey-matrix.json', LF will be replaced by CRLF the next time Git touches it
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260922-provider-dvd-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\journey-matrix.json" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\journey-matrix.json"
+index ca2664c..6745b05 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260922-provider-dvd-boot\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\journey-matrix.json"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\journey-matrix.json"
+@@ -1,5 +1,32 @@
+ {
+-  "currentContinuation": {"checkpoint":"2026-09-21_2311_VISIBLE_UAC_DVD_GUARD","environment":"BLOCKED_DVD_READBACK_GUARD_NEW_UAC_REQUIRED","newRealJourneys":0,"inheritedProofIsNotR5LiveExecution":true,"diagnosticBootExecuted":false,"sshExecuted":false,"uacOutcome":"SUCCESS_HELPER_STARTED_ACTUAL_ADMIN_TOKEN_TRUE","vmReadback":"OFF_231111_SOLE_VHDX_BIOS_NETWORK_VERIFIED","firmwareVhdxFirstConfirmed":true,"dvdEjectPostcondition":"UNKNOWN_OBJECT_READBACK_RETAINS_ISO_PATHS_FRESH_CIM_PENDING","bootExecuted":false},
++  "currentContinuation": {
++    "checkpoint": "2026-09-22_075519_PROVIDER_READBACK_UAC_CANCELLED",
++    "environment": "BLOCKED_UAC_CANCELLED_PROVIDER_READBACK",
++    "uacOutcome": "NATIVE_CANCELLED_CAUSE_UNKNOWN_HELPER_NOT_INVOKED",
++    "uacFailureAt": "2026-09-22T07:55:19.8839519+03:00",
++    "newVmProviderReadback": "NOT_RUN_NO_ELEVATED_TOKEN",
++    "lastKnownVm": "HISTORICAL_OFF_20260921_231111",
++    "lastKnownFirmwareVhdxFirstConfirmed": true,
++    "dvdEjectPostcondition": "UNKNOWN_FRESH_PROVIDER_READBACK_PENDING",
++    "diagnosticBootExecuted": false,
++    "sshExecuted": false,
++    "guestRepairExecuted": false,
++    "providerHelperPrepared": true,
++    "providerHelperExecuted": false,
++    "providerGuardChecks": {
++      "pass": 7,
++      "scope": "HOST_SYNTHETIC_NOT_VM_NOT_PRODUCT"
++    },
++    "sourceDefect": "RETAINED_CORRECTED_GENERATOR_TEN_HOST_PASS_NOT_RERUN",
++    "generatorCorrectionAppliedPreviously": true,
++    "actualSeedRegenerated": false,
++    "newProductCases": 0,
++    "newLiveCases": 0,
++    "newRealJourneys": 0,
++    "captureRetries": 0,
++    "automaticUacRetry": false,
++    "evidence": "attempts/20260922-provider-dvd-boot/result.md"
++  },
+   "count": 32,
+   "edgeDenominator": 1407,
+   "newRealJourneys": 0,

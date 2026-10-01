@@ -1,0 +1,599 @@
+{
+  "verifiedUtc": "2026-09-24T15:36:18.9784503Z",
+  "zip": "review-pack-local02-20260924.zip",
+  "bytes": 2337677,
+  "sha256": "b67d0548d78963120713e891bf55e0f95fc25c458ce9a97dfbf1b1ebfa01ce64",
+  "fullReadback": true,
+  "ownedSecretScan": "PASS",
+  "entries": 98,
+  "files": [
+    {
+      "file": "manifest.json",
+      "bytes": 17493,
+      "sha256": "5d18d60b9438b774aaa50bab1a037ae70ec658d057ab1b68e0f486f1d837333d",
+      "verified": true
+    },
+    {
+      "file": "backend/prisma/schema.prisma",
+      "bytes": 85485,
+      "sha256": "db0b2d6999d77273099fc8c0db0c60e827d69464fc6ea43794e109b50a4d912e",
+      "verified": true
+    },
+    {
+      "file": "backend/prisma/system-foundation.cjs",
+      "bytes": 22200,
+      "sha256": "43052d4c571efc624ae53ea49f8999ad657fdfd999734025abae7e4a30d23c98",
+      "verified": true
+    },
+    {
+      "file": "backend/scripts/local01-chat-guest-policy.test.js",
+      "bytes": 1796,
+      "sha256": "0ca5d6ee75dbb1f95b1000e02ba344cda07701428f2122008a739c6eea1c4de4",
+      "verified": true
+    },
+    {
+      "file": "backend/scripts/local02-chat-policy.test.js",
+      "bytes": 3039,
+      "sha256": "9d22c9d10e66c7da43606a2461421e2fd5c272f5800d52068dbe70cc6de82592",
+      "verified": true
+    },
+    {
+      "file": "backend/scripts/master-r2-chat-fixture.cjs",
+      "bytes": 6219,
+      "sha256": "ccfa45b96090e3ca9009d94f033c54e2188f9af5c4ad7e8359fee509e4ce744e",
+      "verified": true
+    },
+    {
+      "file": "backend/scripts/vps-prep-01-regression.js",
+      "bytes": 25059,
+      "sha256": "95b0d801decc9decbedcd8314505c78e736fa5fa0b3d5ca5696cd3e508aee817",
+      "verified": true
+    },
+    {
+      "file": "docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "bytes": 231341,
+      "sha256": "e1567b80d2017e1c82f3048096547d458c10128a24841d561c6c0408d8b95843",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/handoff.md",
+      "bytes": 50008,
+      "sha256": "a4eca58caede128a45379d95e9ef8163bad929bc43c79118c5434bdb59020042",
+      "verified": true
+    },
+    {
+      "file": "backend/src/common/effective-permissions.ts",
+      "bytes": 1329,
+      "sha256": "1abf62bd12838284b11c5afde39a0aa05986821cb50264653073144d19bdc17b",
+      "verified": true
+    },
+    {
+      "file": "backend/src/ws/ws.service.ts",
+      "bytes": 8398,
+      "sha256": "4092266082348f1321f9f42db070fcee03f19020a5a9b6723f65c67ba99762a7",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-01/plan.md",
+      "bytes": 37727,
+      "sha256": "9e82d6ca9be348ec3d73066acf651c9e6b0685e2ab77bd2f986863b15194ce42",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-01/report.md",
+      "bytes": 75349,
+      "sha256": "9fdc42243af188315183bfe3583a9692dd1e4381373d7de037386d4ebcbad56a",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/additional-before.json",
+      "bytes": 617,
+      "sha256": "6244aa05d4696181af7722c539024d7cf7342567ba1203bcfa231272c8215e4a",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/after-hashes.json",
+      "bytes": 4859,
+      "sha256": "32d6263acf0bb7a07f595d0f26207e0face525246b80f7668919dd56dcd64ce5",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/archive-final-1440.png",
+      "bytes": 201027,
+      "sha256": "48850442fc61b2a2608da4b31704be1b2833a13c6c224769922081e9a1f0e63a",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/archive-final-360.png",
+      "bytes": 107880,
+      "sha256": "cdb29cfba052f9561ab790aec4c842abfd45017f07e46d69dd41fc5934c91bae",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/archive-final-390.png",
+      "bytes": 112017,
+      "sha256": "8b9ab287250d67ad54b148074fd26615ea48c04dec01d42911562053ee702eb8",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/baseline.cjs",
+      "bytes": 3928,
+      "sha256": "b9a32691109d510f603b6d72f9b5da35ba6ab50e07646100dd0c2cc840964d5e",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/before.json",
+      "bytes": 22867,
+      "sha256": "ceca5948ec1dacd1ce5ac572d2395cd79c8c17840ff97b427c4912ebbe629cd6",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/build-checks.cjs",
+      "bytes": 1914,
+      "sha256": "aaa8d4c980d3e8cb85ae6730522c82790e61241b723f144b0ac2335a3c2fc044",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/chat-live.cjs",
+      "bytes": 8675,
+      "sha256": "1431771b8b10d9625f0973826f7e547abbdd06c7baa3f4586604d1edcb45c968",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/chat-live.json",
+      "bytes": 1334,
+      "sha256": "aa4286fe2cbe71f05915b597bff5e9797102cd153af94373c8e174f86849e517",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/chat-positive-live.png",
+      "bytes": 68806,
+      "sha256": "d962a8dd632a5dbe7b9f008c9cbb12bbc2775ce5540f905178aa5b1c2d4455ba",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/close-fixtures.cjs",
+      "bytes": 2282,
+      "sha256": "1a0fde27ade789775450854408ad0e201215dc77adf36c1329773e64cb198089",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/create-panel-worker.cjs",
+      "bytes": 3088,
+      "sha256": "235e453bf927a336a3f6256fdfb31af95de5a8a97d08e510925daf20435b8421",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/cross-factory-reference.cjs",
+      "bytes": 3055,
+      "sha256": "de967ca93d8f0534cc1e9562e3ef37aea48197a0dc36f6363cb1f8e5c4f4bb4b",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/cross-factory-reference.json",
+      "bytes": 214,
+      "sha256": "b88d6364b446a642310b090b4319a9a6eac36c082cc7d9c7750f884596ccc4ac",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/files.cjs",
+      "bytes": 2415,
+      "sha256": "acf4dd2dc75d9243fe85c8628597a3bd608d8d59a718a1886ec307cfeb1d088c",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/final-readback.cjs",
+      "bytes": 4849,
+      "sha256": "7b6b2f0699e68a0c96a0fe346bccb980eab7fa76da2e61ceeba40c025b9087cf",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/final-readback.json",
+      "bytes": 1260,
+      "sha256": "97de124f357ddfdc8eec17777764cb6f1d0f714da427c185f88fbb5ce0639746",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/fixture-closure.json",
+      "bytes": 380,
+      "sha256": "cb88dba75adf5a7201d32254deb0c756283ccd1a4dc1aea98e45c828f56e1466",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/harness.cjs",
+      "bytes": 2451,
+      "sha256": "789e8db89bd0881ee5b50b1c5e55b54958302aef53392972068c25026f083c16",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/labels-before.json",
+      "bytes": 118,
+      "sha256": "799a565f1c7277fc3d0371bce63167c0ddcd448290ec5c99940bd2dbf15a5136",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/menu-contractor.png",
+      "bytes": 75066,
+      "sha256": "9f98819365613b087caa30d8c97538acc1c4860e4d1b78dae28f51fe6874874e",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/menu-worker.png",
+      "bytes": 111561,
+      "sha256": "00736110d85734dd47ce7d8f482bd166c2a6b3e647bae082d6f07230b754e69c",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/migrations.cjs",
+      "bytes": 5925,
+      "sha256": "02fd6b4d8f40cf13161b622e42e28b2b4fbcdda052c34d009733ff7a3cb986ca",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/own-db.cjs",
+      "bytes": 1422,
+      "sha256": "c94b9a6576332e5c9d9c2956a41e8e17cb9e49a4a5dcd735efa56348923b765f",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/panel-worker-provenance.json",
+      "bytes": 148,
+      "sha256": "1566ecb7b3551fa13bbb4c6777be78cb6b65a8265a7d4d731d1c60b14addc50e",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/process-readback.ps1",
+      "bytes": 862,
+      "sha256": "f349edbe48b30504877a0d73faf77f04019e6f1e2a55b6c89abaf17ca7d3e962",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/processes.json",
+      "bytes": 1141,
+      "sha256": "9414c871c7561e8772ba78597216ece6f4c87907513fbcffc4e92eec7888a9ab",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/progress.md",
+      "bytes": 1355,
+      "sha256": "be7f05007ec319c7033f5a2518a5e8b6ad817f473624ea00ead522553f315d21",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-archive-1.png",
+      "bytes": 112017,
+      "sha256": "8b9ab287250d67ad54b148074fd26615ea48c04dec01d42911562053ee702eb8",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-archive-2.png",
+      "bytes": 111987,
+      "sha256": "7fe9c7bafe25f2a01f15e1f2fa0f5f8b7ccea253c08891ae595785059eb24655",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-archive-before-label-fix.png",
+      "bytes": 113169,
+      "sha256": "e15c77cfd3e1599e12f09e3271027659605a3601a8339f5d44f193b676506c1e",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-editor-A.png",
+      "bytes": 213031,
+      "sha256": "3c1a27a5a99580a7417d7cbc11b23288007f1728bb47f45981aa203e5bdb2370",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-negative.cjs",
+      "bytes": 10336,
+      "sha256": "9a69b1179751bc5f65aea792e0a7bfd6462460934d29c8cbb3fe1c024b782ccb",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-negative.json",
+      "bytes": 688,
+      "sha256": "75074fb586c28333fbffc3eaa065ee30587b2a5b328c520660fb75d6946c30cf",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-restore.json",
+      "bytes": 2704,
+      "sha256": "889c59f3a5a991e9483784d4296df0faa2d0cdbec72deece7e5e3c1c0b7d263b",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-run-1.png",
+      "bytes": 113840,
+      "sha256": "6153b8152f8ff0a418a1f6b6ce4216fd4214740c363544d6f645221fa2a652aa",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-run-2.png",
+      "bytes": 112343,
+      "sha256": "864c7f3f02e150e53a89a8a00716ca839a33b7e4274ed2dccdbfb38bb4adacb6",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-ui.cjs",
+      "bytes": 10374,
+      "sha256": "8f19af80469dc3f5d0d3baf97a9217cd488d7a23f9c74ca6677ea6406b32e4e7",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/reference-ui.json",
+      "bytes": 1203,
+      "sha256": "1a82e1b15cd62474de83bd09293d523ad9d180e24bc66db4abdbc56959bb2865",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/report.md",
+      "bytes": 16030,
+      "sha256": "2bde8116750c2ca4d2cf79f4d0971483589c3fb8c98ee65ea83597a5bdfd6049",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/restore-reference.cjs",
+      "bytes": 3702,
+      "sha256": "e4528d1baca185f21454c4f480d35da9f66f91c79b756673ff28967811799698",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/review-pack.ps1",
+      "bytes": 6468,
+      "sha256": "188d74fa05f1379448628e05d1259b3ab65f7ffd821a11a9d19500e5c9491200",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/shift-live.cjs",
+      "bytes": 3679,
+      "sha256": "d1649d8b7565b044ff42d68d5cbdf36d3abc2de995bc24aaf81af4fb9b44f8b6",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/shift-live.json",
+      "bytes": 652,
+      "sha256": "33e1f87fd48e74a5292705682a27f4118d24a19cb41765ddf47e48dd949da5db",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/shift-panel-before.cjs",
+      "bytes": 1844,
+      "sha256": "4ab97d75e687a0ef34d8d99a8a5325ab96cc6dc7e0c436e5623388856a01156d",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/shift-panel-before.json",
+      "bytes": 303,
+      "sha256": "55375fea114ece856f22f542de8890231706006d18d79953fcdf2801250cf77c",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/shift-panel-before.png",
+      "bytes": 194565,
+      "sha256": "ca37f163b6c6461fb15aed72a56fe04a19d509b392810a314b486dc70f82aa63",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/shift-panel-off.png",
+      "bytes": 171690,
+      "sha256": "20f51ae8f06567cfc7221641d47462ecab95d58bc7631bfad9cde3c8132700bb",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/shift-panel-on.png",
+      "bytes": 191203,
+      "sha256": "d726864c47aa387b9f963eb04f335993aa269bc1c80b12e9ed1627d1b8a7c886",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/start-backend.ps1",
+      "bytes": 1791,
+      "sha256": "5d19d9760dac0f68f5222ccbf19c63aa00d6e4cdd2ca5a33701f14a3d8c4e858",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/stop-stand.ps1",
+      "bytes": 1426,
+      "sha256": "1312d245ce58481781c97fecea79f32c1d46b3e9384b39fabbe7033e5905be6a",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/test-fixture-before.json",
+      "bytes": 130,
+      "sha256": "8414dc2090bbb7afb5ea97d173669b2b9d56b6d8e8a2c65f3cc766ee264c1a84",
+      "verified": true
+    },
+    {
+      "file": "frontend/src/components/ChecklistItemEditor.tsx",
+      "bytes": 7373,
+      "sha256": "2774067b44e6b601b408cbfcb2ccd64b704c26c4db88a7aea25d958785c60dd1",
+      "verified": true
+    },
+    {
+      "file": "frontend/src/screens/ChecklistsScreen.tsx",
+      "bytes": 163860,
+      "sha256": "435815fd984c3a57420a6548e024db626f9edfe366d7ed088eca8c7e7af3f765",
+      "verified": true
+    },
+    {
+      "file": "frontend/src/utils/pilot-ui.ts",
+      "bytes": 24755,
+      "sha256": "b9f9249058d36cbdb9d9c4b9aaa8539d9749b0d3232d19bba54dbe8b580582ff",
+      "verified": true
+    },
+    {
+      "file": "backend/prisma/migrations/20260924190000_local02_chat_and_checklist_reference/migration.sql",
+      "bytes": 1526,
+      "sha256": "99392096542f2da993f9d4e6bd56adeec14c3167f981d2c91f96d696b078af7e",
+      "verified": true
+    },
+    {
+      "file": "backend/src/modules/attachments/attachments.module.ts",
+      "bytes": 764,
+      "sha256": "0eb9699451da8e3afc47a02b0f01a2cd46793d913db02e42fdd6a9fb34a7420c",
+      "verified": true
+    },
+    {
+      "file": "backend/src/modules/attachments/attachments.service.ts",
+      "bytes": 44179,
+      "sha256": "81de23c7213d923c3b48a700e7c620c2f68faa887194e6960a476c1e4aaf39c9",
+      "verified": true
+    },
+    {
+      "file": "backend/src/modules/chats/chat-message-delete-policy.ts",
+      "bytes": 4456,
+      "sha256": "a12b58823c56367e390245bf7d0a0f3181e17aceef26b9c624cc75d0aa59fb7f",
+      "verified": true
+    },
+    {
+      "file": "backend/src/modules/chats/chats.controller.ts",
+      "bytes": 5450,
+      "sha256": "153191c4e600d48e6ae180aae37ee1fe61ff9b48d630dfe1c7888d41ad6c3f3e",
+      "verified": true
+    },
+    {
+      "file": "backend/src/modules/chats/chats.service.ts",
+      "bytes": 83222,
+      "sha256": "7a3f9a21012215be4a9f384dd28bb1d6c931b3b7d2dc64dd4973c538218a158d",
+      "verified": true
+    },
+    {
+      "file": "backend/src/modules/checklists/checklists.controller.ts",
+      "bytes": 9506,
+      "sha256": "62f24f11c3ea2e3297c45fcd75b77b4abf8bdea2cdd6e2a9b70b36addd2be552",
+      "verified": true
+    },
+    {
+      "file": "backend/src/modules/checklists/checklists.service.ts",
+      "bytes": 145299,
+      "sha256": "9d603f7a20700ff3645edf65495bcc31f1ebdcb849b2850b85eaf90115e23bb5",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/backend-build.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/chat-policy-isolated.txt",
+      "bytes": 1292,
+      "sha256": "8e2ed9a12bc83669cf79a605180af6ace5d75788bfaf36cbc5586ecc5e9d7642",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/checklist-isolated.txt",
+      "bytes": 749,
+      "sha256": "e8a12adab9683a7a6e517ab4933a007099e6e5af7540d5e1efc37eb5b90de11d",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/foundation-auth-isolated.txt",
+      "bytes": 4850,
+      "sha256": "462b78875e33a34dfc647376a2d5e38a405f2b274fcb651d4729d4d76deb97ff",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/frontend-build.txt",
+      "bytes": 63,
+      "sha256": "85e54a90accb9640a23a470299ba8f41e4dedf0b70de45c28471b7026a310cae",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/frontend-typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/own-c1-before-dump.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/own-c1-deploy57.txt",
+      "bytes": 458,
+      "sha256": "72175af00bb68f5e2f933f497608d3bb3d6c1a458aae38a05d6d037650bacb26",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/own-c1-diff57.txt",
+      "bytes": 25,
+      "sha256": "198913094e3f41610eb893459ab65a3c79991b65d4ef5fcb8c325ebe52ebf1ed",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/prisma-generate.txt",
+      "bytes": 331,
+      "sha256": "45c4a986ad36f36c7eb350996a930b3097287cf1e8daafb2c593b86d8fa2a779",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/prisma-validate-final.txt",
+      "bytes": 96,
+      "sha256": "57a95d6fed0c8565ccec14844a8dfddf60c99bc53587cd2cb974240ddedfb340",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/prisma-validate.txt",
+      "bytes": 96,
+      "sha256": "57a95d6fed0c8565ccec14844a8dfddf60c99bc53587cd2cb974240ddedfb340",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/upgrade-restore56.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/zavod_local01_c0-final-diff.txt",
+      "bytes": 25,
+      "sha256": "198913094e3f41610eb893459ab65a3c79991b65d4ef5fcb8c325ebe52ebf1ed",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/zavod_local02_fresh-deploy.txt",
+      "bytes": 8631,
+      "sha256": "fb2e812b37b4ff9e8dc9322666a1fa38df7ad6b6bb3643c92a6dcf61da1d24d4",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/zavod_local02_fresh-diff.txt",
+      "bytes": 25,
+      "sha256": "198913094e3f41610eb893459ab65a3c79991b65d4ef5fcb8c325ebe52ebf1ed",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/zavod_local02_fresh-final-diff.txt",
+      "bytes": 25,
+      "sha256": "198913094e3f41610eb893459ab65a3c79991b65d4ef5fcb8c325ebe52ebf1ed",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/zavod_local02_restore-final-diff.txt",
+      "bytes": 25,
+      "sha256": "198913094e3f41610eb893459ab65a3c79991b65d4ef5fcb8c325ebe52ebf1ed",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/zavod_local02_upgrade-deploy.txt",
+      "bytes": 463,
+      "sha256": "cda83cf86a99fc4b624791f4205d4fcbaa54c6ee31a89ab7043fde893c378078",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/zavod_local02_upgrade-diff.txt",
+      "bytes": 25,
+      "sha256": "198913094e3f41610eb893459ab65a3c79991b65d4ef5fcb8c325ebe52ebf1ed",
+      "verified": true
+    },
+    {
+      "file": "docs/vps-preparation/local-02/logs/zavod_local02_upgrade-final-diff.txt",
+      "bytes": 25,
+      "sha256": "198913094e3f41610eb893459ab65a3c79991b65d4ef5fcb8c325ebe52ebf1ed",
+      "verified": true
+    }
+  ]
+}

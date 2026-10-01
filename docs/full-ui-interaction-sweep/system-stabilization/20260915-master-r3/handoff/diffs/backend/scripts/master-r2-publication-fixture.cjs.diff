@@ -1,0 +1,16 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-publication-fixture.cjs" "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-publication-fixture.cjs"
+index 8e83f986..09f43613 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\backend\\scripts\\master-r2-publication-fixture.cjs"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\scripts\\master-r2-publication-fixture.cjs"
+@@ -8,9 +8,10 @@ const { NotificationsService } = require('../dist/modules/notifications/notifica
+ const { PermissionGuard } = require('../dist/common/permission.guard');
+ const { Reflector } = require('@nestjs/core');
+ const { UserContextService } = require('../dist/common/user-context.service');
+-function fixture(archiveCapability = false, state = 'current', priority = 'IMPORTANT', identity = {}) {
++function fixture(archiveCapability = false, state = 'current', priority = 'IMPORTANT', identity = {}, realAudit = false) {
+   const m = memory(), user = { userId: 'publication-reader', selectedFactoryId: 'publication-factory', departmentId: 'publication-department', role: 'MASTER', isGuest: false, isAdmin: false, permissions: ['announcements.read', 'announcements.readReport', 'notifications.read', ...(archiveCapability ? ['announcements.archive.read'] : [])], ...identity };
+   const account = { id: user.userId, role: user.role, blockedAt: null, deletedAt: null }, reads = [], notices = [], attachmentsCalls = [];
++  if(realAudit){m.data.auditLog=m.model('auditLog',m.audits,{includes:['user'],enrich:r=>({...r,user:account})});m.audit=new (require('../dist/common/audit.service').AuditService)({db:m.db});}
+   const now = Date.now();
+   const row = { id: 'publication-announcement', factoryId: user.selectedFactoryId, departmentId: user.departmentId, authorId: 'publication-author', title: 'Регламент смены', text: 'Проверьте ограждение перед началом работы', priority, recurrence: 'NONE', deletedAt: state === 'deleted' ? new Date() : null, archivedAt: state.startsWith('archived') ? new Date() : null, visibleFrom: new Date(now + (state === 'future' || state === 'archived-future' ? 86400000 : -86400000)), visibleUntil: new Date(now + (state === 'expired' ? -3600000 : 172800000)), audienceDepartments: [], createdAt: new Date(), lastReminderAt: null };
+   const enrich = record => ({ ...record, author: { id: record.authorId, role: 'MANAGEMENT', firstName: 'Ирина', lastName: 'Производственная', displayName: 'Производственная Ирина' }, department: record.departmentId ? { id: record.departmentId, name: 'Производство' } : null, reads: reads.filter(item => item.announcementId === record.id && item.userId === user.userId) });

@@ -1,0 +1,137 @@
+{
+  "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+  "steps": {
+    "PAUSE": {
+      "status": 200,
+      "event": {
+        "id": "d14ee9d6-1981-4b8e-bc43-2ec79865f8a5",
+        "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "createdById": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+        "status": "PAUSE",
+        "comment": "Учебный переход PAUSE LOCAL03",
+        "downtimeReason": "TECHNICAL",
+        "readyAt": null,
+        "readyById": null,
+        "confirmedEndAt": null,
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "correctionComment": null,
+        "correctionById": null,
+        "createdAt": "2026-09-25T06:13:15.787Z",
+        "updatedAt": "2026-09-25T06:13:15.794Z"
+      },
+      "assignment": {
+        "id": "08c7a178-76f8-4b99-b051-2c38b31ea4a5",
+        "endedAt": null,
+        "endedById": null
+      }
+    },
+    "WORK": {
+      "status": 200,
+      "event": {
+        "id": "630999ec-6936-4528-9625-59962d9fb871",
+        "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "createdById": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+        "status": "WORK",
+        "comment": "Учебный переход WORK LOCAL03",
+        "downtimeReason": null,
+        "readyAt": null,
+        "readyById": null,
+        "confirmedEndAt": "2026-09-25T06:13:16.486Z",
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "correctionComment": null,
+        "correctionById": null,
+        "createdAt": "2026-09-25T06:13:16.486Z",
+        "updatedAt": "2026-09-25T06:13:16.493Z"
+      },
+      "assignment": {
+        "id": "08c7a178-76f8-4b99-b051-2c38b31ea4a5",
+        "endedAt": null,
+        "endedById": null
+      }
+    },
+    "STOP": {
+      "status": 200,
+      "event": {
+        "id": "6bcb2eab-1f4d-40c8-8db3-d21925205b03",
+        "lineId": "56359bdd-14cb-451c-9500-1e2551d1264a",
+        "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+        "createdById": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+        "status": "STOP",
+        "comment": "Учебный переход STOP LOCAL03",
+        "downtimeReason": "TECHNICAL",
+        "readyAt": null,
+        "readyById": null,
+        "confirmedEndAt": null,
+        "correctedStartAt": null,
+        "correctedEndAt": null,
+        "correctionComment": null,
+        "correctionById": null,
+        "createdAt": "2026-09-25T06:13:17.154Z",
+        "updatedAt": "2026-09-25T06:13:17.185Z"
+      },
+      "assignment": {
+        "id": "08c7a178-76f8-4b99-b051-2c38b31ea4a5",
+        "endedAt": "2026-09-25T06:13:17.154Z",
+        "endedById": "7a7ad710-31ef-49a0-b41d-7293c80e0400"
+      },
+      "secondUiMs": 6616
+    }
+  },
+  "runningDefrost": {
+    "status": 409,
+    "body": {
+      "code": "CONFLICT",
+      "message": "Сначала остановите линию. Работающую линию нельзя поставить на оттайку."
+    }
+  },
+  "assignedAbsence": {
+    "status": 409,
+    "body": {
+      "code": "CONFLICT",
+      "message": "Работник уже назначен. Сначала снимите его с рабочего места."
+    }
+  },
+  "contractorDenied": {
+    "line": 403,
+    "assignment": 403
+  },
+  "contractorReloadUnassigned": true,
+  "absent": {
+    "status": 200,
+    "body": {
+      "id": "37657218-345a-4ee4-9abc-f78f7003eeee",
+      "submissionId": "ab0715cd-8be3-41c6-b0c7-0776ba1c4be0",
+      "contractorUserId": "6b7b9e97-d69e-4387-8fe4-34f6461f11e2",
+      "status": "PROPOSED",
+      "actualStatus": "ABSENT",
+      "actualById": "3287708e-d87b-4376-b406-d42343441e08",
+      "actualAt": "2026-09-25T06:13:25.836Z",
+      "masterComment": null,
+      "decidedById": null,
+      "decidedAt": null,
+      "createdAt": "2026-09-25T06:10:25.401Z",
+      "updatedAt": "2026-09-25T06:13:25.836Z",
+      "version": 3
+    },
+    "secondUiMs": 7231
+  },
+  "sessions": [
+    {
+      "id": "cbedb2f9-9967-4d32-bce0-5c7ced405efb",
+      "factoryId": "8d097917-598c-4c7d-9e31-4e8d2b629ce7",
+      "status": "ENDED",
+      "startedAt": "2026-09-25T06:10:25.407Z",
+      "endedAt": "2026-09-25T06:13:25.832Z"
+    }
+  ],
+  "line": {
+    "id": "56359bdd-14cb-451c-9500-1e2551d1264a",
+    "status": "STOP",
+    "defaultStaffingTemplateId": "f9e8442b-2d5f-4578-a1ae-5cafaf8513a2"
+  },
+  "status": "PASS_CURRENT_ASSIGNMENT_PAUSE_STOP_ABSENCE"
+}

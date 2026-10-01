@@ -1,0 +1,17 @@
+COMMAND=node --test backend/scripts/checklist-verify-01.test.cjs
+EXIT_CODE=0
+
+✔ B1 rolling due is based on factual completion; early/on-time/late paths keep one active next check (2.608ms)
+✔ B3 three occurrence photos and completed status remain bound to each check after incomplete auto-close (5.5067ms)
+✔ B3 common archive selects exact ENTRY bindings and keeps legacy RUN_ROW files (1.5543ms)
+✔ B2 isolated 10-minute/2-minute reminders dedupe by current Check and never recreate an old due notice (3.4321ms)
+✔ B4 archive source paging can find a synthetic older item after first page without weakening section guard (1.0498ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 908.8631
+

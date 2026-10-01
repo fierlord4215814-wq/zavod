@@ -1,0 +1,20 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\progress.md"
+index dba6e74b..e6f0da12 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\before\\docs\\full-ui-interaction-sweep\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-existing-vm\\after\\docs\\full-ui-interaction-sweep\\progress.md"
+@@ -1,6 +1,14 @@
+ # Full UI Interaction Sweep — progress
+ 
+-## Current source result — MASTER R5 VM checkpoint, 20.09.2026
++## Current source result — MASTER R5 existing VM observation, 20.09.2026 16:34+03
++
++EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. MASTER_R5_STATUS=BLOCKED_OLD_HELPER_QUEUE_AND_CONSOLE_ACCESS. [Единый отчёт](system-stabilization/20260917-master-r5/final-report.md), [актуальное продолжение](system-stabilization/20260917-master-r5/resume-prompt.txt).
++
++Один разрешённый read-only observer UAC выполнен; PID8296 завершился штатно. Actual VM GUID/BIOS/Gen2/own VHDX+ISO подтверждены, VMRunning в16:26:34/38. Old helper9056 жив с прежними PID/start/полной command line; results000006/000007/terminal отсутствуют. Associated jobs=[] не означает отмену старого SHUTDOWN; второй изменяющий контроллер/guest keys не запускались. Thumbnail0/Byte[] с extra4bytes не декодировался вопреки contract. VMConnect non-admin access denied; computer-use screenshot failed0x80004002 twice; guest screen UNVERIFIED. Viewer9616 штатно закрыт, observer8296 отсутствует. Нужны последние строки старого helper и доступный кадр консоли именно own VM; вопросы пользователю переданы.
++
++Hyper-V повторно не устанавливался; VM/VHDX/switch не пересоздавались. Product fixes/tests/builds/fixtures/newlive=0. Пять gates NOT_RUN;32journeys/1407edges0newreal; original06373pxOPEN/UNKNOWN;036 остаётся отдельным live contract. Шесть parent matrices, исторические954/957 иP0/P1/P2=0/1/10 без новой приёмки. Рабочие DB/service/env/uploads/history не читались. Current receipts — `system-stabilization/20260917-master-r5/attempts/20260920-existing-vm/`; новый ZIP `zavod-master-r5-existing-vm-observation-20260920.zip` подтверждается только package-receipt. Все прежние ZIP/evidence сохранены.
++
++## Historical source result — MASTER R5 VM checkpoint, 20.09.2026 morning
+ 
+ EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. Отдельный MASTER_R5_STATUS=BLOCKED_CONSOLE_OBSERVATION_PERMISSION. [Единый отчёт](system-stabilization/20260917-master-r5/final-report.md), [receipt/index](system-stabilization/20260917-master-r5/INDEX.md), [resume](system-stabilization/20260917-master-r5/resume-prompt.txt). Тот же R5, не R6/не новый sweep.
+ 

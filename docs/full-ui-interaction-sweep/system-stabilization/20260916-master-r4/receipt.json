@@ -1,0 +1,4337 @@
+{
+  "at": "2026-09-16T17:28:12.609Z",
+  "productFingerprint": "33318c278635e56d75458df104bb99a412fb0bd7868de6f52337c3d477783e3c",
+  "comparisons": [
+    {
+      "kind": "product",
+      "file": "G2/final-product-identity.json",
+      "manifestSha256": "756428e3fba45260cb3792a95346a352cf930c3a7c5dd2ef73aa22dd110ee748",
+      "fingerprint": "33318c278635e56d75458df104bb99a412fb0bd7868de6f52337c3d477783e3c",
+      "count": 207,
+      "mismatches": [],
+      "checks": [
+        {
+          "owner": "backend/prisma/schema.prisma",
+          "sha256": "f8db227de5c02b804ab42a8722a18afe5c8e0b7a4d7589d42dad53753c6160c1",
+          "bytes": 83284,
+          "currentSha256": "f8db227de5c02b804ab42a8722a18afe5c8e0b7a4d7589d42dad53753c6160c1",
+          "currentBytes": 83284
+        },
+        {
+          "owner": "backend/src/app.module.ts",
+          "sha256": "9d9ac7c175511d7ccba9f128b84375cc8ef647dfb0ecf26ef4c6d32ab8b94e58",
+          "bytes": 2830,
+          "currentSha256": "9d9ac7c175511d7ccba9f128b84375cc8ef647dfb0ecf26ef4c6d32ab8b94e58",
+          "currentBytes": 2830
+        },
+        {
+          "owner": "backend/src/common/assignment-eligibility.ts",
+          "sha256": "5fb055b2b66536683c4567df8955a2800609d4c832fa421ce8ae193c11c66386",
+          "bytes": 291,
+          "currentSha256": "5fb055b2b66536683c4567df8955a2800609d4c832fa421ce8ae193c11c66386",
+          "currentBytes": 291
+        },
+        {
+          "owner": "backend/src/common/audit-presentation.ts",
+          "sha256": "6d5242826ffcc238fbfcc1507432ee713f37f80fe3dc69561a4ce102a01b816c",
+          "bytes": 9976,
+          "currentSha256": "6d5242826ffcc238fbfcc1507432ee713f37f80fe3dc69561a4ce102a01b816c",
+          "currentBytes": 9976
+        },
+        {
+          "owner": "backend/src/common/audit.module.ts",
+          "sha256": "def6dd69a5a6f4a875e2af8d608a92b9555790b5cbbf077abd7e64e007de1299",
+          "bytes": 288,
+          "currentSha256": "def6dd69a5a6f4a875e2af8d608a92b9555790b5cbbf077abd7e64e007de1299",
+          "currentBytes": 288
+        },
+        {
+          "owner": "backend/src/common/audit.service.ts",
+          "sha256": "d207a3078d4109237ae8a7ad2a282b8e84f7fdf52fbfb532a9e8998932bbedd4",
+          "bytes": 1476,
+          "currentSha256": "d207a3078d4109237ae8a7ad2a282b8e84f7fdf52fbfb532a9e8998932bbedd4",
+          "currentBytes": 1476
+        },
+        {
+          "owner": "backend/src/common/auth-token.ts",
+          "sha256": "4d14547377ece9a040e608e0d634aab1b179a10dc0fd5f90052445b75fb2267b",
+          "bytes": 2241,
+          "currentSha256": "4d14547377ece9a040e608e0d634aab1b179a10dc0fd5f90052445b75fb2267b",
+          "currentBytes": 2241
+        },
+        {
+          "owner": "backend/src/common/current-user.decorator.ts",
+          "sha256": "5244b7fb420c6fdde2381500bf6c8b7e782c0d6f1fa5ddf93b83405b0349467e",
+          "bytes": 329,
+          "currentSha256": "5244b7fb420c6fdde2381500bf6c8b7e782c0d6f1fa5ddf93b83405b0349467e",
+          "currentBytes": 329
+        },
+        {
+          "owner": "backend/src/common/data-hygiene.ts",
+          "sha256": "97c3f7e9405cf0871edc3a9e281b156dc6e0e0e9b2ab5a76d9913610d58fb267",
+          "bytes": 5705,
+          "currentSha256": "97c3f7e9405cf0871edc3a9e281b156dc6e0e0e9b2ab5a76d9913610d58fb267",
+          "currentBytes": 5705
+        },
+        {
+          "owner": "backend/src/common/downtime-reason.ts",
+          "sha256": "f3d74c189784936b5797b2666c349e5dc80d47d6d76acd0ec470f78d0a0b295a",
+          "bytes": 3075,
+          "currentSha256": "f3d74c189784936b5797b2666c349e5dc80d47d6d76acd0ec470f78d0a0b295a",
+          "currentBytes": 3075
+        },
+        {
+          "owner": "backend/src/common/effective-permissions.ts",
+          "sha256": "748350991d683c35e0a859d8d4b5eccecff7623cb9c38f8fa44dd8caf4d5ac50",
+          "bytes": 959,
+          "currentSha256": "748350991d683c35e0a859d8d4b5eccecff7623cb9c38f8fa44dd8caf4d5ac50",
+          "currentBytes": 959
+        },
+        {
+          "owner": "backend/src/common/errors/conflict.exception.ts",
+          "sha256": "c148bfd3374b4b36f1ef252909af368ef76cdbaf993aa63e0a3557d78758ed51",
+          "bytes": 324,
+          "currentSha256": "c148bfd3374b4b36f1ef252909af368ef76cdbaf993aa63e0a3557d78758ed51",
+          "currentBytes": 324
+        },
+        {
+          "owner": "backend/src/common/operation-lock.ts",
+          "sha256": "5560e30c00fcc661f1dc857c021c6f7e75f4cf873765f638442fb52b644d73d7",
+          "bytes": 3507,
+          "currentSha256": "5560e30c00fcc661f1dc857c021c6f7e75f4cf873765f638442fb52b644d73d7",
+          "currentBytes": 3507
+        },
+        {
+          "owner": "backend/src/common/password.ts",
+          "sha256": "a0a9472564f045a5b5027f55542abe7cdd1ea9cb4be5ca44146fb59e633674ba",
+          "bytes": 1926,
+          "currentSha256": "a0a9472564f045a5b5027f55542abe7cdd1ea9cb4be5ca44146fb59e633674ba",
+          "currentBytes": 1926
+        },
+        {
+          "owner": "backend/src/common/permission.guard.ts",
+          "sha256": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925",
+          "bytes": 1774,
+          "currentSha256": "e5c7c0194eae6b9ce5f161173209a2c5eda02025dd664207f8f47ffce4ce2925",
+          "currentBytes": 1774
+        },
+        {
+          "owner": "backend/src/common/permissions.ts",
+          "sha256": "191a3350f6df52ceac627371e5ef53a4cf7275aa670d0e2f09fc4645360fff6b",
+          "bytes": 821,
+          "currentSha256": "191a3350f6df52ceac627371e5ef53a4cf7275aa670d0e2f09fc4645360fff6b",
+          "currentBytes": 821
+        },
+        {
+          "owner": "backend/src/common/pilot-visibility.ts",
+          "sha256": "4272eb0c5c7d567f8a3c7ba573c4f2e9d8ffec5fcce59c3bec327c6bdfb93b81",
+          "bytes": 14191,
+          "currentSha256": "4272eb0c5c7d567f8a3c7ba573c4f2e9d8ffec5fcce59c3bec327c6bdfb93b81",
+          "currentBytes": 14191
+        },
+        {
+          "owner": "backend/src/common/publication-policy.ts",
+          "sha256": "7a6f5b7eb582f0d540bc12acb2694f164912e9fa08a003e8c183a5a392c28606",
+          "bytes": 711,
+          "currentSha256": "7a6f5b7eb582f0d540bc12acb2694f164912e9fa08a003e8c183a5a392c28606",
+          "currentBytes": 711
+        },
+        {
+          "owner": "backend/src/common/quantity-release.service.ts",
+          "sha256": "0760cf0c3a481ae384972e11f012bf6744ff72fce1e6dfe5996a8ed09195226d",
+          "bytes": 18213,
+          "currentSha256": "0760cf0c3a481ae384972e11f012bf6744ff72fce1e6dfe5996a8ed09195226d",
+          "currentBytes": 18213
+        },
+        {
+          "owner": "backend/src/common/rbac.md",
+          "sha256": "05b1eec413b2a8e8975901dfbae1f269043a3670c23d581a20ad89954ab24fe5",
+          "bytes": 221,
+          "currentSha256": "05b1eec413b2a8e8975901dfbae1f269043a3670c23d581a20ad89954ab24fe5",
+          "currentBytes": 221
+        },
+        {
+          "owner": "backend/src/common/require-permission.decorator.ts",
+          "sha256": "7b17743ba42d666067c094799391a76e27e1a002443b57cb521ee404f8ac3c7b",
+          "bytes": 237,
+          "currentSha256": "7b17743ba42d666067c094799391a76e27e1a002443b57cb521ee404f8ac3c7b",
+          "currentBytes": 237
+        },
+        {
+          "owner": "backend/src/common/shift-attendance.ts",
+          "sha256": "d58c75f88338bb3dff0551239b3fbebe06e480d2920cbcf8ff603f0591301026",
+          "bytes": 975,
+          "currentSha256": "d58c75f88338bb3dff0551239b3fbebe06e480d2920cbcf8ff603f0591301026",
+          "currentBytes": 975
+        },
+        {
+          "owner": "backend/src/common/shift-handover.ts",
+          "sha256": "7afed041bdbf16f8b55ad47bfa845c4492250ef96c6ca67f34d0d6a4dcd94d91",
+          "bytes": 5626,
+          "currentSha256": "7afed041bdbf16f8b55ad47bfa845c4492250ef96c6ca67f34d0d6a4dcd94d91",
+          "currentBytes": 5626
+        },
+        {
+          "owner": "backend/src/common/shift-session.ts",
+          "sha256": "57b6d52dded7bdcbbb1157b47e4a915a7ec607115d60e59a46c0fa78dfbbec82",
+          "bytes": 1066,
+          "currentSha256": "57b6d52dded7bdcbbb1157b47e4a915a7ec607115d60e59a46c0fa78dfbbec82",
+          "currentBytes": 1066
+        },
+        {
+          "owner": "backend/src/common/shift-time.ts",
+          "sha256": "34778d267de92279b8fd5d08495b5821f6548a360c132f8a66bb391c96602c9f",
+          "bytes": 6841,
+          "currentSha256": "34778d267de92279b8fd5d08495b5821f6548a360c132f8a66bb391c96602c9f",
+          "currentBytes": 6841
+        },
+        {
+          "owner": "backend/src/common/task-visibility.ts",
+          "sha256": "bbcd1557f14ee3d9795349638c7f5bc4d35ec3567c3b848e50de35cca5d69702",
+          "bytes": 723,
+          "currentSha256": "bbcd1557f14ee3d9795349638c7f5bc4d35ec3567c3b848e50de35cca5d69702",
+          "currentBytes": 723
+        },
+        {
+          "owner": "backend/src/common/user-context.middleware.ts",
+          "sha256": "5ae55d4255f9da2b9de26c15b30152b5a609c68846fc9d6b0ab787706888e75d",
+          "bytes": 610,
+          "currentSha256": "5ae55d4255f9da2b9de26c15b30152b5a609c68846fc9d6b0ab787706888e75d",
+          "currentBytes": 610
+        },
+        {
+          "owner": "backend/src/common/user-context.service.ts",
+          "sha256": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993",
+          "bytes": 7492,
+          "currentSha256": "590b384f5b3fd349f6952c87c9070910e1bfcd8e62f0449754fe5f564cc2d993",
+          "currentBytes": 7492
+        },
+        {
+          "owner": "backend/src/common/user-context.types.ts",
+          "sha256": "e69a6e70e5465b0a4d3850996c6b724ee3c289e337de70772f1c4dbce1cbc3cc",
+          "bytes": 755,
+          "currentSha256": "e69a6e70e5465b0a4d3850996c6b724ee3c289e337de70772f1c4dbce1cbc3cc",
+          "currentBytes": 755
+        },
+        {
+          "owner": "backend/src/main.ts",
+          "sha256": "8b05fa455e5508b1bcba4bf7e095888a16cd9a61507b4d5a01a6df73415ae8fe",
+          "bytes": 2771,
+          "currentSha256": "8b05fa455e5508b1bcba4bf7e095888a16cd9a61507b4d5a01a6df73415ae8fe",
+          "currentBytes": 2771
+        },
+        {
+          "owner": "backend/src/modules/admin/admin.controller.ts",
+          "sha256": "2cb8fd8f94e0da89cb9eee48dd67d22241315841c4c66dacb31509d5b6e605b6",
+          "bytes": 22086,
+          "currentSha256": "2cb8fd8f94e0da89cb9eee48dd67d22241315841c4c66dacb31509d5b6e605b6",
+          "currentBytes": 22086
+        },
+        {
+          "owner": "backend/src/modules/admin/admin.module.ts",
+          "sha256": "3ece7497eb7996fb8cc893d103ac0f7a06cf6966442be8596eb6cebceb7e5942",
+          "bytes": 396,
+          "currentSha256": "3ece7497eb7996fb8cc893d103ac0f7a06cf6966442be8596eb6cebceb7e5942",
+          "currentBytes": 396
+        },
+        {
+          "owner": "backend/src/modules/admin/admin.service.ts",
+          "sha256": "6fcc39430a4eb19b47d3a93638cb0e6d170cd4d972e1ecd8b10773c7cb316945",
+          "bytes": 317942,
+          "currentSha256": "6fcc39430a4eb19b47d3a93638cb0e6d170cd4d972e1ecd8b10773c7cb316945",
+          "currentBytes": 317942
+        },
+        {
+          "owner": "backend/src/modules/announcements/announcement-recurrence.ts",
+          "sha256": "efd005c8500eb83453480c6d87ec9f3f8016d06f36eb2e81e5df21f3b3ac2111",
+          "bytes": 2713,
+          "currentSha256": "efd005c8500eb83453480c6d87ec9f3f8016d06f36eb2e81e5df21f3b3ac2111",
+          "currentBytes": 2713
+        },
+        {
+          "owner": "backend/src/modules/announcements/announcements.controller.ts",
+          "sha256": "38cd577dac32a98af082915fd5525bc05446ae05aace45cc517064be42a88d24",
+          "bytes": 3191,
+          "currentSha256": "38cd577dac32a98af082915fd5525bc05446ae05aace45cc517064be42a88d24",
+          "currentBytes": 3191
+        },
+        {
+          "owner": "backend/src/modules/announcements/announcements.module.ts",
+          "sha256": "458f7fc2f902ea39a65dfe64110c0ebe6dff2652b01a7dd6d692065c21f3e4f5",
+          "bytes": 660,
+          "currentSha256": "458f7fc2f902ea39a65dfe64110c0ebe6dff2652b01a7dd6d692065c21f3e4f5",
+          "currentBytes": 660
+        },
+        {
+          "owner": "backend/src/modules/announcements/announcements.service.ts",
+          "sha256": "dff3e2cd004dc6a70975af2b839ae5a752780f6a98d3e4ecb9ddd6ee4b2c7a57",
+          "bytes": 44004,
+          "currentSha256": "dff3e2cd004dc6a70975af2b839ae5a752780f6a98d3e4ecb9ddd6ee4b2c7a57",
+          "currentBytes": 44004
+        },
+        {
+          "owner": "backend/src/modules/archive/archive-xlsx.builder.ts",
+          "sha256": "554d257bbfb2f191305502aff8637be8b556a9f78a5cd0cf99f97951ddda7071",
+          "bytes": 9214,
+          "currentSha256": "554d257bbfb2f191305502aff8637be8b556a9f78a5cd0cf99f97951ddda7071",
+          "currentBytes": 9214
+        },
+        {
+          "owner": "backend/src/modules/archive/archive-xlsx.service.ts",
+          "sha256": "2e2a01fe74b479361d3e1fab75c44c9f6a3a21b8530e88efdfdd33a39031ee59",
+          "bytes": 83821,
+          "currentSha256": "2e2a01fe74b479361d3e1fab75c44c9f6a3a21b8530e88efdfdd33a39031ee59",
+          "currentBytes": 83821
+        },
+        {
+          "owner": "backend/src/modules/archive/archive.controller.ts",
+          "sha256": "2c2a9b125d128cc7c9a266349cf160a9432c038097c58e3419eadbf0589bdd78",
+          "bytes": 3339,
+          "currentSha256": "2c2a9b125d128cc7c9a266349cf160a9432c038097c58e3419eadbf0589bdd78",
+          "currentBytes": 3339
+        },
+        {
+          "owner": "backend/src/modules/archive/archive.module.ts",
+          "sha256": "1f2b483bb6b848154885d466f1ffb0a606bcf0fe0c31f6aad57d9f2cd4bbc8d4",
+          "bytes": 429,
+          "currentSha256": "1f2b483bb6b848154885d466f1ffb0a606bcf0fe0c31f6aad57d9f2cd4bbc8d4",
+          "currentBytes": 429
+        },
+        {
+          "owner": "backend/src/modules/archive/archive.service.ts",
+          "sha256": "54b607b0043ca6752232eb5244c9c15e42509699ed3799ca282930264f74c0ce",
+          "bytes": 150219,
+          "currentSha256": "54b607b0043ca6752232eb5244c9c15e42509699ed3799ca282930264f74c0ce",
+          "currentBytes": 150219
+        },
+        {
+          "owner": "backend/src/modules/assignment/assignment.controller.ts",
+          "sha256": "7530260a3ac06651c1d504d4287b3208245c7b920e8695b533ead9cb415d1ba1",
+          "bytes": 3332,
+          "currentSha256": "7530260a3ac06651c1d504d4287b3208245c7b920e8695b533ead9cb415d1ba1",
+          "currentBytes": 3332
+        },
+        {
+          "owner": "backend/src/modules/assignment/assignment.module.ts",
+          "sha256": "a20d8da76fb6551792974682dc9c86a97434fe8f7ef0a36271c92ad5d892560d",
+          "bytes": 444,
+          "currentSha256": "a20d8da76fb6551792974682dc9c86a97434fe8f7ef0a36271c92ad5d892560d",
+          "currentBytes": 444
+        },
+        {
+          "owner": "backend/src/modules/attachments/attachments.controller.ts",
+          "sha256": "ab3b8e362d72f6ae63d090cb80106ee6e89853f9afbd77318914ebaa34633cc6",
+          "bytes": 1822,
+          "currentSha256": "ab3b8e362d72f6ae63d090cb80106ee6e89853f9afbd77318914ebaa34633cc6",
+          "currentBytes": 1822
+        },
+        {
+          "owner": "backend/src/modules/attachments/attachments.module.ts",
+          "sha256": "cb663090ce406f4f04fec8250ccd4ad6d68aa6e43265ab8ca8ca419cfabf243c",
+          "bytes": 707,
+          "currentSha256": "cb663090ce406f4f04fec8250ccd4ad6d68aa6e43265ab8ca8ca419cfabf243c",
+          "currentBytes": 707
+        },
+        {
+          "owner": "backend/src/modules/attachments/attachments.service.ts",
+          "sha256": "b9353200842657096ce5d43a84dbf016c4781bb3dcdc08708a75a4871b59f7a0",
+          "bytes": 36374,
+          "currentSha256": "b9353200842657096ce5d43a84dbf016c4781bb3dcdc08708a75a4871b59f7a0",
+          "currentBytes": 36374
+        },
+        {
+          "owner": "backend/src/modules/attachments/file-storage.service.ts",
+          "sha256": "5cca9ca6935de0aab129d4f5ec84d79bd0aa4b57680584f813530ad656328cf2",
+          "bytes": 5948,
+          "currentSha256": "5cca9ca6935de0aab129d4f5ec84d79bd0aa4b57680584f813530ad656328cf2",
+          "currentBytes": 5948
+        },
+        {
+          "owner": "backend/src/modules/auth/auth.controller.ts",
+          "sha256": "e55b10d2746b797af32e82b91e3b398a819d4efce413c376c5d5c956a936d79d",
+          "bytes": 2233,
+          "currentSha256": "e55b10d2746b797af32e82b91e3b398a819d4efce413c376c5d5c956a936d79d",
+          "currentBytes": 2233
+        },
+        {
+          "owner": "backend/src/modules/auth/auth.module.ts",
+          "sha256": "29e4ef8b62e18d938686884eaee20fa857e7c3cbeef6877080cc48e7e35cbcc7",
+          "bytes": 419,
+          "currentSha256": "29e4ef8b62e18d938686884eaee20fa857e7c3cbeef6877080cc48e7e35cbcc7",
+          "currentBytes": 419
+        },
+        {
+          "owner": "backend/src/modules/auth/auth.service.ts",
+          "sha256": "9abb9ca650fbeb20f171a688e09521c68eaddb15aa83f13f552bd88fbeef93e3",
+          "bytes": 27718,
+          "currentSha256": "9abb9ca650fbeb20f171a688e09521c68eaddb15aa83f13f552bd88fbeef93e3",
+          "currentBytes": 27718
+        },
+        {
+          "owner": "backend/src/modules/chats/chat-message-delete-policy.ts",
+          "sha256": "b71e22bfd0fc494b4daff11b921be7a950ca88807e271363f01edba664e2880e",
+          "bytes": 4093,
+          "currentSha256": "b71e22bfd0fc494b4daff11b921be7a950ca88807e271363f01edba664e2880e",
+          "currentBytes": 4093
+        },
+        {
+          "owner": "backend/src/modules/chats/chats.controller.ts",
+          "sha256": "9a7c239b5c94f815b3d602bb261e8b5ca73b7f93784aa7f57bc5adc44a28699c",
+          "bytes": 5415,
+          "currentSha256": "9a7c239b5c94f815b3d602bb261e8b5ca73b7f93784aa7f57bc5adc44a28699c",
+          "currentBytes": 5415
+        },
+        {
+          "owner": "backend/src/modules/chats/chats.module.ts",
+          "sha256": "1dc567e48ae67c9ec5dd947abfd02de7c9642190b926519d2ddea479e9e74378",
+          "bytes": 494,
+          "currentSha256": "1dc567e48ae67c9ec5dd947abfd02de7c9642190b926519d2ddea479e9e74378",
+          "currentBytes": 494
+        },
+        {
+          "owner": "backend/src/modules/chats/chats.service.ts",
+          "sha256": "e3217fb5b72f05661d04bb00c619e2c02ec61d1984475bf9ecb807fa0f2f5c40",
+          "bytes": 81708,
+          "currentSha256": "e3217fb5b72f05661d04bb00c619e2c02ec61d1984475bf9ecb807fa0f2f5c40",
+          "currentBytes": 81708
+        },
+        {
+          "owner": "backend/src/modules/checklists/checklists.controller.ts",
+          "sha256": "a4af7b29dac825b416a0eb3e8fd5eb586732d2d902b849a978d02462726b1957",
+          "bytes": 9226,
+          "currentSha256": "a4af7b29dac825b416a0eb3e8fd5eb586732d2d902b849a978d02462726b1957",
+          "currentBytes": 9226
+        },
+        {
+          "owner": "backend/src/modules/checklists/checklists.module.ts",
+          "sha256": "c51c1dce091f98fed752288f27acdd22347f0340944196c38e128580f40279f0",
+          "bytes": 557,
+          "currentSha256": "c51c1dce091f98fed752288f27acdd22347f0340944196c38e128580f40279f0",
+          "currentBytes": 557
+        },
+        {
+          "owner": "backend/src/modules/checklists/checklists.service.ts",
+          "sha256": "30c4dc834637801d79d7173dd949c091195974b284c940f47f8532714453c975",
+          "bytes": 143127,
+          "currentSha256": "30c4dc834637801d79d7173dd949c091195974b284c940f47f8532714453c975",
+          "currentBytes": 143127
+        },
+        {
+          "owner": "backend/src/modules/defrost/defrost-read-policy.ts",
+          "sha256": "69e4c77954b98eed02588a58a0e9d209d8d99abcb2f04762fc675be931632f8b",
+          "bytes": 471,
+          "currentSha256": "69e4c77954b98eed02588a58a0e9d209d8d99abcb2f04762fc675be931632f8b",
+          "currentBytes": 471
+        },
+        {
+          "owner": "backend/src/modules/defrost/defrost.controller.ts",
+          "sha256": "b7e2f10af0f89a2b92a0ca64be4978a755f776c967fe230629cee2382c54aaf4",
+          "bytes": 2895,
+          "currentSha256": "b7e2f10af0f89a2b92a0ca64be4978a755f776c967fe230629cee2382c54aaf4",
+          "currentBytes": 2895
+        },
+        {
+          "owner": "backend/src/modules/defrost/defrost.module.ts",
+          "sha256": "a2370d2b65dbf33a5065164614d56fbca4a286612c08653eb1f58e29b037cab5",
+          "bytes": 537,
+          "currentSha256": "a2370d2b65dbf33a5065164614d56fbca4a286612c08653eb1f58e29b037cab5",
+          "currentBytes": 537
+        },
+        {
+          "owner": "backend/src/modules/defrost/defrost.service.ts",
+          "sha256": "d96dcce89cc671ac992c8b02444e3f102eccf33300f2a492c665b04a9d5adc9a",
+          "bytes": 33514,
+          "currentSha256": "d96dcce89cc671ac992c8b02444e3f102eccf33300f2a492c665b04a9d5adc9a",
+          "currentBytes": 33514
+        },
+        {
+          "owner": "backend/src/modules/directory/directory.controller.ts",
+          "sha256": "613c3c1b4ac0135198548c6e2ce5ccbe62b1e3de9001350a775e0c9fd4dbb90c",
+          "bytes": 2680,
+          "currentSha256": "613c3c1b4ac0135198548c6e2ce5ccbe62b1e3de9001350a775e0c9fd4dbb90c",
+          "currentBytes": 2680
+        },
+        {
+          "owner": "backend/src/modules/directory/directory.module.ts",
+          "sha256": "c17e18b4a9b775135bd76ee1616185342d9d1c789eaefa8632f5733edf831725",
+          "bytes": 393,
+          "currentSha256": "c17e18b4a9b775135bd76ee1616185342d9d1c789eaefa8632f5733edf831725",
+          "currentBytes": 393
+        },
+        {
+          "owner": "backend/src/modules/directory/directory.service.ts",
+          "sha256": "9032597ef009a9ab02772ed2b70de8ed634b45873dcc5e1f89dd8c037646ecfa",
+          "bytes": 7308,
+          "currentSha256": "9032597ef009a9ab02772ed2b70de8ed634b45873dcc5e1f89dd8c037646ecfa",
+          "currentBytes": 7308
+        },
+        {
+          "owner": "backend/src/modules/employee/employee.service.ts",
+          "sha256": "6c8c25def3e628d38e0f7993eacde347878ba17d01ccbabdc317558163fc178f",
+          "bytes": 54270,
+          "currentSha256": "6c8c25def3e628d38e0f7993eacde347878ba17d01ccbabdc317558163fc178f",
+          "currentBytes": 54270
+        },
+        {
+          "owner": "backend/src/modules/error-report/error-report-file-export.service.ts",
+          "sha256": "d1fca61472733db28224b8529bac79a18b3ec5c76004790fc095ed603869840a",
+          "bytes": 12374,
+          "currentSha256": "d1fca61472733db28224b8529bac79a18b3ec5c76004790fc095ed603869840a",
+          "currentBytes": 12374
+        },
+        {
+          "owner": "backend/src/modules/error-report/error-report.controller.ts",
+          "sha256": "d2298b83c64c1becceed18d6d6e49515d6a4ce78fb1c79ef35a09a79a9527638",
+          "bytes": 1187,
+          "currentSha256": "d2298b83c64c1becceed18d6d6e49515d6a4ce78fb1c79ef35a09a79a9527638",
+          "currentBytes": 1187
+        },
+        {
+          "owner": "backend/src/modules/error-report/error-report.module.ts",
+          "sha256": "adb0b3632724d56c1cdb3f5e0ac9345691473d93774c2cecf6d4acb06969dfc3",
+          "bytes": 694,
+          "currentSha256": "adb0b3632724d56c1cdb3f5e0ac9345691473d93774c2cecf6d4acb06969dfc3",
+          "currentBytes": 694
+        },
+        {
+          "owner": "backend/src/modules/error-report/error-report.service.ts",
+          "sha256": "04a4f70cb1adb7cbce17fa6e804931da3e4b3949f9af89efbc89724e88faf9da",
+          "bytes": 11661,
+          "currentSha256": "04a4f70cb1adb7cbce17fa6e804931da3e4b3949f9af89efbc89724e88faf9da",
+          "currentBytes": 11661
+        },
+        {
+          "owner": "backend/src/modules/health/health.controller.ts",
+          "sha256": "789b8f4a84ed892dd5a850c06312c0e275e46f7cd9211844c5dcf718a3a20000",
+          "bytes": 420,
+          "currentSha256": "789b8f4a84ed892dd5a850c06312c0e275e46f7cd9211844c5dcf718a3a20000",
+          "currentBytes": 420
+        },
+        {
+          "owner": "backend/src/modules/health/health.module.ts",
+          "sha256": "8e6fe50b38d87d28ed07af3285935f9496908c98eabd92c987b1b6d8def8d08b",
+          "bytes": 175,
+          "currentSha256": "8e6fe50b38d87d28ed07af3285935f9496908c98eabd92c987b1b6d8def8d08b",
+          "currentBytes": 175
+        },
+        {
+          "owner": "backend/src/modules/line/line-timeline.ts",
+          "sha256": "81d969e41038c0385505cbbbbd1e2ab3701914d4df4efb01128ff72e4d60b5f4",
+          "bytes": 6479,
+          "currentSha256": "81d969e41038c0385505cbbbbd1e2ab3701914d4df4efb01128ff72e4d60b5f4",
+          "currentBytes": 6479
+        },
+        {
+          "owner": "backend/src/modules/line/line.controller.ts",
+          "sha256": "cd41bc7af750a285f3fa803ab7c89e06fb78a29c040e383eac893177ac9b663e",
+          "bytes": 10668,
+          "currentSha256": "cd41bc7af750a285f3fa803ab7c89e06fb78a29c040e383eac893177ac9b663e",
+          "currentBytes": 10668
+        },
+        {
+          "owner": "backend/src/modules/line/line.module.ts",
+          "sha256": "7566222c88f11e1bb951cae713a99e5c8baed9be2510d43630ecc383f64b85b0",
+          "bytes": 567,
+          "currentSha256": "7566222c88f11e1bb951cae713a99e5c8baed9be2510d43630ecc383f64b85b0",
+          "currentBytes": 567
+        },
+        {
+          "owner": "backend/src/modules/line/line.service.ts",
+          "sha256": "3a0c52b875be7241776583fae49e94fbbe828ea0d8a0f53ddc40b7291825dc47",
+          "bytes": 164600,
+          "currentSha256": "3a0c52b875be7241776583fae49e94fbbe828ea0d8a0f53ddc40b7291825dc47",
+          "currentBytes": 164600
+        },
+        {
+          "owner": "backend/src/modules/line/staffing-control-policy.service.ts",
+          "sha256": "d68b1c9ff2994a980f6f968df112e74c6e22785068063b2b30eec76be5e53400",
+          "bytes": 3037,
+          "currentSha256": "d68b1c9ff2994a980f6f968df112e74c6e22785068063b2b30eec76be5e53400",
+          "currentBytes": 3037
+        },
+        {
+          "owner": "backend/src/modules/notifications/notifications.controller.ts",
+          "sha256": "9153610c9d4a897cd6d570b05c9369881441b6a05705688591654375d1e1251f",
+          "bytes": 1633,
+          "currentSha256": "9153610c9d4a897cd6d570b05c9369881441b6a05705688591654375d1e1251f",
+          "currentBytes": 1633
+        },
+        {
+          "owner": "backend/src/modules/notifications/notifications.module.ts",
+          "sha256": "1ff01575b949a92081b764f7d3d149dee07b0739d125daf4ba5b4e90bd1c305f",
+          "bytes": 587,
+          "currentSha256": "1ff01575b949a92081b764f7d3d149dee07b0739d125daf4ba5b4e90bd1c305f",
+          "currentBytes": 587
+        },
+        {
+          "owner": "backend/src/modules/notifications/notifications.service.ts",
+          "sha256": "8f67978ed1c3f7a184c883f41b276d08dfd9d312160b3d8604b17de70d76bf6c",
+          "bytes": 42682,
+          "currentSha256": "8f67978ed1c3f7a184c883f41b276d08dfd9d312160b3d8604b17de70d76bf6c",
+          "currentBytes": 42682
+        },
+        {
+          "owner": "backend/src/modules/okk/okk.controller.ts",
+          "sha256": "1f072a095b1745254efd2a7b48faebe3840d730590965ef677ac91eb58f8fcb8",
+          "bytes": 3929,
+          "currentSha256": "1f072a095b1745254efd2a7b48faebe3840d730590965ef677ac91eb58f8fcb8",
+          "currentBytes": 3929
+        },
+        {
+          "owner": "backend/src/modules/okk/okk.module.ts",
+          "sha256": "a8eb86bd05fe53de6e1d15885dbacd2cea3b39e48c94f5af595ea2e6b84286e1",
+          "bytes": 588,
+          "currentSha256": "a8eb86bd05fe53de6e1d15885dbacd2cea3b39e48c94f5af595ea2e6b84286e1",
+          "currentBytes": 588
+        },
+        {
+          "owner": "backend/src/modules/okk/okk.service.ts",
+          "sha256": "9c779ff15225f11e9ef8fa06b3b44c087b17af14aa63b504f74a8ede3df61542",
+          "bytes": 26130,
+          "currentSha256": "9c779ff15225f11e9ef8fa06b3b44c087b17af14aa63b504f74a8ede3df61542",
+          "currentBytes": 26130
+        },
+        {
+          "owner": "backend/src/modules/ops/ops.controller.ts",
+          "sha256": "be8a94d62432b0179e3e2eea31b242106b24d0e5930190ed997b68ccf5d16b10",
+          "bytes": 3276,
+          "currentSha256": "be8a94d62432b0179e3e2eea31b242106b24d0e5930190ed997b68ccf5d16b10",
+          "currentBytes": 3276
+        },
+        {
+          "owner": "backend/src/modules/ops/ops.module.ts",
+          "sha256": "df069ba9029ece46a971f0a99efa42140038fea76fabfc3be82f374d4f9e1fa8",
+          "bytes": 390,
+          "currentSha256": "df069ba9029ece46a971f0a99efa42140038fea76fabfc3be82f374d4f9e1fa8",
+          "currentBytes": 390
+        },
+        {
+          "owner": "backend/src/modules/ops/ops.service.ts",
+          "sha256": "24ff261049f3209dc133bd7be8298a35551e70d81866416ad50ffe61e8659c38",
+          "bytes": 105674,
+          "currentSha256": "24ff261049f3209dc133bd7be8298a35551e70d81866416ad50ffe61e8659c38",
+          "currentBytes": 105674
+        },
+        {
+          "owner": "backend/src/modules/orders/orders.controller.ts",
+          "sha256": "029fab90abe6836ba05ae662fd0362000df2a59262751ad884c36d12423577ef",
+          "bytes": 3842,
+          "currentSha256": "029fab90abe6836ba05ae662fd0362000df2a59262751ad884c36d12423577ef",
+          "currentBytes": 3842
+        },
+        {
+          "owner": "backend/src/modules/orders/orders.module.ts",
+          "sha256": "3c18e6184445905bede2814795eca4c02ba47dedf3122bc9c5e13fa3caf66b72",
+          "bytes": 529,
+          "currentSha256": "3c18e6184445905bede2814795eca4c02ba47dedf3122bc9c5e13fa3caf66b72",
+          "currentBytes": 529
+        },
+        {
+          "owner": "backend/src/modules/orders/orders.service.ts",
+          "sha256": "3cf44648254032e20d65026a6c873408e0f5083a26ee66cb10d6284b8e5fa177",
+          "bytes": 49539,
+          "currentSha256": "3cf44648254032e20d65026a6c873408e0f5083a26ee66cb10d6284b8e5fa177",
+          "currentBytes": 49539
+        },
+        {
+          "owner": "backend/src/modules/people/assignment-candidates.ts",
+          "sha256": "55d9c670bf21df63257a9b3edad1b2905523d37e4c1eac54fc12902b9edf3e48",
+          "bytes": 2160,
+          "currentSha256": "55d9c670bf21df63257a9b3edad1b2905523d37e4c1eac54fc12902b9edf3e48",
+          "currentBytes": 2160
+        },
+        {
+          "owner": "backend/src/modules/people/assignment-close.ts",
+          "sha256": "40342f717b93abcc326d61a45804ea63c6c8fb80e9a7f0e629252c748a6068d3",
+          "bytes": 1306,
+          "currentSha256": "40342f717b93abcc326d61a45804ea63c6c8fb80e9a7f0e629252c748a6068d3",
+          "currentBytes": 1306
+        },
+        {
+          "owner": "backend/src/modules/people/people.controller.ts",
+          "sha256": "849bb3fd9795ae9f94c6a77ce77de6aeb16c52c61513d54ff51661c16eb7ab26",
+          "bytes": 3236,
+          "currentSha256": "849bb3fd9795ae9f94c6a77ce77de6aeb16c52c61513d54ff51661c16eb7ab26",
+          "currentBytes": 3236
+        },
+        {
+          "owner": "backend/src/modules/people/people.module.ts",
+          "sha256": "53e0a3883cca8561f4357b72e4d2373acad723fbdd83bbdcd187dd6e7c1ede0e",
+          "bytes": 431,
+          "currentSha256": "53e0a3883cca8561f4357b72e4d2373acad723fbdd83bbdcd187dd6e7c1ede0e",
+          "currentBytes": 431
+        },
+        {
+          "owner": "backend/src/modules/people/people.service.ts",
+          "sha256": "179a727bc51940903e02e37a66e5cd9372dbcba6748dc5f5704b1d7ddd411f81",
+          "bytes": 51348,
+          "currentSha256": "179a727bc51940903e02e37a66e5cd9372dbcba6748dc5f5704b1d7ddd411f81",
+          "currentBytes": 51348
+        },
+        {
+          "owner": "backend/src/modules/people/skill-experience.ts",
+          "sha256": "887567383483fa4b850449391674cf6387c0e4df20091a8f5ab714a3d2a9c20b",
+          "bytes": 3032,
+          "currentSha256": "887567383483fa4b850449391674cf6387c0e4df20091a8f5ab714a3d2a9c20b",
+          "currentBytes": 3032
+        },
+        {
+          "owner": "backend/src/modules/returns/returns.controller.ts",
+          "sha256": "24b500e8b7f8f6b025a84d3a5fcab704352599c60a7fac8a3512309efc94fa5d",
+          "bytes": 3019,
+          "currentSha256": "24b500e8b7f8f6b025a84d3a5fcab704352599c60a7fac8a3512309efc94fa5d",
+          "currentBytes": 3019
+        },
+        {
+          "owner": "backend/src/modules/returns/returns.module.ts",
+          "sha256": "a0e45ffdc6aa859a71b87744a88de0f4aa56663ffe34a7633361679970098338",
+          "bytes": 615,
+          "currentSha256": "a0e45ffdc6aa859a71b87744a88de0f4aa56663ffe34a7633361679970098338",
+          "currentBytes": 615
+        },
+        {
+          "owner": "backend/src/modules/returns/returns.service.ts",
+          "sha256": "4b16ad1a7116a1c8adf6ab720be90a661fc681c5f1df5ae360349585705e5a20",
+          "bytes": 19141,
+          "currentSha256": "4b16ad1a7116a1c8adf6ab720be90a661fc681c5f1df5ae360349585705e5a20",
+          "currentBytes": 19141
+        },
+        {
+          "owner": "backend/src/modules/shift-log/shift-log.controller.ts",
+          "sha256": "9358836d47ded7c32c2cf6f82b0958855bdf3fafd3628f196f533481b2569bb0",
+          "bytes": 4196,
+          "currentSha256": "9358836d47ded7c32c2cf6f82b0958855bdf3fafd3628f196f533481b2569bb0",
+          "currentBytes": 4196
+        },
+        {
+          "owner": "backend/src/modules/shift-log/shift-log.module.ts",
+          "sha256": "7461be663086f7645c207d77a8fce3e836438048b08b76c0a3d76a8e5f0df42b",
+          "bytes": 618,
+          "currentSha256": "7461be663086f7645c207d77a8fce3e836438048b08b76c0a3d76a8e5f0df42b",
+          "currentBytes": 618
+        },
+        {
+          "owner": "backend/src/modules/shift-log/shift-log.service.ts",
+          "sha256": "34d5a1d66dad56fa91b45dbea260223608e8f0ac1e549f214283cf1f26c3891e",
+          "bytes": 43365,
+          "currentSha256": "34d5a1d66dad56fa91b45dbea260223608e8f0ac1e549f214283cf1f26c3891e",
+          "currentBytes": 43365
+        },
+        {
+          "owner": "backend/src/modules/shift/shift.controller.ts",
+          "sha256": "179422543b3afad22dba2aedf3fb5bf798ece211b52268e9f9e5d784cc6aa390",
+          "bytes": 8603,
+          "currentSha256": "179422543b3afad22dba2aedf3fb5bf798ece211b52268e9f9e5d784cc6aa390",
+          "currentBytes": 8603
+        },
+        {
+          "owner": "backend/src/modules/shift/shift.module.ts",
+          "sha256": "1da3236ae5e4e56833ef7562e212e7828e7c22a1160f1aca069adb22c0479833",
+          "bytes": 645,
+          "currentSha256": "1da3236ae5e4e56833ef7562e212e7828e7c22a1160f1aca069adb22c0479833",
+          "currentBytes": 645
+        },
+        {
+          "owner": "backend/src/modules/shift/shift.service.ts",
+          "sha256": "a3256391bfd4626d88114c4d218b90ef90ced8cc61678faed32604597b1a6617",
+          "bytes": 136611,
+          "currentSha256": "a3256391bfd4626d88114c4d218b90ef90ced8cc61678faed32604597b1a6617",
+          "currentBytes": 136611
+        },
+        {
+          "owner": "backend/src/modules/stock/stock.controller.ts",
+          "sha256": "7b9d4c6c81ee9cd87a6538744f1db9a72cd6e68fe9e84b7094cd3e2c8636f867",
+          "bytes": 2266,
+          "currentSha256": "7b9d4c6c81ee9cd87a6538744f1db9a72cd6e68fe9e84b7094cd3e2c8636f867",
+          "currentBytes": 2266
+        },
+        {
+          "owner": "backend/src/modules/stock/stock.module.ts",
+          "sha256": "68878185848db72cd9984ff656bfddb44c8c5d5d4ed1dc1864bae087e66f1e9a",
+          "bytes": 499,
+          "currentSha256": "68878185848db72cd9984ff656bfddb44c8c5d5d4ed1dc1864bae087e66f1e9a",
+          "currentBytes": 499
+        },
+        {
+          "owner": "backend/src/modules/stock/stock.service.ts",
+          "sha256": "ea2428ef1a2fc8fde07217ce9285a8a9abb8bad8ffc385bf7ddb32fd5ba560fc",
+          "bytes": 8525,
+          "currentSha256": "ea2428ef1a2fc8fde07217ce9285a8a9abb8bad8ffc385bf7ddb32fd5ba560fc",
+          "currentBytes": 8525
+        },
+        {
+          "owner": "backend/src/modules/task/task.controller.ts",
+          "sha256": "58613a8e25e780ea72e0f976251c1e9c63e7a665f0beef7b688d3219d1fffbd3",
+          "bytes": 5595,
+          "currentSha256": "58613a8e25e780ea72e0f976251c1e9c63e7a665f0beef7b688d3219d1fffbd3",
+          "currentBytes": 5595
+        },
+        {
+          "owner": "backend/src/modules/task/task.module.ts",
+          "sha256": "2dd18f0de70dafb122aad4752554cf7043ed8efb2ca011ce1abf36000283833b",
+          "bytes": 668,
+          "currentSha256": "2dd18f0de70dafb122aad4752554cf7043ed8efb2ca011ce1abf36000283833b",
+          "currentBytes": 668
+        },
+        {
+          "owner": "backend/src/modules/task/task.service.ts",
+          "sha256": "947de3145e4116d5d9df56dd58d63bce90df3638dd91ab38e585bdded925acd3",
+          "bytes": 45887,
+          "currentSha256": "947de3145e4116d5d9df56dd58d63bce90df3638dd91ab38e585bdded925acd3",
+          "currentBytes": 45887
+        },
+        {
+          "owner": "backend/src/modules/wash/wash.controller.ts",
+          "sha256": "372e5ad04401ed3c01900bdc6c0c9367aeb06a5a524fcc349462626cddb98080",
+          "bytes": 5907,
+          "currentSha256": "372e5ad04401ed3c01900bdc6c0c9367aeb06a5a524fcc349462626cddb98080",
+          "currentBytes": 5907
+        },
+        {
+          "owner": "backend/src/modules/wash/wash.module.ts",
+          "sha256": "a47961c27b3e16814f871108393f421240dc867a7c9a67a9b3482933eb79f284",
+          "bytes": 587,
+          "currentSha256": "a47961c27b3e16814f871108393f421240dc867a7c9a67a9b3482933eb79f284",
+          "currentBytes": 587
+        },
+        {
+          "owner": "backend/src/modules/wash/wash.service.ts",
+          "sha256": "a06bcaa0e1e47b7ea3a1878d7f457c7a6e821f9b5cf4bcb959d4770e55e40957",
+          "bytes": 76356,
+          "currentSha256": "a06bcaa0e1e47b7ea3a1878d7f457c7a6e821f9b5cf4bcb959d4770e55e40957",
+          "currentBytes": 76356
+        },
+        {
+          "owner": "backend/src/modules/work-areas/work-areas.controller.ts",
+          "sha256": "405a1c057c40e9631864f33ebd611a8d7e418043796ac4bddba9e8da210aa021",
+          "bytes": 2147,
+          "currentSha256": "405a1c057c40e9631864f33ebd611a8d7e418043796ac4bddba9e8da210aa021",
+          "currentBytes": 2147
+        },
+        {
+          "owner": "backend/src/modules/work-areas/work-areas.module.ts",
+          "sha256": "d7312354c60bfe94ee0c2f2a87324dbc4c4d56457ea966c7b220b9329dab5c96",
+          "bytes": 519,
+          "currentSha256": "d7312354c60bfe94ee0c2f2a87324dbc4c4d56457ea966c7b220b9329dab5c96",
+          "currentBytes": 519
+        },
+        {
+          "owner": "backend/src/modules/work-areas/work-areas.service.ts",
+          "sha256": "448a4e9501293115e8c0e5eab91baaa35297898607a97e98a2d52f01df9d3416",
+          "bytes": 11868,
+          "currentSha256": "448a4e9501293115e8c0e5eab91baaa35297898607a97e98a2d52f01df9d3416",
+          "currentBytes": 11868
+        },
+        {
+          "owner": "backend/src/prisma/prisma.module.ts",
+          "sha256": "0f3c00b776b61be00a1fa7be51ef977f597cdbfc8322cce3397cfdd35a1fa4a2",
+          "bytes": 200,
+          "currentSha256": "0f3c00b776b61be00a1fa7be51ef977f597cdbfc8322cce3397cfdd35a1fa4a2",
+          "currentBytes": 200
+        },
+        {
+          "owner": "backend/src/prisma/prisma.service.ts",
+          "sha256": "e16344fa459360228327b4528ff3220b571f45cc215c2813a0fdd0daefa54511",
+          "bytes": 789,
+          "currentSha256": "e16344fa459360228327b4528ff3220b571f45cc215c2813a0fdd0daefa54511",
+          "currentBytes": 789
+        },
+        {
+          "owner": "backend/src/push/fcm.policy.md",
+          "sha256": "fbea1f9fda4ac4972d7da0572b0a63b513c1f5585ea576d092b7ad0fa4f8022b",
+          "bytes": 148,
+          "currentSha256": "fbea1f9fda4ac4972d7da0572b0a63b513c1f5585ea576d092b7ad0fa4f8022b",
+          "currentBytes": 148
+        },
+        {
+          "owner": "backend/src/push/push.service.ts",
+          "sha256": "bb7cf620782e01cc82c4230dbc293585839490073020db39caca7462f681a051",
+          "bytes": 3569,
+          "currentSha256": "bb7cf620782e01cc82c4230dbc293585839490073020db39caca7462f681a051",
+          "currentBytes": 3569
+        },
+        {
+          "owner": "backend/src/shift/employee-state.policy.ts",
+          "sha256": "4836587a3fcaf91047bf8cce53dc1a480443b7905b36bd2cb26472756814c0a0",
+          "bytes": 1037,
+          "currentSha256": "4836587a3fcaf91047bf8cce53dc1a480443b7905b36bd2cb26472756814c0a0",
+          "currentBytes": 1037
+        },
+        {
+          "owner": "backend/src/ws/events.ts",
+          "sha256": "37f9ae07ad9da9a832c8ca416b7b4ab1f48754a1430261b202fb471c4add4231",
+          "bytes": 2324,
+          "currentSha256": "37f9ae07ad9da9a832c8ca416b7b4ab1f48754a1430261b202fb471c4add4231",
+          "currentBytes": 2324
+        },
+        {
+          "owner": "backend/src/ws/ws.module.ts",
+          "sha256": "0d8eabbe0c06ef7311cccf2e4bf3c563a82e66f50eb138216865a01b5d7f8d29",
+          "bytes": 351,
+          "currentSha256": "0d8eabbe0c06ef7311cccf2e4bf3c563a82e66f50eb138216865a01b5d7f8d29",
+          "currentBytes": 351
+        },
+        {
+          "owner": "backend/src/ws/ws.service.ts",
+          "sha256": "d56bd0787cd14d37864af8cdc1869598e255d309fedf656b8af2f1279039a179",
+          "bytes": 8204,
+          "currentSha256": "d56bd0787cd14d37864af8cdc1869598e255d309fedf656b8af2f1279039a179",
+          "currentBytes": 8204
+        },
+        {
+          "owner": "frontend/public/apple-touch-icon.png",
+          "sha256": "9230b49e7695a50b612fef0aad83ee295dade9bff0a0466fcdfb86780c98bacf",
+          "bytes": 87568,
+          "currentSha256": "9230b49e7695a50b612fef0aad83ee295dade9bff0a0466fcdfb86780c98bacf",
+          "currentBytes": 87568
+        },
+        {
+          "owner": "frontend/public/manifest.webmanifest",
+          "sha256": "95fca24e57d323c28955f58eb73ea94453d23533e55e1abfbbc19fc4a3b15c1f",
+          "bytes": 720,
+          "currentSha256": "95fca24e57d323c28955f58eb73ea94453d23533e55e1abfbbc19fc4a3b15c1f",
+          "currentBytes": 720
+        },
+        {
+          "owner": "frontend/public/offline.html",
+          "sha256": "5aba2ba5686ec9210aa2c73388f557628af2f08b84a88600ee3b20bf434f4dc1",
+          "bytes": 1720,
+          "currentSha256": "5aba2ba5686ec9210aa2c73388f557628af2f08b84a88600ee3b20bf434f4dc1",
+          "currentBytes": 1720
+        },
+        {
+          "owner": "frontend/public/pwa-icon-192.png",
+          "sha256": "edf3427443cb805c0daa2f82499af3b729a33c7a579fe78497a95bb23a23610d",
+          "bytes": 99283,
+          "currentSha256": "edf3427443cb805c0daa2f82499af3b729a33c7a579fe78497a95bb23a23610d",
+          "currentBytes": 99283
+        },
+        {
+          "owner": "frontend/public/pwa-icon-512.png",
+          "sha256": "09fbdaedf873a9565878305836a161b1b65911d34894c85f5dff0500b5b25cf7",
+          "bytes": 655801,
+          "currentSha256": "09fbdaedf873a9565878305836a161b1b65911d34894c85f5dff0500b5b25cf7",
+          "currentBytes": 655801
+        },
+        {
+          "owner": "frontend/public/pwa-icon.svg",
+          "sha256": "18ab50d23549416a5425bc07f1990303871a82ffbb1031fcbec2af1428c8d46b",
+          "bytes": 321,
+          "currentSha256": "18ab50d23549416a5425bc07f1990303871a82ffbb1031fcbec2af1428c8d46b",
+          "currentBytes": 321
+        },
+        {
+          "owner": "frontend/public/pwa-maskable-512.png",
+          "sha256": "f158764d525ffb7700a5828e304a51748b2c98c7c0acb63fca6f3a403c7bbc73",
+          "bytes": 445596,
+          "currentSha256": "f158764d525ffb7700a5828e304a51748b2c98c7c0acb63fca6f3a403c7bbc73",
+          "currentBytes": 445596
+        },
+        {
+          "owner": "frontend/public/sw.js",
+          "sha256": "a64f7a55feed7315f6b96b504cb312cdf152b4d9a91b7db1be4267635a32f8fb",
+          "bytes": 4907,
+          "currentSha256": "a64f7a55feed7315f6b96b504cb312cdf152b4d9a91b7db1be4267635a32f8fb",
+          "currentBytes": 4907
+        },
+        {
+          "owner": "frontend/src/App.tsx",
+          "sha256": "8dc5c3c25028a4021c77f71131b40454bbac21c529dfe684cbc7ef48cf8fc108",
+          "bytes": 70702,
+          "currentSha256": "8dc5c3c25028a4021c77f71131b40454bbac21c529dfe684cbc7ef48cf8fc108",
+          "currentBytes": 70702
+        },
+        {
+          "owner": "frontend/src/api/attachment-preview-resource.ts",
+          "sha256": "145ffe9aac2de3901ddf95f785c12e3c369bc6902c89622825819fdb9614cfb8",
+          "bytes": 4623,
+          "currentSha256": "145ffe9aac2de3901ddf95f785c12e3c369bc6902c89622825819fdb9614cfb8",
+          "currentBytes": 4623
+        },
+        {
+          "owner": "frontend/src/api/attachments.ts",
+          "sha256": "3bee9b4c660b54d40f96483c7ed06741c89f9bc77edad54bb517b605f8f11a78",
+          "bytes": 1807,
+          "currentSha256": "3bee9b4c660b54d40f96483c7ed06741c89f9bc77edad54bb517b605f8f11a78",
+          "currentBytes": 1807
+        },
+        {
+          "owner": "frontend/src/api/client.ts",
+          "sha256": "6795cc9e2e128c48c4460e7da24ece7a869b176fe087c6227ba8ece25904c074",
+          "bytes": 10203,
+          "currentSha256": "6795cc9e2e128c48c4460e7da24ece7a869b176fe087c6227ba8ece25904c074",
+          "currentBytes": 10203
+        },
+        {
+          "owner": "frontend/src/api/operation.ts",
+          "sha256": "6322f007cc73ee38e5475143bc4ae15c150ba98db65d50893c342de4cccd438b",
+          "bytes": 229,
+          "currentSha256": "6322f007cc73ee38e5475143bc4ae15c150ba98db65d50893c342de4cccd438b",
+          "currentBytes": 229
+        },
+        {
+          "owner": "frontend/src/app/App.tsx",
+          "sha256": "21eae3bc51d911ff605e50c914a462033ad1e2a4e6619514076ce5657eb3e449",
+          "bytes": 329,
+          "currentSha256": "21eae3bc51d911ff605e50c914a462033ad1e2a4e6619514076ce5657eb3e449",
+          "currentBytes": 329
+        },
+        {
+          "owner": "frontend/src/components/ActionModal.tsx",
+          "sha256": "144b1a3c88d5ad39975a44dfed758fb82a579aed6be75da01d2c746890324a8a",
+          "bytes": 9769,
+          "currentSha256": "144b1a3c88d5ad39975a44dfed758fb82a579aed6be75da01d2c746890324a8a",
+          "currentBytes": 9769
+        },
+        {
+          "owner": "frontend/src/components/AdminConfirmDialog.tsx",
+          "sha256": "49bc691f7e995d78b37b46bc378395ad6cc70253a8823bde0a408857be879b41",
+          "bytes": 2855,
+          "currentSha256": "49bc691f7e995d78b37b46bc378395ad6cc70253a8823bde0a408857be879b41",
+          "currentBytes": 2855
+        },
+        {
+          "owner": "frontend/src/components/AppConfirmDialog.tsx",
+          "sha256": "4ada4aa85f31d230abe581024c61fd4b7e02bba79049cf8d227c4632c2233311",
+          "bytes": 1265,
+          "currentSha256": "4ada4aa85f31d230abe581024c61fd4b7e02bba79049cf8d227c4632c2233311",
+          "currentBytes": 1265
+        },
+        {
+          "owner": "frontend/src/components/AttachmentInputButton.tsx",
+          "sha256": "f3d88fe5e8dc42689afd18c11ef65168b37851437e2e300727d26c1545329b5b",
+          "bytes": 1931,
+          "currentSha256": "f3d88fe5e8dc42689afd18c11ef65168b37851437e2e300727d26c1545329b5b",
+          "currentBytes": 1931
+        },
+        {
+          "owner": "frontend/src/components/AttachmentPicker.tsx",
+          "sha256": "0ab612e83e2e15be62ea4ba0015f25289d4a72a2657b5b0fd7403b221b9a7742",
+          "bytes": 7249,
+          "currentSha256": "0ab612e83e2e15be62ea4ba0015f25289d4a72a2657b5b0fd7403b221b9a7742",
+          "currentBytes": 7249
+        },
+        {
+          "owner": "frontend/src/components/AttachmentPreviewList.tsx",
+          "sha256": "d21d37652b3c190724a0ab7f4034fde34784d9711b09d0775941f559b7cfa93a",
+          "bytes": 20688,
+          "currentSha256": "d21d37652b3c190724a0ab7f4034fde34784d9711b09d0775941f559b7cfa93a",
+          "currentBytes": 20688
+        },
+        {
+          "owner": "frontend/src/components/AttachmentUploadFeedback.tsx",
+          "sha256": "b9ca74c5932c03553c453c7093833313aff0b2fbc256bb164cdf56da27cc1235",
+          "bytes": 1836,
+          "currentSha256": "b9ca74c5932c03553c453c7093833313aff0b2fbc256bb164cdf56da27cc1235",
+          "currentBytes": 1836
+        },
+        {
+          "owner": "frontend/src/components/ChecklistItemEditor.tsx",
+          "sha256": "80947a0ebb57393bdcd06a82ab9271241e9573a2ac6e263df065641283b68f09",
+          "bytes": 5673,
+          "currentSha256": "80947a0ebb57393bdcd06a82ab9271241e9573a2ac6e263df065641283b68f09",
+          "currentBytes": 5673
+        },
+        {
+          "owner": "frontend/src/components/CommentBox.tsx",
+          "sha256": "d48f71bd78c788928f52272940edd5089eb5dd10476d5631ce66619ec71100b9",
+          "bytes": 1357,
+          "currentSha256": "d48f71bd78c788928f52272940edd5089eb5dd10476d5631ce66619ec71100b9",
+          "currentBytes": 1357
+        },
+        {
+          "owner": "frontend/src/components/CommentThread.tsx",
+          "sha256": "d2b06356a88831ff87d87cdf9c1438998c6a85b7b645d56b88e5f66db0b53516",
+          "bytes": 1276,
+          "currentSha256": "d2b06356a88831ff87d87cdf9c1438998c6a85b7b645d56b88e5f66db0b53516",
+          "currentBytes": 1276
+        },
+        {
+          "owner": "frontend/src/components/CompactPeoplePicker.tsx",
+          "sha256": "ad77e4be422fadb0c8e8ec776b0c685cdf92ca0f670d79c58ef79f5f50e7e964",
+          "bytes": 3672,
+          "currentSha256": "ad77e4be422fadb0c8e8ec776b0c685cdf92ca0f670d79c58ef79f5f50e7e964",
+          "currentBytes": 3672
+        },
+        {
+          "owner": "frontend/src/components/DeviceAccessPanel.tsx",
+          "sha256": "aececffb814033e2ff4111023de208b4cd2024ff4852b2c0655721be4f5a0fe5",
+          "bytes": 5266,
+          "currentSha256": "aececffb814033e2ff4111023de208b4cd2024ff4852b2c0655721be4f5a0fe5",
+          "currentBytes": 5266
+        },
+        {
+          "owner": "frontend/src/components/GuestAssignmentRequestCard.tsx",
+          "sha256": "3d4d8d61e3ceeb060ee7b1ab5faec0121b39818af172dc52d72be9f2c39b6bb7",
+          "bytes": 7208,
+          "currentSha256": "3d4d8d61e3ceeb060ee7b1ab5faec0121b39818af172dc52d72be9f2c39b6bb7",
+          "currentBytes": 7208
+        },
+        {
+          "owner": "frontend/src/components/HelpTooltip.tsx",
+          "sha256": "ee474d0d243c13e19d46e214ee5c1b1254bd3655aa5714a6394c0cb4c1d7a56b",
+          "bytes": 1988,
+          "currentSha256": "ee474d0d243c13e19d46e214ee5c1b1254bd3655aa5714a6394c0cb4c1d7a56b",
+          "currentBytes": 1988
+        },
+        {
+          "owner": "frontend/src/components/PeopleSearchPanel.tsx",
+          "sha256": "16426a58a188977dffb32689ec5c10a5465330b6993da9d2aaa1653a5cc30971",
+          "bytes": 6531,
+          "currentSha256": "16426a58a188977dffb32689ec5c10a5465330b6993da9d2aaa1653a5cc30971",
+          "currentBytes": 6531
+        },
+        {
+          "owner": "frontend/src/components/PremiumShell.tsx",
+          "sha256": "b55aad5fced523152e7adabd5a4f93032e5b8c27e75eb4aa60b456d31ba8ec14",
+          "bytes": 5394,
+          "currentSha256": "b55aad5fced523152e7adabd5a4f93032e5b8c27e75eb4aa60b456d31ba8ec14",
+          "currentBytes": 5394
+        },
+        {
+          "owner": "frontend/src/components/ProfilePhoto.tsx",
+          "sha256": "d3786f3b3dad0dde760f3699e43c611346a2ae804a7d272c0222a9cbbc7df013",
+          "bytes": 1522,
+          "currentSha256": "d3786f3b3dad0dde760f3699e43c611346a2ae804a7d272c0222a9cbbc7df013",
+          "currentBytes": 1522
+        },
+        {
+          "owner": "frontend/src/components/PwaInstallButton.tsx",
+          "sha256": "4a85022f0b4fa716120c3f6e77e52a2945b87f13043ed4cdbec702fb7aead31b",
+          "bytes": 1934,
+          "currentSha256": "4a85022f0b4fa716120c3f6e77e52a2945b87f13043ed4cdbec702fb7aead31b",
+          "currentBytes": 1934
+        },
+        {
+          "owner": "frontend/src/components/QuantityRelease.tsx",
+          "sha256": "47f6ea6a2426e895a2b795169de505331efe744086bdca457f77b1e8fa7bad79",
+          "bytes": 6606,
+          "currentSha256": "47f6ea6a2426e895a2b795169de505331efe744086bdca457f77b1e8fa7bad79",
+          "currentBytes": 6606
+        },
+        {
+          "owner": "frontend/src/components/attachment-files.ts",
+          "sha256": "a6d845d95c3ccb572f6df3f02f6782d3f1fbb0c25b7032ac29482acb2a557bdf",
+          "bytes": 2667,
+          "currentSha256": "a6d845d95c3ccb572f6df3f02f6782d3f1fbb0c25b7032ac29482acb2a557bdf",
+          "currentBytes": 2667
+        },
+        {
+          "owner": "frontend/src/hooks/useBodyScrollLock.ts",
+          "sha256": "fdcb3eed48f5c2915ec20e872990b08b8bf11e2d679197c14e7e40a45b28a00a",
+          "bytes": 2040,
+          "currentSha256": "fdcb3eed48f5c2915ec20e872990b08b8bf11e2d679197c14e7e40a45b28a00a",
+          "currentBytes": 2040
+        },
+        {
+          "owner": "frontend/src/labels.ts",
+          "sha256": "f39257003964c1e064fdf6ed2d6c7b985fcec012d9d3d41aa2fd2c3df56de59f",
+          "bytes": 3514,
+          "currentSha256": "f39257003964c1e064fdf6ed2d6c7b985fcec012d9d3d41aa2fd2c3df56de59f",
+          "currentBytes": 3514
+        },
+        {
+          "owner": "frontend/src/main.tsx",
+          "sha256": "18abd4942a134a02010107ebeee385fc3d8e4cf58b860afb6c0943cd57c80f47",
+          "bytes": 1402,
+          "currentSha256": "18abd4942a134a02010107ebeee385fc3d8e4cf58b860afb6c0943cd57c80f47",
+          "currentBytes": 1402
+        },
+        {
+          "owner": "frontend/src/modules/README.md",
+          "sha256": "400f23ad6d7e049258bf72ed4e04fa9a4553c9ac19ce4c7b4dccd410123db3f8",
+          "bytes": 136,
+          "currentSha256": "400f23ad6d7e049258bf72ed4e04fa9a4553c9ac19ce4c7b4dccd410123db3f8",
+          "currentBytes": 136
+        },
+        {
+          "owner": "frontend/src/modules/lines/README.md",
+          "sha256": "8a55dff7889cd4950fbecf8ba141557dc2b9bdabff0babc1809fdad29f7d02d5",
+          "bytes": 16,
+          "currentSha256": "8a55dff7889cd4950fbecf8ba141557dc2b9bdabff0babc1809fdad29f7d02d5",
+          "currentBytes": 16
+        },
+        {
+          "owner": "frontend/src/modules/okk/README.md",
+          "sha256": "eeb87d572c11a6e3b765aeff467ebf3aea931fbd7758a3727816e37971e9a5aa",
+          "bytes": 14,
+          "currentSha256": "eeb87d572c11a6e3b765aeff467ebf3aea931fbd7758a3727816e37971e9a5aa",
+          "currentBytes": 14
+        },
+        {
+          "owner": "frontend/src/modules/returns/README.md",
+          "sha256": "9b8fec7a2e90bf4fac91434e1de9aea57ccc36342e9e85a03844b1612cfa8bc8",
+          "bytes": 18,
+          "currentSha256": "9b8fec7a2e90bf4fac91434e1de9aea57ccc36342e9e85a03844b1612cfa8bc8",
+          "currentBytes": 18
+        },
+        {
+          "owner": "frontend/src/modules/stock/README.md",
+          "sha256": "f6e5d6bb84cdba80abebe25712b72998917b4d963126ff04720751cea5bda597",
+          "bytes": 16,
+          "currentSha256": "f6e5d6bb84cdba80abebe25712b72998917b4d963126ff04720751cea5bda597",
+          "currentBytes": 16
+        },
+        {
+          "owner": "frontend/src/modules/tasks/README.md",
+          "sha256": "1f88d892f1259378a2bbc750ebb1fefa631dd548e2700ee84610e60b4d9ff757",
+          "bytes": 16,
+          "currentSha256": "1f88d892f1259378a2bbc750ebb1fefa631dd548e2700ee84610e60b4d9ff757",
+          "currentBytes": 16
+        },
+        {
+          "owner": "frontend/src/modules/wash/README.md",
+          "sha256": "3d8aa2c5e80ef02150942abfe13489edfcf945baf662dcb8c3e711813d4d54dc",
+          "bytes": 15,
+          "currentSha256": "3d8aa2c5e80ef02150942abfe13489edfcf945baf662dcb8c3e711813d4d54dc",
+          "currentBytes": 15
+        },
+        {
+          "owner": "frontend/src/navigation/mobile-back.ts",
+          "sha256": "6cbac822d5f5f32cd52f3ede1862d2e9d22f5b5292f415009d1400577cd141ee",
+          "bytes": 2903,
+          "currentSha256": "6cbac822d5f5f32cd52f3ede1862d2e9d22f5b5292f415009d1400577cd141ee",
+          "currentBytes": 2903
+        },
+        {
+          "owner": "frontend/src/navigation/permissions.ts",
+          "sha256": "8b75b93eac14b6b324efe4eca6d84beae187de08dadf2b7e6988e6e54854cb59",
+          "bytes": 5491,
+          "currentSha256": "8b75b93eac14b6b324efe4eca6d84beae187de08dadf2b7e6988e6e54854cb59",
+          "currentBytes": 5491
+        },
+        {
+          "owner": "frontend/src/notifications/browser-notifications.ts",
+          "sha256": "2ae15ee56d692db1fb0592b73847f54319060e805381350ecb7d53aa146b43c1",
+          "bytes": 3482,
+          "currentSha256": "2ae15ee56d692db1fb0592b73847f54319060e805381350ecb7d53aa146b43c1",
+          "currentBytes": 3482
+        },
+        {
+          "owner": "frontend/src/offline/db.ts",
+          "sha256": "d476639e54403eba769fc9dfb9bede4a79ab3225ad545ee1f3b052b526ca598e",
+          "bytes": 1100,
+          "currentSha256": "d476639e54403eba769fc9dfb9bede4a79ab3225ad545ee1f3b052b526ca598e",
+          "currentBytes": 1100
+        },
+        {
+          "owner": "frontend/src/offline/indexeddb.ts",
+          "sha256": "32b3e1d61bd2efa61727287ee52690821403e53931025bb9b0b80bfc23e5d93a",
+          "bytes": 1118,
+          "currentSha256": "32b3e1d61bd2efa61727287ee52690821403e53931025bb9b0b80bfc23e5d93a",
+          "currentBytes": 1118
+        },
+        {
+          "owner": "frontend/src/offline/sync-engine.ts",
+          "sha256": "bbbdb980241e85e666feb9fbcb0ae8e169b987b45b37d7c696a063d3d95a9555",
+          "bytes": 189,
+          "currentSha256": "bbbdb980241e85e666feb9fbcb0ae8e169b987b45b37d7c696a063d3d95a9555",
+          "currentBytes": 189
+        },
+        {
+          "owner": "frontend/src/offline/sync.ts",
+          "sha256": "67dbfe1b69a620e7b203dce5be5a074c9a623b7834cd9914e4b9dd87ca66cb3e",
+          "bytes": 2928,
+          "currentSha256": "67dbfe1b69a620e7b203dce5be5a074c9a623b7834cd9914e4b9dd87ca66cb3e",
+          "currentBytes": 2928
+        },
+        {
+          "owner": "frontend/src/screens/AdminConfigScreen.tsx",
+          "sha256": "86f676d62314f6c411ec4ab361ec9d6ba0d88a5c3e99e561d2e6290818f63eb8",
+          "bytes": 228378,
+          "currentSha256": "86f676d62314f6c411ec4ab361ec9d6ba0d88a5c3e99e561d2e6290818f63eb8",
+          "currentBytes": 228378
+        },
+        {
+          "owner": "frontend/src/screens/AnnouncementsScreen.tsx",
+          "sha256": "0d0674dcec5ec4239f319f595ef7fe376a925443ca8a736125825f2abf8ea730",
+          "bytes": 34116,
+          "currentSha256": "0d0674dcec5ec4239f319f595ef7fe376a925443ca8a736125825f2abf8ea730",
+          "currentBytes": 34116
+        },
+        {
+          "owner": "frontend/src/screens/ArchiveScreen.tsx",
+          "sha256": "511ea5e171a0ba8e17f34bb5326d7b6ce2dec462e85010a76ecb822bdf57da60",
+          "bytes": 48700,
+          "currentSha256": "511ea5e171a0ba8e17f34bb5326d7b6ce2dec462e85010a76ecb822bdf57da60",
+          "currentBytes": 48700
+        },
+        {
+          "owner": "frontend/src/screens/BugReportScreen.tsx",
+          "sha256": "21288d1d9ba655559d522365063daece9a229927389467959089620677968026",
+          "bytes": 14078,
+          "currentSha256": "21288d1d9ba655559d522365063daece9a229927389467959089620677968026",
+          "currentBytes": 14078
+        },
+        {
+          "owner": "frontend/src/screens/ChatsScreen.tsx",
+          "sha256": "c961553c2f08bb3391781bc1fb088ef539d423c8ede1cbe03c1430b1ee8943a6",
+          "bytes": 95136,
+          "currentSha256": "c961553c2f08bb3391781bc1fb088ef539d423c8ede1cbe03c1430b1ee8943a6",
+          "currentBytes": 95136
+        },
+        {
+          "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+          "sha256": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+          "bytes": 161200,
+          "currentSha256": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+          "currentBytes": 161200
+        },
+        {
+          "owner": "frontend/src/screens/DefrostScreen.tsx",
+          "sha256": "171f00c26d3ee9a1a56a7b4fc5eae607381480e9c8485e3affe79729479ed7f8",
+          "bytes": 30821,
+          "currentSha256": "171f00c26d3ee9a1a56a7b4fc5eae607381480e9c8485e3affe79729479ed7f8",
+          "currentBytes": 30821
+        },
+        {
+          "owner": "frontend/src/screens/FactorySelectScreen.tsx",
+          "sha256": "98fac17d3eaea7635310988180a83a57548f2a1ab1870332c030a04f1790a070",
+          "bytes": 19880,
+          "currentSha256": "98fac17d3eaea7635310988180a83a57548f2a1ab1870332c030a04f1790a070",
+          "currentBytes": 19880
+        },
+        {
+          "owner": "frontend/src/screens/GuestHomeScreen.tsx",
+          "sha256": "04ef41e6ca07173310678e0eef42913ea03ab45e965e58030ae3633f216cfcc7",
+          "bytes": 517,
+          "currentSha256": "04ef41e6ca07173310678e0eef42913ea03ab45e965e58030ae3633f216cfcc7",
+          "currentBytes": 517
+        },
+        {
+          "owner": "frontend/src/screens/NotificationsScreen.tsx",
+          "sha256": "c5801ade30916a08591a3932331aedd78f75eef3c5d765d5e3f4e5889805fd05",
+          "bytes": 8780,
+          "currentSha256": "c5801ade30916a08591a3932331aedd78f75eef3c5d765d5e3f4e5889805fd05",
+          "currentBytes": 8780
+        },
+        {
+          "owner": "frontend/src/screens/OkkScreen.tsx",
+          "sha256": "fdabe8ae6d459c674076c2b53b37353b158de5d709af225d65721ff85b2b9866",
+          "bytes": 20118,
+          "currentSha256": "fdabe8ae6d459c674076c2b53b37353b158de5d709af225d65721ff85b2b9866",
+          "currentBytes": 20118
+        },
+        {
+          "owner": "frontend/src/screens/OpsAuditScreen.tsx",
+          "sha256": "88a3535fa17d3b1344641a922302c677e3d3df5e2e01a3db5f30117074c081a0",
+          "bytes": 38438,
+          "currentSha256": "88a3535fa17d3b1344641a922302c677e3d3df5e2e01a3db5f30117074c081a0",
+          "currentBytes": 38438
+        },
+        {
+          "owner": "frontend/src/screens/OrdersStockScreen.tsx",
+          "sha256": "bd74e6145d3c87a18ff0883510fd89b57cbe4c11f52480b7f97469e85e03e685",
+          "bytes": 39275,
+          "currentSha256": "bd74e6145d3c87a18ff0883510fd89b57cbe4c11f52480b7f97469e85e03e685",
+          "currentBytes": 39275
+        },
+        {
+          "owner": "frontend/src/screens/PeopleScreen.tsx",
+          "sha256": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+          "bytes": 38490,
+          "currentSha256": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+          "currentBytes": 38490
+        },
+        {
+          "owner": "frontend/src/screens/ReturnsScreen.tsx",
+          "sha256": "e26a868b08f91b2faa7ec8086aa43f5ccafcf8c87ba9788a55b4fdbc608e84a0",
+          "bytes": 17196,
+          "currentSha256": "e26a868b08f91b2faa7ec8086aa43f5ccafcf8c87ba9788a55b4fdbc608e84a0",
+          "currentBytes": 17196
+        },
+        {
+          "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+          "sha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+          "bytes": 19943,
+          "currentSha256": "79c00c68f4dd0694b25f9d40c18428ea48f806bef439cf4a1f5689c80fe8b20a",
+          "currentBytes": 19943
+        },
+        {
+          "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+          "sha256": "9b57a684602c55e6ab19f29d8c0f8a01fc80be30fa79395877145eb359d4def1",
+          "bytes": 347035,
+          "currentSha256": "9b57a684602c55e6ab19f29d8c0f8a01fc80be30fa79395877145eb359d4def1",
+          "currentBytes": 347035
+        },
+        {
+          "owner": "frontend/src/screens/SituationScreen.tsx",
+          "sha256": "1415af3c64b91e53871b6ea5924642c29463ff28791cdf95f3fa9efbe7d44b41",
+          "bytes": 55621,
+          "currentSha256": "1415af3c64b91e53871b6ea5924642c29463ff28791cdf95f3fa9efbe7d44b41",
+          "currentBytes": 55621
+        },
+        {
+          "owner": "frontend/src/screens/StockScreen.tsx",
+          "sha256": "fa86b6eee8d2463a2f4c504725cfbaab891a19f61a28d1813c916a8b3812a197",
+          "bytes": 11353,
+          "currentSha256": "fa86b6eee8d2463a2f4c504725cfbaab891a19f61a28d1813c916a8b3812a197",
+          "currentBytes": 11353
+        },
+        {
+          "owner": "frontend/src/screens/TasksScreen.tsx",
+          "sha256": "0d95af2589e46f16cc46222e1a73c782b2480da01260df869d9d3574e0f05cf6",
+          "bytes": 48329,
+          "currentSha256": "0d95af2589e46f16cc46222e1a73c782b2480da01260df869d9d3574e0f05cf6",
+          "currentBytes": 48329
+        },
+        {
+          "owner": "frontend/src/screens/WashScreen.tsx",
+          "sha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+          "bytes": 55159,
+          "currentSha256": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+          "currentBytes": 55159
+        },
+        {
+          "owner": "frontend/src/store/app.store.ts",
+          "sha256": "d3d6ab1a23fb6519c8b42e2efda1a62c886d794ff0bb49ce4075fb2fb1325ca0",
+          "bytes": 26067,
+          "currentSha256": "d3d6ab1a23fb6519c8b42e2efda1a62c886d794ff0bb49ce4075fb2fb1325ca0",
+          "currentBytes": 26067
+        },
+        {
+          "owner": "frontend/src/store/shift-store.ts",
+          "sha256": "e1055737cd0571854d9555265af2451219a9078bb9dfb7ceaebf20f56553a9bb",
+          "bytes": 713,
+          "currentSha256": "e1055737cd0571854d9555265af2451219a9078bb9dfb7ceaebf20f56553a9bb",
+          "currentBytes": 713
+        },
+        {
+          "owner": "frontend/src/styles.css",
+          "sha256": "6ecc6933ee5d53399d6c820b6793a25c05c4b2299f9884333a17bd1e7d94b406",
+          "bytes": 448613,
+          "currentSha256": "6ecc6933ee5d53399d6c820b6793a25c05c4b2299f9884333a17bd1e7d94b406",
+          "currentBytes": 448613
+        },
+        {
+          "owner": "frontend/src/theme.ts",
+          "sha256": "9f57f204e4840a1d7c97dfcb7a00fd4338d05d60e3af7d7756fd390438b8ec34",
+          "bytes": 1743,
+          "currentSha256": "9f57f204e4840a1d7c97dfcb7a00fd4338d05d60e3af7d7756fd390438b8ec34",
+          "currentBytes": 1743
+        },
+        {
+          "owner": "frontend/src/theme/status-colors.ts",
+          "sha256": "b8d6a98970703d760d49746ec6bc623cc478b8822aa5f918d873bef80a56e8ec",
+          "bytes": 172,
+          "currentSha256": "b8d6a98970703d760d49746ec6bc623cc478b8822aa5f918d873bef80a56e8ec",
+          "currentBytes": 172
+        },
+        {
+          "owner": "frontend/src/utils/factory-time.ts",
+          "sha256": "f461357fc3bf4becd74f3055833ec2f82cb37d03903dcdce4c9d964241e6353c",
+          "bytes": 3736,
+          "currentSha256": "f461357fc3bf4becd74f3055833ec2f82cb37d03903dcdce4c9d964241e6353c",
+          "currentBytes": 3736
+        },
+        {
+          "owner": "frontend/src/utils/pilot-ui.ts",
+          "sha256": "6ec75571eea3de6441ace6bfb0490f66cf04fb25056046cb69e7265a5056daa9",
+          "bytes": 24709,
+          "currentSha256": "6ec75571eea3de6441ace6bfb0490f66cf04fb25056046cb69e7265a5056daa9",
+          "currentBytes": 24709
+        },
+        {
+          "owner": "frontend/src/utils/pwa-install.ts",
+          "sha256": "c65411dbeba0ce3a3285874becfece0310bdfe20e995bdfcd4e88178d742a6cc",
+          "bytes": 2158,
+          "currentSha256": "c65411dbeba0ce3a3285874becfece0310bdfe20e995bdfcd4e88178d742a6cc",
+          "currentBytes": 2158
+        },
+        {
+          "owner": "frontend/src/utils/pwa-runtime.ts",
+          "sha256": "a50e3d3268a7038d1b5ad606399901daf864ed85c9abf86b2a5d1d99e40ba797",
+          "bytes": 3180,
+          "currentSha256": "a50e3d3268a7038d1b5ad606399901daf864ed85c9abf86b2a5d1d99e40ba797",
+          "currentBytes": 3180
+        },
+        {
+          "owner": "frontend/src/vite-env.d.ts",
+          "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+          "bytes": 38,
+          "currentSha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+          "currentBytes": 38
+        },
+        {
+          "owner": "frontend/src/ws/client.ts",
+          "sha256": "c8ae873814f02a4e4dc30edd6114ac42e147b9c62a5783851164265347bc390d",
+          "bytes": 9172,
+          "currentSha256": "c8ae873814f02a4e4dc30edd6114ac42e147b9c62a5783851164265347bc390d",
+          "currentBytes": 9172
+        }
+      ]
+    },
+    {
+      "kind": "build",
+      "file": "G2/final-build-identity.json",
+      "manifestSha256": "e007694a9f19315c60aa5c4c97967a0e160d8bdc161a76d3d5fd13f171ca6d90",
+      "fingerprint": "f78d0ddaf5e5cabe57f8cfd005d8bf2b7a4d016df705de214da89cf2f055a308",
+      "count": 132,
+      "mismatches": [],
+      "checks": [
+        {
+          "owner": "backend/dist/app.module.js",
+          "sha256": "3c2e2a049a639781083562abe713aea548c83ac7ba7c7b851f31353a2015a10b",
+          "bytes": 4260,
+          "currentSha256": "3c2e2a049a639781083562abe713aea548c83ac7ba7c7b851f31353a2015a10b",
+          "currentBytes": 4260
+        },
+        {
+          "owner": "backend/dist/common/assignment-eligibility.js",
+          "sha256": "a83f6b8e2c0af222361be2ab03de0c17bdc0c7b49680f11ce40bbd23f0a13d70",
+          "bytes": 451,
+          "currentSha256": "a83f6b8e2c0af222361be2ab03de0c17bdc0c7b49680f11ce40bbd23f0a13d70",
+          "currentBytes": 451
+        },
+        {
+          "owner": "backend/dist/common/audit-presentation.js",
+          "sha256": "645dd0846bc6567a16cb3691e3563ca12ec6097a4f2c10fc6bf9a10a6a5d3635",
+          "bytes": 10331,
+          "currentSha256": "645dd0846bc6567a16cb3691e3563ca12ec6097a4f2c10fc6bf9a10a6a5d3635",
+          "currentBytes": 10331
+        },
+        {
+          "owner": "backend/dist/common/audit.module.js",
+          "sha256": "7c1bb5d372ccc223323452c986ace43d42e6747c94e47896baad476bcd54031e",
+          "bytes": 1188,
+          "currentSha256": "7c1bb5d372ccc223323452c986ace43d42e6747c94e47896baad476bcd54031e",
+          "currentBytes": 1188
+        },
+        {
+          "owner": "backend/dist/common/audit.service.js",
+          "sha256": "cbc0250cfa5b0fb55c1b91e5dff890dbc459acfe21368749b6ca9258489d586f",
+          "bytes": 2358,
+          "currentSha256": "cbc0250cfa5b0fb55c1b91e5dff890dbc459acfe21368749b6ca9258489d586f",
+          "currentBytes": 2358
+        },
+        {
+          "owner": "backend/dist/common/auth-token.js",
+          "sha256": "123d627f1448b3c5a0c25d7e4216649c9f95521f13991e29bbc6fdeef360e749",
+          "bytes": 2277,
+          "currentSha256": "123d627f1448b3c5a0c25d7e4216649c9f95521f13991e29bbc6fdeef360e749",
+          "currentBytes": 2277
+        },
+        {
+          "owner": "backend/dist/common/current-user.decorator.js",
+          "sha256": "b568fb9e161cd045d2bbeffc9b12fc898989347b9cb969a91e34764f8ca0f68c",
+          "bytes": 316,
+          "currentSha256": "b568fb9e161cd045d2bbeffc9b12fc898989347b9cb969a91e34764f8ca0f68c",
+          "currentBytes": 316
+        },
+        {
+          "owner": "backend/dist/common/data-hygiene.js",
+          "sha256": "69f4e0ec46b0938a9ce2c31d8bbfb9b3227c41ae8f4bf95920466aca94863522",
+          "bytes": 5682,
+          "currentSha256": "69f4e0ec46b0938a9ce2c31d8bbfb9b3227c41ae8f4bf95920466aca94863522",
+          "currentBytes": 5682
+        },
+        {
+          "owner": "backend/dist/common/downtime-reason.js",
+          "sha256": "024c1479aaf6c80a590cb88a21916dc66beb6a44c52803b6cb74ba5a84d9c22a",
+          "bytes": 3402,
+          "currentSha256": "024c1479aaf6c80a590cb88a21916dc66beb6a44c52803b6cb74ba5a84d9c22a",
+          "currentBytes": 3402
+        },
+        {
+          "owner": "backend/dist/common/effective-permissions.js",
+          "sha256": "fef9854567bf6d6bf0752b83290a9bcd652d77161b58fef42498745a86305de5",
+          "bytes": 965,
+          "currentSha256": "fef9854567bf6d6bf0752b83290a9bcd652d77161b58fef42498745a86305de5",
+          "currentBytes": 965
+        },
+        {
+          "owner": "backend/dist/common/errors/conflict.exception.js",
+          "sha256": "4506a510133f3be45cb1b8ec1d9934875b0185bbef842b98e6d4ba6cd53db212",
+          "bytes": 480,
+          "currentSha256": "4506a510133f3be45cb1b8ec1d9934875b0185bbef842b98e6d4ba6cd53db212",
+          "currentBytes": 480
+        },
+        {
+          "owner": "backend/dist/common/operation-lock.js",
+          "sha256": "fc34ac09769baf0a90b6283637074eabbda1eae38807e78b788995cfe4be4e31",
+          "bytes": 3103,
+          "currentSha256": "fc34ac09769baf0a90b6283637074eabbda1eae38807e78b788995cfe4be4e31",
+          "currentBytes": 3103
+        },
+        {
+          "owner": "backend/dist/common/password.js",
+          "sha256": "2c5f3d85d7585bd4493db6cc9739d444aed14d7eb3ecb83bc25e12fc244949f5",
+          "bytes": 2343,
+          "currentSha256": "2c5f3d85d7585bd4493db6cc9739d444aed14d7eb3ecb83bc25e12fc244949f5",
+          "currentBytes": 2343
+        },
+        {
+          "owner": "backend/dist/common/permission.guard.js",
+          "sha256": "a7ca0b9049afb58263dbc4e852e641dbce4d05eca769607aa97fbb6f4938f75b",
+          "bytes": 2911,
+          "currentSha256": "a7ca0b9049afb58263dbc4e852e641dbce4d05eca769607aa97fbb6f4938f75b",
+          "currentBytes": 2911
+        },
+        {
+          "owner": "backend/dist/common/permissions.js",
+          "sha256": "d7caceb4754e9a4ff09d663c639cf8835372f7b563c1bf66ee1847f11e120b4e",
+          "bytes": 893,
+          "currentSha256": "d7caceb4754e9a4ff09d663c639cf8835372f7b563c1bf66ee1847f11e120b4e",
+          "currentBytes": 893
+        },
+        {
+          "owner": "backend/dist/common/pilot-visibility.js",
+          "sha256": "6363c1fa020e026023968baefcca82bff64ad1361168984dbce24693e97e27f7",
+          "bytes": 13793,
+          "currentSha256": "6363c1fa020e026023968baefcca82bff64ad1361168984dbce24693e97e27f7",
+          "currentBytes": 13793
+        },
+        {
+          "owner": "backend/dist/common/publication-policy.js",
+          "sha256": "2863b306e3ad2061ffdcf679533074d2a3600ddfe662511730d54f0057a83c64",
+          "bytes": 866,
+          "currentSha256": "2863b306e3ad2061ffdcf679533074d2a3600ddfe662511730d54f0057a83c64",
+          "currentBytes": 866
+        },
+        {
+          "owner": "backend/dist/common/quantity-release.service.js",
+          "sha256": "c4edadd5573255c38de7a409d27ebf616421b35cdc5991ce25ecbce9eee2a6cb",
+          "bytes": 20493,
+          "currentSha256": "c4edadd5573255c38de7a409d27ebf616421b35cdc5991ce25ecbce9eee2a6cb",
+          "currentBytes": 20493
+        },
+        {
+          "owner": "backend/dist/common/require-permission.decorator.js",
+          "sha256": "5c3d97c8c172f108d64fe75da15a7ef477915a109e2ad57fc7f49e3e0da1ecba",
+          "bytes": 416,
+          "currentSha256": "5c3d97c8c172f108d64fe75da15a7ef477915a109e2ad57fc7f49e3e0da1ecba",
+          "currentBytes": 416
+        },
+        {
+          "owner": "backend/dist/common/shift-attendance.js",
+          "sha256": "103f9dacaf838af9d0ff3e2747307caa855fc344f218fe95338c6492bbc93da0",
+          "bytes": 1108,
+          "currentSha256": "103f9dacaf838af9d0ff3e2747307caa855fc344f218fe95338c6492bbc93da0",
+          "currentBytes": 1108
+        },
+        {
+          "owner": "backend/dist/common/shift-handover.js",
+          "sha256": "61ee21c240d4ca39c3fa10950f603bc586e4e5340905f154b72698a2535b46c3",
+          "bytes": 4554,
+          "currentSha256": "61ee21c240d4ca39c3fa10950f603bc586e4e5340905f154b72698a2535b46c3",
+          "currentBytes": 4554
+        },
+        {
+          "owner": "backend/dist/common/shift-session.js",
+          "sha256": "815c40c88901bcd232684d5339451de0e82d1626231934f8807f8f118ad3ae1e",
+          "bytes": 1141,
+          "currentSha256": "815c40c88901bcd232684d5339451de0e82d1626231934f8807f8f118ad3ae1e",
+          "currentBytes": 1141
+        },
+        {
+          "owner": "backend/dist/common/shift-time.js",
+          "sha256": "6773d1c117ea7b8886b6e4f79a23a08c5fd407ffe897ab520cd59f5b5cbec68d",
+          "bytes": 7468,
+          "currentSha256": "6773d1c117ea7b8886b6e4f79a23a08c5fd407ffe897ab520cd59f5b5cbec68d",
+          "currentBytes": 7468
+        },
+        {
+          "owner": "backend/dist/common/task-visibility.js",
+          "sha256": "68cd77d725029afbb7c316e73e7681b4cec00ab2ad89a052bd456c40d1f3bce3",
+          "bytes": 798,
+          "currentSha256": "68cd77d725029afbb7c316e73e7681b4cec00ab2ad89a052bd456c40d1f3bce3",
+          "currentBytes": 798
+        },
+        {
+          "owner": "backend/dist/common/user-context.middleware.js",
+          "sha256": "6992e3975933c4b70197bbb609caf20a9da80208433af1c11ba8452bb4222e37",
+          "bytes": 1616,
+          "currentSha256": "6992e3975933c4b70197bbb609caf20a9da80208433af1c11ba8452bb4222e37",
+          "currentBytes": 1616
+        },
+        {
+          "owner": "backend/dist/common/user-context.service.js",
+          "sha256": "7d83899f72a140d5ab13974841235f454d59eb1e9f5e889e54afa25cfc8fa835",
+          "bytes": 9447,
+          "currentSha256": "7d83899f72a140d5ab13974841235f454d59eb1e9f5e889e54afa25cfc8fa835",
+          "currentBytes": 9447
+        },
+        {
+          "owner": "backend/dist/common/user-context.types.js",
+          "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+          "bytes": 77,
+          "currentSha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+          "currentBytes": 77
+        },
+        {
+          "owner": "backend/dist/main.js",
+          "sha256": "a50f04b00d527a87978f399e04822ec5017700dee1d17b20599d25211d28e661",
+          "bytes": 2979,
+          "currentSha256": "a50f04b00d527a87978f399e04822ec5017700dee1d17b20599d25211d28e661",
+          "currentBytes": 2979
+        },
+        {
+          "owner": "backend/dist/modules/admin/admin.controller.js",
+          "sha256": "64af797028101f4031d8cb462cafe69e4dbca4226169fa52df0495c68eac2269",
+          "bytes": 51826,
+          "currentSha256": "64af797028101f4031d8cb462cafe69e4dbca4226169fa52df0495c68eac2269",
+          "currentBytes": 51826
+        },
+        {
+          "owner": "backend/dist/modules/admin/admin.module.js",
+          "sha256": "963e36e96f0efaba6afe19d55b105c029add84a22b6e9b044859500f7cab0c82",
+          "bytes": 1311,
+          "currentSha256": "963e36e96f0efaba6afe19d55b105c029add84a22b6e9b044859500f7cab0c82",
+          "currentBytes": 1311
+        },
+        {
+          "owner": "backend/dist/modules/admin/admin.service.js",
+          "sha256": "bcc29d8ceae1c272bb048edaefd1384b9c72f30e11390ec8521267b5645aaefb",
+          "bytes": 351829,
+          "currentSha256": "bcc29d8ceae1c272bb048edaefd1384b9c72f30e11390ec8521267b5645aaefb",
+          "currentBytes": 351829
+        },
+        {
+          "owner": "backend/dist/modules/announcements/announcement-recurrence.js",
+          "sha256": "b6ec58c4f7588a2779d73483e6959fd19519b90bb32abddeb44b908a4db32cc3",
+          "bytes": 3103,
+          "currentSha256": "b6ec58c4f7588a2779d73483e6959fd19519b90bb32abddeb44b908a4db32cc3",
+          "currentBytes": 3103
+        },
+        {
+          "owner": "backend/dist/modules/announcements/announcements.controller.js",
+          "sha256": "09a22fbe6f3fe6cc8bf411bd40ec527c7bedfd740d0c1b9b3bdfff0ee1482220",
+          "bytes": 8908,
+          "currentSha256": "09a22fbe6f3fe6cc8bf411bd40ec527c7bedfd740d0c1b9b3bdfff0ee1482220",
+          "currentBytes": 8908
+        },
+        {
+          "owner": "backend/dist/modules/announcements/announcements.module.js",
+          "sha256": "40189d2e3ce0902318771c34f1b1bc5afaf1f04285f584763a30654603f9acf3",
+          "bytes": 1704,
+          "currentSha256": "40189d2e3ce0902318771c34f1b1bc5afaf1f04285f584763a30654603f9acf3",
+          "currentBytes": 1704
+        },
+        {
+          "owner": "backend/dist/modules/announcements/announcements.service.js",
+          "sha256": "5de358329887f138b21911e4525049f195066a0d89b363c7877879b7d871b684",
+          "bytes": 49762,
+          "currentSha256": "5de358329887f138b21911e4525049f195066a0d89b363c7877879b7d871b684",
+          "currentBytes": 49762
+        },
+        {
+          "owner": "backend/dist/modules/archive/archive-xlsx.builder.js",
+          "sha256": "59cbc7edec4153be759df70aa4b1499fc30989179b7d367045d473952e0e9b87",
+          "bytes": 8930,
+          "currentSha256": "59cbc7edec4153be759df70aa4b1499fc30989179b7d367045d473952e0e9b87",
+          "currentBytes": 8930
+        },
+        {
+          "owner": "backend/dist/modules/archive/archive-xlsx.service.js",
+          "sha256": "cb67603bcce067ed6bbf887105b4d936f581bf9a33d3ae5676583a1a38e80a4e",
+          "bytes": 93783,
+          "currentSha256": "cb67603bcce067ed6bbf887105b4d936f581bf9a33d3ae5676583a1a38e80a4e",
+          "currentBytes": 93783
+        },
+        {
+          "owner": "backend/dist/modules/archive/archive.controller.js",
+          "sha256": "37e1113b84c7eb5d32714e9e24791e7f342c357fe722b72459ef4b0703e917b9",
+          "bytes": 8442,
+          "currentSha256": "37e1113b84c7eb5d32714e9e24791e7f342c357fe722b72459ef4b0703e917b9",
+          "currentBytes": 8442
+        },
+        {
+          "owner": "backend/dist/modules/archive/archive.module.js",
+          "sha256": "bde9a87e61f035f0c4ffc855d1698fb96894b7c9034918b5b0db396b4f470f1a",
+          "bytes": 1372,
+          "currentSha256": "bde9a87e61f035f0c4ffc855d1698fb96894b7c9034918b5b0db396b4f470f1a",
+          "currentBytes": 1372
+        },
+        {
+          "owner": "backend/dist/modules/archive/archive.service.js",
+          "sha256": "326e6d74b3cadda53b37b094b69738245c0c25bf6bf4f2f02be6c112460f997d",
+          "bytes": 165016,
+          "currentSha256": "326e6d74b3cadda53b37b094b69738245c0c25bf6bf4f2f02be6c112460f997d",
+          "currentBytes": 165016
+        },
+        {
+          "owner": "backend/dist/modules/assignment/assignment.controller.js",
+          "sha256": "f59d01184fc525cd597893c5180c8a11c3a41cefaec9661d72f23f76555dbdec",
+          "bytes": 5939,
+          "currentSha256": "f59d01184fc525cd597893c5180c8a11c3a41cefaec9661d72f23f76555dbdec",
+          "currentBytes": 5939
+        },
+        {
+          "owner": "backend/dist/modules/assignment/assignment.module.js",
+          "sha256": "c61ba5bb96d7edac194ae3cf04dde858570960073fc8c5cacfa7349f10e8f61d",
+          "bytes": 1402,
+          "currentSha256": "c61ba5bb96d7edac194ae3cf04dde858570960073fc8c5cacfa7349f10e8f61d",
+          "currentBytes": 1402
+        },
+        {
+          "owner": "backend/dist/modules/attachments/attachments.controller.js",
+          "sha256": "9d0cd341f4fff785d56f508bc19c196e4084026cc30495ec819cf126d803ad75",
+          "bytes": 4118,
+          "currentSha256": "9d0cd341f4fff785d56f508bc19c196e4084026cc30495ec819cf126d803ad75",
+          "currentBytes": 4118
+        },
+        {
+          "owner": "backend/dist/modules/attachments/attachments.module.js",
+          "sha256": "20e459618011be6670ec48bc822f98d4707960c5ac82e55a00c55d500e4f7376",
+          "bytes": 1798,
+          "currentSha256": "20e459618011be6670ec48bc822f98d4707960c5ac82e55a00c55d500e4f7376",
+          "currentBytes": 1798
+        },
+        {
+          "owner": "backend/dist/modules/attachments/attachments.service.js",
+          "sha256": "82b0b0b25ca561c4ac044f672058164d315dcbe7384086f25a8dd4032459302e",
+          "bytes": 39963,
+          "currentSha256": "82b0b0b25ca561c4ac044f672058164d315dcbe7384086f25a8dd4032459302e",
+          "currentBytes": 39963
+        },
+        {
+          "owner": "backend/dist/modules/attachments/file-storage.service.js",
+          "sha256": "b7f9b47731fb696d6094fad08afe031de604d964e8c7031e7b08524818b40b0b",
+          "bytes": 7625,
+          "currentSha256": "b7f9b47731fb696d6094fad08afe031de604d964e8c7031e7b08524818b40b0b",
+          "currentBytes": 7625
+        },
+        {
+          "owner": "backend/dist/modules/auth/auth.controller.js",
+          "sha256": "76a63df6ec862453441507194405a56a6dd265d9031cfb3fc42ef53b90396cba",
+          "bytes": 5751,
+          "currentSha256": "76a63df6ec862453441507194405a56a6dd265d9031cfb3fc42ef53b90396cba",
+          "currentBytes": 5751
+        },
+        {
+          "owner": "backend/dist/modules/auth/auth.module.js",
+          "sha256": "0a3425b6028800846e8ec64f86ce7d73ca883f8a6f387765bd15d65ac6efcf01",
+          "bytes": 1335,
+          "currentSha256": "0a3425b6028800846e8ec64f86ce7d73ca883f8a6f387765bd15d65ac6efcf01",
+          "currentBytes": 1335
+        },
+        {
+          "owner": "backend/dist/modules/auth/auth.service.js",
+          "sha256": "6d2ac0004fb6577fa8318704459a7cd40400373b5c67c9ea3cb48b5642db132b",
+          "bytes": 31528,
+          "currentSha256": "6d2ac0004fb6577fa8318704459a7cd40400373b5c67c9ea3cb48b5642db132b",
+          "currentBytes": 31528
+        },
+        {
+          "owner": "backend/dist/modules/chats/chat-message-delete-policy.js",
+          "sha256": "33d30bfc7a1f5f0027e191d352cc565369d762503f474ec0f7be30cec8d32c03",
+          "bytes": 3809,
+          "currentSha256": "33d30bfc7a1f5f0027e191d352cc565369d762503f474ec0f7be30cec8d32c03",
+          "currentBytes": 3809
+        },
+        {
+          "owner": "backend/dist/modules/chats/chats.controller.js",
+          "sha256": "d3d92aef47282b1f0bf8e912f60249f69e4773f1d1229020cef9892f9a6fd5a9",
+          "bytes": 14508,
+          "currentSha256": "d3d92aef47282b1f0bf8e912f60249f69e4773f1d1229020cef9892f9a6fd5a9",
+          "currentBytes": 14508
+        },
+        {
+          "owner": "backend/dist/modules/chats/chats.module.js",
+          "sha256": "a55d1b59f4827fa01fc9b3924cf9c703e1c46848c049d68c2aa4b38d5378fc58",
+          "bytes": 1435,
+          "currentSha256": "a55d1b59f4827fa01fc9b3924cf9c703e1c46848c049d68c2aa4b38d5378fc58",
+          "currentBytes": 1435
+        },
+        {
+          "owner": "backend/dist/modules/chats/chats.service.js",
+          "sha256": "bbfd87e5ff46a9d3d76f8657159295146174f803d93ce8615d0fbe1dda390288",
+          "bytes": 92149,
+          "currentSha256": "bbfd87e5ff46a9d3d76f8657159295146174f803d93ce8615d0fbe1dda390288",
+          "currentBytes": 92149
+        },
+        {
+          "owner": "backend/dist/modules/checklists/checklists.controller.js",
+          "sha256": "c02f09b8ff1aec24915fc35b57da9529e40202a77246f9ae56a1bb3007b3f86e",
+          "bytes": 22082,
+          "currentSha256": "c02f09b8ff1aec24915fc35b57da9529e40202a77246f9ae56a1bb3007b3f86e",
+          "currentBytes": 22082
+        },
+        {
+          "owner": "backend/dist/modules/checklists/checklists.module.js",
+          "sha256": "b6d347a452c074b404e39f6d5083511d2ca9cdd46bf130683e7feed9f0efcc90",
+          "bytes": 1551,
+          "currentSha256": "b6d347a452c074b404e39f6d5083511d2ca9cdd46bf130683e7feed9f0efcc90",
+          "currentBytes": 1551
+        },
+        {
+          "owner": "backend/dist/modules/checklists/checklists.service.js",
+          "sha256": "7a8b4b95ac5c1cd3485767bb462bb847f90295a5656e70a23a2048e9fe6a9778",
+          "bytes": 161625,
+          "currentSha256": "7a8b4b95ac5c1cd3485767bb462bb847f90295a5656e70a23a2048e9fe6a9778",
+          "currentBytes": 161625
+        },
+        {
+          "owner": "backend/dist/modules/defrost/defrost-read-policy.js",
+          "sha256": "f7f5d35060c7199cbb2a608dd7b1596a77245be96e28336721a51b89a05656ff",
+          "bytes": 472,
+          "currentSha256": "f7f5d35060c7199cbb2a608dd7b1596a77245be96e28336721a51b89a05656ff",
+          "currentBytes": 472
+        },
+        {
+          "owner": "backend/dist/modules/defrost/defrost.controller.js",
+          "sha256": "2a47a94e0d92c32f2690bdd7fa778624ae0c3119ce3e4e989c150c06d4ea00a7",
+          "bytes": 7300,
+          "currentSha256": "2a47a94e0d92c32f2690bdd7fa778624ae0c3119ce3e4e989c150c06d4ea00a7",
+          "currentBytes": 7300
+        },
+        {
+          "owner": "backend/dist/modules/defrost/defrost.module.js",
+          "sha256": "9aa980dfdde63f5d828e741447f619a984265dc83ded731302af51a038298374",
+          "bytes": 1521,
+          "currentSha256": "9aa980dfdde63f5d828e741447f619a984265dc83ded731302af51a038298374",
+          "currentBytes": 1521
+        },
+        {
+          "owner": "backend/dist/modules/defrost/defrost.service.js",
+          "sha256": "6ad7791494741449206cffd04b771925d84dc64434daff018161ab2176efe535",
+          "bytes": 38300,
+          "currentSha256": "6ad7791494741449206cffd04b771925d84dc64434daff018161ab2176efe535",
+          "currentBytes": 38300
+        },
+        {
+          "owner": "backend/dist/modules/directory/directory.controller.js",
+          "sha256": "b89dd63af197dfcf19db87d07b845a6081ad67ebe308940752e45596e6bae129",
+          "bytes": 5480,
+          "currentSha256": "b89dd63af197dfcf19db87d07b845a6081ad67ebe308940752e45596e6bae129",
+          "currentBytes": 5480
+        },
+        {
+          "owner": "backend/dist/modules/directory/directory.module.js",
+          "sha256": "c3c64aadebbcc0aca99c3e2dadd0f47245d69dacc907c05cef44844c679fcedf",
+          "bytes": 1352,
+          "currentSha256": "c3c64aadebbcc0aca99c3e2dadd0f47245d69dacc907c05cef44844c679fcedf",
+          "currentBytes": 1352
+        },
+        {
+          "owner": "backend/dist/modules/directory/directory.service.js",
+          "sha256": "36b5f099feb1dfbaee49c23d0590bc3efda201dcc0b0c3025d4c1c2603b8334f",
+          "bytes": 8883,
+          "currentSha256": "36b5f099feb1dfbaee49c23d0590bc3efda201dcc0b0c3025d4c1c2603b8334f",
+          "currentBytes": 8883
+        },
+        {
+          "owner": "backend/dist/modules/employee/employee.service.js",
+          "sha256": "9c4929362fac9bc2f30df57be1310dc114a89b61238ed4aa35e5d6a7b1f0c859",
+          "bytes": 64759,
+          "currentSha256": "9c4929362fac9bc2f30df57be1310dc114a89b61238ed4aa35e5d6a7b1f0c859",
+          "currentBytes": 64759
+        },
+        {
+          "owner": "backend/dist/modules/error-report/error-report-file-export.service.js",
+          "sha256": "982c4b0580ac957db45ef3d2e0808910860c946cb517884828d106e50148ccea",
+          "bytes": 16107,
+          "currentSha256": "982c4b0580ac957db45ef3d2e0808910860c946cb517884828d106e50148ccea",
+          "currentBytes": 16107
+        },
+        {
+          "owner": "backend/dist/modules/error-report/error-report.controller.js",
+          "sha256": "ce14ad99f0c5fbec36dc9d1f2701c1b6ef854378390cc87256ab8cbe63d4d382",
+          "bytes": 3450,
+          "currentSha256": "ce14ad99f0c5fbec36dc9d1f2701c1b6ef854378390cc87256ab8cbe63d4d382",
+          "currentBytes": 3450
+        },
+        {
+          "owner": "backend/dist/modules/error-report/error-report.module.js",
+          "sha256": "15aa775a30ffc3932fe9574129fe33f9eb107a0105bb1a523c2862dce0e99164",
+          "bytes": 1776,
+          "currentSha256": "15aa775a30ffc3932fe9574129fe33f9eb107a0105bb1a523c2862dce0e99164",
+          "currentBytes": 1776
+        },
+        {
+          "owner": "backend/dist/modules/error-report/error-report.service.js",
+          "sha256": "ae57767c35cd1f41ff2e96f5f1f6119eb1c8734fec262c8f8d1d46aeb446688d",
+          "bytes": 13650,
+          "currentSha256": "ae57767c35cd1f41ff2e96f5f1f6119eb1c8734fec262c8f8d1d46aeb446688d",
+          "currentBytes": 13650
+        },
+        {
+          "owner": "backend/dist/modules/health/health.controller.js",
+          "sha256": "0f6c3b5a37b6a612e5aa8f7c175668b33fca260474da7a4339c5c6699fdfcdde",
+          "bytes": 1900,
+          "currentSha256": "0f6c3b5a37b6a612e5aa8f7c175668b33fca260474da7a4339c5c6699fdfcdde",
+          "currentBytes": 1900
+        },
+        {
+          "owner": "backend/dist/modules/health/health.module.js",
+          "sha256": "1f80449a0b6b1f754ff2766eb0f2bd8cbfc7bff6a2568c7183fb23ea062dc4f7",
+          "bytes": 1028,
+          "currentSha256": "1f80449a0b6b1f754ff2766eb0f2bd8cbfc7bff6a2568c7183fb23ea062dc4f7",
+          "currentBytes": 1028
+        },
+        {
+          "owner": "backend/dist/modules/line/line-timeline.js",
+          "sha256": "d45dc8e486ab19dcf2bee077bec7000b7f551d0a03953fb50b05bd9797b41566",
+          "bytes": 5583,
+          "currentSha256": "d45dc8e486ab19dcf2bee077bec7000b7f551d0a03953fb50b05bd9797b41566",
+          "currentBytes": 5583
+        },
+        {
+          "owner": "backend/dist/modules/line/line.controller.js",
+          "sha256": "2f2e55a60dd7edab2e9e576bafe4ba1471f4af499a1db41672530ac01d4a18e4",
+          "bytes": 19521,
+          "currentSha256": "2f2e55a60dd7edab2e9e576bafe4ba1471f4af499a1db41672530ac01d4a18e4",
+          "currentBytes": 19521
+        },
+        {
+          "owner": "backend/dist/modules/line/line.module.js",
+          "sha256": "3177f97f77f825a8282707d006745df985e44997ebbf39bd45dc2e983a336258",
+          "bytes": 1567,
+          "currentSha256": "3177f97f77f825a8282707d006745df985e44997ebbf39bd45dc2e983a336258",
+          "currentBytes": 1567
+        },
+        {
+          "owner": "backend/dist/modules/line/line.service.js",
+          "sha256": "ec7584c22668ebd093b3b5ca069ab0bb6ee8bd6a54994149c71dbbb1cf1c1283",
+          "bytes": 186895,
+          "currentSha256": "ec7584c22668ebd093b3b5ca069ab0bb6ee8bd6a54994149c71dbbb1cf1c1283",
+          "currentBytes": 186895
+        },
+        {
+          "owner": "backend/dist/modules/line/staffing-control-policy.service.js",
+          "sha256": "6ac4d7f12fcd5a9dea9fb415dbd0802f451647408323ef1416cbe23f404963d1",
+          "bytes": 4332,
+          "currentSha256": "6ac4d7f12fcd5a9dea9fb415dbd0802f451647408323ef1416cbe23f404963d1",
+          "currentBytes": 4332
+        },
+        {
+          "owner": "backend/dist/modules/notifications/notifications.controller.js",
+          "sha256": "c983cb611dea94733959a9588266c5ab80c6faf0459acd577aab9c7a8c5d5989",
+          "bytes": 4896,
+          "currentSha256": "c983cb611dea94733959a9588266c5ab80c6faf0459acd577aab9c7a8c5d5989",
+          "currentBytes": 4896
+        },
+        {
+          "owner": "backend/dist/modules/notifications/notifications.module.js",
+          "sha256": "a413c40d6ddaf32c90e3ae208c64473889b76b08f8b19ab9ae622a1493640d9b",
+          "bytes": 1633,
+          "currentSha256": "a413c40d6ddaf32c90e3ae208c64473889b76b08f8b19ab9ae622a1493640d9b",
+          "currentBytes": 1633
+        },
+        {
+          "owner": "backend/dist/modules/notifications/notifications.service.js",
+          "sha256": "84d2a428845772a516f79ad540e3ffca78249118ff9d6fbf260d776c57c31701",
+          "bytes": 45543,
+          "currentSha256": "84d2a428845772a516f79ad540e3ffca78249118ff9d6fbf260d776c57c31701",
+          "currentBytes": 45543
+        },
+        {
+          "owner": "backend/dist/modules/okk/okk.controller.js",
+          "sha256": "209016bad8c6df544585354b17f638d89a75cdcf23a4ed5bc5cdce1d3da445ba",
+          "bytes": 8135,
+          "currentSha256": "209016bad8c6df544585354b17f638d89a75cdcf23a4ed5bc5cdce1d3da445ba",
+          "currentBytes": 8135
+        },
+        {
+          "owner": "backend/dist/modules/okk/okk.module.js",
+          "sha256": "b1f0f0f135b1dd86c452c60bb9442b1f4c529c41bbd77af3eace97b292627111",
+          "bytes": 1539,
+          "currentSha256": "b1f0f0f135b1dd86c452c60bb9442b1f4c529c41bbd77af3eace97b292627111",
+          "currentBytes": 1539
+        },
+        {
+          "owner": "backend/dist/modules/okk/okk.service.js",
+          "sha256": "1652c86b3f0bf2f2108b09bb7109c4adc15204d86003c9dd6befe25a6cd42cbe",
+          "bytes": 28925,
+          "currentSha256": "1652c86b3f0bf2f2108b09bb7109c4adc15204d86003c9dd6befe25a6cd42cbe",
+          "currentBytes": 28925
+        },
+        {
+          "owner": "backend/dist/modules/ops/ops.controller.js",
+          "sha256": "59b8726043afeaeb0884e9f9c42540d32865c39b9f13a50869a35c5c13e47a0a",
+          "bytes": 7830,
+          "currentSha256": "59b8726043afeaeb0884e9f9c42540d32865c39b9f13a50869a35c5c13e47a0a",
+          "currentBytes": 7830
+        },
+        {
+          "owner": "backend/dist/modules/ops/ops.module.js",
+          "sha256": "53b132d913507eddceb06d2aa76b99d7d154633e386f0c3517ab3a441e14c1a0",
+          "bytes": 1288,
+          "currentSha256": "53b132d913507eddceb06d2aa76b99d7d154633e386f0c3517ab3a441e14c1a0",
+          "currentBytes": 1288
+        },
+        {
+          "owner": "backend/dist/modules/ops/ops.service.js",
+          "sha256": "206c8de95d06d3447b848fc37ee8f8c4c341b7cb0dbeffedf1788267f9e9e10a",
+          "bytes": 117125,
+          "currentSha256": "206c8de95d06d3447b848fc37ee8f8c4c341b7cb0dbeffedf1788267f9e9e10a",
+          "currentBytes": 117125
+        },
+        {
+          "owner": "backend/dist/modules/orders/orders.controller.js",
+          "sha256": "5acc14e64fc942d0978a2a6d72483fdf00c1c721c7ccd3f5c00c4cd497ababf6",
+          "bytes": 10642,
+          "currentSha256": "5acc14e64fc942d0978a2a6d72483fdf00c1c721c7ccd3f5c00c4cd497ababf6",
+          "currentBytes": 10642
+        },
+        {
+          "owner": "backend/dist/modules/orders/orders.module.js",
+          "sha256": "71cdb92f71b707181edf5242bfdbc030c2a5f48a246396e71bb1c38191938db1",
+          "bytes": 1487,
+          "currentSha256": "71cdb92f71b707181edf5242bfdbc030c2a5f48a246396e71bb1c38191938db1",
+          "currentBytes": 1487
+        },
+        {
+          "owner": "backend/dist/modules/orders/orders.service.js",
+          "sha256": "dd5f713d898f6d6729028bf02cd806c030bdadd1bbe94dd165ff5fa5ef514f59",
+          "bytes": 54604,
+          "currentSha256": "dd5f713d898f6d6729028bf02cd806c030bdadd1bbe94dd165ff5fa5ef514f59",
+          "currentBytes": 54604
+        },
+        {
+          "owner": "backend/dist/modules/people/assignment-candidates.js",
+          "sha256": "4b91cae7431b63ec9457aaa07dd407ab97d8a3b0641e12af9ac2029e86b35c9b",
+          "bytes": 2382,
+          "currentSha256": "4b91cae7431b63ec9457aaa07dd407ab97d8a3b0641e12af9ac2029e86b35c9b",
+          "currentBytes": 2382
+        },
+        {
+          "owner": "backend/dist/modules/people/assignment-close.js",
+          "sha256": "a004ea1baa45721e3774dc0fabeb8413426ad175689c95c4322c74c880cd9b46",
+          "bytes": 1457,
+          "currentSha256": "a004ea1baa45721e3774dc0fabeb8413426ad175689c95c4322c74c880cd9b46",
+          "currentBytes": 1457
+        },
+        {
+          "owner": "backend/dist/modules/people/people.controller.js",
+          "sha256": "e01ad318038a12ba29ac4c6327ba4adea4fc1b420fddc7aac9b6c8509970a14c",
+          "bytes": 8443,
+          "currentSha256": "e01ad318038a12ba29ac4c6327ba4adea4fc1b420fddc7aac9b6c8509970a14c",
+          "currentBytes": 8443
+        },
+        {
+          "owner": "backend/dist/modules/people/people.module.js",
+          "sha256": "0c7496384d4d65571489dd4c536e4fd12676e2af87ca14dede82ca1333687d9c",
+          "bytes": 1362,
+          "currentSha256": "0c7496384d4d65571489dd4c536e4fd12676e2af87ca14dede82ca1333687d9c",
+          "currentBytes": 1362
+        },
+        {
+          "owner": "backend/dist/modules/people/people.service.js",
+          "sha256": "2dcb708468f110d7176a0da7cbde67befcb16573296069bda3c8e42e97e2419a",
+          "bytes": 58070,
+          "currentSha256": "2dcb708468f110d7176a0da7cbde67befcb16573296069bda3c8e42e97e2419a",
+          "currentBytes": 58070
+        },
+        {
+          "owner": "backend/dist/modules/people/skill-experience.js",
+          "sha256": "a301962d902eabab36702ef1f09e88db6dcc6851e6473edde8cd16b861306b84",
+          "bytes": 3117,
+          "currentSha256": "a301962d902eabab36702ef1f09e88db6dcc6851e6473edde8cd16b861306b84",
+          "currentBytes": 3117
+        },
+        {
+          "owner": "backend/dist/modules/returns/returns.controller.js",
+          "sha256": "b976d12c48b3d7b696221ac6c35c6bcb0709ecdc8074fd32132bb7a5543ef6be",
+          "bytes": 6306,
+          "currentSha256": "b976d12c48b3d7b696221ac6c35c6bcb0709ecdc8074fd32132bb7a5543ef6be",
+          "currentBytes": 6306
+        },
+        {
+          "owner": "backend/dist/modules/returns/returns.module.js",
+          "sha256": "fe60fce8d203a621b0b1737dd3453b836bc4c1f4065fc552e2573744206f3232",
+          "bytes": 1603,
+          "currentSha256": "fe60fce8d203a621b0b1737dd3453b836bc4c1f4065fc552e2573744206f3232",
+          "currentBytes": 1603
+        },
+        {
+          "owner": "backend/dist/modules/returns/returns.service.js",
+          "sha256": "71c700c4a05fb4d7e24c4955338129b981accd82099ec9c42643d110227a0d21",
+          "bytes": 22413,
+          "currentSha256": "71c700c4a05fb4d7e24c4955338129b981accd82099ec9c42643d110227a0d21",
+          "currentBytes": 22413
+        },
+        {
+          "owner": "backend/dist/modules/shift-log/shift-log.controller.js",
+          "sha256": "e79169766f9202b28816afdad4c70f82990babe71aa8a9c3410d009fc1e3c207",
+          "bytes": 10686,
+          "currentSha256": "e79169766f9202b28816afdad4c70f82990babe71aa8a9c3410d009fc1e3c207",
+          "currentBytes": 10686
+        },
+        {
+          "owner": "backend/dist/modules/shift-log/shift-log.module.js",
+          "sha256": "e0f2811e735896b06fbea5e0d30041698e094dd3c44b7caee906f8597265252c",
+          "bytes": 1614,
+          "currentSha256": "e0f2811e735896b06fbea5e0d30041698e094dd3c44b7caee906f8597265252c",
+          "currentBytes": 1614
+        },
+        {
+          "owner": "backend/dist/modules/shift-log/shift-log.service.js",
+          "sha256": "01a35f5f8527bf232ca83d02dd16847f11e46be70fe1587e5d473923f415828b",
+          "bytes": 48041,
+          "currentSha256": "01a35f5f8527bf232ca83d02dd16847f11e46be70fe1587e5d473923f415828b",
+          "currentBytes": 48041
+        },
+        {
+          "owner": "backend/dist/modules/shift/shift.controller.js",
+          "sha256": "edca6bab4f167867e288067e2fa550211d9a88c86c542552924d995965abfc0b",
+          "bytes": 16943,
+          "currentSha256": "edca6bab4f167867e288067e2fa550211d9a88c86c542552924d995965abfc0b",
+          "currentBytes": 16943
+        },
+        {
+          "owner": "backend/dist/modules/shift/shift.module.js",
+          "sha256": "45d5adcb1dd6302a8d59576aa2c96606cc5ae730948818db41ea734335cfdcad",
+          "bytes": 1629,
+          "currentSha256": "45d5adcb1dd6302a8d59576aa2c96606cc5ae730948818db41ea734335cfdcad",
+          "currentBytes": 1629
+        },
+        {
+          "owner": "backend/dist/modules/shift/shift.service.js",
+          "sha256": "b4144f15ed6b8a13b79424cdc067bb39ff265b106e99f10aba8f319110e248c6",
+          "bytes": 158235,
+          "currentSha256": "b4144f15ed6b8a13b79424cdc067bb39ff265b106e99f10aba8f319110e248c6",
+          "currentBytes": 158235
+        },
+        {
+          "owner": "backend/dist/modules/stock/stock.controller.js",
+          "sha256": "d6e3af17144c931d8424179227be269921ebc2a2facdba3a9462fefc909cbcea",
+          "bytes": 4952,
+          "currentSha256": "d6e3af17144c931d8424179227be269921ebc2a2facdba3a9462fefc909cbcea",
+          "currentBytes": 4952
+        },
+        {
+          "owner": "backend/dist/modules/stock/stock.module.js",
+          "sha256": "873ea2a22733c09608f4b364c57402af58f8df00c50439eb4289b5a63be00f0c",
+          "bytes": 1435,
+          "currentSha256": "873ea2a22733c09608f4b364c57402af58f8df00c50439eb4289b5a63be00f0c",
+          "currentBytes": 1435
+        },
+        {
+          "owner": "backend/dist/modules/stock/stock.service.js",
+          "sha256": "2bd5105b3f97341710ebea393b8c495a297e53e039d564c21cc45b475c6e9d5e",
+          "bytes": 10363,
+          "currentSha256": "2bd5105b3f97341710ebea393b8c495a297e53e039d564c21cc45b475c6e9d5e",
+          "currentBytes": 10363
+        },
+        {
+          "owner": "backend/dist/modules/task/task.controller.js",
+          "sha256": "88173522db259d73cebcbad839843f1cb693a8adb5810d00257bc9861092dc19",
+          "bytes": 11345,
+          "currentSha256": "88173522db259d73cebcbad839843f1cb693a8adb5810d00257bc9861092dc19",
+          "currentBytes": 11345
+        },
+        {
+          "owner": "backend/dist/modules/task/task.module.js",
+          "sha256": "16c01b39724a3393bad67ba880dc9ba56c6a7142c93780c2dcf10e362c003f1c",
+          "bytes": 1649,
+          "currentSha256": "16c01b39724a3393bad67ba880dc9ba56c6a7142c93780c2dcf10e362c003f1c",
+          "currentBytes": 1649
+        },
+        {
+          "owner": "backend/dist/modules/task/task.service.js",
+          "sha256": "cc5f134edf3622b693ef75bdbf6aac6c7dd82bba0f595592908c4b4998613d41",
+          "bytes": 52777,
+          "currentSha256": "cc5f134edf3622b693ef75bdbf6aac6c7dd82bba0f595592908c4b4998613d41",
+          "currentBytes": 52777
+        },
+        {
+          "owner": "backend/dist/modules/wash/wash.controller.js",
+          "sha256": "66b67591cc873cebabe35db4f28ef221d1245bec71534e3feceeaef0da31fd42",
+          "bytes": 11675,
+          "currentSha256": "66b67591cc873cebabe35db4f28ef221d1245bec71534e3feceeaef0da31fd42",
+          "currentBytes": 11675
+        },
+        {
+          "owner": "backend/dist/modules/wash/wash.module.js",
+          "sha256": "f10a1cd62e0a4ed737dc53e766f723f69bd86d40c6b1ced7ca8243c85176d98e",
+          "bytes": 1544,
+          "currentSha256": "f10a1cd62e0a4ed737dc53e766f723f69bd86d40c6b1ced7ca8243c85176d98e",
+          "currentBytes": 1544
+        },
+        {
+          "owner": "backend/dist/modules/wash/wash.service.js",
+          "sha256": "98e39d9742e17281433e9685be7a7fdf9558fd70aaa5ea694c6f95a437de1e28",
+          "bytes": 86040,
+          "currentSha256": "98e39d9742e17281433e9685be7a7fdf9558fd70aaa5ea694c6f95a437de1e28",
+          "currentBytes": 86040
+        },
+        {
+          "owner": "backend/dist/modules/work-areas/work-areas.controller.js",
+          "sha256": "5c734bc01eacb432726edf0d6312685723e6f3078785a7ff97f74a3155f75e58",
+          "bytes": 4937,
+          "currentSha256": "5c734bc01eacb432726edf0d6312685723e6f3078785a7ff97f74a3155f75e58",
+          "currentBytes": 4937
+        },
+        {
+          "owner": "backend/dist/modules/work-areas/work-areas.module.js",
+          "sha256": "237d9af9479b6c3d5b1f164ee2990048780cd9d2d902f8e752ffc0afd67429d7",
+          "bytes": 1494,
+          "currentSha256": "237d9af9479b6c3d5b1f164ee2990048780cd9d2d902f8e752ffc0afd67429d7",
+          "currentBytes": 1494
+        },
+        {
+          "owner": "backend/dist/modules/work-areas/work-areas.service.js",
+          "sha256": "1dbc842df65120e5b54ed9f68532e26646fdcdb484b7bfae9420453e4a7bb092",
+          "bytes": 14389,
+          "currentSha256": "1dbc842df65120e5b54ed9f68532e26646fdcdb484b7bfae9420453e4a7bb092",
+          "currentBytes": 14389
+        },
+        {
+          "owner": "backend/dist/prisma/prisma.module.js",
+          "sha256": "6b50f187473178f62a568d46035375cef29fdf925cc2e9a4ffc1f440af3bc2bb",
+          "bytes": 1065,
+          "currentSha256": "6b50f187473178f62a568d46035375cef29fdf925cc2e9a4ffc1f440af3bc2bb",
+          "currentBytes": 1065
+        },
+        {
+          "owner": "backend/dist/prisma/prisma.service.js",
+          "sha256": "c4255efea4c44a61854bccb138dcd0e30082ea27f1fe561200ceb31542c78cb6",
+          "bytes": 1640,
+          "currentSha256": "c4255efea4c44a61854bccb138dcd0e30082ea27f1fe561200ceb31542c78cb6",
+          "currentBytes": 1640
+        },
+        {
+          "owner": "backend/dist/push/push.service.js",
+          "sha256": "f9fbf9e74bb848c2d69c5e036db1a3c8ffd84a8c5e1fecbf66a809d72f6b69ad",
+          "bytes": 6007,
+          "currentSha256": "f9fbf9e74bb848c2d69c5e036db1a3c8ffd84a8c5e1fecbf66a809d72f6b69ad",
+          "currentBytes": 6007
+        },
+        {
+          "owner": "backend/dist/shift/employee-state.policy.js",
+          "sha256": "41ac08eddfc7b6f96305498258d46d67600b412cfbc49f1e62f1a966d441f940",
+          "bytes": 1290,
+          "currentSha256": "41ac08eddfc7b6f96305498258d46d67600b412cfbc49f1e62f1a966d441f940",
+          "currentBytes": 1290
+        },
+        {
+          "owner": "backend/dist/ws/events.js",
+          "sha256": "a990a452f9cd1a2ea8d81ed8227cb32570633632cfde7662f61de7cf31ce5959",
+          "bytes": 2038,
+          "currentSha256": "a990a452f9cd1a2ea8d81ed8227cb32570633632cfde7662f61de7cf31ce5959",
+          "currentBytes": 2038
+        },
+        {
+          "owner": "backend/dist/ws/ws.module.js",
+          "sha256": "98f386fa4d59a66427af7b426af3f69e88f2ca358ed251e42883bf2f4034e04e",
+          "bytes": 1258,
+          "currentSha256": "98f386fa4d59a66427af7b426af3f69e88f2ca358ed251e42883bf2f4034e04e",
+          "currentBytes": 1258
+        },
+        {
+          "owner": "backend/dist/ws/ws.service.js",
+          "sha256": "00944d39aed6be6cb77a3a4a13173957e712ad17e4d9adb21e55782d3fa0a81f",
+          "bytes": 9533,
+          "currentSha256": "00944d39aed6be6cb77a3a4a13173957e712ad17e4d9adb21e55782d3fa0a81f",
+          "currentBytes": 9533
+        },
+        {
+          "owner": "frontend/dist/apple-touch-icon.png",
+          "sha256": "9230b49e7695a50b612fef0aad83ee295dade9bff0a0466fcdfb86780c98bacf",
+          "bytes": 87568,
+          "currentSha256": "9230b49e7695a50b612fef0aad83ee295dade9bff0a0466fcdfb86780c98bacf",
+          "currentBytes": 87568
+        },
+        {
+          "owner": "frontend/dist/assets/index-DAyG6Svj.js",
+          "sha256": "e4a30c14211ae6149d09467360a0f967adae91400eccd2038d781311008c49b3",
+          "bytes": 1115112,
+          "currentSha256": "e4a30c14211ae6149d09467360a0f967adae91400eccd2038d781311008c49b3",
+          "currentBytes": 1115112
+        },
+        {
+          "owner": "frontend/dist/assets/index-iuCOMHyM.css",
+          "sha256": "0b462bee06f070196773a919b79fad1a48534dfefa0b5d5b8b1345f2fb35906b",
+          "bytes": 359260,
+          "currentSha256": "0b462bee06f070196773a919b79fad1a48534dfefa0b5d5b8b1345f2fb35906b",
+          "currentBytes": 359260
+        },
+        {
+          "owner": "frontend/dist/index.html",
+          "sha256": "7940998ec97ff0e906cbfa9337ae936fa83f36e873668621473f6a1d923ade22",
+          "bytes": 2253,
+          "currentSha256": "7940998ec97ff0e906cbfa9337ae936fa83f36e873668621473f6a1d923ade22",
+          "currentBytes": 2253
+        },
+        {
+          "owner": "frontend/dist/manifest.webmanifest",
+          "sha256": "95fca24e57d323c28955f58eb73ea94453d23533e55e1abfbbc19fc4a3b15c1f",
+          "bytes": 720,
+          "currentSha256": "95fca24e57d323c28955f58eb73ea94453d23533e55e1abfbbc19fc4a3b15c1f",
+          "currentBytes": 720
+        },
+        {
+          "owner": "frontend/dist/offline.html",
+          "sha256": "5aba2ba5686ec9210aa2c73388f557628af2f08b84a88600ee3b20bf434f4dc1",
+          "bytes": 1720,
+          "currentSha256": "5aba2ba5686ec9210aa2c73388f557628af2f08b84a88600ee3b20bf434f4dc1",
+          "currentBytes": 1720
+        },
+        {
+          "owner": "frontend/dist/pwa-icon-192.png",
+          "sha256": "edf3427443cb805c0daa2f82499af3b729a33c7a579fe78497a95bb23a23610d",
+          "bytes": 99283,
+          "currentSha256": "edf3427443cb805c0daa2f82499af3b729a33c7a579fe78497a95bb23a23610d",
+          "currentBytes": 99283
+        },
+        {
+          "owner": "frontend/dist/pwa-icon-512.png",
+          "sha256": "09fbdaedf873a9565878305836a161b1b65911d34894c85f5dff0500b5b25cf7",
+          "bytes": 655801,
+          "currentSha256": "09fbdaedf873a9565878305836a161b1b65911d34894c85f5dff0500b5b25cf7",
+          "currentBytes": 655801
+        },
+        {
+          "owner": "frontend/dist/pwa-icon.svg",
+          "sha256": "18ab50d23549416a5425bc07f1990303871a82ffbb1031fcbec2af1428c8d46b",
+          "bytes": 321,
+          "currentSha256": "18ab50d23549416a5425bc07f1990303871a82ffbb1031fcbec2af1428c8d46b",
+          "currentBytes": 321
+        },
+        {
+          "owner": "frontend/dist/pwa-maskable-512.png",
+          "sha256": "f158764d525ffb7700a5828e304a51748b2c98c7c0acb63fca6f3a403c7bbc73",
+          "bytes": 445596,
+          "currentSha256": "f158764d525ffb7700a5828e304a51748b2c98c7c0acb63fca6f3a403c7bbc73",
+          "currentBytes": 445596
+        },
+        {
+          "owner": "frontend/dist/sw.js",
+          "sha256": "a64f7a55feed7315f6b96b504cb312cdf152b4d9a91b7db1be4267635a32f8fb",
+          "bytes": 4907,
+          "currentSha256": "a64f7a55feed7315f6b96b504cb312cdf152b4d9a91b7db1be4267635a32f8fb",
+          "currentBytes": 4907
+        }
+      ]
+    },
+    {
+      "kind": "harness",
+      "file": "handoff/final-harness-identity.json",
+      "manifestSha256": "9747f7318500281e107cb8f3695453dcb738e522350cfd6bfb5018c88fd4ad5d",
+      "fingerprint": "4c854fad4d57daedb7a14f5efe13d243a9a06634e9003ea24b630301648f3148",
+      "count": 64,
+      "mismatches": [],
+      "checks": [
+        {
+          "path": "backend/scripts/master-domain-contracts.test.js",
+          "sha256": "5c7f283a3128c0882737567308983385d63e3a16dfe5bd57764cc35fba75ef22",
+          "bytes": 42185,
+          "currentSha256": "5c7f283a3128c0882737567308983385d63e3a16dfe5bd57764cc35fba75ef22",
+          "currentBytes": 42185
+        },
+        {
+          "path": "backend/scripts/master-module-guards.test.js",
+          "sha256": "9754a24907df64dff65e5d67f636ea983803eef9223c2c5692be6e5f55f2ce59",
+          "bytes": 5773,
+          "currentSha256": "9754a24907df64dff65e5d67f636ea983803eef9223c2c5692be6e5f55f2ce59",
+          "currentBytes": 5773
+        },
+        {
+          "path": "backend/scripts/master-offline-contract.test.js",
+          "sha256": "25bdc5f1ba91f619ea64c7fa1bdbf2198c4269f0d238d3da2b0fda7923706fdf",
+          "bytes": 5934,
+          "currentSha256": "25bdc5f1ba91f619ea64c7fa1bdbf2198c4269f0d238d3da2b0fda7923706fdf",
+          "currentBytes": 5934
+        },
+        {
+          "path": "backend/scripts/master-offline-guard.cjs",
+          "sha256": "81b4b5873bad42ed6b1176055ed2f95794626ac355065b514b8f7361c37530ef",
+          "bytes": 1165,
+          "currentSha256": "81b4b5873bad42ed6b1176055ed2f95794626ac355065b514b8f7361c37530ef",
+          "currentBytes": 1165
+        },
+        {
+          "path": "backend/scripts/master-provenance-contract.test.js",
+          "sha256": "1de646625c2d0f9aa5fe8a8fd89d1ec14dc6c9cccf84267cce3b3372787a0389",
+          "bytes": 9206,
+          "currentSha256": "1de646625c2d0f9aa5fe8a8fd89d1ec14dc6c9cccf84267cce3b3372787a0389",
+          "currentBytes": 9206
+        },
+        {
+          "path": "backend/scripts/master-r2-admin-chain.test.js",
+          "sha256": "c349bd67c5059fb618d28fd6c8370d401f2c414a5158f20897f42b95cf8e5285",
+          "bytes": 4708,
+          "currentSha256": "c349bd67c5059fb618d28fd6c8370d401f2c414a5158f20897f42b95cf8e5285",
+          "currentBytes": 4708
+        },
+        {
+          "path": "backend/scripts/master-r2-authority-fixture.cjs",
+          "sha256": "1cdf950d1f374a5026cf099dc46edd592e6971c8dc950306fcc26413921ee88d",
+          "bytes": 1632,
+          "currentSha256": "1cdf950d1f374a5026cf099dc46edd592e6971c8dc950306fcc26413921ee88d",
+          "currentBytes": 1632
+        },
+        {
+          "path": "backend/scripts/master-r2-chat-chain.test.js",
+          "sha256": "2139c63fa934c26961a2ee8eeb5e78b87d334fee4d32b0d2493688bfff8bb889",
+          "bytes": 4283,
+          "currentSha256": "2139c63fa934c26961a2ee8eeb5e78b87d334fee4d32b0d2493688bfff8bb889",
+          "currentBytes": 4283
+        },
+        {
+          "path": "backend/scripts/master-r2-chat-fixture.cjs",
+          "sha256": "1a037bc38df89db37ba446d9c7e03b85324a6b443a6a278f44add1e3f652696c",
+          "bytes": 5895,
+          "currentSha256": "1a037bc38df89db37ba446d9c7e03b85324a6b443a6a278f44add1e3f652696c",
+          "currentBytes": 5895
+        },
+        {
+          "path": "backend/scripts/master-r2-checklist.test.js",
+          "sha256": "6504a9545daca789f85174b0071309b1616c6701f730b197b7b7be5905a51248",
+          "bytes": 8649,
+          "currentSha256": "6504a9545daca789f85174b0071309b1616c6701f730b197b7b7be5905a51248",
+          "currentBytes": 8649
+        },
+        {
+          "path": "backend/scripts/master-r2-defrost-line-replay.test.js",
+          "sha256": "4ab82994a56c6c2d710047fc0444b59ab22feb3f57724e4c1ad5d929fb425a01",
+          "bytes": 3932,
+          "currentSha256": "4ab82994a56c6c2d710047fc0444b59ab22feb3f57724e4c1ad5d929fb425a01",
+          "currentBytes": 3932
+        },
+        {
+          "path": "backend/scripts/master-r2-handover-fixture.cjs",
+          "sha256": "d59ffc128e14906ff8f34103491394c8ffac591a6cfdce48d242d11ae84742c7",
+          "bytes": 2696,
+          "currentSha256": "d59ffc128e14906ff8f34103491394c8ffac591a6cfdce48d242d11ae84742c7",
+          "currentBytes": 2696
+        },
+        {
+          "path": "backend/scripts/master-r2-handover.test.js",
+          "sha256": "f57333559ee95be230b4ed37b42aa0fbb10395e3bb49b0014ade821c93ee58a0",
+          "bytes": 3795,
+          "currentSha256": "f57333559ee95be230b4ed37b42aa0fbb10395e3bb49b0014ade821c93ee58a0",
+          "currentBytes": 3795
+        },
+        {
+          "path": "backend/scripts/master-r2-line-history.test.js",
+          "sha256": "c46c94ca510c5c99ab7c09e5157f275654248bb65ee7b2d781df8e9bb96ee687",
+          "bytes": 2773,
+          "currentSha256": "c46c94ca510c5c99ab7c09e5157f275654248bb65ee7b2d781df8e9bb96ee687",
+          "currentBytes": 2773
+        },
+        {
+          "path": "backend/scripts/master-r2-membership-future.test.js",
+          "sha256": "34a12946cf863743ee7b33249e4aac12b9918bec40d054ff1f9f7a34ea015396",
+          "bytes": 8131,
+          "currentSha256": "34a12946cf863743ee7b33249e4aac12b9918bec40d054ff1f9f7a34ea015396",
+          "currentBytes": 8131
+        },
+        {
+          "path": "backend/scripts/master-r2-memory.cjs",
+          "sha256": "5085724fef7b46dd0157aa462c67cee48ae88b81fde362ad48ea8f1a98c7a98b",
+          "bytes": 7539,
+          "currentSha256": "5085724fef7b46dd0157aa462c67cee48ae88b81fde362ad48ea8f1a98c7a98b",
+          "currentBytes": 7539
+        },
+        {
+          "path": "backend/scripts/master-r2-orders.test.js",
+          "sha256": "f7bca82e7fa2199f66d60e5687701e1897c9d766f8618c64efaa64d0b9b96cb5",
+          "bytes": 5811,
+          "currentSha256": "f7bca82e7fa2199f66d60e5687701e1897c9d766f8618c64efaa64d0b9b96cb5",
+          "currentBytes": 5811
+        },
+        {
+          "path": "backend/scripts/master-r2-position.test.js",
+          "sha256": "5b6dfd7b844391b5fa9bbe0f0bceff0466e129dc1d528afa5f95998cb9a99281",
+          "bytes": 3502,
+          "currentSha256": "5b6dfd7b844391b5fa9bbe0f0bceff0466e129dc1d528afa5f95998cb9a99281",
+          "currentBytes": 3502
+        },
+        {
+          "path": "backend/scripts/master-r2-provenance.test.js",
+          "sha256": "f13b8d99993913a5dce44a1177230ad19831fc0b8621959fd77283e5f2308368",
+          "bytes": 7744,
+          "currentSha256": "f13b8d99993913a5dce44a1177230ad19831fc0b8621959fd77283e5f2308368",
+          "currentBytes": 7744
+        },
+        {
+          "path": "backend/scripts/master-r2-publication-fixture.cjs",
+          "sha256": "4b2a333a72a65c5def991bdb1f76138e3d0a3367ad216145d3702891284fb108",
+          "bytes": 5487,
+          "currentSha256": "4b2a333a72a65c5def991bdb1f76138e3d0a3367ad216145d3702891284fb108",
+          "currentBytes": 5487
+        },
+        {
+          "path": "backend/scripts/master-r2-publication.test.js",
+          "sha256": "83aaadcc5a266e38d83af755ec456b254fdf5a3e0a163b5679c6170576543076",
+          "bytes": 10822,
+          "currentSha256": "83aaadcc5a266e38d83af755ec456b254fdf5a3e0a163b5679c6170576543076",
+          "currentBytes": 10822
+        },
+        {
+          "path": "backend/scripts/master-r2-quality-replay.test.js",
+          "sha256": "109854fe817367b518770da7bd1e3d7dadc59c71503272f89eed23714e9e8f67",
+          "bytes": 2487,
+          "currentSha256": "109854fe817367b518770da7bd1e3d7dadc59c71503272f89eed23714e9e8f67",
+          "currentBytes": 2487
+        },
+        {
+          "path": "backend/scripts/master-r2-related-replay.test.js",
+          "sha256": "2c7e0b33f4d704f32b1c2f6b9f76c15d1be5c278be327154f7adba674f75bb57",
+          "bytes": 14880,
+          "currentSha256": "2c7e0b33f4d704f32b1c2f6b9f76c15d1be5c278be327154f7adba674f75bb57",
+          "currentBytes": 14880
+        },
+        {
+          "path": "backend/scripts/master-r2-replay.test.js",
+          "sha256": "3bdd467d4d6797a75384eb1ade327c78044a60619ef5a1919c9a9bcda43795ac",
+          "bytes": 19664,
+          "currentSha256": "3bdd467d4d6797a75384eb1ade327c78044a60619ef5a1919c9a9bcda43795ac",
+          "currentBytes": 19664
+        },
+        {
+          "path": "backend/scripts/master-r2-service-bridge.cjs",
+          "sha256": "3061d376359fb04d2de26a9d402d8154257e3d1495715fd71f22dfb0bfa6b646",
+          "bytes": 9034,
+          "currentSha256": "3061d376359fb04d2de26a9d402d8154257e3d1495715fd71f22dfb0bfa6b646",
+          "currentBytes": 9034
+        },
+        {
+          "path": "backend/scripts/master-r2-stock-replay.test.js",
+          "sha256": "3f8b81f5f68f402a5ba15845499de445aa58bde7b33397af6b13acb95e57a015",
+          "bytes": 3359,
+          "currentSha256": "3f8b81f5f68f402a5ba15845499de445aa58bde7b33397af6b13acb95e57a015",
+          "currentBytes": 3359
+        },
+        {
+          "path": "backend/scripts/master-r2-task-chain.test.js",
+          "sha256": "45070859c6a9a0ec60e4fc095d8c8a1e4c8783ae7b17cbf5814919319333184c",
+          "bytes": 5655,
+          "currentSha256": "45070859c6a9a0ec60e4fc095d8c8a1e4c8783ae7b17cbf5814919319333184c",
+          "currentBytes": 5655
+        },
+        {
+          "path": "backend/scripts/master-r2-task-fixture.cjs",
+          "sha256": "03941c8126b914f8913fc00e12c813fb958b7bc33211817c6ab8236b59a613bd",
+          "bytes": 7381,
+          "currentSha256": "03941c8126b914f8913fc00e12c813fb958b7bc33211817c6ab8236b59a613bd",
+          "currentBytes": 7381
+        },
+        {
+          "path": "backend/scripts/master-r2-wash-lifecycle.test.js",
+          "sha256": "d7c47bdb203a2ee7d7c0830ec47df01e0537f3e5c3bf13f2880fe4111517d095",
+          "bytes": 7625,
+          "currentSha256": "d7c47bdb203a2ee7d7c0830ec47df01e0537f3e5c3bf13f2880fe4111517d095",
+          "currentBytes": 7625
+        },
+        {
+          "path": "backend/scripts/master-r3-live-gate.cjs",
+          "sha256": "d14752d110fab356b20b61d054bc6de495aed77f58cfb17aa6d972ed53f5c3f8",
+          "bytes": 10051,
+          "currentSha256": "d14752d110fab356b20b61d054bc6de495aed77f58cfb17aa6d972ed53f5c3f8",
+          "currentBytes": 10051
+        },
+        {
+          "path": "backend/scripts/master-r3-live-gate.test.js",
+          "sha256": "dc16d4b2b9d5ca363dc732dd1f3898637523978123ee5f343fd1f8a1bc68ab88",
+          "bytes": 3499,
+          "currentSha256": "dc16d4b2b9d5ca363dc732dd1f3898637523978123ee5f343fd1f8a1bc68ab88",
+          "currentBytes": 3499
+        },
+        {
+          "path": "backend/scripts/master-r3-quantity.test.js",
+          "sha256": "a4bea6198fbd4c5606f931a87dc75e911db8d4d931037d65af04f0f25734017d",
+          "bytes": 4365,
+          "currentSha256": "a4bea6198fbd4c5606f931a87dc75e911db8d4d931037d65af04f0f25734017d",
+          "currentBytes": 4365
+        },
+        {
+          "path": "backend/scripts/master-r3-receivers.test.js",
+          "sha256": "047824b01a4654caac086e53ce00654261cf6677e662dcb266fc7b0823e0c4a0",
+          "bytes": 3192,
+          "currentSha256": "047824b01a4654caac086e53ce00654261cf6677e662dcb266fc7b0823e0c4a0",
+          "currentBytes": 3192
+        },
+        {
+          "path": "backend/scripts/master-stateful-chain.test.js",
+          "sha256": "6eb9bfe0502ed27bab8fa76089152ac8fa3ae47e3a852709cc9b737750705737",
+          "bytes": 14543,
+          "currentSha256": "6eb9bfe0502ed27bab8fa76089152ac8fa3ae47e3a852709cc9b737750705737",
+          "currentBytes": 14543
+        },
+        {
+          "path": "backend/scripts/master-task-replay-boundary.test.js",
+          "sha256": "a8bc60c59efed1b24ff8b30a187d549d336559536589300cb5a05867ec4410ad",
+          "bytes": 2706,
+          "currentSha256": "a8bc60c59efed1b24ff8b30a187d549d336559536589300cb5a05867ec4410ad",
+          "currentBytes": 2706
+        },
+        {
+          "path": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+          "sha256": "d03ea7e81b18d808b23b1748a7672271f68b2d88f4787ae1532abf376e03a58d",
+          "bytes": 8584,
+          "currentSha256": "d03ea7e81b18d808b23b1748a7672271f68b2d88f4787ae1532abf376e03a58d",
+          "currentBytes": 8584
+        },
+        {
+          "path": "frontend/e2e/component-contracts.spec.ts",
+          "sha256": "f04e29097d5f4842ba0bb306b6b1d5e7b348565cf527a8093f6b208647c53e03",
+          "bytes": 22735,
+          "currentSha256": "f04e29097d5f4842ba0bb306b6b1d5e7b348565cf527a8093f6b208647c53e03",
+          "currentBytes": 22735
+        },
+        {
+          "path": "frontend/e2e/frontend-series.spec.ts",
+          "sha256": "66d5d1def898c21c0a74855e6c91e2a543c4e66dcd3d0dc0a378878f51d4a246",
+          "bytes": 33982,
+          "currentSha256": "66d5d1def898c21c0a74855e6c91e2a543c4e66dcd3d0dc0a378878f51d4a246",
+          "currentBytes": 33982
+        },
+        {
+          "path": "frontend/e2e/helpers/components.tsx",
+          "sha256": "f9be47a949c5f9e430dc7a88ff8bd470ffe52eb91d56c602fa0edc5c9aba1157",
+          "bytes": 7272,
+          "currentSha256": "f9be47a949c5f9e430dc7a88ff8bd470ffe52eb91d56c602fa0edc5c9aba1157",
+          "currentBytes": 7272
+        },
+        {
+          "path": "frontend/e2e/helpers/frontend-series.ts",
+          "sha256": "7fcef9d5cfaaf5149276143313e9c078859fd0221c0f2c2e15749a4b1961b07d",
+          "bytes": 14868,
+          "currentSha256": "7fcef9d5cfaaf5149276143313e9c078859fd0221c0f2c2e15749a4b1961b07d",
+          "currentBytes": 14868
+        },
+        {
+          "path": "frontend/e2e/helpers/master-r2-bridge.ts",
+          "sha256": "cda6ebef80230423b02228b0ea53e26331cb6eabf58427e90a04a643063993b2",
+          "bytes": 1138,
+          "currentSha256": "cda6ebef80230423b02228b0ea53e26331cb6eabf58427e90a04a643063993b2",
+          "currentBytes": 1138
+        },
+        {
+          "path": "frontend/e2e/helpers/master-r2-reporter.ts",
+          "sha256": "b5e56f6fe3a8a9500c486afd439daf299faa3646b6966d937f3ecea62fa63673",
+          "bytes": 1636,
+          "currentSha256": "b5e56f6fe3a8a9500c486afd439daf299faa3646b6966d937f3ecea62fa63673",
+          "currentBytes": 1636
+        },
+        {
+          "path": "frontend/e2e/helpers/master-r3-context.tsx",
+          "sha256": "d8f9a88b14e312769eedeef07c6e01828af08d2a9e4cc945ed80d91e97051bca",
+          "bytes": 2471,
+          "currentSha256": "d8f9a88b14e312769eedeef07c6e01828af08d2a9e4cc945ed80d91e97051bca",
+          "currentBytes": 2471
+        },
+        {
+          "path": "frontend/e2e/helpers/master-r3-trace.ts",
+          "sha256": "facdf647a866d2842821a9c43be9dc9bd8b715140caf4ebcbf8f09508f442a55",
+          "bytes": 5398,
+          "currentSha256": "facdf647a866d2842821a9c43be9dc9bd8b715140caf4ebcbf8f09508f442a55",
+          "currentBytes": 5398
+        },
+        {
+          "path": "frontend/e2e/master-integration.spec.ts",
+          "sha256": "66b49004490dccef4ae0a648e8d3c32751e3643ceeda28cf1a42a2bdb6fa3ac3",
+          "bytes": 27498,
+          "currentSha256": "66b49004490dccef4ae0a648e8d3c32751e3643ceeda28cf1a42a2bdb6fa3ac3",
+          "currentBytes": 27498
+        },
+        {
+          "path": "frontend/e2e/master-r2-bridge.spec.ts",
+          "sha256": "49f9af1eb232d073b048fdc7fd3fc6a1b8bead525a65cc9aaa1539218c6c6807",
+          "bytes": 7993,
+          "currentSha256": "49f9af1eb232d073b048fdc7fd3fc6a1b8bead525a65cc9aaa1539218c6c6807",
+          "currentBytes": 7993
+        },
+        {
+          "path": "frontend/e2e/master-r2-profile.spec.ts",
+          "sha256": "0494d0623bcda5c834e94514b7d9a8e335f19eab11ac92cef262869c8c7c929f",
+          "bytes": 3306,
+          "currentSha256": "0494d0623bcda5c834e94514b7d9a8e335f19eab11ac92cef262869c8c7c929f",
+          "currentBytes": 3306
+        },
+        {
+          "path": "frontend/e2e/master-r2-return.spec.ts",
+          "sha256": "53634559eb4d4dee58995369ef1388c0f57d999dfb95bae3212392a104e78ede",
+          "bytes": 12260,
+          "currentSha256": "53634559eb4d4dee58995369ef1388c0f57d999dfb95bae3212392a104e78ede",
+          "currentBytes": 12260
+        },
+        {
+          "path": "frontend/e2e/master-r3-api-context.spec.ts",
+          "sha256": "11284cc3a83f1988ef9f968355a57e475985482b3cbaf58d7ae12e322f9bdbbd",
+          "bytes": 2807,
+          "currentSha256": "11284cc3a83f1988ef9f968355a57e475985482b3cbaf58d7ae12e322f9bdbbd",
+          "currentBytes": 2807
+        },
+        {
+          "path": "frontend/e2e/master-r3-bridge.spec.ts",
+          "sha256": "5950df743c589882340fb72869b1c7c7a3b23e57d9e17e79ecf327a1b03ac99b",
+          "bytes": 9530,
+          "currentSha256": "5950df743c589882340fb72869b1c7c7a3b23e57d9e17e79ecf327a1b03ac99b",
+          "currentBytes": 9530
+        },
+        {
+          "path": "frontend/e2e/master-r3-consumers.spec.ts",
+          "sha256": "733985435857e4a3328b3090992075595ddd5ac8e4a4c93d8f1d46cff315759a",
+          "bytes": 9548,
+          "currentSha256": "733985435857e4a3328b3090992075595ddd5ac8e4a4c93d8f1d46cff315759a",
+          "currentBytes": 9548
+        },
+        {
+          "path": "frontend/e2e/master-r3-context.spec.ts",
+          "sha256": "ea73885bde47c1ec0b29410162a98dc4b9dbcc1a3df18c8dbef7e1daff905a9a",
+          "bytes": 4780,
+          "currentSha256": "ea73885bde47c1ec0b29410162a98dc4b9dbcc1a3df18c8dbef7e1daff905a9a",
+          "currentBytes": 4780
+        },
+        {
+          "path": "frontend/e2e/master-r3-form-back.spec.ts",
+          "sha256": "8b5323dffa8fd071b88279aa7b83967cbe18fe0df11a8c42bb060266f4cbae50",
+          "bytes": 7424,
+          "currentSha256": "8b5323dffa8fd071b88279aa7b83967cbe18fe0df11a8c42bb060266f4cbae50",
+          "currentBytes": 7424
+        },
+        {
+          "path": "frontend/e2e/master-r3-form-layout.spec.ts",
+          "sha256": "a3dae75a35a16aea32f334e70ed8b50e71ad112956f3e990073c6c4fa32638ca",
+          "bytes": 3552,
+          "currentSha256": "a3dae75a35a16aea32f334e70ed8b50e71ad112956f3e990073c6c4fa32638ca",
+          "currentBytes": 3552
+        },
+        {
+          "path": "frontend/e2e/master-r3-navigation.spec.ts",
+          "sha256": "8199d69e4f92001caf52c21d7fb4e774a5cc61f4f19e10748fc33598c9767a68",
+          "bytes": 6327,
+          "currentSha256": "8199d69e4f92001caf52c21d7fb4e774a5cc61f4f19e10748fc33598c9767a68",
+          "currentBytes": 6327
+        },
+        {
+          "path": "frontend/e2e/master-r3-publication-layout.spec.ts",
+          "sha256": "d5213cc6507b7c536ebd14181b6f7267a6f86cefa46eabf90efcfdc12643c94e",
+          "bytes": 1343,
+          "currentSha256": "d5213cc6507b7c536ebd14181b6f7267a6f86cefa46eabf90efcfdc12643c94e",
+          "currentBytes": 1343
+        },
+        {
+          "path": "frontend/e2e/master-r3-row-defrost.spec.ts",
+          "sha256": "5d85dacf2253a34b515cdacc9a22ef47863780d75a3946833e052b4f88ca8665",
+          "bytes": 5588,
+          "currentSha256": "5d85dacf2253a34b515cdacc9a22ef47863780d75a3946833e052b4f88ca8665",
+          "currentBytes": 5588
+        },
+        {
+          "path": "frontend/e2e/master-r3-wash-retry.spec.ts",
+          "sha256": "944f2d5402f6df9757c562ad9484446aec4651780e938a636c5e83e43e5246aa",
+          "bytes": 4689,
+          "currentSha256": "944f2d5402f6df9757c562ad9484446aec4651780e938a636c5e83e43e5246aa",
+          "currentBytes": 4689
+        },
+        {
+          "path": "frontend/e2e/master.playwright.config.ts",
+          "sha256": "7da9cbfe85b7349ace7751cf921ad9ea4547a3fb5be48461ad22e912dc9517a2",
+          "bytes": 1140,
+          "currentSha256": "7da9cbfe85b7349ace7751cf921ad9ea4547a3fb5be48461ad22e912dc9517a2",
+          "currentBytes": 1140
+        },
+        {
+          "path": "frontend/e2e/module-journeys.spec.ts",
+          "sha256": "3cf090fc11335c382a006b28912f9052de6cdf425a1f40cb1e14f73ea4a19340",
+          "bytes": 15943,
+          "currentSha256": "3cf090fc11335c382a006b28912f9052de6cdf425a1f40cb1e14f73ea4a19340",
+          "currentBytes": 15943
+        },
+        {
+          "path": "frontend/e2e/review-variants.spec.ts",
+          "sha256": "b1f5bb90571debbcdc7fd629bb539f6fffafd46385a84907a79ae348b9b85672",
+          "bytes": 19149,
+          "currentSha256": "b1f5bb90571debbcdc7fd629bb539f6fffafd46385a84907a79ae348b9b85672",
+          "currentBytes": 19149
+        },
+        {
+          "path": "frontend/scripts/master-r2-type-contract.test.cjs",
+          "sha256": "937de339261d34e654c1bc86aaf84c5dcec4af40a1d1a840b74d14029a83d283",
+          "bytes": 2830,
+          "currentSha256": "937de339261d34e654c1bc86aaf84c5dcec4af40a1d1a840b74d14029a83d283",
+          "currentBytes": 2830
+        },
+        {
+          "path": "frontend/scripts/master-r2-typecheck.cjs",
+          "sha256": "812051aa626b50c36c0566c7a402357ba4246cf2a27f43e95b83616ec072f05b",
+          "bytes": 3060,
+          "currentSha256": "812051aa626b50c36c0566c7a402357ba4246cf2a27f43e95b83616ec072f05b",
+          "currentBytes": 3060
+        },
+        {
+          "path": "frontend/scripts/master-ws-contract.test.cjs",
+          "sha256": "a7a0264cdd96b4ca147abf15f5540ed5392b6004d7cc847f2c381b1bfc7ac967",
+          "bytes": 5135,
+          "currentSha256": "a7a0264cdd96b4ca147abf15f5540ed5392b6004d7cc847f2c381b1bfc7ac967",
+          "currentBytes": 5135
+        }
+      ]
+    }
+  ],
+  "config": [
+    {
+      "owner": "frontend/package.json",
+      "sha256": "5116d091608dc87b9e2daa5cc16229747aa304bb2acf088f5d6a09ee94fc2978",
+      "bytes": 11308,
+      "currentSha256": "5116d091608dc87b9e2daa5cc16229747aa304bb2acf088f5d6a09ee94fc2978"
+    },
+    {
+      "owner": "frontend/tsconfig.json",
+      "sha256": "a6bba5f9caa9212d7c7ea83533ed6764c42b44ac5523b2e28ad6586335e9e8ca",
+      "bytes": 472,
+      "currentSha256": "a6bba5f9caa9212d7c7ea83533ed6764c42b44ac5523b2e28ad6586335e9e8ca"
+    },
+    {
+      "owner": "backend/package.json",
+      "sha256": "d80b98882d494fd76769f6bb852ef92f8af0ecd254f73a8209a0b218bb7473d8",
+      "bytes": 19196,
+      "currentSha256": "d80b98882d494fd76769f6bb852ef92f8af0ecd254f73a8209a0b218bb7473d8"
+    },
+    {
+      "owner": "backend/tsconfig.build.json",
+      "sha256": "0aa0c841251d5247a576df9bb4ac4f043cbf1e2a7865fbb571678efaf6238627",
+      "bytes": 86,
+      "currentSha256": "0aa0c841251d5247a576df9bb4ac4f043cbf1e2a7865fbb571678efaf6238627"
+    },
+    {
+      "owner": "backend/tsconfig.json",
+      "sha256": "de5ca2da1513bce9ac8ff389ddc56f40e515e844750d1ebfe0e0e897c3c47f6a",
+      "bytes": 344,
+      "currentSha256": "de5ca2da1513bce9ac8ff389ddc56f40e515e844750d1ebfe0e0e897c3c47f6a"
+    },
+    {
+      "owner": "frontend/vite.config.ts",
+      "sha256": "1b41efc9dde4f96226b5fe3708f2c7b5b42c63570890cdc817d1e090b0f96c79",
+      "bytes": 758,
+      "currentSha256": "1b41efc9dde4f96226b5fe3708f2c7b5b42c63570890cdc817d1e090b0f96c79"
+    },
+    {
+      "owner": "package-lock.json",
+      "sha256": "42f9edd28e9901021f29e36529ab276e7aaae427809a7f9ce54da5a49ecdb523",
+      "bytes": 256102,
+      "currentSha256": "42f9edd28e9901021f29e36529ab276e7aaae427809a7f9ce54da5a49ecdb523"
+    },
+    {
+      "owner": "package.json",
+      "sha256": "0489b2feebed43d160fda5a0519b7a696d6db5834478e558b399197bd75213de",
+      "bytes": 5546,
+      "currentSha256": "0489b2feebed43d160fda5a0519b7a696d6db5834478e558b399197bd75213de"
+    }
+  ],
+  "deltaChecks": [
+    {
+      "owner": "backend/scripts/master-r2-chat-chain.test.js",
+      "expected": "2139c63fa934c26961a2ee8eeb5e78b87d334fee4d32b0d2493688bfff8bb889",
+      "current": "2139c63fa934c26961a2ee8eeb5e78b87d334fee4d32b0d2493688bfff8bb889",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-chat-chain.test.js",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-chat-fixture.cjs",
+      "expected": "1a037bc38df89db37ba446d9c7e03b85324a6b443a6a278f44add1e3f652696c",
+      "current": "1a037bc38df89db37ba446d9c7e03b85324a6b443a6a278f44add1e3f652696c",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-chat-fixture.cjs",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-handover-fixture.cjs",
+      "expected": "d59ffc128e14906ff8f34103491394c8ffac591a6cfdce48d242d11ae84742c7",
+      "current": "d59ffc128e14906ff8f34103491394c8ffac591a6cfdce48d242d11ae84742c7",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-handover-fixture.cjs",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-membership-future.test.js",
+      "expected": "34a12946cf863743ee7b33249e4aac12b9918bec40d054ff1f9f7a34ea015396",
+      "current": "34a12946cf863743ee7b33249e4aac12b9918bec40d054ff1f9f7a34ea015396",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-membership-future.test.js",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-publication-fixture.cjs",
+      "expected": "4b2a333a72a65c5def991bdb1f76138e3d0a3367ad216145d3702891284fb108",
+      "current": "4b2a333a72a65c5def991bdb1f76138e3d0a3367ad216145d3702891284fb108",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-publication-fixture.cjs",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-publication.test.js",
+      "expected": "83aaadcc5a266e38d83af755ec456b254fdf5a3e0a163b5679c6170576543076",
+      "current": "83aaadcc5a266e38d83af755ec456b254fdf5a3e0a163b5679c6170576543076",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-publication.test.js",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-related-replay.test.js",
+      "expected": "2c7e0b33f4d704f32b1c2f6b9f76c15d1be5c278be327154f7adba674f75bb57",
+      "current": "2c7e0b33f4d704f32b1c2f6b9f76c15d1be5c278be327154f7adba674f75bb57",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-related-replay.test.js",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-replay.test.js",
+      "expected": "3bdd467d4d6797a75384eb1ade327c78044a60619ef5a1919c9a9bcda43795ac",
+      "current": "3bdd467d4d6797a75384eb1ade327c78044a60619ef5a1919c9a9bcda43795ac",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-replay.test.js",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-service-bridge.cjs",
+      "expected": "3061d376359fb04d2de26a9d402d8154257e3d1495715fd71f22dfb0bfa6b646",
+      "current": "3061d376359fb04d2de26a9d402d8154257e3d1495715fd71f22dfb0bfa6b646",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-service-bridge.cjs",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-stock-replay.test.js",
+      "expected": "3f8b81f5f68f402a5ba15845499de445aa58bde7b33397af6b13acb95e57a015",
+      "current": "3f8b81f5f68f402a5ba15845499de445aa58bde7b33397af6b13acb95e57a015",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-stock-replay.test.js",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r2-task-fixture.cjs",
+      "expected": "03941c8126b914f8913fc00e12c813fb958b7bc33211817c6ab8236b59a613bd",
+      "current": "03941c8126b914f8913fc00e12c813fb958b7bc33211817c6ab8236b59a613bd",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/scripts/master-r2-task-fixture.cjs",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/scripts/master-r3-live-gate.cjs",
+      "expected": "d14752d110fab356b20b61d054bc6de495aed77f58cfb17aa6d972ed53f5c3f8",
+      "current": "d14752d110fab356b20b61d054bc6de495aed77f58cfb17aa6d972ed53f5c3f8",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r3-live-gate.cjs",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/G-preparation-before/backend/scripts/master-r3-live-gate.cjs",
+        "time": "2026-09-15T21:15:17.980Z"
+      }
+    },
+    {
+      "owner": "backend/scripts/master-r3-live-gate.test.js",
+      "expected": "dc16d4b2b9d5ca363dc732dd1f3898637523978123ee5f343fd1f8a1bc68ab88",
+      "current": "dc16d4b2b9d5ca363dc732dd1f3898637523978123ee5f343fd1f8a1bc68ab88",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r3-live-gate.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/G-preparation-before/backend/scripts/master-r3-live-gate.test.js",
+        "time": "2026-09-15T21:15:17.980Z"
+      }
+    },
+    {
+      "owner": "backend/scripts/master-r3-quantity.test.js",
+      "expected": "a4bea6198fbd4c5606f931a87dc75e911db8d4d931037d65af04f0f25734017d",
+      "current": "a4bea6198fbd4c5606f931a87dc75e911db8d4d931037d65af04f0f25734017d",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r3-quantity.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/E-quantity-before/backend/scripts/master-r3-quantity.test.js",
+        "time": "2026-09-15T20:57:22.808Z"
+      }
+    },
+    {
+      "owner": "backend/scripts/master-r3-receivers.test.js",
+      "expected": "047824b01a4654caac086e53ce00654261cf6677e662dcb266fc7b0823e0c4a0",
+      "current": "047824b01a4654caac086e53ce00654261cf6677e662dcb266fc7b0823e0c4a0",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "backend/scripts/master-r3-receivers.test.js",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/E-bridge-before/backend/scripts/master-r3-receivers.test.js",
+        "time": "2026-09-15T20:38:19.038Z"
+      }
+    },
+    {
+      "owner": "backend/src/common/quantity-release.service.ts",
+      "expected": "0760cf0c3a481ae384972e11f012bf6744ff72fce1e6dfe5996a8ed09195226d",
+      "current": "0760cf0c3a481ae384972e11f012bf6744ff72fce1e6dfe5996a8ed09195226d",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/src/common/quantity-release.service.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/src/modules/orders/orders.service.ts",
+      "expected": "3cf44648254032e20d65026a6c873408e0f5083a26ee66cb10d6284b8e5fa177",
+      "current": "3cf44648254032e20d65026a6c873408e0f5083a26ee66cb10d6284b8e5fa177",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/src/modules/orders/orders.service.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/src/modules/shift/shift.service.ts",
+      "expected": "a3256391bfd4626d88114c4d218b90ef90ced8cc61678faed32604597b1a6617",
+      "current": "a3256391bfd4626d88114c4d218b90ef90ced8cc61678faed32604597b1a6617",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/src/modules/shift/shift.service.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "backend/src/modules/wash/wash.service.ts",
+      "expected": "a06bcaa0e1e47b7ea3a1878d7f457c7a6e821f9b5cf4bcb959d4770e55e40957",
+      "current": "a06bcaa0e1e47b7ea3a1878d7f457c7a6e821f9b5cf4bcb959d4770e55e40957",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/backend/src/modules/wash/wash.service.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/e2e/component-contracts.spec.ts",
+      "expected": "f04e29097d5f4842ba0bb306b6b1d5e7b348565cf527a8093f6b208647c53e03",
+      "current": "f04e29097d5f4842ba0bb306b6b1d5e7b348565cf527a8093f6b208647c53e03",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/e2e/component-contracts.spec.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/e2e/helpers/components.tsx",
+      "expected": "f9be47a949c5f9e430dc7a88ff8bd470ffe52eb91d56c602fa0edc5c9aba1157",
+      "current": "f9be47a949c5f9e430dc7a88ff8bd470ffe52eb91d56c602fa0edc5c9aba1157",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/e2e/helpers/components.tsx",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/e2e/helpers/frontend-series.ts",
+      "expected": "7fcef9d5cfaaf5149276143313e9c078859fd0221c0f2c2e15749a4b1961b07d",
+      "current": "7fcef9d5cfaaf5149276143313e9c078859fd0221c0f2c2e15749a4b1961b07d",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/E-browser-identity-before/frontend/e2e/helpers/frontend-series.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/e2e/helpers/master-r2-bridge.ts",
+      "expected": "cda6ebef80230423b02228b0ea53e26331cb6eabf58427e90a04a643063993b2",
+      "current": "cda6ebef80230423b02228b0ea53e26331cb6eabf58427e90a04a643063993b2",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/e2e/helpers/master-r2-bridge.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/e2e/helpers/master-r2-reporter.ts",
+      "expected": "b5e56f6fe3a8a9500c486afd439daf299faa3646b6966d937f3ecea62fa63673",
+      "current": "b5e56f6fe3a8a9500c486afd439daf299faa3646b6966d937f3ecea62fa63673",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/e2e/helpers/master-r2-reporter.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/e2e/helpers/master-r3-context.tsx",
+      "expected": "d8f9a88b14e312769eedeef07c6e01828af08d2a9e4cc945ed80d91e97051bca",
+      "current": "d8f9a88b14e312769eedeef07c6e01828af08d2a9e4cc945ed80d91e97051bca",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/helpers/master-r3-context.tsx",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/B-lifecycle-before/frontend/e2e/helpers/master-r3-context.tsx",
+        "time": "2026-09-15T19:54:40.222Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/helpers/master-r3-trace.ts",
+      "expected": "facdf647a866d2842821a9c43be9dc9bd8b715140caf4ebcbf8f09508f442a55",
+      "current": "facdf647a866d2842821a9c43be9dc9bd8b715140caf4ebcbf8f09508f442a55",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/helpers/master-r3-trace.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/B-trace-before/frontend/e2e/helpers/master-r3-trace.ts",
+        "time": "2026-09-15T19:39:48.076Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-api-context.spec.ts",
+      "expected": "11284cc3a83f1988ef9f968355a57e475985482b3cbaf58d7ae12e322f9bdbbd",
+      "current": "11284cc3a83f1988ef9f968355a57e475985482b3cbaf58d7ae12e322f9bdbbd",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-api-context.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/C5-before/frontend/e2e/master-r3-api-context.spec.ts",
+        "time": "2026-09-15T20:10:59.542Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-bridge.spec.ts",
+      "expected": "5950df743c589882340fb72869b1c7c7a3b23e57d9e17e79ecf327a1b03ac99b",
+      "current": "5950df743c589882340fb72869b1c7c7a3b23e57d9e17e79ecf327a1b03ac99b",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-bridge.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/E-bridge-before/frontend/e2e/master-r3-bridge.spec.ts",
+        "time": "2026-09-15T20:38:19.038Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-consumers.spec.ts",
+      "expected": "733985435857e4a3328b3090992075595ddd5ac8e4a4c93d8f1d46cff315759a",
+      "current": "733985435857e4a3328b3090992075595ddd5ac8e4a4c93d8f1d46cff315759a",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-consumers.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/C1-compat-before/frontend/e2e/master-r3-consumers.spec.ts",
+        "time": "2026-09-15T20:09:55.178Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-context.spec.ts",
+      "expected": "ea73885bde47c1ec0b29410162a98dc4b9dbcc1a3df18c8dbef7e1daff905a9a",
+      "current": "ea73885bde47c1ec0b29410162a98dc4b9dbcc1a3df18c8dbef7e1daff905a9a",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-context.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/B-lifecycle-before/frontend/e2e/master-r3-context.spec.ts",
+        "time": "2026-09-15T19:54:40.222Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-form-back.spec.ts",
+      "expected": "8b5323dffa8fd071b88279aa7b83967cbe18fe0df11a8c42bb060266f4cbae50",
+      "current": "8b5323dffa8fd071b88279aa7b83967cbe18fe0df11a8c42bb060266f4cbae50",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-form-back.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/B-trace-second-before/frontend/e2e/master-r3-form-back.spec.ts",
+        "time": "2026-09-15T19:44:23.334Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "expected": "a3dae75a35a16aea32f334e70ed8b50e71ad112956f3e990073c6c4fa32638ca",
+      "current": "a3dae75a35a16aea32f334e70ed8b50e71ad112956f3e990073c6c4fa32638ca",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-form-layout.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/H-harness-v2-before/frontend/e2e/master-r3-form-layout.spec.ts",
+        "time": "2026-09-15T21:32:34.407Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-navigation.spec.ts",
+      "expected": "8199d69e4f92001caf52c21d7fb4e774a5cc61f4f19e10748fc33598c9767a68",
+      "current": "8199d69e4f92001caf52c21d7fb4e774a5cc61f4f19e10748fc33598c9767a68",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-navigation.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/B-trace-before/frontend/e2e/master-r3-navigation.spec.ts",
+        "time": "2026-09-15T19:39:48.076Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "expected": "d5213cc6507b7c536ebd14181b6f7267a6f86cefa46eabf90efcfdc12643c94e",
+      "current": "d5213cc6507b7c536ebd14181b6f7267a6f86cefa46eabf90efcfdc12643c94e",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-publication-layout.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/C4-copy-before/frontend/e2e/master-r3-publication-layout.spec.ts",
+        "time": "2026-09-15T20:48:42.043Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "expected": "5d85dacf2253a34b515cdacc9a22ef47863780d75a3946833e052b4f88ca8665",
+      "current": "5d85dacf2253a34b515cdacc9a22ef47863780d75a3946833e052b4f88ca8665",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-row-defrost.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/C2-row-defrost-before/frontend/e2e/master-r3-row-defrost.spec.ts",
+        "time": "2026-09-15T21:06:25.009Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "expected": "944f2d5402f6df9757c562ad9484446aec4651780e938a636c5e83e43e5246aa",
+      "current": "944f2d5402f6df9757c562ad9484446aec4651780e938a636c5e83e43e5246aa",
+      "beforePath": null,
+      "absenceReceipt": {
+        "owner": "frontend/e2e/master-r3-wash-retry.spec.ts",
+        "absent": true,
+        "snapshot": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/C2-wash-before/frontend/e2e/master-r3-wash-retry.spec.ts",
+        "time": "2026-09-15T20:21:25.785Z"
+      }
+    },
+    {
+      "owner": "frontend/e2e/master.playwright.config.ts",
+      "expected": "7da9cbfe85b7349ace7751cf921ad9ea4547a3fb5be48461ad22e912dc9517a2",
+      "current": "7da9cbfe85b7349ace7751cf921ad9ea4547a3fb5be48461ad22e912dc9517a2",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/e2e/master.playwright.config.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/scripts/master-r2-typecheck.cjs",
+      "expected": "812051aa626b50c36c0566c7a402357ba4246cf2a27f43e95b83616ec072f05b",
+      "current": "812051aa626b50c36c0566c7a402357ba4246cf2a27f43e95b83616ec072f05b",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/scripts/master-r2-typecheck.cjs",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/src/App.tsx",
+      "expected": "8dc5c3c25028a4021c77f71131b40454bbac21c529dfe684cbc7ef48cf8fc108",
+      "current": "8dc5c3c25028a4021c77f71131b40454bbac21c529dfe684cbc7ef48cf8fc108",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/src/App.tsx",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/src/api/client.ts",
+      "expected": "6795cc9e2e128c48c4460e7da24ece7a869b176fe087c6227ba8ece25904c074",
+      "current": "6795cc9e2e128c48c4460e7da24ece7a869b176fe087c6227ba8ece25904c074",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/C5-before/frontend/src/api/client.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/src/components/ActionModal.tsx",
+      "expected": "144b1a3c88d5ad39975a44dfed758fb82a579aed6be75da01d2c746890324a8a",
+      "current": "144b1a3c88d5ad39975a44dfed758fb82a579aed6be75da01d2c746890324a8a",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/src/components/ActionModal.tsx",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/src/hooks/useBodyScrollLock.ts",
+      "expected": "fdcb3eed48f5c2915ec20e872990b08b8bf11e2d679197c14e7e40a45b28a00a",
+      "current": "fdcb3eed48f5c2915ec20e872990b08b8bf11e2d679197c14e7e40a45b28a00a",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/src/hooks/useBodyScrollLock.ts",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "expected": "0d0674dcec5ec4239f319f595ef7fe376a925443ca8a736125825f2abf8ea730",
+      "current": "0d0674dcec5ec4239f319f595ef7fe376a925443ca8a736125825f2abf8ea730",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/C4-copy-before/frontend/src/screens/AnnouncementsScreen.tsx",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "expected": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+      "current": "996253b433332f6c97810b9306af9487227ac9d99f66bc1bb2697ebccfb9438d",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/C2-row-defrost-before/frontend/src/screens/ChecklistsScreen.tsx",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/src/screens/DefrostScreen.tsx",
+      "expected": "171f00c26d3ee9a1a56a7b4fc5eae607381480e9c8485e3affe79729479ed7f8",
+      "current": "171f00c26d3ee9a1a56a7b4fc5eae607381480e9c8485e3affe79729479ed7f8",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/C2-row-defrost-before/frontend/src/screens/DefrostScreen.tsx",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "expected": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+      "current": "0bb279c16fb786548d9209459569c14f1e867cf3a2b8a3c26a1d6a2155c43bcf",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/src/screens/PeopleScreen.tsx",
+      "absenceReceipt": null
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "expected": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "current": "c2c20698bc092ae434282f9b3d19fb6d39670824027bd5e5170a01d19e29c0d9",
+      "beforePath": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/snapshots/A-initial/frontend/src/screens/WashScreen.tsx",
+      "absenceReceipt": null
+    }
+  ],
+  "priorTestCounts": {
+    "backend": 489,
+    "types": 2,
+    "ws": 3,
+    "browser": 165,
+    "finalFailed": 0,
+    "finalNotRun": 0
+  },
+  "priorExpectedIds": [
+    {
+      "title": "R2-F form same-name text textarea replacement preserves edited and pristine baseline",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 21,
+      "id": "2fd6fa0058ee"
+    },
+    {
+      "title": "R2-F form option removal restoration preserves identity and seven typed empty zero false values",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 25,
+      "id": "6f8f5ddbcb7b"
+    },
+    {
+      "title": "Master 060 distinct images audio video document and four view modes share bounded resources",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 32,
+      "id": "c3b91ce70ae7"
+    },
+    {
+      "title": "Master 060 pending concurrent consumers share one request and last release owns URL",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 54,
+      "id": "efbaf69df45d"
+    },
+    {
+      "title": "Master 047 edited conditional field retains draft and dirty guard across hide show",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 74,
+      "id": "f8f4864813c0"
+    },
+    {
+      "title": "Master 060 denied retry context change and logout are isolated",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 86,
+      "id": "320ead2d1289"
+    },
+    {
+      "title": "Master 060 pending Back and unmount do not recreate protected URL or reopen layer",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 103,
+      "id": "e90c75a84fe3"
+    },
+    {
+      "title": "Master 060 timeout and 404 allow one fresh retry after failure",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 115,
+      "id": "79eee880df9e"
+    },
+    {
+      "title": "Master 047 child dirty file chooser cancellation and reordered fields preserve draft",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 126,
+      "id": "8f27666200ab"
+    },
+    {
+      "title": "Master 047 field families pristine edited revert late defaults busy and new entity",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 139,
+      "id": "557ca74bbd82"
+    },
+    {
+      "title": "Master 047 consumer without external busy cannot close or double-submit pending operation",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 161,
+      "id": "b4c07fb23d60"
+    },
+    {
+      "title": "Master 047 option labels reorder preserve selected identity while hidden drafts are not submitted",
+      "file": "frontend/e2e/component-contracts.spec.ts",
+      "line": 173,
+      "id": "952f6b39da14"
+    },
+    {
+      "title": "Series A navigation geometry and history end controls",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 6,
+      "id": "527e08d8f5a0"
+    },
+    {
+      "title": "Series A restricted navigation short page and long settings sheet",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 45,
+      "id": "5c49f85c4a17"
+    },
+    {
+      "title": "Series B real linked sources exact target and parent Back",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 78,
+      "id": "a8e6ac4ae19d"
+    },
+    {
+      "title": "Series B delayed board missing target and one-shot reload",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 110,
+      "id": "1ab42ffad190"
+    },
+    {
+      "title": "Series C internal notification read count and Back",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 145,
+      "id": "16e5e449494f"
+    },
+    {
+      "title": "Series C error retry duplicate adapters and foreign denial",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 175,
+      "id": "67d7ac937a8f"
+    },
+    {
+      "title": "Series D controlled async baseline and real Browser Back",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 242,
+      "id": "1d2c1b191427"
+    },
+    {
+      "title": "Series D real nested People number checkbox and reopen",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 293,
+      "id": "e10f9d4317bd"
+    },
+    {
+      "title": "Series E pending task cannot cross factory switch",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 329,
+      "id": "ac4c681be5bd"
+    },
+    {
+      "title": "Series E actual browser notification callback on isolated websocket",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 359,
+      "id": "d9b9a3acf93a"
+    },
+    {
+      "title": "Series E non-default People filters survive linked task return",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 385,
+      "id": "372b5df6c7ef"
+    },
+    {
+      "title": "Series E long ordinary page end hit-test and nav text ranges",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 416,
+      "id": "df9a31e9b1dd"
+    },
+    {
+      "title": "Series E affected timeline task writer returns exact selected shift",
+      "file": "frontend/e2e/frontend-series.spec.ts",
+      "line": 442,
+      "id": "7e7499e551fd"
+    },
+    {
+      "title": "Journey J14 036 ordinary comment differs from immutable handover and archive never writes receipt",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 9,
+      "id": "4dc93061087d"
+    },
+    {
+      "title": "Journey J29 report validation failed create then failed file retry retains one entity and draft",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 29,
+      "id": "fc75d015d6af"
+    },
+    {
+      "title": "Journey J32 one shell source task media Back notification factory modal dirty theme return",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 44,
+      "id": "c19ad0690bfd"
+    },
+    {
+      "title": "Master task detail readonly capability matches action sheet and never advertises forbidden writes",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 66,
+      "id": "97d08dd68c86"
+    },
+    {
+      "title": "Master 069 install shared settings login cancellation acceptance event and reload",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 74,
+      "id": "9b2d2b2939c3"
+    },
+    {
+      "title": "Master 069 separate media gestures success denial and late stream cleanup",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 99,
+      "id": "abe76e48b854"
+    },
+    {
+      "title": "Master 063 manager future night profile returns selected date panel search",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 121,
+      "id": "2cc81d499fcd"
+    },
+    {
+      "title": "Master 044 read response after factory switch stays cancelled",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 156,
+      "id": "5417c69c3b14"
+    },
+    {
+      "title": "Master 044 unread response after factory switch stays cancelled",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 156,
+      "id": "52e37a2bb02a"
+    },
+    {
+      "title": "Master 044 authority response after factory switch stays cancelled",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 156,
+      "id": "7e36f0ad42b9"
+    },
+    {
+      "title": "Master 044 last distinct notification intent wins reversed authority responses",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 185,
+      "id": "2078ae7eebf7"
+    },
+    {
+      "title": "Master 063 authorized detail outside board300 uses existing guarded endpoint",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 203,
+      "id": "48f957887453"
+    },
+    {
+      "title": "Master 063 guarded detail errors preserve honest denial and explicit retry",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 218,
+      "id": "938503f122ba"
+    },
+    {
+      "title": "Master 063 pending detail cancelled by Back and new target wins reversed replies",
+      "file": "frontend/e2e/master-integration.spec.ts",
+      "line": 238,
+      "id": "13636bac7e55"
+    },
+    {
+      "title": "R2-E-J19 real browser controller service ack failure retry notification report personal archive",
+      "file": "frontend/e2e/master-r2-bridge.spec.ts",
+      "line": 13,
+      "id": "5d31adeab9ac"
+    },
+    {
+      "title": "R2-E-J14 real browser handover exact payload service saved snapshot reader ordinary comment archive readonly",
+      "file": "frontend/e2e/master-r2-bridge.spec.ts",
+      "line": 35,
+      "id": "d42eb2015fb6"
+    },
+    {
+      "title": "R2-F FS15 profile dark 1440x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "3aa9efc53653"
+    },
+    {
+      "title": "R2-F FS15 profile dark 360x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "413e0add04d6"
+    },
+    {
+      "title": "R2-F FS15 profile dark 390x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "10fab6f7d61d"
+    },
+    {
+      "title": "R2-F FS15 profile dark 430x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "25e154b66a1d"
+    },
+    {
+      "title": "R2-F FS15 profile dark 360x640 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "cd0fbdd4f69d"
+    },
+    {
+      "title": "R2-F FS15 profile gray 1440x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "7bffc6d4f768"
+    },
+    {
+      "title": "R2-F FS15 profile gray 360x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "ff793c426433"
+    },
+    {
+      "title": "R2-F FS15 profile gray 390x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "cf8e02351bf5"
+    },
+    {
+      "title": "R2-F FS15 profile gray 430x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "b8d142209906"
+    },
+    {
+      "title": "R2-F FS15 profile gray 360x640 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "d0ab9b319f1d"
+    },
+    {
+      "title": "R2-F FS15 profile light 1440x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "8560f42feacb"
+    },
+    {
+      "title": "R2-F FS15 profile light 360x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "31fefedad5dd"
+    },
+    {
+      "title": "R2-F FS15 profile light 390x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "1ed4bf9b171f"
+    },
+    {
+      "title": "R2-F FS15 profile light 430x844 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "59a304c5e1f5"
+    },
+    {
+      "title": "R2-F FS15 profile light 360x640 Shift and People",
+      "file": "frontend/e2e/master-r2-profile.spec.ts",
+      "line": 4,
+      "id": "e6d47b82d65a"
+    },
+    {
+      "title": "R2-E-J04 People MASTER nonzero scroll filters task Back exact restore",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 15,
+      "id": "be79b1ffdd18"
+    },
+    {
+      "title": "R2-E-J04 People TECH_MECHANIC nonzero scroll filters task Back exact restore",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 15,
+      "id": "77a766a1ee81"
+    },
+    {
+      "title": "R2-E-J04 MASTER current-line nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "58ed4dedc1f2"
+    },
+    {
+      "title": "R2-E-J04 MASTER work-area nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "6120fec4ef7d"
+    },
+    {
+      "title": "R2-E-J04 MASTER planning-line nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "62fac8ec32bd"
+    },
+    {
+      "title": "R2-E-J04 MASTER future-work-area nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "a8c9203e1ee7"
+    },
+    {
+      "title": "R2-E-J04 MASTER attendance nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "3d2cd661f7b0"
+    },
+    {
+      "title": "R2-E-J04 MANAGEMENT current-line nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "bf0d108b5bd1"
+    },
+    {
+      "title": "R2-E-J04 MANAGEMENT work-area nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "b47a2da372e9"
+    },
+    {
+      "title": "R2-E-J04 MANAGEMENT planning-line nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "5257f349ad62"
+    },
+    {
+      "title": "R2-E-J04 MANAGEMENT future-work-area nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "48cc2034dda1"
+    },
+    {
+      "title": "R2-E-J04 MANAGEMENT attendance nonzero parent exact task outside board return",
+      "file": "frontend/e2e/master-r2-return.spec.ts",
+      "line": 24,
+      "id": "be6e3221329b"
+    },
+    {
+      "title": "R3-C5 actual request response rejects Завод А–Б–А",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "87d336cc8670"
+    },
+    {
+      "title": "R3-C5 actual request response rejects Отозвать право",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "1e1bac906391"
+    },
+    {
+      "title": "R3-C5 actual request response rejects Выход и повторный вход",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "c361174f0d63"
+    },
+    {
+      "title": "R3-C5 actual request response rejects Другой пользователь",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "2e1a502cd38b"
+    },
+    {
+      "title": "R3-C5 actual download response rejects Завод А–Б–А",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "a5d4db98151c"
+    },
+    {
+      "title": "R3-C5 actual download response rejects Отозвать право",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "44a8a1cbfd2e"
+    },
+    {
+      "title": "R3-C5 actual download response rejects Выход и повторный вход",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "5a77cb9d5ded"
+    },
+    {
+      "title": "R3-C5 actual download response rejects Другой пользователь",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "9ed19834fc63"
+    },
+    {
+      "title": "R3-C5 actual upload response rejects Завод А–Б–А",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "6ca70004aaf6"
+    },
+    {
+      "title": "R3-C5 actual upload response rejects Отозвать право",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "8cac316ca98a"
+    },
+    {
+      "title": "R3-C5 actual upload response rejects Выход и повторный вход",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "663d68bb8e88"
+    },
+    {
+      "title": "R3-C5 actual upload response rejects Другой пользователь",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 12,
+      "id": "471b6c72a54e"
+    },
+    {
+      "title": "R3-C5 actual client serialization preserves zero false empty null and omitted undefined",
+      "file": "frontend/e2e/master-r3-api-context.spec.ts",
+      "line": 21,
+      "id": "f724ce7c1990"
+    },
+    {
+      "title": "R3-E Task UI serializes create take complete through actual authority controllers receivers readers",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 5,
+      "id": "acc10fa58cd3"
+    },
+    {
+      "title": "R3-C4 actual publication expired UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "b4ca9597497f"
+    },
+    {
+      "title": "R3-C4 actual publication future UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "25e5c1527d5a"
+    },
+    {
+      "title": "R3-E Chat actual message attachment preview membership revoke denies new bytes and releases client resource",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 34,
+      "id": "c8f74121b8e6"
+    },
+    {
+      "title": "R3-B063 untraced stable dark 1440 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "bb9395fe067c"
+    },
+    {
+      "title": "R3-B063 untraced stable dark 360 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "a475284596b8"
+    },
+    {
+      "title": "R3-B063 untraced stable dark 390 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "1f7750b9f83d"
+    },
+    {
+      "title": "R3-B063 untraced stable dark 430 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "404f91180d28"
+    },
+    {
+      "title": "R3-B063 untraced stable gray 1440 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "b46d291086ef"
+    },
+    {
+      "title": "R3-B063 untraced stable gray 360 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "34a8742b8e4e"
+    },
+    {
+      "title": "R3-B063 untraced stable gray 390 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "def2403065ad"
+    },
+    {
+      "title": "R3-B063 untraced stable gray 430 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "27452d943942"
+    },
+    {
+      "title": "R3-B063 untraced stable light 1440 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "137e385c3e94"
+    },
+    {
+      "title": "R3-B063 untraced stable light 360 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "e4a49a96970d"
+    },
+    {
+      "title": "R3-B063 untraced stable light 390 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "647dae2447c0"
+    },
+    {
+      "title": "R3-B063 untraced stable light 430 exact context nested media Back",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 14,
+      "id": "75a6e767e594"
+    },
+    {
+      "title": "R3-B063 user scroll cancels pending late-list restoration",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 43,
+      "id": "90d46b575acb"
+    },
+    {
+      "title": "R3-B063 response after rapid Back cannot reopen source profile",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 60,
+      "id": "3f03a4b8a294"
+    },
+    {
+      "title": "R3-C1 actual People dependent position preserves invalid draft and sends only chosen current line",
+      "file": "frontend/e2e/master-r3-consumers.spec.ts",
+      "line": 70,
+      "id": "7c6fad0b61da"
+    },
+    {
+      "title": "R3-B2 actual App auth-context revoke invalidates People draft and Back owner",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 5,
+      "id": "25a7c6aa9f94"
+    },
+    {
+      "title": "R3-C5 response committed before revoke cannot trigger stale People follow-up reads",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 22,
+      "id": "80914e803e96"
+    },
+    {
+      "title": "R3-B2 exact F-form-tail-02 actual focus first Back then pristine close",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 15,
+      "id": "8afc1346199d"
+    },
+    {
+      "title": "R3-B2 untouched form real Back closes after explicit normal blur",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 32,
+      "id": "b78d737ab980"
+    },
+    {
+      "title": "R3-B2 pristine Название focused actual Back blurs then closes",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 43,
+      "id": "084f42381834"
+    },
+    {
+      "title": "R3-B2 pristine Комментарий focused actual Back blurs then closes",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 43,
+      "id": "ffaca2d9d01b"
+    },
+    {
+      "title": "R3-B2 pristine Получатель focused actual Back blurs then closes",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 43,
+      "id": "83fb449ea100"
+    },
+    {
+      "title": "R3-B2 pristine Количество focused actual Back blurs then closes",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 43,
+      "id": "6a91c219b1c3"
+    },
+    {
+      "title": "R3-B2 pristine Включено focused actual Back blurs then closes",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 43,
+      "id": "3c9e2b65f65f"
+    },
+    {
+      "title": "R3-C1 permanently removed selection preserved visibly and blocked until explicit replacement",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 49,
+      "id": "166e229b5498"
+    },
+    {
+      "title": "R3-C1 incompatible text checkbox keeps separate drafts without string true conversion",
+      "file": "frontend/e2e/master-r3-form-back.spec.ts",
+      "line": 61,
+      "id": "93c5f7b2810d"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual dark 1440",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "01641e8de0ae"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual dark 360",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "e04fbcaf69ae"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual dark 390",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "c1c34c69301b"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual dark 430",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "d03766e44206"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual gray 1440",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "346dc287ca0f"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual gray 360",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "e60900bf6267"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual gray 390",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "1b91fdc1c522"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual gray 430",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "ef12cae8b22b"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual light 1440",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "a94e3d9a23cd"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual light 360",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "dd56e6e15e1d"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual light 390",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "9aee0a5c04fb"
+    },
+    {
+      "title": "R3-C1 actual dependent-option visual light 430",
+      "file": "frontend/e2e/master-r3-form-layout.spec.ts",
+      "line": 5,
+      "id": "42512a1cb4f6"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 immediate causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "04ea8a3283d1"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 profile-after-layout causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "a6d34e451120"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-people-after-unlock causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "4da2d68a7f00"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-after-people causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "b96b6a2c55b9"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-frame-before-close causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "3e7f75984f05"
+    },
+    {
+      "title": "R3-B063 original MASTER390x640 return-profile-frame-after-close causal first-pass",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 6,
+      "id": "dedafe783b2f"
+    },
+    {
+      "title": "R3-B profile refresh response after real Back does not reopen closed profile",
+      "file": "frontend/e2e/master-r3-navigation.spec.ts",
+      "line": 48,
+      "id": "d3bff0345373"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy dark 1440",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "62f9f7367f6c"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy dark 360",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "7eb24914bd39"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy dark 390",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "1e5e9582b8d6"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy dark 430",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "162c58e87b68"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy gray 1440",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "a71f1904014a"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy gray 360",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "9f42b3b8d4b8"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy gray 390",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "59ea2d593699"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy gray 430",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "4c546d8d43ca"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy light 1440",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "dc390c236253"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy light 360",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "860dd082f0db"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy light 390",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "d84ebb852854"
+    },
+    {
+      "title": "R3-C4 empty announcement factual copy light 430",
+      "file": "frontend/e2e/master-r3-publication-layout.spec.ts",
+      "line": 4,
+      "id": "ed7cb361c4e3"
+    },
+    {
+      "title": "R3-C2 Defrost start same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "958bbb245dd2"
+    },
+    {
+      "title": "R3-C2 Defrost complete same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "939145e898d1"
+    },
+    {
+      "title": "R3-C2 Defrost blow same-input retry retains key edited/reopened attempt gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 4,
+      "id": "a22e87ff2d13"
+    },
+    {
+      "title": "R3-C2 Checklist row numeric zero retry retains key changed answer gets new key",
+      "file": "frontend/e2e/master-r3-row-defrost.spec.ts",
+      "line": 20,
+      "id": "38f1185cfb83"
+    },
+    {
+      "title": "R3-C2 actual Wash request retry retains operation ID within one form attempt",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 4,
+      "id": "e80e80b1c0b0"
+    },
+    {
+      "title": "R3-C2 actual Wash start retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "949eac1f684b"
+    },
+    {
+      "title": "R3-C2 actual Wash message retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "f99bd96fbb86"
+    },
+    {
+      "title": "R3-C2 actual Wash issue retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "27ab542af584"
+    },
+    {
+      "title": "R3-C2 actual Wash complete retry retains operation ID",
+      "file": "frontend/e2e/master-r3-wash-retry.spec.ts",
+      "line": 17,
+      "id": "6707d62d239a"
+    },
+    {
+      "title": "Journey J23 J24 populated Ops query projections Audit labels Back and honest error recovery",
+      "file": "frontend/e2e/module-journeys.spec.ts",
+      "line": 5,
+      "id": "c416881e6994"
+    },
+    {
+      "title": "Journey J12 J13 real checklist typed runner empty validation 503 retry reopen numeric zero",
+      "file": "frontend/e2e/module-journeys.spec.ts",
+      "line": 24,
+      "id": "98f0c84c7ce6"
+    },
+    {
+      "title": "Journey J22 all archive categories list detail denial retry export keep canonical query and Back",
+      "file": "frontend/e2e/module-journeys.spec.ts",
+      "line": 46,
+      "id": "464b20577281"
+    },
+    {
+      "title": "Master 063 dirty source intent Stay preserves draft and confirmed leave opens exact task",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 5,
+      "id": "c861b27bf2e3"
+    },
+    {
+      "title": "Visual current shared Settings install and task form dark native four widths",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 28,
+      "id": "293314cc0bae"
+    },
+    {
+      "title": "Visual current shared Settings install and task form gray native four widths",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 28,
+      "id": "7e83d4365d70"
+    },
+    {
+      "title": "Visual current shared Settings install and task form light native four widths",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 28,
+      "id": "767dd0196b80"
+    },
+    {
+      "title": "Master THV06 low height breakpoint nav insets and blocking layer hit testing",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 49,
+      "id": "b366df43b1ab"
+    },
+    {
+      "title": "Master 069 installed event prompt failure recovery and update banner dirty coexistence",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 60,
+      "id": "14c80093672e"
+    },
+    {
+      "title": "Master 069 cold standalone reload and permission change unavailable error recovery",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 70,
+      "id": "cf7a3efe185b"
+    },
+    {
+      "title": "Master 044 late read after logout and login another user cannot restore prior identity",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 90,
+      "id": "30039dd33ea4"
+    },
+    {
+      "title": "Master 044 late unread after logout and login another user cannot restore prior identity",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 90,
+      "id": "c93a0e546a6d"
+    },
+    {
+      "title": "Master 044 late authority after logout and login another user cannot restore prior identity",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 90,
+      "id": "5c02b3d166de"
+    },
+    {
+      "title": "Master 063 capability revoke cancels queued dirty intent and task pending details",
+      "file": "frontend/e2e/review-variants.spec.ts",
+      "line": 108,
+      "id": "70d10cf3f6e4"
+    }
+  ],
+  "parentRetainedReference": {
+    "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r3/handoff/parent-matrix-retention.json",
+    "sha256": "6681745b026f544a6ac91dee500e92e80f9db86ef19e8dc0e9e6dc795d0de898",
+    "keys": [
+      "at",
+      "main",
+      "parent",
+      "matrices",
+      "countsAreHistoricalNotReaccepted",
+      "denominatorChangedByR2"
+    ]
+  },
+  "dirtyBaseline": {
+    "sha256": "b90154d086abebb7509cf8346c576d8bfa0a23d99a0bb336ce352128e7d39456",
+    "lines": 4849,
+    "attribution": "PREEXISTING except initial R4 docs; not R4 product changes"
+  },
+  "mainSweep": "PAUSED_BY_USER / NOT_ACCEPTED",
+  "workingDbAccessed": false
+}

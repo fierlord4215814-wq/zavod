@@ -1,0 +1,26 @@
+✔ Admin createLine: same existing scoped invalidation only after commit (4.9843ms)
+✔ Admin updateLine: same existing scoped invalidation only after commit (0.8209ms)
+✔ Admin createPosition: same existing scoped invalidation only after commit (1.1115ms)
+✔ Admin updatePosition: same existing scoped invalidation only after commit (0.8647ms)
+✔ factory edit is same-factory ADMIN only; name/code/audit, no access mutation (1.8472ms)
+✔ factory empty/invalid/duplicate code rejects without commit or audit (1.278ms)
+✔ failed line transaction cannot emit success invalidation (0.9706ms)
+✔ checklist workspace discloses pause form rule, not administrative settings (4.2449ms)
+✔ self shift cancel capability is not the comment requirement; disabled permission stays denied (8.6907ms)
+✔ task board includes only current form hints for non-admin readers, keeps four lanes (0.723ms)
+✔ order summary exposes only operational form hints, without requiring full settings read (0.688ms)
+✔ R2-A checklist missing processed result denies before changing a current answer (18.3161ms)
+✔ R2-E-J12 actual template run numeric0 false photo occurrence retry pause resume close archive identities (17.7312ms)
+✔ R2-E-J12 template/start negative foreign no run mutation (1.5704ms)
+✔ R2-E-J12 template/start negative wrong-department no run mutation (1.1469ms)
+✔ R2-E-J12 template/start negative missing-capability no run mutation (2.0503ms)
+✔ R2-E-J12 template/start negative past-target no run mutation (2.4129ms)
+✔ R2-E-J12 pure occurrence completion at explicit shift end does not create another occurrence (3.8811ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1578.9258

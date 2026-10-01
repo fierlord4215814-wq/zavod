@@ -1,0 +1,37 @@
+{
+  "oldFailureExists": false,
+  "at": "2026-09-20T16:26:34.4288299+03:00",
+  "oldTerminalExists": false,
+  "requests": [
+    {
+      "data": {
+        "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+        "operation": "SHUTDOWN"
+      },
+      "exists": true,
+      "name": "000006.request.json",
+      "sha256": "101d76f27749bbfe7eba763e3afd532fdab6ceceafc6e546eb25a2f36e41d675"
+    },
+    {
+      "data": null,
+      "exists": false,
+      "name": "000006.result.json",
+      "sha256": null
+    },
+    {
+      "data": {
+        "vmId": "99a158da-c247-422c-ae11-109485a92b1f",
+        "operation": "EXIT_COORDINATOR"
+      },
+      "exists": true,
+      "name": "000007.request.json",
+      "sha256": "531d9ecf05a4fda1e24956ebd0db10bbfb73b56316a94b14543911c1ac2ab5ef"
+    },
+    {
+      "data": null,
+      "exists": false,
+      "name": "000007.result.json",
+      "sha256": null
+    }
+  ]
+}

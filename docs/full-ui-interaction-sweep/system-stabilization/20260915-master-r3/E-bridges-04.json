@@ -1,0 +1,95 @@
+{
+  "startedAt": "2026-09-15T20:53:14.443Z",
+  "expected": [
+    {
+      "title": "R3-E Task UI serializes create take complete through actual authority controllers receivers readers",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 5,
+      "id": "acc10fa58cd3"
+    },
+    {
+      "title": "R3-C4 actual publication expired UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "b4ca9597497f"
+    },
+    {
+      "title": "R3-C4 actual publication future UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "25e5c1527d5a"
+    },
+    {
+      "title": "R3-E Chat actual message attachment preview membership revoke denies new bytes and releases client resource",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 34,
+      "id": "c8f74121b8e6"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-E Task UI serializes create take complete through actual authority controllers receivers readers",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 5,
+      "id": "acc10fa58cd3",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3683,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-C4 actual publication expired UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "b4ca9597497f",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 9944,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-C4 actual publication future UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "25e5c1527d5a",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 9842,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-E Chat actual message attachment preview membership revoke denies new bytes and releases client resource",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 34,
+      "id": "c8f74121b8e6",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 10031,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.attachment-viewer')\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('.attachment-viewer')\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-bridges-04\\runner-artifacts\\master-r3-bridge-R3-E-Chat-3be99-nd-releases-client-resource\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-bridges-04\\runner-artifacts\\master-r3-bridge-R3-E-Chat-3be99-nd-releases-client-resource\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T20:53:49.671Z",
+  "status": "failed",
+  "listOnly": false
+}

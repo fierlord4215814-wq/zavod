@@ -1,0 +1,72 @@
+{
+  "status": "PASS_DIRECT_FILE_UNREAD_READ_REAL_RECONNECT_WORKER_CONTRACTOR_DENY",
+  "id": "6c7a1338-4b1f-46e2-aa42-68e458d7f598",
+  "messageId": "34a58252-556d-4b6b-8d12-f2ab8040faed",
+  "unreadMs": 108,
+  "unreadText": "1",
+  "file": {
+    "id": "e88195ec-1fbf-4231-b150-44ea2fae12ac",
+    "sha256": "fefbe2f007b3b667e5eb7048db917042945ebd25c6f715eb4c2d6dac464da4eb",
+    "bytes": 1521
+  },
+  "unreadAfter": 0,
+  "readSql": [
+    {
+      "id": "696e89d7-839d-4988-91df-6d8b1dd56b1e",
+      "lastReadAt": "2026-09-26T20:43:19.300Z"
+    }
+  ],
+  "reconnect": {
+    "messageId": "0d7edd62-4de2-4b58-a93d-3a0e688fa053",
+    "uiMs": 4906,
+    "connectedBefore": 1,
+    "connectedAfter": 2,
+    "realClosedSockets": 2,
+    "mechanism": "real own WebSocket close/reconnect with transparent forwarding; canonical detail polling also active; no F5"
+  },
+  "error": "The expression evaluated to a falsy value:\n\n  assert(ev.reconnect.connectedAfter>before)\n",
+  "uiA": "←\nУТ\nУчебный-Кладовщик-02 Тестовый\n\nЛичный чат · 2 участника\n\n⋯\nСегодня\nУТ\nУчебный-Кладовщик-01 Тестовый · УЧ — Склад T1\n23:42\n\nУЧ T1 — личная переписка склада\n\n23:42\n\nУЧ T1 — сообщение во время отключения читателя\n\n📎\n🙂\n🎙",
+  "uiB": "УЧЕБНЫЙ ЗАВОД T1\n\nЗавод\n\nОнлайн · Склад Учебный-Кладовщик-02 Т.\n1\nЧаты\n\nВнутренний мессенджер завода: отделы, группы, вложения и прочитанные сообщения.\n\nЛичный чат\nНовое сообщение в открытом чате\nВсе\nНепрочитанные\nЛичные\nОтделы\nГруппы\nУТ\nУчебный-Кладовщик-01 Тестовый\n23:42\nЛичный чат · 2 уч.\nУЧ T1 — сообщение во время отключения читателя\n1\nУТ\nУчебный-Кладовщик-01 Тестовый\n\nЛичный чат · 2 участника\n\nУчастники\nОбновить\nСегодня\nУТ\nУчебный-Кладовщик-01 Тестовый · УЧ — Склад T1\n23:42\n...\n\nУЧ T1 — личная переписка склада\n\n23:42\n...\n\nУЧ T1 — сообщение во время отключения читателя\n\n📎\n🙂\n🎙\nЛюди\nЗаказы / Остатки\nВозвраты на производство\nПересменка / Журнал\nЧаты\nОбъявления\nАрхив\nУведомления\n1\nСообщить об ошибке\nНастройки",
+  "priorOfflineObservation": {
+    "messageId": "8dd40cc8-a2b7-43d1-a933-b9070818ed32",
+    "uiMs": 2596,
+    "connectedBefore": 1,
+    "connectedAfter": 1,
+    "mechanism": "real context offline/online; canonical WS reconnect and detail polling, no F5"
+  },
+  "denied": [
+    {
+      "role": "WORKER",
+      "menuAbsent": true,
+      "list": 403,
+      "detail": 403,
+      "send": 403,
+      "file": 403
+    },
+    {
+      "role": "CONTRACTOR",
+      "menuAbsent": true,
+      "list": 403,
+      "detail": 403,
+      "send": 403,
+      "file": 403
+    }
+  ],
+  "sql": [
+    {
+      "id": "34a58252-556d-4b6b-8d12-f2ab8040faed",
+      "authorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+      "deletedAt": null
+    },
+    {
+      "id": "8dd40cc8-a2b7-43d1-a933-b9070818ed32",
+      "authorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+      "deletedAt": null
+    },
+    {
+      "id": "0d7edd62-4de2-4b58-a93d-3a0e688fa053",
+      "authorId": "341fbc94-6df6-42de-9d2f-a26f9789ede4",
+      "deletedAt": null
+    }
+  ]
+}

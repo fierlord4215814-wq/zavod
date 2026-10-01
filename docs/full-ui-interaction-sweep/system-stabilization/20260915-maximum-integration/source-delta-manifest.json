@@ -1,0 +1,553 @@
+{
+  "productFingerprint": "0b2bd805f1eb468accfe99e9d9c58bc21d2fdbfe0c57c1763b20af6a618b8de4",
+  "records": [
+    {
+      "owner": "backend/src/common/pilot-visibility.ts",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "backend/src/common/pilot-visibility.ts",
+        "bytes": 12358,
+        "sha256": "a0a95350294236701de6bacc494bc7e4d7eba9386505c0c6045a38a84d4a060a",
+        "snapshot": "E046-050-053-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/E046-050-053-before/backend/src/common/pilot-visibility.ts",
+      "after": "snapshots/H-final/backend/src/common/pilot-visibility.ts",
+      "afterSha256": "4272eb0c5c7d567f8a3c7ba573c4f2e9d8ffec5fcce59c3bec327c6bdfb93b81",
+      "diff": "diffs/own-receipt-to-handoff/backend__src__common__pilot-visibility.ts.diff",
+      "createdAtFilesystem": "2026-05-22T06:53:42.995Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "backend/src/modules/archive/archive.service.ts",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "backend/src/modules/archive/archive.service.ts",
+        "bytes": 150240,
+        "sha256": "9bb661bfe83c9856206be8ac8cc96fa735136220a4cd2cc8528ccb16c37586c7",
+        "snapshot": "E042-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/E042-before/backend/src/modules/archive/archive.service.ts",
+      "after": "snapshots/H-final/backend/src/modules/archive/archive.service.ts",
+      "afterSha256": "54b607b0043ca6752232eb5244c9c15e42509699ed3799ca282930264f74c0ce",
+      "diff": "diffs/own-receipt-to-handoff/backend__src__modules__archive__archive.service.ts.diff",
+      "createdAtFilesystem": "2026-05-20T17:46:24.109Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/App.tsx",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/App.tsx",
+        "bytes": 65174,
+        "sha256": "4a953cf313e5ade81321dcf25e06da221403632dbd300cc89a2922deffb2b30f",
+        "snapshot": "C044-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/C044-before/frontend/src/App.tsx",
+      "after": "snapshots/H-final/frontend/src/App.tsx",
+      "afterSha256": "02755f640efeb756f872b1968cf73f736be96b9bfc2e10616ba2ba55c25057be",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__App.tsx.diff",
+      "createdAtFilesystem": "2026-05-04T15:59:07.296Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/api/attachment-preview-resource.ts",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/api/attachment-preview-resource.ts",
+        "absent": true,
+        "snapshot": "D060-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/src/api/attachment-preview-resource.ts",
+      "afterSha256": "145ffe9aac2de3901ddf95f785c12e3c369bc6902c89622825819fdb9614cfb8",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__api__attachment-preview-resource.ts.diff",
+      "createdAtFilesystem": "2026-09-15T00:56:57.927Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/components/ActionModal.tsx",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/components/ActionModal.tsx",
+        "bytes": 7633,
+        "sha256": "a99408dc71d11a55d10439b7a083cd1acb579fbab2f6caf8dcb51b7c0966b7a8",
+        "snapshot": "C047-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/C047-before/frontend/src/components/ActionModal.tsx",
+      "after": "snapshots/H-final/frontend/src/components/ActionModal.tsx",
+      "afterSha256": "7ec276d9b6ffc4383ca506f31366b9f12ebab8779e32e4ad96844273e0933d07",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__components__ActionModal.tsx.diff",
+      "createdAtFilesystem": "2026-05-04T16:34:00.260Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/components/AttachmentPreviewList.tsx",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/components/AttachmentPreviewList.tsx",
+        "bytes": 19615,
+        "sha256": "088587694fec5400c1b31ea8d780e63665e93eef563df276e69ffdab2f7cb6c1",
+        "snapshot": "D060-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/D060-before/frontend/src/components/AttachmentPreviewList.tsx",
+      "after": "snapshots/H-final/frontend/src/components/AttachmentPreviewList.tsx",
+      "afterSha256": "8d4248233b67ea9bed6d7fde85f8e3689b3ee08ace72a55eb4373c06f5d2e477",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__components__AttachmentPreviewList.tsx.diff",
+      "createdAtFilesystem": "2026-05-12T18:12:01.290Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/components/DeviceAccessPanel.tsx",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/components/DeviceAccessPanel.tsx",
+        "absent": true,
+        "snapshot": "D069-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/src/components/DeviceAccessPanel.tsx",
+      "afterSha256": "aececffb814033e2ff4111023de208b4cd2024ff4852b2c0655721be4f5a0fe5",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__components__DeviceAccessPanel.tsx.diff",
+      "createdAtFilesystem": "2026-09-15T01:01:04.648Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/components/PwaInstallButton.tsx",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/components/PwaInstallButton.tsx",
+        "absent": true,
+        "snapshot": "D069-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/src/components/PwaInstallButton.tsx",
+      "afterSha256": "4a85022f0b4fa716120c3f6e77e52a2945b87f13043ed4cdbec702fb7aead31b",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__components__PwaInstallButton.tsx.diff",
+      "createdAtFilesystem": "2026-09-15T01:01:03.267Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+        "bytes": 160308,
+        "sha256": "b1a5c318d1d011777ecd446fc222f226371adf5524a4af9eba490f64e69af2e7",
+        "snapshot": "F-types-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/F-types-before/frontend/src/screens/ChecklistsScreen.tsx",
+      "after": "snapshots/H-final/frontend/src/screens/ChecklistsScreen.tsx",
+      "afterSha256": "e7527a9969f4343b9271e43b89477ed375737f3910b5919cdab2fcf7b4c6f849",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__screens__ChecklistsScreen.tsx.diff",
+      "createdAtFilesystem": "2026-05-21T20:35:56.772Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/screens/FactorySelectScreen.tsx",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/screens/FactorySelectScreen.tsx",
+        "bytes": 19780,
+        "sha256": "23912a52a5d5bcd336118739db66bdcede9d336db2daf073399f879f557d7997",
+        "snapshot": "D069-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/D069-before/frontend/src/screens/FactorySelectScreen.tsx",
+      "after": "snapshots/H-final/frontend/src/screens/FactorySelectScreen.tsx",
+      "afterSha256": "98fac17d3eaea7635310988180a83a57548f2a1ab1870332c030a04f1790a070",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__screens__FactorySelectScreen.tsx.diff",
+      "createdAtFilesystem": "2026-05-04T15:59:42.601Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+        "bytes": 340973,
+        "sha256": "abcf42c3a01edceddd4fc136eb89afe8ab6a63e2b49787046d42a86cb37d268c",
+        "snapshot": "C063-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/C063-before/frontend/src/screens/ShiftPeopleScreen.tsx",
+      "after": "snapshots/H-final/frontend/src/screens/ShiftPeopleScreen.tsx",
+      "afterSha256": "c5313acc0e54e342c29ae3e02409c9e5fbafa063e5525e3e08f30b5b85ca5684",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__screens__ShiftPeopleScreen.tsx.diff",
+      "createdAtFilesystem": "2026-05-04T16:01:46.325Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/screens/TasksScreen.tsx",
+        "bytes": 46251,
+        "sha256": "08c4a9128968b60f3b68175c01c35654e5a6eb3882b9e2a34569920d56148620",
+        "snapshot": "C063-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/C063-before/frontend/src/screens/TasksScreen.tsx",
+      "after": "snapshots/H-final/frontend/src/screens/TasksScreen.tsx",
+      "afterSha256": "0d95af2589e46f16cc46222e1a73c782b2480da01260df869d9d3574e0f05cf6",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__screens__TasksScreen.tsx.diff",
+      "createdAtFilesystem": "2026-06-21T02:58:07.839Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/store/app.store.ts",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/store/app.store.ts",
+        "bytes": 26013,
+        "sha256": "7a8d7315dd1e38e735fe5fd3276e24f61567ebf1a708406339e05fa3f2a9eddd",
+        "snapshot": "F-types-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/F-types-before/frontend/src/store/app.store.ts",
+      "after": "snapshots/H-final/frontend/src/store/app.store.ts",
+      "afterSha256": "7d5a10b674a7168adf473337517f046e299072c5eca9e863f2acb6c8d4bac13b",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__store__app.store.ts.diff",
+      "createdAtFilesystem": "2026-04-29T14:38:50.358Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/styles.css",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/styles.css",
+        "bytes": 447573,
+        "sha256": "a4a9530682f32dcd492ec6ccb310de924ce1974237b78a26d1927a16a6ddba81",
+        "snapshot": "G-visual-label-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/G-visual-label-before/frontend/src/styles.css",
+      "after": "snapshots/H-final/frontend/src/styles.css",
+      "afterSha256": "382fb863aa4339ed202854a3741b7edb06e69cd3d497643a2859ea9fdb1aa1b4",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__styles.css.diff",
+      "createdAtFilesystem": "2026-05-03T07:06:09.837Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/utils/pwa-install.ts",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/utils/pwa-install.ts",
+        "absent": true,
+        "snapshot": "D069-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/src/utils/pwa-install.ts",
+      "afterSha256": "c65411dbeba0ce3a3285874becfece0310bdfe20e995bdfcd4e88178d742a6cc",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__utils__pwa-install.ts.diff",
+      "createdAtFilesystem": "2026-09-15T01:01:01.737Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/src/ws/client.ts",
+      "ownProductDelta": true,
+      "before": {
+        "owner": "frontend/src/ws/client.ts",
+        "bytes": 8243,
+        "sha256": "8fa4009524a69fbcd5e7c7b2cd1cf7e6e737a31ed2f986a1c7140d4bc3855969",
+        "snapshot": "G-context-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/G-context-before/frontend/src/ws/client.ts",
+      "after": "snapshots/H-final/frontend/src/ws/client.ts",
+      "afterSha256": "c8ae873814f02a4e4dc30edd6114ac42e147b9c62a5783851164265347bc390d",
+      "diff": "diffs/own-receipt-to-handoff/frontend__src__ws__client.ts.diff",
+      "createdAtFilesystem": "2026-07-02T04:01:50.638Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "backend/scripts/master-domain-contracts.test.js",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "backend/scripts/master-domain-contracts.test.js",
+        "absent": true,
+        "snapshot": "G-domain-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/backend/scripts/master-domain-contracts.test.js",
+      "afterSha256": "5c7f283a3128c0882737567308983385d63e3a16dfe5bd57764cc35fba75ef22",
+      "diff": "diffs/own-receipt-to-handoff/backend__scripts__master-domain-contracts.test.js.diff",
+      "createdAtFilesystem": "2026-09-15T02:06:49.441Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "backend/scripts/master-module-guards.test.js",
+      "ownProductDelta": false,
+      "before": {
+        "status": "UNCHANGED_BASELINE_TEST_NO_OWN_BEFORE"
+      },
+      "provenance": "CREATED_DURING_BATCH_INITIAL_ABSENCE_NOT_SNAPSHOTTED",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/backend/scripts/master-module-guards.test.js",
+      "afterSha256": "9754a24907df64dff65e5d67f636ea983803eef9223c2c5692be6e5f55f2ce59",
+      "diff": "diffs/own-receipt-to-handoff/backend__scripts__master-module-guards.test.js.diff",
+      "createdAtFilesystem": "2026-09-15T01:33:39.418Z",
+      "initialAbsenceReceiptMissing": true
+    },
+    {
+      "owner": "backend/scripts/master-offline-contract.test.js",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "backend/scripts/master-offline-contract.test.js",
+        "absent": true,
+        "snapshot": "E-contract-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/backend/scripts/master-offline-contract.test.js",
+      "afterSha256": "25bdc5f1ba91f619ea64c7fa1bdbf2198c4269f0d238d3da2b0fda7923706fdf",
+      "diff": "diffs/own-receipt-to-handoff/backend__scripts__master-offline-contract.test.js.diff",
+      "createdAtFilesystem": "2026-09-15T00:31:49.502Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "backend/scripts/master-offline-guard.cjs",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "backend/scripts/master-offline-guard.cjs",
+        "absent": true,
+        "snapshot": "E-contract-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/backend/scripts/master-offline-guard.cjs",
+      "afterSha256": "81b4b5873bad42ed6b1176055ed2f95794626ac355065b514b8f7361c37530ef",
+      "diff": "diffs/own-receipt-to-handoff/backend__scripts__master-offline-guard.cjs.diff",
+      "createdAtFilesystem": "2026-09-15T00:31:48.049Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "backend/scripts/master-provenance-contract.test.js",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "backend/scripts/master-provenance-contract.test.js",
+        "absent": true,
+        "snapshot": "E042-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/backend/scripts/master-provenance-contract.test.js",
+      "afterSha256": "1de646625c2d0f9aa5fe8a8fd89d1ec14dc6c9cccf84267cce3b3372787a0389",
+      "diff": "diffs/own-receipt-to-handoff/backend__scripts__master-provenance-contract.test.js.diff",
+      "createdAtFilesystem": "2026-09-15T01:08:07.611Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "backend/scripts/master-stateful-chain.test.js",
+      "ownProductDelta": false,
+      "before": {
+        "status": "UNCHANGED_BASELINE_TEST_NO_OWN_BEFORE"
+      },
+      "provenance": "CREATED_DURING_BATCH_INITIAL_ABSENCE_NOT_SNAPSHOTTED",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/backend/scripts/master-stateful-chain.test.js",
+      "afterSha256": "6eb9bfe0502ed27bab8fa76089152ac8fa3ae47e3a852709cc9b737750705737",
+      "diff": "diffs/own-receipt-to-handoff/backend__scripts__master-stateful-chain.test.js.diff",
+      "createdAtFilesystem": "2026-09-15T01:46:14.439Z",
+      "initialAbsenceReceiptMissing": true
+    },
+    {
+      "owner": "backend/scripts/master-task-replay-boundary.test.js",
+      "ownProductDelta": false,
+      "before": {
+        "status": "UNCHANGED_BASELINE_TEST_NO_OWN_BEFORE"
+      },
+      "provenance": "CREATED_DURING_BATCH_INITIAL_ABSENCE_NOT_SNAPSHOTTED",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/backend/scripts/master-task-replay-boundary.test.js",
+      "afterSha256": "22763e5dfd86a9dba9bdc56b64d4ab54822f3466690b27eb3aacb231f3821999",
+      "diff": "diffs/own-receipt-to-handoff/backend__scripts__master-task-replay-boundary.test.js.diff",
+      "createdAtFilesystem": "2026-09-15T01:38:37.015Z",
+      "initialAbsenceReceiptMissing": true
+    },
+    {
+      "owner": "backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "ownProductDelta": false,
+      "before": {
+        "status": "UNCHANGED_BASELINE_TEST_NO_OWN_BEFORE"
+      },
+      "provenance": "UNCHANGED_PREEXISTING_036_TEST",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/backend/scripts/ui-sweep-036-archive-contract.test.js",
+      "afterSha256": "d03ea7e81b18d808b23b1748a7672271f68b2d88f4787ae1532abf376e03a58d",
+      "diff": null,
+      "createdAtFilesystem": "2026-09-12T16:52:23.754Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/e2e/component-contracts.spec.ts",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "frontend/e2e/component-contracts.spec.ts",
+        "absent": true,
+        "snapshot": "D060-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/e2e/component-contracts.spec.ts",
+      "afterSha256": "9c578f3c9bd81b3b2f785f40c02a4c413c9bd89643cb55b71d8bbf09c2a8a28f",
+      "diff": "diffs/own-receipt-to-handoff/frontend__e2e__component-contracts.spec.ts.diff",
+      "createdAtFilesystem": "2026-09-15T00:54:01.504Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/e2e/frontend-series.spec.ts",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "frontend/e2e/frontend-series.spec.ts",
+        "bytes": 46816,
+        "sha256": "72a606cd699555fe031f4966777d60672cba8953d97927376ea56b39152802dd",
+        "snapshot": "C044-before"
+      },
+      "provenance": "EXACT_BEFORE_SNAPSHOT",
+      "firstAvailableBefore": "snapshots/C044-before/frontend/e2e/frontend-series.spec.ts",
+      "after": "snapshots/H-final/frontend/e2e/frontend-series.spec.ts",
+      "afterSha256": "66d5d1def898c21c0a74855e6c91e2a543c4e66dcd3d0dc0a378878f51d4a246",
+      "diff": "diffs/own-receipt-to-handoff/frontend__e2e__frontend-series.spec.ts.diff",
+      "createdAtFilesystem": "2026-09-14T22:24:28.430Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/e2e/helpers/components.tsx",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "frontend/e2e/helpers/components.tsx",
+        "absent": true,
+        "snapshot": "D060-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/e2e/helpers/components.tsx",
+      "afterSha256": "85aae1a9e582e32d7ec29cb634f1829266531a7e8c3e9186394bedacf42cf885",
+      "diff": "diffs/own-receipt-to-handoff/frontend__e2e__helpers__components.tsx.diff",
+      "createdAtFilesystem": "2026-09-15T00:54:00.048Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/e2e/helpers/frontend-series.ts",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "frontend/e2e/helpers/frontend-series.ts",
+        "absent": true,
+        "snapshot": "C044-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/e2e/helpers/frontend-series.ts",
+      "afterSha256": "450426e95f6fdeb7ee5f973921ce6321705be9a30e670338ab152c91861922ca",
+      "diff": "diffs/own-receipt-to-handoff/frontend__e2e__helpers__frontend-series.ts.diff",
+      "createdAtFilesystem": "2026-09-15T00:20:28.938Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/e2e/master-integration.spec.ts",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "frontend/e2e/master-integration.spec.ts",
+        "absent": true,
+        "snapshot": "C044-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/e2e/master-integration.spec.ts",
+      "afterSha256": "66b49004490dccef4ae0a648e8d3c32751e3643ceeda28cf1a42a2bdb6fa3ac3",
+      "diff": "diffs/own-receipt-to-handoff/frontend__e2e__master-integration.spec.ts.diff",
+      "createdAtFilesystem": "2026-09-15T00:21:41.189Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/e2e/master.playwright.config.ts",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "frontend/e2e/master.playwright.config.ts",
+        "absent": true,
+        "snapshot": "C044-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/e2e/master.playwright.config.ts",
+      "afterSha256": "6ab11c3c6e0af18cff9a459e4bab44b93fede15dcf2c58c094b4e3e7a24cf0b7",
+      "diff": "diffs/own-receipt-to-handoff/frontend__e2e__master.playwright.config.ts.diff",
+      "createdAtFilesystem": "2026-09-15T00:21:39.932Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/e2e/module-journeys.spec.ts",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "frontend/e2e/module-journeys.spec.ts",
+        "bytes": 8770,
+        "sha256": "89f4049d313b9427fb5ef88c5d67e2ed489f629ab6c6b5aa201ce31879aa648b",
+        "snapshot": "G-checklist-error-before"
+      },
+      "provenance": "CREATED_DURING_BATCH_INITIAL_ABSENCE_NOT_SNAPSHOTTED",
+      "firstAvailableBefore": "snapshots/G-checklist-error-before/frontend/e2e/module-journeys.spec.ts",
+      "after": "snapshots/H-final/frontend/e2e/module-journeys.spec.ts",
+      "afterSha256": "3cf090fc11335c382a006b28912f9052de6cdf425a1f40cb1e14f73ea4a19340",
+      "diff": "diffs/own-receipt-to-handoff/frontend__e2e__module-journeys.spec.ts.diff",
+      "createdAtFilesystem": "2026-09-15T01:54:21.055Z",
+      "initialAbsenceReceiptMissing": true
+    },
+    {
+      "owner": "frontend/e2e/review-variants.spec.ts",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "frontend/e2e/review-variants.spec.ts",
+        "absent": true,
+        "snapshot": "G-dirty-intent-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-settings-harness-after/frontend/e2e/review-variants.spec.ts",
+      "afterSha256": "b1f5bb90571debbcdc7fd629bb539f6fffafd46385a84907a79ae348b9b85672",
+      "diff": "diffs/own-receipt-to-handoff/frontend__e2e__review-variants.spec.ts.diff",
+      "createdAtFilesystem": "2026-09-15T02:18:40.738Z",
+      "initialAbsenceReceiptMissing": false
+    },
+    {
+      "owner": "frontend/scripts/master-ws-contract.test.cjs",
+      "ownProductDelta": false,
+      "before": {
+        "owner": "frontend/scripts/master-ws-contract.test.cjs",
+        "absent": true,
+        "snapshot": "G-ws-test-before"
+      },
+      "provenance": "RECORDED_ABSENT",
+      "firstAvailableBefore": null,
+      "after": "snapshots/H-final/frontend/scripts/master-ws-contract.test.cjs",
+      "afterSha256": "a7a0264cdd96b4ca147abf15f5540ed5392b6004d7cc847f2c381b1bfc7ac967",
+      "diff": "diffs/own-receipt-to-handoff/frontend__scripts__master-ws-contract.test.cjs.diff",
+      "createdAtFilesystem": "2026-09-15T02:38:22.075Z",
+      "initialAbsenceReceiptMissing": false
+    }
+  ],
+  "lateHarness": {
+    "before": {
+      "owner": "frontend/e2e/review-variants.spec.ts",
+      "sha256": "a6815b38e85220a632df25505d00e604e8335eb1056cf550fd7a1067600c2efd",
+      "bytes": 19041
+    },
+    "after": {
+      "owner": "frontend/e2e/review-variants.spec.ts",
+      "sha256": "b1f5bb90571debbcdc7fd629bb539f6fffafd46385a84907a79ae348b9b85672",
+      "bytes": 19041
+    },
+    "scope": "review-variants settings helper only"
+  },
+  "beforeReceiptGap": "Four newly authored test files lack an initial ABSENT snapshot. Their full final bytes and available intermediate before bytes are preserved; do not claim full stage-by-stage test identity."
+}

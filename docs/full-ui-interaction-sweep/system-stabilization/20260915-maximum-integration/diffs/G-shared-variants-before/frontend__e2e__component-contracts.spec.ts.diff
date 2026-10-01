@@ -1,0 +1,96 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-shared-variants-before\\frontend\\e2e\\component-contracts.spec.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\component-contracts.spec.ts"
+index 50ca49a7..638c75f4 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-shared-variants-before\\frontend\\e2e\\component-contracts.spec.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\component-contracts.spec.ts"
+@@ -18,6 +18,28 @@ async function host(page:Page,kind='media',replies?:Parameters<typeof isolate>[1
+   records.push({host:'real-owner-component-bundle',sha256:crypto.createHash('sha256').update(code).digest('hex'),notProductionShell:true});save();
+ }
+ const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=','base64');
++test('Master 060 distinct images audio video document and four view modes share bounded resources',async({page})=>{
++  const video=Buffer.from(await page.evaluate(async()=>{
++    // Synthetic canvas stream only: no camera/microphone/device access.
++    const canvas=document.createElement('canvas');canvas.width=32;canvas.height=32;const context=canvas.getContext('2d')!;const stream=canvas.captureStream(10);
++    const recorder=new MediaRecorder(stream,{mimeType:'video/webm;codecs=vp8'});const chunks:Blob[]=[];recorder.ondataavailable=e=>chunks.push(e.data);
++    const done=new Promise<void>(resolve=>recorder.onstop=()=>resolve());recorder.start();for(let frame=0;frame<6;frame++){context.fillStyle=frame%2?'#53687a':'#526779';context.fillRect(0,0,32,32);await new Promise(r=>setTimeout(r,100));}recorder.stop();await done;stream.getTracks().forEach(t=>t.stop());return Array.from(new Uint8Array(await new Blob(chunks).arrayBuffer()));
++  }));
++  const audio=Buffer.alloc(8044,128);audio.write('RIFF',0);audio.writeUInt32LE(8036,4);audio.write('WAVEfmt ',8);audio.writeUInt32LE(16,16);audio.writeUInt16LE(1,20);audio.writeUInt16LE(1,22);audio.writeUInt32LE(8000,24);audio.writeUInt32LE(8000,28);audio.writeUInt16LE(1,32);audio.writeUInt16LE(8,34);audio.write('data',36);audio.writeUInt32LE(8000,40);
++  const calls:Record<string,number>={};
++  await host(page,'gallery',async(r,p)=>{
++    const m=p.match(/^\/attachments\/(component-image|component-second-image|component-audio|component-video|component-document)\/file$/);if(!m)return false;const id=m[1];calls[id]=(calls[id]||0)+1;
++    await r.fulfill({contentType:id.includes('audio')?'audio/wav':id.includes('video')?'video/webm':id.includes('document')?'text/plain':'image/png',body:id.includes('audio')?audio:id.includes('video')?video:id.includes('document')?Buffer.from('Инструкция: проверьте защиту оборудования.'):png});return true;
++  });
++  await expect.poll(()=>Object.keys(calls).length).toBe(4);expect(calls['component-document']).toBeUndefined();
++  for(const mode of ['grid','inline','focus']){await page.getByLabel('Режим',{exact:true}).selectOption(mode);await expect(page.locator('.attachment-preview-block')).toHaveClass(new RegExp(`attachment-preview-${mode}`));}
++  await page.getByRole('button',{name:'Открыть фото 1 из 2',exact:true}).click();await expect(page.locator('.attachment-large-preview')).toBeVisible();await page.getByRole('button',{name:'Следующее фото',exact:true}).click();await expect(page.locator('.attachment-viewer-counter')).toHaveText('2 из 2');await page.getByRole('button',{name:'Увеличить фото',exact:true}).click();await page.goBack();
++  await page.getByLabel('Режим',{exact:true}).selectOption('list');await page.locator('.attachment-preview.video').getByRole('button',{name:'Открыть',exact:true}).click();
++  try{await expect.poll(()=>page.locator('video.attachment-large-preview').evaluate((e:HTMLVideoElement)=>e.readyState)).toBeGreaterThanOrEqual(1);}finally{records.push({videoFixtureBytes:video.length,header:video.subarray(0,16).toString('hex'),video:await page.locator('video.attachment-large-preview').evaluate((e:HTMLVideoElement)=>({ready:e.readyState,network:e.networkState,error:e.error?{code:e.error.code,message:e.error.message}:null,src:e.currentSrc}))});save();}await page.goBack();
++  await page.locator('.attachment-preview').filter({hasText:'Комментарий.wav'}).getByRole('button',{name:'Открыть',exact:true}).click();await expect.poll(()=>page.locator('audio').evaluate((e:HTMLAudioElement)=>e.readyState)).toBeGreaterThanOrEqual(1);await page.goBack();
++  await page.locator('.attachment-preview').filter({hasText:'Инструкция.txt'}).getByRole('button',{name:'Открыть',exact:true}).click();await expect(page.getByRole('dialog')).toContainText('Предпросмотр недоступен для этого типа');await expect(page.getByRole('link',{name:'Скачать/открыть',exact:true})).toHaveAttribute('href',/^blob:/);await shot(page,'060-four-media-document',{state:'synthetic-memory-media-codec-not-physical'});await page.goBack();
++  expect(Object.values(calls)).toEqual([1,1,1,1,1]);expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
+ test('Master 060 pending concurrent consumers share one request and last release owns URL',async({page})=>{
+   let release:()=>void=()=>{},pending=0;const wait=new Promise<void>(resolve=>release=resolve);
+   await page.addInitScript(()=>{
+@@ -50,7 +72,7 @@ test('Master 047 edited conditional field retains draft and dirty guard across h
+   expect(unknown).toEqual([]);expect(errors).toEqual([]);
+ });
+ 
+-test('Master 060 denied retry context change logout and late unmount are isolated',async({page})=>{
++test('Master 060 denied retry context change and logout are isolated',async({page})=>{
+   let status=403,calls=0;
+   await host(page,'media',async(r,p)=>{if(p==='/attachments/component-image/file'){calls++;await r.fulfill(status===200?{contentType:'image/png',body:png}:{status,contentType:'application/json',body:JSON.stringify({message:'storagePath SECRET_INTERNAL_SHOULD_NOT_DISPLAY'})});return true;}return false;});
+   await expect(page.locator('[data-testid=first]')).toContainText('Нет прав для просмотра.');
+@@ -67,6 +89,42 @@ test('Master 060 denied retry context change logout and late unmount are isolate
+   expect(unknown).toEqual([]);expect(errors).toEqual([]);
+ });
+ 
++test('Master 060 pending Back and unmount do not recreate protected URL or reopen layer',async({page})=>{
++  let release:()=>void=()=>{},calls=0;const wait=new Promise<void>(resolve=>release=resolve);
++  await page.addInitScript(()=>{(window as any).created=0;const create=URL.createObjectURL;URL.createObjectURL=function(b){(window as any).created++;return create(b);};});
++  await host(page,'media',async(r,p)=>{if(p==='/attachments/component-image/file'){calls++;await wait;await r.fulfill({contentType:'image/png',body:png}).catch(()=>{});return true;}return false;});
++  await page.locator('[data-testid=first]').getByRole('button',{name:'Открыть',exact:true}).click();await expect(page.getByRole('dialog')).toContainText('Загрузка файла');
++  await page.goBack();await expect(page.getByRole('dialog')).toHaveCount(0);
++  await page.getByRole('button',{name:'Первый consumer',exact:true}).click();await page.getByRole('button',{name:'Второй consumer',exact:true}).click();release();
++  await page.evaluate(()=>new Promise<void>(r=>requestAnimationFrame(()=>requestAnimationFrame(()=>r()))));
++  expect(calls).toBe(1);expect(await page.evaluate(()=>(window as any).created)).toBe(0);await expect(page.getByRole('dialog')).toHaveCount(0);
++  expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++test('Master 060 timeout and 404 allow one fresh retry after failure',async({page})=>{
++  let status=404,calls=0,release:()=>void=()=>{};
++  await page.clock.install();
++  await host(page,'media',async(r,p)=>{if(p==='/attachments/component-image/file'){calls++;if(status===0)await new Promise<void>(resolve=>release=resolve);await r.fulfill(status===200?{contentType:'image/png',body:png}:{status:404,body:''}).catch(()=>{});return true;}return false;});
++  await expect(page.locator('[data-testid=first]')).toContainText('Файл отсутствует в хранилище');const before=calls;
++  status=0;await page.locator('[data-testid=first]').getByRole('button',{name:'Открыть',exact:true}).click();await expect.poll(()=>calls).toBe(before+1);
++  await page.clock.fastForward(31000);await expect(page.getByRole('dialog')).toContainText('превышено время ожидания');await page.goBack();release();status=200;
++  await page.locator('[data-testid=first]').getByRole('button',{name:'Открыть',exact:true}).click();await expect(page.locator('.attachment-large-preview')).toBeVisible();expect(calls).toBe(before+2);
++  expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++test('Master 047 child dirty file chooser cancellation and reordered fields preserve draft',async({page})=>{
++  await host(page,'form');await page.getByLabel('Комментарий',{exact:true}).fill('Порядок не меняет смысл');await page.getByRole('button',{name:'Порядок полей',exact:true}).click();
++  await expect(page.getByLabel('Комментарий',{exact:true})).toHaveValue('Порядок не меняет смысл');await page.getByRole('button',{name:'Подтвердить',exact:true}).click();await expect(page.locator('output')).toContainText('Порядок не меняет смысл');
++  await page.goto('/__component#children');await page.reload();await page.getByLabel('Текст дочернего поля').fill('Заметка к пункту');
++  const camera=page.locator('input[type=file][capture]');await expect(camera).toHaveAttribute('accept','image/*');await expect(camera).toHaveAttribute('capture','environment');
++  await camera.dispatchEvent('cancel');await expect(page.getByLabel('Текст дочернего поля')).toHaveValue('Заметка к пункту');
++  await page.locator('input[type=file]').nth(1).setInputFiles({name:'Фото.png',mimeType:'image/png',buffer:png});
++  await expect(page.locator('.attachment-preview')).toContainText('Фото.png');await page.getByLabel('Текст дочернего поля').blur();await page.goBack();
++  await expect(page.getByText('Изменения не сохранены',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Остаться',exact:true}).click();await expect(page.locator('.attachment-preview')).toContainText('Фото.png');
++  await page.getByRole('button',{name:'Отмена',exact:true}).click();await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);
++  expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
+ test('Master 047 field families pristine edited revert late defaults busy and new entity',async({page})=>{
+   await host(page,'form');
+   await page.getByRole('button',{name:'Поздние defaults',exact:true}).click();
+@@ -100,3 +158,10 @@ test('Master 047 consumer without external busy cannot close or double-submit pe
+   expect(await page.evaluate(()=>(window as any).submitCalls)).toBe(2);
+   expect(unknown).toEqual([]);expect(errors).toEqual([]);
+ });
++
++test('Master 047 option labels reorder preserve selected identity while hidden drafts are not submitted',async({page})=>{
++  await host(page,'form');await page.getByLabel('Получатель',{exact:true}).selectOption('two');await page.getByLabel('Комментарий',{exact:true}).fill('Скрытый черновик');
++  await page.getByRole('button',{name:'Обновить варианты',exact:true}).click();await expect(page.getByLabel('Получатель',{exact:true})).toHaveValue('two');await expect(page.getByLabel('Получатель',{exact:true}).locator('option:checked')).toHaveText('Отдел второй — новое имя');
++  await page.getByRole('button',{name:'Условное поле',exact:true}).click();await page.getByRole('button',{name:'Подтвердить',exact:true}).click();const submitted=JSON.parse(await page.locator('output').textContent()||'{}');expect(submitted.choice).toBe('two');expect(submitted).not.toHaveProperty('comment');
++  await page.getByRole('button',{name:'Условное поле',exact:true}).click();await expect(page.getByLabel('Комментарий',{exact:true})).toHaveValue('Скрытый черновик');expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});

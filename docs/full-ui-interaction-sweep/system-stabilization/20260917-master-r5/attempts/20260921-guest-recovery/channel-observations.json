@@ -1,0 +1,18 @@
+{
+  "kind": "RECORDED_TOOL_OUTPUTS_NOT_NEW_CAPTURE_OR_GUEST_COMMAND",
+  "observationDate": "2026-09-21",
+  "computerUseSkill": "26.915.31945",
+  "sessionResetAndApiReloaded": true,
+  "ownViewer": {"pid": 15316, "start": "2026-09-21T16:09:11.876306+03:00", "windowId": 459166, "title": "Zavod-Master-R5-Ubuntu24 на localhost - подключение к виртуальной машине"},
+  "captureAttempts": 2,
+  "captureError": "SetIsBorderRequired failed: Интерфейс не поддерживается (0x80004002)",
+  "accessibility": {"windowAndTitleOnly": true, "guestScreenOrCommandOutput": false, "guestIdentityFromShell": false},
+  "newValidImages": 0,
+  "newViewedImages": 0,
+  "guestInputs": 0,
+  "closeAttempt": {"method": "Sky Alt_L+F4 on observed own VMConnect window", "guestInput": false, "closeConfirmed": false, "subsequentPidPresent": true, "force": false},
+  "sshProbe": {"source": "10.243.53.1", "destination": "10.243.53.2", "port": 22, "ownInterface": 24, "result": "WSAEACCES_BEFORE_AUTHENTICATION", "rawTimestamp": "Not separately recorded; baseline at 16:08 references completed tool observation", "credentialsUsed": false, "hostKeyBypass": false, "networkOrSecurityChanged": false, "cause": "UNKNOWN; VM independently observed Off later; not a diagnosis of installed SSH or VPN"},
+  "provenance": ["Current turn node_repl Sky tool outputs", "Current turn bounded source-bound TCP probe", "baseline.json runtime", "actual-vm.json", "viewer-launch.json"],
+  "noBlindInput": true,
+  "status": "BLOCKED_TOOL_CAPABILITY"
+}

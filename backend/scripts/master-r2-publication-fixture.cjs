@@ -1,0 +1,39 @@
+require('./master-offline-guard.cjs'); require('reflect-metadata');
+const assert = require('node:assert/strict');
+const { strict, copy, memory, denied } = require('./master-r2-memory.cjs');
+const { Prisma } = require('@prisma/client');
+const { AnnouncementsService } = require('../dist/modules/announcements/announcements.service');
+const { AnnouncementsController } = require('../dist/modules/announcements/announcements.controller');
+const { NotificationsService } = require('../dist/modules/notifications/notifications.service');
+const { PermissionGuard } = require('../dist/common/permission.guard');
+const { Reflector } = require('@nestjs/core');
+const { UserContextService } = require('../dist/common/user-context.service');
+function fixture(archiveCapability = false, state = 'current', priority = 'IMPORTANT', identity = {}, realAudit = false) {
+  const m = memory(), user = { userId: 'publication-reader', selectedFactoryId: 'publication-factory', departmentId: 'publication-department', role: 'MASTER', isGuest: false, isAdmin: false, permissions: ['announcements.read', 'announcements.readReport', 'notifications.read', ...(archiveCapability ? ['announcements.archive.read'] : [])], ...identity };
+  const account = { id: user.userId, role: user.role, blockedAt: null, deletedAt: null }, reads = [], notices = [], attachmentsCalls = [];
+  if(realAudit){m.data.auditLog=m.model('auditLog',m.audits,{includes:['user'],enrich:r=>({...r,user:account})});m.audit=new (require('../dist/common/audit.service').AuditService)({db:m.db});}
+  const now = Date.now();
+  const row = { id: 'publication-announcement', factoryId: user.selectedFactoryId, departmentId: user.departmentId, authorId: 'publication-author', title: 'Регламент смены', text: 'Проверьте ограждение перед началом работы', priority, recurrence: 'NONE', deletedAt: state === 'deleted' ? new Date() : null, archivedAt: state.startsWith('archived') ? new Date() : null, visibleFrom: new Date(now + (state === 'future' || state === 'archived-future' ? 86400000 : -86400000)), visibleUntil: new Date(now + (state === 'expired' ? -3600000 : 172800000)), audienceDepartments: [], createdAt: new Date(), lastReminderAt: null };
+  const enrich = record => ({ ...record, author: { id: record.authorId, role: 'MANAGEMENT', firstName: 'Ирина', lastName: 'Производственная', displayName: 'Производственная Ирина' }, department: record.departmentId ? { id: record.departmentId, name: 'Производство' } : null, reads: reads.filter(item => item.announcementId === record.id && item.userId === user.userId) });
+  m.data.announcement = m.model('announcement', [row], { includes: ['author', 'department', 'audienceDepartments', 'reads'], enrich });
+  m.data.user = m.model('user', [account]);
+  const base = m.model('announcementRead', reads, { compounds: ['announcementId_userId'], defaults: { readAt: new Date() } });
+  let rejectRead = false;
+  m.data.announcementRead = strict({ ...base, create: async query => {
+    if (rejectRead) throw Object.assign(Error('R2_READ_STORE_UNAVAILABLE'), { getStatus: () => 503 });
+    if (reads.some(item => item.announcementId === query.data.announcementId && item.userId === query.data.userId)) throw new Prisma.PrismaClientKnownRequestError('Memory unique acknowledgement collision', { code: 'P2002', clientVersion: 'r2-memory' });
+    return base.create(query);
+  } }, 'announcementRead');
+  const access = { userId: user.userId, factoryId: user.selectedFactoryId, departmentId: user.departmentId, role: user.role, isActive: true, isGuest: false, user: account, department: { id: user.departmentId, name: 'Производство' } };
+  m.data.userFactoryAccess = m.model('userFactoryAccess', [access], { includes: ['user', 'department'] });
+  m.data.notification = m.model('notification', notices);
+  const notification = new NotificationsService({ db: m.db }, m.audit, m.ws, strict({}, 'push'), strict({}, 'notification-authority'));
+  let rejectNotice = false;
+  const adapter = strict({ markEntityNotificationsRead: async (...args) => { if (rejectNotice) { rejectNotice = false; throw Object.assign(Error('R2_NOTICE_UNAVAILABLE'), { getStatus: () => 503 }); } return notification.markEntityNotificationsRead(...args); } }, 'notification-adapter');
+  const attachments = strict({ listForEntities: async (type, ids) => { attachmentsCalls.push({ type, ids }); return new Map(ids.map(id => [id, [{ id: `publication-file-${id}`, originalName: 'Регламент.txt', mimeType: 'text/plain', kind: 'FILE', sizeBytes: 64 }]])); } }, 'attachments');
+  const service = new AnnouncementsService({ db: m.db }, m.audit, attachments, adapter, strict({}, 'directory')), controller = new AnnouncementsController(service);
+  const notice = { id: 'publication-notice', factoryId: user.selectedFactoryId, departmentId: user.departmentId, userId: user.userId, entityType: 'ANNOUNCEMENT', entityId: row.id, type: 'ANNOUNCEMENT_IMPORTANT', title: 'Важное объявление', message: row.title, severity: 'INFO', createdAt: new Date(), readAt: null, expiresAt: null, operationId: null };
+  notices.push(notice);
+  return { ...m, user, account, row, reads, notices, notice, access, attachmentsCalls, service, controller, notification, rejectRead: () => { rejectRead = true; }, allowRead: () => { rejectRead = false; }, rejectNotice: () => { rejectNotice = true; } };
+}
+module.exports={fixture};

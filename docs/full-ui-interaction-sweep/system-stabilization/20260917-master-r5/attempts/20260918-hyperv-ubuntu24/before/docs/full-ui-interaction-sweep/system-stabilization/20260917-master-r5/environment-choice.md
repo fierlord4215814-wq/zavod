@@ -1,0 +1,30 @@
+# Предварительный выбор среды — Windows Sandbox; установка не началась
+
+17.09.2026 inventory: Windows10 Pro22H2 build19045.6456/x64, i7-6700K4cores/8threads, firmware virtualization+SLAT+VMMonitor=true, HypervisorPresent=false; RAM17,137,594,368bytes, свободно7,732,696KiB; C: свободно42,146,291,712bytes. Sandbox.exe пока отсутствует. DISM feature read требует настоящего administrator token, tool escalation само по себе его не выдаёт. Это отдельный UAC, не отсутствие поддержки аппаратуры.
+
+Для проверки был выбран **один** штатный механизм Windows Sandbox (Containers-DisposableClientVM с необходимыми parent dependencies). Entitlement и аппаратные требования подтверждены, но это НЕ доказывает совместимость полного Node/PostgreSQL/Playwright стека. Ни Docker, ни WSL/VirtualBox не устанавливались. Окончательная пригодность Sandbox отозвана до разрешения описанного ниже ограничения Playwright.
+
+Официальные основания, проверены17.09.2026:
+
+- [Microsoft: Sandbox/лицензирование](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/): включён в Windows Pro; не ограничен предположением «личное использование». Это проверка entitlement редакции, не юридическая проверка происхождения лицензии пользователя. Отдельные платные условия/подписки не принимаются.
+- [Microsoft: установка](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-install): Windows10≥1903, AMD64, виртуализация, ≥4GBRAM/2cores/1GBdisk. Наблюдаемая машина превышает minimum. Штатный command Enable-WindowsOptionalFeature Containers-DisposableClientVM -All -Online, только через administrator/UAC.
+- [Microsoft DISM: NoRestart/All](https://learn.microsoft.com/en-us/powershell/module/dism/enable-windowsoptionalfeature?view=windowsserver2025-ps): добавляется -NoRestart, чтобы не вызывать перезагрузку; All касается parent dependencies, не всехWindowsfeatures. Полный before/after feature-state delta сохраняется. Никакой BIOS/firewall/security/policy bypass.
+- [Microsoft: конфигурация](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-configure-using-wsb-file): отдельный .wsb, Networking Disable; только собственный clean payload readonly и отдельный results writable; clipboard/audio/video/printer/vGPU redirection disabled. Приложения работают внутри guest и его localhost; hostпорты не нужны. Export должен быть проверен до закрытия disposable VM.
+- [Microsoft: поддержкаWindows10](https://learn.microsoft.com/en-us/windows/release-health/release-information): обычная поддержка завершена14.10.2025; observed6456 соответствует этомуобновлению. ESU entitlement/updates не приняты автоматически; OS upgrade/покупка не выполняются. Это ограничение hostsecurity, не разрешение отключитьзащиту и не productbug. В sandbox только доверенные current исходники/официальные runtimes, без внешнейсети во времяtests.
+
+При feature EnablePending/RestartNeeded: оставить точный checkpoint и один resume, автоматического reboot нет. Actual isolation остаётся UNVERIFIED до запуска guest/наблюдения identity и canary/route negatives; наличиекомпонента не PASS. Установка не стартует backend/PG/fixtures и не возобновляет Scheduler.
+
+## Фактический результат и исправление предварительного вывода
+
+`Start-Process -Verb RunAs` вернул «Операция была отменена пользователем» (20:34:48+03:00). PID не получен; elevated installer не запущен; DISM enable не исполнен. `install-uac-terminal.json` сохранён. Нельзя требовать reboot, объявлять компонент установленным или повторять этот UAC без нового подтверждения. Исходные scripts оставлены как evidence попытки; `start-install.ps1` отказывает при наличии terminal receipt. Не удалять receipt для обхода этого guard.
+
+Проверка полного стека была закончена ПОСЛЕ неуспешного UAC. Это ошибка порядка работы: по R5 совместимость следовало закончить до установки. Побочного включения компонента не произошло. Предыдущая фраза «подходит для полного стека» была преждевременной и исправлена, а не оставлена как факт.
+
+| Компонент | Официальное основание и фактическая граница |
+|---|---|
+| Node24.15.0/x64 | [Tagged Node BUILDING.md](https://raw.githubusercontent.com/nodejs/node/v24.15.0/BUILDING.md) включает Windows10/Server2016 и новее. Это platform support, не запуск Node внутри ещё не созданного guest. |
+| Playwright1.60.0 | Установленная package metadata показывает1.60.0. [Документация именно v1.60.0](https://raw.githubusercontent.com/microsoft/playwright/v1.60.0/docs/src/intro-js.md) указывает Windows11+/Server2019+, WSL либо поддерживаемый Linux, но не Windows10. [Текущие требования](https://playwright.dev/docs/intro#system-requirements) также не включают Win10. Предыдущий успешный R4 Edge-прогон — historical empirical proof, не официальный support или guest proof. |
+| PostgreSQL Windows binaries | [Официальный каталог](https://www.postgresql.org/download/windows/) ведёт на EDB installer/ZIP. Для18 перечислены WindowsServer2022/2025; comparable desktop ожидается, но current Win10guest не проверен. Новые binaries не скачивались и не запускались. Рабочая установка не использовалась как источник. |
+| Лицензия PostgreSQL | [PostgreSQL License](https://www.postgresql.org/about/licence/) допускает использование по назначению, включая рабочий проект, с сохранением уведомлений. Это не принятие платной EDB подписки. |
+
+**Следующая граница:** перед новым UAC пересмотреть единственный путь с поддерживаемой гостевой ОС для всего стека. Возможный кандидат — собственная Linux VM на штатном гипервизоре, но он НЕ выбран окончательно, НЕ установлен и НЕ проверен. Нельзя автоматически установить его как обход отмены UAC или параллельный запасной вариант. Не понижать Playwright/тесты ради установки и не обновлять Windows без отдельного разрешения. Для нового пути заново адресно проверить только его официальные требования/лицензию, изоляцию и экспорт; повторять discovery проекта не нужно.

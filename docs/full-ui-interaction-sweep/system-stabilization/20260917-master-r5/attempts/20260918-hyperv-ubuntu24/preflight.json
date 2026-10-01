@@ -1,0 +1,63 @@
+{
+  "at": "2026-09-18T06:58:42.757Z",
+  "status": "PLATFORM_COMPATIBILITY_READY_FOR_STANDARD_UAC_NOT_RUNTIME_PROOF",
+  "checks": {
+    "edition": true,
+    "x64": true,
+    "virtualization": true,
+    "slat": true,
+    "monitor": true,
+    "dep": true,
+    "freeRam": true,
+    "disk": true,
+    "ubuntuSignature": true,
+    "imageSized": true,
+    "baselineUnchanged": true
+  },
+  "evidence": [
+    {
+      "name": "host-inventory.json",
+      "sha256": "49ef8c764f4cd38650edf4a0dedc1f882b57197b404a4b060e35c14bb442c4b1"
+    },
+    {
+      "name": "image-metadata-verification.json",
+      "sha256": "c99a4dfa618786cb1ae3c3964b94480cc629d4a62c12a65bfa98b24f4fdb5fe6"
+    },
+    {
+      "name": "baseline.json",
+      "sha256": "d1b42ee33f6df31430026a024f2d8bfe20609f5974d625eb0bfbfe81cde9880d"
+    },
+    {
+      "name": "compatibility-and-budget.md",
+      "sha256": "586aa0edeb10c6a5df10a0c75bd08b944872e1ce6cc50e4955833ac2cbce0eb9"
+    }
+  ],
+  "chosenMechanism": "Hyper-V",
+  "guest": "Ubuntu Server 24.04 LTS amd64",
+  "toolchain": {
+    "node": "v24.15.0",
+    "prisma": "6.0.0",
+    "prismaClient": "6.0.0",
+    "playwright": "1.60.0",
+    "postgresql": "18.3"
+  },
+  "resources": {
+    "vcpu": 2,
+    "ramBytes": 4294967296,
+    "dynamicVhdxMaximumBytes": 17179869184,
+    "minimumFreeRamBeforeVmBytes": 6442450944,
+    "minimumHostHeadroomBytes": 10737418240,
+    "minimumFreeDiskBeforeInstallBytes": 39782402048,
+    "observedFreeDiskBytes": 42097651712,
+    "budgetedRemainingBytes": 13052667904,
+    "imageBytes": 4080486400
+  },
+  "systemWrite": "Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V,Microsoft-Hyper-V-Management-PowerShell -All -NoRestart",
+  "protectedHistoricalSandboxAttemptRetained": true,
+  "workingDbAccessed": false,
+  "vmCreated": false,
+  "actualStack": "NOT_RUN",
+  "isolationProof": "NOT_RUN",
+  "transferRoundTrip": "NOT_RUN_MUST_PRECEDE_LONG_TESTS",
+  "automaticHostReboot": false
+}

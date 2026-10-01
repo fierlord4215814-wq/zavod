@@ -1,0 +1,15 @@
+{
+  "classification": "HARNESS",
+  "cause": "DefrostEvent has endAt, not completedAt; read projection corrected, no product or data change",
+  "status": "IN_PROGRESS",
+  "identity": {
+    "version": "FACTORY01-20260926-OPS01",
+    "database": "zavod_factory01_ops01",
+    "factory": "e3d1c2ce-f596-461d-9c97-705d176cc25a"
+  },
+  "query": {
+    "dateFrom": "2026-09-20",
+    "dateTo": "2026-09-27"
+  },
+  "error": "\nInvalid `p[k].findMany()` invocation in\nC:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\ops-01\\primary.cjs:20:72\n\n  17 lineShiftResult:'id factoryId lineId planCompletionPercent createdAt',\n  18 notification:'id factoryId departmentId userId type title message entityType entityId readAt createdAt',\n  19 };\n→ 20 const out={};for(const[k,v]of Object.entries(specs))out[k]=await p[k].findMany({\n       where: {\n         factoryId: \"e3d1c2ce-f596-461d-9c97-705d176cc25a\"\n       },\n       select: {\n         id: true,\n         factoryId: true,\n         lineId: true,\n         eventType: true,\n         status: true,\n         startAt: true,\n         completedAt: true,\n         ~~~~~~~~~~~\n         comment: true,\n     ?   startedById?: true,\n     ?   endedById?: true,\n     ?   endAt?: true,\n     ?   durationSeconds?: true,\n     ?   endComment?: true,\n     ?   createdAt?: true,\n     ?   updatedAt?: true,\n     ?   factory?: true,\n     ?   line?: true,\n     ?   startedBy?: true,\n     ?   endedBy?: true\n       },\n       orderBy: {\n         id: \"asc\"\n       }\n     })\n\nUnknown field `completedAt` for select statement on model `DefrostEvent`. Available options are marked with ?."
+}

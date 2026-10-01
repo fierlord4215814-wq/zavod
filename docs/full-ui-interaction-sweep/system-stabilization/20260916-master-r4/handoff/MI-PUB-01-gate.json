@@ -1,0 +1,541 @@
+{
+  "productFingerprint": "6ae29f473c26b5d0dbe657f52c32cfebaff3c198abd5bb177eedf81e0ab1cfdc",
+  "id": "MI-PUB-01",
+  "owners": [
+    {
+      "path": "backend/src/modules/announcements/announcements.service.ts",
+      "sha256": "dff3e2cd004dc6a70975af2b839ae5a752780f6a98d3e4ecb9ddd6ee4b2c7a57",
+      "bytes": 44004
+    },
+    {
+      "path": "backend/src/common/publication-policy.ts",
+      "sha256": "7a6f5b7eb582f0d540bc12acb2694f164912e9fa08a003e8c183a5a392c28606",
+      "bytes": 711
+    }
+  ],
+  "required": "Active IMPORTANT/NORMAL with/without archive; global/factory/department audience; list/detail/ACK/report/notification/personal archive; concurrent ACK and postcommit retry keep one timestamp/audit with real receivers. Expired/future characterization is not approved policy.",
+  "witnesses": [
+    {
+      "id": "dd7437d3e9696c91",
+      "title": "R2-B publication state=current priority=NORMAL archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e011d4ae16fa1e55",
+      "title": "R2-B publication state=future priority=NORMAL archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "aa4ddc27f45ff449",
+      "title": "R2-B publication state=expired priority=NORMAL archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "23aeb34d38daa777",
+      "title": "R2-B publication state=archived priority=NORMAL archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0d718dd0ece4e31f",
+      "title": "R2-B publication state=archived-future priority=NORMAL archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "515511dcb40405c5",
+      "title": "R2-B publication state=deleted priority=NORMAL archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "210360c08c348d94",
+      "title": "R2-B publication state=current priority=IMPORTANT archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7896a22a3ba68258",
+      "title": "R2-B publication state=future priority=IMPORTANT archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "4e9fde7bd91492ef",
+      "title": "R2-B publication state=expired priority=IMPORTANT archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "31e7b8e7bcfbb44e",
+      "title": "R2-B publication state=archived priority=IMPORTANT archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "fd730f6890a6057a",
+      "title": "R2-B publication state=archived-future priority=IMPORTANT archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "f7d254f9ae971747",
+      "title": "R2-B publication state=deleted priority=IMPORTANT archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6a27348ebbbda9a9",
+      "title": "R2-B publication state=current priority=NORMAL archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b75e280c560aa474",
+      "title": "R2-B publication state=future priority=NORMAL archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "c16e16adaca50611",
+      "title": "R2-B publication state=expired priority=NORMAL archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "c2f1cb93f248b54f",
+      "title": "R2-B publication state=archived priority=NORMAL archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "00cd0d1e8608be90",
+      "title": "R2-B publication state=archived-future priority=NORMAL archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9db0dc7bd0502fe2",
+      "title": "R2-B publication state=deleted priority=NORMAL archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9a3d8935b97e61f4",
+      "title": "R2-B publication state=current priority=IMPORTANT archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "364bcee87fb5db4e",
+      "title": "R2-B publication state=future priority=IMPORTANT archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7f588a5097adc5da",
+      "title": "R2-B publication state=expired priority=IMPORTANT archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2d7db784290bdcaa",
+      "title": "R2-B publication state=archived priority=IMPORTANT archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1249b8b53245123a",
+      "title": "R2-B publication state=archived-future priority=IMPORTANT archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "bd76ef021447306b",
+      "title": "R2-B publication state=deleted priority=IMPORTANT archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "159d24c3c64220d3",
+      "title": "R2-B audience global archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "f61528cfed494005",
+      "title": "R2-B audience factory-wide archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "220f9e411a77e691",
+      "title": "R2-B audience selected-multiple archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "90eac7a1aa9bc0fe",
+      "title": "R2-B audience wrong-department archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "3bf7ee65747b4bec",
+      "title": "R2-B audience inactive-audience archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "03c240dfa8c95b29",
+      "title": "R2-B audience foreign-factory archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "750c019d6c4e4733",
+      "title": "R2-B audience guest archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b7a822e6ea14cba2",
+      "title": "R2-B audience blocked archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "02844391f8b1f3ea",
+      "title": "R2-B audience deleted archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0bc5c56c23e5d7af",
+      "title": "R2-B audience no-capability archive.read=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "03cf25aa28f6d884",
+      "title": "R2-B audience global archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "434c7b4e739314cb",
+      "title": "R2-B audience factory-wide archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2aaf7b5d3406a5c1",
+      "title": "R2-B audience selected-multiple archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "752f37ceabc69658",
+      "title": "R2-B audience wrong-department archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "3c3fa58d1c2dd7b6",
+      "title": "R2-B audience inactive-audience archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "9527c27cae0146b6",
+      "title": "R2-B audience foreign-factory archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "65afff235fafa8cf",
+      "title": "R2-B audience guest archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "83099bf85e7cfad4",
+      "title": "R2-B audience blocked archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "32305ea533974eeb",
+      "title": "R2-B audience deleted archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "f78069ac3f197fff",
+      "title": "R2-B audience no-capability archive.read=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b8d79d4c8016ccd0",
+      "title": "R2-B actual concurrent acknowledgement uses unique result and never duplicates acknowledgement/audit",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "2608c532fec40b15",
+      "title": "R2-B read-store 503 never becomes UI acknowledgement or notification success",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "875309ef9f408e71",
+      "title": "R2-B notification failure after committed read recovers on replay with one read and one audit",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7f5a533961a264c1",
+      "title": "R2-B actual current UserContext denies old acknowledgement after other-authorized-factory",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "05f4448ee4718125",
+      "title": "R2-B actual current UserContext denies old acknowledgement after revoked",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "b11c69605f4faf79",
+      "title": "R2-B actual current UserContext denies old acknowledgement after factory-disabled",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d91fbbdbac1fb94b",
+      "title": "R2-B actual current UserContext denies old acknowledgement after factory-deleted",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7a3199ad37563d95",
+      "title": "R2-B actual current UserContext denies old acknowledgement after identity-blocked",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "66f0083f9edb7967",
+      "title": "R2-B actual current UserContext denies old acknowledgement after identity-deleted",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "6e8f6d083039038f",
+      "title": "R2-B actual current UserContext denies old acknowledgement after capability-revoked",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "d8aa991526010420",
+      "title": "R3-C4 saved ACK current state expired archive=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "74f2ac04aca69556",
+      "title": "R3-C4 saved ACK current state future archive=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "910b1195599f8c71",
+      "title": "R3-C4 saved ACK current state archived archive=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1762db0c4242256e",
+      "title": "R3-C4 saved ACK current state archived-future archive=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "7b7497830c050231",
+      "title": "R3-C4 saved ACK current state deleted archive=false",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "1ecbfb8fcf161430",
+      "title": "R3-C4 saved ACK current state expired archive=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "0be01142bbea1a3a",
+      "title": "R3-C4 saved ACK current state future archive=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "8626d26b1f43577f",
+      "title": "R3-C4 saved ACK current state archived archive=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "aeda5afb6dfdc423",
+      "title": "R3-C4 saved ACK current state archived-future archive=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    },
+    {
+      "id": "e6d30946c4c1990b",
+      "title": "R3-C4 saved ACK current state deleted archive=true",
+      "file": "backend/scripts/master-r2-publication.test.js",
+      "runId": "H-backend-contracts-01",
+      "status": "PASS",
+      "boundary": "Actual service/controller contracts with test adapters, not HTTP/PostgreSQL"
+    }
+  ],
+  "source": "Existing R2/R3 owners retained, no backend policy/schema correction in R4",
+  "isolated": {
+    "cases": 64,
+    "status": "SCOPED_REVALIDATED_NOT_LIVE"
+  },
+  "liveTestStack": {
+    "cases": 0,
+    "status": "NOT_RUN_BLOCKED_ENV_C1_TECHNICAL_ISOLATION_UNAVAILABLE"
+  },
+  "physical": "PENDING"
+}

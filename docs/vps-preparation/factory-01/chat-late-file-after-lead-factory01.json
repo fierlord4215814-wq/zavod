@@ -1,0 +1,66 @@
+{
+  "attempt": "after-lead-factory01",
+  "proof": "real HTTP response held, never fabricated; own group only",
+  "actors": {
+    "owner": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+    "member": "efbb848e-a1fc-46ed-b707-49c9f0334145",
+    "memberRole": "CONTRACTOR_LEAD"
+  },
+  "chatId": "860bfae4-4c5f-4198-9972-6c9ebd652d1b",
+  "title": "Учебный поздний ответ FACTORY01 after-lead-factory01",
+  "messageId": "8f473a3d-6208-4fd2-ad9e-8c41f488a652",
+  "fileId": "12b0c52b-29ab-4d30-9382-a57efbaa537d",
+  "uploadRetrySameId": true,
+  "range": {
+    "status": 200,
+    "contentRange": null,
+    "acceptRanges": null,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813",
+    "verdict": "CHARACTERIZED_200_FULL_BODY_NO_RANGE_CONTRACT"
+  },
+  "abort": {
+    "status": 200,
+    "point": "after headers, before application body consumption",
+    "error": "AbortError"
+  },
+  "newContextRetry": {
+    "status": 200,
+    "bytes": 1524,
+    "sha": "cf0a6cb37c825da0656473a8a4760b7186f038c21488a6d78fc123f98f58e813"
+  },
+  "invitedUiMessage": "48e27c47-a5ec-461a-b04e-0f49f8b63a4b",
+  "invitedSecondUiMs": 187,
+  "invitedUiButtons": {
+    "create": 0,
+    "directory": 0
+  },
+  "backLateRefresh": "PASS_REAL_HELD_HTTP_NO_REOPEN",
+  "heldResponse": {
+    "status": 200,
+    "heldAt": "2026-09-26T21:20:32.240Z"
+  },
+  "removedAt": "2026-09-26T21:20:32.870Z",
+  "removedUi": true,
+  "freshDetail": 403,
+  "freshFile": 403,
+  "trace": {
+    "events": [],
+    "exposed": [],
+    "releasedAt": 7897.299999982119
+  },
+  "finalDialog": 0,
+  "sql": {
+    "messages": 1,
+    "attachments": 1,
+    "member": {
+      "removedAt": "2026-09-26T21:20:32.855Z",
+      "leftAt": null,
+      "canRead": false
+    }
+  },
+  "status": "PASS_LATE_RESPONSE_NO_REOPEN",
+  "restricted": {},
+  "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Ещё', exact: true })\u001b[22m\n",
+  "finallyArchive": 200
+}

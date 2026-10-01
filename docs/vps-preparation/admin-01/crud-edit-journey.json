@@ -1,0 +1,321 @@
+{
+  "status": "PASS_UI_EDITS_PERSISTENCE_AUDIT_ISOLATION",
+  "steps": [
+    {
+      "key": "factory-duplicate-code",
+      "status": 409,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "factory-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "factory-restore-name",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "department-normalized-duplicate",
+      "status": 409,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "department-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "factory-duplicate-code",
+      "status": 409,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "factory-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "factory-restore-name",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "department-normalized-duplicate",
+      "status": 409,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "department-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "department-restore-name",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "job-title-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "job-title-restore",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "job-cycle-deny",
+      "status": 409
+    },
+    {
+      "key": "job-cycle-deny",
+      "status": 409
+    },
+    {
+      "key": "line-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "factory-duplicate-code",
+      "status": 409,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "factory-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "factory-restore-name",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "department-normalized-duplicate",
+      "status": 409,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "department-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "department-restore-name",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "job-title-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "job-title-restore",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "job-cycle-deny",
+      "status": 409
+    },
+    {
+      "key": "job-cycle-deny",
+      "status": 409
+    },
+    {
+      "key": "line-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "line-restore",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "position-edit",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    },
+    {
+      "key": "position-restore",
+      "status": 200,
+      "factoryHeader": "7615c315-5c00-415b-92d6-39182af7ea0a"
+    }
+  ],
+  "previousErrors": [
+    "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.admin-task-nav').getByRole('button', { name: 'Пользователи и доступы', exact: true })\u001b[22m\n",
+    "locator.waitFor: Timeout 25000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Линия настройки C — проверена', { exact: true }).first() to be visible\u001b[22m\n"
+  ],
+  "roleNotJobTitle": true,
+  "lineSecondUiWithoutReloadMs": 526,
+  "A0Unchanged": true,
+  "nonAdminEditDenied": 403,
+  "audit": [
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "FACTORY_UPDATED",
+      "entityType": "Factory",
+      "entityId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:03:31.315Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "FACTORY_UPDATED",
+      "entityType": "Factory",
+      "entityId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:03:31.867Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "DEPARTMENT_UPDATED",
+      "entityType": "Department",
+      "entityId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+      "createdAt": "2026-09-26T14:03:33.188Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "FACTORY_UPDATED",
+      "entityType": "Factory",
+      "entityId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:06:14.233Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "FACTORY_UPDATED",
+      "entityType": "Factory",
+      "entityId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:06:14.785Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "DEPARTMENT_UPDATED",
+      "entityType": "Department",
+      "entityId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+      "createdAt": "2026-09-26T14:06:16.136Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "DEPARTMENT_UPDATED",
+      "entityType": "Department",
+      "entityId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+      "createdAt": "2026-09-26T14:06:18.185Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "JOB_TITLE_UPDATED",
+      "entityType": "JobTitle",
+      "entityId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+      "createdAt": "2026-09-26T14:06:19.028Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "LINE_UPDATED",
+      "entityType": "Line",
+      "entityId": "3b82eb16-fb07-45f9-a58c-cf00746dbbee",
+      "createdAt": "2026-09-26T14:06:20.675Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "JOB_TITLE_UPDATED",
+      "entityType": "JobTitle",
+      "entityId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+      "createdAt": "2026-09-26T14:06:19.627Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "FACTORY_UPDATED",
+      "entityType": "Factory",
+      "entityId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:10:00.684Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "FACTORY_UPDATED",
+      "entityType": "Factory",
+      "entityId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "createdAt": "2026-09-26T14:10:01.237Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "DEPARTMENT_UPDATED",
+      "entityType": "Department",
+      "entityId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+      "createdAt": "2026-09-26T14:10:02.539Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "DEPARTMENT_UPDATED",
+      "entityType": "Department",
+      "entityId": "3b57436e-01ad-4e99-904f-b56b572633cc",
+      "createdAt": "2026-09-26T14:10:04.655Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "JOB_TITLE_UPDATED",
+      "entityType": "JobTitle",
+      "entityId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+      "createdAt": "2026-09-26T14:10:05.496Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "LINE_UPDATED",
+      "entityType": "Line",
+      "entityId": "3b82eb16-fb07-45f9-a58c-cf00746dbbee",
+      "createdAt": "2026-09-26T14:10:07.692Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "JOB_TITLE_UPDATED",
+      "entityType": "JobTitle",
+      "entityId": "a51e8892-08d0-41b9-a09d-eb85af8923f6",
+      "createdAt": "2026-09-26T14:10:06.079Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "LINE_UPDATED",
+      "entityType": "Line",
+      "entityId": "3b82eb16-fb07-45f9-a58c-cf00746dbbee",
+      "createdAt": "2026-09-26T14:10:07.128Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "LINE_POSITION_UPDATED",
+      "entityType": "LinePosition",
+      "entityId": "08a1a333-d92f-4c4d-8963-ba98232a2f46",
+      "createdAt": "2026-09-26T14:10:08.687Z"
+    },
+    {
+      "userId": "21ee9613-c8c9-44bd-9535-5be72fda860d",
+      "factoryId": "7615c315-5c00-415b-92d6-39182af7ea0a",
+      "action": "LINE_POSITION_UPDATED",
+      "entityType": "LinePosition",
+      "entityId": "08a1a333-d92f-4c4d-8963-ba98232a2f46",
+      "createdAt": "2026-09-26T14:10:10.334Z"
+    }
+  ]
+}

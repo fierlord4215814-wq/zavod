@@ -1,0 +1,30 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\docs\\full-ui-interaction-sweep\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\docs\\full-ui-interaction-sweep\\progress.md"
+index 61c4503c..dba6e74b 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260918-hyperv-ubuntu24\\post-reboot-20260919\\before\\docs\\full-ui-interaction-sweep\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260920-vm-control\\handoff\\after\\docs\\full-ui-interaction-sweep\\progress.md"
+@@ -1,6 +1,24 @@
+ # Full UI Interaction Sweep — progress
+ 
+-## Current source result — MASTER R5 checkpoint, 19.09.2026
++## Current source result — MASTER R5 VM checkpoint, 20.09.2026
++
++EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. Отдельный MASTER_R5_STATUS=BLOCKED_CONSOLE_OBSERVATION_PERMISSION. [Единый отчёт](system-stabilization/20260917-master-r5/final-report.md), [receipt/index](system-stabilization/20260917-master-r5/INDEX.md), [resume](system-stabilization/20260917-master-r5/resume-prompt.txt). Тот же R5, не R6/не новый sweep.
++
++Manual reboot/Hyper-V readiness подтверждены19.09 и fresh boot20.09 08:03; DISM не повторялся. Новый явно разрешённый20.09 UAC дал actual elevated helper PID9056. Создана ровно одна own Gen2 VM99a158da-c247-422c-ae11-109485a92b1f2CPU/4GiB/16GiBdynamic, own Internal switch/private10.243.53.0/30 безNAT/firewall changes. Полный UbuntuISObytes/hash verified, partial/tail/seed сохранены; clean source tar337files338entries byte verified, не передан. VM power-on Running08:34 подтверждён, но console capture failed expected-size guard, actual guest installation/isolation UNKNOWN/NOT_RUN. Дополнительный read-only observer UAC approval запрошен и не получен; launcher не выполнялся. Own normal shutdown08:48 ещё pending на08:55, PID9056alive/OffUNVERIFIED; noForce. Exact terminal runtime в20260920-vm-control/environment-runtime-receipt.json, не объявлять остановленным безreceipt.
++
++Product/schema/dependencies/fixes0; five gates live0 каждый,32journeys1407edges0newreal, original06373pxOPEN/UNKNOWN.36 отдельный archive/comment contract, не функциональная причина063.215product/config132build72harness/6mainmatrices без изменений; исторические954/957 иP0/P1/P2=0/1/10 не переприняты. Рабочая PostgreSQL/service/data/env/uploads/history не читались/не менялись. Guest PG/apps/fixtures/tests0, phone/Stage68/Load/Cloudflare не запускались. Новая unique reviewZIP `zavod-master-r5-vm-checkpoint-20260920.zip`, exactreceipt в20260920-vm-control. Main sweep на паузе, Library PERSISTENCE_PENDING.
++
++## Historical source layer19.09 — superseded by20.09 VM checkpoint
++
++## Current source result — MASTER R5 after manual reboot, 19.09.2026
++
++EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO — основной UI Sweep не возобновлён. Отдельный MASTER_R5_STATUS=BLOCKED_UAC_CANCELLED_VM_PROVISION. [Текущий отчёт](system-stabilization/20260917-master-r5/final-report.md), [entrypoint](system-stabilization/20260917-master-r5/INDEX.md), [resume](system-stabilization/20260917-master-r5/resume-prompt.txt).
++
++После сообщения пользователя о ручном reboot read-only подтверждены новый boot19.09 19:09:05+03, DEP/HypervisorPresent=true, vmms Running,7Hyper-Vfeatures Enabled; RAMfree9,377,431,552bytes/diskfree53,842,927,616bytes на19:41. DISM НЕ повторялся. Get-VMHost denied non-admin token; одна scoped VM-control UAC попытка19:57:24 отменена, caller exit1, helper PID/token/VM receipts нет. Повтора/alternate launcher/policy bypass не было. Immediate checkpoint сохранён, далее только результат уже начатой official ISO download и handoff. Точный image full/partial/runtime status в post-reboot-20260919/environment-runtime-receipt.json.
++
++215product/config+132build+72harness и6parentmatrices совпали с предыдущим checkpoint;163entries старого reboot ZIP/самZIP сохранены,15before-doc snapshots сняты до current edits. Новых product fixes/schema/dependency changes/Node/browser/live cases/снимков0; VM/guest/DB/fixtures/backend/frontend NOT_RUN. Пять gates live0,32journeys1407edges без новых real cases, UI063 original73pxUNKNOWN;036 distinct archive/comments gate не функциональная причина063. Historical954/957/P0/P1/P2=0/1/10 не переприняты. Working PostgreSQL/service/business data/.env/uploads/history NOT_INSPECTED/UNCHANGED. Следующее необходимое разрешение — один scoped VM-control UAC; не повтор DISM и не новая перезагрузка. Новый ZIP `zavod-master-r5-postreboot-uac-20260919.zip`, receipt в post-reboot-20260919. SOURCE_SYNC=REPO_LOCAL_ONLY / Library PERSISTENCE_PENDING.
++
++## Historical R5 checkpoint BEFORE manual reboot, 19.09.2026 — superseded
+ 
+ EXECUTION_STATUS=PAUSED_BY_USER; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO — это статус основного UI Sweep. Отдельный MASTER_R5_STATUS=WAITING_MANUAL_REBOOT; R5 остановлен на подтверждённой границе reboot в stage2, программа1–9 НЕ завершена. [Отчёт](system-stabilization/20260917-master-r5/final-report.md), [entrypoint](system-stabilization/20260917-master-r5/INDEX.md), [resume](system-stabilization/20260917-master-r5/resume-prompt.txt).
+ 

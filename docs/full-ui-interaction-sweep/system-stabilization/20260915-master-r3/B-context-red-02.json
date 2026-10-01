@@ -1,0 +1,41 @@
+{
+  "startedAt": "2026-09-15T19:57:24.210Z",
+  "expected": [
+    {
+      "title": "R3-B2 actual App auth-context revoke invalidates People draft and Back owner",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 5,
+      "id": "25a7c6aa9f94"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-B2 actual App auth-context revoke invalidates People draft and Back owner",
+      "file": "frontend/e2e/master-r3-context.spec.ts",
+      "line": 5,
+      "id": "25a7c6aa9f94",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2684,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: hidden\nError: strict mode violation: getByRole('dialog') resolved to 2 elements:\n    1) <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop\">…</div> aka getByRole('dialog').filter({ hasText: 'СЕКарточка сотрудникаСервисов С. С.Механик · МеханикиНа сменеНе указанФото ведёт' })\n    2) <div role=\"dialog\" aria-modal=\"true\" class=\"modal-backdrop action-modal-backdrop\">…</div> aka getByRole('dialog').filter({ hasText: 'Заметка руководстваЗаметкаЧерновик прежних правВидимостьНе выбраноРуководствоТол' })\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\B-context-red-02\\runner-artifacts\\master-r3-context-R3-B2-ac-cc413-People-draft-and-Back-owner\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\B-context-red-02\\runner-artifacts\\master-r3-context-R3-B2-ac-cc413-People-draft-and-Back-owner\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-09-15T19:57:28.400Z",
+  "status": "failed",
+  "listOnly": false
+}

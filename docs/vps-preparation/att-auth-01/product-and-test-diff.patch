@@ -1,0 +1,256 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\att-auth-01\\before\\backend\\src\\modules\\attachments\\attachments.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\attachments\\attachments.service.ts"
+index 534ac7b2..717e3b1b 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\att-auth-01\\before\\backend\\src\\modules\\attachments\\attachments.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\attachments\\attachments.service.ts"
+@@ -23,6 +23,8 @@ import {
+   DEFAULT_CHAT_DELETE_WINDOW_MINUTES,
+ } from '../chats/chat-message-delete-policy';
+ import { FileStorageService } from './file-storage.service';
++import { ordersDepartmentVisibilityWhere } from '../orders/orders-source-authority';
++import { parseShiftHandover } from '../../common/shift-handover';
+ 
+ const ENTITY_PERMISSION: Partial<Record<AttachmentEntityType, { read: string; write: string }>> = {
+   TASK: { read: 'tasks.read', write: 'tasks.comment' },
+@@ -77,6 +79,7 @@ export class AttachmentsService {
+     file: { buffer: Buffer; originalname: string; mimetype: string; size: number } | undefined,
+     data: { entityType: AttachmentEntityType; entityId: string; kind: AttachmentKind; operationId?: string },
+   ) {
++    await this.assertCurrentAccess(user, data.entityType);
+     return this.withChecklistAttachmentLock(data.entityType, data.entityId, () => this.uploadUnlocked(user, file, data));
+   }
+ 
+@@ -95,7 +98,15 @@ export class AttachmentsService {
+       const existing = await this.prisma.db.attachment.findUnique({
+         where: { uploadedById_operationId: { uploadedById: user.userId, operationId: data.operationId } },
+       });
+-      if (existing) return this.serializeAttachment(existing);
++      if (existing) {
++        if (existing.deletedAt) throw new ConflictError('Вложение больше недоступно.');
++        // Authorize the persisted binding, not the newly supplied target.
++        await this.validateAttachmentAccess(user, existing, 'write');
++        if (existing.entityType !== data.entityType || existing.entityId !== data.entityId || existing.factoryId !== factoryId) {
++          throw new ConflictError('Идентификатор загрузки относится к другому объекту.');
++        }
++        return this.serializeAttachment(existing);
++      }
+     }
+ 
+     const saved = await this.storage.saveUploadedFile({
+@@ -204,10 +215,11 @@ export class AttachmentsService {
+     if (type === AttachmentEntityType.RETURN_RECORD) this.wsService?.broadcast(WS_EVENTS.RETURNS_UPDATED, { factoryId });
+   }
+ 
+-  async listForEntities(entityType: AttachmentEntityType, entityIds: string[]) {
++  // Internal serialization helper: the caller must already authorize sources.
++  async listForEntities(entityType: AttachmentEntityType, entityIds: string[], factoryId?: string) {
+     if (!entityIds.length) return new Map<string, any[]>();
+     const attachments = await this.prisma.db.attachment.findMany({
+-      where: { entityType, entityId: { in: entityIds }, deletedAt: null },
++      where: { entityType, entityId: { in: entityIds }, deletedAt: null, ...(factoryId === undefined ? {} : { factoryId }) },
+       orderBy: { createdAt: 'asc' },
+     });
+     const grouped = new Map<string, any[]>();
+@@ -228,6 +240,7 @@ export class AttachmentsService {
+   }
+ 
+   private async validateAttachmentAccess(user: UserContext, attachment: Attachment, mode: AccessMode) {
++    await this.assertCurrentAccess(user, attachment.entityType);
+     if (attachment.entityType === AttachmentEntityType.CHECKLIST_TEMPLATE_ROW) {
+       if (mode !== 'read') throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Фото-эталон сохраняется для архива. Уберите ссылку в редакторе пункта.' });
+       return this.assertChecklistReferenceRead(user, attachment);
+@@ -235,7 +248,12 @@ export class AttachmentsService {
+     if (attachment.entityType === AttachmentEntityType.COMMON) {
+       return this.validateCommonProfilePhotoAccess(user, attachment, mode);
+     }
+-    return this.validateEntityAccess(user, attachment.entityType, attachment.entityId, mode);
++    const factoryId = await this.validateEntityAccess(user, attachment.entityType, attachment.entityId, mode);
++    if (this.isOrdersAttachment(attachment.entityType) && attachment.factoryId !== factoryId) {
++      await this.writeDeniedAudit(user, factoryId, 'ATTACHMENT_ACCESS_DENIED', attachment.entityType, attachment.entityId, 'attachment source binding mismatch');
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к вложению' });
++    }
++    return factoryId;
+   }
+ 
+   private async validateCommonProfilePhotoAccess(user: UserContext, attachment: Attachment, mode: AccessMode) {
+@@ -288,13 +306,19 @@ export class AttachmentsService {
+     throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к вложению' });
+   }
+ 
++  private async assertCurrentAccess(user: UserContext, entityType: AttachmentEntityType) {
++    // The canonical resolver maps blocked/deleted/revoked/stale auth to guest.
++    // Never allow a persisted ADMIN+guest combination to bypass that boundary.
++    if (!user || user.isGuest || !user.selectedFactoryId) {
++      await this.writeDeniedAudit(user, null, 'ATTACHMENT_ACCESS_DENIED', entityType, null, 'guest or invalid current access');
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к вложению' });
++    }
++  }
++
+   private async assertPermission(user: UserContext, entityType: AttachmentEntityType, mode: AccessMode) {
++    await this.assertCurrentAccess(user, entityType);
+     if (user.isAdmin) return;
+     const action = mode === 'write' ? 'ATTACHMENT_UPLOAD_DENIED' : 'ATTACHMENT_ACCESS_DENIED';
+-    if (user.isGuest) {
+-      await this.writeDeniedAudit(user, null, action, entityType, null, 'guest or blocked user');
+-      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к вложению' });
+-    }
+     if (
+       mode === 'read' &&
+       (entityType === AttachmentEntityType.CHECKLIST_RUN || entityType === AttachmentEntityType.CHECKLIST_RUN_ROW || entityType === AttachmentEntityType.CHECKLIST_ENTRY) &&
+@@ -345,6 +369,9 @@ export class AttachmentsService {
+       await this.writeDeniedAudit(user, factoryId, 'ATTACHMENT_CROSS_FACTORY_DENIED', entityType, entityId, 'cross-factory access denied');
+       throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Вложение относится к другому заводу' });
+     }
++    if (this.isOrdersAttachment(entityType)) {
++      await this.assertOrdersAttachmentAccess(user, entityType, entityId, mode, factoryId);
++    }
+     if (entityType === AttachmentEntityType.TASK || entityType === AttachmentEntityType.TASK_COMMENT) {
+       await this.assertTaskAttachmentAccess(user, entityType, entityId, mode, factoryId);
+     }
+@@ -366,6 +393,34 @@ export class AttachmentsService {
+     return factoryId;
+   }
+ 
++  private isOrdersAttachment(type: AttachmentEntityType) {
++    return type === AttachmentEntityType.ORDER_REQUEST || type === AttachmentEntityType.MINIMUM_STOCK_ITEM || type === AttachmentEntityType.MINIMUM_STOCK_MOVEMENT;
++  }
++
++  private async assertOrdersAttachmentAccess(user: UserContext, type: AttachmentEntityType, id: string, mode: AccessMode, factoryId: string | null) {
++    const scope = { factoryId: user.selectedFactoryId, ...ordersDepartmentVisibilityWhere(user) };
++    let allowed = false;
++    if (type === AttachmentEntityType.ORDER_REQUEST) {
++      allowed = Boolean(await this.prisma.db.orderRequest.findFirst({
++        where: { id, ...scope, ...(mode === 'read' ? {} : { status: 'ACTIVE' }) }, select: { id: true },
++      }));
++    } else {
++      const movement = type === AttachmentEntityType.MINIMUM_STOCK_MOVEMENT
++        ? await this.prisma.db.minimumStockMovement.findFirst({ where: { id, factoryId: user.selectedFactoryId }, select: { itemId: true } })
++        : null;
++      const itemId = type === AttachmentEntityType.MINIMUM_STOCK_ITEM ? id : movement?.itemId;
++      if (itemId) allowed = Boolean(await this.prisma.db.minimumStockItem.findFirst({
++        where: { id: itemId, ...scope, ...(mode === 'read' ? {} : { isActive: true, archivedAt: null }) }, select: { id: true },
++      }));
++    }
++    // Entity/archive reads retain their source scope. Archive authority does
++    // not permit upload or deactivation, including for an administrator.
++    if (!allowed) {
++      await this.writeDeniedAudit(user, factoryId, 'ATTACHMENT_ACCESS_DENIED', type, id, 'orders source scope or operation denied');
++      throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к вложению' });
++    }
++  }
++
+   private async assertTaskAttachmentAccess(
+     user: UserContext,
+     entityType: AttachmentEntityType,
+@@ -445,8 +500,11 @@ export class AttachmentsService {
+       : (await this.prisma.db.shiftLogComment.findFirst({ where: { id: entityId, deletedAt: null }, include: { log: true } }))?.log;
+     const archived = Boolean(log?.isDeleted || log?.status === 'ARCHIVED');
+     const canReadArchive = !user.isGuest && (user.isAdmin || user.permissions.includes('shift-log.archive.read') || user.permissions.includes('shift-log.manage'));
++    const canReadOrdinary = user.isAdmin || user.permissions.includes('shift-log.read');
+     if (!log || user.isGuest || log.factoryId !== factoryId || log.factoryId !== user.selectedFactoryId
+       || (!user.isAdmin && (!user.departmentId || user.departmentId !== log.departmentId))
++      || (!archived && mode === 'read' && !canReadOrdinary)
++      || (mode !== 'read' && Boolean(parseShiftHandover(log.text)))
+       || (archived && (mode !== 'read' || !canReadArchive))) {
+       await this.writeDeniedAudit(user, factoryId, mode === 'write' ? 'ATTACHMENT_UPLOAD_DENIED' : 'ATTACHMENT_ACCESS_DENIED', entityType, entityId, 'shift log department visibility denied');
+       throw new ForbiddenException({ code: 'FORBIDDEN', message: 'Нет доступа к вложению' });
+@@ -665,7 +723,7 @@ export class AttachmentsService {
+       const row = await this.referenceRowForWrite(tx, user, data.entityId);
+       const existing = await tx.attachment.findUnique({ where: { uploadedById_operationId: { uploadedById: user.userId, operationId: data.operationId! } } });
+       if (existing) {
+-        if (existing.entityType !== data.entityType || existing.entityId !== data.entityId || existing.deletedAt || existing.mimeType !== file.mimetype ||
++        if (existing.factoryId !== user.selectedFactoryId || existing.entityType !== data.entityType || existing.entityId !== data.entityId || existing.deletedAt || existing.mimeType !== file.mimetype ||
+           createHash('sha256').update(await this.storage.readStorageFile(existing.storagePath)).digest('hex') !== createHash('sha256').update(file.buffer).digest('hex')) {
+           throw new ConflictError('Идентификатор загрузки уже использован для другого файла.');
+         }
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\att-auth-01\\before\\backend\\src\\modules\\orders\\orders.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+index 6e36ff78..6114d78d 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\att-auth-01\\before\\backend\\src\\modules\\orders\\orders.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+@@ -11,6 +11,7 @@ import { WS_EVENTS } from '../../ws/events';
+ import { WsService } from '../../ws/ws.service';
+ import { AttachmentsService } from '../attachments/attachments.service';
+ import { NotificationsService } from '../notifications/notifications.service';
++import { ordersDepartmentVisibilityWhere } from './orders-source-authority';
+ 
+ const ALLOWED_UNITS = ['шт', 'кг', 'г', 'м', 'см', 'л', 'мл', 'упак.', 'короб', 'рулон', 'пара'] as const;
+ const INTEGER_UNITS = new Set(['шт', 'короб', 'пара', 'упак.', 'рулон']);
+@@ -118,7 +119,7 @@ export class OrdersService {
+       : items.filter((item) => !this.isRuntimeStockNoise(item));
+     const byThreshold = query.belowThreshold === 'true' ? pilotVisible.filter((item) => item.currentQuantity <= item.minThreshold) : pilotVisible;
+     const byStatus = query.shortageStatus ? byThreshold.filter((item) => this.itemStatus(item).status === String(query.shortageStatus)) : byThreshold;
+-    const attachments = await this.attachmentsService.listForEntities(AttachmentEntityType.MINIMUM_STOCK_ITEM, byStatus.map((item) => item.id));
++    const attachments = await this.attachmentsService.listForEntities(AttachmentEntityType.MINIMUM_STOCK_ITEM, byStatus.map((item) => item.id), user.selectedFactoryId);
+     const departmentLabels = await this.departmentLabels(user.selectedFactoryId, byStatus.map((item) => item.departmentId));
+     return byStatus.map((item) => this.serializeItem(this.withRuntimeOrderRequests(item), settings, attachments.get(item.id) ?? [], departmentLabels.get(item.departmentId ?? '')));
+   }
+@@ -133,7 +134,7 @@ export class OrdersService {
+       },
+     });
+     if (!item) throw new ConflictError('Позиция остатка не найдена.');
+-    const attachments = await this.attachmentsService.listForEntities(AttachmentEntityType.MINIMUM_STOCK_ITEM, [id]);
++    const attachments = await this.attachmentsService.listForEntities(AttachmentEntityType.MINIMUM_STOCK_ITEM, [id], user.selectedFactoryId);
+     const departmentLabels = await this.departmentLabels(user.selectedFactoryId, [item.departmentId, ...item.orderRequests.map((request) => request.departmentId)]);
+     return {
+       ...this.serializeItem(item, settings, attachments.get(id) ?? [], departmentLabels.get(item.departmentId ?? '')),
+@@ -265,7 +266,7 @@ export class OrdersService {
+     const visibleRequests = query.includeDiagnostics === 'true'
+       ? requests
+       : requests.filter((request) => !this.isRuntimeOrderRequestNoise(request));
+-    const attachments = await this.attachmentsService.listForEntities(AttachmentEntityType.ORDER_REQUEST, visibleRequests.map((request) => request.id));
++    const attachments = await this.attachmentsService.listForEntities(AttachmentEntityType.ORDER_REQUEST, visibleRequests.map((request) => request.id), user.selectedFactoryId);
+     return this.serializeRequests(visibleRequests, attachments);
+   }
+ 
+@@ -276,7 +277,7 @@ export class OrdersService {
+     });
+     if (!request) throw new ConflictError('Заявка на заказ не найдена.');
+     if (this.isRuntimeOrderRequestNoise(request)) throw new ConflictError('Заявка на заказ не найдена.');
+-    const attachments = await this.attachmentsService.listForEntities(AttachmentEntityType.ORDER_REQUEST, [id]);
++    const attachments = await this.attachmentsService.listForEntities(AttachmentEntityType.ORDER_REQUEST, [id], user.selectedFactoryId);
+     return (await this.serializeRequests([request], attachments))[0];
+   }
+ 
+@@ -732,21 +733,8 @@ export class OrdersService {
+     return labels;
+   }
+ 
+-  private canSeeAllStockDepartments(user: UserContext) {
+-    return user.isAdmin;
+-  }
+-
+   private departmentVisibilityWhere(user: UserContext, requestedDepartmentId: unknown): Prisma.MinimumStockItemWhereInput {
+-    const requested = String(requestedDepartmentId ?? '').trim();
+-    const sharedRequested = ['shared', 'global', 'common', 'none', 'null'].includes(requested.toLowerCase());
+-    if (this.canSeeAllStockDepartments(user)) {
+-      if (sharedRequested) return { departmentId: null };
+-      if (requested && requested !== 'all') return { departmentId: requested };
+-      return {};
+-    }
+-
+-    const ownDepartmentId = user.departmentId ?? '__none__';
+-    return { departmentId: ownDepartmentId };
++    return ordersDepartmentVisibilityWhere(user, requestedDepartmentId);
+   }
+ 
+   private addDepartmentVisibility<T extends Prisma.MinimumStockItemWhereInput | Prisma.OrderRequestWhereInput>(where: T, condition: Prisma.MinimumStockItemWhereInput) {
+
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\att-auth-01\\before\\docs\\vps-preparation\\factory-01\\stand.ps1" "b/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\stand.ps1"
+index 1247806f..a08cac75 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\att-auth-01\\before\\docs\\vps-preparation\\factory-01\\stand.ps1"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\factory-01\\stand.ps1"
+@@ -1,4 +1,4 @@
+-param([ValidateSet('Start','Stop','Switch','Quiesce')][string]$Action='Start',[ValidateSet('T1','Restore','Handover','HandoverRestore','TaskNotify','Notify02')][string]$Target='T1',[string]$TestNow='',[ValidateSet('','before-publication','ws','push')][string]$NotificationFault='')
++param([ValidateSet('Start','Stop','Switch','Quiesce')][string]$Action='Start',[ValidateSet('T1','Restore','Handover','HandoverRestore','TaskNotify','Notify02','AttAuth01')][string]$Target='T1',[string]$TestNow='',[ValidateSet('','before-publication','ws','push')][string]$NotificationFault='')
+ $ErrorActionPreference='Stop'
+ if($NotificationFault -and $Target -notin @('TaskNotify','Notify02')){throw 'Transport faults are restricted to the isolated notification copies'}
+ if($TestNow -and $Target -ne 'Handover'){throw 'Test clock is restricted to the isolated Handover copy'}
+@@ -9,7 +9,7 @@ $pgData=Join-Path $factory01Runtime 'pgdata'
+ $pgCtl='C:\Program Files\PostgreSQL\18\bin\pg_ctl.exe'
+ $node='C:\Program Files\nodejs\node.exe'
+ $preview='"C:\Program Files\nodejs\node.exe" docs/vps-preparation/local-03/frontend-preview.cjs'
+-$database=@{T1='zavod_factory01_t1';Restore='zavod_factory01_restore';Handover='zavod_factory01_handover';HandoverRestore='zavod_factory01_handover_restore';TaskNotify='zavod_factory01_task_notify';Notify02='zavod_factory01_notify02'}[$Target]
++$database=@{T1='zavod_factory01_t1';Restore='zavod_factory01_restore';Handover='zavod_factory01_handover';HandoverRestore='zavod_factory01_handover_restore';TaskNotify='zavod_factory01_task_notify';Notify02='zavod_factory01_notify02';AttAuth01='zavod_factory01_attauth01'}[$Target]
+ $version='FACTORY01-20260926-'+$Target.ToUpperInvariant()
+ $uploads=if($Target -eq 'T1'){Join-Path $factory01Runtime 'uploads'}else{Join-Path $factory01Runtime ($Target.ToLowerInvariant()+'/uploads')}
+ function Observe([int]$port){

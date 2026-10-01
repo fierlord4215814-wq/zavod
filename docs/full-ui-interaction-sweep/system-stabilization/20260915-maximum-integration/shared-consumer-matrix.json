@@ -1,0 +1,971 @@
+{
+  "productFingerprint": "0b2bd805f1eb468accfe99e9d9c58bc21d2fdbfe0c57c1763b20af6a618b8de4",
+  "modals": [
+    {
+      "id": "ca5ca0dba8c41db2",
+      "owner": "frontend/src/screens/ArchiveScreen.tsx",
+      "line": 509,
+      "attributes": "title=\"Уточнить время простоя\" description={`${correctionTarget.title}. Старое и новое значение сохранятся в аудите.`} fields={[{ name: 'correctedStartAt', label: 'Фактическое начало', type: 'datetime-local', required: true }, { name: 'correctedEndAt', label: 'Фактическое окончание', type: 'datetime-local', required: true }, { name: 'comment', label: 'Комментарий', type: 'textarea', required: true }]} confirmLabel=\"Сохранить уточнение\" onCancel={() => setCorrectionTarget(null)} onSubmit={submitCorrection}",
+      "typesInOwner": [
+        "datetime-local",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": false,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "556ff7599857a26e",
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 2994,
+      "attributes": "busy={loading}\n          cancelLabel=\"Отмена\"\n          className=\"checklist-item-editor-modal\"\n          confirmLabel=\"Сохранить\"\n          dirty={JSON.stringify(templateBuilder.editorDraft) !== JSON.stringify(templateBuilder.editorInitialDraft)}\n          errorText={errorText}\n          onCancel={() => {\n            setTemplateBuilder({ ...templateBuilder, editorIndex: null, editorDraft: null, editorInitialDraft: null });\n            setErrorText(null);\n          }}\n          onSubmit={() => commitBuilderEditor()}\n          title={templateBuilder.editorIndex !== null && templateBuilder.editorIndex >= 0 ? 'Редактирование пункта' : 'Новый пункт'}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "number",
+        "checkbox"
+      ],
+      "dirty": true,
+      "busy": true,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "parent-child-dirty",
+        "internal-pending-latch",
+        "external-busy",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "8408de4efb26bc3f",
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 3043,
+      "attributes": "busy={loading}\n          cancelLabel=\"Отмена\"\n          confirmLabel={\n            modal.mode === 'start'\n              ? 'Взять в работу'\n              : modal.mode === 'close'\n                ? isPeriodicChecklistRun(modal.run) ? 'Завершить чек-лист полностью' : 'Завершить чек-лист'\n                : modal.mode === 'resume'\n                  ? 'Возобновить'\n                  : modal.mode === 'archive-row' || modal.mode === 'archive-template'\n                    ? 'Подтвердить'\n                    : 'Сохранить'\n          }\n          errorText={errorText}\n          fields={\n            modal.mode === 'pause'\n              ? [{ name: 'reason', label: 'Причина паузы', type: 'textarea', required: true }]\n              : modal.mode === 'close'\n                ? [{\n                    name: 'comment',\n                    label: isPeriodicChecklistRun(modal.run) ? 'Причина досрочного завершения' : 'Причина завершения',\n                    type: 'textarea',\n                    required: true,\n                  }]\n                : modal.mode === 'edit-template'\n                  ? templateFields(modal.template)\n                  : modal.mode === 'create-template'\n                    ? templateFields()\n                    : []\n          }\n          onCancel={() => {\n            setFilesByRow({});\n            setStandaloneRowDraft(null);\n            setModal(null);\n          }}\n          onSubmit={submitModal}\n          title={modal.title}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "number",
+        "checkbox"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "416c8a9ebee39e6a",
+      "owner": "frontend/src/screens/OkkScreen.tsx",
+      "line": 330,
+      "attributes": "title=\"Новый брак\" fields={createFields} busy={busy} errorText={errorText} confirmLabel=\"Создать\" onCancel={() => setModal(null)} onSubmit={createRecord}",
+      "typesInOwner": [
+        "select",
+        "date",
+        "textarea",
+        "number"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "320eb729a0865c58",
+      "owner": "frontend/src/screens/OkkScreen.tsx",
+      "line": 331,
+      "attributes": "title=\"Отметить выполнение\" fields={completionFields} busy={busy} errorText={errorText} confirmLabel=\"Сохранить\" onCancel={() => setModal(null)} onSubmit={markCompletion}",
+      "typesInOwner": [
+        "select",
+        "date",
+        "textarea",
+        "number"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "d93a0281cd3faa06",
+      "owner": "frontend/src/screens/OkkScreen.tsx",
+      "line": 333,
+      "attributes": "title=\"Полностью завершить запись\"\n          description=\"После подтверждения запись будет скрыта из активного списка и останется в архиве.\"\n          busy={busy}\n          errorText={errorText}\n          confirmLabel=\"Подтвердить\"\n          onCancel={() => setModal(null)}\n          onSubmit={async () => {\n            if (await postAction(activeId, 'full-complete')) {\n              setModal(null);\n              setActiveId(null);\n            }\n          }}",
+      "typesInOwner": [
+        "select",
+        "date",
+        "textarea",
+        "number"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "2a8dfaff0d5c35d2",
+      "owner": "frontend/src/screens/OrdersStockScreen.tsx",
+      "line": 603,
+      "attributes": "busy={loading}\n          confirmLabel={modal.mode === 'restore' ? 'Восстановить' : 'Сохранить'}\n          errorText={errorText}\n          fields={modalFields()}\n          onCancel={() => { setModal(null); setModalOperationId(''); }}\n          onSubmit={(values) => runAction(values)}\n          title={modal.title}",
+      "typesInOwner": [
+        "select",
+        "number",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "627f149b6d70a172",
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 662,
+      "attributes": "busy={loading}\n          dirty={Boolean(lineId)}\n          fields={skillFields}\n          title=\"Добавить навык\"\n          confirmLabel=\"Добавить\"\n          onCancel={() => { setModal(null); setLineId(''); }}\n          onSubmit={createSkill}",
+      "typesInOwner": [
+        "select",
+        "number",
+        "checkbox",
+        "textarea"
+      ],
+      "dirty": true,
+      "busy": true,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "parent-child-dirty",
+        "internal-pending-latch",
+        "external-busy",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "dbca6c2bc22fc55e",
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 682,
+      "attributes": "busy={loading}\n          description=\"Автоматическое начисление остаётся основным. Здесь руководитель может исправить подтверждённую ошибку учёта.\"\n          fields={[\n            { name: 'experienceCount', label: 'Фактический опыт', type: 'number', required: true, defaultValue: selectedSkill.experienceCount },\n            { name: 'isActive', label: 'Навык активен', type: 'checkbox', defaultValue: true },\n          ]}\n          title=\"Изменить навык\"\n          confirmLabel=\"Сохранить\"\n          onCancel={() => { setModal(null); setSelectedSkill(null); }}\n          onSubmit={updateSkill}",
+      "typesInOwner": [
+        "select",
+        "number",
+        "checkbox",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "80ee4de5b323feb2",
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 697,
+      "attributes": "busy={loading}\n          fields={[\n            { name: 'text', label: 'Заметка', type: 'textarea', required: true },\n            {\n              name: 'visibility',\n              label: 'Видимость',\n              type: 'select',\n              defaultValue: 'MANAGEMENT',\n              options: [{ label: 'Руководство', value: 'MANAGEMENT' }, { label: 'Только администратор', value: 'ADMIN' }],\n            },\n          ]}\n          title=\"Заметка руководства\"\n          confirmLabel=\"Сохранить\"\n          onCancel={() => setModal(null)}\n          onSubmit={createNote}",
+      "typesInOwner": [
+        "select",
+        "number",
+        "checkbox",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "d51f06f244360405",
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 717,
+      "attributes": "busy={loading}\n          fields={[{ name: 'text', label: 'Заметка', type: 'textarea', required: true, defaultValue: selectedNote.text }]}\n          title=\"Изменить заметку\"\n          confirmLabel=\"Сохранить\"\n          onCancel={() => setModal(null)}\n          onSubmit={updateNote}",
+      "typesInOwner": [
+        "select",
+        "number",
+        "checkbox",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "97c24f343128bc77",
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 728,
+      "attributes": "busy={loading}\n          title=\"Удалить заметку\"\n          description=\"Заметка будет скрыта, физическое удаление не выполняется.\"\n          confirmLabel=\"Удалить\"\n          onCancel={() => setModal(null)}\n          onSubmit={deleteNote}",
+      "typesInOwner": [
+        "select",
+        "number",
+        "checkbox",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "b7475885fc924b31",
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "line": 739,
+      "attributes": "busy={loading}\n          title=\"Сбросить пароль\"\n          description={`Действующие сессии сотрудника «${profile.displayName}» завершатся. При следующем входе он задаст новый пароль без старого.`}\n          fields={[{ name: 'reason', label: 'Причина', type: 'textarea', required: true }]}\n          confirmLabel=\"Сбросить пароль\"\n          onCancel={() => setModal(null)}\n          onSubmit={resetPassword}",
+      "typesInOwner": [
+        "select",
+        "number",
+        "checkbox",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "99a7e72eb8a53af0",
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 315,
+      "attributes": "busy={loading}\n          errorText={errorText}\n          fields={[\n            { name: 'title', label: 'Заголовок' },\n            { name: 'logDate', label: 'Дата', type: 'date', defaultValue: todayKey(), required: true },\n            { name: 'shiftLabel', label: 'Смена', type: 'select', options: [{ label: 'День', value: 'День' }, { label: 'Ночь', value: 'Ночь' }], defaultValue: 'День', required: true },\n            { name: 'text', label: 'Комментарий к смене', type: 'textarea', required: true },\n            ...(currentUser?.isAdmin ? [{ name: 'departmentId', label: 'Отдел', type: 'select' as const, options: departmentOptions, defaultValue: currentUser.departmentId ?? '', required: true }] : []),\n            ...(canImportant ? [{ name: 'isImportant', label: 'Важная запись', type: 'checkbox' as const }] : []),\n          ]}\n          onCancel={() => setModal(null)}\n          onSubmit={submitModal}\n          title=\"Новая запись\"",
+      "typesInOwner": [
+        "date",
+        "select",
+        "textarea",
+        "checkbox"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "1715862592d8a5e5",
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 333,
+      "attributes": "busy={loading} errorText={errorText} fields={[{ name: 'text', label: 'Комментарий', type: 'textarea', required: true }]} onCancel={() => setModal(null)} onSubmit={submitModal} title=\"Комментарий\"",
+      "typesInOwner": [
+        "date",
+        "select",
+        "textarea",
+        "checkbox"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "830d548823a8a73f",
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 337,
+      "attributes": "busy={loading} errorText={errorText} fields={[{ name: 'comment', label: 'Комментарий закрытия', type: 'textarea', required: true }]} onCancel={() => setModal(null)} onSubmit={submitModal} title=\"Закрыть важное уведомление\"",
+      "typesInOwner": [
+        "date",
+        "select",
+        "textarea",
+        "checkbox"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "b38fb7f1a5759192",
+      "owner": "frontend/src/screens/SituationScreen.tsx",
+      "line": 913,
+      "attributes": "title={pendingAction.mode === 'start' || pendingAction.status === 'WORK' ? 'Вернуть в работу' : `Изменить статус: ${statusMeta[pendingAction.status].label}`}\n          description={`${pendingAction.line.name}. ${statusDescription(pendingAction.mode === 'start' ? 'WORK' : pendingAction.status)}`}\n          fields={[\n            {\n              name: 'effectiveMode',\n              label: 'Время события',\n              type: 'select',\n              defaultValue: 'NOW',\n              required: true,\n              options: [\n                { label: 'Сейчас', value: 'NOW' },\n                { label: 'Указать фактическое время', value: 'CUSTOM' },\n              ],\n            },\n            {\n              name: 'effectiveAt',\n              label: 'Фактическое время',\n              type: 'datetime-local',\n              defaultValue: factoryDateTimeInput(serverNowIso),\n            },\n            ...(pendingAction.mode !== 'start' && (pendingAction.status === 'PAUSE' || pendingAction.status === 'STOP') ? [{\n              name: 'downtimeReason',\n              label: 'Причина простоя',\n              type: 'select' as const,\n              required: true,\n              defaultValue: downtimeReasons[0]?.value ?? '',\n              options: downtimeReasons,\n            }] : []),\n            {\n              name: 'comment',\n              label: 'Комментарий',\n              type: 'textarea',\n              required: pendingAction.mode !== 'start' && (pendingAction.status === 'PAUSE' || pendingAction.status === 'STOP'),\n            },\n          ]}\n          confirmLabel=\"Подтвердить\"\n          busy={actionBusy}\n          errorText={errorText}\n          onCancel={() => setPendingAction(null)}\n          onSubmit={confirmAction}",
+      "typesInOwner": [
+        "select",
+        "datetime-local",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "85da00bc770f1cf8",
+      "owner": "frontend/src/screens/StockScreen.tsx",
+      "line": 128,
+      "attributes": "title=\"Создать некондицию\"\n          fields={[\n            { name: 'name', label: 'Наименование', placeholder: 'Можно оставить пустым' },\n            { name: 'quantity', label: 'Количество', type: 'number', required: true },\n            { name: 'unit', label: 'Единица', type: 'select', required: true, defaultValue: 'штуки', options: unitOptions },\n          ]}\n          busy={busy}\n          errorText={errorText}\n          confirmLabel=\"Создать\"\n          onCancel={() => setModal(null)}\n          onSubmit={async (values) => {\n            setBusy(true);\n            setErrorText(null);\n            try {\n              await apiClient.post('/stock', { name: String(values.name ?? ''), quantity: Number(values.quantity), unit: String(values.unit ?? 'штуки') });\n              setModal(null);\n              await load();\n            } catch (error) {\n              setErrorText(error instanceof Error ? error.message : 'Не удалось создать некондицию.');\n            } finally {\n              setBusy(false);\n            }\n          }}",
+      "typesInOwner": [
+        "number",
+        "select",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "a97eedbe481ec315",
+      "owner": "frontend/src/screens/StockScreen.tsx",
+      "line": 156,
+      "attributes": "title=\"Редактировать некондицию\"\n          fields={[\n            { name: 'name', label: 'Наименование', defaultValue: active.name ?? active.productName ?? '' },\n            { name: 'quantity', label: 'Количество', type: 'number', required: true, defaultValue: active.quantity },\n            { name: 'unit', label: 'Единица', type: 'select', required: true, defaultValue: defectUnit(active), options: unitOptions },\n          ]}\n          busy={busy}\n          errorText={errorText}\n          confirmLabel=\"Сохранить\"\n          onCancel={() => setModal(null)}\n          onSubmit={async (values) => {\n            setBusy(true);\n            setErrorText(null);\n            try {\n              await apiClient.patch(`/stock/${active.id}`, { name: String(values.name ?? ''), quantity: Number(values.quantity), unit: String(values.unit ?? 'штуки') });\n              setModal(null);\n              setActiveId(null);\n              await load();\n            } catch (error) {\n              setErrorText(error instanceof Error ? error.message : 'Не удалось обновить некондицию.');\n            } finally {\n              setBusy(false);\n            }\n          }}",
+      "typesInOwner": [
+        "number",
+        "select",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "38634084338647f2",
+      "owner": "frontend/src/screens/StockScreen.tsx",
+      "line": 185,
+      "attributes": "title=\"Выдать некондицию\"\n          fields={[{ name: 'comment', label: 'Комментарий выдачи', type: 'textarea', required: true }]}\n          busy={busy}\n          errorText={errorText}\n          confirmLabel=\"Выдать\"\n          onCancel={() => setModal(null)}\n          onSubmit={async (values) => {\n            setBusy(true);\n            setErrorText(null);\n            try {\n              await apiClient.post(`/stock/${activeId}/issue`, { comment: String(values.comment) });\n              setModal(null);\n              setActiveId(null);\n              await load();\n            } catch (error) {\n              setErrorText(error instanceof Error ? error.message : 'Не удалось выдать некондицию.');\n            } finally {\n              setBusy(false);\n            }\n          }}",
+      "typesInOwner": [
+        "number",
+        "select",
+        "textarea"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "e813a6d3bcf80a20",
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "line": 751,
+      "attributes": "busy={busy}\n          errorText={errorText}\n          title=\"Создать заявку\"\n          fields={[\n            { name: 'description', label: 'Описание', type: 'textarea', required: true },\n            { name: 'type', label: 'Тип', type: 'select', required: true, defaultValue: 'URGENT', options: [{ label: 'Срочная', value: 'URGENT' }, { label: 'Долгая', value: 'LONG' }] },\n            { name: 'lineId', label: 'Линия', type: 'select', options: lines.map((line) => ({ label: line.name, value: line.id })) },\n            { name: 'departmentId', label: 'Служба / отдел', type: 'select', options: departments.map((department) => ({ label: department.name, value: department.id })) },\n            { name: 'assigneeUserId', label: 'Конкретный исполнитель', type: 'select', options: candidates.map((candidate) => ({ label: `${candidate.displayName} · ${candidate.role === 'OTHER' && candidate.departmentName ? candidate.departmentName : roleLabel(candidate.role)}`, value: candidate.userId })) },\n            { name: 'deadlineAt', label: 'Дедлайн для долгой заявки', type: 'datetime-local', defaultValue: buildDeadline(settings?.longTaskDefaultDeadlineHours ?? 48) },\n          ]}\n          onCancel={closeTaskModal}\n          onSubmit={async (values) => {\n            if (actionInFlightRef.current) return;\n            actionInFlightRef.current = true;\n            setBusy(true);\n            setErrorText(null);\n            try {\n            const type = String(values.type || 'URGENT').toUpperCase() === 'LONG' ? 'LONG' : 'URGENT';\n            const task = await apiClient.post<Task>('/tasks', {\n              type,\n              description: String(values.description),\n              lineId: values.lineId ? String(values.lineId) : null,\n              departmentRecipientIds: values.departmentId ? [String(values.departmentId)] : [],\n              assigneeUserIds: values.assigneeUserId ? [String(values.assigneeUserId)] : [],\n              deadlineAt: type === 'LONG' ? new Date(String(values.deadlineAt || buildDeadline(settings?.longTaskDefaultDeadlineHours ?? 48))).toISOString() : null,\n              operationId: modalOperationId || createOperationId('task-create'),\n            });\n            if (files.length) await uploadFiles('TASK', task.id, files);\n            setFiles([]);\n            closeTaskModal();\n            await load();\n            await loadArchive();\n            } catch (error) {\n              setErrorText(errorMessage(error, 'Не удалось создать заявку'));\n            } finally {\n              actionInFlightRef.current = false;\n              setBusy(false);\n            }\n          }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "18b36a484ed26dfc",
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "line": 849,
+      "attributes": "busy={busy}\n          errorText={errorText}\n          title=\"Передать заявку\"\n          fields={[\n            { name: 'comment', label: 'Комментарий', type: 'textarea', required: true },\n            { name: 'departmentId', label: 'Новая служба / отдел', type: 'select', options: departments.map((department) => ({ label: department.name, value: department.id })) },\n            { name: 'assigneeUserId', label: 'Новый конкретный исполнитель', type: 'select', options: candidates.map((candidate) => ({ label: `${candidate.displayName} · ${candidate.role === 'OTHER' && candidate.departmentName ? candidate.departmentName : roleLabel(candidate.role)}`, value: candidate.userId })) },\n          ]}\n          onCancel={closeTaskModal}\n          onSubmit={async (values) => {\n            if (actionInFlightRef.current) return;\n            actionInFlightRef.current = true;\n            setBusy(true);\n            setErrorText(null);\n            try {\n            await apiClient.post(`/tasks/${selectedTask.id}/redirect`, {\n              comment: String(values.comment),\n              newDepartmentRecipientIds: values.departmentId ? [String(values.departmentId)] : [],\n              newAssigneeUserIds: values.assigneeUserId ? [String(values.assigneeUserId)] : [],\n              operationId: modalOperationId || createOperationId('task-redirect'),\n            });\n            closeTaskModal();\n            await load();\n            await loadArchive();\n            await openDetail(selectedTask);\n            } catch (error) {\n              setErrorText(errorMessage(error, 'Не удалось передать заявку'));\n            } finally {\n              actionInFlightRef.current = false;\n              setBusy(false);\n            }\n          }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "d02a9a92fbe58aa8",
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "line": 886,
+      "attributes": "busy={busy}\n          errorText={errorText}\n          title=\"Завершить заявку\"\n          fields={[{ name: 'comment', label: selectedTask.overdue ? 'Комментарий к закрытию просрочки' : 'Комментарий', type: 'textarea', required: Boolean(selectedTask.overdue && selectedTask.type === 'LONG') }]}\n          onCancel={closeTaskModal}\n          onSubmit={async (values) => {\n            if (actionInFlightRef.current) return;\n            actionInFlightRef.current = true;\n            setBusy(true);\n            setErrorText(null);\n            try {\n            await apiClient.post(`/tasks/${selectedTask.id}/complete`, {\n              operationId: modalOperationId || createOperationId('task-done'),\n              comment: String(values.comment || ''),\n            });\n            closeTaskModal();\n            setSelectedTask(null);\n            await load();\n            await loadArchive();\n            } catch (error) {\n              setErrorText(errorMessage(error, 'Не удалось завершить заявку'));\n            } finally {\n              actionInFlightRef.current = false;\n              setBusy(false);\n            }\n          }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "4d6bc7c83fa0ab23",
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 672,
+      "attributes": "busy={loading}\n            errorText={errorText}\n            title=\"Фото или комментарий\"\n            fields={[{ name: 'message', label: 'Комментарий', type: 'textarea', required: true }]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              setLoading(true);\n              setErrorText(null);\n              try {\n                const message = await apiClient.post<{ id: string }>(`/wash/${current.id}/message`, { message: String(values.message), operationId: createOperationId('wash-message') });\n                await uploadAttachments('WASH_MESSAGE', message.id, files);\n                resetModal();\n                await reloadDetail(current.id);\n              } catch (error) {\n                setErrorText(error instanceof Error ? error.message : 'Не удалось сохранить комментарий к мойке.');\n              } finally {\n                setLoading(false);\n              }\n            }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "checkbox",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "e6543803b9a5031e",
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 697,
+      "attributes": "title=\"Проблема мойки\"\n            fields={[\n              { name: 'title', label: 'Коротко что не так', required: true },\n              { name: 'description', label: 'Описание', type: 'textarea', required: true },\n            ]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              const issue = await apiClient.post<{ id: string }>(`/wash/${current.id}/issues`, {\n                title: String(values.title),\n                description: String(values.description),\n                operationId: createOperationId('wash-issue'),\n              });\n              await uploadAttachments('WASH_ISSUE', issue.id, files);\n              resetModal();\n              await reloadDetail(current.id);\n            }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "checkbox",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": false,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "57cddc6cce04f30f",
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 719,
+      "attributes": "title=\"Задание по мойке\"\n            fields={[\n              { name: 'title', label: 'Что проверить или домыть', required: true },\n              { name: 'description', label: 'Комментарий', type: 'textarea' },\n              { name: 'type', label: 'Тип', type: 'select', options: [{ value: 'CONTROL', label: 'Контроль' }, { value: 'MINI_TASK', label: 'Мини-задача' }], defaultValue: 'CONTROL' },\n              { name: 'requiresPhoto', label: 'Требовать фото при выполнении', type: 'checkbox' },\n            ]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              const item = await apiClient.post<{ id: string }>(`/wash/${current.id}/control-items`, {\n                title: String(values.title),\n                description: String(values.description || ''),\n                type: String(values.type || 'CONTROL') as 'CONTROL',\n                requiresPhoto: Boolean(values.requiresPhoto),\n              });\n              await uploadAttachments('WASH_CONTROL_ITEM', item.id, files);\n              resetModal();\n              await reloadDetail(current.id);\n            }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "checkbox",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": false,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "b0e8c6a550ce0210",
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 744,
+      "attributes": "busy={loading}\n            errorText={errorText}\n            title=\"ОКК-проверка мойки\"\n            fields={[\n              { name: 'status', label: 'Решение', type: 'select', options: [{ value: 'APPROVED', label: 'Принято' }, { value: 'NEEDS_REWORK', label: 'Нужно домыть' }, { value: 'REJECTED', label: 'Отклонено' }], defaultValue: 'APPROVED', required: true },\n              { name: 'comment', label: 'Комментарий', type: 'textarea', required: true },\n            ]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              setLoading(true);\n              setErrorText(null);\n              try {\n                const review = await apiClient.post<{ id: string }>(`/wash/${current.id}/okk-review`, {\n                  status: String(values.status || 'APPROVED'),\n                  rating: reviewRating ? Number(reviewRating) : undefined,\n                  comment: String(values.comment),\n                });\n                await uploadAttachments('WASH_OKK_REVIEW', review.id, files);\n                resetModal();\n                await reloadDetail(current.id);\n              } catch (error) {\n                setErrorText(error instanceof Error ? error.message : 'Не удалось сохранить проверку ОКК.');\n              } finally {\n                setLoading(false);\n              }\n            }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "checkbox",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "62d1f0190c510f24",
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 795,
+      "attributes": "title=\"Закрыть проблему\"\n            fields={[{ name: 'comment', label: 'Что сделали', type: 'textarea', required: true }]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              await apiClient.patch(`/wash/issues/${selectedIssueId}/status`, { status: 'RESOLVED', comment: String(values.comment) });\n              resetModal();\n              await reloadDetail(current.id);\n            }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "checkbox",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": false,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "9adc52345107ecf3",
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 807,
+      "attributes": "title=\"Выполнить задание\"\n            fields={[{ name: 'comment', label: 'Комментарий', type: 'textarea' }]}\n            onCancel={resetModal}\n            onSubmit={async (values) => {\n              await uploadAttachments('WASH_CONTROL_ITEM', String(selectedControlId), files);\n              await apiClient.patch(`/wash/control-items/${selectedControlId}`, { status: 'DONE', comment: String(values.comment || '') });\n              resetModal();\n              await reloadDetail(current.id);\n            }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "checkbox",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": false,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "2861a68cec91ea98",
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 822,
+      "attributes": "busy={loading}\n            className=\"wash-complete-modal\"\n            confirmLabel=\"Завершить мойку\"\n            errorText={errorText}\n            title=\"Завершить мойку\"\n            description=\"Перед завершением проверьте открытые проблемы, задания и решение ОКК. Если правила завода не выполнены, backend вернет понятную ошибку.\"\n            onCancel={resetModal}\n            onSubmit={async () => {\n              setLoading(true);\n              setErrorText(null);\n              try {\n                await apiClient.post(`/wash/${current.id}/complete`, { operationId: createOperationId('wash-complete') });\n                resetModal();\n                closeDetail();\n                await loadWash();\n              } catch (error) {\n                setErrorText(error instanceof Error ? error.message : 'Не удалось завершить мойку.');\n              } finally {\n                setLoading(false);\n              }\n            }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "checkbox",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": false,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    },
+    {
+      "id": "a15e71c8405c4f0a",
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 915,
+      "attributes": "busy={loading}\n          errorText={errorText}\n          title=\"Новое задание на мойку\"\n          fields={[\n            { name: 'targetType', label: 'Что нужно помыть', type: 'select', defaultValue: 'LINE', required: true, options: [{ value: 'LINE', label: 'Линия' }, { value: 'OTHER', label: 'Другой объект' }] },\n            { name: 'lineId', label: 'Линия', type: 'select', options: [{ value: '', label: 'Не выбрано' }, ...requestLineOptions] },\n            { name: 'objectName', label: 'Другой объект' },\n            { name: 'description', label: 'Описание работ', type: 'textarea', required: true },\n            { name: 'priority', label: 'Приоритет', type: 'select', defaultValue: 'NORMAL', required: true, options: [{ value: 'LOW', label: 'Низкий' }, { value: 'NORMAL', label: 'Обычный' }, { value: 'HIGH', label: 'Высокий' }, { value: 'URGENT', label: 'Срочно' }] },\n            { name: 'dueAt', label: 'Срок', type: 'datetime-local' },\n            { name: 'comment', label: 'Комментарий', type: 'textarea' },\n          ]}\n          onCancel={resetModal}\n          onSubmit={async (values) => {\n            setLoading(true);\n            setErrorText(null);\n            try {\n              const targetType = String(values.targetType || 'LINE');\n              if (targetType === 'LINE' && !values.lineId) throw new Error('Выберите линию.');\n              if (targetType === 'OTHER' && String(values.objectName || '').trim().length < 2) throw new Error('Укажите объект мойки.');\n              const request = await apiClient.post<WashRequest>('/wash/requests', {\n                targetType,\n                lineId: targetType === 'LINE' ? String(values.lineId) : undefined,\n                objectName: targetType === 'OTHER' ? String(values.objectName).trim() : undefined,\n                description: String(values.description),\n                priority: String(values.priority || 'NORMAL'),\n                dueAt: values.dueAt ? new Date(String(values.dueAt)).toISOString() : undefined,\n                comment: String(values.comment || '').trim() || undefined,\n                operationId: createOperationId('wash-request-create'),\n              });\n              await uploadAttachments('WASH_CONTROL_ITEM', request.id, files);\n              resetModal();\n              await loadWash();\n            } catch (error) {\n              setErrorText(error instanceof Error ? error.message : 'Не удалось создать задание на мойку.');\n            } finally {\n              setLoading(false);\n            }\n          }}",
+      "typesInOwner": [
+        "textarea",
+        "select",
+        "checkbox",
+        "datetime-local"
+      ],
+      "dirty": false,
+      "busy": true,
+      "children": true,
+      "proof": "H component-contracts (all7 fields, conditional hide/reorder/late/edited/new entity, external+internal busy, child/file cancel, option relabel); H real Tasks/Checklists/Report consumers",
+      "riskClasses": [
+        "field-default-draft-schema",
+        "internal-pending-latch",
+        "external-busy",
+        "child-content/file-picker-where-rendered"
+      ],
+      "status": "SHARED_RISK_CLASSES_ISOLATED_BINDING_STATIC",
+      "notClaimed": "Not31 end-to-end consumer mutations. Dynamic removed option requires current backend validation; changing type with same field name is not an inferred safe data conversion."
+    }
+  ],
+  "media": [
+    {
+      "owner": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "line": 382,
+      "attributes": "attachments={images}\n                focusIndex={activePage}\n                mode=\"focus\"\n                showTitle={false}",
+      "id": "39529060a9a1a0993a3b:0",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/AnnouncementsScreen.tsx",
+      "line": 400,
+      "attributes": "attachments={filesOnly} showTitle={false}",
+      "id": "04ce9c107f41d86cfdc9:1",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ArchiveScreen.tsx",
+      "line": 501,
+      "attributes": "attachments={[previewAttachment(attachment)]} showTitle={false}",
+      "id": "f9d5bee777d11d041c1c:2",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ArchiveScreen.tsx",
+      "line": 505,
+      "attributes": "key={attachmentDetail.id} attachments={[previewAttachment(attachmentDetail)]} showTitle={false}",
+      "id": "fbccfedfa5532ae51fcd:3",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/BugReportScreen.tsx",
+      "line": 321,
+      "attributes": "attachments={selectedReport.attachments ?? []} showEmpty mode=\"grid\" emptyText=\"Вложений нет.\"",
+      "id": "ce675682ab57f953002f:4",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ChatsScreen.tsx",
+      "line": 1342,
+      "attributes": "attachments={message.attachments ?? []} mode=\"inline\"",
+      "id": "7c672d516109de78b952:5",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ChatsScreen.tsx",
+      "line": 1770,
+      "attributes": "attachments={inlineMedia.media} mode=\"grid\" showEmpty emptyText=\"Медиа пока нет.\"",
+      "id": "b604de1cff42725971ee:6",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ChatsScreen.tsx",
+      "line": 1773,
+      "attributes": "attachments={inlineMedia.files} mode=\"list\" showEmpty emptyText=\"Файлов пока нет.\"",
+      "id": "4633e3e39a2da06493f1:7",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 2417,
+      "attributes": "attachments={row.attachments ?? []} mode=\"grid\" showEmpty={false}",
+      "id": "a6d86f2c312f7783c8a7:8",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 2461,
+      "attributes": "attachments={row.attachments ?? []} mode=\"grid\" showEmpty={false}",
+      "id": "a6d86f2c312f7783c8a7:9",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "line": 2606,
+      "attributes": "attachments={currentRow.attachments ?? []} showEmpty={currentRow.requiresPhoto}",
+      "id": "1558c1d5742882bf7a38:10",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/OkkScreen.tsx",
+      "line": 279,
+      "attributes": "attachments={record.attachments}",
+      "id": "31f11f4ec6a3ed09f736:11",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/OrdersStockScreen.tsx",
+      "line": 570,
+      "attributes": "attachments={selectedItem.attachments}",
+      "id": "1463033253988dd599d2:12",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/OrdersStockScreen.tsx",
+      "line": 597,
+      "attributes": "attachments={selectedRequest.attachments}",
+      "id": "71701e0187ec8d41a456:13",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/OrdersStockScreen.tsx",
+      "line": 637,
+      "attributes": "attachments={request.attachments}",
+      "id": "ee6439b71265c52270b1:14",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ReturnsScreen.tsx",
+      "line": 203,
+      "attributes": "attachments={item.attachments ?? []}",
+      "id": "e35c0754972c8f8e9f64:15",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ReturnsScreen.tsx",
+      "line": 318,
+      "attributes": "attachments={selected.attachments ?? []}",
+      "id": "35d384d89cf621f4e7e3:16",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 298,
+      "attributes": "attachments={selected.attachments ?? []}",
+      "id": "11e58391df2d9b0aa688:17",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftLogScreen.tsx",
+      "line": 307,
+      "attributes": "attachments={comment.attachments ?? []}",
+      "id": "045210b9117bd42d3665:18",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/StockScreen.tsx",
+      "line": 232,
+      "attributes": "attachments={active.attachments}",
+      "id": "12ef9040e9da425cf8d7:19",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "line": 728,
+      "attributes": "attachments={selectedTask.attachments}",
+      "id": "8159a890f0cbdfe70339:20",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 386,
+      "attributes": "attachments={request.attachments ?? []} mode=\"inline\"",
+      "id": "e45c0ed2a70dcfb54077:21",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 502,
+      "attributes": "attachments={current.attachments} mode=\"inline\"",
+      "id": "1a40b6beec516b16fe3b:22",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 552,
+      "attributes": "attachments={issue.attachments} mode=\"inline\"",
+      "id": "d77e27d568bb3d2be7f1:23",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 582,
+      "attributes": "attachments={item.attachments} mode=\"inline\"",
+      "id": "b3d2d62c61c5c46f42fa:24",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 612,
+      "attributes": "attachments={item.attachments} mode=\"inline\"",
+      "id": "b3d2d62c61c5c46f42fa:25",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 635,
+      "attributes": "attachments={message.attachments} mode=\"inline\"",
+      "id": "2d180e2e86e9b7fa7878:26",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    },
+    {
+      "owner": "frontend/src/screens/WashScreen.tsx",
+      "line": 666,
+      "attributes": "attachments={review.attachments} mode=\"inline\"",
+      "id": "db92707876da732802b2:27",
+      "proof": "H 06010 tests/shared field class; sameid/context/differentids/4viewmodes/formats/403404timeout/unmount/Back/retry",
+      "status": "SHARED_RESOURCE_ISOLATED_BINDING_STATIC",
+      "live": "Real file authority/storage/media/network/PWA-device not tested"
+    }
+  ]
+}

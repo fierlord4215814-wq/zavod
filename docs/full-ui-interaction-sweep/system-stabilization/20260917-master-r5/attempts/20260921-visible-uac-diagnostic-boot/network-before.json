@@ -1,0 +1,73 @@
+{
+  "wrongNeighborCount": 0,
+  "lanScan": false,
+  "networkMutation": false,
+  "foreignEndpointCount": 0,
+  "hostNic": {
+    "Name": "vEthernet (Zavod-R5-Internal-20260920)",
+    "ifIndex": 25,
+    "InterfaceGuid": "{C4CDBB10-9BB6-403C-950D-AD6F25713E0E}",
+    "MacAddress": "00-15-5D-64-7B-00",
+    "Status": "Up"
+  },
+  "switch": {
+    "Name": "Zavod-R5-Internal-20260920",
+    "Id": "afaaea6b-1d7e-4ec7-beb2-5c7bf8750beb",
+    "SwitchType": 1,
+    "AllowManagementOS": true
+  },
+  "localGuestAddressCollisionCount": 0,
+  "routes": [
+    {
+      "DestinationPrefix": "255.255.255.255/32",
+      "NextHop": "0.0.0.0",
+      "RouteMetric": 256,
+      "InterfaceIndex": 25
+    },
+    {
+      "DestinationPrefix": "224.0.0.0/4",
+      "NextHop": "0.0.0.0",
+      "RouteMetric": 256,
+      "InterfaceIndex": 25
+    },
+    {
+      "DestinationPrefix": "10.243.53.3/32",
+      "NextHop": "0.0.0.0",
+      "RouteMetric": 256,
+      "InterfaceIndex": 25
+    },
+    {
+      "DestinationPrefix": "10.243.53.1/32",
+      "NextHop": "0.0.0.0",
+      "RouteMetric": 256,
+      "InterfaceIndex": 25
+    },
+    {
+      "DestinationPrefix": "10.243.53.0/30",
+      "NextHop": "0.0.0.0",
+      "RouteMetric": 256,
+      "InterfaceIndex": 25
+    }
+  ],
+  "at": "2026-09-21T23:11:10.7235999+03:00",
+  "neighbors": [],
+  "addresses": [
+    {
+      "IPAddress": "10.243.53.1",
+      "PrefixLength": 30,
+      "AddressState": 4
+    }
+  ],
+  "vmNic": [
+    {
+      "Name": "Сетевой адаптер",
+      "Id": "Microsoft:99A158DA-C247-422C-AE11-109485A92B1F\\A9CAAB35-DFFE-45A9-A54A-A5F1321594DA",
+      "VMId": "99a158da-c247-422c-ae11-109485a92b1f",
+      "SwitchName": "Zavod-R5-Internal-20260920",
+      "SwitchId": "afaaea6b-1d7e-4ec7-beb2-5c7bf8750beb",
+      "MacAddress": "025A56051901",
+      "IPAddresses": [],
+      "Status": null
+    }
+  ]
+}

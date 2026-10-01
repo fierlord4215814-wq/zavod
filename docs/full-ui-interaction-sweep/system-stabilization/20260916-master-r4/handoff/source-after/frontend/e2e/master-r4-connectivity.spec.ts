@@ -1,0 +1,36 @@
+import {test,expect} from '@playwright/test';
+import {isolate,json,shot,records,save,unknown,errors,installEvidenceHooks} from './helpers/frontend-series';
+installEvidenceHooks();
+for(const theme of ['gray','light','dark'])for(const width of [1440,360,390,430])test(`R4 C01 actual App network to403 to201 and offline ${theme} ${width}`,async({page})=>{
+ let calls=0;
+ await isolate(page,{role:'MASTER',theme,socket:()=>{},replies:async(r,p)=>{
+  if(p==='/error-reports'&&r.request().method()==='POST'){
+   calls++;if(calls===1){await r.abort('connectionfailed');return true;}
+   await json(r,calls===2?{message:'Нет доступа.'}:{ok:true,id:'r4-synthetic-report',message:'Создано',report:{id:'r4-synthetic-report',title:'Проверка ответа',description:'Синтетическая проверка связи',status:'NEW',createdAt:'2026-09-16T00:00:00Z'}},calls===2?403:201);return true;
+  }return false;
+ }});
+ await page.setViewportSize({width,height:width===360?640:844});await page.goto('/');
+ await page.getByLabel('Тема',{exact:true}).fill('Проверка ответа');await page.getByLabel('Описание',{exact:true}).fill('Синтетическая проверка связи');
+ const submit=page.getByRole('button',{name:'Отправить администратору',exact:true});
+ await submit.click();await expect(page.locator('.error-state').first()).toContainText(/ответ сервера|Нет связи с сервером/);
+ const banner=page.locator('.pwa-status-banner').filter({hasText:/ответ сервера|Действие не сохранено/});
+ await expect(banner).toBeVisible();await page.locator('header').first().scrollIntoViewIfNeeded();
+ const noticeGeometry=await banner.evaluate(e=>{const box=e.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(e.querySelector('span')!);const rows=[...range.getClientRects()].map(r=>r.toJSON());return{box:box.toJSON(),rows,viewport:innerHeight};});
+ for(const row of noticeGeometry.rows){expect(row.left).toBeGreaterThanOrEqual(noticeGeometry.box.left);expect(row.right).toBeLessThanOrEqual(noticeGeometry.box.right);expect(row.bottom).toBeLessThanOrEqual(noticeGeometry.viewport);}
+ await shot(page,'C01-network-before-recovery',{boundary:'actual compiled App/client; intercepted fetch; no real backend',calls,noticeGeometry});
+ await submit.click();await expect(page.locator('.error-state').first()).toHaveText('Нет доступа.');
+ await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('Проверка ответа');
+ await page.locator('header').first().scrollIntoViewIfNeeded();
+ await shot(page,'C01-after403-before-assert',{boundary:'current HTTP refusal is NOT success',calls});
+ // A later successful background poll can legitimately recover the old notice;
+ // it must already be cleared by this HTTP denial, not by an unrelated GET.
+ expect(await banner.count()).toBe(0);
+ const metrics=await page.locator('.error-state').first().evaluate(e=>{const r=e.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(e);return{rect:r.toJSON(),ranges:[...range.getClientRects()].map(x=>x.toJSON()),overflow:document.documentElement.scrollWidth-innerWidth,text:e.textContent};});
+ expect(metrics.overflow).toBeLessThanOrEqual(1);for(const r of metrics.ranges){expect(r.left).toBeGreaterThanOrEqual(0);expect(r.right).toBeLessThanOrEqual(width+1);}
+ await submit.click();await expect(page.locator('.success-state')).toContainText('Ошибка отправлена');await expect(banner).toHaveCount(0);expect(calls).toBe(3);
+ await page.context().setOffline(true);
+ const offline=page.locator('.pwa-status-banner').filter({hasText:'Нет сети.'});await expect(offline).toContainText('Результат отправленных действий проверьте после восстановления связи.');
+ await page.locator('header').first().scrollIntoViewIfNeeded();await shot(page,'C01-browser-offline-fallback',{boundary:'browser navigator offline only; no physical device/network/backend',calls});
+ await page.context().setOffline(false);await expect(offline).toHaveCount(0);
+ records.push({theme,width,metrics,calls,networkCallsAreNotControls:true,realStack:false});save();expect(unknown).toEqual([]);expect(errors).toEqual([]);
+});

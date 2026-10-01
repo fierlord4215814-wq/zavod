@@ -1,0 +1,62 @@
+{
+  "status": "IN_PROGRESS",
+  "mode": "before-publication",
+  "taskId": "2a3b03f2-86a6-4636-9b99-20b7c39163fa",
+  "createHttp": 201,
+  "operationId": "384aecf2-9fb5-4965-92c1-5d7ef10c0e85",
+  "snapshot": {
+    "tasks": [
+      {
+        "id": "2a3b03f2-86a6-4636-9b99-20b7c39163fa",
+        "status": "NEW",
+        "operationId": "384aecf2-9fb5-4965-92c1-5d7ef10c0e85"
+      }
+    ],
+    "processed": [
+      {
+        "id": "0bcbc52f-d7f3-45df-abe0-216d4a3017c5",
+        "resultKey": "2a3b03f2-86a6-4636-9b99-20b7c39163fa"
+      }
+    ],
+    "history": [
+      {
+        "id": "c1f5be2a-1f1a-4bac-8772-bbd683618112",
+        "taskId": "2a3b03f2-86a6-4636-9b99-20b7c39163fa",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "audit": [
+      {
+        "id": "3d3057a5-7344-4768-9b33-fd41832f2e65",
+        "entityId": "2a3b03f2-86a6-4636-9b99-20b7c39163fa",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "notifications": [
+      {
+        "id": "50cbc6f7-a954-454e-8968-b11d36994444",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "departmentId": null,
+        "type": "TASK_CREATED",
+        "entityId": "2a3b03f2-86a6-4636-9b99-20b7c39163fa",
+        "createdAt": "2026-09-26T23:28:43.894Z"
+      }
+    ]
+  },
+  "secondTaskUiMs": 381,
+  "createdFrames": 0,
+  "unrelatedWsIdentityLeak": false,
+  "reconnect": {
+    "closedSockets": 1,
+    "connectedBefore": 1,
+    "connectedAfter": 2
+  },
+  "recoveryMechanism": "real WS reconnect followed by ordinary in-app notifications list GET; reconnect alone does not refresh badge",
+  "unread": {
+    "before": 1,
+    "after": 2,
+    "uiBadgeMatches": true
+  },
+  "error": "locator.waitFor: Error: strict mode violation: locator('.notification-card').filter({ hasText: 'Учебное восстановление уведомления before-publication' }) resolved to 2 elements:\n    1) <article class=\"card notification-card compact-notification-card active-card \">…</article> aka getByText('Новая заявкаИнформацияУчебное восстановление уведомления before-publication27.').first()\n    2) <article class=\"card notification-card compact-notification-card  \">…</article> aka getByText('Новая заявкаИнформацияУчебное восстановление уведомления before-publication27.').nth(1)\n\nCall log:\n\u001b[2m  - waiting for locator('.notification-card').filter({ hasText: 'Учебное восстановление уведомления before-publication' }) to be visible\u001b[22m\n"
+}

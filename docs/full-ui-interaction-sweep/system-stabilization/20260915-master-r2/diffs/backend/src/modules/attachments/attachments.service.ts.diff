@@ -1,0 +1,29 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-chat-chain-before\\backend\\src\\modules\\attachments\\attachments.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\attachments\\attachments.service.ts"
+index 6a1498ac..90ca1351 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\E-chat-chain-before\\backend\\src\\modules\\attachments\\attachments.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\attachments\\attachments.service.ts"
+@@ -16,6 +16,7 @@ import {
+   canDeleteChatMessage,
+   canWriteChat,
+   DEFAULT_CHAT_DELETE_WINDOW_MINUTES,
++  isActiveChatMember,
+ } from '../chats/chat-message-delete-policy';
+ import { FileStorageService } from './file-storage.service';
+ 
+@@ -441,14 +442,14 @@ export class AttachmentsService {
+     }
+     if (user.isAdmin) return;
+     const memberCanRead = message.chat.members.some((member) =>
+-      member.canRead && (
++      isActiveChatMember(member) && (
+         member.userId === user.userId ||
+         member.roleCode === user.role ||
+         Boolean(member.departmentId && member.departmentId === user.departmentId)
+       ),
+     );
+     const memberCanWrite = message.chat.members.some((member) =>
+-      member.canWrite && (
++      isActiveChatMember(member) && member.canWrite && (
+         member.userId === user.userId ||
+         member.roleCode === user.role ||
+         Boolean(member.departmentId && member.departmentId === user.departmentId)

@@ -1,0 +1,64 @@
+Pager usage is off.
+TARGET_INDEXES
+         tablename         |                            indexname                            |                                                                                                                       indexdef                                                                                                                        
+---------------------------+-----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Announcement              | Announcement_factoryId_departmentId_visibleFrom_visibleUntil_id | CREATE INDEX "Announcement_factoryId_departmentId_visibleFrom_visibleUntil_id" ON public."Announcement" USING btree ("factoryId", "departmentId", "visibleFrom", "visibleUntil")
+ ChatMember                | ChatMember_single_owner_key                                     | CREATE UNIQUE INDEX "ChatMember_single_owner_key" ON public."ChatMember" USING btree ("chatId") WHERE ("membershipRole" = 'OWNER'::"ChatMemberRole")
+ ChecklistRunRow           | ChecklistRunRow_rowType_status_idx                              | CREATE INDEX "ChecklistRunRow_rowType_status_idx" ON public."ChecklistRunRow" USING btree ("rowType", status)
+ ChecklistTemplate         | ChecklistTemplate_factoryId_departmentId_isActive_archivedAt_id | CREATE INDEX "ChecklistTemplate_factoryId_departmentId_isActive_archivedAt_id" ON public."ChecklistTemplate" USING btree ("factoryId", "departmentId", "isActive", "archivedAt")
+ ChecklistTemplateRow      | ChecklistTemplateRow_rowType_idx                                | CREATE INDEX "ChecklistTemplateRow_rowType_idx" ON public."ChecklistTemplateRow" USING btree ("rowType")
+ ContractorShiftSubmission | ContractorShiftSubmission_companyId_targetShiftDate_shiftType_i | CREATE INDEX "ContractorShiftSubmission_companyId_targetShiftDate_shiftType_i" ON public."ContractorShiftSubmission" USING btree ("companyId", "targetShiftDate", "shiftType")
+ ContractorShiftSubmission | ContractorShiftSubmission_factoryId_targetShiftDate_shiftType_s | CREATE INDEX "ContractorShiftSubmission_factoryId_targetShiftDate_shiftType_s" ON public."ContractorShiftSubmission" USING btree ("factoryId", "targetShiftDate", "shiftType", status)
+ Department                | Department_active_normalized_name_key                           | CREATE UNIQUE INDEX "Department_active_normalized_name_key" ON public."Department" USING btree (COALESCE("factoryId", '__GLOBAL__'::text), "normalizedName") WHERE (("normalizedName" IS NOT NULL) AND ("isActive" = true) AND ("deletedAt" IS NULL))
+ LinePosition              | LinePosition_factoryId_skillFamilyKey_idx                       | CREATE INDEX "LinePosition_factoryId_skillFamilyKey_idx" ON public."LinePosition" USING btree ("factoryId", "skillFamilyKey")
+ LineStaffingTemplateItem  | LineStaffingTemplateItem_templateId_plannedCount_idx            | CREATE INDEX "LineStaffingTemplateItem_templateId_plannedCount_idx" ON public."LineStaffingTemplateItem" USING btree ("templateId", "plannedCount")
+ OkkRecord                 | OkkRecord_factoryId_archivedAt_idx                              | CREATE INDEX "OkkRecord_factoryId_archivedAt_idx" ON public."OkkRecord" USING btree ("factoryId", "archivedAt")
+ PlannedShiftAssignment    | PlannedShiftAssignment_workAreaId_workAreaPositionId_slotIndex_ | CREATE INDEX "PlannedShiftAssignment_workAreaId_workAreaPositionId_slotIndex_" ON public."PlannedShiftAssignment" USING btree ("workAreaId", "workAreaPositionId", "slotIndex")
+ User                      | User_blockedAt_idx                                              | CREATE INDEX "User_blockedAt_idx" ON public."User" USING btree ("blockedAt")
+ UserSkillCredit           | UserSkillCredit_factoryId_userId_lineId_positionId_shiftDate_sh | CREATE UNIQUE INDEX "UserSkillCredit_factoryId_userId_lineId_positionId_shiftDate_sh" ON public."UserSkillCredit" USING btree ("factoryId", "userId", "lineId", "positionId", "shiftDate", "shiftType")
+(14 rows)
+
+UUID_DEFAULTS
+      table_name      | column_name | column_type |    default_sql    
+----------------------+-------------+-------------+-------------------
+ ChecklistPauseEvent  | id          | text        | gen_random_uuid()
+ ChecklistRun         | id          | text        | gen_random_uuid()
+ ChecklistRunRow      | id          | text        | gen_random_uuid()
+ ChecklistSettings    | id          | text        | gen_random_uuid()
+ ChecklistTemplate    | id          | text        | gen_random_uuid()
+ ChecklistTemplateRow | id          | text        | gen_random_uuid()
+ MinimumStockItem     | id          | text        | gen_random_uuid()
+ MinimumStockMovement | id          | text        | gen_random_uuid()
+ OrderRequest         | id          | text        | gen_random_uuid()
+ OrderSettings        | id          | text        | gen_random_uuid()
+(10 rows)
+
+ORDER_SETTINGS_FK
+                         conname                         | contype | convalidated | confdeltype | confupdtype |                                       definition                                        
+---------------------------------------------------------+---------+--------------+-------------+-------------+-----------------------------------------------------------------------------------------
+ OrderSettings_archiveRequiresComment_not_null           | n       | t            |             |             | NOT NULL "archiveRequiresComment"
+ OrderSettings_createdAt_not_null                        | n       | t            |             |             | NOT NULL "createdAt"
+ OrderSettings_defaultUnit_not_null                      | n       | t            |             |             | NOT NULL "defaultUnit"
+ OrderSettings_factoryId_fkey                            | f       | t            | r           | c           | FOREIGN KEY ("factoryId") REFERENCES "Factory"(id) ON UPDATE CASCADE ON DELETE RESTRICT
+ OrderSettings_factoryId_not_null                        | n       | t            |             |             | NOT NULL "factoryId"
+ OrderSettings_id_not_null                               | n       | t            |             |             | NOT NULL id
+ OrderSettings_lowStockNotificationsEnabled_not_null     | n       | t            |             |             | NOT NULL "lowStockNotificationsEnabled"
+ OrderSettings_orderRequestNotificationsEnabled_not_null | n       | t            |             |             | NOT NULL "orderRequestNotificationsEnabled"
+ OrderSettings_pkey                                      | p       | t            |             |             | PRIMARY KEY (id)
+ OrderSettings_restockRequiresComment_not_null           | n       | t            |             |             | NOT NULL "restockRequiresComment"
+ OrderSettings_takeRequiresComment_not_null              | n       | t            |             |             | NOT NULL "takeRequiresComment"
+ OrderSettings_updatedAt_not_null                        | n       | t            |             |             | NOT NULL "updatedAt"
+ OrderSettings_warningRedPercent_not_null                | n       | t            |             |             | NOT NULL "warningRedPercent"
+ OrderSettings_warningYellowPercent_not_null             | n       | t            |             |             | NOT NULL "warningYellowPercent"
+(14 rows)
+
+SQL_ONLY_CHECKS
+        table_name        |                     conname                      | convalidated |                                                                                                                                                           definition                                                                                                                                                           
+--------------------------+--------------------------------------------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ JobTitle                 | JobTitle_shiftDurationHours_check                | t            | CHECK (("shiftDurationHours" = ANY (ARRAY[12, 24])))
+ QuantityReleaseOperation | QuantityReleaseOperation_positive_quantity_check | t            | CHECK ((quantity > (0)::numeric))
+ QuantityReleaseOperation | QuantityReleaseOperation_quantity_chain_check    | t            | CHECK ((("quantityBefore" >= quantity) AND ("quantityAfter" >= (0)::numeric) AND ("quantityAfter" = ("quantityBefore" - quantity))))
+ QuantityReleaseOperation | QuantityReleaseOperation_source_parent_check     | t            | CHECK (((("sourceType" = 'OKK'::"QuantityReleaseSourceType") AND ("okkRecordId" IS NOT NULL) AND ("returnRecordId" IS NULL) AND ("sourceId" = "okkRecordId")) OR (("sourceType" = 'RETURN'::"QuantityReleaseSourceType") AND ("returnRecordId" IS NOT NULL) AND ("okkRecordId" IS NULL) AND ("sourceId" = "returnRecordId"))))
+ ShiftSession             | ShiftSession_durationHours_check                 | t            | CHECK (("durationHours" = ANY (ARRAY[12, 24])))
+(5 rows)
+

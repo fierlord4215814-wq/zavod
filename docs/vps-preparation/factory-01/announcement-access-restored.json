@@ -1,0 +1,14 @@
+{
+  "status": "PASS_OWN_ACTOR_RESTORED_NORMAL_LOGIN",
+  "mechanism": "normal ADMIN HTTP after fresh exact own-UFA SQL identity; no SQL mutation",
+  "before": {
+    "isActive": false,
+    "isGuest": false,
+    "role": "STORE"
+  },
+  "after": {
+    "isActive": true,
+    "isGuest": false,
+    "role": "STORE"
+  }
+}

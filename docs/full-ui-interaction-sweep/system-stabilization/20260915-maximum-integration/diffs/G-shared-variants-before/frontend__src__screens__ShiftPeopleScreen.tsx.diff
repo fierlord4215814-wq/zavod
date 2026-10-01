@@ -1,0 +1,13 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-shared-variants-before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+index 0ca5420f..7ead8c03 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-shared-variants-before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+@@ -745,7 +745,7 @@ export type ShiftTaskReturn = {
+   parentScroll?: Array<{ selector: string; top: number; left: number }>;
+   pageTop?: number;
+ };
+-const taskReturnScrollSelectors = ['.current-people-panel', '.line-assignment-scroll', '.work-area-assignment-scroll', '.planning-assignment-scroll', '.future-assignment-scroll'];
++const taskReturnScrollSelectors = ['.current-people-panel', '.quick-assignment-sheet', '.compact-line-dashboard', '.work-area-assignment-board', '.planning-assignment-scroll', '.future-nonline-assignment-modal'];
+ type ShiftPeopleScreenProps = { mode?: 'workspace' | 'history'; taskReturn?: ShiftTaskReturn };
+ 
+ const MONTH_NAMES = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];

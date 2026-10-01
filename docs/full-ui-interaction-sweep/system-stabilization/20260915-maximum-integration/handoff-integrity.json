@@ -1,0 +1,495 @@
+{
+  "productFingerprint": "0b2bd805f1eb468accfe99e9d9c58bc21d2fdbfe0c57c1763b20af6a618b8de4",
+  "parentMatrices": [
+    {
+      "name": "interaction-matrix.csv",
+      "sha256": "4caec98a7cd58bc9cc5a22413fc328f8aa41e257c6e99273c9e50ece315cd60a",
+      "currentSha256": "4caec98a7cd58bc9cc5a22413fc328f8aa41e257c6e99273c9e50ece315cd60a"
+    },
+    {
+      "name": "surface-inventory.csv",
+      "sha256": "8b2900b5a9c2041e73673f5980f4c56fb3cbc52ea2923e5bc8e2393e2eb4864c",
+      "currentSha256": "8b2900b5a9c2041e73673f5980f4c56fb3cbc52ea2923e5bc8e2393e2eb4864c"
+    },
+    {
+      "name": "back-matrix.csv",
+      "sha256": "9e14f757949b5c90590354778a0e6ce5880e56e390a0caf3f54119ac2b4a4e16",
+      "currentSha256": "9e14f757949b5c90590354778a0e6ce5880e56e390a0caf3f54119ac2b4a4e16"
+    },
+    {
+      "name": "text-integrity-matrix.csv",
+      "sha256": "9914e5cf738ff5e79b75b9982dfebaf1bea5c4a51858bb280d1d90b95f76826e",
+      "currentSha256": "9914e5cf738ff5e79b75b9982dfebaf1bea5c4a51858bb280d1d90b95f76826e"
+    },
+    {
+      "name": "coverage-checkpoint.json",
+      "sha256": "8bb4f8f9ccd55a7c38ae317e9c984ad9dfe73b9725e15c442bcc1ad2851d2c8b",
+      "currentSha256": "8bb4f8f9ccd55a7c38ae317e9c984ad9dfe73b9725e15c442bcc1ad2851d2c8b"
+    },
+    {
+      "name": "surface-reconciliation.json",
+      "sha256": "ece668f3f6ceca62837757efa1f0d34b2973131105c8078b40eddf355e8b1af3",
+      "currentSha256": "ece668f3f6ceca62837757efa1f0d34b2973131105c8078b40eddf355e8b1af3"
+    }
+  ],
+  "previousScreenshotPackage": {
+    "path": "docs/full-ui-interaction-sweep/frontend-series/20260915-autonomous-frontend/frontend-series-review.zip",
+    "sha256": "a7d04c4bffb89a9cabe89d9e49e47e5178dd0688013d7c8fdc5519dd0d40bbde",
+    "unchanged": true
+  },
+  "snapshotRecords": 82,
+  "snapshotMismatches": 0,
+  "allPngHashesChecked": 329,
+  "finalExpectedScenarios": 51,
+  "staticScans": [
+    {
+      "owner": "backend/src/common/pilot-visibility.ts",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "backend/src/common/pilot-visibility.ts",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "backend/src/common/pilot-visibility.ts",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "backend/src/common/pilot-visibility.ts",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 0,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "backend/src/modules/archive/archive.service.ts",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "backend/src/modules/archive/archive.service.ts",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "backend/src/modules/archive/archive.service.ts",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "backend/src/modules/archive/archive.service.ts",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 0,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/App.tsx",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/App.tsx",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/App.tsx",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/App.tsx",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 4,
+      "current": 4,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/api/attachment-preview-resource.ts",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/api/attachment-preview-resource.ts",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/api/attachment-preview-resource.ts",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/api/attachment-preview-resource.ts",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 2,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/components/ActionModal.tsx",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/ActionModal.tsx",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/ActionModal.tsx",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/ActionModal.tsx",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 0,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/components/AttachmentPreviewList.tsx",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/AttachmentPreviewList.tsx",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/AttachmentPreviewList.tsx",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/AttachmentPreviewList.tsx",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 1,
+      "current": 3,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/components/DeviceAccessPanel.tsx",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/DeviceAccessPanel.tsx",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/DeviceAccessPanel.tsx",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/DeviceAccessPanel.tsx",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 0,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/components/PwaInstallButton.tsx",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/PwaInstallButton.tsx",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/PwaInstallButton.tsx",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/components/PwaInstallButton.tsx",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 0,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/ChecklistsScreen.tsx",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 1,
+      "current": 1,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/screens/FactorySelectScreen.tsx",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/FactorySelectScreen.tsx",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/FactorySelectScreen.tsx",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/FactorySelectScreen.tsx",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 0,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 0,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 1,
+      "current": 1,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/store/app.store.ts",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/store/app.store.ts",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/store/app.store.ts",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/store/app.store.ts",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 1,
+      "current": 1,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/styles.css",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/styles.css",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/styles.css",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/styles.css",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 0,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/utils/pwa-install.ts",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 1,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/utils/pwa-install.ts",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/utils/pwa-install.ts",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/utils/pwa-install.ts",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 1,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    },
+    {
+      "owner": "frontend/src/ws/client.ts",
+      "pattern": "BROWSER_PROMPT_ALERT_CONFIRM",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/ws/client.ts",
+      "pattern": "SUPPRESSION",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/ws/client.ts",
+      "pattern": "DANGEROUS_HTML",
+      "before": 0,
+      "current": 0,
+      "meaning": "Static bounded scan only"
+    },
+    {
+      "owner": "frontend/src/ws/client.ts",
+      "pattern": "PHYSICAL_DELETE",
+      "before": 0,
+      "current": 0,
+      "meaning": "Lexical matches include Map/Set deletion; not automatically DB delete."
+    }
+  ],
+  "limits": "Read-only artifact verification, not another product test/build. Existing unconnected dirty files are not attributed to this package."
+}

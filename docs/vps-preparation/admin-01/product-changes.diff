@@ -1,0 +1,1335 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\admin\\admin.controller.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.controller.ts"
+index dd179688..0c9f35a1 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\admin\\admin.controller.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.controller.ts"
+@@ -309,6 +309,12 @@ export class AdminController {
+     return this.adminService.updateFactoryStatus(user, id, body);
+   }
+ 
++  @Patch('factories/:id')
++  @RequirePermission('admin.factories.manage')
++  async updateFactory(@Param('id') id: string, @Body() body: { name?: string; code?: string; reason?: string }, @CurrentUser() user: UserContext) {
++    return this.adminService.updateFactory(user, id, body);
++  }
++
+   @Get('departments')
+   @RequirePermission('admin.departments.read')
+   async departments(@CurrentUser() user: UserContext, @Query('factoryId') factoryId?: string) {
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\admin\\admin.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.service.ts"
+index 5f0f8a74..13130da0 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\admin\\admin.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\admin\\admin.service.ts"
+@@ -17,6 +17,7 @@ import { resolveEffectivePermissions } from '../../common/effective-permissions'
+ import { maskPhone, normalizePhone, normalizePhoneSearchDigits } from '../../common/password';
+ import { dedupePilotLines, hasPilotFixtureMarker, hasRuntimeFixtureMarker, isDiagnosticFixtureActor, isPilotFixtureUser, isPilotVisibleLine, pilotDisplayName } from '../../common/pilot-visibility';
+ import { generateRecoveryCredential, hashRecoveryCredential, PASSWORD_RECOVERY_TTL_MINUTES, recoveryCredentialExpiresAt } from '../../common/recovery-credential';
++import { WS_EVENTS } from '../../ws/events';
+ import { UserContext } from '../../common/user-context.types';
+ import { PrismaService } from '../../prisma/prisma.service';
+ import { WsService } from '../../ws/ws.service';
+@@ -914,10 +915,10 @@ export class AdminService {
+     const current = await this.ensureWashSettings(user.selectedFactoryId);
+     const nextValue = this.normalizeWashSettingsInput(current, body);
+     const warnings = [
+-      ...(nextValue.washCompleteRequiresNoOpenIssues === false ? ['Wash can be completed with open issues. This weakens process control.'] : []),
+-      ...(nextValue.washCompleteRequiresOkkReview === true ? ['Wash completion will require approved OKK review.'] : []),
+-      ...(nextValue.washAttachmentsEnabled === false ? ['Wash attachment UI should be disabled when this is off.'] : []),
+-      ...(nextValue.washControlEnabled === false ? ['Wash control items will be disabled.'] : []),
++      ...(nextValue.washCompleteRequiresNoOpenIssues === false ? ['Мойку можно будет завершить с открытыми проблемами. Это ослабляет контроль.'] : []),
++      ...(nextValue.washCompleteRequiresOkkReview === true ? ['Завершение мойки потребует положительной проверки ОКК.'] : []),
++      ...(nextValue.washAttachmentsEnabled === false ? ['Переключатель вложений хранится в настройках, но пока не управляет загрузкой файлов.'] : []),
++      ...(nextValue.washControlEnabled === false ? ['Пункты контроля мойки будут отключены.'] : []),
+     ];
+     return {
+       factoryId: user.selectedFactoryId,
+@@ -958,10 +959,10 @@ export class AdminService {
+     const current = await this.ensureDefrostSettings(user.selectedFactoryId);
+     const nextValue = this.normalizeDefrostSettingsInput(current, body);
+     const warnings = [
+-      ...(nextValue.defrostCommentRequiredOnStart === false ? ['Defrost can be started without comment.'] : []),
+-      ...(nextValue.defrostCommentRequiredOnEnd === false ? ['Defrost can be completed without comment.'] : []),
+-      ...(nextValue.defrostShowOnLineDashboard === false ? ['Line dashboard defrost indicator will be hidden.'] : []),
+-      ...(nextValue.defrostCalendarEnabled === false ? ['Defrost calendar view should be hidden when this is off.'] : []),
++      ...(nextValue.defrostCommentRequiredOnStart === false ? ['Оттайку можно будет начать без комментария.'] : []),
++      ...(nextValue.defrostCommentRequiredOnEnd === false ? ['Оттайку можно будет завершить без комментария.'] : []),
++      ...(nextValue.defrostShowOnLineDashboard === false ? ['Переключатель отображения оттайки пока не подключён к экрану линии.'] : []),
++      ...(nextValue.defrostCalendarEnabled === false ? ['Переключатель календаря хранится в настройках, но пока не управляет экраном.'] : []),
+     ];
+     return {
+       factoryId: user.selectedFactoryId,
+@@ -1002,10 +1003,10 @@ export class AdminService {
+     const current = await this.ensureShiftSettings(user.selectedFactoryId);
+     const nextValue = this.normalizeShiftSettingsInput(current, body);
+     const warnings = [
+-      ...(nextValue.minAssignmentMoveIntervalMinutes < 5 ? ['Minimum move interval below 5 minutes weakens shift discipline.'] : []),
+-      ...(nextValue.contractorLeadMaxPeoplePerShift > 6 ? ['Contractor lead max above 6 should be a conscious factory-level decision.'] : []),
+-      ...(nextValue.returnRequestEnabled === false ? ['Return-to-shift requests will be disabled for workers and contractors.'] : []),
+-      ...(nextValue.sendHomeRequiresComment === false ? ['Send-home without comment reduces audit quality.'] : []),
++      ...(nextValue.minAssignmentMoveIntervalMinutes < 5 ? ['Пауза между переносами меньше пяти минут ослабляет контроль назначений.'] : []),
++      ...(nextValue.contractorLeadMaxPeoplePerShift > 6 ? ['Лимит бригадира больше шести человек требует осознанного решения для этого завода.'] : []),
++      ...(nextValue.returnRequestEnabled === false ? ['Заявки на возврат на смену для работников и наёмных работников будут отключены.'] : []),
++      ...(nextValue.sendHomeRequiresComment === false ? ['Переключатель комментария при отправке домой пока не подключён к рабочему действию.'] : []),
+     ];
+     return {
+       factoryId: user.selectedFactoryId,
+@@ -1014,7 +1015,7 @@ export class AdminService {
+       warnings,
+       allowed: nextValue.minAssignmentMoveIntervalMinutes >= 1 && nextValue.contractorLeadMaxPeoplePerShift >= 1,
+       reason: nextValue.minAssignmentMoveIntervalMinutes < 1 || nextValue.contractorLeadMaxPeoplePerShift < 1
+-        ? 'Shift settings contain invalid numeric limits.'
++        ? 'В настройках смены есть недопустимые числовые пределы.'
+         : null,
+     };
+   }
+@@ -2271,6 +2272,28 @@ export class AdminService {
+     });
+   }
+ 
++  async updateFactory(user: UserContext, factoryId: string, body: { name?: string; code?: string; reason?: string }) {
++    this.assertAdminFactoryScope(user, factoryId);
++    if ((body.name !== undefined && typeof body.name !== 'string') || (body.code !== undefined && typeof body.code !== 'string')) {
++      throw new ConflictError('Название и код завода должны быть текстом');
++    }
++    return this.prisma.db.$transaction(async (tx) => {
++      const current = await tx.factory.findFirst({ where: { id: factoryId, deletedAt: null } });
++      if (!current) throw new ConflictError('Завод не найден');
++      const name = body.name === undefined ? current.name : body.name.trim();
++      const code = body.code === undefined ? current.code : this.normalizeFactoryCode(body.code);
++      if (!name || !code) throw new ConflictError('Название и код завода обязательны');
++      const duplicate = await tx.factory.findFirst({ where: { code, id: { not: factoryId } } });
++      if (duplicate) throw new ConflictError('Завод с таким кодом уже существует');
++      const updated = await tx.factory.update({ where: { id: factoryId }, data: { name, code } });
++      await this.auditService.writeTx(tx, {
++        userId: user.userId, factoryId, action: 'FACTORY_UPDATED', entityType: 'Factory', entityId: factoryId,
++        details: { oldValue: { name: current.name, code: current.code }, newValue: { name, code }, reason: body.reason ?? null },
++      });
++      return { id: updated.id, name: updated.name, code: updated.code, isActive: updated.isActive };
++    });
++  }
++
+   async updateFactoryStatus(user: UserContext, factoryId: string, body: { isActive: boolean; reason?: string }) {
+     this.assertAdmin(user);
+     const updated = await this.prisma.db.$transaction(async (tx) => {
+@@ -3699,7 +3722,7 @@ export class AdminService {
+     this.assertAdminFactoryScope(user, factoryId);
+     const name = body.name?.trim();
+     if (!name) throw new ConflictError('Название линии обязательно');
+-    return this.prisma.db.$transaction(async (tx) => {
++    const result = await this.prisma.db.$transaction(async (tx) => {
+       await this.assertFactoryExistsTx(tx, factoryId);
+       const duplicate = await tx.line.findFirst({ where: { factoryId, name, deletedAt: null } });
+       if (duplicate) throw new ConflictError('Линия с таким названием уже существует');
+@@ -3717,6 +3740,8 @@ export class AdminService {
+       });
+       return this.serializeLineConfig(line);
+     });
++    this.wsService.broadcast(WS_EVENTS.LINE_UPDATED, { factoryId, lineId: result.id, type: 'CONFIGURATION_UPDATED' });
++    return result;
+   }
+ 
+   async updateLine(user: UserContext, lineId: string, body: LineBody) {
+@@ -3724,7 +3749,7 @@ export class AdminService {
+     if (body.status) {
+       throw new ConflictError('Рабочий статус линии меняется только в разделе «Линии».');
+     }
+-    return this.prisma.db.$transaction(async (tx) => {
++    const result = await this.prisma.db.$transaction(async (tx) => {
+       const current = await tx.line.findFirst({
+         where: { id: lineId, factoryId: user.selectedFactoryId },
+         include: { positions: true, staffingTemplates: { include: { items: { include: { position: true } } } } },
+@@ -3761,6 +3786,8 @@ export class AdminService {
+       });
+       return this.serializeLineConfig(updated);
+     });
++    this.wsService.broadcast(WS_EVENTS.LINE_UPDATED, { factoryId: user.selectedFactoryId, lineId, type: 'CONFIGURATION_UPDATED' });
++    return result;
+   }
+ 
+   async linePositions(user: UserContext, lineId: string) {
+@@ -3776,7 +3803,7 @@ export class AdminService {
+     if (!body.name?.trim()) throw new ConflictError('Название позиции обязательно');
+     const name = body.name.trim();
+     const displayName = body.displayName?.trim() || name;
+-    return this.prisma.db.$transaction(async (tx) => {
++    const result = await this.prisma.db.$transaction(async (tx) => {
+       const line = await tx.line.findFirst({ where: { id: lineId, factoryId: user.selectedFactoryId, deletedAt: null } });
+       if (!line) throw new ConflictError('Линия не найдена');
+       const normalizedName = this.normalizePositionName(displayName);
+@@ -3805,11 +3832,13 @@ export class AdminService {
+       });
+       return position;
+     });
++    this.wsService.broadcast(WS_EVENTS.LINE_UPDATED, { factoryId: user.selectedFactoryId, lineId, type: 'CONFIGURATION_UPDATED' });
++    return result;
+   }
+ 
+   async updatePosition(user: UserContext, lineId: string, positionId: string, body: LinePositionBody) {
+     this.assertAdmin(user);
+-    return this.prisma.db.$transaction(async (tx) => {
++    const result = await this.prisma.db.$transaction(async (tx) => {
+       const position = await tx.linePosition.findFirst({
+         where: { id: positionId, lineId, factoryId: user.selectedFactoryId },
+         include: { line: true },
+@@ -3860,6 +3889,8 @@ export class AdminService {
+       });
+       return updated;
+     });
++    this.wsService.broadcast(WS_EVENTS.LINE_UPDATED, { factoryId: user.selectedFactoryId, lineId, type: 'CONFIGURATION_UPDATED' });
++    return result;
+   }
+ 
+   async createTemplate(user: UserContext, lineId: string, body: StaffingTemplateBody) {
+@@ -6104,6 +6135,7 @@ export class AdminService {
+         skillCode: position.skillCode,
+         skillFamilyKey: position.skillFamilyKey,
+         isExtraSlot: position.isExtraSlot,
++        isFlexibleSkillGroup: position.isFlexibleSkillGroup,
+         doesNotAffectShortage: position.doesNotAffectShortage,
+         sortOrder: position.sortOrder,
+         isActive: position.isActive,
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\AdminConfigScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+index 3fbd1c22..de70813a 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\AdminConfigScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\AdminConfigScreen.tsx"
+@@ -8,6 +8,7 @@ import { HelpTooltip } from '../components/HelpTooltip';
+ import { PremiumSectionHeader, PremiumSheet } from '../components/PremiumShell';
+ import { lineStatusLabels, roleLabel } from '../labels';
+ import { canShowScreen, SCREEN_DEFINITIONS } from '../navigation/permissions';
++import { useMobileFormDirty } from '../navigation/mobile-back';
+ import { useAppStore } from '../store/app.store';
+ import { diagnosticDisplayText, isPilotFixtureText, isPilotFixtureUser, permissionDescriptionLabel, permissionGroupLabel, permissionLabel, pilotUserName, shortPersonName } from '../utils/pilot-ui';
+ 
+@@ -153,6 +154,7 @@ type LineConfigRow = {
+     deletedAt: string | null;
+     isExtraSlot?: boolean;
+     doesNotAffectShortage?: boolean;
++    isFlexibleSkillGroup?: boolean;
+   }>;
+   staffingTemplates: Array<{
+     id: string;
+@@ -630,6 +632,27 @@ const MODULE_SETTINGS = [
+   { key: 'announcements', title: 'Объявления', read: '/admin/announcement-settings', preview: '/admin/announcement-settings/preview', update: '/admin/announcement-settings' },
+ ];
+ 
++// Only fields with a current operational consumer are editable. Legacy storage
++// and reserved flags stay visible, but must not promise an effect they lack.
++const OPERATIONAL_SETTINGS: Record<string, string[]> = {
++  shift: ['minAssignmentMoveIntervalMinutes', 'contractorLeadMaxPeoplePerShift', 'returnRequestEnabled', 'willBeCancelRequiresComment'],
++  tasks: ['longTaskDefaultDeadlineHours', 'longTaskEscalationEnabled', 'longTaskEscalationGraceMinutes', 'taskRedirectRequiresComment', 'taskDoneRequiresComment', 'taskReadReceiptsEnabled'],
++  wash: ['washIssueResolveRequiresPhoto', 'washCompleteRequiresOkkReview', 'washCompleteRequiresNoOpenIssues', 'washMiniTasksEnabled', 'washControlEnabled', 'washOkkReviewEnabled'],
++  defrost: [],
++  orders: ['lowStockNotificationsEnabled', 'restockRequiresComment', 'takeRequiresComment', 'archiveRequiresComment', 'defaultUnit'],
++  checklists: ['autoCloseAtDayShiftEnd', 'autoCloseAtNightShiftEnd', 'requirePauseComment', 'allowEditAfterCloseHours'],
++  chats: ['chatEnabled', 'editWindowMinutes', 'deleteWindowMinutes'],
++  announcements: ['defaultVisibleDays', 'importantBadgeEnabled'],
++};
++
++function settingReadOnlyReason(module: string, key: string) {
++  if (OPERATIONAL_SETTINGS[module]?.includes(key)) return '';
++  if (module === 'defrost' && ['defrostCommentRequiredOnStart', 'defrostCommentRequiredOnEnd'].includes(key)) return 'Старый параметр API. В текущем календаре оттайки комментарий необязателен по согласованному правилу.';
++  if (key === 'guestCanRead') return 'Гостевой доступ запрещён действующими правилами назначения.';
++  if (/Reserved|voiceReserved|videoReserved/.test(key)) return 'Зарезервировано для будущего развития.';
++  return 'Хранится в конфигурации, но применение этого параметра в рабочих сценариях не подключено.';
++}
++
+ function errorMessage(error: unknown) {
+   return error instanceof Error ? error.message : 'Действие не выполнено';
+ }
+@@ -719,7 +742,7 @@ function settingLabel(key: string) {
+     videoReserved: 'Резерв видео',
+     defaultVisibleDays: 'Срок показа по умолчанию, дней',
+     archiveRetentionDays: 'Срок хранения архива, дней',
+-    guestCanRead: 'Объявления для гостей отключены',
++    guestCanRead: 'Доступ гостей к объявлениям',
+     importantBadgeEnabled: 'Метка важных объявлений',
+   };
+   return labels[key] ?? 'Техническая настройка без русского названия';
+@@ -750,6 +773,7 @@ function adminAuditActionLabel(action: string) {
+     FACTORY_CONFIG_IMPORT_PREVIEWED: 'Предпросмотр импорта конфигурации',
+     FACTORY_CONFIG_IMPORTED: 'Импорт конфигурации завода',
+     FACTORY_CREATED: 'Создан завод',
++    FACTORY_UPDATED: 'Изменены название и код завода',
+     FACTORY_STATUS_UPDATED: 'Изменён статус завода',
+     FACTORY_RESTORED: 'Восстановлен завод',
+     USER_FACTORY_ACCESS_UPDATED: 'Изменён доступ пользователя',
+@@ -856,8 +880,8 @@ function AdminFieldLabel({ children, helpTitle, helpText }: { children: React.Re
+   );
+ }
+ 
+-export function AdminConfigScreen() {
+-  const { currentUser } = useAppStore();
++export function AdminConfigScreen({ onSelectFactory }: { onSelectFactory: (factoryId: string) => Promise<void> }) {
++  const { currentUser, selectedFactoryId: activeFactoryId } = useAppStore();
+   const [data, setData] = useState<AdminData | null>(null);
+   const [staffingContext, setStaffingContext] = useState<StaffingControlContext | null>(null);
+   const [loading, setLoading] = useState(true);
+@@ -867,8 +891,14 @@ export function AdminConfigScreen() {
+   const [selectedFactoryId, setSelectedFactoryId] = useState<string>('');
+   const [selectedRole, setSelectedRole] = useState('MASTER');
+   const [rolePermissionDraft, setRolePermissionDraft] = useState<string[]>([]);
++  const [settingDrafts, setSettingDrafts] = useState<Record<string, SettingsMap>>({});
+   const [rolePreview, setRolePreview] = useState<RolePreview | null>(null);
+   const [selectedProfile, setSelectedProfile] = useState<AdminUserProfile | null>(null);
++  const [passwordRecovery, setPasswordRecovery] = useState<{ recoveryCredential: string; recoveryExpiresAt: string; displayName: string } | null>(null);
++  const [factoryEdit, setFactoryEdit] = useState<{ name: string; code: string } | null>(null);
++  const [departmentEditId, setDepartmentEditId] = useState('');
++  const [jobTitleEditId, setJobTitleEditId] = useState('');
++  const [positionEditId, setPositionEditId] = useState('');
+   const [identityForm, setIdentityForm] = useState({ lastName: '', firstName: '', middleName: '' });
+   const [identityError, setIdentityError] = useState<string | null>(null);
+   const [search, setSearch] = useState('');
+@@ -970,6 +1000,12 @@ export function AdminConfigScreen() {
+     (title.departmentId ?? '') === (departmentId ?? '') && (!title.factoryId || title.factoryId === selectedFactoryId),
+   );
+   const jobTitleParentOptions = jobTitleOptionsForDepartment(jobTitleForm.departmentId || null);
++  const settingsDirty = Object.entries(settingDrafts).some(([module, values]) => {
++    if (!data?.settings[module]) return false;
++    const original = settingPayload(data.settings[module]);
++    return Object.entries(values).some(([key, value]) => !settingReadOnlyReason(module, key) && !Object.is(value, original[key]));
++  });
++  useMobileFormDirty('admin-module-settings', settingsDirty);
+   const jobTitleChildrenByParent = useMemo(() => {
+     const map = new Map<string, JobTitleRow[]>();
+     currentJobTitles.forEach((title) => {
+@@ -1106,6 +1142,7 @@ export function AdminConfigScreen() {
+         const value = await apiClient.get<SettingsMap>(item.read);
+         return [item.key, value] as const;
+       }));
++      setSettingDrafts(Object.fromEntries(settingsEntries.map(([key, value]) => [key, settingPayload(value)])));
+       const [
+         users,
+         factories,
+@@ -1211,12 +1248,25 @@ export function AdminConfigScreen() {
+   };
+ 
+   useEffect(() => {
+-    void load();
+-  }, [currentUser?.userId, currentUser?.permissions.join('|')]);
++    setSelectedProfile(null);
++    setPasswordRecovery(null);
++    setFactoryEdit(null);
++    setDepartmentEditId('');
++    setJobTitleEditId('');
++    setPositionEditId('');
++    void load(activeFactoryId);
++  }, [currentUser?.userId, currentUser?.permissions.join('|'), activeFactoryId]);
+ 
+   const reloadFactory = async (factoryId: string) => {
+-    setSelectedFactoryId(factoryId);
+-    await load(factoryId);
++    try {
++      if (factoryId !== activeFactoryId) {
++        await onSelectFactory(factoryId);
++      } else {
++        await load(factoryId);
++      }
++    } catch (error) {
++      setErrorText(errorMessage(error));
++    }
+   };
+ 
+   const runAction = async (reason?: string) => {
+@@ -1227,8 +1277,7 @@ export function AdminConfigScreen() {
+       const result = await pendingAction.run(reason);
+       setPendingAction(null);
+       const reloadId = result && 'reloadFactoryId' in result && result.reloadFactoryId ? result.reloadFactoryId : selectedFactoryId;
+-      if (reloadId !== selectedFactoryId) setSelectedFactoryId(reloadId);
+-      await load(reloadId);
++      await reloadFactory(reloadId);
+       if (selectedProfile) {
+         await openProfile(selectedProfile.id);
+       } if (successMessage) setNoticeText(successMessage);
+@@ -1250,6 +1299,7 @@ export function AdminConfigScreen() {
+     setErrorText(null);
+     try {
+       const preview = await apiClient.post<ChangePreview>(previewUrl, payload);
++      if (preview.allowed === false) throw new Error(preview.reason || 'Настройки не прошли проверку.');
+       setPendingAction({
+         title,
+         description,
+@@ -1404,7 +1454,6 @@ export function AdminConfigScreen() {
+     setSetupPreview(null);
+     setSetupResult(result);
+     setConfigHealth(result.health);
+-    setSelectedFactoryId(result.factory.id);
+     return { reloadFactoryId: result.factory.id };
+   };
+ 
+@@ -1488,7 +1537,6 @@ export function AdminConfigScreen() {
+     setImportResult(result);
+     setConfigHealth(result.health);
+     setImportPreview(null);
+-    setSelectedFactoryId(result.factory.id);
+     return { reloadFactoryId: result.factory.id };
+   };
+ 
+@@ -1524,16 +1572,19 @@ export function AdminConfigScreen() {
+   const createPosition = () => quickAction(async () => {
+     const lineId = positionForm.lineId || data?.lines?.[0]?.id;
+     if (!lineId) throw new Error('Выберите линию');
+-    await apiClient.post(`/admin/lines/${lineId}/positions`, {
++    const body = {
+       name: positionForm.name,
+       displayName: positionForm.displayName || positionForm.name,
+-      skillCode: positionForm.skillCode || undefined,
++      skillCode: positionEditId ? positionForm.skillCode : positionForm.skillCode || undefined,
+       sortOrder: Number(positionForm.sortOrder || 0),
+       isExtraSlot: positionForm.isExtraSlot,
+       doesNotAffectShortage: positionForm.doesNotAffectShortage || positionForm.isExtraSlot,
+       isFlexibleSkillGroup: positionForm.isFlexibleSkillGroup,
+-      reason: 'Создание позиции линии из админки',
+-    });
++      reason: positionEditId ? 'Изменение позиции линии из админки' : 'Создание позиции линии из админки',
++    };
++    if (positionEditId) await apiClient.patch(`/admin/lines/${lineId}/positions/${positionEditId}`, body);
++    else await apiClient.post(`/admin/lines/${lineId}/positions`, body);
++    setPositionEditId('');
+     setPositionForm((current) => ({
+       ...current,
+       name: '',
+@@ -1623,11 +1674,14 @@ export function AdminConfigScreen() {
+   };
+ 
+   const createDepartment = () => quickAction(async () => {
+-    await apiClient.post('/admin/departments', {
++    const body = {
+       factoryId: departmentForm.scope === 'GLOBAL' ? null : selectedFactoryId,
+       ...departmentForm,
+-        reason: 'Создание отдела из админки',
+-    });
++      reason: departmentEditId ? 'Изменение отдела из админки' : 'Создание отдела из админки',
++    };
++    if (departmentEditId) await apiClient.patch(`/admin/departments/${departmentEditId}`, body);
++    else await apiClient.post('/admin/departments', body);
++    setDepartmentEditId('');
+     setDepartmentForm({ name: '', code: '', scope: 'LOCAL' });
+   });
+ 
+@@ -1663,8 +1717,8 @@ export function AdminConfigScreen() {
+   });
+ 
+   const createJobTitle = () => quickAction(async () => {
+-    await apiClient.post('/admin/job-titles', {
+-      factoryId: selectedFactoryId,
++    const body = {
++      factoryId: jobTitleEditId ? data?.jobTitles.find((title) => title.id === jobTitleEditId)?.factoryId ?? null : selectedFactoryId,
+       name: jobTitleForm.name,
+       code: jobTitleForm.code || undefined,
+       baseRole: jobTitleForm.baseRole,
+@@ -1673,8 +1727,11 @@ export function AdminConfigScreen() {
+       shiftDurationHours: Number(jobTitleForm.shiftDurationHours),
+       permissionPreset: jobTitleForm.permissionPreset || null,
+       description: jobTitleForm.description || null,
+-        reason: 'Создание должности из админки',
+-    });
++      reason: jobTitleEditId ? 'Изменение должности из админки' : 'Создание должности из админки',
++    };
++    if (jobTitleEditId) await apiClient.patch(`/admin/job-titles/${jobTitleEditId}`, body);
++    else await apiClient.post('/admin/job-titles', body);
++    setJobTitleEditId('');
+     setJobTitleForm((current) => ({ ...current, name: '', code: '', parentJobTitleId: '', description: '' }));
+   });
+ 
+@@ -2218,6 +2275,18 @@ export function AdminConfigScreen() {
+               {selectedFactory.isActive ? 'Деактивировать' : 'Восстановить'}
+             </button>
+           </div>
++          {factoryEdit ? <div className="admin-setup-panel" data-testid="admin-factory-editor">
++            <div className="form-grid compact-grid">
++              <label>Название завода<input value={factoryEdit.name} onChange={(event) => setFactoryEdit({ ...factoryEdit, name: event.target.value })} /></label>
++              <label>Код завода<input value={factoryEdit.code} onChange={(event) => setFactoryEdit({ ...factoryEdit, code: event.target.value })} /></label>
++            </div>
++            <button className="primary-button" type="button" disabled={busy || !factoryEdit.name.trim() || !factoryEdit.code.trim()} onClick={() => void quickAction(async () => {
++              await apiClient.patch(`/admin/factories/${selectedFactory.id}`, { ...factoryEdit, reason: 'Изменение названия и кода из админки' });
++              setFactoryEdit(null);
++              await onSelectFactory(selectedFactory.id);
++            })}>Сохранить завод</button>
++            <button className="secondary-button" type="button" disabled={busy} onClick={() => setFactoryEdit(null)}>Отмена</button>
++          </div> : <button className="secondary-button" type="button" onClick={() => setFactoryEdit({ name: selectedFactory.name, code: selectedFactory.code })}>Изменить название и код</button>}
+           <div className="factory-context-overview">
+             <span className="tag">Код: {factoryContext?.factory.code ?? selectedFactory.code}</span>
+             <span className={`tag ${selectedFactory.isActive ? 'success' : 'stop'}`}>Статус: {selectedFactory.isActive ? 'Активен' : 'Отключён'}</span>
+@@ -2591,10 +2660,13 @@ export function AdminConfigScreen() {
+                 type="button"
+                 onClick={() => setPendingAction({
+                   title: `Сбросить пароль для ${pilotUserName(selectedProfile.id, selectedProfile.displayName)}`,
+-                  description: 'Пользователь задаст новый пароль при следующем входе. Старый пароль не показывается.',
+-                  consequences: ['Будет включён режим обязательной смены пароля.', 'Действие пишется в аудит.'], successMessage: 'Пароль сброшен. Пользователь задаст новый пароль при следующем входе.',
++                  description: 'Будет выдан одноразовый временный код. Передайте его сотруднику после проверки личности. Старый пароль и сеансы перестанут работать.',
++                  consequences: ['Код показывается один раз и действует ограниченное время.', 'Действие пишется в аудит без кода.'],
+                   requireText: 'ПАРОЛЬ',
+-                  run: () => apiClient.post(`/admin/users/${selectedProfile.id}/password-reset`, { reason: 'Сброс пароля подтверждён в админке' }),
++                  run: async () => {
++                    const result = await apiClient.post<{ recoveryCredential: string; recoveryExpiresAt: string }>(`/admin/users/${selectedProfile.id}/password-reset`, { reason: 'Сброс пароля подтверждён в админке' });
++                    setPasswordRecovery({ ...result, displayName: pilotUserName(selectedProfile.id, selectedProfile.displayName) });
++                  },
+                 })}
+               >
+                 Сбросить пароль
+@@ -2731,6 +2803,11 @@ export function AdminConfigScreen() {
+               </select>
+             </label>
+             <div className="admin-inline-actions">
++              <button className="secondary-button" type="button" disabled={busy || !title.isActive} onClick={() => {
++                setJobTitleEditId(title.id);
++                setJobTitleForm({ name: title.name, code: title.code, baseRole: title.baseRole, departmentId: title.departmentId ?? '', parentJobTitleId: title.parentJobTitleId ?? '', shiftDurationHours: String(title.shiftDurationHours), permissionPreset: title.permissionPreset ?? '', description: title.description ?? '' });
++                document.querySelector('[data-testid="admin-job-title-editor"]')?.scrollIntoView({ block: 'start' });
++              }}>Изменить должность</button>
+               <button
+                 className="secondary-button"
+                 type="button"
+@@ -2803,8 +2880,8 @@ export function AdminConfigScreen() {
+           <p>Должность — человекочитаемое название для выбранного завода или службы. Системная роль остаётся источником прав, а доступ к заводам задаётся отдельно.</p>
+         </div>
+       </div>
+-      <div className="admin-setup-panel">
+-        <h4>Создать должность</h4>
++      <div className="admin-setup-panel" data-testid="admin-job-title-editor">
++        <h4>{jobTitleEditId ? 'Изменить должность' : 'Создать должность'}</h4>
+         <div className="admin-help-strip">Должность — это понятное название для людей. Поле “Кому подчиняется” задаёт дерево внутри отдела. Руководитель может назначать только подчинённые должности внутри своего отдела.</div>
+         <div className="form-grid compact-grid">
+           <label>Название
+@@ -2817,7 +2894,7 @@ export function AdminConfigScreen() {
+             <AdminFieldLabel helpTitle="Базовая роль должности" helpText="Это роль, которую обычно получает человек на этой должности. Она не должна использоваться как скрытый способ выдать лишние права.">
+               Базовая роль
+             </AdminFieldLabel>
+-            <select value={jobTitleForm.baseRole} onChange={(event) => setJobTitleForm((current) => ({ ...current, baseRole: event.target.value }))}>
++            <select aria-label="Базовая роль" value={jobTitleForm.baseRole} onChange={(event) => setJobTitleForm((current) => ({ ...current, baseRole: event.target.value }))}>
+               {roleOptions.map((role) => <option key={role} value={role}>{roleLabel(role)}</option>)}
+             </select>
+           </label>
+@@ -2831,7 +2908,7 @@ export function AdminConfigScreen() {
+             <AdminFieldLabel helpTitle="Отдел должности" helpText="Дерево подчинения строится внутри одного отдела и завода. Должность из другого отдела нельзя поставить родителем.">
+               Отдел / служба
+             </AdminFieldLabel>
+-            <select value={jobTitleForm.departmentId} onChange={(event) => setJobTitleForm((current) => ({ ...current, departmentId: event.target.value, parentJobTitleId: '' }))}>
++            <select aria-label="Отдел / служба" value={jobTitleForm.departmentId} onChange={(event) => setJobTitleForm((current) => ({ ...current, departmentId: event.target.value, parentJobTitleId: '' }))}>
+               <option value="">Без отдела</option>
+               {[...pilotVisibleLocalDepartments, ...pilotVisibleSharedDepartments].map((department) => <option key={department.id} value={department.id}>{department.name}</option>)}
+             </select>
+@@ -2840,9 +2917,9 @@ export function AdminConfigScreen() {
+             <AdminFieldLabel helpTitle="Уровень должности" helpText="Руководитель может назначать только должности ниже своей ветки. Равная или вышестоящая должность не доступна для делегирования.">
+               Кому подчиняется
+             </AdminFieldLabel>
+-            <select value={jobTitleForm.parentJobTitleId} onChange={(event) => setJobTitleForm((current) => ({ ...current, parentJobTitleId: event.target.value }))}>
++            <select aria-label="Кому подчиняется" value={jobTitleForm.parentJobTitleId} onChange={(event) => setJobTitleForm((current) => ({ ...current, parentJobTitleId: event.target.value }))}>
+               <option value="">Никому, верхний уровень</option>
+-              {jobTitleParentOptions.map((title) => <option key={title.id} value={title.id}>{title.name}</option>)}
++              {jobTitleParentOptions.filter((title) => !jobTitleEditId || (title.id !== jobTitleEditId && !isJobTitleDescendant(title.id, jobTitleEditId))).map((title) => <option key={title.id} value={title.id}>{title.name}</option>)}
+             </select>
+           </label>
+           <label>
+@@ -2856,7 +2933,8 @@ export function AdminConfigScreen() {
+           </label>
+         </div>
+         <div className="admin-inline-actions">
+-          <button className="primary-button" disabled={busy || !jobTitleForm.name.trim()} type="button" onClick={() => void createJobTitle()}>Создать должность</button>
++          <button className="primary-button" disabled={busy || !jobTitleForm.name.trim()} type="button" onClick={() => void createJobTitle()}>{jobTitleEditId ? 'Сохранить должность' : 'Создать должность'}</button>
++          {jobTitleEditId ? <button className="secondary-button" type="button" onClick={() => { setJobTitleEditId(''); setJobTitleForm({ name: '', code: '', baseRole: 'WORKER', departmentId: '', parentJobTitleId: '', shiftDurationHours: '12', permissionPreset: 'Работник', description: '' }); }}>Отмена</button> : null}
+         </div>
+       </div>
+       <div className="dashboard-grid organization-identity-grid">
+@@ -3048,9 +3126,9 @@ export function AdminConfigScreen() {
+         </HelpTooltip>
+       </h3>
+         <p>Локальные отделы принадлежат выбранному заводу. Общие и технические службы подключаются через доступы к заводам, без автоматического глобального управленческого охвата.</p>
+-      <div className="admin-setup-panel">
++      <div className="admin-setup-panel" data-testid="admin-department-editor">
+         <h4 className="admin-heading-with-help">
+-          Создать отдел или общую службу
++          {departmentEditId ? 'Изменить отдел или общую службу' : 'Создать отдел или общую службу'}
+           <HelpTooltip title="Руководитель отдела">
+             Руководитель задаётся через пользователя, его отдел, должность и право управлять сотрудниками. Название отдела само по себе не выдаёт руководящие права.
+           </HelpTooltip>
+@@ -3066,14 +3144,15 @@ export function AdminConfigScreen() {
+             <AdminFieldLabel helpTitle="Тип отдела" helpText="Выберите локальный отдел для структуры конкретного завода или общую службу для единого справочника. Общая служба не открывает доступ ко всем заводам автоматически.">
+               Тип
+             </AdminFieldLabel>
+-            <select value={departmentForm.scope} onChange={(event) => setDepartmentForm((current) => ({ ...current, scope: event.target.value }))}>
++            <select aria-label="Тип отдела" disabled={Boolean(departmentEditId)} value={departmentForm.scope} onChange={(event) => setDepartmentForm((current) => ({ ...current, scope: event.target.value }))}>
+               <option value="LOCAL">Локальный отдел</option>
+               <option value="GLOBAL">Общая служба</option>
+             </select>
+           </label>
+         </div>
+         <div className="admin-inline-actions">
+-          <button className="primary-button" disabled={busy || !departmentForm.name.trim()} type="button" onClick={() => void createDepartment()}>Создать</button>
++          <button className="primary-button" disabled={busy || !departmentForm.name.trim()} type="button" onClick={() => void createDepartment()}>{departmentEditId ? 'Сохранить отдел' : 'Создать'}</button>
++          {departmentEditId ? <button className="secondary-button" type="button" onClick={() => { setDepartmentEditId(''); setDepartmentForm({ name: '', code: '', scope: 'LOCAL' }); }}>Отмена</button> : null}
+         </div>
+       </div>
+       <div className="dashboard-grid">
+@@ -3085,6 +3164,10 @@ export function AdminConfigScreen() {
+                 <strong>{department.name}</strong>
+                 <span>{department.code}</span>
+                 <span>Пользователи: {department.userCount}</span>
++                <button className="secondary-button" type="button" disabled={busy || !department.isActive} onClick={() => {
++                  setDepartmentEditId(department.id); setDepartmentForm({ name: department.name, code: department.code, scope: department.scope });
++                  document.querySelector('[data-testid="admin-department-editor"]')?.scrollIntoView({ block: 'start' });
++                }}>Изменить отдел</button>
+                 <button
+                   className="secondary-button"
+                   type="button"
+@@ -3114,6 +3197,15 @@ export function AdminConfigScreen() {
+                 <span className="tag">Общая служба</span>
+                 <span>Доступы к выбранному заводу: {department.userCount}</span>
+                 <small>Не даёт автоматический доступ ко всем заводам. Доступ сотрудников задаётся через “Пользователи с доступом”.</small>
++                <button className="secondary-button" type="button" disabled={busy || !department.isActive} onClick={() => {
++                  setDepartmentEditId(department.id); setDepartmentForm({ name: department.name, code: department.code, scope: department.scope });
++                  document.querySelector('[data-testid="admin-department-editor"]')?.scrollIntoView({ block: 'start' });
++                }}>Изменить отдел</button>
++                <button className="secondary-button" type="button" disabled={busy} onClick={() => setPendingAction({
++                  title: `Деактивировать ${department.name}`, description: 'Общая служба отключается для всех связанных заводов. История сохраняется.',
++                  consequences: ['Действие применяется к общему справочнику, а не только выбранному заводу.'], requireReason: true,
++                  run: (reason) => apiClient.patch(`/admin/departments/${department.id}/status`, { isActive: false, reason }),
++                })}>Деактивировать</button>
+               </article>
+             ))}
+             {!pilotVisibleSharedDepartments.length ? <div className="empty-state compact">Общие службы пока не настроены. Создайте новый завод с типовыми службами или скопируйте структуру Завода 4.</div> : null}
+@@ -3271,12 +3363,12 @@ export function AdminConfigScreen() {
+       <section className="card admin-card wide">
+         <h3>Позиции на линиях</h3>
+         <p>Позиция определяет слот назначения и навык. Отключение позиции не удаляет старые назначения и навыки.</p>
+-        <div className="admin-setup-panel">
+-          <h4>Добавить позицию</h4>
++        <div className="admin-setup-panel" data-testid="admin-position-editor">
++          <h4>{positionEditId ? 'Изменить позицию' : 'Добавить позицию'}</h4>
+           <div className="admin-help-strip">Позиция — конкретное рабочее место на линии. Код навыка помогает системе подсказать подходящего сотрудника.</div>
+           <div className="form-grid compact-grid">
+             <label>Линия
+-              <select value={positionForm.lineId || selectedLine?.id || ''} onChange={(event) => setPositionForm((current) => ({ ...current, lineId: event.target.value }))}>
++              <select aria-label="Линия позиции" disabled={Boolean(positionEditId)} value={positionForm.lineId || selectedLine?.id || ''} onChange={(event) => setPositionForm((current) => ({ ...current, lineId: event.target.value }))}>
+                 <option value="">Выберите линию</option>
+                 {(data?.lines ?? []).map((line) => <option key={line.id} value={line.id}>{line.name}</option>)}
+               </select>
+@@ -3323,7 +3415,8 @@ export function AdminConfigScreen() {
+             </label>
+           </div>
+           <div className="admin-inline-actions">
+-            <button className="primary-button" disabled={busy || !(positionForm.lineId || selectedLine?.id) || !positionForm.name.trim()} type="button" onClick={() => void createPosition()}>Добавить позицию</button>
++            <button className="primary-button" disabled={busy || !(positionForm.lineId || selectedLine?.id) || !positionForm.name.trim()} type="button" onClick={() => void createPosition()}>{positionEditId ? 'Сохранить позицию' : 'Добавить позицию'}</button>
++            {positionEditId ? <button className="secondary-button" type="button" onClick={() => { setPositionEditId(''); setPositionForm({ lineId: '', name: '', displayName: '', skillCode: '', sortOrder: '0', isExtraSlot: false, doesNotAffectShortage: false, isFlexibleSkillGroup: false }); }}>Отмена</button> : null}
+           </div>
+         </div>
+         <div className="admin-list">
+@@ -3337,6 +3430,11 @@ export function AdminConfigScreen() {
+                     <span className="tag" title={position.skillCode ?? 'Код навыка не задан'}>{position.skillCode ? 'Навык задан' : 'Навык не задан'}</span>
+                     <span className="tag">Порядок: {position.sortOrder}</span>
+                     {position.isExtraSlot ? <span className="tag">Дополнительно</span> : null}
++                    <button className="secondary-button" type="button" disabled={busy || !position.isActive} onClick={() => {
++                      setPositionEditId(position.id);
++                      setPositionForm({ lineId: line.id, name: position.name, displayName: position.displayName ?? '', skillCode: position.skillCode ?? '', sortOrder: String(position.sortOrder), isExtraSlot: Boolean(position.isExtraSlot), doesNotAffectShortage: Boolean(position.doesNotAffectShortage), isFlexibleSkillGroup: Boolean(position.isFlexibleSkillGroup) });
++                      document.querySelector('[data-testid="admin-position-editor"]')?.scrollIntoView({ block: 'start' });
++                    }}>Изменить позицию</button>
+                     <button
+                       className="secondary-button"
+                       type="button"
+@@ -3639,31 +3737,44 @@ export function AdminConfigScreen() {
+       <h3>Настройки модулей</h3>
+       <p>Настройки для: {factoryContext?.factory.name ?? selectedFactory?.name ?? 'выбранный завод'}. Если настройка общая или ещё не создана, это явно отмечено в карточке.</p>
+       <div className="settings-grid">
+-        {factoryContext?.moduleSettings?.length ? factoryContext.moduleSettings.map((item) => (
+-          <article className="settings-card" key={item.key}>
+-            <h4>{item.title}</h4>
+-            <span className="tag">Настройки для: {factoryContext.factory.name}</span>
+-            <span className="tag">{item.configured ? 'Настроено' : 'Не создано'}</span>
+-            <p>{item.summary.join(' · ')}</p>
+-          </article>
+-        )) : MODULE_SETTINGS.map((item) => (
+-          <article className="settings-card" key={item.key}>
++        {MODULE_SETTINGS.map((item) => (
++          <article className="settings-card" key={item.key} data-testid={`admin-settings-${item.key}`}>
+             <h4>{item.title}</h4>
+-            <p>{summarizeSettings(data?.settings[item.key])}</p>
++            <span className="tag">{factoryContext?.factory.name ?? selectedFactory?.name}</span>
++            <div className="form-grid compact-grid">
++              {Object.entries(settingPayload(data?.settings[item.key])).map(([key, original]) => {
++                const value = settingDrafts[item.key] && key in settingDrafts[item.key] ? settingDrafts[item.key][key] : original;
++                const readOnly = settingReadOnlyReason(item.key, key);
++                const change = (next: unknown) => setSettingDrafts((current) => ({
++                  ...current, [item.key]: { ...current[item.key], [key]: next },
++                }));
++                return <label key={key}>
++                  <span>{settingLabel(key)}</span>
++                  {readOnly ? <><span>{settingValue(original)}</span><small>{readOnly}</small></>
++                    : typeof original === 'boolean' ? <input type="checkbox" checked={Boolean(value)} onChange={(event) => change(event.target.checked)} />
++                    : <input type={typeof original === 'number' || key === 'longTaskDefaultDeadlineHours' ? 'number' : 'text'}
++                        value={value === null ? '' : String(value ?? '')}
++                        onChange={(event) => change(typeof original === 'number' || key === 'longTaskDefaultDeadlineHours'
++                          ? (event.target.value === '' ? null : Number(event.target.value)) : event.target.value)} />}
++                </label>;
++              })}
++            </div>
+             <button
+               className="secondary-button"
+               type="button"
++              disabled={busy || !data?.settings[item.key]}
+               onClick={() => void confirmWithPreview(
+                 item.preview,
+-                { ...settingPayload(data?.settings[item.key]), reason: 'Проверка настроек админки' },
++                { ...Object.fromEntries(Object.entries(settingDrafts[item.key] ?? {}).filter(([key]) => !settingReadOnlyReason(item.key, key))), reason: 'Настройка модуля через админку' },
+                 `Сохранить настройки: ${item.title}`,
+-                'Текущие значения будут проверены через предпросмотр изменений и затем сохранены без скрытых изменений.',
+-                () => apiClient.patch(item.update, { ...settingPayload(data?.settings[item.key]), reason: 'Проверка настроек админки' }),
++                'Изменения применятся только к выбранному заводу. Проверьте значения и предупреждения перед сохранением.',
++                () => apiClient.patch(item.update, { ...Object.fromEntries(Object.entries(settingDrafts[item.key] ?? {}).filter(([key]) => !settingReadOnlyReason(item.key, key))), reason: 'Настройка модуля через админку' }),
+                 'НАСТРОЙКИ',
+               )}
+             >
+-              Проверить путь сохранения
++              Проверить и сохранить
+             </button>
++            <button className="secondary-button" type="button" disabled={busy} onClick={() => setSettingDrafts((current) => ({ ...current, [item.key]: settingPayload(data?.settings[item.key]) }))}>Отменить изменения</button>
+           </article>
+         ))}
+         <article className="settings-card">
+@@ -3980,6 +4091,15 @@ export function AdminConfigScreen() {
+         </>
+       ) : null}
+ 
++      <PremiumSheet open={Boolean(passwordRecovery)} title="Временный код создан" onClose={() => setPasswordRecovery(null)}>
++        {passwordRecovery ? <div className="onboarding-status-card">
++          <p>Передайте код сотруднику «{passwordRecovery.displayName}» только после проверки личности. После закрытия он больше не отображается.</p>
++          <strong>Временный код</strong>
++          <code data-testid="password-recovery-credential">{passwordRecovery.recoveryCredential}</code>
++          <p>Действует до {new Date(passwordRecovery.recoveryExpiresAt).toLocaleString('ru-RU')}. Введите код вместо пароля при входе, затем задайте личный пароль.</p>
++          <button type="button" className="primary-button" onClick={() => setPasswordRecovery(null)}>Код передан</button>
++        </div> : null}
++      </PremiumSheet>
+       {pendingAction ? (
+         <AdminConfirmDialog
+           title={pendingAction.title}
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\checklists\\checklists.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\checklists\\checklists.service.ts"
+index c86fdd7f..cd44baed 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\checklists\\checklists.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\checklists\\checklists.service.ts"
+@@ -190,6 +190,7 @@ export class ChecklistsService implements OnModuleInit, OnModuleDestroy {
+ 
+   async workspace(user: UserContext, query: any = {}) {
+     const now = factoryServerNow();
++    const settings = await this.ensureSettings(user.selectedFactoryId);
+     await this.runMaintenance(now, user.selectedFactoryId);
+     const target = factoryShiftTarget(now);
+     const shiftDate = factoryShiftDate(target);
+@@ -245,6 +246,7 @@ export class ChecklistsService implements OnModuleInit, OnModuleDestroy {
+     } : null;
+     return {
+       generatedAt: now.toISOString(),
++      formSettings: { requirePauseComment: settings.requirePauseComment },
+       shift: { ...target, startsAt: factoryShiftWindow(target).from.toISOString(), endsAt: factoryShiftWindow(target).to.toISOString() },
+       activeRuns: await this.serializeRuns(visibleActive),
+       completedRuns: await this.serializeRuns(visibleCompleted),
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\chats\\chats.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\chats\\chats.service.ts"
+index 9bff228c..755e39ec 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\chats\\chats.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\chats\\chats.service.ts"
+@@ -291,12 +291,13 @@ export class ChatsService {
+   async update(user: UserContext, id: string, body: any) {
+     const chat = await this.loadChat(user, id);
+     this.assertCanManage(user, chat);
++    const title = body.title === undefined ? undefined : this.requiredText(body.title, 'Укажите название чата.');
+     const updated = await this.prisma.db.$transaction(async (tx) => {
+       await lockOperationKeys(tx, [operationLockKey.chat(id)]);
+       const updated = await tx.chat.update({
+         where: { id },
+         data: {
+-          ...(body.title ? { title: body.title.trim() } : {}),
++          ...(title !== undefined ? { title } : {}),
+           ...(body.description !== undefined ? { description: body.description?.trim() || null } : {}),
+           ...(typeof body.isActive === 'boolean' ? { isActive: body.isActive, archivedAt: body.isActive ? null : new Date() } : {}),
+           ...(typeof body.isHidden === 'boolean' ? { isHidden: body.isHidden } : {}),
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\ChecklistsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+index 420837c2..e1968c24 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\ChecklistsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChecklistsScreen.tsx"
+@@ -7,6 +7,7 @@ import { AppConfirmDialog } from '../components/AppConfirmDialog';
+ import { AttachmentPicker } from '../components/AttachmentPicker';
+ import { AttachmentPreviewList } from '../components/AttachmentPreviewList';
+ import { ChecklistItemDraft, ChecklistItemEditor } from '../components/ChecklistItemEditor';
++import { duplicateChecklistItem, setChecklistItemActive } from '../components/checklist-item-draft';
+ import { PremiumActionItem, PremiumKpiStrip, PremiumSectionHeader, PremiumSheet } from '../components/PremiumShell';
+ import { checklistRowStatusLabels, checklistRunStatusLabels, displayLabel } from '../labels';
+ import { useMobileBackLayer, useMobileFormDirty } from '../navigation/mobile-back';
+@@ -173,6 +174,7 @@ type ChecklistRunCheck = {
+ 
+ type ChecklistWorkspace = {
+   generatedAt: string;
++  formSettings?: { requirePauseComment: boolean };
+   shift: { shiftDate: string; shiftType: 'DAY' | 'NIGHT'; startsAt: string; endsAt: string };
+   activeRuns: ChecklistRun[];
+   completedRuns: ChecklistRun[];
+@@ -517,6 +519,7 @@ export function ChecklistsScreen() {
+   const [templates, setTemplates] = useState<ChecklistTemplate[]>([]);
+   const [availableTemplates, setAvailableTemplates] = useState<ChecklistTemplate[]>([]);
+   const [runs, setRuns] = useState<ChecklistRun[]>([]);
++  const [requirePauseComment, setRequirePauseComment] = useState(true);
+   const [completedShiftRuns, setCompletedShiftRuns] = useState<ChecklistRun[]>([]);
+   const [managerWorkspace, setManagerWorkspace] = useState<ChecklistWorkspace['manager']>(null);
+   const [archive, setArchive] = useState<{ runs: ChecklistRun[]; templates: ChecklistTemplate[] }>({ runs: [], templates: [] });
+@@ -639,6 +642,7 @@ export function ChecklistsScreen() {
+           : Promise.resolve([]),
+       ]);
+       const generatedAtMs = new Date(workspace.generatedAt).getTime();
++      setRequirePauseComment(workspace.formSettings?.requirePauseComment ?? true);
+       if (Number.isFinite(generatedAtMs)) setServerClockOffsetMs(generatedAtMs - Date.now());
+       const visibleRuns = filterRuntimeRuns(workspace.activeRuns);
+       const ownedTemplateIds = new Set(visibleRuns.map((run) => run.template?.id).filter(Boolean));
+@@ -1252,13 +1256,7 @@ export function ChecklistsScreen() {
+     if (!templateBuilder) return;
+     const source = templateBuilder.rows[index];
+     checklistItemSequence += 1;
+-    const copy: ChecklistItemDraft = {
+-      ...source,
+-      id: undefined,
+-      clientKey: `checklist-item-copy-${Date.now()}-${checklistItemSequence}`,
+-      title: `${source.title} — копия`,
+-      sortOrder: (index + 2) * 10,
+-    };
++    const copy = duplicateChecklistItem(source, `checklist-item-copy-${Date.now()}-${checklistItemSequence}`, (index + 2) * 10);
+     const rows = [...templateBuilder.rows];
+     rows.splice(index + 1, 0, copy);
+     setTemplateBuilder({
+@@ -1271,7 +1269,7 @@ export function ChecklistsScreen() {
+     if (!templateBuilder) return;
+     setTemplateBuilder({
+       ...templateBuilder,
+-      rows: templateBuilder.rows.map((row, rowIndex) => rowIndex === index ? { ...row, isActive: !row.isActive } : row),
++      rows: templateBuilder.rows.map((row, rowIndex) => rowIndex === index ? setChecklistItemActive(row, !row.isActive) : row),
+     });
+   };
+ 
+@@ -1329,6 +1327,7 @@ export function ChecklistsScreen() {
+   };
+ 
+   const saveRowReference = async (templateId: string, rowId: string, draft: ChecklistItemDraft) => {
++    if (!draft.isActive) return;
+     if (draft.referenceFile) {
+       await uploadAttachments('CHECKLIST_TEMPLATE_ROW', rowId, [draft.referenceFile], { operationIds: draft.referenceOperationId ? [draft.referenceOperationId] : undefined });
+     } else if (draft.removeReference) {
+@@ -2959,7 +2958,7 @@ export function ChecklistsScreen() {
+             <section className="checklist-builder-section checklist-template-builder-items">
+               <div className="checklist-builder-section-heading with-action">
+                 <span>3</span>
+-                <div><h3>Пункты</h3><p>Порядок сотрудник увидит в focused runner.</p></div>
++                <div><h3>Пункты</h3><p>Этот порядок сотрудник увидит при выполнении. Копия пункта не наследует сохранённый фото-эталон: для неё выберите фото отдельно.</p></div>
+                 <button className="secondary-button compact-action" onClick={addBuilderRow} type="button">Добавить пункт</button>
+               </div>
+               {templateBuilder.rows.length ? (
+@@ -3084,7 +3083,7 @@ export function ChecklistsScreen() {
+           errorText={errorText}
+           fields={
+             modal.mode === 'pause'
+-              ? [{ name: 'reason', label: 'Причина паузы', type: 'textarea', required: true }]
++              ? [{ name: 'reason', label: 'Причина паузы', type: 'textarea', required: requirePauseComment }]
+               : modal.mode === 'close'
+                 ? [{
+                     name: 'comment',
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\ChatsScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChatsScreen.tsx"
+index 55957ce4..ac7474ce 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\ChatsScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ChatsScreen.tsx"
+@@ -5,6 +5,7 @@ import { apiClient } from '../api/client';
+ import { AttachmentPreviewList } from '../components/AttachmentPreviewList';
+ import { AttachmentInputButton } from '../components/AttachmentInputButton';
+ import { AppConfirmDialog } from '../components/AppConfirmDialog';
++import { ActionModal } from '../components/ActionModal';
+ import { CompactPeoplePicker } from '../components/CompactPeoplePicker';
+ import { attachmentFileKey, mergeAttachmentFiles } from '../components/attachment-files';
+ import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
+@@ -13,7 +14,7 @@ import { Attachment, ChatItem, ChatMessage, useAppStore } from '../store/app.sto
+ import { isPilotFixtureText, personInitials, pilotChatTitle, pilotUserContext, pilotUserName, shortPersonName } from '../utils/pilot-ui';
+ import { microphoneContextProblem, microphoneErrorMessage } from '../utils/pwa-runtime';
+ 
+-type ChatModal = 'create-chat' | 'edit-message' | 'delete-message' | 'info' | 'direct-chat' | 'poll' | null;
++type ChatModal = 'create-chat' | 'edit-chat' | 'edit-message' | 'delete-message' | 'info' | 'direct-chat' | 'poll' | null;
+ type ChatFilter = 'all' | 'unread' | 'personal' | 'departments' | 'groups';
+ type InfoTab = 'members' | 'media' | 'files';
+ type DirectoryUser = { userId: string; displayName: string; role?: string; departmentName?: string | null; phoneLabel?: string | null };
+@@ -312,7 +313,7 @@ export function ChatsScreen() {
+   }, []);
+ 
+   useMobileBackLayer(Boolean(participantProfile), () => setParticipantProfile(null), 980);
+-  useMobileBackLayer(Boolean(modal), () => setModal(null), 900);
++  useMobileBackLayer(Boolean(modal && modal !== 'edit-chat'), () => setModal(null), 900);
+   useMobileBackLayer(Boolean(selectedMessage && modal === null), () => setSelectedMessage(null), 850);
+   useMobileBackLayer(showAttach, () => setShowAttach(false), 800);
+   useMobileBackLayer(showEmoji, () => setShowEmoji(false), 750);
+@@ -818,6 +819,25 @@ export function ChatsScreen() {
+     }
+   };
+ 
++  const updateSelectedChat = async (values: Record<string, string | boolean>) => {
++    if (!selected || !canManageChats || !canManageSelected || selected.type === 'DIRECT') return;
++    const title = String(values.title ?? '').trim();
++    if (!title) throw new Error('Укажите название чата.');
++    const chatId = selected.id;
++    setLoading(true);
++    try {
++      await apiClient.patch(`/chats/${chatId}`, {
++        title,
++        description: String(values.description ?? '').trim(),
++        reason: 'Изменение названия и описания через интерфейс чата',
++      });
++      await openChat(chatId, { markRead: false });
++      setModal('info');
++    } finally {
++      setLoading(false);
++    }
++  };
++
+   const setCommunicationBlock = async (blocked: boolean) => {
+     if (!selected) return;
+     setLoading(true);
+@@ -1712,6 +1732,20 @@ export function ChatsScreen() {
+         </div>
+       ) : null}
+ 
++      {modal === 'edit-chat' && selected ? (
++        <ActionModal
++          title="Изменить чат"
++          busy={loading}
++          confirmLabel="Сохранить"
++          fields={[
++            { name: 'title', label: 'Название чата', required: true, defaultValue: selected.title },
++            { name: 'description', label: 'Описание', type: 'textarea', defaultValue: selected.description ?? '' },
++          ]}
++          onCancel={() => setModal('info')}
++          onSubmit={updateSelectedChat}
++        />
++      ) : null}
++
+       {modal === 'info' && selected ? (
+         <div className="modal-backdrop" role="dialog" aria-modal="true">
+           <div className="modal-card messenger-info-card">
+@@ -1835,9 +1869,12 @@ export function ChatsScreen() {
+                 </button>
+               ) : null}
+               {selected.type !== 'DIRECT' && canManageSelected ? (
++                <>
++                {canManageChats ? <button className="secondary-button" disabled={loading} type="button" onClick={() => setModal('edit-chat')}>Изменить чат</button> : null}
+                 <button className="secondary-button danger" disabled={loading} type="button" onClick={() => setPendingMemberAction({ kind: 'archive', name: chatTitle(selected) })}>
+                   Архивировать чат
+                 </button>
++                </>
+               ) : null}
+               <button className="secondary-button" disabled={loading} type="button" onClick={() => setModal(null)}>Готово</button>
+               {infoTab === 'members' && canManageSelectedGroup ? (
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\App.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+index 917e26fc..7c772f27 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\App.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\App.tsx"
+@@ -370,6 +370,7 @@ export default function App() {
+     return quickPreference.find((id) => allowed.has(id)) ?? roleDefaultHomeScreen;
+   }, [currentUser?.isGuest, quickPreference, quickPreferenceConfigured, roleDefaultHomeScreen, visibleScreens]);
+   const navigationContextRef = useRef('');
++  const requestedFactoryRouteRef = useRef<{ context: string; screen: Screen } | null>(null);
+   useEffect(() => {
+     setPendingTask(null);
+     setTaskReturn(null);
+@@ -415,8 +416,11 @@ export default function App() {
+       : nextQuickPreference.find((id) => allowed.has(id)) ?? roleDefaultHomeScreen;
+     navigationContextRef.current = navigationContextKey;
+     const routeKey = `${SESSION_ROUTE_PREFIX}.${navigationContextKey}`;
+-    const saved = safeSessionGet(routeKey) as Screen;
++    const requested = requestedFactoryRouteRef.current;
++    const saved = requested?.context === navigationContextKey ? requested.screen : safeSessionGet(routeKey) as Screen;
++    requestedFactoryRouteRef.current = null;
+     const initial = allowed.has(saved) ? saved : initialHome;
++    safeSessionSet(routeKey, initial);
+     screenHistoryRef.current = [initial];
+     setScreen(initial);
+     if (navigationScrollFrame.current !== null) cancelAnimationFrame(navigationScrollFrame.current);
+@@ -974,6 +978,23 @@ export default function App() {
+     setMobileSheetView('sections');
+   };
+ 
++  const selectAdminFactory = async (factoryId: string) => {
++    // Resolve the destination's real UFA/role before changing any UI context.
++    // Admin's local picker must not keep sending the previous factory header.
++    const me = await apiClient.request<MeResponse>('/auth/me', { headers: { 'x-factory-id': factoryId } });
++    if (me.selectedFactoryId !== factoryId || !me.isAdmin || me.isGuest
++      || !me.availableFactories.some((factory) => factory.id === factoryId && factory.isActive)) {
++      throw new Error('Нет административного доступа к этому активному заводу.');
++    }
++    requestedFactoryRouteRef.current = { context: `${me.userId}.${factoryId}`, screen: 'Admin' };
++    appStore.setSession({
++      currentUser: toCurrentUser(me),
++      availableFactories: me.availableFactories,
++      selectedFactoryId: factoryId,
++      authStatus: 'ready',
++    });
++  };
++
+   if (authStatus !== 'ready' || !hasSelectedFactory) {
+     return <FactorySelectScreen />;
+   }
+@@ -1078,7 +1099,7 @@ export default function App() {
+       {screen === 'Shift' && <ShiftPeopleScreen taskReturn={taskReturn?.context === navigationContextKey && taskReturn.screen === 'Shift' ? taskReturn.value as ShiftTaskReturn : undefined} />}
+       {screen === 'ShiftHistory' && <ShiftPeopleScreen mode="history" />}
+       {screen === 'People' && <PeopleScreen taskReturn={taskReturn?.context === navigationContextKey && taskReturn.screen === 'People' ? taskReturn.value as PeopleTaskReturn : undefined} />}
+-      {screen === 'Admin' && <AdminConfigScreen />}
++      {screen === 'Admin' && <AdminConfigScreen onSelectFactory={selectAdminFactory} />}
+       {screen === 'Situation' && <SituationScreen taskReturn={taskReturn?.context === navigationContextKey && taskReturn.screen === 'Situation' ? taskReturn.value as SituationTaskReturn : undefined} />}
+       {screen === 'Tasks' && <React.Fragment key={`${navigationContextKey}:${currentUser?.role}:${[...(currentUser?.permissions ?? [])].sort().join('|')}`}><TasksScreen targetTaskId={pendingTask?.context === navigationContextKey && pendingTask.epoch === asyncContextEpoch.current ? pendingTask.id : undefined} onTargetConsumed={() => setPendingTask(null)} /></React.Fragment>}
+       {screen === 'Wash' && <WashScreen />}
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\components\\ChecklistItemEditor.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\components\\ChecklistItemEditor.tsx"
+index fb7d9c48..c477b6c3 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\components\\ChecklistItemEditor.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\components\\ChecklistItemEditor.tsx"
+@@ -3,6 +3,7 @@ import { Attachment } from '../store/app.store';
+ import { AttachmentPicker } from './AttachmentPicker';
+ import { AttachmentPreviewList } from './AttachmentPreviewList';
+ import { createOperationId } from '../api/operation';
++import { setChecklistItemActive } from './checklist-item-draft';
+ 
+ void React;
+ 
+@@ -77,8 +78,9 @@ export function ChecklistItemEditor({ value, onChange, disabled = false, showAct
+         <p className="line-meta">Одна фотография-пример. Не заменяет фото результата. Изменения применятся после сохранения; завершённые проверки сохранят прежний эталон.</p>
+         {!value.removeReference && !value.referenceFile && value.referencePhoto ? <AttachmentPreviewList attachments={[value.referencePhoto]} mode="grid" /> : null}
+         <span>{value.referencePhoto && !value.removeReference ? 'Заменить фото-эталон' : 'Загрузить фото-эталон'}</span>
+-        <AttachmentPicker disabled={disabled} value={value.referenceFile ? [value.referenceFile] : []} onChange={(files) => patch({ referenceFile: files.at(-1) ?? null, referenceOperationId: createOperationId('checklist-reference'), removeReference: false })} />
+-        {value.referencePhoto || value.referenceFile ? <button className="secondary-button" type="button" disabled={disabled} onClick={() => patch({ referenceFile: null, referencePhoto: null, removeReference: true })}>Убрать фото-эталон</button> : null}
++        <AttachmentPicker disabled={disabled || !value.isActive} value={value.referenceFile ? [value.referenceFile] : []} onChange={(files) => patch({ referenceFile: files.at(-1) ?? null, referenceOperationId: createOperationId('checklist-reference'), removeReference: false })} />
++        {!value.isActive ? <p className="field-hint">Фото отключённого пункта доступно только для просмотра. Включите пункт, чтобы изменить эталон.</p> : null}
++        {value.referencePhoto || value.referenceFile ? <button className="secondary-button" type="button" disabled={disabled || !value.isActive} onClick={() => patch({ referenceFile: null, referencePhoto: null, removeReference: true })}>Убрать фото-эталон</button> : null}
+       </section>
+ 
+       {isNumber ? (
+@@ -131,7 +133,7 @@ export function ChecklistItemEditor({ value, onChange, disabled = false, showAct
+         ) : null}
+         {showActive ? (
+           <label className="field-label checkbox-field">
+-            <input checked={value.isActive} disabled={disabled} onChange={(event) => patch({ isActive: event.target.checked })} type="checkbox" />
++            <input checked={value.isActive} disabled={disabled} onChange={(event) => onChange(setChecklistItemActive(value, event.target.checked))} type="checkbox" />
+             Пункт активен
+           </label>
+         ) : null}
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\OrdersStockScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\OrdersStockScreen.tsx"
+index 624355b3..6ba020ce 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\OrdersStockScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\OrdersStockScreen.tsx"
+@@ -65,7 +65,10 @@ type OrderRequest = {
+   attachments?: Attachment[];
+ };
+ 
+-type Summary = { belowThreshold: number; criticalItems?: number; activeRequests: number; itemsCount: number };
++type Summary = {
++  belowThreshold: number; criticalItems?: number; activeRequests: number; itemsCount: number;
++  formSettings?: { defaultUnit: string; takeRequiresComment: boolean; restockRequiresComment: boolean; archiveRequiresComment: boolean };
++};
+ type Tab = 'items' | 'requests' | 'archive';
+ type ModalMode = 'create-item' | 'edit-item' | 'take' | 'restock' | 'order' | 'manual-request' | 'close-ordered' | 'close-not-needed' | 'archive' | 'restore';
+ type DirectoryDepartment = { id: string; name: string; scope?: string | null };
+@@ -280,14 +283,14 @@ export function OrdersStockScreen() {
+         ...(canFilterDepartments ? [{ name: 'departmentId', label: 'Отдел / владелец', type: 'select' as const, defaultValue: item?.departmentId ?? 'shared', options: departmentFormOptions }] : []),
+         { name: 'minThreshold', label: 'Минимальный остаток', type: 'number', required: true, defaultValue: item?.minThreshold ?? '' },
+         ...(modal.mode === 'create-item' ? [{ name: 'initialQuantity', label: 'Текущий остаток', type: 'number' as const, required: true }] : []),
+-        { name: 'unit', label: 'Единица измерения', type: 'select', required: true, defaultValue: item?.unit ?? 'шт', options: STOCK_UNITS.map((value) => ({ value, label: value })) },
++        { name: 'unit', label: 'Единица измерения', type: 'select', required: true, defaultValue: item?.unit ?? summary?.formSettings?.defaultUnit ?? 'шт', options: STOCK_UNITS.map((value) => ({ value, label: value })) },
+         { name: 'description', label: 'Комментарий', type: 'textarea', defaultValue: item?.description ?? '' },
+       ];
+     }
+     if (modal.mode === 'take' || modal.mode === 'restock') {
+       return [
+         { name: 'quantity', label: `Количество, ${modal.item?.unit ?? ''}`, type: 'number', required: true },
+-        { name: 'comment', label: modal.mode === 'take' ? 'Комментарий к расходу' : 'Комментарий к пополнению', type: 'textarea', required: true },
++        { name: 'comment', label: modal.mode === 'take' ? 'Комментарий к расходу' : 'Комментарий к пополнению', type: 'textarea', required: modal.mode === 'take' ? (summary?.formSettings?.takeRequiresComment ?? true) : (summary?.formSettings?.restockRequiresComment ?? true) },
+       ];
+     }
+     if (modal.mode === 'order') {
+@@ -307,7 +310,7 @@ export function OrdersStockScreen() {
+       ];
+     }
+     if (modal.mode === 'close-ordered' || modal.mode === 'close-not-needed' || modal.mode === 'archive') {
+-      return [{ name: 'comment', label: modal.mode === 'archive' ? 'Причина архивации' : 'Комментарий', type: 'textarea', required: modal.mode !== 'close-ordered' }];
++      return [{ name: 'comment', label: modal.mode === 'archive' ? 'Причина архивации' : 'Комментарий', type: 'textarea', required: modal.mode === 'archive' ? (summary?.formSettings?.archiveRequiresComment ?? true) : modal.mode !== 'close-ordered' }];
+     }
+     return [];
+   };
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\orders\\orders.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+index 23a927fa..5d600cac 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\orders\\orders.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\orders\\orders.service.ts"
+@@ -81,6 +81,7 @@ export class OrdersService {
+   }
+ 
+   async summary(user: UserContext) {
++    const settings = await this.ensureSettings(user.selectedFactoryId);
+     const where = this.itemWhere(user, { active: 'true' });
+     const items = await this.prisma.db.minimumStockItem.findMany({ where });
+     const visibleItems = items.filter((item) => !this.isRuntimeStockNoise(item));
+@@ -91,7 +92,16 @@ export class OrdersService {
+       include: { sourceItem: true },
+     });
+     const activeRequests = requests.filter((request) => !this.isRuntimeOrderRequestNoise(request)).length;
+-    return { belowThreshold, criticalItems, activeRequests, itemsCount: visibleItems.length };
++    return {
++      belowThreshold, criticalItems, activeRequests, itemsCount: visibleItems.length,
++      // Operational form hints only; the full settings endpoint stays protected.
++      formSettings: {
++        defaultUnit: this.displayUnit(settings.defaultUnit),
++        takeRequiresComment: settings.takeRequiresComment,
++        restockRequiresComment: settings.restockRequiresComment,
++        archiveRequiresComment: settings.archiveRequiresComment,
++      },
++    };
+   }
+ 
+   async items(user: UserContext, query: any) {
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\TasksScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\TasksScreen.tsx"
+index 8cfc5ca2..632ae814 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\TasksScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\TasksScreen.tsx"
+@@ -12,10 +12,10 @@ import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
+ import { displayLabel, roleLabel, taskStatusLabels, taskTypeLabels } from '../labels';
+ import { useMobileBackLayer } from '../navigation/mobile-back';
+ import { appStore, Attachment, Task, useAppStore } from '../store/app.store';
+-import { factoryDateKey } from '../utils/factory-time';
++import { factoryDateKey, factoryDateTimeInput, factoryDateTimeInputToIso } from '../utils/factory-time';
+ import { shouldHidePilotFixtures } from '../utils/pilot-ui';
+ 
+-type Board = { NEW: Task[]; IN_PROGRESS: Task[]; LONG: Task[]; DONE: Task[] };
++type Board = { NEW: Task[]; IN_PROGRESS: Task[]; LONG: Task[]; DONE: Task[]; formSettings?: TaskSettings };
+ type Department = { id: string; name: string; code: string; scope: string };
+ type Candidate = { userId: string; displayName: string; role: string; departmentName: string | null; employeeState: string };
+ type LineOption = { id: string; name: string };
+@@ -25,8 +25,6 @@ type TaskSettings = {
+   taskRedirectRequiresComment: boolean;
+   taskDoneRequiresComment: boolean;
+   taskReadReceiptsEnabled: boolean;
+-  taskAttachmentsEnabled: boolean;
+-  taskPersonalAssigneeEnabled: boolean;
+ };
+ type TaskArchive = {
+   metrics: {
+@@ -71,7 +69,7 @@ function errorMessage(error: unknown, fallback = 'Действие не выпо
+ 
+ function buildDeadline(defaultHours: number | null) {
+   const date = new Date(Date.now() + (defaultHours ?? 48) * 60 * 60 * 1000);
+-  return date.toISOString().slice(0, 16);
++  return factoryDateTimeInput(date);
+ }
+ 
+ function formatDateTime(value?: string | null) {
+@@ -285,10 +283,7 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+       setDepartments(departmentData);
+       setCandidates(candidateData);
+       setLines(archiveOptions.lines ?? []);
+-      if (currentUser?.isAdmin) {
+-        const nextSettings = await apiClient.get<TaskSettings>('/admin/task-settings');
+-        if (isCurrent()) setSettings(nextSettings);
+-      }
++      setSettings(boardData.formSettings ?? null);
+     } catch (error) {
+       if (isCurrent() && !options?.silent) setErrorText(errorMessage(error, 'Не удалось загрузить заявки'));
+     } finally {
+@@ -774,7 +769,7 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+               lineId: values.lineId ? String(values.lineId) : null,
+               departmentRecipientIds: values.departmentId ? [String(values.departmentId)] : [],
+               assigneeUserIds: values.assigneeUserId ? [String(values.assigneeUserId)] : [],
+-              deadlineAt: type === 'LONG' ? new Date(String(values.deadlineAt || buildDeadline(settings?.longTaskDefaultDeadlineHours ?? 48))).toISOString() : null,
++              deadlineAt: type === 'LONG' ? factoryDateTimeInputToIso(String(values.deadlineAt || buildDeadline(settings?.longTaskDefaultDeadlineHours ?? 48))) : null,
+               operationId: modalOperationId || createOperationId('task-create'),
+             });
+             if (files.length) await uploadFiles('TASK', task.id, files);
+@@ -851,7 +846,7 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+           errorText={errorText}
+           title="Передать заявку"
+           fields={[
+-            { name: 'comment', label: 'Комментарий', type: 'textarea', required: true },
++            { name: 'comment', label: 'Комментарий', type: 'textarea', required: settings?.taskRedirectRequiresComment ?? true },
+             { name: 'departmentId', label: 'Новая служба / отдел', type: 'select', options: departments.map((department) => ({ label: department.name, value: department.id })) },
+             { name: 'assigneeUserId', label: 'Новый конкретный исполнитель', type: 'select', options: candidates.map((candidate) => ({ label: `${candidate.displayName} · ${candidate.role === 'OTHER' && candidate.departmentName ? candidate.departmentName : roleLabel(candidate.role)}`, value: candidate.userId })) },
+           ]}
+@@ -887,7 +882,7 @@ export function TasksScreen({ targetTaskId, onTargetConsumed }: { targetTaskId?:
+           busy={busy}
+           errorText={errorText}
+           title="Завершить заявку"
+-          fields={[{ name: 'comment', label: selectedTask.overdue ? 'Комментарий к закрытию просрочки' : 'Комментарий', type: 'textarea', required: Boolean(selectedTask.overdue && selectedTask.type === 'LONG') }]}
++          fields={[{ name: 'comment', label: selectedTask.overdue ? 'Комментарий к закрытию просрочки' : 'Комментарий', type: 'textarea', required: (settings?.taskDoneRequiresComment ?? true) || Boolean(selectedTask.overdue && selectedTask.type === 'LONG') }]}
+           onCancel={closeTaskModal}
+           onSubmit={async (values) => {
+             if (actionInFlightRef.current) return;
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\shift\\shift.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.service.ts"
+index 5ed2420f..c002e88e 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\shift\\shift.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\shift\\shift.service.ts"
+@@ -1745,11 +1745,12 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+       shiftSession,
+       activeWillBe: willBe,
+       pendingReturnRequest: returnRequest,
++      formSettings: { willBeCancelRequiresComment: settings.willBeCancelRequiresComment },
+       allowedActions: {
+         canStartShift: !shiftSession,
+         canEndShift: Boolean(shiftSession),
+         canMarkWillBe: user.permissions.includes('shift.self.manage'),
+-        canCancelWillBe: Boolean(willBe) && settings.willBeCancelRequiresComment,
++        canCancelWillBe: Boolean(willBe) && user.permissions.includes('shift.self.manage'),
+         canRequestReturn: settings.returnRequestEnabled && person?.employeeState === EmployeeState.OFF_SHIFT && !returnRequest,
+       },
+     };
+@@ -1795,7 +1796,7 @@ export class ShiftService implements OnModuleInit, OnModuleDestroy {
+ 
+   async cancelWillBe(user: UserContext, body: { willBeId?: string; comment?: string | null }) {
+     const settings = await this.getShiftSettings(user.selectedFactoryId);
+-    if (settings.willBeCancelRequiresComment && !body.comment?.trim()) throw new ConflictError('comment is required');
++    if (settings.willBeCancelRequiresComment && !body.comment?.trim()) throw new ConflictError('Укажите комментарий для отмены.');
+     const willBe = await this.prisma.db.shiftWillBe.findFirst({
+       where: {
+         id: body.willBeId,
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\task\\task.service.ts" "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+index ad45cb98..5e9e4ec3 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\backend\\src\\modules\\task\\task.service.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\backend\\src\\modules\\task\\task.service.ts"
+@@ -222,11 +222,19 @@ export class TaskService {
+ 
+   async board(user: UserContext, query: Pick<TaskQuery, 'includeFixtures'> = {}) {
+     const tasks = await this.listTasks(user, { includeDone: 'true', includeFixtures: query.includeFixtures });
++    const settings = await this.getTaskSettings(user.selectedFactoryId);
+     return {
+       NEW: tasks.filter((task: any) => task.status === TaskStatus.NEW && task.type !== TaskType.LONG),
+       IN_PROGRESS: tasks.filter((task: any) => task.status === TaskStatus.IN_PROGRESS && task.type !== TaskType.LONG),
+       LONG: tasks.filter((task: any) => task.type === TaskType.LONG && task.status !== TaskStatus.DONE),
+       DONE: tasks.filter((task: any) => task.status === TaskStatus.DONE),
++      formSettings: {
++        longTaskDefaultDeadlineHours: settings.longTaskDefaultDeadlineHours,
++        longTaskEscalationEnabled: settings.longTaskEscalationEnabled,
++        taskRedirectRequiresComment: settings.taskRedirectRequiresComment,
++        taskDoneRequiresComment: settings.taskDoneRequiresComment,
++        taskReadReceiptsEnabled: settings.taskReadReceiptsEnabled,
++      },
+     };
+   }
+ 
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+index 1a1adeda..df27d5a4 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\vps-preparation\\admin-01\\before\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\src\\screens\\ShiftPeopleScreen.tsx"
+@@ -117,6 +117,7 @@ type ShiftMeResponse = {
+   shiftSession: { id: string; startedAt: string } | null;
+   activeWillBe?: { id: string; targetShiftDate: string; shiftType: string; status: string; comment?: string | null } | null;
+   pendingReturnRequest?: { id: string; status: string; reason: string; createdAt: string } | null;
++  formSettings?: { willBeCancelRequiresComment: boolean };
+   allowedActions: {
+     canStartShift: boolean;
+     canEndShift: boolean;
+@@ -2924,10 +2925,8 @@ export function ShiftPeopleScreen({ mode = 'workspace', taskReturn }: ShiftPeopl
+ 
+   const cancelWillBe = async () => {
+     if (busy || !selfShift?.activeWillBe) return;
+-    if (!willBeComment.trim()) {
+-      setErrorText('Комментарий обязателен для отмены');
+-      return;
+-    }
++    // The factory rule may have changed while this page stayed open.
++    // The canonical operation validates the current comment requirement.
+     setBusy(true);
+     setErrorText(null);
+     try {
+
+NEW FILE frontend/src/components/checklist-item-draft.ts
+import type { ChecklistItemDraft } from './ChecklistItemEditor';
+import { createOperationId } from '../api/operation';
+
+export function setChecklistItemActive(draft: ChecklistItemDraft, isActive: boolean): ChecklistItemDraft {
+  return {
+    ...draft,
+    isActive,
+    // An archived row is read-only on the server. Preserve its saved reference,
+    // but do not submit an upload/removal that was drafted before deactivation.
+    ...(!isActive ? { referenceFile: null, referenceOperationId: undefined, removeReference: false } : {}),
+  };
+}
+
+export function duplicateChecklistItem(draft: ChecklistItemDraft, clientKey: string, sortOrder: number): ChecklistItemDraft {
+  return {
+    ...draft,
+    id: undefined,
+    clientKey,
+    title: `${draft.title} — копия`,
+    sortOrder,
+    // Saved attachments belong to the original row; do not imply inheritance.
+    referencePhoto: null,
+    referenceFile: draft.isActive ? draft.referenceFile : null,
+    referenceOperationId: draft.isActive && draft.referenceFile ? createOperationId('checklist-reference-copy') : undefined,
+    removeReference: false,
+  };
+}
+
+
+NEW FILE backend/scripts/admin01-config.test.js
+require('./master-offline-guard.cjs');
+require('reflect-metadata');
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {AdminService}=require('../dist/modules/admin/admin.service');
+const actor={userId:'admin01-unit-admin',selectedFactoryId:'unit-factory',role:'ADMIN',isAdmin:true,isGuest:false,permissions:[]};
+function setup(){const trace=[],factory={id:'unit-factory',name:'Участок',code:'unit-factory',isActive:true,deletedAt:null},line={id:'unit-line',factoryId:factory.id,name:'Линия',status:'STOP',deletedAt:null,positions:[],staffingTemplates:[]},position={id:'unit-position',factoryId:factory.id,lineId:line.id,name:'Позиция',isActive:true,deletedAt:null,line};
+ const tx={factory:{findUnique:async()=>factory,findFirst:async args=>args.where.id===factory.id?factory:null,update:async args=>Object.assign(factory,args.data)},line:{findFirst:async args=>args.where.id===line.id?line:null,create:async args=>Object.assign(line,args.data),update:async args=>Object.assign(line,args.data)},linePosition:{findFirst:async()=>position,create:async args=>Object.assign(position,args.data),update:async args=>Object.assign(position,args.data)},assignment:{count:async()=>0}};
+ const service=new AdminService({db:{$transaction:async fn=>{const result=await fn(tx);trace.push('commit');return result;}}},{writeTx:async(_tx,event)=>trace.push({audit:event})},{broadcast:(type,payload)=>trace.push({type,payload})},{},{});return{service,tx,trace,line,position,factory};}
+for(const kind of ['createLine','updateLine','createPosition','updatePosition'])test(`Admin ${kind}: same existing scoped invalidation only after commit`,async()=>{const h=setup(),args=kind==='createLine'?[{name:'Линия новая'}]:kind==='updateLine'?['unit-line',{name:'Линия новая'}]:kind==='createPosition'?['unit-line',{name:'Позиция новая'}]:['unit-line','unit-position',{name:'Позиция новая'}];await h.service[kind](actor,...args);const event=h.trace.at(-1);assert.equal(event.type,'line_updated');assert.deepEqual(event.payload,{factoryId:'unit-factory',lineId:'unit-line',type:'CONFIGURATION_UPDATED'});assert.equal(h.trace.at(-2),'commit');assert.equal(h.trace.filter(x=>x.type).length,1);});
+test('factory edit is same-factory ADMIN only; name/code/audit, no access mutation',async()=>{const h=setup();await assert.rejects(h.service.updateFactory({...actor,role:'MASTER',isAdmin:false},'unit-factory',{name:'Нельзя'}));await assert.rejects(h.service.updateFactory(actor,'foreign',{name:'Нельзя'}));assert.equal(h.trace.length,0);const r=await h.service.updateFactory(actor,'unit-factory',{name:'Новое имя',code:'new-code',reason:'Проверка'});assert.equal(r.name,'Новое имя');assert.equal(r.code,'new-code');assert.equal(h.trace[0].audit.action,'FACTORY_UPDATED');assert.deepEqual(Object.keys(h.trace[0].audit.details.newValue).sort(),['code','name']);});
+test('factory empty/invalid/duplicate code rejects without commit or audit',async()=>{for(const body of [{name:''},{name:12},{code:''}]){const h=setup();await assert.rejects(h.service.updateFactory(actor,'unit-factory',body));assert.equal(h.trace.length,0);}const h=setup();h.tx.factory.findFirst=async args=>args.where.id==='unit-factory'?h.factory:{id:'other'};await assert.rejects(h.service.updateFactory(actor,'unit-factory',{code:'other'}));assert.equal(h.trace.length,0);});
+test('failed line transaction cannot emit success invalidation',async()=>{const h=setup();h.tx.line.update=async()=>{throw Error('controlled rollback');};await assert.rejects(h.service.updateLine(actor,'unit-line',{name:'Изменение'}));assert.equal(h.trace.filter(x=>x.type).length,0);});
+
+
+NEW FILE backend/scripts/admin01-chat-config.test.js
+require('./master-offline-guard.cjs');require('reflect-metadata');
+const {test}=require('node:test'),assert=require('node:assert/strict'),{ChatsService}=require('../dist/modules/chats/chats.service');
+const actor={userId:'unit-admin',selectedFactoryId:'unit-factory',isAdmin:true,isGuest:false,role:'ADMIN',permissions:['chats.access','chats.manage']};
+function setup(){const trace=[],chat={id:'unit-chat',factoryId:actor.selectedFactoryId,type:'CUSTOM',title:'До',description:'Сохранить',isActive:true,isHidden:true,members:[]};const tx={$executeRaw:async()=>trace.push('lock'),chat:{update:async args=>Object.assign(chat,args.data)}};const service=new ChatsService({db:{$transaction:async fn=>{const r=await fn(tx);trace.push('commit');return r;},chat:{findUnique:async()=>chat}}},{writeTx:async(_tx,ev)=>trace.push(ev)},{},{sendToUsers:()=>trace.push('notify')});service.loadChat=async()=>chat;service.serializeChat=value=>value;return{service,trace,chat};}
+test('chat metadata rejects whitespace title before write',async()=>{const h=setup();await assert.rejects(h.service.update(actor,'unit-chat',{title:' \n '}),/Укажите название чата/);assert.equal(h.trace.length,0);assert.equal(h.chat.title,'До');});
+test('chat metadata trims title, preserves shape and records exact audit',async()=>{const h=setup();await h.service.update(actor,'unit-chat',{title:' После ',description:' Пояснение ',reason:'проверка'});assert.equal(h.chat.title,'После');assert.equal(h.chat.description,'Пояснение');assert.equal(h.chat.isHidden,true);assert.equal(h.chat.isActive,true);assert(h.trace.some(x=>x.action==='CHAT_UPDATED'));assert(h.trace.indexOf('notify')>h.trace.indexOf('commit'));});
+test('archiving without title does not clear the existing title',async()=>{const h=setup();await h.service.update(actor,'unit-chat',{isActive:false});assert.equal(h.chat.title,'До');assert.equal(h.chat.isActive,false);assert(h.trace.some(x=>x.action==='CHAT_ARCHIVED'));});
+
+
+NEW FILE backend/scripts/admin01-settings-consumers.test.js
+require('./master-offline-guard.cjs');
+require('reflect-metadata');
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {OrdersService}=require('../dist/modules/orders/orders.service');
+const {TaskService}=require('../dist/modules/task/task.service');
+const {ShiftService}=require('../dist/modules/shift/shift.service');
+const {ChecklistsService}=require('../dist/modules/checklists/checklists.service');
+test('checklist workspace discloses pause form rule, not administrative settings',async()=>{
+ const service=new ChecklistsService({db:{checklistRun:{findMany:async()=>[]}}},{},{},{},{});
+ service.runMaintenance=async()=>{};service.ensureSettings=async()=>({requirePauseComment:false,privateValue:'not-public'});service.available=async()=>[];service.serializeRuns=async()=>[];
+ const result=await service.workspace({userId:'reader',selectedFactoryId:'scope',permissions:[],isAdmin:false});
+ assert.deepEqual(result.formSettings,{requirePauseComment:false});assert(!JSON.stringify(result).includes('not-public'));
+});
+test('self shift cancel capability is not the comment requirement; disabled permission stays denied',async()=>{
+ for(const requireComment of [false,true])for(const allowed of [false,true]){
+  const service=new ShiftService({db:{shiftWillBe:{findFirst:async()=>({id:'own'})},shiftReturnRequest:{findFirst:async()=>null}}},{listPeople:async()=>[{userId:'self',employeeState:'OFF_SHIFT'}]},{},{},{},{});
+  service.current=async()=>null;service.getShiftSettings=async()=>({willBeCancelRequiresComment:requireComment,returnRequestEnabled:true});
+  const result=await service.me({userId:'self',selectedFactoryId:'scope',permissions:allowed?['shift.self.manage']:[]});
+  assert.equal(result.allowedActions.canCancelWillBe,allowed);assert.deepEqual(result.formSettings,{willBeCancelRequiresComment:requireComment});assert.equal(result.allowedActions.canRequestReturn,true);
+ }
+});
+test('task board includes only current form hints for non-admin readers, keeps four lanes',async()=>{
+ const service=new TaskService({}, {}, {}, {}, {}, {});
+ service.listTasks=async()=>[{id:'a',status:'NEW',type:'URGENT'},{id:'b',status:'NEW',type:'LONG'}];
+ service.getTaskSettings=async()=>({longTaskDefaultDeadlineHours:7,longTaskEscalationEnabled:false,taskRedirectRequiresComment:false,taskDoneRequiresComment:true,taskReadReceiptsEnabled:true,privateValue:'not-public'});
+ const result=await service.board({selectedFactoryId:'scope',isAdmin:false,permissions:['tasks.read']});
+ assert.equal(result.NEW.length,1);assert.equal(result.LONG.length,1);assert.equal(result.DONE.length,0);
+ assert.deepEqual(result.formSettings,{longTaskDefaultDeadlineHours:7,longTaskEscalationEnabled:false,taskRedirectRequiresComment:false,taskDoneRequiresComment:true,taskReadReceiptsEnabled:true});assert(!JSON.stringify(result).includes('not-public'));
+});
+test('order summary exposes only operational form hints, without requiring full settings read',async()=>{
+ const service=new OrdersService({db:{minimumStockItem:{findMany:async()=>[]},orderRequest:{findMany:async()=>[]}}},{},{},{},{});
+ service.ensureSettings=async()=>({id:'private-settings-id',factoryId:'scope',defaultUnit:'кг',takeRequiresComment:false,restockRequiresComment:true,archiveRequiresComment:false,retentionSecret:'must-not-leak'});
+ const result=await service.summary({userId:'reader',selectedFactoryId:'scope',departmentId:null,role:'MASTER',isAdmin:false,isGuest:false,permissions:['orders.read']});
+ assert.deepEqual(result.formSettings,{defaultUnit:'кг',takeRequiresComment:false,restockRequiresComment:true,archiveRequiresComment:false});
+ assert(!JSON.stringify(result).includes('must-not-leak'));assert(!JSON.stringify(result).includes('private-settings-id'));assert.equal(result.itemsCount,0);
+});
+
+
+NEW FILE frontend/scripts/admin01-checklist-draft.test.cjs
+const assert=require('node:assert/strict'),test=require('node:test'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),ts=require('typescript');
+function load(file){const source=fs.readFileSync(file,'utf8'),m={exports:{}};const output=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;vm.runInNewContext(output,{module:m,exports:m.exports,crypto:require('node:crypto').webcrypto,require:name=>load(path.resolve(path.dirname(file),name+'.ts'))},{filename:file});return m.exports;}
+const {duplicateChecklistItem,setChecklistItemActive}=load(path.resolve(__dirname,'../src/components/checklist-item-draft.ts'));
+const file={name:'bounded.png'},saved={id:'saved-reference'},source={id:'row-original',clientKey:'original',title:'Контроль',sortOrder:10,isActive:true,referenceFile:file,referencePhoto:saved,referenceOperationId:'original-operation',removeReference:false,requiredAnswer:true};
+test('copy of pending reference has its own row and upload operation identity',()=>{const a=duplicateChecklistItem(source,'copy-a',20),b=duplicateChecklistItem(source,'copy-b',30);assert.equal(a.id,undefined);assert.equal(a.referenceFile,file);assert.notEqual(a.referenceOperationId,source.referenceOperationId);assert.notEqual(a.referenceOperationId,b.referenceOperationId);assert.equal(a.referencePhoto,null);assert.equal(source.referencePhoto,saved);});
+test('copy never claims inheritance of an already saved reference',()=>{const copy=duplicateChecklistItem({...source,referenceFile:null},'copy',20);assert.equal(copy.referencePhoto,null);assert.equal(copy.referenceOperationId,undefined);});
+test('deactivation discards pending upload/removal, preserves saved immutable reference',()=>{const result=setChecklistItemActive({...source,removeReference:true},false);assert.equal(result.isActive,false);assert.equal(result.referenceFile,null);assert.equal(result.referenceOperationId,undefined);assert.equal(result.removeReference,false);assert.equal(result.referencePhoto,saved);assert.equal(source.isActive,true);});
+test('reactivation cannot resurrect a discarded pending upload',()=>{const result=setChecklistItemActive(setChecklistItemActive(source,false),true);assert.equal(result.referenceFile,null);assert.equal(result.referenceOperationId,undefined);assert.equal(result.referencePhoto,saved);});
+test('inactive copied draft has no pending file operation',()=>{const result=duplicateChecklistItem({...source,isActive:false},'copy',20);assert.equal(result.referenceFile,null);assert.equal(result.referenceOperationId,undefined);assert.equal(result.isActive,false);});
+

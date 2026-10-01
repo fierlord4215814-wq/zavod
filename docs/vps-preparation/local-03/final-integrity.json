@@ -1,0 +1,177 @@
+{
+  "status": "PASS_SOURCE_BUILD_HASHES_TARGETED_SCAN",
+  "baselineHead": "2dd40727042a01994ff32f396897f70b41d3a3a7",
+  "baselineFiles": 406,
+  "changedBaselineFiles": 17,
+  "changedAgainstBaseline": [
+    "backend/dist/modules/attachments/attachments.service.js",
+    "backend/dist/modules/people/people.service.js",
+    "backend/dist/modules/returns/returns.service.js",
+    "backend/dist/modules/stock/stock.service.js",
+    "backend/dist/ws/events.js",
+    "backend/src/modules/attachments/attachments.service.ts",
+    "backend/src/modules/people/people.service.ts",
+    "backend/src/modules/returns/returns.service.ts",
+    "backend/src/modules/stock/stock.service.ts",
+    "backend/src/ws/events.ts",
+    "frontend/dist/index.html",
+    "frontend/src/navigation/permissions.ts",
+    "frontend/src/screens/ChatsScreen.tsx",
+    "frontend/src/screens/PeopleScreen.tsx",
+    "frontend/src/screens/ReturnsScreen.tsx",
+    "frontend/src/screens/StockScreen.tsx",
+    "frontend/src/ws/client.ts"
+  ],
+  "product": [
+    {
+      "path": "backend/src/modules/attachments/attachments.service.ts",
+      "bytes": 44881,
+      "sha256": "d36cc45b2c7e836bce9466779b8ddf97826caea88d0ae12af99c889a0bc6b7e4",
+      "beforeSha256": "81de23c7213d923c3b48a700e7c620c2f68faa887194e6960a476c1e4aaf39c9"
+    },
+    {
+      "path": "backend/src/modules/people/people.service.ts",
+      "bytes": 53192,
+      "sha256": "dea7ebc1164718acf2dd8c6cd7d2c71cc000eede76b1fa43ed2af1c0bc257685",
+      "beforeSha256": "179a727bc51940903e02e37a66e5cd9372dbcba6748dc5f5704b1d7ddd411f81"
+    },
+    {
+      "path": "backend/src/modules/returns/returns.service.ts",
+      "bytes": 19891,
+      "sha256": "ce5edfcc7c21e0af920b011e54effbe07238b8f0590f79b715940303d599210f",
+      "beforeSha256": "4b16ad1a7116a1c8adf6ab720be90a661fc681c5f1df5ae360349585705e5a20"
+    },
+    {
+      "path": "backend/src/modules/stock/stock.service.ts",
+      "bytes": 9198,
+      "sha256": "bc0b20dd3ecacd212821d7082f3e741300cf4a985fd45a5d3ccf1f67e97a3793",
+      "beforeSha256": "ea2428ef1a2fc8fde07217ce9285a8a9abb8bad8ffc385bf7ddb32fd5ba560fc"
+    },
+    {
+      "path": "backend/src/ws/events.ts",
+      "bytes": 2574,
+      "sha256": "ec808816942dea183e2bf5fd1aede93665950454ffbebb15818be5f2bc27369f",
+      "beforeSha256": "37f9ae07ad9da9a832c8ca416b7b4ab1f48754a1430261b202fb471c4add4231"
+    },
+    {
+      "path": "frontend/src/navigation/permissions.ts",
+      "bytes": 5493,
+      "sha256": "d4ecc86c430cccbd65eede8ccc0fd70af0318ec9ba06fd42a192fbc93d5fd4b5",
+      "beforeSha256": "8b75b93eac14b6b324efe4eca6d84beae187de08dadf2b7e6988e6e54854cb59"
+    },
+    {
+      "path": "frontend/src/screens/ChatsScreen.tsx",
+      "bytes": 96770,
+      "sha256": "c1aac1ab447e2786902cc6365014eb613552dba11f7532325b9e14e4dec9b3df",
+      "beforeSha256": "c961553c2f08bb3391781bc1fb088ef539d423c8ede1cbe03c1430b1ee8943a6"
+    },
+    {
+      "path": "frontend/src/screens/PeopleScreen.tsx",
+      "bytes": 42601,
+      "sha256": "9f1fe83a2e32b5eb7079b21ab94f232fc5e5d91e564b657d1f37146f0ccfd522",
+      "beforeSha256": "07ea795b3bfa44888777421b45c0a7f49a04dd1e11494b630a33384081cc1930"
+    },
+    {
+      "path": "frontend/src/screens/ReturnsScreen.tsx",
+      "bytes": 17939,
+      "sha256": "d1ca3c1bd1e56ab1bcf9950db8f5d74868d6a763c4355aeaa20f2ba324e31e61",
+      "beforeSha256": "e26a868b08f91b2faa7ec8086aa43f5ccafcf8c87ba9788a55b4fdbc608e84a0"
+    },
+    {
+      "path": "frontend/src/screens/StockScreen.tsx",
+      "bytes": 12164,
+      "sha256": "63161273a6ba3f51606ba29ac775c7d4740bf8e770117322b738dfe396083597",
+      "beforeSha256": "fa86b6eee8d2463a2f4c504725cfbaab891a19f61a28d1813c916a8b3812a197"
+    },
+    {
+      "path": "frontend/src/ws/client.ts",
+      "bytes": 9732,
+      "sha256": "3882659a98ad6bd0971bf3881967831c225130552cb53fb7ba6d5864a9479c26",
+      "beforeSha256": "c8ae873814f02a4e4dc30edd6114ac42e147b9c62a5783851164265347bc390d"
+    }
+  ],
+  "tests": [
+    {
+      "path": "backend/scripts/local03-chat-ui-state.test.js",
+      "bytes": 4959,
+      "sha256": "bd2aa02e0074a21b524ecc162c441ad9816175480bf6e0c82910ba7b0ceeff41"
+    },
+    {
+      "path": "backend/scripts/local03-people-presence.test.js",
+      "bytes": 3833,
+      "sha256": "8f2303e652a64a4b6726a7d5d4c82dd440471edac43842a6729a5476f40a7028"
+    },
+    {
+      "path": "backend/scripts/local03-quality-realtime.test.js",
+      "bytes": 3774,
+      "sha256": "cb2f73cdc729e4d33beb8254543664de14a2d7f1ebd6eaecf3d542148499594a"
+    }
+  ],
+  "builds": [
+    {
+      "path": "backend/dist/main.js",
+      "bytes": 4241,
+      "sha256": "db062ade8787028decd1718f8f316010ab438f7f726d716b90b5cb2a610109ce",
+      "beforeSha256": "db062ade8787028decd1718f8f316010ab438f7f726d716b90b5cb2a610109ce"
+    },
+    {
+      "path": "backend/dist/modules/attachments/attachments.service.js",
+      "bytes": 48816,
+      "sha256": "82dd38e47a199446b8d9cbf530359cf3adeb0b4a4b85738b326e005f26342ef6",
+      "beforeSha256": "199d911439f6c4d097c0b697886601fb0990a6a4af54fb85895a8f116cafb051"
+    },
+    {
+      "path": "backend/dist/modules/people/people.service.js",
+      "bytes": 60200,
+      "sha256": "db168f076c67cd9cd34f70c7e70ac56854373330471f694259529c35a19b8418",
+      "beforeSha256": "2dcb708468f110d7176a0da7cbde67befcb16573296069bda3c8e42e97e2419a"
+    },
+    {
+      "path": "backend/dist/modules/returns/returns.service.js",
+      "bytes": 23255,
+      "sha256": "e1cfdf6dcc102ef230ac4b615450f2202c4e345e9c783224a09a576d27ff101a",
+      "beforeSha256": "71c700c4a05fb4d7e24c4955338129b981accd82099ec9c42643d110227a0d21"
+    },
+    {
+      "path": "backend/dist/modules/stock/stock.service.js",
+      "bytes": 11120,
+      "sha256": "d2eb8af95c51ceb379b4be6e41f1f2fc10d8a8a63c5c06ad04af6a7dc0852411",
+      "beforeSha256": "2bd5105b3f97341710ebea393b8c495a297e53e039d564c21cc45b475c6e9d5e"
+    },
+    {
+      "path": "backend/dist/ws/events.js",
+      "bytes": 2240,
+      "sha256": "3b70cfc00436f15101a872a3327dbc9207f8c496d0902c97d3ee13abafcbb256",
+      "beforeSha256": "a990a452f9cd1a2ea8d81ed8227cb32570633632cfde7662f61de7cf31ce5959"
+    },
+    {
+      "path": "frontend/dist/index.html",
+      "bytes": 2253,
+      "sha256": "ccd7cab7b98ee65e5623770588b422358288cd0c9a48e454b63d7c15f43da456",
+      "beforeSha256": "be7be09fb4375ffa7068f4818bb21f3261aedd74de8f9a95e014e4040f656dfb"
+    },
+    {
+      "path": "frontend/dist/assets/index-Bd-W8VLQ.js",
+      "bytes": 1125738,
+      "sha256": "f795e596ee38f19aeef4717e3ce3128b0a6d5fd9464dda7502f723603ee13214"
+    },
+    {
+      "path": "frontend/dist/assets/index-iuCOMHyM.css",
+      "bytes": 359260,
+      "sha256": "0b462bee06f070196773a919b79fad1a48534dfefa0b5d5b8b1345f2fb35906b",
+      "beforeSha256": "0b462bee06f070196773a919b79fad1a48534dfefa0b5d5b8b1345f2fb35906b"
+    }
+  ],
+  "uiScan": {
+    "browserPromptAlertConfirm": 0,
+    "replacementCharacters": 0,
+    "forbiddenFieldNames": 0
+  },
+  "syntax": {
+    "backend/scripts/local03-chat-ui-state.test.js": 0,
+    "backend/scripts/local03-people-presence.test.js": 0,
+    "backend/scripts/local03-quality-realtime.test.js": 0,
+    "backend/prisma/seed.js": 0
+  },
+  "diffWhitespace": 0
+}

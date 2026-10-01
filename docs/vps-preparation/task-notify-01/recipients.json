@@ -1,0 +1,503 @@
+{
+  "status": "PASS_EXACT_RECIPIENTS_AND_MUTABLE_TASK_REPLAY_CHANGED_PAYLOAD_POLICY_PENDING",
+  "recipients": [
+    {
+      "key": "explicit",
+      "physicalRows": [
+        {
+          "id": "6240cb47-171e-42cd-b4f7-21f6fa136a7c",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "0c7abd92-42f2-4fbf-b0f2-24434c6527b8",
+          "createdAt": "2026-09-26T23:14:01.539Z"
+        }
+      ],
+      "visibleFeedCounts": {
+        "TECH_KIPIA": 1,
+        "ADMIN": 0,
+        "MASTER": 0
+      },
+      "creatorIncluded": false,
+      "retryUnchanged": true
+    },
+    {
+      "key": "department",
+      "physicalRows": [
+        {
+          "id": "19437132-d2e8-441f-aeff-4c718fe27468",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "2f34c93c-1db0-43cf-af9d-13f42c12d21c",
+          "createdAt": "2026-09-26T23:14:01.866Z"
+        },
+        {
+          "id": "32afe3da-b637-4fa6-bd75-cabb8f518c03",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "2f34c93c-1db0-43cf-af9d-13f42c12d21c",
+          "createdAt": "2026-09-26T23:14:01.868Z"
+        }
+      ],
+      "visibleFeedCounts": {
+        "TECH_KIPIA": 1,
+        "ADMIN": 1,
+        "MASTER": 0
+      },
+      "creatorIncluded": false,
+      "retryUnchanged": true
+    },
+    {
+      "key": "overlap",
+      "physicalRows": [
+        {
+          "id": "4ea36d41-a819-423d-a1bd-bd10fb1f944e",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "c7257f1b-5d6f-4ac5-817c-ac10d290a6c4",
+          "createdAt": "2026-09-26T23:14:02.192Z"
+        },
+        {
+          "id": "4fe5f14d-af0d-44da-be85-09ffa27224ba",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "c7257f1b-5d6f-4ac5-817c-ac10d290a6c4",
+          "createdAt": "2026-09-26T23:14:02.194Z"
+        },
+        {
+          "id": "cf992b5c-87bd-449e-b673-1f2b22477d34",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "c7257f1b-5d6f-4ac5-817c-ac10d290a6c4",
+          "createdAt": "2026-09-26T23:14:02.188Z"
+        }
+      ],
+      "visibleFeedCounts": {
+        "TECH_KIPIA": 1,
+        "ADMIN": 1,
+        "MASTER": 0
+      },
+      "creatorIncluded": false,
+      "retryUnchanged": true
+    },
+    {
+      "key": "multiple-assignees",
+      "physicalRows": [
+        {
+          "id": "eb5a247f-cc6b-4b7f-9064-82fcf9d63a26",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "86da808a-5c18-4e13-a068-c07ceecc4832",
+          "createdAt": "2026-09-26T23:14:02.491Z"
+        },
+        {
+          "id": "f8e2abfe-d134-43df-bcbe-b34697d6085f",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "86da808a-5c18-4e13-a068-c07ceecc4832",
+          "createdAt": "2026-09-26T23:14:02.488Z"
+        }
+      ],
+      "visibleFeedCounts": {
+        "TECH_KIPIA": 1,
+        "ADMIN": 0,
+        "MASTER": 0
+      },
+      "creatorIncluded": false,
+      "retryUnchanged": true
+    },
+    {
+      "key": "multiple-departments",
+      "physicalRows": [
+        {
+          "id": "0385c952-6ac3-4d75-ae01-f598326765c4",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "c6fc20ff-1887-4bd1-b9d4-a9625b9b602d",
+          "createdAt": "2026-09-26T23:14:02.758Z"
+        },
+        {
+          "id": "0cdd7ce9-ccbb-407e-9ec2-721ad809ce9a",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "f2918e28-4336-46ce-b451-fe774ff1a5fd",
+          "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+          "type": "TASK_CREATED",
+          "entityId": "c6fc20ff-1887-4bd1-b9d4-a9625b9b602d",
+          "createdAt": "2026-09-26T23:14:02.752Z"
+        },
+        {
+          "id": "6505ffc8-3daf-49b2-9a30-5c54293b1f11",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "c6fc20ff-1887-4bd1-b9d4-a9625b9b602d",
+          "createdAt": "2026-09-26T23:14:02.757Z"
+        },
+        {
+          "id": "7f2ad1c5-2f88-4a80-9fb2-f9f0c5fc1607",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "departmentId": "faa32c69-e185-4969-a545-ba884986045f",
+          "type": "TASK_CREATED",
+          "entityId": "c6fc20ff-1887-4bd1-b9d4-a9625b9b602d",
+          "createdAt": "2026-09-26T23:14:02.751Z"
+        }
+      ],
+      "visibleFeedCounts": {
+        "TECH_KIPIA": 1,
+        "ADMIN": 1,
+        "MASTER": 0
+      },
+      "creatorIncluded": false,
+      "retryUnchanged": true
+    },
+    {
+      "key": "creator-department",
+      "physicalRows": [
+        {
+          "id": "01f5017b-57f9-40d8-90d2-3719aadff7a2",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "23280f41-9fac-4bb8-8cc2-4c59219ca803",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.143Z"
+        },
+        {
+          "id": "0dc79c16-f2de-4081-8339-d7c0c9ee12ea",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "5ab7bbc5-84a0-44c1-abae-ba28a55e5a12",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.156Z"
+        },
+        {
+          "id": "23b0049f-d48d-4962-b0bf-1106eca0300b",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.133Z"
+        },
+        {
+          "id": "2d098cb4-1d5c-441d-838a-f7be5f100bd7",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "e8ba2d30-0bbb-4e58-bc4b-3a38aa7012ce",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.158Z"
+        },
+        {
+          "id": "32c73624-9925-4595-aa68-64312576d6fc",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.135Z"
+        },
+        {
+          "id": "70262b24-877d-4cf4-af2b-db4363fd6182",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "f2242297-6c2d-4cdc-a25b-330647f64d28",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.148Z"
+        },
+        {
+          "id": "743735fb-5ea8-488f-bb1c-416e6264b0ef",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "5bf79301-8f09-4342-9d51-d1fa58b3465a",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.160Z"
+        },
+        {
+          "id": "74bf8795-cab7-4685-ac8f-f1663b102a14",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "393fe669-5b68-4f49-85e3-c36e55451c9f",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.152Z"
+        },
+        {
+          "id": "797b1c62-f7c7-4f2d-942c-8268d7a1635f",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "100d35e3-cae5-49ee-915d-a5c7bde00855",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.149Z"
+        },
+        {
+          "id": "7d90cad1-c2f6-480c-b807-659fdeb65d43",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "3255174d-6b6f-47eb-ab79-9e14d180e648",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.154Z"
+        },
+        {
+          "id": "96b2ad27-623e-4739-afd7-436f1d68d456",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.141Z"
+        },
+        {
+          "id": "a5b02cc9-ba1e-4577-a9b5-9c59ac4d0ff3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.139Z"
+        },
+        {
+          "id": "b8e70345-f987-446e-bbcc-2e35d5078fe3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "32be9b5b-3e13-420b-abbe-808707a60afa",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.150Z"
+        },
+        {
+          "id": "d8821ed1-09d3-46ca-bb02-4ef8a4ca090a",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "1fef256c-68cd-47d4-95c2-b7f54ac1a46a",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.137Z"
+        },
+        {
+          "id": "ed756b99-b522-42a9-8ece-7f9c4cef6382",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "596f6f50-cfba-4cf4-a43e-82225e3a708d",
+          "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+          "type": "TASK_CREATED",
+          "entityId": "55332c6d-9493-4e00-ab60-c1c7ddb642c8",
+          "createdAt": "2026-09-26T23:14:03.146Z"
+        }
+      ],
+      "visibleFeedCounts": {
+        "TECH_KIPIA": 0,
+        "ADMIN": 1,
+        "MASTER": 1
+      },
+      "creatorIncluded": true,
+      "retryUnchanged": true
+    },
+    {
+      "key": "creator-explicit",
+      "physicalRows": [
+        {
+          "id": "09028b70-8e52-40df-a9f9-fbd500ade85f",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "1f658d5f-46b4-45d6-92e8-bb3559ba6f6d",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "e7df39e0-b6f8-4e66-8cd6-2e353095c7c5",
+          "createdAt": "2026-09-26T23:14:03.519Z"
+        }
+      ],
+      "visibleFeedCounts": {
+        "TECH_KIPIA": 0,
+        "ADMIN": 0,
+        "MASTER": 1
+      },
+      "creatorIncluded": true,
+      "retryUnchanged": true
+    },
+    {
+      "key": "unaddressed",
+      "physicalRows": [],
+      "visibleFeedCounts": {
+        "TECH_KIPIA": 0,
+        "ADMIN": 0,
+        "MASTER": 0
+      },
+      "creatorIncluded": false,
+      "retryUnchanged": true
+    }
+  ],
+  "mutations": [
+    {
+      "kind": "redirect-department",
+      "taskId": "c39bd828-4b11-4aad-a9eb-70a1473a6faf",
+      "retryHttp": 201,
+      "rowsBefore": [
+        {
+          "id": "a097058d-a9e5-4359-bf2a-b5f725eeb1ed",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "c39bd828-4b11-4aad-a9eb-70a1473a6faf",
+          "createdAt": "2026-09-26T23:14:04.004Z"
+        },
+        {
+          "id": "e29b8b65-7767-4124-99c5-a046e1f83752",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "c39bd828-4b11-4aad-a9eb-70a1473a6faf",
+          "createdAt": "2026-09-26T23:14:04.002Z"
+        }
+      ],
+      "rowsAfter": [
+        {
+          "id": "a097058d-a9e5-4359-bf2a-b5f725eeb1ed",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "c39bd828-4b11-4aad-a9eb-70a1473a6faf",
+          "createdAt": "2026-09-26T23:14:04.004Z"
+        },
+        {
+          "id": "e29b8b65-7767-4124-99c5-a046e1f83752",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "type": "TASK_CREATED",
+          "entityId": "c39bd828-4b11-4aad-a9eb-70a1473a6faf",
+          "createdAt": "2026-09-26T23:14:04.002Z"
+        }
+      ],
+      "originalRecipientDetail": 403,
+      "file": 403,
+      "newRecipientCreatedNotices": 0,
+      "sourceUiDenied": true,
+      "policy": null
+    },
+    {
+      "kind": "replace-assignee",
+      "taskId": "3e875c64-a4f4-407d-8ef2-414625c5035f",
+      "retryHttp": 201,
+      "rowsBefore": [
+        {
+          "id": "7fe0e008-54f0-4d9e-bae2-e606bd12f7ae",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "3e875c64-a4f4-407d-8ef2-414625c5035f",
+          "createdAt": "2026-09-26T23:24:24.056Z"
+        }
+      ],
+      "rowsAfter": [
+        {
+          "id": "7fe0e008-54f0-4d9e-bae2-e606bd12f7ae",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "3e875c64-a4f4-407d-8ef2-414625c5035f",
+          "createdAt": "2026-09-26T23:24:24.056Z"
+        }
+      ],
+      "originalRecipientDetail": 403,
+      "file": 403,
+      "newRecipientCreatedNotices": 0,
+      "sourceUiDenied": true,
+      "policy": null
+    },
+    {
+      "kind": "complete",
+      "taskId": "b8d76a57-aa19-415e-828a-a89d32cbee32",
+      "retryHttp": 201,
+      "rowsBefore": [
+        {
+          "id": "96407590-c430-4eb5-950f-b9172279981a",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "b8d76a57-aa19-415e-828a-a89d32cbee32",
+          "createdAt": "2026-09-26T23:24:25.100Z"
+        }
+      ],
+      "rowsAfter": [
+        {
+          "id": "96407590-c430-4eb5-950f-b9172279981a",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "b8d76a57-aa19-415e-828a-a89d32cbee32",
+          "createdAt": "2026-09-26T23:24:25.100Z"
+        }
+      ],
+      "originalRecipientDetail": 200,
+      "file": 200,
+      "newRecipientCreatedNotices": 0,
+      "sourceUiDenied": false,
+      "policy": null
+    },
+    {
+      "kind": "changed-payload",
+      "taskId": "2edd8fd4-51cc-4a42-9631-20b4dab50aa0",
+      "retryHttp": 201,
+      "rowsBefore": [
+        {
+          "id": "4a65928e-bffb-449b-bca2-2560352a6b1e",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "2edd8fd4-51cc-4a42-9631-20b4dab50aa0",
+          "createdAt": "2026-09-26T23:24:25.496Z"
+        }
+      ],
+      "rowsAfter": [
+        {
+          "id": "4a65928e-bffb-449b-bca2-2560352a6b1e",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "departmentId": null,
+          "type": "TASK_CREATED",
+          "entityId": "2edd8fd4-51cc-4a42-9631-20b4dab50aa0",
+          "createdAt": "2026-09-26T23:24:25.496Z"
+        }
+      ],
+      "originalRecipientDetail": 200,
+      "file": 200,
+      "newRecipientCreatedNotices": 0,
+      "sourceUiDenied": false,
+      "policy": "POLICY_PENDING_CURRENT_REPLAY_ORIGINAL"
+    }
+  ],
+  "priorObservations": [
+    "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText(/Нет доступа к заявке/).first() to be visible\u001b[22m\n"
+  ]
+}

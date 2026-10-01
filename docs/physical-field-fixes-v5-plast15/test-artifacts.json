@@ -1,0 +1,543 @@
+{
+  "mode": "read-only",
+  "passed": [
+    {
+      "name": "Read-only baseline: 723 legacy checklist occurrences confirmed",
+      "details": {
+        "count": 723
+      }
+    },
+    {
+      "name": "Downtime 10/20/40 statistics are exact",
+      "details": {
+        "count": 3,
+        "totalMinutes": 70,
+        "averageMinutes": 23,
+        "medianMinutes": 20,
+        "p90Minutes": 40
+      }
+    },
+    {
+      "name": "Open and closed downtime intervals are clipped to the requested window",
+      "details": {
+        "openClipped": 40,
+        "closedClipped": 20
+      }
+    },
+    {
+      "name": "Normal Archive hides diagnostic realtime tasks",
+      "details": {
+        "total": 0
+      }
+    },
+    {
+      "name": "Ordinary ADMIN cannot enable diagnostic fixtures",
+      "details": {
+        "total": 0
+      }
+    },
+    {
+      "name": "Explicit diagnostic ADMIN can inspect all realtime fixtures",
+      "details": {
+        "total": 14
+      }
+    },
+    {
+      "name": "Archive category has source evidence: tasks",
+      "details": {
+        "normalTotal": 2,
+        "diagnosticTotal": 784,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: tasks",
+      "details": {
+        "sections": 5
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: tasks"
+    },
+    {
+      "name": "Detail uses human display values: tasks"
+    },
+    {
+      "name": "Normal list has no sensitive keys: tasks"
+    },
+    {
+      "name": "Normal list uses human display values: tasks"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: tasks",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: checklists",
+      "details": {
+        "normalTotal": 26,
+        "diagnosticTotal": 1532,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: checklists",
+      "details": {
+        "sections": 4
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: checklists"
+    },
+    {
+      "name": "Detail uses human display values: checklists"
+    },
+    {
+      "name": "Normal list has no sensitive keys: checklists"
+    },
+    {
+      "name": "Normal list uses human display values: checklists"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: checklists",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: okk",
+      "details": {
+        "normalTotal": 5,
+        "diagnosticTotal": 79,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: okk",
+      "details": {
+        "sections": 3
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: okk"
+    },
+    {
+      "name": "Detail uses human display values: okk"
+    },
+    {
+      "name": "Normal list has no sensitive keys: okk"
+    },
+    {
+      "name": "Normal list uses human display values: okk"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: okk",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: returns",
+      "details": {
+        "normalTotal": 7,
+        "diagnosticTotal": 287,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: returns",
+      "details": {
+        "sections": 3
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: returns"
+    },
+    {
+      "name": "Detail uses human display values: returns"
+    },
+    {
+      "name": "Normal list has no sensitive keys: returns"
+    },
+    {
+      "name": "Normal list uses human display values: returns"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: returns",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: stock",
+      "details": {
+        "normalTotal": 0,
+        "diagnosticTotal": 171,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: stock",
+      "details": {
+        "sections": 1
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: stock"
+    },
+    {
+      "name": "Detail uses human display values: stock"
+    },
+    {
+      "name": "Normal list has no sensitive keys: stock"
+    },
+    {
+      "name": "Normal list uses human display values: stock"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: stock",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: orders",
+      "details": {
+        "normalTotal": 0,
+        "diagnosticTotal": 528,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: orders",
+      "details": {
+        "sections": 1
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: orders"
+    },
+    {
+      "name": "Detail uses human display values: orders"
+    },
+    {
+      "name": "Normal list has no sensitive keys: orders"
+    },
+    {
+      "name": "Normal list uses human display values: orders"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: orders",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: wash",
+      "details": {
+        "normalTotal": 18,
+        "diagnosticTotal": 108,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: wash",
+      "details": {
+        "sections": 6
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: wash"
+    },
+    {
+      "name": "Detail uses human display values: wash"
+    },
+    {
+      "name": "Normal list has no sensitive keys: wash"
+    },
+    {
+      "name": "Normal list uses human display values: wash"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: wash",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: defrost",
+      "details": {
+        "normalTotal": 1,
+        "diagnosticTotal": 99,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: defrost",
+      "details": {
+        "sections": 1
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: defrost"
+    },
+    {
+      "name": "Detail uses human display values: defrost"
+    },
+    {
+      "name": "Normal list has no sensitive keys: defrost"
+    },
+    {
+      "name": "Normal list uses human display values: defrost"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: defrost",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: shiftLog",
+      "details": {
+        "normalTotal": 12,
+        "diagnosticTotal": 295,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: shiftLog",
+      "details": {
+        "sections": 8
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: shiftLog"
+    },
+    {
+      "name": "Detail uses human display values: shiftLog"
+    },
+    {
+      "name": "Normal list has no sensitive keys: shiftLog"
+    },
+    {
+      "name": "Normal list uses human display values: shiftLog"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: shiftLog",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: announcements",
+      "details": {
+        "normalTotal": 7,
+        "diagnosticTotal": 218,
+        "detail": true
+      }
+    },
+    {
+      "name": "Complete detail opens for category: announcements",
+      "details": {
+        "sections": 2
+      }
+    },
+    {
+      "name": "Detail has no sensitive keys: announcements"
+    },
+    {
+      "name": "Detail uses human display values: announcements"
+    },
+    {
+      "name": "Normal list has no sensitive keys: announcements"
+    },
+    {
+      "name": "Normal list uses human display values: announcements"
+    },
+    {
+      "name": "Normal list excludes proven fixture markers: announcements",
+      "details": {
+        "leaked": 0
+      }
+    },
+    {
+      "name": "Archive category has source evidence: attachments",
+      "details": {
+        "normalTotal": 75,
+        "diagnosticTotal": 1704,
+        "detail": "safe-metadata"
+      }
+    },
+    {
+      "name": "Attachment catalog has no sensitive keys"
+    },
+    {
+      "name": "Attachment catalog uses human display labels"
+    },
+    {
+      "name": "Pagination does not duplicate rows",
+      "details": {
+        "pageOne": 10,
+        "pageTwo": 10,
+        "duplicates": 0,
+        "stableRepeat": true,
+        "hasMore": true
+      }
+    },
+    {
+      "name": "Pagination has stable date/id ordering",
+      "details": {
+        "pageOne": 10,
+        "pageTwo": 10,
+        "duplicates": 0,
+        "stableRepeat": true,
+        "hasMore": true
+      }
+    },
+    {
+      "name": "Pagination metadata is coherent"
+    },
+    {
+      "name": "Legacy ACTIVE child is mapped without historical mutation"
+    },
+    {
+      "name": "Guest is denied Archive by backend guard",
+      "details": {
+        "guestStatus": 403,
+        "workerTasksStatus": 403,
+        "crossFactoryDetailStatus": 404
+      }
+    },
+    {
+      "name": "Worker without archive permission is denied direct section API",
+      "details": {
+        "guestStatus": 403,
+        "workerTasksStatus": 403,
+        "crossFactoryDetailStatus": 404
+      }
+    },
+    {
+      "name": "Cross-factory detail is not readable",
+      "details": {
+        "guestStatus": 403,
+        "workerTasksStatus": 403,
+        "crossFactoryDetailStatus": 404
+      }
+    },
+    {
+      "name": "Diagnostic downtime cannot leak into normal summary",
+      "details": {
+        "normalCount": 2,
+        "normalTotalMinutes": 60026,
+        "diagnosticCount": 12,
+        "diagnosticTotalMinutes": 169911
+      }
+    },
+    {
+      "name": "Legacy checklist history was not mutated",
+      "details": {
+        "before": 723,
+        "after": 723
+      }
+    },
+    {
+      "name": "P15 regression creates no runtime markers",
+      "details": {
+        "before": 0,
+        "after": 0
+      }
+    }
+  ],
+  "failed": [],
+  "categories": {
+    "tasks": {
+      "normalTotal": 2,
+      "diagnosticTotal": 784,
+      "detail": true
+    },
+    "checklists": {
+      "normalTotal": 26,
+      "diagnosticTotal": 1532,
+      "detail": true
+    },
+    "okk": {
+      "normalTotal": 5,
+      "diagnosticTotal": 79,
+      "detail": true
+    },
+    "returns": {
+      "normalTotal": 7,
+      "diagnosticTotal": 287,
+      "detail": true
+    },
+    "stock": {
+      "normalTotal": 0,
+      "diagnosticTotal": 171,
+      "detail": true
+    },
+    "orders": {
+      "normalTotal": 0,
+      "diagnosticTotal": 528,
+      "detail": true
+    },
+    "wash": {
+      "normalTotal": 18,
+      "diagnosticTotal": 108,
+      "detail": true
+    },
+    "defrost": {
+      "normalTotal": 1,
+      "diagnosticTotal": 99,
+      "detail": true
+    },
+    "shiftLog": {
+      "normalTotal": 12,
+      "diagnosticTotal": 295,
+      "detail": true
+    },
+    "announcements": {
+      "normalTotal": 7,
+      "diagnosticTotal": 218,
+      "detail": true
+    },
+    "attachments": {
+      "normalTotal": 75,
+      "diagnosticTotal": 1704,
+      "detail": "safe-metadata"
+    }
+  },
+  "pagination": {
+    "pageOne": 10,
+    "pageTwo": 10,
+    "duplicates": 0,
+    "stableRepeat": true,
+    "hasMore": true
+  },
+  "forensics": {
+    "legacyActiveChildUnderClosedParentBefore": 723,
+    "downtime": {
+      "normalCount": 2,
+      "normalTotalMinutes": 60026,
+      "diagnosticCount": 12,
+      "diagnosticTotalMinutes": 169911
+    },
+    "legacyActiveChildUnderClosedParentAfter": 723
+  },
+  "rbac": {
+    "guestStatus": 403,
+    "workerTasksStatus": 403,
+    "crossFactoryDetailStatus": 404
+  },
+  "cleanup": {
+    "createdRows": 0,
+    "mutatedRows": 0,
+    "physicalDeletes": 0,
+    "activeP15Markers": 0
+  },
+  "summary": {
+    "passed": 89,
+    "failed": 0
+  }
+}

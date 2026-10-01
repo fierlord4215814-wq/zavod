@@ -1,0 +1,26 @@
+# PRE-VPS-FINISH-01 — итог до получения сервера
+
+## 30.09.2026 — две финальные source-коррекции
+
+После внешнего review адресно исправлены [запаздывающая история выбранной камеры и порядок путей release/schema](final-corrections/report.md). Проверки относятся к source/изолированному компоненту, не к браузеру или VPS. **Единственный текущий кандидат — [source-candidate-20260930-final.zip](source-candidate-20260930-final.zip)**; старый ZIP в таблице ниже — исторический срез. Исходная `mes`/T1 не запускались и не менялись; прежний отказ запуска не повторялся. Следующее действие — подтверждённый VPS и [один runbook](VPS-FIRST-RUN.md), не новый общий локальный аудит.
+
+**Источник подготовлен, пилот не принят.** Камеры line/standalone, soft hide/restore и минимальный login throttle реализованы в существующих owners. Два additive SQL довели source 57→59, но исходная локальная `mes` осталась на 57; `ORIGINAL_MES_WRITES=0`. `SERVICE06` live не возобновлялся, три общих чата там не создавались. T1/старые стенды не затронуты. [Подробные проверки](evidence.md), [схема](migration-impact.md), [кандидат и данные](DATA-AND-RELEASE.md), [единый VPS-прогон](VPS-FIRST-RUN.md).
+
+| Статус | Блок | Факт и остаток |
+|---|---|---|
+| DONE | Камеры source | `Chamber` catalogue, две допустимые привязки, line-auto-create, deterministic order, factory-local management, soft hide с транзакционной границей hide/start; обычные list/detail/history/archive/notification/derived views фильтруют скрытое. UI встроен в Defrost. 6 disposable SQL camera checks и 1 isolated export race PASS. |
+| DONE | Auth source | Пароль min6 в server/UI, durable per-account CAS throttle 3/10m→3/60m cap, успешный вход сбрасывает ступень, действующий token не отзывается. 3 isolated + 1 disposable SQL PASS. Recovery/первый ADMIN отдельно сохранены. |
+| DONE | Deploy source | Effective JSON/env/DSN/mount mismatch отказывается до операции; pending ordinary start deny; FIRST_ADMIN_REQUIRED не закрывает update; старые image IDs удержаны. 52m bounded proxy, portable release hash, version backend/UI. Setup suite 11/11 PASS. |
+| DONE | Схема/кандидат — исторический первый срез | 57 прежних SQL без изменений; две новые миграции, clean и synthetic upgrade до 59; backend/frontend builds, frontend typecheck, Prisma validate PASS. Прежний [source ZIP](source-candidate-20260930.zip) был упакован и прочитан целиком: 299 payload, 0 hash errors; он заменён финальным кандидатом выше. |
+| PARTIAL | Backup/restore/update exploitation | Fake runner проверил quiesce, negative config/target, independent restore и pending update. Расписание/30-дневная retention policy описаны для operator timer; автоматическое удаление намеренно не включено до offsite copy/restore. Реальная пара с файлами, systemd и возврат двух разных images требуют Linux gate. |
+| BLOCKED | Старый локальный live запуск | Прежний `CreateProcess … blocked by policy` до исполнения; правило не раскрыто. В этой задаче команда не повторялась. `SKIPPABLE`: browser/WS и SERVICE06 live `LIVE_NOT_RUN_BLOCKED`, source/SQL продолжены. |
+| NOT_RUN | UI камеры и login на двух устройствах | Новые записи камер №9 в `mes` не создавались. Нет real browser/WS/действующего HTTP для этой версии; unit/SQL не заменяют UI и сетевой доступ к байтам. |
+| WAIT_VPS | Linux/Compose/TLS/restore/reboot/load/телефон | Сервер и доступы не предоставлены; никакой target PASS. После подтверждения выполнить [один связный прогон](VPS-FIRST-RUN.md). |
+
+## Точный остаток и граница
+
+1. Получить подтверждённую VPS identity/доступ, домен/TLS и решение по составу данных. Затем Linux build/59 migrations/foundation/first ADMIN, реальный HTTPS/WSS, volumes/backup/independent restore/update и применимые live gates из runbook.
+2. В server UI — только после решения по импорту — создать две будущие отдельные камеры №9 и три service chats, проверить скрытие/доступ к файлам, People/Shift/две страницы/checklist/общие специалисты. Не копировать локальные тестовые аккаунты с известными credentials на публичный сервер.
+3. Для retention нет автоматического безопасного prune/offsite integration; до принятой offsite-процедуры operator вручную обеспечивает защищённую вторую копию и период хранения. Это эксплуатационное ограничение, не основание считать backup/restore PASS.
+
+Флаги: `PRE_VPS_SOURCE_PREPARATION=COMPLETE_WITH_RUNTIME_REMAINDER`; `CHAMBERS_SOURCE=IMPLEMENTED`; `CHAMBERS_LINE_AND_STANDALONE_ONLY=YES`; `HIDDEN_CHAMBER_ORDINARY_DENIAL=ISOLATED_PASS_LIVE_NOT_RUN`; `CAMERA_RECORDS_ON_MES=NOT_CREATED_IN_THIS_STAGE`; `LOGIN_MIN6_3FAIL_10MIN_THEN_1H=ISOLATED_PASS_LIVE_NOT_RUN`; `EXISTING_SESSIONS_SURVIVE_BAD_LOGINS=ISOLATED_SQL_PASS_WS_NOT_RUN`; `DEPLOY_CONFIG_BACKUP_RESTORE_UPDATE=SOURCE_AND_FAKE_RUNNER_PASS_TARGET_NOT_RUN`; `BASELINE57_MIGRATION_FILES=UNCHANGED`; `NEW_SOURCE_MIGRATIONS=20260930210000_pre_vps_login_throttle,20260930211000_pre_vps_chambers`; `ORIGINAL_MES_MIGRATIONS=57_NOT_WRITTEN_BY_US`; `ORIGINAL_MES_WRITES=0`; `SERVICE06_SQL_RACE=RETAINED_PREVIOUS_PROOF`; `SERVICE06_LIVE=DEFERRED_TO_CONFIRMED_VPS`; `SOURCE_RELEASE=PACKAGED`; `LINUX_HTTPS_WSS_RESTORE_LOAD_PHONE=NOT_RUN_ON_TARGET`; `T1_TOUCHED=NO`; `PILOT_READY=NOT_DECLARED`; `FINAL_STOP=READY_FOR_VPS_INPUT`.

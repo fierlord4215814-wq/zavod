@@ -1,0 +1,19 @@
+{
+  "status": "PASS_SEND_HOME_SETTING_ADMIN_UI_AND_OPERATIONAL_CONSUMER",
+  "steps": [
+    "ADMIN_UI_FALSE_SAVED",
+    "OPTIONAL_EMPTY_UI_HTTP201_SQL_NULL_AUDIT_WORKER_SECOND_PAGE",
+    "ADMIN_UI_DEFAULT_TRUE_RESTORED"
+  ],
+  "error": "locator.setChecked: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('admin-settings-shift').getByLabel('Комментарий при отправке домой', { exact: true })\u001b[22m\n",
+  "audit": {
+    "factoryId": "f41021f0-eeda-40b3-bfcd-1a35e98d59da",
+    "userId": "972b69f5-b703-43ea-97a9-c9ecb2801600",
+    "entityId": "7127a898-1129-4a11-8def-ac96557c2392",
+    "details": {
+      "comment": null,
+      "targetUserId": "7127a898-1129-4a11-8def-ac96557c2392"
+    },
+    "createdAt": "2026-09-26T18:14:07.947Z"
+  }
+}

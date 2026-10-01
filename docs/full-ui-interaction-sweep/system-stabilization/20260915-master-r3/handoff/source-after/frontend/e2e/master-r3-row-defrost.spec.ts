@@ -1,0 +1,32 @@
+import {test,expect} from '@playwright/test';
+import {isolate,json,open,permissions,linkedReplies,lineRow,unknown,errors,records,save,installEvidenceHooks} from './helpers/frontend-series';
+installEvidenceHooks();
+for(const mode of ['start','complete','blow'] as const)test(`R3-C2 Defrost ${mode} same-input retry retains key edited/reopened attempt gets new key`,async({page})=>{
+ const commands:any[]=[];let reject=true;
+ const line={...lineRow,status:'STOP',activeEvent:mode==='complete'?{id:'r3-defrost',startAt:'2026-09-15T05:00:00Z'}:null,canStartDefrost:true};
+ const endpoint=`/defrost/lines/${line.id}/${mode==='start'?'start-today':mode==='complete'?'complete-today':'shock-chamber-blown'}`;
+ await isolate(page,{role:'MASTER',granted:[...permissions,'defrost.manage'],replies:async(r,p)=>{
+  if(p==='/defrost/lines'){await json(r,[line]);return true;}
+  if(p===endpoint){commands.push(r.request().postDataJSON());await json(r,reject?{message:'Ответ временно недоступен'}:{message:'Отметка сохранена'},reject?503:201);return true;}
+  return linkedReplies(r,p);
+ }});await page.goto('/');await open(page,'Оттайка');
+ const name=mode==='start'?'Поставить на оттайку':mode==='complete'?'Запустить в работу':'Обдул шоковую камеру';
+ await page.getByRole('button',{name,exact:true}).click();const dialog=page.getByRole('dialog');const submit=dialog.getByRole('button',{name:new RegExp(line.name)});
+ await dialog.getByRole('textbox',{name:'Комментарий',exact:true}).fill('Проверка перед запуском');await submit.click();await expect(dialog.locator('.error-state')).toBeVisible();await submit.click();await expect.poll(()=>commands.length).toBe(2);
+ expect(commands[1]).toEqual(commands[0]);await dialog.getByRole('textbox',{name:'Комментарий',exact:true}).fill('Уточнённая проверка');await submit.click();await expect.poll(()=>commands.length).toBe(3);expect(commands[2].operationId).not.toBe(commands[0].operationId);
+ await dialog.getByRole('button',{name:'Закрыть',exact:true}).click();await page.getByRole('button',{name,exact:true}).click();await dialog.getByRole('textbox',{name:'Комментарий',exact:true}).fill('Уточнённая проверка');reject=false;await submit.click();await expect(dialog).toHaveCount(0);expect(commands[3].operationId).not.toBe(commands[2].operationId);
+ expect(unknown).toEqual([]);expect(errors).toEqual([]);records.push({producer:`Defrost ${mode}`,commands,scope:'actual client serialization; no SQL/lost commit claim'});save();
+});
+test('R3-C2 Checklist row numeric zero retry retains key changed answer gets new key',async({page})=>{
+ const commands:any[]=[];let reject=true;
+ const rows=[{id:'r3-number',title:'Температура датчика',rowType:'NUMBER',status:'PENDING',sortOrder:0,minValue:0,maxValue:10},{id:'r3-text',title:'Результат осмотра',rowType:'TEXT',status:'PENDING',sortOrder:1}].map(r=>({...r,requiredAnswer:true,requiresPhoto:false,requiresComment:false,isRequired:true,attachments:[]}));
+ const run={id:'r3-run',userId:'series-user',status:'ACTIVE',startedAt:'2026-09-15T05:00:00Z',frequencyRule:'MANUAL',shiftDate:'2026-09-15',shiftType:'DAY',shiftLabel:'День',template:{id:'r3-template',name:'Осмотр перед запуском'},rows};
+ await isolate(page,{role:'TECH_MECHANIC',granted:['checklists.runs.self','checklists.templates.read','notifications.read'],replies:async(r,p)=>{
+  if(p==='/checklists/workspace'){await json(r,{generatedAt:new Date().toISOString(),shift:{shiftDate:'2026-09-15',shiftType:'DAY',startsAt:'2026-09-15T05:00:00Z',endsAt:'2026-09-15T17:00:00Z'},activeRuns:[run],completedRuns:[],available:[],manager:null});return true;}
+  if(p==='/checklists/templates/library'){await json(r,[]);return true;}if(p==='/directory/lines'){await json(r,[lineRow]);return true;}if(p==='/checklists/archive'){await json(r,{runs:[],templates:[]});return true;}if(p==='/checklists/archive/by-template'){await json(r,{columns:[],rows:[]});return true;}
+  if(p==='/checklists/runs/r3-run'){await json(r,run);return true;}
+  if(p==='/checklists/runs/r3-run/rows/r3-number/complete'){const body=r.request().postDataJSON();commands.push(body);if(!reject)Object.assign(rows[0],{status:'OK',answerNumber:Number(body.answerNumber)});await json(r,reject?{message:'Ответ временно недоступен'}:rows[0],reject?503:200);return true;}return false;
+ }});await page.goto('/');await open(page,'Чек-листы');await page.locator('[data-checklist-run-id=r3-run]').getByRole('button',{name:'Продолжить',exact:true}).click();
+ const input=page.getByLabel('Значение',{exact:false}), submit=page.getByRole('button',{name:'Дальше',exact:true});await input.fill('0');await submit.click();await expect(page.locator('.error-state').last()).toContainText('Ошибка сервера');await submit.click();await expect.poll(()=>commands.length).toBe(2);expect(commands[1]).toEqual(commands[0]);expect(commands[0].answerNumber).toBe('0');
+ await input.fill('1');reject=false;await submit.click();await expect(page.locator('.guided-current-row')).toContainText('Результат осмотра');expect(commands[2].operationId).not.toBe(commands[0].operationId);expect(commands[2].answerNumber).toBe('1');expect(unknown).toEqual([]);expect(errors).toEqual([]);records.push({producer:'Checklist completeRow',commands,scope:'actual UI, no files/no database'});save();
+});

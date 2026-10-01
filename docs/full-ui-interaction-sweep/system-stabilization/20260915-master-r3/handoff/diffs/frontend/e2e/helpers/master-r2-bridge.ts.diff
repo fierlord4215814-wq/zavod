@@ -1,0 +1,12 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\e2e\\helpers\\master-r2-bridge.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\master-r2-bridge.ts"
+index 5ef5772e..a622c7a4 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\snapshots\\A-initial\\frontend\\e2e\\helpers\\master-r2-bridge.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\master-r2-bridge.ts"
+@@ -1,6 +1,6 @@
+ import {fork} from 'node:child_process';
+ import path from 'node:path';
+-export function serviceBridge(mode:'publication'|'handover'){
++export function serviceBridge(mode:'publication'|'handover'|'task'|'chat'){
+   const child=fork(path.resolve(__dirname,'../../../backend/scripts/master-r2-service-bridge.cjs'),[mode],{silent:true,windowsHide:true});
+   let sequence=0;const pending=new Map<number,{resolve:(x:any)=>void,reject:(e:Error)=>void}>(),traffic:any[]=[];let stderr='';child.stderr?.on('data',b=>stderr+=b.toString());
+   child.on('message',(reply:any)=>{const p=pending.get(reply.id);if(!p)return;pending.delete(reply.id);traffic.push({direction:'reply',...reply});p.resolve(reply);});

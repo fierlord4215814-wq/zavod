@@ -1,0 +1,1815 @@
+Index: AGENTS.md
+===================================================================
+--- AGENTS.md	before
++++ AGENTS.md	after
+@@ -1,6 +1,10 @@
+ # Проект «Завод» — инструкции Codex
+ 
++## Текущий узкий этап VPS-TECH-01-R1 + CHECKLIST-VERIFY-01 (28.09.2026)
++
++Прямым поручением разрешены адресные source/template/test/doc fixes в текущем `work`, два блока **последовательно одним writer**. [Один живой план](docs/vps-preparation/vps-tech-01/plan.md), [текущий source-результат](docs/vps-preparation/vps-tech-01/r1/report.md). Снимки приложенного ZIP не накладывать на repo. Не запускать T1/старые стенды, приложение, БД, Docker, VPS, WSL/Hyper-V/R5; не читать рабочие `.env`/dumps/uploads/credentials. Runtime/SQL/TLS/phone требует отдельного допуска и подтверждённого target. Ниже описанные обычные локальные runtime-разрешения **не действуют в этом этапе**. 57 миграций/schema сохранить; интервальную логику чек-листов не менять. OPS exact preservation T1 остаётся `FAILED`, пользователь решил сохранить нынешнюю историю без отката. После одного source review-пакета — `STOP_FOR_SOURCE_REVIEW_BEFORE_SEPARATE_LINUX_RUNTIME_ACCEPTANCE`.
++
+ ## Актуальный VPS-TECH-01 scope / STOP для прежних стендов (28.09.2026)
+ 
+ Прямым поручением пользователь решил **сохранить учебный T1 без отката**, признав OPS-01 exact-preservation `FAILED` и недоказанную полную построчную дельту. Не превращать FAILED в PASS; [T1 review](docs/vps-preparation/ops-01/t1-review-addendum-20260928.md) и protected evidence сохранить. T1, прежние C0/C1/копии/рабочие данные не запускать, не останавливать и не менять; общие localhost-разрешения ниже к ним сейчас **не применяются**.
+ 
+
+Index: docs/vps-preparation/handoff.md
+===================================================================
+--- docs/vps-preparation/handoff.md	before
++++ docs/vps-preparation/handoff.md	after
+@@ -1,6 +1,12 @@
+ # «Завод» — handoff перед подготовкой чистого VPS-теста
+ 
++## VPS-TECH-01-R1 + CHECKLIST-VERIFY-01 — 28.09.2026 / SOURCE REVIEW STOP
++
++Пользователь разрешил только адресные source/template/test/doc changes и изолированные synthetic checks, без T1/старых стендов, приложения, БД, Docker, VPS и телефона. Два блока выполнены последовательно одним writer. [Актуальный один план](vps-tech-01/plan.md), [отдельные результаты A/B и точные пределы](vps-tech-01/r1/report.md), [обновлённая config map](vps-tech-01/config-map.md), [кандидатный inventory](vps-tech-01/release-inventory.json), [один R1 review ZIP](vps-tech-01/r1/review-pack-vps-tech01-r1-checklist-20260928.zip) с внешним [full readback](vps-tech-01/r1/review-readback.json). Предыдущий VPS-TECH-01 ZIP/receipts и OPS/T1 evidence не переписывались. T1 остаётся с решением KEEP и exact-preservation `FAILED`; нового SQL readback не было.
++
++Источник A: публичный origin/CORS теперь fail-closed, nginx proxy шаблоны подготовлены; backup имеет verified Compose-app quiesce и публикуется после полной проверки; legacy in-place restore отключён, independent path требует новую пустую цель; update сохраняет прежние image IDs/tags и pending metadata. Источник B: rolling completion+reminder policy сохранена; исправлены смешение фото истории, пропуск ENTRY-фото в общем архиве и статус completed Check под incomplete parent; финальный checkId обязателен для отказа stale finish. Это **source/isolated evidence**, не серверный PASS. Реальные TLS/WSS/SQL/consistency/restore/update-rollback/load и телефон `NOT_RUN`. Следующий допуск только отдельный, с подтверждённым target. `PILOT_READY=NOT_DECLARED`; R5/Main Sweep на прежней паузе. Нижние утверждения о «следующем source-first с нуля» и старом STOP — исторические.
++
+ ## VPS-TECH-01 — 28.09.2026 / безопасная подготовка / BLOCKED_INPUT
+ 
+ Прямое решение пользователя: учебный T1 **сохранить как есть, без отката и дополнительной реконструкции**; OPS-01 `T1_EXACT_PRESERVATION_DURING_OPS01=FAILED` остаётся, `T1_DELTA_CLASSIFICATION=INSUFFICIENT_EVIDENCE_FOR_EXACT_ROW_DELTA`. Решение о судьбе истории принято, **не** доказательство её безусловной штатности. Исходные OPS reports/receipts/ZIP и защищённая копия не менялись; T1/старые C0/C1/копии/рабочие данные не трогать. Пользователь сообщил, что исходный OPS ZIP уже передан в ChatGPT и прошёл внешний source/evidence review с дополнительным пересчётом 132 сохранённых значений, без live запуска. Старое утверждение ниже «ZIP не доставлен» — историческое состояние предыдущей среды, не текущий статус доставки.
+ 
+
+Index: docs/vps-preparation/vps-tech-01/plan.md
+===================================================================
+--- docs/vps-preparation/vps-tech-01/plan.md	before
++++ docs/vps-preparation/vps-tech-01/plan.md	after
+@@ -1,6 +1,12 @@
+ # VPS-TECH-01 — один закрытый технический план
+ 
++## Активное продолжение R1 + CHECKLIST-VERIFY-01 — source-only / 28.09.2026
++
++Один writer, два последовательных блока; новый installer/схема/57 SQL/T1/runtime не затронуты. [Единый итог и evidence](r1/report.md). Блок A `SOURCE_PARTIAL_RUNTIME_PENDING`: A1 explicit HTTPS origin + CORS + nginx route/template, A2 app-quiesced backup, A3 независимая пустая restore-цель с legacy fail-closed, A4 retained release images/update pending. Их fake/source tests прошли; настоящий Linux/TLS/DB/files/reboot/rollback не проверялся. Блок B `SOURCE_PARTIAL_LIVE_PENDING`: интервальная политика оставлена, checkId stale finish защищён, три подтверждённых read-model расхождения исправлены, изолированные tests прошли; фон/SQL/HTTP/недельный архив/телефон не проверялись. [Текущий inventory](release-inventory.json) обновлён **после** source правок; старый release ID ниже — исторический.
++
++Checkpoints: A source fixes + 8 isolated checks; B source fixes + 5 bounded checks, 8 R2 и 3 archive/auth impacted checks; backend build и frontend typecheck PASS; frontend Vite build `BLOCKED_WINDOWS_SANDBOX_ACCESS_DENIED`, не product FAIL. `MIGRATIONS=57_UNCHANGED`; `FINAL_STOP=STOP_FOR_SOURCE_REVIEW_BEFORE_SEPARATE_LINUX_RUNTIME_ACCEPTANCE`. Следующий этап не запускается автоматически. Все gates 0, 2–8 ниже и пять пользовательских live-groups остаются в очереди; никакого Linux PASS из source-тестов.
++
+ 28.09.2026. Прямое поручение пользователя VPS-TECH-01 разрешает только новый однозначно выделенный Linux/Compose target и новую изолированную БД. T1 сохранён без отката с признанным `FAILED` и не используется. LOCAL/ADMIN/FACTORY/NOTIFY/ATT-AUTH/OPS, R5, Windows/WSL, общий Sweep и пилот не повторять. [Источник фактов и статус](report.md), [release inventory](release-inventory.json), [карта конфигурации](config-map.md).
+ 
+ ## Контрольная точка 0 — входная среда: BLOCKED_INPUT
+ 
+
+Index: docs/vps-preparation/vps-tech-01/config-map.md
+===================================================================
+--- docs/vps-preparation/vps-tech-01/config-map.md	before
++++ docs/vps-preparation/vps-tech-01/config-map.md	after
+@@ -1,6 +1,12 @@
+ # VPS-TECH-01 — карта конфигурации и source-only preflight
+ 
++## Изменение R1 / фактическая граница
++
++[Точный diff/evidence](r1/report.md). `setup/zavod-setup.js` теперь требует оба `publicFrontendUrl=https://<trusted-host>` и `publicApiUrl=https://<same-host>/api` для публичной установки, формирует точный `CORS_ALLOWED_ORIGINS`; приватный HTTP допускается лишь на loopback. `backend/src/main.ts` отказывает production при пустом allowlist. `frontend/nginx.production.conf` маршрутизирует `/api/` и `/ws` к backend в Compose; `frontend/nginx.https.example.conf` — **неактивный** operator TLS template с внешними cert/host/port placeholders. Никакой issuer, сертификат или доверенный browser transport не проверялись.
++
++Backup в existing setup owner останавливает и повторно проверяет backend/frontend своего Compose project перед pg_dump/copy, публикует только проверенный complete pair и возвращает исходно работающие сервисы. Старые архивы без нового consistency marker остаются историческими, но не проходят новый update/independent-restore gate. Источник внешних host-writes и реальная SQL/file согласованность требуют Linux drill. `restore`/web in-place отключены; `prepare --restore-target` и `restore-independent` требуют отдельный пустой target, проверяют source/target identity, paths/ports/config/env/checksums и не копируют source routing/DB secret/JWT. Target `REGISTRATION_FACTORY_CODE` переносится только по явному совпадающему контракту; приложение не стартует автоматически. `update` сверяет schema fingerprint и иной release, сохраняет immutable old image tags/IDs и `updatePending`/`previousRelease`; настоящий rollback остаётся runtime gate. Старые пять source gaps ниже — состояние **до R1**, не текущие незакрытые исходники.
++
+ Карта перечисляет **имена** параметров и подтверждённые owner-пути, без значений секретов. Рабочий `backend/.env`, прежние protected runtime/backup и SSH config не читались. Это не работоспособная VPS-конфигурация.
+ 
+ | Граница | Existing owner / значение, которое задаётся или проверяется |
+ |---|---|
+
+Index: docs/vps-preparation/vps-tech-01/report.md
+===================================================================
+--- docs/vps-preparation/vps-tech-01/report.md	before
++++ docs/vps-preparation/vps-tech-01/report.md	after
+@@ -1,6 +1,10 @@
+ # VPS-TECH-01 — безопасная подготовка завершена; Linux target не предоставлен
+ 
++## Продолжение R1 + CHECKLIST-VERIFY-01 / SOURCE REVIEW STOP
++
++Новый текущий результат: [раздельный A/B отчёт, команды и ограничения](r1/report.md), [один конечный план](plan.md), [обновлённый release inventory](release-inventory.json). Старый исходный checkpoint и ZIP ниже сохранены как исторические; R1 review pack будет указан в новом отчёте после полного readback. Никаких runtime/SQL/Compose/VPS/T1/phone действий в R1 не было. `FINAL_STOP=STOP_FOR_SOURCE_REVIEW_BEFORE_SEPARATE_LINUX_RUNTIME_ACCEPTANCE`.
++
+ 28.09.2026. Статус `BLOCKED_INPUT_TARGET_NOT_PROVIDED`. Это **не технический VPS PASS**. Прямое решение пользователя: учебный T1 сохраняется без отката; `T1_EXACT_PRESERVATION_DURING_OPS01=FAILED`, точная post-row дельта не доказана, но её дополнительная реконструкция не заказана. Старые T1/C0/C1/копии не запускались, не читались SQL и не изменялись. Исходные OPS reports/receipts/ZIP/защищённая копия не переписаны. Пользователь сообщил, что OPS ZIP уже доставлен во внешний review: reviewer сверил source/evidence и ещё 132 сохранённых значения, **без** нового live исполнения; это user-reported review, не результат настоящего VPS-этапа.
+ 
+ ## Что сделано сейчас без сервера
+ 
+
+Index: docs/vps-preparation/vps-tech-01/release-inventory.json
+===================================================================
+--- docs/vps-preparation/vps-tech-01/release-inventory.json	before
++++ docs/vps-preparation/vps-tech-01/release-inventory.json	after
+@@ -1,15 +1,15 @@
+ {
+-  "kind": "VPS_TECH01_SOURCE_RELEASE_INVENTORY",
+-  "status": "SOURCE_CANDIDATE_ONLY_NO_LINUX_TARGET",
++  "kind": "VPS_TECH01_R1_SOURCE_RELEASE_INVENTORY",
++  "status": "SOURCE_CANDIDATE_ONLY_NO_LINUX_RUNTIME",
+   "selectionOwner": "setup/deployment-context.js:collectBuildFiles",
+   "imageBuildContext": {
+     "count": 280,
+-    "totalBytes": 6145016,
+-    "sha256BuildInputWindowsHost": "8565dfb365d7043c34053dd82832f1aea009ebe160a7c4a4af572fc69223dc43",
+-    "sha256BuildInputLinuxPathExpected": "d2749fbc9a95f984808bfcab6b70247a894e1ad8315480ec654ab04e7eea0b53",
+-    "linuxReleaseIdExpectedIfIdenticalBytes": "1.0.0+d2749fbc9a95f984",
+-    "note": "The setup owner hashes native relative path strings plus file bytes. Windows and Linux path separators produce different IDs; neither is a built image or target readback.",
++    "totalBytes": 6147743,
++    "sha256BuildInputWindowsHost": "5bf928777765b149191661d43247a18358fd6edef4d912212269c83943eaf2ad",
++    "sha256BuildInputLinuxPathExpected": "cc9322ccf3d5b43bfebcdbc3403f10129e24606c495d791183246a25235877fe",
++    "linuxReleaseIdExpectedIfIdenticalBytes": "1.0.0+cc9322ccf3d5b43b",
++    "note": "Native path separators differ. Neither digest is a built image or VPS readback.",
+     "files": [
+       {
+         "path": ".dockerignore",
+         "bytes": 1199,
+@@ -506,10 +506,10 @@
+         "sha256": "e69a6e70e5465b0a4d3850996c6b724ee3c289e337de70772f1c4dbce1cbc3cc"
+       },
+       {
+         "path": "backend/src/main.ts",
+-        "bytes": 3938,
+-        "sha256": "c6d17a33e8299607fe53e5d41a71174dd342164d9b2548d2034db56df3c17ee2"
++        "bytes": 4112,
++        "sha256": "d33edcf0748b5308ae4dd01739ec830211d84ea2626b0814ca54ea376bac3734"
+       },
+       {
+         "path": "backend/src/modules/admin/admin.controller.ts",
+         "bytes": 22372,
+@@ -566,10 +566,10 @@
+         "sha256": "1f2b483bb6b848154885d466f1ffb0a606bcf0fe0c31f6aad57d9f2cd4bbc8d4"
+       },
+       {
+         "path": "backend/src/modules/archive/archive.service.ts",
+-        "bytes": 150219,
+-        "sha256": "54b607b0043ca6752232eb5244c9c15e42509699ed3799ca282930264f74c0ce"
++        "bytes": 150985,
++        "sha256": "b2a741fd763b93b59f4e80a2f10b75208fe8c539efc87374d7e524726c6dbe72"
+       },
+       {
+         "path": "backend/src/modules/assignment/assignment.controller.ts",
+         "bytes": 3332,
+@@ -646,10 +646,10 @@
+         "sha256": "c51c1dce091f98fed752288f27acdd22347f0340944196c38e128580f40279f0"
+       },
+       {
+         "path": "backend/src/modules/checklists/checklists.service.ts",
+-        "bytes": 145446,
+-        "sha256": "c1ea5df0135499813dac4bcfc802f708b841aa17f450674ee56f70d70bdde1c2"
++        "bytes": 145971,
++        "sha256": "d6f95bafb07f7a9c4169d2993f537eb601954a70e7d8468a261451b942216a55"
+       },
+       {
+         "path": "backend/src/modules/defrost/defrost-read-policy.ts",
+         "bytes": 471,
+@@ -996,10 +996,10 @@
+         "sha256": "5f71c93252ef1bcdd851814bc6c9070dac18259c28888d5c1d21d4b2485cc841"
+       },
+       {
+         "path": "frontend/nginx.production.conf",
+-        "bytes": 316,
+-        "sha256": "b8e71fbf84141c17edb02c08c4eb937e9b9f179cbb5e1a9783309625ec621fc9"
++        "bytes": 921,
++        "sha256": "77383be6db81c752b4a16f503d52b1f5b8d20ce531d12b5cd0b1a894bca09115"
+       },
+       {
+         "path": "frontend/package.json",
+         "bytes": 11486,
+@@ -1251,10 +1251,10 @@
+         "sha256": "0d0674dcec5ec4239f319f595ef7fe376a925443ca8a736125825f2abf8ea730"
+       },
+       {
+         "path": "frontend/src/screens/ArchiveScreen.tsx",
+-        "bytes": 48700,
+-        "sha256": "511ea5e171a0ba8e17f34bb5326d7b6ce2dec462e85010a76ecb822bdf57da60"
++        "bytes": 49357,
++        "sha256": "82b350795716adf37f2a835b26581974c61c0f03374296e0524166668e23d748"
+       },
+       {
+         "path": "frontend/src/screens/BugReportScreen.tsx",
+         "bytes": 15980,
+@@ -1412,29 +1412,44 @@
+       }
+     ]
+   },
+   "hostControl": {
+-    "note": "Required existing headless deployment owner files outside image build context; no runtime config or secrets.",
++    "count": 7,
+     "files": [
+       {
+         "path": "docker-compose.production.yml",
+         "bytes": 1732,
+         "sha256": "751179455d0696fc9b5b02c08a7231c2b8fd9df8bf9dae6170aa3102e519bf40"
+       },
+       {
+         "path": "setup/zavod-setup.js",
+-        "bytes": 54374,
+-        "sha256": "e4b50e68ce55e245b205c341b35fdb3eef481861c2ca7f38b6e636ba369e1bed"
++        "bytes": 73940,
++        "sha256": "028da0055755ef3955c7a7086528e9043194a25ac00bd1186638d4289559ed97"
+       },
+       {
+         "path": "setup/deployment-context.js",
+         "bytes": 3802,
+         "sha256": "c15bb87e7fca40e64a8b52089955cefe18aa4c3d4b6ba207aeb6004a3fcc6f93"
+       },
+       {
+         "path": "setup/storage-contract.js",
+-        "bytes": 6165,
+-        "sha256": "a445eb752629941c2f03bb0a42e8b73b203ac109a1ae4cb746796259ca8041ac"
++        "bytes": 6182,
++        "sha256": "90755aef57be5ec3c5a8794176e3604bf96ea4366a30a7a2f8d8e48428e59243"
++      },
++      {
++        "path": "setup/wizard.html",
++        "bytes": 14059,
++        "sha256": "9e8ca95c3cb3a9cdc7050a9e7b2a2a5e87d3fc8180e1ae9f7a58d5d54fe58fcc"
++      },
++      {
++        "path": "setup/restore.html",
++        "bytes": 3593,
++        "sha256": "b2ebbbd2899e44e2e9223f7980209e4890d0bad524861303e0882cc0f7bd6830"
++      },
++      {
++        "path": "frontend/nginx.https.example.conf",
++        "bytes": 1009,
++        "sha256": "80eaaa1a76bab2f3d7503e68ccbb70fa7300d33127768fa25ef34d54f558ec40"
+       }
+     ]
+   }
+ }
+
+Index: docs/vps-preparation/ops-01/server-readiness.md
+===================================================================
+--- docs/vps-preparation/ops-01/server-readiness.md	before
++++ docs/vps-preparation/ops-01/server-readiness.md	after
+@@ -1,6 +1,10 @@
+ # Решение перед закрытой VPS-приёмкой
+ 
++## Очередь после VPS-TECH-01-R1 + CHECKLIST-VERIFY-01 / 28.09.2026
++
++[Текущий source-result двух блоков](../vps-tech-01/r1/report.md), [один живой план](../vps-tech-01/plan.md). Изолированные A/B regressions закрыли адресные source gaps, **не** Linux/HTTP/SQL/phone gates. Rolling checklist policy сохранена: раннее завершение допустимо, следующий срок от фактического завершения. Исторические фото/status read-model расхождения исправлены в current source; доставка checklist notices после commit/restart и просмотр на телефоне остаются отдельными exact cases. A/B/C и пять gate-групп ниже не переименованы в PASS. OPS T1 exact preservation остаётся `FAILED` при решении KEEP без отката. Старое «T1 decision pending» ниже — историческое состояние.
++
+ **Действующее решение пользователя 28.09.2026:** сохранить T1 без отката и без нового row-level исследования, признавая `T1_EXACT_PRESERVATION_DURING_OPS01=FAILED` и `T1_DELTA_CLASSIFICATION=INSUFFICIENT_EVIDENCE_FOR_EXACT_ROW_DELTA`. Старый `PENDING_USER` ниже — историческая точка review, **не текущий блокер решения**. Отдельное поручение на [VPS-TECH-01](../vps-tech-01/plan.md) дано, но confirmed Linux target/SSH access пока не предоставлены: `LINUX_TARGET=BLOCKED_INPUT`, технический VPS gate `NOT_RUN`. Source preflight выявил адресные [HTTPS/CORS и backup/independent-restore hazards](../vps-tech-01/config-map.md); без проверки/исправления не выдавать B-gates за PASS. Три допуска по-прежнему различны: решение T1 **получено** → техническая приёмка на конкретном сервере **не выполнена** → обычный пользовательский пилот **не разрешён**. Таблицы A/B/C ниже сохраняют точный остаток; исторический абзац «NO до review T1» не является актуальной причиной текущего STOP.
+ 
+ **Review-уточнение 28.09.2026:** [сверка шести таблиц/пакета](t1-review-addendum-20260928.md). `CAN_START_CLOSED_VPS_ACCEPTANCE=NO_PENDING_T1_DECISION_AND_SEPARATE_DEPLOYMENT_AUTHORIZATION`: исходная строгая сохранность T1 FAILED, точная построчная классификация `INSUFFICIENT_EVIDENCE` (до запуска есть digest, не значения строк), решение пользователя `PENDING_USER`. Объяснение catch-up убедительно по current source/after-linkage, но не равняется доказательству полного before→after по каждой строке. Никакого rollback или нового SQL не выполнено. Три допуска различны: T1 decision → отдельно разрешённая закрытая техническая VPS-проверка → пилот обычных пользователей. Таблицы A/B/C ниже сохранены как границы, а не как разрешение VPS/пилота.
+ 
+
+Index: setup/zavod-setup.js
+===================================================================
+--- setup/zavod-setup.js	before
++++ setup/zavod-setup.js	after
+@@ -9,10 +9,10 @@
+ const net = require('node:net');
+ const os = require('node:os');
+ const path = require('node:path');
+ const { spawn, spawnSync } = require('node:child_process');
+-const { createBuildContext, removeBuildContext } = require('./deployment-context');
+-const { assertStoragePaths, assertOutsideProject, inspectDbStorage, prepareDbStorage } = require('./storage-contract');
++const { collectBuildFiles, createBuildContext, removeBuildContext } = require('./deployment-context');
++const { assertNoOverlap, assertStoragePaths, assertOutsideProject, inspectDbStorage, prepareDbStorage } = require('./storage-contract');
+ 
+ const ROOT_DIR = path.resolve(__dirname, '..');
+ const COMPOSE_FILE = path.join(ROOT_DIR, 'docker-compose.production.yml');
+ const DEFAULT_RUNTIME_DIR = path.join(os.homedir(), 'Zavod', 'runtime');
+@@ -29,15 +29,17 @@
+ 
+ Команды:
+   wizard          открыть локальный мастер установки
+   prepare         headless clean prepare с явными путями и портами
++                  --restore-target: подготовить только новую пустую БД без миграций и приложения
+   start           запустить контейнеры
+   update          обновить образы после проверки backup: --backup <папка>
+   bootstrap       создать первого ADMIN: реквизиты + --credential-file <mode 600>
+   stop            остановить контейнеры
+   check           проверить Docker, конфиг, сервисы, здоровье backend/frontend
+   backup          создать полный backup DB + uploads + config
+   restore-wizard  открыть локальный мастер восстановления
++  restore-independent  восстановить проверенный backup только в подготовленную пустую независимую цель
+   self-test       проверить генерацию конфига в тестовой папке без Docker deploy
+ 
+ Переменные:
+   ZAVOD_SETUP_RUNTIME  папка runtime-конфига мастера
+@@ -120,16 +122,49 @@
+   }
+   if (input.instanceId != null && (typeof input.instanceId !== 'string' || !/^[0-9a-f-]{36}$/.test(input.instanceId))) {
+     throw new Error('Недопустимый идентификатор установки.');
+   }
++  const privateLoopback = serverAddress === '127.0.0.1' || serverAddress === 'localhost';
++  const suppliedFrontend = String(input.publicFrontendUrl ?? '').trim();
++  const suppliedApi = String(input.publicApiUrl ?? '').trim();
++  const expectedPrivateFrontend = `http://${serverAddress}:${frontendPort}`;
++  const expectedPrivateApi = `http://${serverAddress}:${backendPort}`;
++  const privateHttp = privateLoopback && (!suppliedFrontend && !suppliedApi
++    || suppliedFrontend === expectedPrivateFrontend && suppliedApi === expectedPrivateApi);
++  if (Boolean(suppliedFrontend) !== Boolean(suppliedApi)) {
++    throw new Error('Для публичной установки укажите оба внешних адреса: frontend и API.');
++  }
++  if (!privateLoopback && !suppliedFrontend) {
++    throw new Error('Для публичной установки требуются явные доверенные HTTPS-адреса frontend и API.');
++  }
++  const publicFrontendUrl = suppliedFrontend || expectedPrivateFrontend;
++  const publicApiUrl = suppliedApi || expectedPrivateApi;
++  let frontendOrigin;
++  try {
++    const frontend = new URL(publicFrontendUrl);
++    const api = new URL(publicApiUrl);
++    if (frontend.username || frontend.password || frontend.search || frontend.hash || frontend.pathname !== '/'
++      || api.username || api.password || api.search || api.hash
++      || (!privateHttp && (frontend.protocol !== 'https:' || api.protocol !== 'https:'
++        || frontend.origin !== api.origin || api.pathname !== '/api'))
++      || (privateHttp && (frontend.protocol !== 'http:' || api.protocol !== 'http:'))) {
++      throw new Error('Недопустимые внешние адреса.');
++    }
++    frontendOrigin = frontend.origin;
++  } catch {
++    throw new Error('Публичные адреса должны задавать один доверенный HTTPS origin и API-путь /api; частный HTTP допустим только на loopback.');
++  }
+   for (const value of [input.dbDataDir, input.uploadsDir, input.backupsDir, input.errorReportsExportPath, input.logsDir, input.dockerExePath]) {
+     if (value && /[\r\n\0]/.test(String(value))) throw new Error('Путь содержит недопустимые управляющие символы.');
+   }
+   return {
+     schemaVersion: 1,
+     instanceId: typeof input.instanceId === 'string' ? input.instanceId : null,
+     firstBuildPending: input.firstBuildPending === true,
+     buildReleaseId: typeof input.buildReleaseId === 'string' ? input.buildReleaseId : null,
++    previousRelease: input.previousRelease && typeof input.previousRelease === 'object' ? input.previousRelease : null,
++    updatePending: input.updatePending && typeof input.updatePending === 'object' ? input.updatePending : null,
++    restoreTargetPending: input.restoreTargetPending === true,
+     createdAt: input.createdAt || nowIso(),
+     updatedAt: nowIso(),
+     projectRoot: ROOT_DIR,
+     runtimeDir: RUNTIME_DIR,
+@@ -141,10 +176,11 @@
+     backupsDir: path.resolve(input.backupsDir || defaults.backupsDir),
+     errorReportsExportPath: path.resolve(input.errorReportsExportPath || defaults.errorReportsExportPath),
+     logsDir: path.resolve(input.logsDir || defaults.logsDir),
+     dockerExePath: input.dockerExePath ? path.resolve(input.dockerExePath) : '',
+-    publicApiUrl: `http://${serverAddress}:${backendPort}`,
+-    publicFrontendUrl: `http://${serverAddress}:${frontendPort}`,
++    publicApiUrl,
++    publicFrontendUrl,
++    corsAllowedOrigins: frontendOrigin,
+     dockerProjectName,
+   };
+ }
+ 
+@@ -176,8 +212,9 @@
+     `ZAVOD_SERVER_ADDRESS=${config.serverAddress}`,
+     `BACKEND_PORT=${config.backendPort}`,
+     `FRONTEND_PORT=${config.frontendPort}`,
+     `PUBLIC_API_URL=${config.publicApiUrl}`,
++    `CORS_ALLOWED_ORIGINS=${config.corsAllowedOrigins}`,
+     ...(config.dockerExePath ? [`ZAVOD_DOCKER_EXE=${config.dockerExePath}`] : []),
+     `POSTGRES_DB=${dbName}`,
+     `POSTGRES_USER=${dbUser}`,
+     `POSTGRES_PASSWORD=${dbPassword}`,
+@@ -386,17 +423,38 @@
+     stderr: String(result.stderr || ''),
+   };
+ }
+ 
++function releaseIdForStaged(staged) {
++  const hash = crypto.createHash('sha256');
++  for (const relative of staged.files) {
++    hash.update(relative);
++    hash.update(fs.readFileSync(path.join(staged.path, relative)));
++  }
++  return `1.0.0+${hash.digest('hex').slice(0, 16)}`;
++}
++
++function candidateReleaseId() {
++  const staged = createBuildContext(ROOT_DIR);
++  try { return releaseIdForStaged(staged); }
++  finally { removeBuildContext(staged.path); }
++}
++
++function schemaFingerprint() {
++  const files = collectBuildFiles(ROOT_DIR).filter((item) => item.replace(/\\/g, '/') === 'backend/prisma/schema.prisma'
++    || /backend[\\/]prisma[\\/]migrations[\\/].+[\\/]migration\.sql$/.test(item));
++  const hash = crypto.createHash('sha256');
++  for (const relative of files) {
++    hash.update(relative.replace(/\\/g, '/'));
++    hash.update(fs.readFileSync(path.join(ROOT_DIR, relative)));
++  }
++  return hash.digest('hex');
++}
++
+ function buildProductionImages() {
+   const staged = createBuildContext(ROOT_DIR);
+   try {
+-    const hash = crypto.createHash('sha256');
+-    for (const relative of staged.files) {
+-      hash.update(relative);
+-      hash.update(fs.readFileSync(path.join(staged.path, relative)));
+-    }
+-    const releaseId = `1.0.0+${hash.digest('hex').slice(0, 16)}`;
++    const releaseId = releaseIdForStaged(staged);
+     runDockerCompose(['build', 'backend', 'frontend'], {
+       env: { ...process.env, ZAVOD_BUILD_CONTEXT: staged.path, ZAVOD_RELEASE_ID: releaseId },
+     });
+     return { files: staged.files.length, releaseId };
+@@ -511,19 +569,23 @@
+ 
+   if (!options.dryRun && (existingConfig || existingEnv)) {
+     if (existingConfig && existingEnv) {
+       const saved = await readConfig();
+-      const fields = ['serverAddress', 'backendPort', 'frontendPort', 'dbDataDir', 'uploadsDir', 'backupsDir', 'errorReportsExportPath', 'logsDir', 'dockerExePath'];
+-      if (saved.firstBuildPending && saved.instanceId && fields.every((field) => saved[field] === config[field])) {
++        const fields = ['serverAddress', 'backendPort', 'frontendPort', 'publicApiUrl', 'publicFrontendUrl', 'dbDataDir', 'uploadsDir', 'backupsDir', 'errorReportsExportPath', 'logsDir', 'dockerExePath'];
++      if (saved.firstBuildPending && saved.instanceId && saved.restoreTargetPending === Boolean(options.restoreTarget)
++        && fields.every((field) => saved[field] === config[field])) {
+         const build = buildProductionImages();
+         await writeFileWithBackup(CONFIG_PATH, `${JSON.stringify({ ...saved, firstBuildPending: false, buildReleaseId: build.releaseId }, null, 2)}\n`);
+-        const launched = await startServices();
++        const launched = options.restoreTarget
++          ? (runDockerCompose(['up', '-d', '--no-build', '--wait', '--wait-timeout', '90', 'db']), { restoreTargetReady: true })
++          : await startServices();
+         return {
+           ok: true, dryRun: false, config: await readConfig(), written: [], existingConfig: true, existingEnv: true,
+           resumedFirstBuild: true, build, ...launched,
+           message: launched.firstAdminRequired
+             ? 'Схема и системная основа готовы. Первый ADMIN ещё не создан: выполните явный bootstrap с защищённым credential, затем start.'
+-            : 'Завод подготовлен и запущен на loopback-интерфейсе.',
++            : launched.restoreTargetReady ? 'Независимая пустая цель подготовлена; приложение не запускалось.'
++              : 'Завод подготовлен и запущен на loopback-интерфейсе.',
+         };
+       }
+     }
+     return {
+@@ -543,8 +605,9 @@
+   if (!options.dryRun) {
+     config.instanceId = crypto.randomUUID();
+     config.dockerProjectName = `zavod-local-${config.instanceId.replace(/-/g, '').slice(0, 12)}`;
+     config.firstBuildPending = true;
++    config.restoreTargetPending = Boolean(options.restoreTarget);
+     config.buildReleaseId = null;
+     prepareDbStorage(config.dbDataDir);
+     const secrets = generateSecrets();
+     const configBackup = await writeFileWithBackup(CONFIG_PATH, `${JSON.stringify(config, null, 2)}\n`);
+@@ -568,9 +631,11 @@
+   const build = buildProductionImages();
+   config.firstBuildPending = false;
+   config.buildReleaseId = build.releaseId;
+   await writeFileWithBackup(CONFIG_PATH, `${JSON.stringify(config, null, 2)}\n`);
+-  const launched = await startServices();
++  const launched = options.restoreTarget
++    ? (runDockerCompose(['up', '-d', '--no-build', '--wait', '--wait-timeout', '90', 'db']), { restoreTargetReady: true })
++    : await startServices();
+ 
+   return {
+     ok: true,
+     dryRun: false,
+@@ -581,9 +646,10 @@
+     build,
+     ...launched,
+     message: launched.firstAdminRequired
+       ? 'Схема и системная основа готовы. Первый ADMIN ещё не создан: выполните явный bootstrap с защищённым credential, затем start.'
+-      : 'Завод подготовлен и запущен на loopback-интерфейсе.',
++      : launched.restoreTargetReady ? 'Независимая пустая цель подготовлена; приложение не запускалось.'
++        : 'Завод подготовлен и запущен на loopback-интерфейсе.',
+   };
+ }
+ 
+ function hasMigrationFiles() {
+@@ -596,8 +662,9 @@
+ }
+ 
+ async function startServices(options = {}) {
+   const config = await readConfig();
++  if (config.restoreTargetPending) throw new Error('Независимая цель ещё не восстановлена; запуск приложения запрещён.');
+   if (!fs.existsSync(ENV_PATH)) throw new Error('Файл production.env не найден. Сначала выполните установку.');
+   assertStoragePaths(config);
+   assertOutsideProject(config, ROOT_DIR);
+   if (inspectDbStorage(config.dbDataDir).state !== 'OWNED') throw new Error('Каталог PostgreSQL не подготовлен этой установкой.');
+@@ -617,26 +684,68 @@
+     frontend: await waitForOk(`http://127.0.0.1:${config.frontendPort}/`),
+   };
+ }
+ 
+-async function updateServices(backupDir) {
++function retainCurrentImages(config, runner) {
++  const raw = runner.compose(['ps', '--all', '--format', 'json']).stdout.trim();
++  let entries;
++  try { entries = raw.startsWith('[') ? JSON.parse(raw) : raw.split(/\r?\n/).map((line) => JSON.parse(line)); }
++  catch { throw new Error('Не удалось определить running images прежнего release.'); }
++  const result = {};
++  for (const service of ['backend', 'frontend']) {
++    const matches = entries.filter((item) => item.Service === service && item.State === 'running'
++      && [`${config.dockerProjectName}-${service}-1`, `${config.dockerProjectName}_${service}_1`].includes(item.Name));
++    if (matches.length !== 1 || !matches[0].ID) throw new Error('Running image прежнего release неоднозначен.');
++    const image = runner.command(['inspect', '--format', '{{.Image}}', matches[0].ID]);
++    const imageId = String(image.stdout || '').trim();
++    if (image.status !== 0 || !/^sha256:[0-9a-f]{64}$/.test(imageId)) throw new Error('Не удалось зафиксировать image ID прежнего release.');
++    const tag = `${config.dockerProjectName}-${service}:rollback-${config.buildReleaseId.replace(/[^a-zA-Z0-9_.-]/g, '-')}`;
++    const tagged = runner.command(['image', 'tag', imageId, tag]);
++    if (tagged.status !== 0) throw new Error('Не удалось сохранить immutable tag прежнего image.');
++    const readback = runner.command(['image', 'inspect', '--format', '{{.Id}}', tag]);
++    if (readback.status !== 0 || String(readback.stdout || '').trim() !== imageId) throw new Error('Readback прежнего image tag не совпал.');
++    result[service] = { imageId, tag };
++  }
++  return result;
++}
++
++async function updateServices(backupDir, injectedRunner) {
++  const runner = injectedRunner || { compose: runDockerCompose, command: dockerCommandResult,
++    validateDump: assertPgDumpReadable, build: buildProductionImages, start: startServices };
++  if (['compose', 'command', 'validateDump', 'build', 'start'].some((key) => typeof runner[key] !== 'function')) {
++    throw new Error('Тестовый runner должен явно подменить все внешние команды.');
++  }
+   if (!backupDir) throw new Error('Перед update укажите --backup <папка проверенного backup>.');
+   const config = await readConfig();
++  if (config.updatePending) throw new Error('Предыдущее update не завершено; нужен контрольный разбор retained images перед новой попыткой.');
+   assertBackupInsideBackupsDir(config, backupDir);
+   const backup = await validateBackup(backupDir);
+   if (!backup.ok) throw new Error('Backup не прошёл проверку. Update остановлен.');
+   const manifest = JSON.parse(await fsp.readFile(path.join(path.resolve(backupDir), 'manifest.json'), 'utf8'));
+   if (!config.instanceId || manifest.source?.instanceId !== config.instanceId
+     || manifest.mode !== 'full'
+     || manifest.contents?.databaseDump !== 'database/zavod.dump'
+     || manifest.source?.uploadsRoot !== config.uploadsDir
+-    || manifest.source?.database?.name !== 'zavod') {
++    || manifest.source?.database?.name !== 'zavod'
++    || manifest.source?.buildReleaseId !== config.buildReleaseId
++    || manifest.source?.schemaFingerprint !== schemaFingerprint()) {
+     throw new Error('Для update требуется полный проверенный backup БД, uploads и конфигурации.');
+   }
+-  await assertPgDumpReadable(path.join(path.resolve(backupDir), 'database', 'zavod.dump'));
+-  runDockerCompose(['stop', 'backend', 'frontend']);
+-  const build = buildProductionImages();
+-  const started = await startServices();
++  await runner.validateDump(path.join(path.resolve(backupDir), 'database', 'zavod.dump'));
++  const candidate = candidateReleaseId();
++  if (candidate === config.buildReleaseId) throw new Error('Исходники совпадают с текущим release: same-image restart не является update.');
++  const retained = retainCurrentImages(config, runner);
++  await writeFileWithBackup(CONFIG_PATH, `${JSON.stringify({ ...config, updatePending: {
++    fromReleaseId: config.buildReleaseId, toReleaseId: candidate, schemaFingerprint: manifest.source.schemaFingerprint,
++    retainedImages: retained, startedAt: nowIso(),
++  } }, null, 2)}\n`);
++  runner.compose(['stop', 'backend', 'frontend']);
++  const build = runner.build();
++  if (build.releaseId !== candidate) throw new Error('Release identity изменилась во время update; прежние образы сохранены.');
++  const started = await runner.start();
++  await writeFileWithBackup(CONFIG_PATH, `${JSON.stringify({ ...config, buildReleaseId: build.releaseId,
++    previousRelease: { releaseId: config.buildReleaseId, schemaFingerprint: manifest.source.schemaFingerprint, retainedImages: retained },
++    updatePending: null }, null, 2)}\n`);
+   return { ...started, build };
+ }
+ 
+ async function bootstrapAdmin(args) {
+@@ -800,21 +909,78 @@
+   await fsp.writeFile(path.join(root, 'checksums.sha256'), `${lines.join('\n')}\n`, 'utf8');
+   return lines.length;
+ }
+ 
+-async function createBackup() {
++function parseComposeContainers(raw, projectName) {
++  const text = String(raw || '').trim();
++  if (!text) throw new Error('Не удалось подтвердить состояние контейнеров этой установки.');
++  let entries;
++  try {
++    entries = text.startsWith('[') ? JSON.parse(text) : text.split(/\r?\n/).map((line) => JSON.parse(line));
++  } catch {
++    throw new Error('Ответ Compose о контейнерах не распознан. Backup не начат.');
++  }
++  if (!Array.isArray(entries) || !entries.length) throw new Error('Контейнеры установки не подтверждены.');
++  const running = new Set();
++  for (const entry of entries) {
++    const service = entry.Service;
++    const state = String(entry.State || '').toLowerCase();
++    const name = String(entry.Name || '');
++    if (!['db', 'backend', 'frontend'].includes(service)
++      || ![`${projectName}-${service}-1`, `${projectName}_${service}_1`].includes(name)
++      || !['running', 'exited', 'created'].includes(state)) {
++      throw new Error('Состояние или identity контейнеров неоднозначны; backup остановлен.');
++    }
++    if (state === 'running') running.add(service);
++  }
++  if (!running.has('db')) throw new Error('БД этой установки не запущена; backup остановлен.');
++  return running;
++}
++
++function backupCommandRunner(injected) {
++  if (!injected) return { compose: runDockerCompose, command: dockerCommandResult };
++  if (typeof injected.compose !== 'function' || typeof injected.command !== 'function') {
++    throw new Error('Тестовый runner должен явно подменить все внешние команды.');
++  }
++  return injected;
++}
++
++async function createBackup(injectedRunner) {
++  const runner = backupCommandRunner(injectedRunner);
+   const config = await readConfig();
+   const env = await readEnv();
++  assertStoragePaths(config);
++  assertOutsideProject(config, ROOT_DIR);
++  if (!config.instanceId || !config.buildReleaseId || env.COMPOSE_PROJECT_NAME !== config.dockerProjectName) {
++    throw new Error('Identity установки или release не подтверждены; backup остановлен.');
++  }
++  const snapshot = () => parseComposeContainers(runner.compose(['ps', '--all', '--format', 'json']).stdout, config.dockerProjectName);
++  const initiallyRunning = snapshot();
++  const appServices = ['backend', 'frontend'].filter((service) => initiallyRunning.has(service));
+   const backupDir = path.join(config.backupsDir, safeBackupName());
+-  const databaseDir = path.join(backupDir, 'database');
+-  const uploadsBackupDir = path.join(backupDir, 'uploads');
+-  const configDir = path.join(backupDir, 'config');
+-  await ensureDir(databaseDir);
+-  await ensureDir(uploadsBackupDir);
+-  await ensureDir(configDir);
+-
+-  const dumpPath = path.join(databaseDir, 'zavod.dump');
+-  const dump = dockerCommandResult([
++  const partialDir = `${backupDir}.partial-${crypto.randomBytes(6).toString('hex')}`;
++  if (fs.existsSync(backupDir) || fs.existsSync(partialDir)) throw new Error('Имя backup уже занято.');
++  let stopAttempted = false;
++  let published = false;
++  let result;
++  let failure;
++  try {
++    if (appServices.length) {
++      stopAttempted = true;
++      runner.compose(['stop', ...appServices]);
++    }
++    const afterStop = snapshot();
++    if (afterStop.has('backend') || afterStop.has('frontend')) {
++      throw new Error('Не все источники записи остановлены; backup запрещён.');
++    }
++    const databaseDir = path.join(partialDir, 'database');
++    const uploadsBackupDir = path.join(partialDir, 'uploads');
++    const configDir = path.join(partialDir, 'config');
++    await ensureDir(databaseDir);
++    await ensureDir(uploadsBackupDir);
++    await ensureDir(configDir);
++    const dumpPath = path.join(databaseDir, 'zavod.dump');
++    const dump = runner.command([
+     ...composeBaseArgs(),
+     'exec',
+     '-T',
+     'db',
+@@ -823,30 +989,35 @@
+     env.POSTGRES_USER || 'zavod',
+     '-d',
+     env.POSTGRES_DB || 'zavod',
+     '-Fc',
+-  ], {
++    ], {
+     encoding: null,
+     maxBuffer: 1024 * 1024 * 1024,
+-  });
+-  if (dump.status !== 0) {
+-    const details = Buffer.isBuffer(dump.stderr) ? dump.stderr.toString('utf8') : String(dump.stderr || dump.error?.message || '');
+-    throw new Error(`Не удалось создать дамп БД: ${details.trim()}`);
+-  }
+-  await fsp.writeFile(dumpPath, dump.stdout);
++    });
++    if (dump.status !== 0 || !Buffer.isBuffer(dump.stdout)) {
++      throw new Error('Не удалось создать бинарный дамп БД.');
++    }
++    await fsp.writeFile(dumpPath, dump.stdout);
+ 
+-  const uploadsCount = await copyDir(config.uploadsDir, uploadsBackupDir);
+-  await fsp.copyFile(CONFIG_PATH, path.join(configDir, 'zavod.config.json'));
+-  await fsp.copyFile(ENV_PATH, path.join(configDir, 'production.env'));
++    const uploadsCount = await copyDir(config.uploadsDir, uploadsBackupDir);
++    await fsp.copyFile(CONFIG_PATH, path.join(configDir, 'zavod.config.json'));
++    await fsp.copyFile(ENV_PATH, path.join(configDir, 'production.env'));
+ 
+-  const manifest = {
++    const manifest = {
+     schemaVersion: 1,
+     mode: 'full',
+     createdAt: nowIso(),
+     projectName: 'Завод',
+     source: {
+       instanceId: config.instanceId,
+       buildReleaseId: config.buildReleaseId,
++      schemaFingerprint: schemaFingerprint(),
++      dockerProjectName: config.dockerProjectName,
++      runtimeDir: config.runtimeDir,
++      dbDataDir: config.dbDataDir,
++      backupsDir: config.backupsDir,
++      logsDir: config.logsDir,
+       serverAddress: config.serverAddress,
+       backendPort: config.backendPort,
+       frontendPort: config.frontendPort,
+       database: {
+@@ -862,13 +1033,37 @@
+       uploads: 'uploads/',
+       config: 'config/',
+       uploadsFileCount: uploadsCount,
+     },
+-    warning: 'Backup contains a database dump and production configuration. Keep it as a secret operational artifact.',
+-  };
+-  await fsp.writeFile(path.join(backupDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
+-  const checksumCount = await writeChecksums(backupDir);
+-  return { backupDir, uploadsCount, checksumCount, dumpPath };
++      consistency: { method: 'compose-app-quiesce', appStoppedAndVerified: true },
++      warning: 'Backup contains a database dump and production configuration. Keep it as a secret operational artifact.',
++    };
++    await fsp.writeFile(path.join(partialDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
++    const checksumCount = await writeChecksums(partialDir);
++    const validation = await validateBackup(partialDir);
++    if (!validation.ok) throw new Error('Созданная пара БД/uploads/config не прошла полную проверку.');
++    await fsp.rename(partialDir, backupDir);
++    published = true;
++    result = { backupDir, uploadsCount, checksumCount, dumpPath: path.join(backupDir, 'database', 'zavod.dump') };
++  } catch (error) {
++    failure = error;
++  } finally {
++    if (!published && fs.existsSync(partialDir)) {
++      try { await fsp.rm(partialDir, { recursive: true, force: false }); }
++      catch (cleanupError) { failure = new Error(`${failure?.message || 'Backup не завершён'}; не удалён собственный partial: ${cleanupError.message}`); }
++    }
++    if (stopAttempted && appServices.length) {
++      try {
++        runner.compose(['up', '-d', '--no-build', '--no-deps', ...appServices]);
++        const resumed = snapshot();
++        if (appServices.some((service) => !resumed.has(service))) throw new Error('Исходное состояние приложений не восстановлено.');
++      } catch (resumeError) {
++        failure = new Error(`${failure?.message || 'Backup завершён, но'}; не удалось вернуть исходные сервисы: ${resumeError.message}`);
++      }
++    }
++  }
++  if (failure) throw failure;
++  return result;
+ }
+ 
+ async function validateBackup(backupDir) {
+   const root = path.resolve(backupDir);
+@@ -894,8 +1089,10 @@
+     && manifest?.contents?.databaseDump === 'database/zavod.dump'
+     && manifest?.contents?.uploads === 'uploads/'
+     && manifest?.contents?.config === 'config/'
+     && Number.isInteger(manifest?.contents?.uploadsFileCount));
++  add('verified write boundary', manifest?.consistency?.method === 'compose-app-quiesce'
++    && manifest?.consistency?.appStoppedAndVerified === true);
+   if (fs.existsSync(dumpPath) && fs.lstatSync(dumpPath).isFile()) {
+     const handle = await fsp.open(dumpPath, 'r');
+     try {
+       const magic = Buffer.alloc(5);
+@@ -963,58 +1160,120 @@
+     throw new Error('Backup должен находиться внутри настроенной папки backups.');
+   }
+ }
+ 
+-async function restoreBackup(backupDir, confirmation) {
+-  if (confirmation !== 'ВОССТАНОВИТЬ') {
+-    throw new Error('Для восстановления нужно ввести слово ВОССТАНОВИТЬ.');
++async function restoreBackup() {
++  throw new Error('In-place restore отключён: он может заменить данные действующей установки. Используйте отдельную подготовленную цель и restore-independent.');
++}
++
++function assertIndependentIdentity(config, manifest, sourceConfig, sourceEnv, targetEnv) {
++  const source = manifest?.source;
++  if (manifest?.mode !== 'full' || !source?.instanceId || !source?.dockerProjectName || !source?.buildReleaseId
++    || source.instanceId !== sourceConfig.instanceId || source.dockerProjectName !== sourceConfig.dockerProjectName
++    || source.runtimeDir !== sourceConfig.runtimeDir || source.dbDataDir !== sourceConfig.dbDataDir
++    || source.uploadsRoot !== sourceConfig.uploadsDir || source.backupsDir !== sourceConfig.backupsDir
++    || source.buildReleaseId !== sourceConfig.buildReleaseId
++    || sourceEnv.COMPOSE_PROJECT_NAME !== source.dockerProjectName
++    || sourceEnv.POSTGRES_DB !== source.database?.name) {
++    throw new Error('Identity источника backup не совпадает с защищённым manifest/config/env.');
+   }
++  if (!config.restoreTargetPending || !config.instanceId || !config.buildReleaseId
++    || config.instanceId === source.instanceId || config.dockerProjectName === source.dockerProjectName
++    || config.buildReleaseId !== source.buildReleaseId || targetEnv.COMPOSE_PROJECT_NAME !== config.dockerProjectName
++    || targetEnv.POSTGRES_DB !== source.database.name
++    || config.backendPort === source.backendPort || config.frontendPort === source.frontendPort
++    || config.publicFrontendUrl === sourceConfig.publicFrontendUrl || config.publicApiUrl === sourceConfig.publicApiUrl) {
++    throw new Error('Цель не является новой независимой установкой совместимого release.');
++  }
++  assertNoOverlap([
++    ...[['source runtime', source.runtimeDir], ['source DB', source.dbDataDir], ['source uploads', source.uploadsRoot],
++      ['source backups', source.backupsDir], ['source errors', source.errorReportsExportRoot], ['source logs', source.logsDir]],
++    ...[['target runtime', config.runtimeDir], ['target DB', config.dbDataDir], ['target uploads', config.uploadsDir],
++      ['target backups', config.backupsDir], ['target errors', config.errorReportsExportPath], ['target logs', config.logsDir]],
++  ]);
++  const allPaths = [source.runtimeDir, source.dbDataDir, source.uploadsRoot, source.backupsDir,
++    source.errorReportsExportRoot, source.logsDir, config.runtimeDir, config.dbDataDir,
++    config.uploadsDir, config.backupsDir, config.errorReportsExportPath, config.logsDir];
++  assertNoOverlap(allPaths.map((value, index) => [
++    `canonical path ${index}`, fs.existsSync(value) ? fs.realpathSync(value) : path.resolve(value),
++  ]));
++}
++
++async function streamRestoreDump(dumpPath, user, database) {
++  const child = spawnDocker([...composeBaseArgs(), 'exec', '-T', 'db', 'pg_restore', '--no-owner', '--no-privileges',
++    '-U', user, '-d', database], { stdio: ['pipe', 'pipe', 'pipe'] });
++  const input = fs.createReadStream(dumpPath);
++  return new Promise((resolve, reject) => {
++    let failed = false;
++    input.on('error', (error) => { failed = true; child.kill(); reject(error); });
++    child.on('error', (error) => { failed = true; reject(error); });
++    child.stdin.on('error', () => {});
++    child.stderr.on('data', () => {});
++    input.pipe(child.stdin);
++    child.on('close', (code) => {
++      if (failed) return;
++      if (code !== 0) reject(new Error(`pg_restore завершился с кодом ${code}; цель остаётся заблокированной.`));
++      else resolve();
++    });
++  });
++}
++
++async function restoreIndependentBackup(backupDir, confirmation, injectedRunner) {
++  if (confirmation !== 'ВОССТАНОВИТЬ_В_НОВУЮ_ЦЕЛЬ') throw new Error('Требуется явное подтверждение независимого восстановления.');
++  const runner = injectedRunner || { compose: runDockerCompose, command: dockerCommandResult,
++    validateDump: assertPgDumpReadable, restoreDump: streamRestoreDump };
++  if (['compose', 'command', 'validateDump', 'restoreDump'].some((key) => typeof runner[key] !== 'function')) {
++    throw new Error('Тестовый runner должен явно подменить все внешние команды.');
++  }
+   const config = await readConfig();
++  const env = await readEnv();
++  assertStoragePaths(config);
++  assertOutsideProject(config, ROOT_DIR);
+   assertBackupInsideBackupsDir(config, backupDir);
+   const validation = await validateBackup(backupDir);
+-  if (!validation.ok) throw new Error('Backup не прошёл проверку. Восстановление остановлено.');
+-
+-  const beforeDir = `${config.uploadsDir}.before-restore-${timestamp()}`;
+-  await createBackup();
+-  runDockerCompose(['stop', 'backend', 'frontend']);
+-  runDockerCompose(['up', '-d', 'db']);
+-  runDockerCompose(['exec', '-T', 'db', 'dropdb', '--if-exists', '-U', 'zavod', 'zavod']);
+-  runDockerCompose(['exec', '-T', 'db', 'createdb', '-U', 'zavod', 'zavod']);
+-
+-  const dumpPath = path.join(path.resolve(backupDir), 'database', 'zavod.dump');
+-  const dump = fs.readFileSync(dumpPath);
+-  const restore = spawnDocker([
+-    ...composeBaseArgs(),
+-    'exec',
+-    '-T',
+-    'db',
+-    'pg_restore',
+-    '-U',
+-    'zavod',
+-    '-d',
+-    'zavod',
+-    '--clean',
+-    '--if-exists',
+-  ], {
+-    stdio: ['pipe', 'pipe', 'pipe'],
+-  });
+-  restore.stdin.end(dump);
+-  const output = await new Promise((resolve, reject) => {
+-    let stderr = '';
+-    restore.stderr.on('data', (chunk) => { stderr += chunk.toString('utf8'); });
+-    restore.on('error', reject);
+-    restore.on('close', (code) => (code === 0 ? resolve(stderr) : reject(new Error(stderr || `pg_restore code ${code}`))));
+-  });
+-
+-  if (fs.existsSync(config.uploadsDir)) await fsp.rename(config.uploadsDir, beforeDir);
+-  await copyDir(path.join(path.resolve(backupDir), 'uploads'), config.uploadsDir);
+-  const backupConfigDir = path.join(path.resolve(backupDir), 'config');
+-  if (fs.existsSync(path.join(backupConfigDir, 'zavod.config.json'))) await writeFileWithBackup(CONFIG_PATH, await fsp.readFile(path.join(backupConfigDir, 'zavod.config.json'), 'utf8'));
+-  if (fs.existsSync(path.join(backupConfigDir, 'production.env'))) await writeFileWithBackup(ENV_PATH, await fsp.readFile(path.join(backupConfigDir, 'production.env'), 'utf8'));
+-
+-  await startServices();
+-  await waitForOk(`http://127.0.0.1:${config.backendPort}/ready`);
+-  return { ok: true, uploadsBeforeRestore: beforeDir, details: output };
++  if (!validation.ok) throw new Error('Backup не прошёл полную проверку до изменения цели.');
++  const root = path.resolve(backupDir);
++  const manifest = JSON.parse(await fsp.readFile(path.join(root, 'manifest.json'), 'utf8'));
++  const sourceConfig = JSON.parse(await fsp.readFile(path.join(root, 'config', 'zavod.config.json'), 'utf8'));
++  const sourceEnv = parseEnvFile(await fsp.readFile(path.join(root, 'config', 'production.env'), 'utf8'));
++  assertIndependentIdentity(config, manifest, sourceConfig, sourceEnv, env);
++  const registrationCode = sourceEnv.REGISTRATION_FACTORY_CODE;
++  if (registrationCode && (!/^[a-z0-9][a-z0-9-]{1,49}$/.test(registrationCode)
++    || (env.REGISTRATION_FACTORY_CODE && env.REGISTRATION_FACTORY_CODE !== registrationCode))) {
++    throw new Error('Защищённая регистрационная настройка источника несовместима с целью.');
++  }
++  if (inspectDbStorage(config.dbDataDir).state !== 'OWNED') throw new Error('Хранилище БД цели не подготовлено.');
++  for (const target of [config.uploadsDir, config.backupsDir, config.logsDir, config.errorReportsExportPath, config.runtimeDir]) {
++    const stat = fs.lstatSync(target);
++    if (!stat.isDirectory() || stat.isSymbolicLink() || fs.realpathSync(target) !== path.resolve(target)) {
++      throw new Error('Небезопасный каталог или ссылка в пути цели восстановления.');
++    }
++  }
++  if (fs.readdirSync(config.uploadsDir).length) throw new Error('Каталог uploads цели не пуст.');
++  const running = parseComposeContainers(runner.compose(['ps', '--all', '--format', 'json']).stdout, config.dockerProjectName);
++  if (running.has('backend') || running.has('frontend')) throw new Error('Приложение цели должно оставаться остановленным.');
++  const empty = runner.command([...composeBaseArgs(), 'exec', '-T', 'db', 'psql', '-U', env.POSTGRES_USER,
++    '-d', env.POSTGRES_DB, '-At', '-c', "SELECT count(*) FROM pg_catalog.pg_class WHERE relnamespace = 'public'::regnamespace AND relkind IN ('r','p','m','v','S')"]);
++  if (empty.status !== 0 || String(empty.stdout || '').trim() !== '0') throw new Error('Целевая БД не доказана пустой.');
++  const dumpPath = path.join(root, 'database', 'zavod.dump');
++  await runner.validateDump(dumpPath);
++  await runner.restoreDump(dumpPath, env.POSTGRES_USER, env.POSTGRES_DB);
++  await copyDir(path.join(root, 'uploads'), config.uploadsDir);
++  for (const sourceFile of await listFilesRecursive(path.join(root, 'uploads'))) {
++    const relative = path.relative(path.join(root, 'uploads'), sourceFile);
++    if (await sha256(sourceFile) !== await sha256(path.join(config.uploadsDir, relative))) {
++      throw new Error('После восстановления не совпали bytes вложений; цель остаётся заблокированной.');
++    }
++  }
++  if (registrationCode) {
++    if (!env.REGISTRATION_FACTORY_CODE) {
++      const current = await fsp.readFile(ENV_PATH, 'utf8');
++      await writeFileWithBackup(ENV_PATH, `${current.trimEnd()}\nREGISTRATION_FACTORY_CODE=${registrationCode}\n`);
++    }
++  }
++  await writeFileWithBackup(CONFIG_PATH, `${JSON.stringify({ ...config, restoreTargetPending: false }, null, 2)}\n`);
++  return { ok: true, targetInstanceId: config.instanceId, sourceInstanceId: manifest.source.instanceId,
++    targetReleaseId: config.buildReleaseId, appStarted: false };
+ }
+ 
+ function jsonResponse(res, status, payload) {
+   const body = JSON.stringify(payload);
+@@ -1174,22 +1433,25 @@
+       if (typeof args[field] !== 'string' || !args[field].trim()) throw new Error(`Для prepare требуется --${field} <значение>.`);
+     }
+     const result = await deploy({
+       serverAddress: args['server-address'],
++      publicFrontendUrl: args['public-frontend-url'],
++      publicApiUrl: args['public-api-url'],
+       backendPort: Number(args['backend-port']),
+       frontendPort: Number(args['frontend-port']),
+       dbDataDir: args['db-data-dir'],
+       uploadsDir: args['uploads-dir'],
+       backupsDir: args['backups-dir'],
+       errorReportsExportPath: args['error-reports-dir'],
+       logsDir: args['logs-dir'],
+-    });
++    }, { restoreTarget: args['restore-target'] === true });
+     if (!result.ok) {
+       printChecks(result.checks);
+       throw new Error(result.message);
+     }
+     console.log(result.message);
+     console.log(`BUILD_RELEASE_ID=${result.build.releaseId}`);
++    if (result.restoreTargetReady) console.log('RESTORE_TARGET_READY: только пустая БД; приложение не запускалось.');
+     if (result.firstAdminRequired) console.log('FIRST_ADMIN_REQUIRED');
+     return;
+   }
+   if (command === 'restore-wizard') {
+@@ -1257,15 +1519,29 @@
+     const result = await restoreBackup(backupPath, confirmation);
+     console.log(`Восстановление завершено. Старая uploads-папка сохранена: ${result.uploadsBeforeRestore}`);
+     return;
+   }
++  if (command === 'restore-independent') {
++    const backupPath = args.backup || rest[1];
++    if (!backupPath) throw new Error('Укажите --backup <папка backup в каталоге новой цели>.');
++    const result = await restoreIndependentBackup(backupPath, args.confirm || '');
++    console.log(`INDEPENDENT_RESTORE_READY: target=${result.targetInstanceId}, release=${result.targetReleaseId}; приложение не запускалось.`);
++    return;
++  }
+   if (command === 'self-test') {
+     await selfTest();
+     return;
+   }
+   throw new Error(`Неизвестная команда: ${command}`);
+ }
+ 
+-main().catch((error) => {
+-  console.error(`Ошибка: ${error.message}`);
+-  process.exitCode = 1;
+-});
++if (require.main === module) {
++  main().catch((error) => {
++    console.error(`Ошибка: ${error.message}`);
++    process.exitCode = 1;
++  });
++}
++
++module.exports = {
++  normalizeConfig, makeEnv, parseComposeContainers, createBackup, validateBackup,
++  assertIndependentIdentity, restoreIndependentBackup, updateServices, candidateReleaseId, schemaFingerprint,
++};
+
+Index: setup/storage-contract.js
+===================================================================
+--- setup/storage-contract.js	before
++++ setup/storage-contract.js	after
+@@ -107,5 +107,5 @@
+   }, null, 2)}\n`, { flag: 'wx', mode: 0o600 });
+   return { state: 'CREATED', target: inspected.target };
+ }
+ 
+-module.exports = { MARKER, assertStoragePaths, assertOutsideProject, inspectDbStorage, prepareDbStorage };
++module.exports = { MARKER, assertNoOverlap, assertStoragePaths, assertOutsideProject, inspectDbStorage, prepareDbStorage };
+
+Index: setup/wizard.html
+===================================================================
+--- setup/wizard.html	before
++++ setup/wizard.html	after
+@@ -158,12 +158,15 @@
+         </div>
+         <div id="step-1" class="hidden">
+           <h2>2. Адрес сервера и порты</h2>
+           <div class="grid">
+-            <label>IP или домен сервера<input id="serverAddress" /></label>
+-            <label>Порт backend<input id="backendPort" type="number" min="1" max="65535" /></label>
+-            <label>Порт frontend<input id="frontendPort" type="number" min="1" max="65535" /></label>
+-          </div>
++             <label>IP или домен сервера<input id="serverAddress" /></label>
++             <label>Порт backend<input id="backendPort" type="number" min="1" max="65535" /></label>
++             <label>Порт frontend<input id="frontendPort" type="number" min="1" max="65535" /></label>
++             <label>Внешний HTTPS-адрес приложения<input id="publicFrontendUrl" placeholder="https://factory.example" /></label>
++             <label>Внешний HTTPS-адрес API<input id="publicApiUrl" placeholder="https://factory.example/api" /></label>
++           </div>
++           <div class="note">Для публичного доступа обязательны оба адреса с одним доверенным HTTPS origin. Без них допускается только частная проверка на 127.0.0.1 или localhost.</div>
+           <div class="actions"><button class="secondary" onclick="prevStep()">Назад</button><button class="secondary" onclick="nextStep()">Далее</button></div>
+         </div>
+         <div id="step-2" class="hidden">
+           <h2>3. Папки данных</h2>
+@@ -215,9 +218,11 @@
+     function nextStep() { showStep(current + 1); }
+     function prevStep() { showStep(current - 1); }
+     function values() {
+       return {
+-        serverAddress: document.getElementById('serverAddress').value,
++         serverAddress: document.getElementById('serverAddress').value,
++         publicFrontendUrl: document.getElementById('publicFrontendUrl').value,
++         publicApiUrl: document.getElementById('publicApiUrl').value,
+         backendPort: Number(document.getElementById('backendPort').value),
+         frontendPort: Number(document.getElementById('frontendPort').value),
+         dbDataDir: document.getElementById('dbDataDir').value,
+         uploadsDir: document.getElementById('uploadsDir').value,
+
+Index: setup/restore.html
+===================================================================
+--- setup/restore.html	before
++++ setup/restore.html	after
+@@ -23,20 +23,17 @@
+   </style>
+ </head>
+ <body>
+   <main>
+-    <h1>Восстановление «Завод»</h1>
++    <h1>Проверка резервной копии «Завод»</h1>
+     <section class="card">
+       <div class="warning">
+-        Восстановление заменяет текущую БД и uploads. Перед выполнением мастер создаёт предвосстановительный backup, но это всё равно аварийная операция. Не запускайте её для проверки.
++        Восстановление поверх действующей установки отключено. Здесь можно только проверить backup. Для независимого восстановления нужна отдельно подготовленная пустая цель и адресная команда restore-independent.
+       </div>
+-      <label>Backup для проверки или восстановления<select id="backup"></select></label>
++      <label>Backup для проверки<select id="backup"></select></label>
+       <button onclick="loadBackups()">Обновить список</button>
+       <button onclick="validateBackup()">Проверить backup</button>
+       <div id="validate"></div>
+-      <label>Для реального восстановления введите: ВОССТАНОВИТЬ<input id="confirm" /></label>
+-      <button class="danger" onclick="restore()">Восстановить выбранный backup</button>
+-      <div id="result"></div>
+     </section>
+   </main>
+   <script>
+     async function api(url, options = {}) {
+@@ -55,15 +52,8 @@
+       const backupPath = document.getElementById('backup').value;
+       const result = await api('/api/backup-validate', { method: 'POST', body: JSON.stringify({ backupPath }) });
+       document.getElementById('validate').innerHTML = checksHtml(result.checks);
+     }
+-    async function restore() {
+-      const backupPath = document.getElementById('backup').value;
+-      const confirmation = document.getElementById('confirm').value;
+-      document.getElementById('result').innerHTML = '<p>Выполняется восстановление. Не закрывайте окно.</p>';
+-      const result = await api('/api/restore', { method: 'POST', body: JSON.stringify({ backupPath, confirmation }) });
+-      document.getElementById('result').innerHTML = result.ok ? `<p class="ok">Восстановление завершено.</p>` : `<p class="bad">${result.message || 'Восстановление не выполнено'}</p>`;
+-    }
+     loadBackups();
+   </script>
+ </body>
+ </html>
+
+Index: backend/src/main.ts
+===================================================================
+--- backend/src/main.ts	before
++++ backend/src/main.ts	after
+@@ -18,9 +18,14 @@
+     .split(',')
+     .map((value) => value.trim())
+     .filter(Boolean);
+ 
+-  if (!allowedOrigins.length) return true;
++  if (!allowedOrigins.length) {
++    if (process.env.NODE_ENV === 'production') {
++      throw new Error('Для production-запуска задайте точный CORS_ALLOWED_ORIGINS.');
++    }
++    return true;
++  }
+ 
+   return (origin: string | undefined, callback: (error: Error | null, allow?: boolean) => void) => {
+     callback(null, !origin || allowedOrigins.includes(origin));
+   };
+
+Index: backend/src/modules/checklists/checklists.service.ts
+===================================================================
+--- backend/src/modules/checklists/checklists.service.ts	before
++++ backend/src/modules/checklists/checklists.service.ts	after
+@@ -1798,8 +1798,9 @@
+       include: { rows: true },
+       orderBy: { sequence: 'desc' },
+     });
+     const normalizedCheckId = typeof expectedCheckId === 'string' && expectedCheckId.trim() ? expectedCheckId.trim() : null;
++    if (!normalizedCheckId) throw new ConflictError('Укажите текущую проверку перед завершением. Обновите чек-лист.');
+     if (!check) throw new ConflictError('Текущая проверка не найдена. Обновите чек-лист.');
+     if (normalizedCheckId && normalizedCheckId !== check.id) {
+       throw new ConflictError('Эта проверка уже завершена или изменилась. Обновите чек-лист.');
+     }
+@@ -2396,9 +2397,14 @@
+         .slice()
+         .sort((a: any, b: any) => Number(a.sortOrder ?? 0) - Number(b.sortOrder ?? 0))
+         .map((row: any) => {
+           const legacyRow: any = row.runRowId ? legacyRows.get(row.runRowId) : null;
+-          const attachments = [...(legacyRow?.attachments ?? []), ...(row.attachments ?? [])]
++          // A run row is the mutable workspace buffer. Only its genuine legacy
++          // RUN_ROW files are shared with occurrences; the current ENTRY photo
++          // must never be projected backwards into an earlier check.
++          const legacyAttachments = (legacyRow?.attachments ?? [])
++            .filter((attachment: any) => attachment.entityType === AttachmentEntityType.CHECKLIST_RUN_ROW);
++          const attachments = [...legacyAttachments, ...(row.attachments ?? [])]
+             .filter((attachment: any, index: number, all: any[]) => all.findIndex((candidate: any) => candidate.id === attachment.id) === index);
+           return this.serializeArchiveJournalRow({ ...row, referencePhoto: row.referencePhoto ?? legacyRow?.referencePhoto ?? null, attachments });
+         });
+       const completedAt = check.completedAt ?? run.closedAt ?? run.autoClosedAt ?? null;
+@@ -2406,9 +2412,9 @@
+       const dateKey = this.archiveDateKey(run.shiftDate ?? eventAt);
+       const photoCount = rows.reduce((sum: number, row: any) => sum + row.photoCount, 0);
+       const commentCount = rows.filter((row: any) => row.comment).length;
+       const deviationCount = rows.filter((row: any) => row.status !== 'ok').length;
+-      const incompleteAutoClose = run.status === ChecklistRunStatus.AUTO_CLOSED && (run.closeOutcome === 'INCOMPLETE' || check.status !== 'COMPLETED');
++      const incompleteAutoClose = run.status === ChecklistRunStatus.AUTO_CLOSED && check.status !== 'COMPLETED';
+       const closedEarly = run.closeKind === 'MANUAL_EARLY' && check.status !== 'COMPLETED';
+       const isAutoClosed = run.status === ChecklistRunStatus.AUTO_CLOSED;
+       return {
+         recordId: `${run.id}:${check.id}`,
+
+Index: backend/src/modules/archive/archive.service.ts
+===================================================================
+--- backend/src/modules/archive/archive.service.ts	before
++++ backend/src/modules/archive/archive.service.ts	after
+@@ -105,8 +105,9 @@
+   date?: Date | string | null;
+   actor?: string | null;
+   text?: string | null;
+   fields?: ArchiveDetailField[];
++  attachmentIds?: string[];
+ };
+ 
+ type ArchiveDetailSection = {
+   title: string;
+@@ -122,8 +123,10 @@
+   mimeType: string;
+   size: number;
+   createdAt: Date;
+   author: string;
++  entityType?: AttachmentEntityType;
++  entityId?: string;
+ };
+ 
+ type ArchiveDetail = {
+   section: ArchiveSectionKey;
+@@ -1629,8 +1632,10 @@
+       orderBy: [{ createdAt: 'asc' }, { id: 'asc' }],
+     });
+     return rows.map((attachment) => ({
+       id: attachment.id,
++      entityType: attachment.entityType,
++      entityId: attachment.entityId,
+       filename: this.normalizeOriginalName(attachment.originalName),
+       kind: attachment.kind,
+       mimeType: attachment.mimeType,
+       size: attachment.sizeBytes,
+@@ -1887,12 +1892,17 @@
+         ...run.pauseEvents.flatMap((pause: any) => [pause.pausedById, pause.resumedById]),
+       ]),
+     ]);
+     const rowRefs = run.rows.map((row: any) => ({ entityType: AttachmentEntityType.CHECKLIST_RUN_ROW, entityId: row.id }));
++    const entryRefs = run.checks.flatMap((check: any) => check.rows.map((row: any) => ({ entityType: AttachmentEntityType.CHECKLIST_ENTRY, entityId: row.id })));
+     const attachments = await this.detailAttachments(user, [
+       { entityType: AttachmentEntityType.CHECKLIST_RUN, entityId: run.id },
+       ...rowRefs,
++      ...entryRefs,
+     ]);
++    const attachmentIdsFor = (entityType: AttachmentEntityType, entityId: string) => attachments
++      .filter((attachment) => attachment.entityType === entityType && attachment.entityId === entityId)
++      .map((attachment) => attachment.id);
+     const checks = run.checks.map((check: any) => ({
+       title: `Проверка ${check.sequence}`,
+       status: check.status === 'ACTIVE' && [ChecklistRunStatus.CLOSED, ChecklistRunStatus.AUTO_CLOSED].includes(run.status)
+         ? 'CLOSED_WITH_RUN'
+@@ -1910,8 +1920,9 @@
+     }));
+     const answerEntries = run.checks.length
+       ? run.checks.flatMap((check: any) => check.rows.map((row: any) => ({
+         title: `Проверка ${check.sequence}: ${row.title}`,
++        attachmentIds: attachmentIdsFor(AttachmentEntityType.CHECKLIST_ENTRY, row.id),
+         status: row.status,
+         date: row.completedAt ?? check.completedAt ?? check.startedAt,
+         actor: row.completedById ? userNames.get(row.completedById) : null,
+         text: row.comment || null,
+@@ -1924,8 +1935,9 @@
+         ]),
+       })))
+       : run.rows.map((row: any) => ({
+         title: row.title,
++        attachmentIds: attachmentIdsFor(AttachmentEntityType.CHECKLIST_RUN_ROW, row.id),
+         status: row.status,
+         date: row.completedAt ?? run.closedAt ?? run.autoClosedAt,
+         actor: row.completedById ? userNames.get(row.completedById) : null,
+         text: row.comment || null,
+
+Index: backend/scripts/master-r2-checklist.test.js
+===================================================================
+--- backend/scripts/master-r2-checklist.test.js	before
++++ backend/scripts/master-r2-checklist.test.js	after
+@@ -50,4 +50,25 @@
+ });
+ test('R2-E-J12 pure occurrence completion at explicit shift end does not create another occurrence',async()=>{
+   const f=await started(),run=f.runs[0];f.entries.forEach(r=>r.status='OK');const end=new Date(run.shiftEndsAt);const result=await f.service.completePeriodicCheck(f.db,run,f.user,end,f.checks[0].id);assert.equal(result.checkId,f.checks[0].id);assert.equal(f.checks.length,1);assert.equal(run.status,'AUTO_CLOSED');assert.equal(run.closeKind,'SHIFT_END');assert.equal(run.nextCheckAt,null);
+ });
++test('CHECKLIST-VERIFY-01 FIFO memory retry and competing finish intentions keep one next occurrence',async()=>{
++  const f=fixture();
++  f.templateBody.rows=[{title:'Ответ',rowType:'YES_NO',requiredAnswer:true}];
++  const template=await f.service.createTemplate(f.user,f.templateBody);
++  const run=await f.service.startRun(f.user,{templateId:template.id});
++  await f.service.completeRow(f.user,run.id,run.rows[0].id,{answerBoolean:true,checkId:run.currentCheck.id,operationId:'one-answer'});
++  const same=await Promise.all([
++    f.service.completeCurrentCheck(f.user,run.id,{checkId:run.currentCheck.id,operationId:'same-finish'}),
++    f.service.completeCurrentCheck(f.user,run.id,{checkId:run.currentCheck.id,operationId:'same-finish'}),
++  ]);
++  assert.equal(same[0].currentCheck.id,same[1].currentCheck.id);
++  assert.equal(f.checks.length,2);
++  await f.service.completeRow(f.user,run.id,run.rows[0].id,{answerBoolean:true,checkId:same[0].currentCheck.id,operationId:'second-answer'});
++  const competing=await Promise.allSettled([
++    f.service.completeCurrentCheck(f.user,run.id,{checkId:same[0].currentCheck.id,operationId:'finish-a'}),
++    f.service.completeCurrentCheck(f.user,run.id,{checkId:same[0].currentCheck.id,operationId:'finish-b'}),
++  ]);
++  assert.deepEqual(competing.map(x=>x.status).sort(),['fulfilled','rejected']);
++  assert.equal(f.checks.length,3);
++  // This repository runs FIFO callbacks. It does not prove PostgreSQL advisory locking.
++});
+
+Index: frontend/nginx.production.conf
+===================================================================
+--- frontend/nginx.production.conf	before
++++ frontend/nginx.production.conf	after
+@@ -4,8 +4,26 @@
+ 
+   root /usr/share/nginx/html;
+   index index.html;
+ 
++  # The only public entrypoint is the separately configured trusted TLS proxy.
++  # API and websocket traffic stay inside this Compose network.
++  location /api/ {
++    proxy_pass http://backend:3000/;
++    proxy_set_header Host $host;
++    proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
++    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
++  }
++
++  location = /ws {
++    proxy_pass http://backend:3000/ws;
++    proxy_http_version 1.1;
++    proxy_set_header Upgrade $http_upgrade;
++    proxy_set_header Connection "upgrade";
++    proxy_set_header Host $host;
++    proxy_read_timeout 75s;
++  }
++
+   location / {
+     try_files $uri $uri/ /index.html;
+   }
+ 
+
+Index: frontend/src/screens/ArchiveScreen.tsx
+===================================================================
+--- frontend/src/screens/ArchiveScreen.tsx	before
++++ frontend/src/screens/ArchiveScreen.tsx	after
+@@ -26,9 +26,9 @@
+   lines: Array<{ id: string; name: string }>;
+   checklistTemplates: Array<{ id: string; name: string }>;
+ };
+ type ArchiveDetailField = { label: string; value: string | number | boolean | null; kind?: 'text' | 'status' | 'datetime' | 'duration' };
+-type ArchiveDetailEntry = { title: string; status?: string | null; date?: string | null; actor?: string | null; text?: string | null; fields?: ArchiveDetailField[] };
++type ArchiveDetailEntry = { title: string; status?: string | null; date?: string | null; actor?: string | null; text?: string | null; fields?: ArchiveDetailField[]; attachmentIds?: string[] };
+ type ArchiveDetail = {
+   section: ArchiveSectionKey; sourceType: string; title: string; status: string | null; date: string; sourceRoute: string | null;
+   sections: Array<{ title: string; fields?: ArchiveDetailField[]; entries?: ArchiveDetailEntry[]; emptyText?: string }>;
+   attachments: Array<{ id: string; filename: string; kind: string; mimeType: string; size: number; createdAt: string; author: string }>;
+@@ -495,10 +495,10 @@
+         {selectedSection === 'orders' && metrics ? <div className="metric-grid compact-metrics"><div className="metric-card"><div className="metric-label">Израсходовано</div><div className="metric-value">{metrics.takeQuantity}</div></div><div className="metric-card"><div className="metric-label">Пополнено</div><div className="metric-value">{metrics.restockQuantity}</div></div></div> : null}
+       </PremiumSheet>
+ 
+       <PremiumSheet open={Boolean(detail)} title={detail?.title ?? 'Запись архива'} eyebrow={detail ? `${sourceLabels[detail.sourceType] ?? 'История'} · ${formatDate(detail.date)}` : undefined} description={detail ? statusLabel(detail.status) : undefined} onClose={closeDetail} className="archive-detail-sheet" footer={detail?.sourceRoute ? <button className="secondary-button" onClick={() => openSource(detail.sourceRoute)} type="button">Открыть исходный раздел</button> : undefined}>
+-        {detail?.sections.map((section, sectionIndex) => <section className="archive-detail-section" key={`${section.title}:${sectionIndex}`}><h4>{section.title}</h4>{section.fields?.length ? <dl>{section.fields.map((field, fieldIndex) => <div key={`${field.label}:${fieldIndex}`}><dt>{field.label}</dt><dd>{detailValue(field)}</dd></div>)}</dl> : null}{section.entries?.length ? <div className="archive-detail-timeline">{section.entries.map((entry, entryIndex) => <article key={`${entry.title}:${entryIndex}`}><header><strong>{entry.title}</strong>{entry.status ? <span className="status-badge">{statusLabel(entry.status)}</span> : null}</header><small>{[entry.actor, entry.date ? formatDate(entry.date) : null].filter(Boolean).join(' · ')}</small>{entry.text ? <p>{entry.text}</p> : null}{entry.fields?.length ? <dl>{entry.fields.map((field, fieldIndex) => <div key={`${field.label}:${fieldIndex}`}><dt>{field.label}</dt><dd>{detailValue(field)}</dd></div>)}</dl> : null}</article>)}</div> : section.emptyText ? <p className="empty-state compact">{section.emptyText}</p> : null}</section>)}
+-        {detail?.attachments.length ? <section className="archive-detail-section"><h4>Вложения</h4>{detail.attachments.map((attachment) => <div key={attachment.id}><AttachmentPreviewList attachments={[previewAttachment(attachment)]} showTitle={false} /><small>{attachment.author} · {formatDate(attachment.createdAt)}</small></div>)}</section> : null}
++        {detail?.sections.map((section, sectionIndex) => <section className="archive-detail-section" key={`${section.title}:${sectionIndex}`}><h4>{section.title}</h4>{section.fields?.length ? <dl>{section.fields.map((field, fieldIndex) => <div key={`${field.label}:${fieldIndex}`}><dt>{field.label}</dt><dd>{detailValue(field)}</dd></div>)}</dl> : null}{section.entries?.length ? <div className="archive-detail-timeline">{section.entries.map((entry, entryIndex) => <article key={`${entry.title}:${entryIndex}`}><header><strong>{entry.title}</strong>{entry.status ? <span className="status-badge">{statusLabel(entry.status)}</span> : null}</header><small>{[entry.actor, entry.date ? formatDate(entry.date) : null].filter(Boolean).join(' · ')}</small>{entry.text ? <p>{entry.text}</p> : null}{entry.fields?.length ? <dl>{entry.fields.map((field, fieldIndex) => <div key={`${field.label}:${fieldIndex}`}><dt>{field.label}</dt><dd>{detailValue(field)}</dd></div>)}</dl> : null}{entry.attachmentIds?.length ? <div>{detail.attachments.filter((attachment) => entry.attachmentIds?.includes(attachment.id)).map((attachment) => <div key={attachment.id}><AttachmentPreviewList attachments={[previewAttachment(attachment)]} showTitle={false} /><small>{attachment.author} · {formatDate(attachment.createdAt)}</small></div>)}</div> : null}</article>)}</div> : section.emptyText ? <p className="empty-state compact">{section.emptyText}</p> : null}</section>)}
++        {detail?.attachments.filter((attachment) => !detail.sections.some((section) => section.entries?.some((entry) => entry.attachmentIds?.includes(attachment.id)))).length ? <section className="archive-detail-section"><h4>Вложения</h4>{detail.attachments.filter((attachment) => !detail.sections.some((section) => section.entries?.some((entry) => entry.attachmentIds?.includes(attachment.id)))).map((attachment) => <div key={attachment.id}><AttachmentPreviewList attachments={[previewAttachment(attachment)]} showTitle={false} /><small>{attachment.author} · {formatDate(attachment.createdAt)}</small></div>)}</section> : null}
+       </PremiumSheet>
+ 
+       <PremiumSheet open={Boolean(attachmentDetail)} title={attachmentDetail?.filename ?? 'Вложение'} description={attachmentDetail?.sourceTitle} onClose={closeDetail} className="archive-detail-sheet" footer={attachmentDetail?.sourceRoute ? <button className="secondary-button" onClick={() => openSource(attachmentDetail.sourceRoute)} type="button">Открыть источник</button> : undefined}>
+         {attachmentDetail ? <AttachmentPreviewList key={attachmentDetail.id} attachments={[previewAttachment(attachmentDetail)]} showTitle={false} /> : null}
+
+Index: frontend/nginx.https.example.conf
+===================================================================
+--- frontend/nginx.https.example.conf	before
++++ frontend/nginx.https.example.conf	after
+@@ -1,0 +1,27 @@
+\ No newline at end of file
++# Operator template for a separately installed Nginx TLS endpoint; NOT an active
++# Compose service or a certificate-issuance mechanism. Replace all REPLACE_ values.
++# Only the local frontend port is upstream; its /api and /ws locations route to
++# the backend inside the existing Compose network.
++map $http_upgrade $connection_upgrade {
++  default upgrade;
++  '' close;
++}
++
++server {
++  listen 443 ssl;
++  server_name REPLACE_HOSTNAME;
++  ssl_certificate REPLACE_CERTIFICATE_PATH;
++  ssl_certificate_key REPLACE_PRIVATE_KEY_PATH;
++
++  location / {
++    proxy_pass http://127.0.0.1:REPLACE_FRONTEND_PORT;
++    proxy_http_version 1.1;
++    proxy_set_header Host $host;
++    proxy_set_header X-Forwarded-Proto https;
++    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
++    proxy_set_header Upgrade $http_upgrade;
++    proxy_set_header Connection $connection_upgrade;
++  }
++}
++# Include this template in an Nginx http context. Certificate trust, renewal,
++# firewall exposure and real WSS remain separate runtime gates.
+
+Index: setup/vps-tech-01-r1.test.cjs
+===================================================================
+--- setup/vps-tech-01-r1.test.cjs	before
++++ setup/vps-tech-01-r1.test.cjs	after
+@@ -1,0 +1,267 @@
+\ No newline at end of file
++'use strict';
++
++// No app/DB/Docker imports or live command fallback: every external command is
++// supplied by each case. All files stay under one synthetic temporary root.
++const { test } = require('node:test');
++const assert = require('node:assert/strict');
++const crypto = require('node:crypto');
++const fs = require('node:fs');
++const os = require('node:os');
++const path = require('node:path');
++const vm = require('node:vm');
++const ts = require('typescript');
++
++const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'zavod-vps-tech01-r1-'));
++const dump = Buffer.concat([Buffer.from('PGDMP'), Buffer.alloc(256, 7)]);
++let sequence = 0;
++function fixture(options = {}) {
++  const root = path.join(temp, String(++sequence));
++  const runtime = path.join(root, 'runtime');
++  const paths = Object.fromEntries(['dbDataDir', 'uploadsDir', 'backupsDir', 'errorReportsExportPath', 'logsDir']
++    .map((key) => [key, path.join(root, key)]));
++  for (const value of [runtime, ...Object.values(paths)]) fs.mkdirSync(value, { recursive: true });
++  process.env.ZAVOD_SETUP_RUNTIME = runtime;
++  delete require.cache[require.resolve('./zavod-setup')];
++  const setup = require('./zavod-setup');
++  const config = setup.normalizeConfig({ serverAddress: '127.0.0.1', backendPort: 31000 + sequence, frontendPort: 35170 + sequence,
++    ...paths, instanceId: crypto.randomUUID(), buildReleaseId: '1.0.0+synthetic',
++    dockerProjectName: `synthetic-${sequence}`, restoreTargetPending: Boolean(options.restoreTargetPending) });
++  fs.writeFileSync(path.join(runtime, 'zavod.config.json'), JSON.stringify(config));
++  fs.writeFileSync(path.join(runtime, 'production.env'), setup.makeEnv(config, {
++    postgresPassword: `synthetic-only-password-${sequence}`, jwtSecret: `synthetic-only-jwt-secret-32-characters-${sequence}`,
++  }));
++  if (options.uploadsFile) fs.writeFileSync(path.join(paths.uploadsDir, 'photo-fake.txt'), 'synthetic file A');
++  const active = new Set(options.stopped ? ['db'] : ['db', 'backend', 'frontend']);
++  const log = [];
++  const runner = {
++    compose(args) {
++      log.push(`compose ${args.join(' ')}`);
++      if (args[0] === 'ps') return { stdout: ['db', 'backend', 'frontend'].map((service) => JSON.stringify({
++        Service: service, Name: `${config.dockerProjectName}-${service}-1`, State: active.has(service) ? 'running' : 'exited',
++      })).join('\n') };
++      if (args[0] === 'stop') {
++        if (options.stopFails) throw new Error('synthetic stop failed');
++        args.slice(1).forEach((service) => active.delete(service));
++      }
++      if (args[0] === 'up') args.filter((item) => ['backend', 'frontend'].includes(item)).forEach((service) => active.add(service));
++      return { stdout: '' };
++    },
++    command(args) {
++      log.push(`command ${args.join(' ')}`);
++      if (options.dumpFails) return { status: 2, stdout: null, stderr: 'synthetic failure' };
++      return { status: 0, stdout: options.shortDump ? Buffer.from('PGDMP') : dump };
++    },
++  };
++  return { root, runtime, paths, setup, config, runner, active, log };
++}
++
++test('A1 public origin is explicit, HTTPS/same-origin and CORS is emitted; private loopback remains explicit', () => {
++  const f = fixture({ stopped: true });
++  assert.equal(f.config.corsAllowedOrigins, `http://127.0.0.1:${f.config.frontendPort}`);
++  assert.match(fs.readFileSync(path.join(f.runtime, 'production.env'), 'utf8'), /CORS_ALLOWED_ORIGINS=http:\/\/127\.0\.0\.1:/);
++  const publicConfig = f.setup.normalizeConfig({ ...f.config, serverAddress: 'factory.example',
++    publicFrontendUrl: 'https://factory.example', publicApiUrl: 'https://factory.example/api' });
++  assert.equal(publicConfig.corsAllowedOrigins, 'https://factory.example');
++  assert.match(f.setup.makeEnv(publicConfig, { postgresPassword: 'fake', jwtSecret: 'fake' }), /PUBLIC_API_URL=https:\/\/factory\.example\/api/);
++  for (const invalid of [
++    { serverAddress: 'factory.example', publicFrontendUrl: '', publicApiUrl: '' },
++    { serverAddress: 'factory.example', publicFrontendUrl: 'http://factory.example', publicApiUrl: 'http://factory.example/api' },
++    { serverAddress: 'factory.example', publicFrontendUrl: 'https://factory.example', publicApiUrl: 'https://other.example/api' },
++  ]) assert.throws(() => f.setup.normalizeConfig({ ...f.config, ...invalid }));
++});
++
++test('A1 actual backend CORS function fails closed in production and retains dev-only permissive contract', () => {
++  const source = fs.readFileSync(path.join(__dirname, '..', 'backend', 'src', 'main.ts'), 'utf8');
++  const ast = ts.createSourceFile('main.ts', source, ts.ScriptTarget.Latest, true);
++  const fn = ast.statements.find((node) => ts.isFunctionDeclaration(node) && node.name?.text === 'configuredCorsOrigin');
++  assert.ok(fn);
++  const javascript = ts.transpileModule(`${fn.getText(ast)}\nmodule.exports = configuredCorsOrigin;`, {
++    compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS },
++  }).outputText;
++  const load = (env) => { const context = { module: { exports: null }, process: { env } }; vm.runInNewContext(javascript, context); return context.module.exports; };
++  assert.throws(() => load({ NODE_ENV: 'production' })(), /CORS_ALLOWED_ORIGINS/);
++  const cors = load({ NODE_ENV: 'production', CORS_ALLOWED_ORIGINS: 'https://factory.example' })();
++  let allowed;
++  cors('https://factory.example', (_error, value) => { allowed = value; });
++  assert.equal(allowed, true);
++  cors('https://foreign.example', (_error, value) => { allowed = value; });
++  assert.equal(allowed, false);
++  assert.equal(load({ NODE_ENV: 'development' })(), true);
++});
++
++test('A2 backup stops and confirms owned writers before dump, validates then publishes, restoring original state', async () => {
++  const f = fixture({ uploadsFile: true });
++  const result = await f.setup.createBackup(f.runner);
++  assert.ok(fs.existsSync(path.join(result.backupDir, 'checksums.sha256')));
++  assert.equal((await f.setup.validateBackup(result.backupDir)).ok, true);
++  assert.ok(f.log.findIndex((item) => item.startsWith('compose stop')) < f.log.findIndex((item) => item.includes('pg_dump')));
++  assert.ok(f.log.findIndex((item) => item.includes('pg_dump')) < f.log.findIndex((item) => item.startsWith('compose up')));
++  assert.deepEqual([...f.active].sort(), ['backend', 'db', 'frontend']);
++  assert.equal(JSON.parse(fs.readFileSync(path.join(result.backupDir, 'manifest.json'))).source.instanceId, f.config.instanceId);
++});
++
++test('A2 failure paths never publish a valid partial; stopped app stays stopped', async () => {
++  const stopped = fixture({ stopped: true });
++  await stopped.setup.createBackup(stopped.runner);
++  assert.equal(stopped.log.some((item) => item.startsWith('compose up')), false);
++  const stopFailure = fixture({ stopFails: true });
++  await assert.rejects(stopFailure.setup.createBackup(stopFailure.runner), /stop failed/);
++  assert.equal(stopFailure.log.some((item) => item.includes('pg_dump')), false);
++  const dumpFailure = fixture({ dumpFails: true });
++  await assert.rejects(dumpFailure.setup.createBackup(dumpFailure.runner), /дамп/);
++  assert.equal(fs.readdirSync(dumpFailure.paths.backupsDir).length, 0);
++  assert.deepEqual([...dumpFailure.active].sort(), ['backend', 'db', 'frontend']);
++  const copyFailure = fixture();
++  fs.rmSync(copyFailure.paths.uploadsDir, { recursive: true });
++  fs.writeFileSync(copyFailure.paths.uploadsDir, 'not a directory');
++  await assert.rejects(copyFailure.setup.createBackup(copyFailure.runner));
++  assert.equal(fs.readdirSync(copyFailure.paths.backupsDir).length, 0);
++  assert.deepEqual([...copyFailure.active].sort(), ['backend', 'db', 'frontend']);
++});
++
++test('A3 legacy restore refuses before commands; same identity and nonempty target refuse before mutation', async () => {
++  const source = fixture({ stopped: true, uploadsFile: true });
++  const sourceBackup = await source.setup.createBackup(source.runner);
++  await assert.rejects(source.setup.restoreIndependentBackup(sourceBackup.backupDir, 'wrong', {
++    compose() { throw new Error('must not run'); }, command() { throw new Error('must not run'); },
++    validateDump() { throw new Error('must not run'); }, restoreDump() { throw new Error('must not run'); },
++  }));
++  const target = fixture({ stopped: true, restoreTargetPending: true });
++  const copied = path.join(target.paths.backupsDir, 'source-copy');
++  fs.cpSync(sourceBackup.backupDir, copied, { recursive: true });
++  let called = 0;
++  const runner = { compose() { called++; throw new Error('unexpected command'); }, command() { called++; throw new Error('unexpected command'); },
++    validateDump() { called++; throw new Error('unexpected command'); }, restoreDump() { called++; throw new Error('unexpected command'); } };
++  const same = { ...target.config, instanceId: source.config.instanceId };
++  fs.writeFileSync(path.join(target.runtime, 'zavod.config.json'), JSON.stringify(same));
++  await assert.rejects(target.setup.restoreIndependentBackup(copied, 'ВОССТАНОВИТЬ_В_НОВУЮ_ЦЕЛЬ', runner));
++  assert.equal(called, 0);
++  fs.writeFileSync(path.join(target.runtime, 'zavod.config.json'), JSON.stringify(target.config));
++  fs.writeFileSync(path.join(target.paths.uploadsDir, 'existing.txt'), 'not empty');
++  await assert.rejects(target.setup.restoreIndependentBackup(copied, 'ВОССТАНОВИТЬ_В_НОВУЮ_ЦЕЛЬ', runner));
++  assert.equal(called, 0);
++  fs.rmSync(path.join(target.paths.uploadsDir, 'existing.txt'));
++  fs.writeFileSync(path.join(target.runtime, 'zavod.config.json'), JSON.stringify({ ...target.config, uploadsDir: source.config.uploadsDir }));
++  await assert.rejects(target.setup.restoreIndependentBackup(copied, 'ВОССТАНОВИТЬ_В_НОВУЮ_ЦЕЛЬ', runner));
++  assert.equal(called, 0);
++  fs.writeFileSync(path.join(target.runtime, 'zavod.config.json'), JSON.stringify(target.config));
++  fs.writeFileSync(path.join(copied, 'uploads', 'photo-fake.txt'), 'corrupted payload');
++  await assert.rejects(target.setup.restoreIndependentBackup(copied, 'ВОССТАНОВИТЬ_В_НОВУЮ_ЦЕЛЬ', runner));
++  assert.equal(called, 0);
++});
++
++test('A3 independent restore uses only target command identity and retains target routing/secrets in a fake runner', async () => {
++  const source = fixture({ stopped: true, uploadsFile: true });
++  const sourceBackup = await source.setup.createBackup(source.runner);
++  const target = fixture({ stopped: true, restoreTargetPending: true });
++  fs.rmSync(target.paths.dbDataDir, { recursive: true });
++  require('./storage-contract').prepareDbStorage(target.paths.dbDataDir);
++  const copied = path.join(target.paths.backupsDir, 'source-copy');
++  fs.cpSync(sourceBackup.backupDir, copied, { recursive: true });
++  const targetEnvBefore = fs.readFileSync(path.join(target.runtime, 'production.env'), 'utf8');
++  const commands = [];
++  const runner = {
++    compose(args) {
++      commands.push(args.join(' '));
++      return { stdout: ['db', 'backend', 'frontend'].map((service) => JSON.stringify({
++        Service: service, Name: `${target.config.dockerProjectName}-${service}-1`, State: service === 'db' ? 'running' : 'exited',
++      })).join('\n') };
++    },
++    command(args) { commands.push(args.join(' ')); return { status: 0, stdout: '0\n' }; },
++    async validateDump() { commands.push('fake validate dump'); },
++    async restoreDump(_path, user, db) { commands.push(`fake restore ${user} ${db}`); },
++  };
++  const outcome = await target.setup.restoreIndependentBackup(copied, 'ВОССТАНОВИТЬ_В_НОВУЮ_ЦЕЛЬ', runner);
++  assert.equal(outcome.appStarted, false);
++  assert.ok(commands.every((command) => !command.includes(source.config.dockerProjectName)));
++  assert.ok(commands.some((command) => command.includes(`-p ${target.config.dockerProjectName}`)));
++  assert.ok(commands.every((command) => !/dropdb|createdb|\bstart\b|\bup\b/.test(command)));
++  assert.equal(fs.readFileSync(path.join(target.paths.uploadsDir, 'photo-fake.txt'), 'utf8'), 'synthetic file A');
++  assert.equal(fs.readFileSync(path.join(target.runtime, 'production.env'), 'utf8'), targetEnvBefore);
++  assert.equal(JSON.parse(fs.readFileSync(path.join(target.runtime, 'zavod.config.json'))).restoreTargetPending, false);
++});
++
++test('A4 update retains exact old image IDs and release identity across fake build failure and success', async () => {
++  let f = fixture({ stopped: true });
++  let backup = await f.setup.createBackup(f.runner);
++  const oldRelease = f.config.buildReleaseId;
++  const candidate = f.setup.candidateReleaseId();
++  assert.notEqual(candidate, oldRelease);
++  const imageIds = { backend: `sha256:${'a'.repeat(64)}`, frontend: `sha256:${'b'.repeat(64)}` };
++  const calls = [];
++  let failBuild = true;
++  const runner = {
++    compose(args) {
++      calls.push(`compose ${args.join(' ')}`);
++      if (args[0] === 'ps') return { stdout: ['backend', 'frontend'].map((service) => JSON.stringify({
++        Service: service, Name: `${f.config.dockerProjectName}-${service}-1`, State: 'running', ID: `container-${service}`,
++      })).join('\n') };
++      return { stdout: '' };
++    },
++    command(args) {
++      calls.push(`command ${args.join(' ')}`);
++      if (args[0] === 'inspect') return { status: 0, stdout: imageIds[args.at(-1).replace('container-', '')] };
++      if (args[0] === 'image' && args[1] === 'inspect') return {
++        status: 0, stdout: imageIds[args.at(-1).includes('backend') ? 'backend' : 'frontend'],
++      };
++      return { status: 0, stdout: '' };
++    },
++    async validateDump() { calls.push('fake dump list'); },
++    build() { calls.push('fake build'); if (failBuild) throw new Error('synthetic build failed'); return { releaseId: candidate }; },
++    async start() { calls.push('fake start'); return { runtimeStatus: 'READY' }; },
++  };
++  await assert.rejects(f.setup.updateServices(backup.backupDir, runner), /synthetic build failed/);
++  const pending = JSON.parse(fs.readFileSync(path.join(f.runtime, 'zavod.config.json')));
++  assert.equal(pending.buildReleaseId, oldRelease);
++  assert.equal(pending.updatePending.toReleaseId, candidate);
++  assert.equal(pending.updatePending.retainedImages.backend.imageId, imageIds.backend);
++  assert.equal(pending.updatePending.retainedImages.frontend.imageId, imageIds.frontend);
++  assert.ok(calls.findIndex((item) => item.includes('image tag')) < calls.findIndex((item) => item === 'fake build'));
++  await assert.rejects(f.setup.updateServices(backup.backupDir, runner), /не завершено/);
++  f = fixture({ stopped: true });
++  backup = await f.setup.createBackup(f.runner);
++  failBuild = false;
++  await f.setup.updateServices(backup.backupDir, runner);
++  const completed = JSON.parse(fs.readFileSync(path.join(f.runtime, 'zavod.config.json')));
++  assert.equal(completed.buildReleaseId, candidate);
++  assert.equal(completed.previousRelease.releaseId, oldRelease);
++  assert.equal(completed.updatePending, null);
++});
++
++test('A4 wrong release refuses before commands; fake start failure retains previous image tags', async () => {
++  const wrong = fixture({ stopped: true });
++  const wrongBackup = await wrong.setup.createBackup(wrong.runner);
++  fs.writeFileSync(path.join(wrong.runtime, 'zavod.config.json'), JSON.stringify({ ...wrong.config, buildReleaseId: 'another-release' }));
++  let calls = 0;
++  const forbidden = { compose() { calls++; throw new Error('must not run'); }, command() { calls++; throw new Error('must not run'); },
++    validateDump() { calls++; throw new Error('must not run'); }, build() { calls++; throw new Error('must not run'); },
++    start() { calls++; throw new Error('must not run'); } };
++  await assert.rejects(wrong.setup.updateServices(wrongBackup.backupDir, forbidden));
++  assert.equal(calls, 0);
++
++  const f = fixture({ stopped: true });
++  const backup = await f.setup.createBackup(f.runner);
++  const ids = { backend: `sha256:${'c'.repeat(64)}`, frontend: `sha256:${'d'.repeat(64)}` };
++  const runner = {
++    compose(args) { return args[0] === 'ps' ? { stdout: ['backend', 'frontend'].map((service) => JSON.stringify({
++      Service: service, Name: `${f.config.dockerProjectName}-${service}-1`, State: 'running', ID: `container-${service}`,
++    })).join('\n') } : { stdout: '' }; },
++    command(args) {
++      if (args[0] === 'inspect') return { status: 0, stdout: ids[args.at(-1).replace('container-', '')] };
++      if (args[0] === 'image' && args[1] === 'inspect') return { status: 0, stdout: ids[args.at(-1).includes('backend') ? 'backend' : 'frontend'] };
++      return { status: 0, stdout: '' };
++    },
++    async validateDump() {}, build() { return { releaseId: f.setup.candidateReleaseId() }; },
++    async start() { throw new Error('synthetic readiness failure'); },
++  };
++  await assert.rejects(f.setup.updateServices(backup.backupDir, runner), /readiness failure/);
++  const saved = JSON.parse(fs.readFileSync(path.join(f.runtime, 'zavod.config.json')));
++  assert.equal(saved.buildReleaseId, f.config.buildReleaseId);
++  assert.equal(saved.updatePending.retainedImages.backend.imageId, ids.backend);
++  assert.equal(saved.updatePending.retainedImages.frontend.imageId, ids.frontend);
++});
++
++process.on('exit', () => {
++  if (path.dirname(temp) !== path.resolve(os.tmpdir()) || !path.basename(temp).startsWith('zavod-vps-tech01-r1-')) return;
++  fs.rmSync(temp, { recursive: true, force: false });
++});
+
+Index: backend/scripts/checklist-verify-01.test.cjs
+===================================================================
+--- backend/scripts/checklist-verify-01.test.cjs	before
++++ backend/scripts/checklist-verify-01.test.cjs	after
+@@ -1,0 +1,148 @@
+\ No newline at end of file
++'use strict';
++require('./master-offline-guard.cjs');
++require('reflect-metadata');
++const { test } = require('node:test');
++const assert = require('node:assert/strict');
++const { ChecklistsService } = require('../dist/modules/checklists/checklists.service');
++const { ArchiveService } = require('../dist/modules/archive/archive.service');
++
++const at = (hour, minute) => new Date(`2026-09-28T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00+03:00`);
++const attachment = (id, entityType, entityId) => ({ id, entityType, entityId, kind: 'PHOTO', mimeType: 'image/jpeg', originalName: `${id}.jpg`, sizeBytes: 3,
++  createdAt: at(8, 0), factoryId: 'factory', deletedAt: null, uploadedBy: { id: 'worker', firstName: 'Иван', lastName: 'Тестовый' } });
++const files = [attachment('legacy-L', 'CHECKLIST_RUN_ROW', 'row'), attachment('photo-A', 'CHECKLIST_ENTRY', 'entry-A'),
++  attachment('photo-B', 'CHECKLIST_ENTRY', 'entry-B'), attachment('photo-C', 'CHECKLIST_ENTRY', 'entry-C')];
++
++function threeCheckRun(status = 'AUTO_CLOSED') {
++  const row = { id: 'row', runId: 'run', title: 'Температура', rowType: 'PHOTO', sortOrder: 1, status: 'PENDING', isRequired: true,
++    templateRowId: 'template-row', completedById: null, referencePhoto: null };
++  const checks = [['A', at(8, 0)], ['B', at(9, 20)], ['C', at(11, 20)]].map(([letter, completedAt], index) => ({
++    id: `check-${letter}`, runId: 'run', sequence: index + 1,
++    status: letter === 'C' ? (status === 'AUTO_CLOSED' ? 'AUTO_CLOSED' : 'CLOSED') : 'COMPLETED',
++    dueAt: completedAt, startedAt: completedAt, completedAt, completedById: 'worker',
++    rows: [{ id: `entry-${letter}`, runRowId: 'row', templateRowId: 'template-row', title: 'Температура', rowType: 'PHOTO',
++      sortOrder: 1, status: letter === 'C' ? 'PENDING' : 'OK',
++      answerText: letter, comment: `Ответ ${letter}`, completedAt, completedById: 'worker' }],
++  }));
++  return { id: 'run', factoryId: 'factory', departmentId: 'dept', userId: 'worker', templateId: 'template', lineId: null,
++    template: { id: 'template', name: 'Проверка', frequencyRule: 'EVERY_N_HOURS', frequencyIntervalUnit: 'HOURS', frequencyIntervalValue: 2,
++      department: { name: 'Цех', scope: 'FACTORY' } },
++    status, closeKind: status === 'AUTO_CLOSED' ? 'SHIFT_END_INCOMPLETE' : 'MANUAL_EARLY', closeReason: 'Конец смены',
++    startedAt: at(8, 0), closedAt: at(11, 20), shiftDate: at(8, 0), shiftType: 'DAY', shiftEndsAt: at(21, 0),
++    rows: [row], checks, pauseEvents: [],
++  };
++}
++
++function checklistService() {
++  const db = { user: { findMany: async () => [{ id: 'worker', firstName: 'Иван', lastName: 'Тестовый' }] }, line: { findMany: async () => [] } };
++  const attachments = { listForEntities: async (type, ids) => new Map(ids.map((id) => [id, files.filter((file) => file.entityType === type && file.entityId === id)])) };
++  return new ChecklistsService({ db }, attachments, {}, {}, {});
++}
++
++test('B1 rolling due is based on factual completion; early/on-time/late paths keep one active next check', async () => {
++  const s = checklistService();
++  const run = { id: 'run', frequencyIntervalUnit: 'HOURS', frequencyIntervalValue: 2,
++    shiftEndsAt: at(21, 0), status: 'ACTIVE' };
++  const rows = [{ id: 'row', templateRowId: 'template-row', title: 'Температура', sortOrder: 1, status: 'OK' }];
++  const checks = [{ id: 'check-1', sequence: 1, status: 'ACTIVE', dueAt: at(8, 0), rows: [{ status: 'OK' }] }];
++  const tx = { checklistRunCheck: {
++    async findFirst() { const active = checks.find((check) => check.status === 'ACTIVE'); return active ? { ...active, rows: active.rows } : null; },
++    async update({ where, data }) { Object.assign(checks.find((check) => check.id === where.id), data); },
++    async create({ data }) { const created = { ...data, id: `check-${checks.length + 1}`, status: 'ACTIVE', rows: data.rows.create.map((row) => ({ ...row, status: 'OK' })) }; checks.push(created); return created; },
++  }, checklistRun: { async update({ data }) { Object.assign(run, data); } },
++  checklistRunRow: { async findMany() { return rows; }, async updateMany({ data }) { Object.assign(rows[0], data); } } };
++  for (const [done, expected] of [[at(8, 0), at(10, 0)], [at(9, 20), at(11, 20)], [at(12, 5), at(14, 5)]]) {
++    const current = checks.find((check) => check.status === 'ACTIVE');
++    const result = await s.completePeriodicCheck(tx, run, { userId: 'worker' }, done, current.id);
++    assert.equal(new Date(result.nextCheckAt).getTime(), expected.getTime());
++    assert.equal(run.status, 'ACTIVE');
++    assert.equal(checks.filter((check) => check.status === 'ACTIVE').length, 1);
++    assert.equal(checks.filter((check) => check.status === 'COMPLETED').length, checks.length - 1);
++    await assert.rejects(s.completePeriodicCheck(tx, run, { userId: 'worker' }, done, current.id));
++  }
++  await assert.rejects(s.completePeriodicCheck(tx, run, { userId: 'worker' }, at(14, 5), undefined));
++});
++
++test('B3 three occurrence photos and completed status remain bound to each check after incomplete auto-close', async () => {
++  const s = checklistService();
++  const serialized = (await s.serializeRuns([threeCheckRun()]))[0];
++  assert.deepEqual(serialized.rows[0].attachments.map((item) => item.id), ['legacy-L', 'photo-C']);
++  const history = s.serializeArchiveJournalRun(serialized);
++  assert.deepEqual(history.map((item) => item.rows[0].attachments.map((file) => file.id)),
++    [['legacy-L', 'photo-A'], ['legacy-L', 'photo-B'], ['legacy-L', 'photo-C']]);
++  assert.deepEqual(history.map((item) => item.status), ['COMPLETED', 'COMPLETED', 'INCOMPLETE']);
++  const manual = (await s.serializeRuns([threeCheckRun('CLOSED')]))[0];
++  assert.deepEqual(s.serializeArchiveJournalRun(manual).map((item) => item.status), ['COMPLETED', 'COMPLETED', 'CLOSED_EARLY']);
++});
++
++test('B3 common archive selects exact ENTRY bindings and keeps legacy RUN_ROW files', async () => {
++  const run = threeCheckRun();
++  const db = {
++    checklistRun: { findFirst: async () => run },
++    attachment: { findMany: async ({ where }) => files.filter((file) => file.factoryId === 'factory'
++      && where.OR.some((ref) => ref.entityType === file.entityType && ref.entityId === file.entityId)) },
++  };
++  const s = new ArchiveService({ db });
++  s.canSeeChecklistRun = () => true; // Serialization-only test; authority is covered separately.
++  s.isArchiveFixture = () => false;
++  s.historicalChecklistName = async () => 'Проверка';
++  s.departmentNameMap = async () => new Map([['dept', 'Цех']]);
++  s.lineNameMap = async () => new Map();
++  s.userNameMap = async () => new Map([['worker', 'Иван Тестовый']]);
++  const detail = await s.checklistDetail({ selectedFactoryId: 'factory' }, 'CHECKLIST_RUN', 'run');
++  assert.deepEqual(detail.attachments.map((item) => item.id), ['legacy-L', 'photo-A', 'photo-B', 'photo-C']);
++  const answerEntries = detail.sections.find((section) => section.title === 'Ответы и результаты').entries;
++  assert.deepEqual(answerEntries.map((item) => item.attachmentIds), [['photo-A'], ['photo-B'], ['photo-C']]);
++});
++
++test('B2 isolated 10-minute/2-minute reminders dedupe by current Check and never recreate an old due notice', async () => {
++  const notices = [];
++  const identities = new Set();
++  let status = 'ACTIVE';
++  let current = { id: 'check-A', sequence: 1, dueAt: at(10, 0), status: 'ACTIVE' };
++  const run = { id: 'run', factoryId: 'factory', departmentId: 'dept', userId: 'worker', lineId: null,
++    status: 'ACTIVE', shiftType: 'DAY', shiftEndsAt: at(21, 0), template: { name: 'Проверка' }, checks: [current] };
++  const tx = { $executeRaw: async () => 0,
++    checklistRun: { findFirst: async () => status === 'ACTIVE' ? { ...run, checks: [current] } : null },
++    userFactoryAccess: { findFirst: async () => ({ userId: 'worker' }) } };
++  const db = { checklistRun: { findMany: async () => [run] }, checklistSettings: { findMany: async () => [] },
++    line: { findMany: async () => [] }, $transaction: async (callback) => callback(tx) };
++  const notifications = { async createOnce(input) {
++    const key = `${input.type}:${input.entityId}`;
++    if (identities.has(key)) return { created: false };
++    identities.add(key); notices.push({ key, at: input.expiresAt }); return { created: true };
++  } };
++  const s = new ChecklistsService({ db }, {}, {}, notifications, {});
++  assert.equal((await s.runMaintenance(at(9, 49))).reminders, 0);
++  assert.equal((await s.runMaintenance(at(9, 50))).reminders, 1);
++  assert.equal((await s.runMaintenance(at(9, 55))).reminders, 0);
++  assert.equal((await s.runMaintenance(at(10, 1))).reminders, 0);
++  assert.equal((await s.runMaintenance(at(10, 2))).reminders, 1);
++  current = { id: 'check-B', sequence: 2, dueAt: at(11, 20), status: 'ACTIVE' };
++  assert.equal((await s.runMaintenance(at(10, 2))).reminders, 0);
++  status = 'PAUSED';
++  assert.equal((await s.runMaintenance(at(11, 10))).reminders, 0);
++  status = 'ACTIVE';
++  assert.equal((await s.runMaintenance(at(11, 10))).reminders, 1);
++  assert.deepEqual(notices.map((item) => item.key), [
++    'CHECKLIST_CHECK_DUE_SOON_1:check-A', 'CHECKLIST_CHECK_OVERDUE_1:check-A', 'CHECKLIST_CHECK_DUE_SOON_2:check-B',
++  ]);
++  assert.equal(s.shiftEndsAt(at(8, 0), 'DAY').getTime(), at(21, 0).getTime());
++});
++
++test('B4 archive source paging can find a synthetic older item after first page without weakening section guard', async () => {
++  const items = Array.from({ length: 31 }, (_, index) => ({ id: `item-${index}`, section: 'checklists', sourceType: 'CHECKLIST_RUN',
++    sourceId: `item-${index}`, title: `Проверка ${index}`, date: at(8, 0), status: 'CLOSED', departmentName: 'Цех',
++    lineName: null, authorName: 'Иван', summary: null, hasAttachments: false }));
++  const archive = new ArchiveService({ db: {} });
++  archive.assertArchiveUser = () => {};
++  archive.canReadSection = (_user, section) => section === 'checklists';
++  archive.selectArchiveItems = async () => items;
++  archive.sections = async () => [];
++  const user = { selectedFactoryId: 'factory' };
++  const first = await archive.items(user, { section: 'checklists', page: 1, pageSize: 24 });
++  const second = await archive.items(user, { section: 'checklists', page: 2, pageSize: 24 });
++  assert.equal(first.hasMore, true);
++  assert.equal(second.items.length, 7);
++  assert.equal(second.items.at(-1).id, 'item-30');
++  await assert.rejects(archive.items(user, { section: 'tasks' }));
++});
+
+Index: docs/vps-preparation/vps-tech-01/r1/report.md
+===================================================================
+--- docs/vps-preparation/vps-tech-01/r1/report.md	before
++++ docs/vps-preparation/vps-tech-01/r1/report.md	after
+@@ -1,0 +1,54 @@
+\ No newline at end of file
++# VPS-TECH-01-R1 + CHECKLIST-VERIFY-01 — source review
++
++28.09.2026. Два блока выполнены последовательно одним writer в текущем dirty worktree. Приложение, PostgreSQL, Docker, SSH/VPS, T1/C0/C1, рабочие `.env`/dumps/uploads и физический телефон не запускались и не читались. Изолированные тесты использовали собственные искусственные файлы и обязательные fake runners; `master-r2` применяет FIFO in-memory транзакции, не PostgreSQL. Вложенные source snapshots не копировались поверх repo. [Живой план](../plan.md), [текущий release inventory](../release-inventory.json), [до-байты](before-bytes.zip), [before/diff/after ledger](change-ledger.json), [один review ZIP](review-pack-vps-tech01-r1-checklist-20260928.zip) и [внешний full readback](review-readback.json). `FILE_DELIVERY=LOCAL_ONLY`: локальная ссылка не означает передачу архива в ChatGPT.
++
++## Блок A — SOURCE_PARTIAL_RUNTIME_PENDING
++
++| Owner / подтверждённое до | Адресное изменение | Изолированное доказательство / предел |
++|---|---|---|
++| `setup/zavod-setup.js`, `backend/src/main.ts`: HTTP-derived public URLs, пустой CORS allowlist разрешал Origin | Для публичной конфигурации обязательны явные HTTPS frontend и API одного origin (`/api`), точный `CORS_ALLOWED_ORIGINS`, production fail-closed; loopback HTTP оставлен как отдельный private contract. CLI и wizard принимают оба адреса. `frontend/nginx.production.conf` маршрутизирует `/api/` и `/ws` внутрь Compose; `frontend/nginx.https.example.conf` — неактивный TLS operator template. | 2 адресных A1 checks, включая исполнение фактической CORS-функции из TS AST без импорта AppModule. Real issuer/cert/trust/renewal/HTTPS/WSS/browser **NOT_RUN**. Никакой домен/IP не пришит. |
++| `setup/zavod-setup.js:createBackup`: dump→uploads/config при работающем backend | Backup до dump принудительно останавливает работающие backend/frontend **своего** Compose project, повторно проверяет отсутствие app containers/one-offs, сохраняет исходно stopped state, публикует только после полного checksum/manifest readback; собственный partial не выдаётся за valid. Manifest связывает instance/release/schema/files/settings. | Fake command-order, stop/dump/copy failure, initially stopped и valid pair: 2 A2 checks. Реальная SQL↔uploads консистентность, внешние host-writers, UID/volume/recreate **NOT_RUN**; это не Linux backup PASS. Старые backup без verified boundary не допускаются как новый update/restore input. |
++| `restoreBackup`: in-place `dropdb/createdb`, source config/env copy, auto start | Legacy in-place вызов и web-кнопка отключены. Existing setup owner получил `prepare --restore-target` (только новая DB без миграций/app) и `restore-independent`: полный manifest/checksum/identity/path/port/empty-DB preflight до mutation; source config/env не переносится в routing, target DB credential/JWT остаются target-specific, регистрационный код — единственное whitelist-setting. Дамп идёт только в target Compose DB без `dropdb/createdb`, app после restore не запускается автоматически, partial target остаётся blocked. | Negative same-source/nonempty и positive fake target-command checks: 2 A3 checks. Fake `pg_restore` не доказывает SQL содержимое, locks, file permissions или independent real restore. Несовместимый/старый backup отвергается безопасно. |
++| `updateServices`: mutable image tag и незаписанный новый release | Backup должен совпадать с instance/current release/schema fingerprint; same-source release отвергается. До остановки app running container image IDs получают отдельные проверенные rollback-tags. `updatePending` сохраняет старые IDs/tags и candidate; после удачного start новый `buildReleaseId` и `previousRelease` фиксируются. Fail build/start оставляет pending и прежние immutable tags, следующая попытка без разбирательства запрещена. Схема/57 SQL не менялись. | Wrong identity, fake build/start failure, success и tag readback: 2 A4 checks. Ручной возврат допустим только после реальной проверки старых image IDs/tag и неизменной schema fingerprint: вернуть прежние IDs в Compose image tags, поднять **только свой** project без build, проверить `/version`/`ready`, затем согласовать config release. Эти команды **не исполнялись**, два реальных образа/update/rollback **NOT_RUN**. |
++
++`setup/deployment-context.js` не менялся. Он хеширует native relative paths+bytes: текущий Windows digest и ожидаемый Linux-path digest в [inventory](../release-inventory.json) отличаются по разделителю, не по смыслу кода. Кандидат `1.0.0+cc9322ccf3d5b43b` — не построенный образ и не target readback. Новая TLS example-конфигурация — host-control template, не часть image context.
++
++## Блок B — SOURCE_PARTIAL_LIVE_PENDING
++
++| Контур | Факт и действие | Проверка / точный предел |
++|---|---|---|
++| Rolling interval и early finish | Существующий `completePeriodicCheck` уже вычислял `completion + interval`; due не заменялся временем входа/черновика. Раннее завершение остаётся разрешено. Для защиты поздней отправки теперь обязателен exact `checkId`; прежний `operationId` retry и run lock сохранены. | 08:00→10:00, раннее 09:20→11:20, позднее 12:05→14:05; один ACTIVE next Check, прежние CheckRows неизменны. FIFO same-op и competing-intention тест, но SQL advisory locking/HTTP lost-response **NOT_RUN**. One-shot и закрытие parent покрыты impacted R2, не новой live приёмкой. |
++| Напоминания, пауза, смена | Правило 10 мин до / 2 мин после, `createOnce` и пауза без переноса due оставлены. Синтетический повтор maintenance не создаёт notice старого Check после нового; доставленную историю не удаляли. Граница checklist DAY 21:00 отличается от shift 20:00. | Изолированный B2 check по clock/dedupe/pause. Реальный background без открытия workspace, restart/reconnect/mobile push и postcommit auto-close notice **NOT_RUN**. `closeRunByMaintenance` вызывает `notifyChecklistAutoClosed` после commit: source-only durability risk, не расширяли NOTIFY-02/outbox/schema58. Grace/re-entry/shared refs pending. |
++| Локальная история | До: `serializeRuns` добавлял фото текущего ENTRY в mutable `run.rows`, а `serializeArchiveJournalRun` приписывал его прежним Checks. | Теперь каждому Check добавляются только его ENTRY attachments плюс законные legacy `CHECKLIST_RUN_ROW` bindings. Три различимых A/B/C и legacy-L, manual/auto parent — isolated PASS. Права файлов не менялись. |
++| Общий Archive detail/consumer | До: `checklistDetail` не выбирал `CHECKLIST_ENTRY`, поэтому фото отдельных прохождений отсутствовали. | Query включает точные ENTRY refs; answer entry получает только собственные attachment IDs, frontend показывает их внутри ответа, legacy run-level остаются в общей секции. Isolated exact-ref PASS; HTTP/file bytes/browser UI и denied source **NOT_RUN**. |
++| Статус прохождения | До: incomplete parent перекрашивал ранее `COMPLETED` Check в `INCOMPLETE`. | Статус считается по конкретному Check: completed A/B остаются completed, незаконченный C — incomplete/closed early. Isolated auto/manual PASS, исторические rows не переписывались. |
++| Старый объект за первой выдачей | Существующий Archive page/`hasMore` и frontend `Показать ещё` сохранены. | Синтетическая страница 2 из 31 items и section denial PASS на stub selection; настоящий DB selection/filter, период старше недели, возвращение к той же записи, after restart/restore и физический телефон **NOT_RUN**. |
++
++Проверки прав затронутых owners: 8 R2 (включая foreign/department/missing capability и retry) + 3 ATT-AUTH archive/attachment isolated PASS. Это не новое HTTP подтверждение guest/revoked/blocked/foreign для всех checklist permission paths. Checklist scheduler/модель/расписание, `NotificationsService`, `AttachmentsService`, Prisma schema и 57 migration SQL не менялись. `CHECKLIST_POLICY_CHANGED=NO`.
++
++## Проверки и фактический остаток
++
++Сырые [receipts](receipts/): A **8/8**, B **5/5**, impacted R2+ATT-AUTH **11/11**, setup shim compatibility **26/26** (отдельные наборы; повторные прогоны не складываются). Backend `tsc build` PASS; frontend `tsc --noEmit` PASS; setup syntax PASS. Vite frontend build **EXIT 1**: esbuild получил `Access is denied` при чтении `frontend/vite.config.ts` из Windows sandbox; не приписано продуктовому коду, но build PASS не объявлен. SQL-consuming старые scripts (`stage64`, `stage66`, `checklist-workflow`) обнаружены с `.env` read/PrismaClient и **не запускались**. Prisma CLI validate/generate также не запускались, чтобы исключить автозагрузку рабочей `.env`; schema и все 57 SQL SHA совпали с prior inventory (`58/58`). Browser E2E/live HTTP/WS/Compose/VPS не выполнялись по запрету.
++
++Для отдельного runtime-допуска всё ещё нужны: подтверждённый Linux target и доступы; реальный TLS/WSS/Origin/browser guard; consistent DB+uploads+protected config backup и независимый restore с проверкой source untouched; два совместимых image и ручной rollback; volume/UID/recreate, заводское время/catch-up, restart/reboot/load/failure. Checklist exact live-case: один Run/три Check с A/B/C фото, ранний/в срок/поздний finish и retry/concurrency SQL; без открытия workspace проверить background reminders, после restart/restore найти старую запись за первой страницей, проверить ответы/фото/Back на физическом Android и доступ owner/manager vs guest/revoked/blocked/foreign. Ни один synthetic возраст или viewport не заменяет неделю/телефон. Пять live gate-групп, 14-role remainder, UI036/063/014/050 provenance, 29 dead settings, changed-payload/publication/grace/sharedrefs/Range206, ErrorReport appVersion/list/status/export, skill-only open-profile и source-only notification risks остаются в прежней очереди; R5/Main Sweep PAUSED, настоящий №4 не настроен.
++
++```text
++VPS_TECH01_R1_SOURCE_FIXES=SOURCE_PARTIAL_RUNTIME_PENDING
++CHECKLIST_ROLLING_INTERVAL=UNCHANGED_ISOLATED_PASS_SQL_PENDING
++CHECKLIST_EARLY_COMPLETION=UNCHANGED_ISOLATED_PASS_LIVE_PENDING
++CHECKLIST_REMINDERS=SOURCE_ISOLATED_PASS_BACKGROUND_PUSH_PENDING
++CHECKLIST_OCCURRENCE_PHOTO_PARITY=REPRODUCED_FIXED_ISOLATED_THREE_CONSUMERS_LIVE_PENDING
++CHECKLIST_OCCURRENCE_STATUS_PARITY=REPRODUCED_FIXED_ISOLATED_LIVE_PENDING
++CHECKLIST_OLD_RECORD_LOOKUP=ISOLATED_PAGE2_PASS_LIVE_LATER_PENDING
++CHECKLIST_POLICY_CHANGED=NO
++MIGRATIONS=57_UNCHANGED
++T1_DECISION=KEEP_CURRENT_HISTORY_WITH_ACKNOWLEDGED_UNCERTAINTY_NO_ROLLBACK
++T1_EXACT_PRESERVATION_DURING_OPS01=FAILED
++T1_NEW_SQL_READBACK=NOT_RUN
++OLD_STANDS_TOUCHED=NO
++LIVE_LINUX_SQL_TLS_RESTART_RESTORE_LOAD=NOT_RUN_IN_THIS_SOURCE_TASK
++PHYSICAL_PHONE=NOT_RUN
++PILOT_READY=NOT_DECLARED
++FILE_DELIVERY=LOCAL_ONLY
++FINAL_STOP=STOP_FOR_SOURCE_REVIEW_BEFORE_SEPARATE_LINUX_RUNTIME_ACCEPTANCE
++```
+

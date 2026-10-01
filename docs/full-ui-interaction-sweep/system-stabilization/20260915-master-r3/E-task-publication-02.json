@@ -1,0 +1,77 @@
+{
+  "startedAt": "2026-09-15T20:45:50.056Z",
+  "expected": [
+    {
+      "title": "R3-E Task UI serializes create take complete through actual authority controllers receivers readers",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 5,
+      "id": "acc10fa58cd3"
+    },
+    {
+      "title": "R3-C4 actual publication expired UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "b4ca9597497f"
+    },
+    {
+      "title": "R3-C4 actual publication future UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "25e5c1527d5a"
+    }
+  ],
+  "results": [
+    {
+      "title": "R3-E Task UI serializes create take complete through actual authority controllers receivers readers",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 5,
+      "id": "acc10fa58cd3",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 3476,
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m"
+      ],
+      "attachments": [
+        {
+          "name": "screenshot",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-task-publication-02\\runner-artifacts\\master-r3-bridge-R3-E-Task-bdb91-ntrollers-receivers-readers\\test-failed-1.png",
+          "contentType": "image/png"
+        },
+        {
+          "name": "error-context",
+          "path": "C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r3\\evidence\\E-task-publication-02\\runner-artifacts\\master-r3-bridge-R3-E-Task-bdb91-ntrollers-receivers-readers\\error-context.md",
+          "contentType": "text/markdown"
+        }
+      ]
+    },
+    {
+      "title": "R3-C4 actual publication expired UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "b4ca9597497f",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2340,
+      "errors": [],
+      "attachments": []
+    },
+    {
+      "title": "R3-C4 actual publication future UI denial does not become ACK success",
+      "file": "frontend/e2e/master-r3-bridge.spec.ts",
+      "line": 24,
+      "id": "25e5c1527d5a",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "retry": 0,
+      "duration": 2151,
+      "errors": [],
+      "attachments": []
+    }
+  ],
+  "finishedAt": "2026-09-15T20:46:01.304Z",
+  "status": "failed",
+  "listOnly": false
+}

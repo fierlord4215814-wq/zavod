@@ -1,0 +1,144 @@
+{
+  "status": "LIVE_REPRODUCED_ADMIN_GUEST_ORDERS_SCOPE_UPLOAD_REPLAY",
+  "cases": [
+    {
+      "label": "shared-order",
+      "type": "ORDER_REQUEST",
+      "id": "9c9e44c4-6139-4d6d-95e5-06e133e29a56",
+      "attachmentId": "ade3729d-3e0a-45ee-95fa-7355809529c0",
+      "reader": "STORE",
+      "source": {
+        "http": 409,
+        "bytes": 81,
+        "sha256": "f00de5ebaacf32bc9aea888f5e1ace69b3488e857799da31a01d6e5716b48096"
+      },
+      "metadata": {
+        "http": 200,
+        "bytes": 576,
+        "sha256": "e7f5374a40959525625338764b83bd08f430b2d7aca671d83074539d57ba7302"
+      },
+      "file": {
+        "http": 200,
+        "bytes": 1487,
+        "sha256": "0bcaaa657e8f92b57bef2e9294de0633ae9431de802935d1d055e9663a4dbdd7"
+      },
+      "expected": "denied"
+    },
+    {
+      "label": "shared-stock",
+      "type": "MINIMUM_STOCK_ITEM",
+      "id": "68bceaf4-1f86-4506-879a-dc6236dcf52b",
+      "attachmentId": "409069fb-fc19-48a2-a3be-c67fcade4d92",
+      "reader": "MANAGEMENT",
+      "source": {
+        "http": 409,
+        "bytes": 82,
+        "sha256": "e0548041721ab94c3814eaef48aafe73556065de9620dbd7bdd633fc7a0367d7"
+      },
+      "metadata": {
+        "http": 200,
+        "bytes": 581,
+        "sha256": "ede8a7695b7073c2581a0ba117efe096da2ad121247eb7f649e916a8634667e8"
+      },
+      "file": {
+        "http": 200,
+        "bytes": 1487,
+        "sha256": "0bcaaa657e8f92b57bef2e9294de0633ae9431de802935d1d055e9663a4dbdd7"
+      },
+      "expected": "denied"
+    },
+    {
+      "label": "other-department",
+      "type": "ORDER_REQUEST",
+      "id": "a1452331-8d16-4e94-9338-97b1d1c71272",
+      "attachmentId": "2d288003-1ba7-4bac-89cd-ef69e405b274",
+      "reader": "STORE",
+      "source": {
+        "http": 409,
+        "bytes": 81,
+        "sha256": "f00de5ebaacf32bc9aea888f5e1ace69b3488e857799da31a01d6e5716b48096"
+      },
+      "metadata": {
+        "http": 200,
+        "bytes": 584,
+        "sha256": "a232438ef61b923ff93d6b92acd06c639c065085d00981a460da5f043b01c643"
+      },
+      "file": {
+        "http": 200,
+        "bytes": 1487,
+        "sha256": "0bcaaa657e8f92b57bef2e9294de0633ae9431de802935d1d055e9663a4dbdd7"
+      },
+      "expected": "denied"
+    }
+  ],
+  "created": [
+    {
+      "type": "ORDER_REQUEST",
+      "id": "9c9e44c4-6139-4d6d-95e5-06e133e29a56"
+    },
+    {
+      "type": "MINIMUM_STOCK_ITEM",
+      "id": "68bceaf4-1f86-4506-879a-dc6236dcf52b"
+    },
+    {
+      "type": "ORDER_REQUEST",
+      "id": "a1452331-8d16-4e94-9338-97b1d1c71272"
+    },
+    {
+      "type": "TASK",
+      "id": "6dd67928-1f13-41e5-b621-9a49cd0874d9"
+    },
+    {
+      "type": "TASK",
+      "id": "70f8ba5c-0e6d-4120-b6f8-3a79f25141bf"
+    }
+  ],
+  "adminGuest": {
+    "state": {
+      "role": "ADMIN",
+      "isGuest": true,
+      "isActive": true
+    },
+    "checks": [
+      {
+        "path": "/orders/requests/9c9e44c4-6139-4d6d-95e5-06e133e29a56",
+        "http": 403,
+        "bytes": 102,
+        "sha256": "dd0db0100094e3325c5a75982e8288639569bf55a936a63ac5d99095a4b66eb9"
+      },
+      {
+        "path": "/notifications",
+        "http": 403,
+        "bytes": 102,
+        "sha256": "dd0db0100094e3325c5a75982e8288639569bf55a936a63ac5d99095a4b66eb9"
+      },
+      {
+        "path": "/attachments/ade3729d-3e0a-45ee-95fa-7355809529c0",
+        "http": 200,
+        "bytes": 576,
+        "sha256": "e7f5374a40959525625338764b83bd08f430b2d7aca671d83074539d57ba7302"
+      },
+      {
+        "path": "/attachments/ade3729d-3e0a-45ee-95fa-7355809529c0/file",
+        "http": 200,
+        "bytes": 1487,
+        "sha256": "0bcaaa657e8f92b57bef2e9294de0633ae9431de802935d1d055e9663a4dbdd7"
+      }
+    ],
+    "originalRestored": true
+  },
+  "replay": {
+    "status": "LIVE_REPRODUCED",
+    "oldTarget": "6dd67928-1f13-41e5-b621-9a49cd0874d9",
+    "allowedTarget": "70f8ba5c-0e6d-4120-b6f8-3a79f25141bf",
+    "attachmentId": "d235a63c-d546-48ad-be18-a68c9806f05c",
+    "directMetadata": {
+      "http": 403,
+      "bytes": 74,
+      "sha256": "671be77ea14aa634f98227a1f89c4b960b4a265d0a40d34301ca4aaad1dd513e"
+    },
+    "uploadHttp": 201,
+    "returnedOldBinding": true,
+    "noDuplicate": true
+  }
+}

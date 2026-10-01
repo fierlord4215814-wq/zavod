@@ -1,0 +1,842 @@
+{
+  "priorZipSha256": "8acc06d521191463d0597a35239edea49e4d454ae46649a344f5acc83f714df1",
+  "noProductTests": true,
+  "at": "2026-09-19T14:21:58.6743645+03:00",
+  "excluded": [
+    {
+      "path": "attempts/20260918-hyperv-ubuntu24/public-metadata/openpgp-6.2.2.tgz",
+      "reason": "Retain original archive/image outside new review ZIP",
+      "bytes": 4492394
+    },
+    {
+      "path": "attempts/20260918-hyperv-ubuntu24/public-metadata/package/dist/node/openpgp.min.cjs",
+      "reason": "Third-party verifier executable excluded; official integrity metadata and license included",
+      "bytes": 396455
+    },
+    {
+      "path": "zavod-master-r5-checkpoint.zip",
+      "reason": "Retain original archive/image outside new review ZIP",
+      "bytes": 918302
+    }
+  ],
+  "selfHash": "Recorded externally in package-receipt.json; no circular self-hash",
+  "scan": {
+    "allowedEvidencePaths": true,
+    "reparsePaths": 0,
+    "scope": "Targeted private-key/credential-URL/JWT/provider-key scan, plus evidence-only allowlist; not a complete product security audit",
+    "potentialSecretMatches": 0
+  },
+  "kind": "SAME_MASTER_R5_HYPERV_MANUAL_REBOOT_BOUNDARY_NOT_LIVE_ACCEPTANCE",
+  "entries": [
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/approve-preflight.cjs",
+      "bytes": 2935,
+      "sha256": "6eda7107d6bda7bbb208d5ab8152941d3b70cddafa6f90f710aab98ed7f09142"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/baseline.json",
+      "bytes": 157067,
+      "sha256": "d1b42ee33f6df31430026a024f2d8bfe20609f5974d625eb0bfbfe81cde9880d"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/progress.md",
+      "bytes": 806690,
+      "sha256": "8d8dad81c8a61aecfa39ff0de143ba94e17974e61bdd216418f69b403bfe5e1e"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+      "bytes": 4864,
+      "sha256": "bf62a75791af109d03e09afb5c6c7f2639f027959c83fa20ec58b6bf5bcbd14c"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md",
+      "bytes": 8653,
+      "sha256": "5dac2e02b8392dbbb5dcbfa187d6dd6de277ee360dd14baa28dc054e74915f3a"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md",
+      "bytes": 5108,
+      "sha256": "ebdc2366e547f0c8f66920332f188361e9515b3d084d7789a010e6d080e041ed"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json",
+      "bytes": 890,
+      "sha256": "342c1b0d68f2e9b9e1f5b09e7a53ff2921dd2558efdd0017e95a2b6cff1dbcc0"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md",
+      "bytes": 10747,
+      "sha256": "366b962bbf82cf0d96233844bbbc20cf417796783eb696d1ce5f4dddd720942d"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+      "bytes": 1880,
+      "sha256": "cd0ecf5f0e584ad08bd2d33db04f975bfd62a2b044cdc06c834fd83855c961b4"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json",
+      "bytes": 21970,
+      "sha256": "bd44e3e21c5e1ea0b185fd42716c693de9ca710a36d8f24215e52c48596d670c"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json",
+      "bytes": 6237,
+      "sha256": "a733280276c06475bd87f8c3c5b4d7ce5560b01785d73d054dada057b09f2f50"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md",
+      "bytes": 7012,
+      "sha256": "ec52a54ab7abd62fcc6768a411fce078114ceb7dbf8c66425d8222add61a91ce"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md",
+      "bytes": 5528,
+      "sha256": "a496413365c102277bcda5d96b1f45f908949f6ef2d3ca615251aaa3d8011fdb"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+      "bytes": 2977,
+      "sha256": "1541f5b66a84149239367b6acedf81c0be628af44e54b21ed21e336e653213fa"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md",
+      "bytes": 1302,
+      "sha256": "ae4529fe263ec815d1d46d8dd13dc0554d4e1e79c4103df48fcec5f6ce950408"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "bytes": 216110,
+      "sha256": "42fed7e239e10bd64a93102c08e83804e267d053bd82b2dc73c2c8f64df8c055"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/before/README.md",
+      "bytes": 2363,
+      "sha256": "512c33e54810834cf16e99d959549134828c3c8278a65d4b78d0e4dfd7aaa552"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/changed-files.txt",
+      "bytes": 20555,
+      "sha256": "6ba5c0a27b2af720b0e13f4023165dfeeaea92d6f9696144273c1a2e83acea6a"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/compatibility-and-budget.md",
+      "bytes": 14132,
+      "sha256": "586aa0edeb10c6a5df10a0c75bd08b944872e1ce6cc50e4955833ac2cbce0eb9"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/continuation-baseline.cjs",
+      "bytes": 3141,
+      "sha256": "7dd7df9d4df1242dc32fed0f767e01957f5945ca6855dd9a04bddcc24514f533"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/continuation-request.txt",
+      "bytes": 19012,
+      "sha256": "54986c7631d17591380a87a0bdfd78e2e31ca9b8bdcdeca0f771f7481b174281"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/diagnostic-notes.md",
+      "bytes": 2507,
+      "sha256": "1b4a157115544bf73c7d25685dd1f316278b7dcc3de9eb0dfa61e208a3c592da"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/dirty-before.txt",
+      "bytes": 272653,
+      "sha256": "b90154d086abebb7509cf8346c576d8bfa0a23d99a0bb336ce352128e7d39456"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/enable-hyperv.ps1",
+      "bytes": 7311,
+      "sha256": "f1b3c8aa9ed8c2c221f1f312fd615940f02d65caf46a01aa54315d244f2d1bef"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/environment-runtime-receipt.json",
+      "bytes": 2441,
+      "sha256": "7e31589dc60a28fb1786589a75474288ee7affef844dcdc9f95f43affb2d9b37"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/final-identities.json",
+      "bytes": 161325,
+      "sha256": "4aeca1bc53a539d6180bb329224f0a464075e41e65e3a9041f03ccb739377956"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff-continuation.cjs",
+      "bytes": 8331,
+      "sha256": "2804bd4771004604d2de3c50bdb239dfb7c86a781ddfdf0845854a3e63ab625e"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/progress.md",
+      "bytes": 807057,
+      "sha256": "e349459b7b95a96103cbfbe0852b010ec1ef8a7af60806e589b64f88e1102c1a"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md",
+      "bytes": 4944,
+      "sha256": "619f1b3c6c62d68032e0fe29bca025a600cb43bd7aaef37d67c39276ebb7040a"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md",
+      "bytes": 10956,
+      "sha256": "825c26377de4e946bed3edc77c3270058990554a55b3622360df1ecc92f93b80"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md",
+      "bytes": 5475,
+      "sha256": "cb6ea42546ebe5280c4737b315b6bed846dc3e318902ee5dfaa290a8b711b62b"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json",
+      "bytes": 1092,
+      "sha256": "ceaa9583da5c4cc8585f9f3759a5d52b2cb8b6a7cd03d8b2abfcc57eea98f4ce"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md",
+      "bytes": 23486,
+      "sha256": "6a461f5cee00249ba72cc784e9e7adb3bbd9fc13db1ecfe7e4a265caf6e11c1d"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md",
+      "bytes": 3248,
+      "sha256": "50009931536bf62ebb679ca3d4d8f93aec1c45821953e8c91973f2946ba0a18b"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json",
+      "bytes": 22159,
+      "sha256": "8ff7a34f17c05631c9600a661af0578b0e90222bce11b84c4c731cca3a74181c"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json",
+      "bytes": 6416,
+      "sha256": "06a69c94812e6b8dd0fd4c8d6fa760cf25453fc10cd3e29c93e56120149ec1c7"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md",
+      "bytes": 13914,
+      "sha256": "4765bae3c1042a1a9d1846315620cc2cefdff01365958a723f459350d99e0a5d"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md",
+      "bytes": 6192,
+      "sha256": "2473e1d3b2e08087e815844d80a88250f9127d6ff507606ac0d825b3d0c0c640"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt",
+      "bytes": 5027,
+      "sha256": "1d96768bee0c52f33eff535b13a43f12816e2de4552e7334a01bc24c8a6e19e2"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md",
+      "bytes": 1995,
+      "sha256": "4aab807b0146a231827bf12aa868b6ed6f145b34b98c22186ea3869fa9b94fbe"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "bytes": 216338,
+      "sha256": "7e57a23a590ac8d50cd5b2976d3640ec9a77536711069efbe9619675fcdee2aa"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/after/README.md",
+      "bytes": 2415,
+      "sha256": "1f00d6b0d338d9a56e0a9d2ec3948b7737be91c3a26a9f6137fce0554d18a7c3"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/progress.md.diff",
+      "bytes": 6807,
+      "sha256": "3c29095ac98eebbafb5b2381a327844c6c2e9a55e160e8382f6329e39e476eef"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/decision-queue.md.diff",
+      "bytes": 5851,
+      "sha256": "f1f5efa0975199c2e7ca4c52aa2968fc4c1007225dec6c941a2f16620498d3a2"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/environment-choice.md.diff",
+      "bytes": 4189,
+      "sha256": "31bae3d55b66d788676f15413895e52be20dd68bf06fef9170dfd33532881c32"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/execution-plan.md.diff",
+      "bytes": 4596,
+      "sha256": "c8c99566d02d767d06bd34a9e8b6c988e1b01ab8f2d1ebb478a346d24478be22"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/expected-actual.json.diff",
+      "bytes": 1849,
+      "sha256": "1110a49d94d8e529901fe85b094ccf40115d35e5cb6abe3edf81c1b0e94a92fb"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/final-report.md.diff",
+      "bytes": 14331,
+      "sha256": "4886acba831fd7d67a7e1957ebd4924661b25fc102bb3f8234ebcef862552937"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/INDEX.md.diff",
+      "bytes": 4258,
+      "sha256": "e4ca273c0781e7bb8a361eb99b1e873f9ed745cce497f55f49e151b55e5e4493"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/journey-matrix.json.diff",
+      "bytes": 1552,
+      "sha256": "06bc11cb739b6c388c19e0b0d0966e3b9f06205d969c00840ab25fcaf43e87a9"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/live-gate-matrix.json.diff",
+      "bytes": 4124,
+      "sha256": "d93ecf53e76750f91b13f3289a9c0ba1bad3bbd75230587c2b056b7a943cd0a4"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/progress.md.diff",
+      "bytes": 8548,
+      "sha256": "2b5b0e120349057275887097920d6a850d639e54ceebb7099f81abe256ddc474"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/remaining-live-and-physical.md.diff",
+      "bytes": 6670,
+      "sha256": "0923f536065d5a8466b72fd039e8a66aaec7c5de9e4a065d364959c2ccdfb2e0"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/resume-prompt.txt.diff",
+      "bytes": 9106,
+      "sha256": "2893f0fd9e77458103fe1a54b35f904541fdd87158074550970e608f658b8eae"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/system-stabilization/20260917-master-r5/source-update-delta.md.diff",
+      "bytes": 4025,
+      "sha256": "4b65dcf9a4a6d4e5e5801e168dbee74779f94d9c37d1b52c27072012c13fca44"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/docs/full-ui-interaction-sweep/visual-gap-register.md.diff",
+      "bytes": 5140,
+      "sha256": "34b6ceb4cd20a279fda2d1678c2709a3abe6b5e0a91658a9eef3cc4e3c3f6450"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/handoff/diffs/README.md.diff",
+      "bytes": 3072,
+      "sha256": "affc56bf9a98caffe9d9e4af7e5d7ea23c995eed9a013f03795d0da2bd956779"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/helper-readonly-diagnostics.ps1",
+      "bytes": 1794,
+      "sha256": "436a1a82571e3ce0d010be6a20e405546604945ee8ffdc153b2ff86972337280"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/host-inventory.json",
+      "bytes": 2526,
+      "sha256": "49ef8c764f4cd38650edf4a0dedc1f882b57197b404a4b060e35c14bb442c4b1"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/image-metadata-error-2.json",
+      "bytes": 1316,
+      "sha256": "f1cc20aa1fd7571ffe60484e21e75610b640d11f15857f64a6ea97901214a4c9"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/image-metadata-error-3.json",
+      "bytes": 1602,
+      "sha256": "f1becf6ca13a43d2b948ee9cdb22eb3e7c7047945345789e076ca2f8767a9aa2"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/image-metadata-error.json",
+      "bytes": 572,
+      "sha256": "28791990d6ee29d92725783b5bcbb40621c6f6b8e393e40db9c95b684dddd22e"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/image-metadata-verification.json",
+      "bytes": 2993,
+      "sha256": "c99a4dfa618786cb1ae3c3964b94480cc629d4a62c12a65bfa98b24f4fdb5fe6"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/inventory.ps1",
+      "bytes": 2032,
+      "sha256": "77b5a3c23e7ad4cbb60139000655738245fd6bb3ffdcfce9ec4712373194e9e6"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/matrix-before-manifest.json",
+      "bytes": 1398,
+      "sha256": "23e06f7ab91513061c99c3548b827fd4d7a2471d2b6a314b962aec7990b297ba"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/native-dism-01/decision.md",
+      "bytes": 2300,
+      "sha256": "41a976ae82114942ecfc7f8ef2f77c2109234a4a8f0fca168fa935ca6f135fa2"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/native-dism-01/dism.log",
+      "bytes": 35650,
+      "sha256": "55e1aadff85bcae9a3fd349d23be69d520f7902a5f24653e63e1ea24ed932219"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/native-dism-01/process-start.json",
+      "bytes": 224,
+      "sha256": "4f1737e8bce3517eceb7bcd43d372274f1b4c8fcddd98030c7a2a30d1f4c7c2f"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/native-dism-01/request.json",
+      "bytes": 11755,
+      "sha256": "55d5bae066979364fb0a533bd5a10e3890890622a9db8a880f4fa3940334d716"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/native-dism-01/result.json",
+      "bytes": 11798,
+      "sha256": "4ffa7d9b3606c3e4b202fc9bd11d81fd4809406dab7369faa117c972e0289fdd"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/native-dism-01/start-native-dism.ps1",
+      "bytes": 7247,
+      "sha256": "c0475258d39583de368b6e08e2416eba2ec89872e6e2cec30eef2569b918080d"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/package-attempt-01-error.json",
+      "bytes": 902,
+      "sha256": "c9bf3e1cf3e1b1a644999b1289334c9f36c1c2b906876132951e02e8c8fc0b94"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/package-reboot.ps1",
+      "bytes": 6661,
+      "sha256": "8f3d84bde5a1b04b75e3f300a35d3471710325df1a163834bff72b4d25858a2f"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/preflight.json",
+      "bytes": 1942,
+      "sha256": "20ceda4b434297a9f87f4efd2e5407b0154e158472a5c3829cb93a0004496aac"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/progress.md",
+      "bytes": 3758,
+      "sha256": "5b40c8ec63eb33ad61d0f85d305c0a3caa824ebf38533bdcb7d6de847e61dcf2"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/public-metadata/node24.15.0-SHASUMS256.txt",
+      "bytes": 2967,
+      "sha256": "1e812945dee26c3e4ca41a8c0b582668ff2401ba0ae727a122300c0e8514edb0"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/public-metadata/openpgp-6.2.2-metadata.json",
+      "bytes": 4714,
+      "sha256": "ea3b0a211d2ff7730f58a53dd6a7d5e4f51b2e8b64047a209ce2a6e908f52503"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/public-metadata/package/LICENSE",
+      "bytes": 7652,
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/public-metadata/package/package.json",
+      "bytes": 4290,
+      "sha256": "bcf29d1c5e49efe954240c46d3c10e25047251457355b32e5a4f3fb501460829"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/public-metadata/postgresql18.3.sha256",
+      "bytes": 90,
+      "sha256": "ba00a61396c7fab045a76afa506d704109445419389f9b3b9152c9d2f1a8789e"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/public-metadata/ubuntu-image-public-key-curl.asc",
+      "bytes": 64965,
+      "sha256": "337fa0013bb263aebcef98fa7b7af18e186d89565a5019f7295beb42ebee5290"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/public-metadata/ubuntu-iso-headers.txt",
+      "bytes": 259,
+      "sha256": "eec1d3ea360bd99e95b83a0803e82cb285bd6e5659ff90df56ce547a535ae7fe"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/public-metadata/ubuntu-SHA256SUMS",
+      "bytes": 893,
+      "sha256": "728064ecf411f4ab702d9c3ca0a938ce672771424c028a1b52b2449f7eb5a068"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/public-metadata/ubuntu-SHA256SUMS.gpg",
+      "bytes": 833,
+      "sha256": "f9be4b4a527b63f14dde0387edcb7a02ba3ac43d537b1674a5aeae19c6f23827"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/references/current-parent-matrices-manifest.json",
+      "bytes": 2543,
+      "sha256": "2746f9244b840aae904a261cfde3ce386acb149a6db5f8cad5a5fbfe3c821394"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/references/current-parent-matrices/docs/full-ui-interaction-sweep/back-matrix.csv",
+      "bytes": 604792,
+      "sha256": "9e14f757949b5c90590354778a0e6ce5880e56e390a0caf3f54119ac2b4a4e16"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/references/current-parent-matrices/docs/full-ui-interaction-sweep/coverage-checkpoint.json",
+      "bytes": 47108,
+      "sha256": "8bb4f8f9ccd55a7c38ae317e9c984ad9dfe73b9725e15c442bcc1ad2851d2c8b"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/references/current-parent-matrices/docs/full-ui-interaction-sweep/interaction-matrix.csv",
+      "bytes": 566670,
+      "sha256": "4caec98a7cd58bc9cc5a22413fc328f8aa41e257c6e99273c9e50ece315cd60a"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/references/current-parent-matrices/docs/full-ui-interaction-sweep/surface-inventory.csv",
+      "bytes": 192666,
+      "sha256": "8b2900b5a9c2041e73673f5980f4c56fb3cbc52ea2923e5bc8e2393e2eb4864c"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/references/current-parent-matrices/docs/full-ui-interaction-sweep/surface-reconciliation.json",
+      "bytes": 327435,
+      "sha256": "ece668f3f6ceca62837757efa1f0d34b2973131105c8078b40eddf355e8b1af3"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/references/current-parent-matrices/docs/full-ui-interaction-sweep/text-integrity-matrix.csv",
+      "bytes": 627712,
+      "sha256": "9914e5cf738ff5e79b75b9982dfebaf1bea5c4a51858bb280d1d90b95f76826e"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/resume-byte-check.cjs",
+      "bytes": 2057,
+      "sha256": "0b112ffdf1fe0a07ff8e24014231a95ec1d1e18e2888d417616ff9bba393cf09"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/resume-byte-check.json",
+      "bytes": 124797,
+      "sha256": "a024fd0aa0aef6fe498ea4e5209f076c5b4b8d1483bd8c3c6f7f14a332456d29"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/source-delta-manifest.json",
+      "bytes": 39830,
+      "sha256": "fd7bd000b280b644dcd7201176f1716e37a982455f58e96d29818fd53d62d5e9"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/start-hyperv-install.ps1",
+      "bytes": 2814,
+      "sha256": "39e72fcf3a17aafdee8f6e72e7067e02f80744dcad6923a410ed8fe1ee8415cf"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/uac-request.json",
+      "bytes": 760,
+      "sha256": "c6c6ec635cdaf531f428574d566c1f997f7fd6f2ed0d93bcc944fe9769ee7528"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/uac-start.json",
+      "bytes": 155,
+      "sha256": "eaf79c03fe3da5f5ba0ebdcdb9d8bd9437d5778abedf5a740451fe772b093843"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/uac-terminal.json",
+      "bytes": 123,
+      "sha256": "2a7055ed040dbbb5aae01249f4818344ca86a8d7d3ffce184761a5803316ef97"
+    },
+    {
+      "name": "attempts/20260918-hyperv-ubuntu24/verify-image-metadata.cjs",
+      "bytes": 6797,
+      "sha256": "9078cba5ab2534155b71c74863f24edb57328dc6f14dc2a61a5db626af7b4a75"
+    },
+    {
+      "name": "baseline.cjs",
+      "bytes": 3287,
+      "sha256": "d3cb68675d32a93786398089d37ec86a818a14ad7bb09d5d10293b163efeeae4"
+    },
+    {
+      "name": "baseline.json",
+      "bytes": 317697,
+      "sha256": "0e3e45bf79bff20410675bb1ab3a593c2de0fa7d82b4f9b30cf5a9ef45d69849"
+    },
+    {
+      "name": "decision-queue.md",
+      "bytes": 4944,
+      "sha256": "619f1b3c6c62d68032e0fe29bca025a600cb43bd7aaef37d67c39276ebb7040a"
+    },
+    {
+      "name": "dirty-at-handoff.txt",
+      "bytes": 272653,
+      "sha256": "b90154d086abebb7509cf8346c576d8bfa0a23d99a0bb336ce352128e7d39456"
+    },
+    {
+      "name": "dirty-baseline.txt",
+      "bytes": 272653,
+      "sha256": "b90154d086abebb7509cf8346c576d8bfa0a23d99a0bb336ce352128e7d39456"
+    },
+    {
+      "name": "environment-choice.md",
+      "bytes": 10956,
+      "sha256": "825c26377de4e946bed3edc77c3270058990554a55b3622360df1ecc92f93b80"
+    },
+    {
+      "name": "environment-inventory-host.json",
+      "bytes": 2956,
+      "sha256": "55358eeefe58dfcc848799b0bfe4fc050052464c0913b3a8cecfa88c701f1eb4"
+    },
+    {
+      "name": "environment-inventory.ps1",
+      "bytes": 3056,
+      "sha256": "e5b3bce92a18d21ca69d2042913af05b5ac10b7563a0f0f22bbd5606779a12e9"
+    },
+    {
+      "name": "environment-runtime-receipt.json",
+      "bytes": 2411,
+      "sha256": "4c5f6367227fa7cf9131f35898bbb42fbd4cf982f70093c2e459fe55d6723495"
+    },
+    {
+      "name": "execution-plan.md",
+      "bytes": 5475,
+      "sha256": "cb6ea42546ebe5280c4737b315b6bed846dc3e318902ee5dfaa290a8b711b62b"
+    },
+    {
+      "name": "expected-actual.json",
+      "bytes": 1092,
+      "sha256": "ceaa9583da5c4cc8585f9f3759a5d52b2cb8b6a7cd03d8b2abfcc57eea98f4ce"
+    },
+    {
+      "name": "final-identities.json",
+      "bytes": 139951,
+      "sha256": "f4f5721e4819a18f4cabe26f0ae0c624c90374278aa026425ca5c3962017e655"
+    },
+    {
+      "name": "final-report.md",
+      "bytes": 23486,
+      "sha256": "6a461f5cee00249ba72cc784e9e7adb3bbd9fc13db1ecfe7e4a265caf6e11c1d"
+    },
+    {
+      "name": "fixture-ledger.json",
+      "bytes": 343,
+      "sha256": "21b55d6547d9292d6bd9602a9d3be48083c20897fcaa6b2157fc678a7ce2e20c"
+    },
+    {
+      "name": "handoff-validation.md",
+      "bytes": 2170,
+      "sha256": "04c35a21b7e4911b9654f498322352054e3cb61ad4925d882703e7cf47e32ba6"
+    },
+    {
+      "name": "handoff.cjs",
+      "bytes": 10154,
+      "sha256": "6562875bc352d61faac01d4aac0e3987911f0ed8a73b3b15710bd9474dd38b6f"
+    },
+    {
+      "name": "handoff/diffs/docs/full-ui-interaction-sweep/progress.md.diff",
+      "bytes": 4509,
+      "sha256": "6d0caac55d306a8f0b9a6af210febf9a7982346cab19c8865cef2e1eb01e7cd1"
+    },
+    {
+      "name": "handoff/diffs/docs/full-ui-interaction-sweep/visual-gap-register.md.diff",
+      "bytes": 3743,
+      "sha256": "cb2c9deb4590387ae0ad7be8641e3d1247528740ec1fd9fd254a08b2d42393b5"
+    },
+    {
+      "name": "handoff/diffs/README.md.diff",
+      "bytes": 2979,
+      "sha256": "c73b8acb6d08c42d06b854b2c425d854ba30b8a31ff9f3ca077353a4644add73"
+    },
+    {
+      "name": "handoff/parent-after/docs/full-ui-interaction-sweep/progress.md",
+      "bytes": 806690,
+      "sha256": "8d8dad81c8a61aecfa39ff0de143ba94e17974e61bdd216418f69b403bfe5e1e"
+    },
+    {
+      "name": "handoff/parent-after/docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "bytes": 216110,
+      "sha256": "42fed7e239e10bd64a93102c08e83804e267d053bd82b2dc73c2c8f64df8c055"
+    },
+    {
+      "name": "handoff/parent-after/README.md",
+      "bytes": 2363,
+      "sha256": "512c33e54810834cf16e99d959549134828c3c8278a65d4b78d0e4dfd7aaa552"
+    },
+    {
+      "name": "INDEX.md",
+      "bytes": 3248,
+      "sha256": "50009931536bf62ebb679ca3d4d8f93aec1c45821953e8c91973f2946ba0a18b"
+    },
+    {
+      "name": "install-sandbox.ps1",
+      "bytes": 4457,
+      "sha256": "cdd82283c09300b64a6e78a9659a1c075b498ef546078d876544b64a81ef2e0f"
+    },
+    {
+      "name": "install-uac-terminal.json",
+      "bytes": 525,
+      "sha256": "0fe39c7c02db54bc23224d256cc3439a0942b3a55882abb1a9cab3c63280173b"
+    },
+    {
+      "name": "journey-matrix.json",
+      "bytes": 22159,
+      "sha256": "8ff7a34f17c05631c9600a661af0578b0e90222bce11b84c4c731cca3a74181c"
+    },
+    {
+      "name": "license-policy-observation.json",
+      "bytes": 751,
+      "sha256": "fc307c693408406abeec7c35190cb0d4994e3b8da143f8c3d7835b3c45b6af86"
+    },
+    {
+      "name": "live-gate-matrix.json",
+      "bytes": 6416,
+      "sha256": "06a69c94812e6b8dd0fd4c8d6fa760cf25453fc10cd3e29c93e56120149ec1c7"
+    },
+    {
+      "name": "native-evidence-index.md",
+      "bytes": 1354,
+      "sha256": "fb1ca7a6bd5379648a92a90b6e12aced874b6a2acd9db538705e03067e94a26d"
+    },
+    {
+      "name": "package-manifest.json",
+      "bytes": 10982,
+      "sha256": "0adc6f204e065b9f8827241de6204ccff946ce69760033d8d223640588cae177"
+    },
+    {
+      "name": "package-receipt.json",
+      "bytes": 12625,
+      "sha256": "4a73ef407f41192bcb96b2e8366795cab0b1ad1358832d8205c88dadfa3bcf38"
+    },
+    {
+      "name": "package.ps1",
+      "bytes": 4289,
+      "sha256": "41540d156809ca302330c30c84848cecea0472886a4a8050a5a1f4fd24c188cb"
+    },
+    {
+      "name": "parent-before-manifest.json",
+      "bytes": 1199,
+      "sha256": "a67ea8adf74de610922d678839ce6dc8db7a551c0f8ccfd030629921b1cf99fa"
+    },
+    {
+      "name": "progress.md",
+      "bytes": 13914,
+      "sha256": "4765bae3c1042a1a9d1846315620cc2cefdff01365958a723f459350d99e0a5d"
+    },
+    {
+      "name": "reference-manifest.json",
+      "bytes": 7305,
+      "sha256": "28f29a7d0024bab90eaec92b2f0b4746fda6bcc4f7f333aebf63eb93f354ce9e"
+    },
+    {
+      "name": "references/current-rules/AGENTS.md",
+      "bytes": 9159,
+      "sha256": "7de87a7f85c7552b496a14262aa627f7951a3b05b95e11c44ba9a086365264ca"
+    },
+    {
+      "name": "references/current-rules/docs/v1-completion-goal.md",
+      "bytes": 20278,
+      "sha256": "b0dff7531af6dc55842ab9d02aaf0099e44deabfbd0bb74ceca0ce84dbdf268d"
+    },
+    {
+      "name": "references/master-r5-request.txt",
+      "bytes": 41357,
+      "sha256": "37b0b79891c3fe9eb8845c9a0c9cc158394802b331b377eda02edd127df9594d"
+    },
+    {
+      "name": "references/R4/decision-queue.md",
+      "bytes": 6964,
+      "sha256": "fabcb0218a57d8de8334066b9c2505850271d60d13787065190553f817d9e3c9"
+    },
+    {
+      "name": "references/R4/environment-and-parity.md",
+      "bytes": 5531,
+      "sha256": "1bf9c80a91380245b2e24109bd79accc7a95748020372254ffccb6d74e20e27e"
+    },
+    {
+      "name": "references/R4/final-report.md",
+      "bytes": 14304,
+      "sha256": "6e16aeac596c52469bbfa3a9b82bf7be9e79268ddfab98ff7c39d9c6cac2b057"
+    },
+    {
+      "name": "references/R4/G2/final-build-identity.json",
+      "bytes": 24137,
+      "sha256": "8cf1aefdae6b67e28258fdbcd81e522067c19afb382b6d128a49e54c4846e130"
+    },
+    {
+      "name": "references/R4/G2/final-product-identity.json",
+      "bytes": 38208,
+      "sha256": "59574169065ad1d369d87a516b3a7e07a96dbd219c60c7e5b6ed489aaadbdcb7"
+    },
+    {
+      "name": "references/R4/handoff/final-harness-identity-v2.json",
+      "bytes": 15042,
+      "sha256": "a42c206845a833108752fd390dfcafb90f7800ca46e27cac99ac0a75954fffdd"
+    },
+    {
+      "name": "references/R4/handoff/final-test-manifest.json",
+      "bytes": 289773,
+      "sha256": "5cbf836201914bebb87af7414a718aeed0aac634c5cf14d3ad8ff6d5124161d9"
+    },
+    {
+      "name": "references/R4/handoff/integrated-journeys-matrix.json",
+      "bytes": 532953,
+      "sha256": "71bbda5e6f699a1e4fc87f8bef572130faa44947b253d7f80257823bde858469"
+    },
+    {
+      "name": "references/R4/handoff/live-gate-matrix.json",
+      "bytes": 127067,
+      "sha256": "20176e340f342454071100fe38501bd485002a84eac95f9a3f5f8edc9bf2b37d"
+    },
+    {
+      "name": "references/R4/handoff/native-evidence-index.json",
+      "bytes": 50995,
+      "sha256": "91eeaf2197f96e3a8ffa3471b3c6f4cdf3bea1204c4b53270e80a42a94aa5d82"
+    },
+    {
+      "name": "references/R4/handoff/parent-matrix-retention.json",
+      "bytes": 7138,
+      "sha256": "9be11cfabad9c992b3a17a87b46f1c62105fa85f0b285d190113708ffbf6aa3c"
+    },
+    {
+      "name": "references/R4/handoff/shift-log-19-bindings.json",
+      "bytes": 16437,
+      "sha256": "6a1820cae45cc8a9b0ad526a3d451556c1b9dd340abbd82ec3355d6035ef8fbb"
+    },
+    {
+      "name": "references/R4/handoff/source-delta-manifest.json",
+      "bytes": 13318,
+      "sha256": "650ae49d5d3940648d3f361013ef925cb433f7d281c0b4c645b19edcb153d5fb"
+    },
+    {
+      "name": "references/R4/historical-extractor-spec.md",
+      "bytes": 4741,
+      "sha256": "ee37234141bebd3aa6d97087917766c6ab800f14a2b180fecc4c9a89c08d654f"
+    },
+    {
+      "name": "references/R4/INDEX.md",
+      "bytes": 2616,
+      "sha256": "dd47c4aa2673bdb0515e3bbec7c36ce81048f977d227b50e33ee11b214e8f7a6"
+    },
+    {
+      "name": "references/R4/remaining-live-and-physical.md",
+      "bytes": 4451,
+      "sha256": "9cfae0cee005de37e90622df5793e702ec804fdb323ccce795bf9a0c3a1b55e5"
+    },
+    {
+      "name": "references/R4/root-result-matrix.md",
+      "bytes": 2848,
+      "sha256": "e7765e69344ca6c36664d528a44428048f37d0844075a0200536ab9ac090cfc5"
+    },
+    {
+      "name": "remaining-live-and-physical.md",
+      "bytes": 6192,
+      "sha256": "2473e1d3b2e08087e815844d80a88250f9127d6ff507606ac0d825b3d0c0c640"
+    },
+    {
+      "name": "resume-prompt.txt",
+      "bytes": 5027,
+      "sha256": "1d96768bee0c52f33eff535b13a43f12816e2de4552e7334a01bc24c8a6e19e2"
+    },
+    {
+      "name": "snapshots/parent-before/docs/full-ui-interaction-sweep/progress.md",
+      "bytes": 803730,
+      "sha256": "ac3dfe08af23da49981e41af229b921accd5fa72ba3f4615762ec5fa89065ba0"
+    },
+    {
+      "name": "snapshots/parent-before/docs/full-ui-interaction-sweep/visual-gap-register.md",
+      "bytes": 213811,
+      "sha256": "cdbf35a69b6381b7244f5e76327c45f27dcfda413daa7ac0264f30812e35f46c"
+    },
+    {
+      "name": "snapshots/parent-before/README.md",
+      "bytes": 1247,
+      "sha256": "62872f274ad1e40fd60ee0364ea002922fb68d10c9c2e6608901507222e0fbbe"
+    },
+    {
+      "name": "source-delta-manifest.json",
+      "bytes": 3053,
+      "sha256": "af1de99f6a82dfdd683c4d4994942918873c17aea679031cdee663d56026731d"
+    },
+    {
+      "name": "source-update-delta.md",
+      "bytes": 1995,
+      "sha256": "4aab807b0146a231827bf12aa868b6ed6f145b34b98c22186ea3869fa9b94fbe"
+    },
+    {
+      "name": "start-install.ps1",
+      "bytes": 2071,
+      "sha256": "205ed81a99a0df89709b47b71b886f8fb12b8f52aca775a0c898ad43fd6cb91b"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-channel-recheck\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md" "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+index 02d0843a..4ed85d27 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\attempts\\20260921-channel-recheck\\before\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
++++ "b/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260917-master-r5\\progress.md"
+@@ -1,5 +1,15 @@
+ # MASTER R5 — recoverable checkpoint
+ 
++## Актуальный checkpoint21.09 после повторного поручения4576acc6
++
++MASTER_R5_STATUS=BLOCKED_TOOL_CAPABILITY; GOAL_ACCEPTANCE=NOT_ACCEPTED; MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; FINAL_STOP=STOP. [Последний результат](attempts/20260921-channel-recheck/result.md). История предыдущей попытки ниже сохранена; её7PASS/3BLOCKED и viewer15316alive больше не являются последними данными.
++
++Последняя завершённая операция: **10/10 host provisioning checks PASS**, `attempts/20260921-guest-recovery/run-04-official-install/generator-results.json`, native exit0. Прежние generator/purehelper/check-generator.cjs не изменялись. Только официальный GNU install8.32 получен по pinned Git blob в own `.r5-runtime`, добавлен в child PATH, не установлен в систему/Codex. JSON/YAML/argv, success/repeat и негативные файловые сценарии доказаны на synthetic host targets. Ubuntu dash/modes/actual target и guest repair не доказаны; не product/live cases.
++
++Свежая проверка канала:17:00 прежних VMConnect процессов нет; создан только native connection dialog14364, capture дважды0x80004002. Accessibility показывает отказ non-admin к localhost, не guest output. Диалог штатно закрыт, PID14364 отсутствует17:03:51. Никакого UAC/VM state command/guest input/SSH retry. Последнее actual VM state — Off16:09 из прежнего observer, сейчас не перепроверено. Main source/build/harness/matrices/пять прежних ZIP сохраняются; host boot прежний20.09 20:26.
++
++Незавершённая операция: восстановление observable guest channel, затем guest logs/target/proof/недеструктивный repair и вся серия. Вопрос пользователю отправлен только об одном отсутствующем факте: был ли Codex полностью перезапущен после прошлого checkpoint. Без ответа не считать restart выполненным и не требовать его по кругу; если restart уже был, нужен исправный поддерживаемый capture/SSH канал, а не ещё одно согласие на shell. По навыку computer-use слепой ввод запрещён. Все5live gates0,32journeys0newreal, original063OPEN, finalregressionNOT_RUN. Рабочие PostgreSQL/service/env/uploads/history не читались. Один новый review ZIP — `zavod-master-r5-channel-recheck-20260921.zip`, готовность только по verified package receipt в последней attempt. Далее — история.
++
+ MASTER_R5_STATUS=BLOCKED_TOOL_CAPABILITY. EXECUTION_STATUS=STOPPED_AT_OBSERVABLE_GUEST_CHANNEL_BOUNDARY. GOAL_ACCEPTANCE=NOT_ACCEPTED. MAIN_UI_SWEEP=PAUSED_BY_USER / NOT_ACCEPTED; MAIN_FULL_SWEEP_RESUMED=NO. FINAL_STOP=STOP.
+ 
+ ## Текущий checkpoint — 21.09.2026, автономное восстановление того же гостя

@@ -1,0 +1,233 @@
+{
+  "status": "PASS_CURRENT_SKILL_MODEL_UI_CONSUMERS_WITH_GENERIC_CATALOG_AND_PROFILE_REALTIME_GAPS",
+  "added": [
+    {
+      "key": "WORKER02-1-0",
+      "id": "86e51d03-5024-4396-b80f-f4d0732728d9",
+      "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+      "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+      "positionId": "9e692458-1d60-416e-8f1e-801d291e66ff",
+      "uiStatus": 201
+    },
+    {
+      "key": "WORKER-1-0",
+      "id": "c272dca0-b66c-431b-9932-4de7ce4b8c79",
+      "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+      "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+      "positionId": "9e692458-1d60-416e-8f1e-801d291e66ff",
+      "uiStatus": 201
+    },
+    {
+      "key": "WORKER-2-0",
+      "id": "7c5419e7-a69f-4701-9ef7-d27c6875b8cf",
+      "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+      "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+      "positionId": "7dd4ab34-12ca-4305-90a5-8abe2e5b1869",
+      "uiStatus": 201
+    },
+    {
+      "key": "WORKER02-2-1",
+      "id": "5a1845cf-62ad-45b7-833f-6b15a57767a5",
+      "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+      "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+      "positionId": "974798bb-b399-4464-b118-b8e3d6bdc33a",
+      "uiStatus": 201
+    },
+    {
+      "key": "WORKER05-0-0",
+      "id": "ee0f5ecd-a5c4-4e09-9b54-23778de09be0",
+      "userId": "f2242297-6c2d-4cdc-a25b-330647f64d28",
+      "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+      "positionId": "d2cf7010-6645-4e3b-bf33-8cc78596dcfe",
+      "uiStatus": 201
+    }
+  ],
+  "beforeCandidate": {
+    "text": "УЧ\nУчебный-Работник-02 Тестовый\nУЧ — Производство T1 · Нет отмеченного навыка для этого слота\nНазначить",
+    "http": {
+      "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+      "displayName": "Учебный-Работник-02 Тестовый",
+      "profilePhoto": null,
+      "role": "WORKER",
+      "companyId": null,
+      "companyName": null,
+      "departmentId": "1173d258-bdbb-4e0b-aa9b-fa989baeb799",
+      "departmentName": "УЧ — Производство T1",
+      "employeeState": "AVAILABLE",
+      "isMovable": false,
+      "currentAssignment": null,
+      "skillMatches": [
+        {
+          "positionId": "9e692458-1d60-416e-8f1e-801d291e66ff",
+          "type": "NONE",
+          "label": "Нет опыта",
+          "experienceCount": 0,
+          "recommended": false
+        },
+        {
+          "positionId": "c9f947c9-3674-4552-9bb4-bde2535a8436",
+          "type": "NONE",
+          "label": "Нет опыта",
+          "experienceCount": 0,
+          "recommended": false
+        },
+        {
+          "positionId": "3ec61c76-43dc-482f-ba16-9d1ee5e2973b",
+          "type": "NONE",
+          "label": "Нет опыта",
+          "experienceCount": 0,
+          "recommended": false
+        }
+      ]
+    }
+  },
+  "selectorAdded": {
+    "ms": 4697,
+    "text": "УЧ\nУчебный-Работник-02 Тестовый\nУЧ — Производство T1 · Опыт по этой линии\nНазначить",
+    "mechanism": "canonical shift board polling, no reload"
+  },
+  "profileLiveAdd": false,
+  "profileLiveObservation": "No skill-only event/People polling owner; current opened profile stayed stale while shift selector updated.",
+  "edited": true,
+  "deactivated": true,
+  "selectorRemoved": {
+    "ms": 2414,
+    "text": "УЧ\nУчебный-Работник-02 Тестовый\nУЧ — Производство T1 · Нет отмеченного навыка для этого слота\nНазначить",
+    "mechanism": "same open selector, current polling"
+  },
+  "denials": {
+    "selfWrite": 403,
+    "foreignWrite": 403,
+    "otherProfile": 403
+  },
+  "noHardGuard": {
+    "beforeMatch": {
+      "positionId": "3ec61c76-43dc-482f-ba16-9d1ee5e2973b",
+      "type": "NONE",
+      "label": "Нет опыта",
+      "experienceCount": 0,
+      "recommended": false
+    },
+    "assignmentId": "8d798dfd-1221-4aaa-9e47-f0f8efa8c7d1",
+    "status": 201,
+    "meaning": "skill is recommendation/experience, not a qualification prohibition"
+  },
+  "automaticExperience": {
+    "credit": [
+      {
+        "id": "54d1892d-a316-4697-a3ef-739d564894f2",
+        "userId": "f2242297-6c2d-4cdc-a25b-330647f64d28",
+        "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+        "positionId": "3ec61c76-43dc-482f-ba16-9d1ee5e2973b",
+        "assignmentId": "8d798dfd-1221-4aaa-9e47-f0f8efa8c7d1",
+        "shiftDate": "2026-09-25T21:00:00.000Z",
+        "shiftType": "NIGHT"
+      }
+    ],
+    "skill": {
+      "id": "0b3fbe8f-42a2-486f-84b9-9f546344f369",
+      "experienceCount": 1
+    }
+  },
+  "freshProfileDeactivatedHidden": true,
+  "freshProfileMultipleSkills": 3,
+  "sql": [
+    {
+      "id": "c272dca0-b66c-431b-9932-4de7ce4b8c79",
+      "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+      "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+      "positionId": "9e692458-1d60-416e-8f1e-801d291e66ff",
+      "experienceCount": 5,
+      "isActive": true,
+      "deactivatedAt": null
+    },
+    {
+      "id": "7c5419e7-a69f-4701-9ef7-d27c6875b8cf",
+      "userId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+      "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+      "positionId": "7dd4ab34-12ca-4305-90a5-8abe2e5b1869",
+      "experienceCount": 5,
+      "isActive": true,
+      "deactivatedAt": null
+    },
+    {
+      "id": "5a1845cf-62ad-45b7-833f-6b15a57767a5",
+      "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+      "lineId": "ea1dc28d-75c4-4a86-8823-2746f738ad6f",
+      "positionId": "974798bb-b399-4464-b118-b8e3d6bdc33a",
+      "experienceCount": 5,
+      "isActive": true,
+      "deactivatedAt": null
+    },
+    {
+      "id": "ee0f5ecd-a5c4-4e09-9b54-23778de09be0",
+      "userId": "f2242297-6c2d-4cdc-a25b-330647f64d28",
+      "lineId": "9125a431-9d33-47d2-8763-08889bc2ab52",
+      "positionId": "d2cf7010-6645-4e3b-bf33-8cc78596dcfe",
+      "experienceCount": 5,
+      "isActive": true,
+      "deactivatedAt": null
+    },
+    {
+      "id": "86e51d03-5024-4396-b80f-f4d0732728d9",
+      "userId": "8288c785-94ce-4914-89bc-7d0303632ab9",
+      "lineId": "40ce951f-bf4e-4692-b5a1-7334001b0a08",
+      "positionId": "9e692458-1d60-416e-8f1e-801d291e66ff",
+      "experienceCount": 6,
+      "isActive": false,
+      "deactivatedAt": "2026-09-26T20:53:43.949Z"
+    }
+  ],
+  "audit": [
+    {
+      "id": "c367c030-7428-433d-81ee-e19340cc054e",
+      "action": "USER_SKILL_UPDATED",
+      "entityId": "86e51d03-5024-4396-b80f-f4d0732728d9",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+    },
+    {
+      "id": "317d0b63-4db7-4817-91ab-8402c45db1c0",
+      "action": "USER_SKILL_CREATED",
+      "entityId": "5a1845cf-62ad-45b7-833f-6b15a57767a5",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+    },
+    {
+      "id": "610383cf-d1ef-4c14-a4eb-188a7454224d",
+      "action": "USER_SKILL_CREATED",
+      "entityId": "ee0f5ecd-a5c4-4e09-9b54-23778de09be0",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+    },
+    {
+      "id": "d12fee45-a671-4904-a5c7-01abb2194cb2",
+      "action": "USER_SKILL_CREATED",
+      "entityId": "86e51d03-5024-4396-b80f-f4d0732728d9",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+    },
+    {
+      "id": "ae30b03b-b094-40a0-b35c-6178d6b11594",
+      "action": "USER_SKILL_CREATED",
+      "entityId": "c272dca0-b66c-431b-9932-4de7ce4b8c79",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+    },
+    {
+      "id": "8130c367-03a9-4a92-aa5a-21b77fa5ee48",
+      "action": "USER_SKILL_CREATED",
+      "entityId": "7c5419e7-a69f-4701-9ef7-d27c6875b8cf",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+    },
+    {
+      "id": "bd52f66d-2ba2-4fa0-8f14-89c10200848b",
+      "action": "USER_SKILL_UPDATED",
+      "entityId": "86e51d03-5024-4396-b80f-f4d0732728d9",
+      "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+      "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+    }
+  ],
+  "genericCatalog": "NOT_PRESENT_CURRENT_MODEL_LINE_PLUS_POSITION; five standalone named qualification skills would add a new business contract, not implemented"
+}

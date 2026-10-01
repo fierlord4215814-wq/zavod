@@ -1,0 +1,10 @@
+{
+  "kind": "PREPARATION_HARNESS_NOT_PRODUCT_FAILURE",
+  "exitCode": 1,
+  "message": "Potential private material in allowlisted source; values suppressed",
+  "path": "docs/full-ui-interaction-sweep/system-stabilization/20260915-master-r2/final-artifacts.cjs",
+  "archiveCreated": false,
+  "guestExecuted": false,
+  "correction": "Exclude inherited host-only report/retention helpers from guest payload; retain and hash them for source identity. Named backend/frontend test owners remain included. Secret scan not loosened.",
+  "secretsPrinted": false
+}

@@ -1,0 +1,203 @@
+{
+  "time": "2026-09-15T00:18:07.316Z",
+  "head": "2dd40727042a01994ff32f396897f70b41d3a3a7",
+  "priorZip": "a7d04c4bffb89a9cabe89d9e49e47e5178dd0688013d7c8fdc5519dd0d40bbde",
+  "priorOwnerComparison": [
+    {
+      "owner": "frontend/src/App.tsx",
+      "sha256": "4a953cf313e5ade81321dcf25e06da221403632dbd300cc89a2922deffb2b30f",
+      "bytes": 65174,
+      "current": "4a953cf313e5ade81321dcf25e06da221403632dbd300cc89a2922deffb2b30f",
+      "matches": true
+    },
+    {
+      "owner": "frontend/src/styles.css",
+      "sha256": "a4a9530682f32dcd492ec6ccb310de924ce1974237b78a26d1927a16a6ddba81",
+      "bytes": 447573,
+      "current": "a4a9530682f32dcd492ec6ccb310de924ce1974237b78a26d1927a16a6ddba81",
+      "matches": true
+    },
+    {
+      "owner": "frontend/src/screens/TasksScreen.tsx",
+      "sha256": "08c4a9128968b60f3b68175c01c35654e5a6eb3882b9e2a34569920d56148620",
+      "bytes": 46251,
+      "current": "08c4a9128968b60f3b68175c01c35654e5a6eb3882b9e2a34569920d56148620",
+      "matches": true
+    },
+    {
+      "owner": "frontend/src/screens/PeopleScreen.tsx",
+      "sha256": "f04b2f26e6f1422a588708de220ffddb4d62654cea3d702a707d894d2cf0454b",
+      "bytes": 35608,
+      "current": "f04b2f26e6f1422a588708de220ffddb4d62654cea3d702a707d894d2cf0454b",
+      "matches": true
+    },
+    {
+      "owner": "frontend/src/screens/ShiftPeopleScreen.tsx",
+      "sha256": "abcf42c3a01edceddd4fc136eb89afe8ab6a63e2b49787046d42a86cb37d268c",
+      "bytes": 340973,
+      "current": "abcf42c3a01edceddd4fc136eb89afe8ab6a63e2b49787046d42a86cb37d268c",
+      "matches": true
+    },
+    {
+      "owner": "frontend/src/screens/SituationScreen.tsx",
+      "sha256": "1415af3c64b91e53871b6ea5924642c29463ff28791cdf95f3fa9efbe7d44b41",
+      "bytes": 55621,
+      "current": "1415af3c64b91e53871b6ea5924642c29463ff28791cdf95f3fa9efbe7d44b41",
+      "matches": true
+    },
+    {
+      "owner": "frontend/src/screens/NotificationsScreen.tsx",
+      "sha256": "c5801ade30916a08591a3932331aedd78f75eef3c5d765d5e3f4e5889805fd05",
+      "bytes": 8780,
+      "current": "c5801ade30916a08591a3932331aedd78f75eef3c5d765d5e3f4e5889805fd05",
+      "matches": true
+    },
+    {
+      "owner": "frontend/src/components/ActionModal.tsx",
+      "sha256": "a99408dc71d11a55d10439b7a083cd1acb579fbab2f6caf8dcb51b7c0966b7a8",
+      "bytes": 7633,
+      "current": "a99408dc71d11a55d10439b7a083cd1acb579fbab2f6caf8dcb51b7c0966b7a8",
+      "matches": true
+    },
+    {
+      "owner": "frontend/src/navigation/mobile-back.ts",
+      "sha256": "6cbac822d5f5f32cd52f3ede1862d2e9d22f5b5292f415009d1400577cd141ee",
+      "bytes": 2903,
+      "current": "6cbac822d5f5f32cd52f3ede1862d2e9d22f5b5292f415009d1400577cd141ee",
+      "matches": true
+    },
+    {
+      "owner": "frontend/src/notifications/browser-notifications.ts",
+      "sha256": "2ae15ee56d692db1fb0592b73847f54319060e805381350ecb7d53aa146b43c1",
+      "bytes": 3482,
+      "current": "2ae15ee56d692db1fb0592b73847f54319060e805381350ecb7d53aa146b43c1",
+      "matches": true
+    },
+    {
+      "owner": "frontend/e2e/frontend-series.spec.ts",
+      "sha256": "72a606cd699555fe031f4966777d60672cba8953d97927376ea56b39152802dd",
+      "bytes": 46816,
+      "current": "72a606cd699555fe031f4966777d60672cba8953d97927376ea56b39152802dd",
+      "matches": true
+    }
+  ],
+  "priorScreenshotIndexShape": "array",
+  "parent": {
+    "controls": 957,
+    "legacyUniqueIds": 956,
+    "semanticKeys": 957,
+    "controlResults": {
+      "PASS": 954,
+      "FAIL": 3
+    },
+    "surfaceRows": 284,
+    "surfaceTested": {
+      "PARTIAL_SCOPED_EVIDENCE": 231,
+      "REVALIDATION_REQUIRED": 49,
+      "NOT_APPLICABLE_UNREACHABLE": 2,
+      "NOT_APPLICABLE_NO_CURRENT_STATE": 2
+    },
+    "surfaceReachability": {
+      "YES": 249,
+      "NO": 2,
+      "NO_CURRENT_RENDERED_STATE": 2,
+      "REVALIDATION_REQUIRED": 31
+    },
+    "back": {
+      "PASS": 1614,
+      "PHYSICAL_PENDING": 1,
+      "FAIL": 4,
+      "PASS_COMPONENT_ONLY": 4
+    },
+    "text": {
+      "PASS": 2711,
+      "FAIL": 35,
+      "NOT_RUN": 8
+    },
+    "exclusions": [
+      {
+        "controlId": "frontend/src/components/AttachmentPreviewList.tsx:190",
+        "reason": "UNREACHABLE: renderInlineMedia(image) is only reachable from renderAttachment in inline mode, while the inline attachment filter excludes every image before renderAttachment; other modes do not call renderInlineMedia."
+      },
+      {
+        "controlId": "frontend/src/components/AttachmentPreviewList.tsx:197",
+        "reason": "UNREACHABLE: renderInlineMedia(image) is only reachable from renderAttachment in inline mode, while the inline attachment filter excludes every image before renderAttachment; other modes do not call renderInlineMedia."
+      },
+      {
+        "controlId": "frontend/src/screens/FactorySelectScreen.tsx:407",
+        "reason": "NON_PRODUCTION: this control is inside the showDevLogin branch; showDevLogin is true only for import.meta.env.DEV or MODE=e2e, so the current production build cannot render it."
+      },
+      {
+        "controlId": "frontend/src/screens/FactorySelectScreen.tsx:414",
+        "reason": "NON_PRODUCTION: this control is inside the showDevLogin branch; showDevLogin is true only for import.meta.env.DEV or MODE=e2e, so the current production build cannot render it."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4109",
+        "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4139",
+        "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4140",
+        "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4141",
+        "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4145",
+        "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:4146",
+        "reason": "UNREACHABLE: the control is nested inside the !isManagerView render branch but also requires isManagerView; no runtime role or state can satisfy both conditions."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:5554",
+        "reason": "UNREACHABLE: this line selector requires activateLine with no pendingLine, but every reachable activate-line entry assigns pendingLine before opening the form."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:5653",
+        "reason": "UNREACHABLE: the legacy person line form can only be opened by manager controls already proven unreachable; the reachable manager flow uses the canonical line and slot pickers."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:5658",
+        "reason": "UNREACHABLE: the legacy person line form can only be opened by manager controls already proven unreachable; the reachable manager flow uses the canonical line and slot pickers."
+      },
+      {
+        "controlId": "frontend/src/screens/ShiftPeopleScreen.tsx:5665",
+        "reason": "UNREACHABLE: the legacy person line form can only be opened by manager controls already proven unreachable; the reachable manager flow uses the canonical line and slot pickers."
+      }
+    ]
+  },
+  "productFingerprint": "73b68e4c6a9b1229b56630b876e30e187e88f3f5a9782326bc80922cfff9bced",
+  "matrixHashes": [
+    {
+      "name": "interaction-matrix.csv",
+      "sha256": "4caec98a7cd58bc9cc5a22413fc328f8aa41e257c6e99273c9e50ece315cd60a"
+    },
+    {
+      "name": "surface-inventory.csv",
+      "sha256": "8b2900b5a9c2041e73673f5980f4c56fb3cbc52ea2923e5bc8e2393e2eb4864c"
+    },
+    {
+      "name": "back-matrix.csv",
+      "sha256": "9e14f757949b5c90590354778a0e6ce5880e56e390a0caf3f54119ac2b4a4e16"
+    },
+    {
+      "name": "text-integrity-matrix.csv",
+      "sha256": "9914e5cf738ff5e79b75b9982dfebaf1bea5c4a51858bb280d1d90b95f76826e"
+    },
+    {
+      "name": "coverage-checkpoint.json",
+      "sha256": "8bb4f8f9ccd55a7c38ae317e9c984ad9dfe73b9725e15c442bcc1ad2851d2c8b"
+    },
+    {
+      "name": "surface-reconciliation.json",
+      "sha256": "ece668f3f6ceca62837757efa1f0d34b2973131105c8078b40eddf355e8b1af3"
+    }
+  ]
+}

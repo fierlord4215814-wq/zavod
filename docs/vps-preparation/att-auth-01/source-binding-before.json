@@ -1,0 +1,18 @@
+{
+  "phase": "before",
+  "checks": [
+    {
+      "type": "ORDER_REQUEST",
+      "source": 200,
+      "mismatchedMetadataReturned": true,
+      "directMetadata": 403
+    },
+    {
+      "type": "MINIMUM_STOCK_ITEM",
+      "source": 200,
+      "mismatchedMetadataReturned": true,
+      "directMetadata": 403
+    }
+  ],
+  "status": "LIVE_INTERNAL_METADATA_BINDING_MISMATCH"
+}

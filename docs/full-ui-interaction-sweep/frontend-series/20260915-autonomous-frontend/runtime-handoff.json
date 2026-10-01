@@ -1,0 +1,12 @@
+{
+  "frontend": { "pid": 8232, "port": 5173, "address": "127.0.0.1", "session": 53942, "owner": "this series", "stop": "Ctrl-C sent through original exec session; process exited", "verification": "netstat no 5173 listener; Get-Process 8232 no result" },
+  "playwright": "all task-owned runners completed; none retained",
+  "backend": "not started or restarted by this series",
+  "postgresql": "not started/stopped/modified by this series; current service state not queried for report",
+  "cloudflare": "not started by this series",
+  "realBackendBusinessWrites": 0,
+  "oldLiveFixturesCleanupStatus": "UNKNOWN",
+  "dirtyWorktree": "preserved; no reset/clean/stash/restore/commit",
+  "powerSettings": "not inspected or changed",
+  "finalStop": "STOP"
+}

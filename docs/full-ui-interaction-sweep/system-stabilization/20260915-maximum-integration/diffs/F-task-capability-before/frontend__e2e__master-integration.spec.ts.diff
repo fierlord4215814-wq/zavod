@@ -1,0 +1,71 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-task-capability-before\\frontend\\e2e\\master-integration.spec.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\master-integration.spec.ts"
+index 8b0cfec6..a3f64c1f 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\F-task-capability-before\\frontend\\e2e\\master-integration.spec.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\master-integration.spec.ts"
+@@ -3,6 +3,66 @@ import { isolate, json, linkedReplies, open, shot, records, save, unknown, error
+ import { installEvidenceHooks } from './helpers/frontend-series';
+ installEvidenceHooks();
+ 
++const imageBytes=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=','base64');
++const attachment={id:'memory-evidence-image',originalName:'Осмотр узла.png',mimeType:'image/png',sizeBytes:68};
++
++test('Journey J14 036 ordinary comment differs from immutable handover and archive never writes receipt',async({page})=>{
++  const log={id:'memory-log',title:'Передача оборудования',text:'Комментарий отдела: проверить датчик',factoryId:'series-factory',departmentId:'series-department',departmentName:'Механики',logDate:'2026-09-15',shiftLabel:'Ночь',status:'ACTIVE',isImportant:true,comments:[{id:'memory-comment',text:'Отдельный комментарий к записи',attachments:[]}],attachments:[attachment]};
++  let archived=false;
++  await isolate(page,{role:'TECH_MECHANIC',granted:['shift-log.read','shift-log.archive.read','notifications.read'],replies:async(r,p)=>{
++    if(p==='/shift-log'){await json(r,[log]);return true;}
++    if(p==='/shift-log/archive'){await json(r,[{...log,status:'ARCHIVED'}]);return true;}
++    if(p==='/shift-log/memory-log'){await json(r,log);return true;}
++    if(p==='/shift-log/memory-log/read'&&r.request().method()==='POST'){await json(r,{ok:true});return true;}
++    if(p==='/shift-log/archive/memory-log'){archived=true;await json(r,{...log,status:'ARCHIVED',archiveReadOnly:true,handover:{snapshot:{authorName:'Мастер смены',comment:'Следующей смене: проверить защиту',counts:{total:0},sections:{lines:[],washes:[],tasks:[]}}}});return true;}
++    if(p==='/attachments/memory-evidence-image/file'){await r.fulfill({contentType:'image/png',body:imageBytes});return true;}
++    return false;
++  }});await page.setViewportSize({width:390,height:844});await page.goto('/');await open(page,'Пересменка');
++  await page.locator('.shift-log-card').click();await expect(page.getByRole('dialog')).toContainText('Комментарий отдела: проверить датчик');await expect.poll(()=>network.filter(n=>n.path==='/shift-log/memory-log/read').length).toBe(1);await page.goBack();
++  await page.locator('.segmented-control').getByRole('button',{name:'Архив',exact:true}).click();await page.locator('.shift-log-card').click();
++  await expect(page.getByRole('dialog')).toContainText('Следующей смене: проверить защиту');await expect(page.getByRole('dialog')).toContainText('Отдельный комментарий к записи');await expect(page.getByRole('dialog')).toContainText('только просмотр');
++  for(const label of ['Комментарий','Файл','Закрыть важное'])await expect(page.getByRole('dialog').getByRole('button',{name:label,exact:true})).toHaveCount(0);
++  await page.getByRole('dialog').getByRole('button',{name:'Открыть',exact:true}).click();await expect(page.locator('.attachment-large-preview')).toBeVisible();await page.goBack();await expect(page.getByRole('dialog')).toContainText('Неизменяемый снимок');
++  await shot(page,'J14-036-archive-readonly',{state:'ordinary-and-handover-comments-are-distinct'});await page.goBack();expect(archived).toBe(true);expect(network.filter(n=>n.method==='POST')).toHaveLength(1);expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++test('Journey J29 report validation failed create then failed file retry retains one entity and draft',async({page})=>{
++  let creates=0,uploads=0,failCreate=true,failFile=true;const operationIds:string[]=[];
++  await isolate(page,{role:'MASTER',replies:async(r,p)=>{
++    if(p==='/error-reports'&&r.request().method()==='POST'){creates++;await json(r,failCreate?{message:'Сервис временно недоступен'}:{ok:true,id:'memory-report',message:'Создано',report:{id:'memory-report',title:'Не работает кнопка',section:'Смена',description:'Проверить переход к оборудованию',status:'NEW',createdAt:'2026-09-15T00:00:00Z'}},failCreate?503:201);return true;}
++    if(p==='/attachments/upload'&&r.request().method()==='POST'){uploads++;const body=r.request().postData()||'';operationIds.push(body.match(/name="operationId"\r\n\r\n([^\r]+)/)?.[1]||'missing');expect(body).toContain('memory-report');await json(r,failFile?{message:'Файл временно не принимается'}:{...attachment,entityType:'ERROR_REPORT',entityId:'memory-report'},failFile?503:201);return true;}
++    return linkedReplies(r,p);
++  }});await page.goto('/');await expect(page.getByRole('button',{name:'Отправить администратору',exact:true})).toBeDisabled();
++  await page.getByLabel('Тема',{exact:true}).fill('Не работает кнопка');await page.getByLabel('Описание',{exact:true}).fill('Проверить переход к оборудованию');
++  await page.getByRole('button',{name:'Добавить вложение',exact:true}).click();await page.locator('.attachment-source-list input[type=file]').nth(1).setInputFiles({name:'Осмотр.png',mimeType:'image/png',buffer:imageBytes});
++  await page.getByRole('button',{name:'Отправить администратору',exact:true}).click();await expect(page.locator('.error-state').first()).toContainText('Ошибка сервера. Повторите позже.');await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('Не работает кнопка');expect(uploads).toBe(0);
++  failCreate=false;await page.getByRole('button',{name:'Отправить администратору',exact:true}).click();await expect(page.locator('.attachment-upload-feedback')).toContainText('Не удалось загрузить файл');expect(creates).toBe(2);await expect(page.locator('.attachment-preview')).toContainText('Осмотр.png');
++  failFile=false;await page.locator('.attachment-upload-feedback').getByRole('button',{name:'Повторить',exact:true}).click();await expect(page.locator('.success-state')).toContainText('Ошибка отправлена');expect(creates).toBe(2);expect(uploads).toBe(2);expect(operationIds[0]).not.toBe('missing');expect(operationIds[1]).toBe(operationIds[0]);await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('');
++  await shot(page,'J29-report-memory-retry',{state:'memory-only-no-real-report-upload'});expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++test('Journey J32 one shell source task media Back notification factory modal dirty theme return',async({page})=>{
++  let readAt:string|null=null;
++  await isolate(page,{replies:async(r,p)=>{
++    const factory=r.request().headers()['x-factory-id']||'series-factory';
++    if(p==='/auth/me'){await json(r,me(factory));return true;}
++    if(p==='/tasks/series-task'){await json(r,{...taskRow,attachments:[attachment]});return true;}
++    if(p==='/attachments/memory-evidence-image/file'){await r.fulfill({contentType:'image/png',body:imageBytes});return true;}
++    if(p==='/notifications'){await json(r,[{id:'memory-notice',factoryId:factory,sourceRoute:'tasks',title:'Проверка связи',message:'Связанное оборудование',severity:'INFO',createdAt:'2026-09-15T00:00:00Z',readAt}]);return true;}
++    if(p==='/notifications/unread-count'){await json(r,{count:readAt?0:1});return true;}
++    if(p==='/notifications/memory-notice/read'){readAt='2026-09-15T00:01:00Z';await json(r,{ok:true});return true;}
++    return linkedReplies(r,p);
++  }});await page.setViewportSize({width:1440,height:720});await page.goto('/');await open(page,'Люди');await page.locator('.people-compact-row').first().click();await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();
++  await expect(page.getByRole('dialog')).toContainText(taskRow.description);await page.getByRole('dialog').getByRole('button',{name:'Открыть',exact:true}).click();await expect(page.locator('.attachment-large-preview')).toBeVisible();
++  await page.goBack();await expect(page.getByRole('dialog')).toContainText(taskRow.description);await page.goBack();await page.goBack();await expect(page.locator('.profile-card')).toBeVisible();await page.goBack();
++  await open(page,'Уведомления');await page.locator('.notification-card').getByRole('button',{name:'Открыть',exact:true}).click();await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeVisible();await page.goBack();await expect(page.locator('.notification-card')).toContainText('прочитано');
++  await switchFactory(page);await expect(page.getByRole('dialog')).toHaveCount(0);await open(page,'Заявки');await page.getByRole('button',{name:'Создать заявку',exact:true}).click();await page.getByLabel('Описание',{exact:true}).fill('Черновик второй площадки');await page.getByLabel('Описание',{exact:true}).blur();await page.goBack();await expect(page.getByText('Изменения не сохранены',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Остаться',exact:true}).click();await expect(page.getByLabel('Описание',{exact:true})).toHaveValue('Черновик второй площадки');
++  await page.getByRole('button',{name:'Отмена',exact:true}).click();await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();await open(page,'Сообщить');await page.getByLabel('Тема',{exact:true}).fill('Тема сохраняется');
++  const mutations=network.filter(n=>n.method&&n.method!=='GET').length;await page.locator('.nav-settings-button').click();await page.getByRole('button',{name:'Серая',exact:true}).click();await page.setViewportSize({width:360,height:640});await page.goBack();await page.goBack();
++  await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('Тема сохраняется');await expect(page.locator('html')).toHaveAttribute('data-theme','gray');expect(network.filter(n=>n.method&&n.method!=='GET')).toHaveLength(mutations);
++  await page.reload();await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('Тема сохраняется');await shot(page,'J32-one-shell-final',{state:'same-app-sequence-then-explicit-reload'});expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
+ test('Master task detail readonly capability matches action sheet and never advertises forbidden writes',async({page})=>{
+   await isolate(page,{role:'TECH_MECHANIC',replies:linkedReplies});await page.goto('/');await open(page,'Люди');
+   await page.locator('.people-compact-row').first().click();await page.getByRole('button',{name:'Посмотреть заявку',exact:true}).click();

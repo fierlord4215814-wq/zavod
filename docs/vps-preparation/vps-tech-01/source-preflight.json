@@ -1,0 +1,39 @@
+{
+  "kind": "VPS_TECH01_SAFE_SOURCE_PREFLIGHT",
+  "atUtc": "2026-09-28T05:54:16Z",
+  "target": "NOT_PROVIDED_NOT_CONTACTED",
+  "commandsClass": "READ_ONLY_SOURCE_AND_HASH_CHECKS_ONLY",
+  "gitHeadHistoricalAnchor": "2dd40727042a01994ff32f396897f70b41d3a3a7",
+  "worktree": "DIRTY_PRESERVED; RELEASE_SELECTION_INCLUDES_UNTRACKED_FILES",
+  "selection": {
+    "owner": "setup/deployment-context.js:collectBuildFiles",
+    "files": 280,
+    "tracked": 63,
+    "untracked": 217,
+    "totalBytes": 6145016,
+    "regularNonSymlinkFiles": true,
+    "hostControlFiles": 4,
+    "linuxPathBuildDigestExpected": "d2749fbc9a95f984808bfcab6b70247a894e1ad8315480ec654ab04e7eea0b53",
+    "windowsPathBuildDigestObserved": "8565dfb365d7043c34053dd82832f1aea009ebe160a7c4a4af572fc69223dc43",
+    "noForbiddenRuntimePathsSelected": true,
+    "linuxBuildOrImageCreated": false
+  },
+  "schema": {
+    "migrationDirectories": 57,
+    "migrationSqlFiles": 57,
+    "mismatchAgainstOps01SavedChecksums": 0,
+    "schemaHashMatchesOps01SavedSource": true,
+    "migration58Created": false,
+    "sqlAppliedThisTask": false
+  },
+  "sourceHazards": [
+    "SETUP_GENERATES_HTTP_ORIGIN_AND_NO_CORS_ALLOWLIST_OR_TLS_PROXY",
+    "BACKUP_DB_DUMP_THEN_UPLOAD_COPY_HAS_NO_WRITE_QUIESCE",
+    "RESTORE_IS_IN_PLACE_AND_REPLACES_DESTINATION_CONFIG_WITH_SOURCE_CONFIG",
+    "UPDATE_HAS_NO_PROVEN_OLDER_IMAGE_ROLLBACK",
+    "RELEASE_ID_USES_NATIVE_PATH_SEPARATORS"
+  ],
+  "runtime": "NOT_RUN_BLOCKED_INPUT",
+  "t1Touched": false,
+  "productCodeChanged": false
+}

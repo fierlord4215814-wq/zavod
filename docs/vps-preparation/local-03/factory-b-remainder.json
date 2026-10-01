@@ -1,0 +1,148 @@
+{
+  "scope": [
+    {
+      "p": "/orders/items?archive=true",
+      "status": 200,
+      "noAIds": true
+    },
+    {
+      "p": "/orders/requests?archive=true",
+      "status": 200,
+      "noAIds": true
+    },
+    {
+      "p": "/announcements?activeOnly=false",
+      "status": 200,
+      "noAIds": true
+    },
+    {
+      "p": "/shift-log/archive",
+      "status": 200,
+      "noAIds": true
+    },
+    {
+      "method": "GET",
+      "p": "/orders/items/6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9",
+      "status": 409
+    },
+    {
+      "method": "GET",
+      "p": "/orders/requests/8ec98df0-7c60-4e8d-b05d-afcd245993cc",
+      "status": 409
+    },
+    {
+      "method": "POST",
+      "p": "/orders/items/6be6dd3b-70fc-4a20-8c9c-3d6cd14aa8e9/take",
+      "status": 409
+    },
+    {
+      "method": "GET",
+      "p": "/announcements/44566c2e-7633-458c-a420-9fb7f052acb7",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "p": "/announcements/44566c2e-7633-458c-a420-9fb7f052acb7/ack",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "p": "/announcements/44566c2e-7633-458c-a420-9fb7f052acb7/ack-report",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "p": "/shift-log/archive/f78cb509-994f-4d65-9219-e9d9f57bd21f",
+      "status": 409
+    },
+    {
+      "file": "f6f300a3-d667-4ff1-bac2-8dfcc8b191d1",
+      "status": 403
+    },
+    {
+      "file": "9964669a-d854-43f7-9965-643861ab67a9",
+      "status": 403
+    },
+    {
+      "file": "b3629766-df65-483c-bd78-cf3c7cb9a3d8",
+      "status": 403
+    },
+    {
+      "file": "836e21e8-5a28-461a-806c-e8f54df00fbb",
+      "status": 403
+    }
+  ],
+  "id": "7e9fa429-61a5-48a7-8c23-bdfda0a34bdf",
+  "before": {
+    "id": "7e9fa429-61a5-48a7-8c23-bdfda0a34bdf",
+    "code": "local01-temp-b",
+    "isActive": false
+  },
+  "beforeAccess": [
+    {
+      "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+      "isActive": true,
+      "role": "ADMIN",
+      "isGuest": false
+    },
+    {
+      "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032",
+      "isActive": false,
+      "role": "TECH_KIPIA",
+      "isGuest": false
+    },
+    {
+      "userId": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+      "isActive": false,
+      "role": "MASTER",
+      "isGuest": false
+    }
+  ],
+  "beforeFact": 0,
+  "validAdminB": 200,
+  "noCrossFactoryMutation": true,
+  "noBRowsInA": true,
+  "oldNotificationText": "Новая заявка\nИнформация\n\nПроверить кабельную трассу учебной линии Б\n\n24.09, 14:19\nИсточник: Учебная площадка Б LOCAL01\nЗаявка\nпрочитано\nОткрыть",
+  "notificationSwitchUi": true,
+  "bRead": {
+    "task": 200,
+    "file": 200,
+    "bytes": 68,
+    "sha": "0e11052d6c44061c4c986574da3eb4efa95c0c5594ded94043f6ffcb21096da3"
+  },
+  "reconnect": {
+    "before": 2,
+    "after": 3,
+    "selectedFactory": "7e9fa429-61a5-48a7-8c23-bdfda0a34bdf"
+  },
+  "revoked": {
+    "/tasks/0617e00c-ed61-4c48-8b99-84d80d934ca9": 403,
+    "/attachments/3b47f915-c9c2-46a0-b9ea-e0c7c63243fa": 403,
+    "/attachments/3b47f915-c9c2-46a0-b9ea-e0c7c63243fa/file": 403
+  },
+  "revokedUi": "Завод\n\nВход, первый запуск и выбор завода\n\nТелефон\nПароль\nВойти\n\nЕсли администратор выдал временный код, введите его в поле пароля. Код одноразовый и имеет ограниченный срок действия.\n\nРегистрация\nУстановить приложение\nВыберите рабочий завод\n\nПоказаны только заводы, к которым вам назначен доступ.\n\nВыбрать завод\nВыберите завод\n\nВыберите завод, в котором будете работать сейчас.\n\nНазад\nЗавод LOCAL-01\nКИПиА · Учебная служба КИПиА А\n›",
+  "kipiaAActive": true,
+  "factAfter": 0,
+  "aOnlyDeny": 403,
+  "status": "PASS_BOUNDED_EXISTING_B_ISOLATION_RECONNECT_REVOKE",
+  "finalB": {
+    "isActive": false
+  },
+  "finalAccess": [
+    {
+      "userId": "5d40c898-28dc-444b-bfd3-8f8ccf5e9de9",
+      "role": "ADMIN",
+      "isActive": true
+    },
+    {
+      "userId": "7a7ad710-31ef-49a0-b41d-7293c80e0400",
+      "role": "MASTER",
+      "isActive": false
+    },
+    {
+      "userId": "6e4df6fe-bc76-4eff-a15a-a93c070a6032",
+      "role": "TECH_KIPIA",
+      "isActive": false
+    }
+  ]
+}

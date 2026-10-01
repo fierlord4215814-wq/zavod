@@ -1,0 +1,144 @@
+{
+  "surfaces": [
+    {
+      "viewport": "desktop",
+      "screen": "Сообщить об ошибке / ADMIN / список",
+      "heading": "Завод 4",
+      "controls": 27,
+      "textLength": 1184,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/desktop/report-admin-list.png"
+    },
+    {
+      "viewport": "desktop",
+      "screen": "Сообщить об ошибке / ADMIN / детали",
+      "heading": "",
+      "controls": 32,
+      "textLength": 1485,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/desktop/report-admin-detail.png"
+    },
+    {
+      "viewport": "desktop",
+      "screen": "Сообщить об ошибке / ADMIN / детали / низ",
+      "heading": "",
+      "controls": 32,
+      "textLength": 1485,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/desktop/report-admin-detail-lower.png"
+    },
+    {
+      "viewport": "360",
+      "screen": "Сообщить об ошибке / ADMIN / список",
+      "heading": "Завод 4",
+      "controls": 11,
+      "textLength": 956,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/360/report-admin-list.png"
+    },
+    {
+      "viewport": "360",
+      "screen": "Сообщить об ошибке / ADMIN / детали",
+      "heading": "",
+      "controls": 16,
+      "textLength": 1257,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/360/report-admin-detail.png"
+    },
+    {
+      "viewport": "360",
+      "screen": "Сообщить об ошибке / ADMIN / детали / низ",
+      "heading": "",
+      "controls": 16,
+      "textLength": 1257,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/360/report-admin-detail-lower.png"
+    },
+    {
+      "viewport": "390",
+      "screen": "Сообщить об ошибке / ADMIN / список",
+      "heading": "Завод 4",
+      "controls": 11,
+      "textLength": 964,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/390/report-admin-list.png"
+    },
+    {
+      "viewport": "390",
+      "screen": "Сообщить об ошибке / ADMIN / детали",
+      "heading": "",
+      "controls": 16,
+      "textLength": 1265,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/390/report-admin-detail.png"
+    },
+    {
+      "viewport": "390",
+      "screen": "Сообщить об ошибке / ADMIN / детали / низ",
+      "heading": "",
+      "controls": 16,
+      "textLength": 1265,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/390/report-admin-detail-lower.png"
+    },
+    {
+      "viewport": "430",
+      "screen": "Сообщить об ошибке / ADMIN / список",
+      "heading": "Завод 4",
+      "controls": 11,
+      "textLength": 964,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/430/report-admin-list.png"
+    },
+    {
+      "viewport": "430",
+      "screen": "Сообщить об ошибке / ADMIN / детали",
+      "heading": "",
+      "controls": 16,
+      "textLength": 1265,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/430/report-admin-detail.png"
+    },
+    {
+      "viewport": "430",
+      "screen": "Сообщить об ошибке / ADMIN / детали / низ",
+      "heading": "",
+      "controls": 16,
+      "textLength": 1265,
+      "overflow": 0,
+      "screenshot": "docs/full-ui-interaction-sweep/screenshots/430/report-admin-detail-lower.png"
+    }
+  ],
+  "interactions": [
+    {
+      "viewport": "desktop",
+      "screen": "Сообщить об ошибке / ADMIN",
+      "control": "Открыть запись / browser Back / Закрыть окно",
+      "result": "PASS",
+      "detail": "List/detail GET 200; browser Back и UI Close закрывают только верхний слой; три status actions видимы, но не нажимались."
+    },
+    {
+      "viewport": "360",
+      "screen": "Сообщить об ошибке / ADMIN",
+      "control": "Открыть запись / browser Back / Закрыть окно",
+      "result": "PASS",
+      "detail": "List/detail GET 200; browser Back и UI Close закрывают только верхний слой; три status actions видимы, но не нажимались."
+    },
+    {
+      "viewport": "390",
+      "screen": "Сообщить об ошибке / ADMIN",
+      "control": "Открыть запись / browser Back / Закрыть окно",
+      "result": "PASS",
+      "detail": "List/detail GET 200; browser Back и UI Close закрывают только верхний слой; три status actions видимы, но не нажимались."
+    },
+    {
+      "viewport": "430",
+      "screen": "Сообщить об ошибке / ADMIN",
+      "control": "Открыть запись / browser Back / Закрыть окно",
+      "result": "PASS",
+      "detail": "List/detail GET 200; browser Back и UI Close закрывают только верхний слой; три status actions видимы, но не нажимались."
+    }
+  ],
+  "gaps": [],
+  "findings": []
+}

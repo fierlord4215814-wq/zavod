@@ -1,0 +1,29 @@
+require('./master-offline-guard.cjs');require('reflect-metadata');
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {actor,taskFixture}=require('./master-r2-task-fixture.cjs'),{strict,copy,denied}=require('./master-r2-memory.cjs'),{installAuthority,withIdentity}=require('./master-r2-authority-fixture.cjs');
+const {TaskService}=require('../dist/modules/task/task.service'),{NotificationsService}=require('../dist/modules/notifications/notifications.service'),{OpsService}=require('../dist/modules/ops/ops.service');
+test('R2-E-J06 actual create take redirect take complete feeds same Notifications board detail archive Ops',async()=>{
+  const f=taskFixture(),users=[actor.userId,'r2-next-manager'].map(id=>({id,firstName:'Мастер',lastName:id===actor.userId?'Первый':'Второй',role:'MASTER',blockedAt:null,deletedAt:null,passwordResetRequired:false,assignments:[]}));
+  const permissions=[...actor.permissions,'notifications.read'],accesses=users.map(user=>({userId:user.id,factoryId:actor.selectedFactoryId,role:'MASTER',departmentId:actor.departmentId,department:{id:actor.departmentId,name:'Служба эксплуатации',scope:'FACTORY'},isActive:true,isGuest:false,deactivatedAt:null,user,factory:{isActive:true,deletedAt:null},companyId:null}));
+  f.data.userFactoryAccess=f.model('userFactoryAccess',accesses,{includes:['user','department'],compounds:['userId_factoryId']});const {authority,resolve}=installAuthority(f,users,accesses,{MASTER:permissions});
+  const notices=[],pushes=[];f.data.notification=f.model('notification',notices,{defaults:{readAt:null,expiresAt:null}});
+  const push=strict({sendPush:(...a)=>pushes.push(copy(a)),sendNotificationToUsers:async(...a)=>pushes.push(copy(a))});
+  const notification=new NotificationsService({db:f.db},f.audit,f.ws,push,authority),service=new TaskService({db:f.db},f.ws,push,f.audit,f.attachments,notification,strict({}));
+  const previous=[process.env.NODE_ENV,process.env.ZAVOD_INTERNAL_TEST_NOW];process.env.NODE_ENV='test';process.env.ZAVOD_INTERNAL_TEST_NOW='2026-09-15T05:00:00Z';
+  try{await withIdentity(async()=>{
+    const first=await resolve(actor.userId,actor.selectedFactoryId),next=await resolve(users[1].id,actor.selectedFactoryId);
+    const input={actor:first,operationId:'bridge-create',description:'Проверить датчик перед сменой',assigneeUserIds:[first.userId]};const row=await service.createTask(input);assert.equal((await service.board(first)).NEW[0].id,row.id);assert.equal((await notification.list(first))[0].entityId,row.id);
+    await service.takeTask(row.id,first,'bridge-take');assert.equal((await service.board(first)).IN_PROGRESS[0].id,row.id);
+    const redirect={newAssigneeUserIds:[next.userId],comment:'Требуется осмотр следующего мастера',operationId:'bridge-redirect'};
+    await assert.rejects(service.redirectTask(row.id,{...first,selectedFactoryId:'foreign'},redirect),denied);
+    const moved=await service.redirectTask(row.id,first,redirect);assert.equal(moved.id,row.id);const writes=f.writes.length;assert.equal((await service.redirectTask(row.id,first,redirect)).id,row.id);assert.equal(f.writes.length,writes);
+    const received=await notification.list(next);assert.ok(received.some(n=>n.entityId===row.id));assert.equal((await service.detail(row.id,next)).id,row.id);await service.takeTask(row.id,next,'bridge-next-take');
+    await assert.rejects(service.completeTask(row.id,next,'bridge-done',''),denied);assert.equal(f.tasks[0].status,'IN_PROGRESS');
+    process.env.ZAVOD_INTERNAL_TEST_NOW='2026-09-15T05:40:00Z';await service.completeTask(row.id,next,'bridge-done','Оборудование проверено');const doneWrites=f.writes.length,noticeCount=notices.length;await service.completeTask(row.id,next,'bridge-done','Оборудование проверено');assert.deepEqual(f.writes.slice(doneWrites).map(w=>({label:w.label,action:w.action,count:w.count})),[{label:'notification',action:'updateMany',count:1}]);assert.equal(notices.length,noticeCount);assert.ok(notices.find(n=>n.type==='TASK_DONE').readAt,'existing replay recovery resolves the completion notice; no second business mutation');
+    const detail=await service.detail(row.id,next);assert.equal(detail.status,'DONE');assert.equal((await service.board(next)).DONE[0].id,row.id);assert.ok(detail.comments.some(c=>c.message==='Оборудование проверено'));
+    const archive=await service.archiveSummary(next,{dateFrom:'2026-09-15T00:00:00Z',dateTo:'2026-09-16T00:00:00Z'});assert.equal(archive.items[0].id,row.id);assert.equal(archive.metrics.closed,1);
+    const ops=new OpsService(strict({}),f.audit),period=ops.resolveOperationsPeriod({dateFrom:'2026-09-15T00:00:00Z',dateTo:'2026-09-16T00:00:00Z'},new Date('2026-09-15T06:00:00Z'));const projection=ops.serializeOperationalTask(copy(f.tasks[0]),[],period);assert.equal(projection.id,row.id);assert.equal(projection.status,'DONE');
+    assert.equal(f.tasks.length,1);assert.equal(f.histories.filter(x=>x.action==='TASK_REDIRECTED').length,1);assert.ok(notices.some(n=>n.type==='TASK_DONE'&&n.entityId===row.id));
+    accesses[1].isActive=false;const revoked=await resolve(next.userId,next.selectedFactoryId);assert.equal(revoked.isGuest,true);await assert.rejects(service.detail(row.id,revoked),denied);await assert.rejects(service.redirectTask(row.id,{...first,selectedFactoryId:'foreign'},redirect),denied);
+  });}finally{for(const[i,key]of ['NODE_ENV','ZAVOD_INTERNAL_TEST_NOW'].entries())if(previous[i]===undefined)delete process.env[key];else process.env[key]=previous[i];}
+});

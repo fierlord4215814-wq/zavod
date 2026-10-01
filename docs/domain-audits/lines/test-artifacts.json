@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "audit": "DOMAIN_AUDIT_LINES_FULL_PRODUCT_CONTOUR_REVIEW",
+  "status": "PASS",
+  "meaning": "audit complete; product gaps remain open and no fixes were started",
+  "completedAt": "2026-08-31T07:18:49.400Z",
+  "marker": "__LINE_AUDIT_1788128314390__",
+  "baseline": {
+    "prismaValidate": "PASS",
+    "prismaMigrateStatus": "PASS_UP_TO_DATE_53_MIGRATIONS",
+    "backendBuild": "PASS",
+    "frontendBuild": "PASS_WITH_KNOWN_VITE_CHUNK_WARNING",
+    "sourceFingerprintBefore": "8bbb804ad6aca9ed74790da3777456f28f834c2b66242899490c2e57b9898bd7",
+    "sourceFingerprintAfter": "8bbb804ad6aca9ed74790da3777456f28f834c2b66242899490c2e57b9898bd7",
+    "protectedFactory4HashBefore": "420ee4c6ced44aa1b598431186c2a5a52880cc47c207d04fdf4631368dc4190a",
+    "protectedFactory4HashAfter": "420ee4c6ced44aa1b598431186c2a5a52880cc47c207d04fdf4631368dc4190a",
+    "roleConfigurationUnchanged": true
+  },
+  "coverage": {
+    "surfacesAudited": 21,
+    "surfacesTotal": 21,
+    "fieldsWithOwner": 22,
+    "fieldsTotal": 22,
+    "stateTransitionsAudited": 17,
+    "stateTransitionsTotal": 17,
+    "roleActionDecisionsAudited": 40,
+    "roleActionDecisionsMatching": 39,
+    "roleActionDefects": 1
+  },
+  "targetedChecks": {
+    "backendAuditRunner": {
+      "total": 40,
+      "passed": 39,
+      "failed": 1,
+      "expectedFailedAssertion": "restricted-master-direct-plan-mutation-denied",
+      "result": "CONFIRMED_PRODUCT_GAP_LINE_003"
+    },
+    "lineCardDetailPolishRegression": {
+      "passed": 29,
+      "failed": 0
+    },
+    "compactShiftBoundary": {
+      "before": "2026-08-31T19:59:59+03:00 -> DAY/2026-08-31",
+      "atBoundary": "2026-08-31T20:00:00+03:00 -> NIGHT/2026-08-31",
+      "result": "PASS"
+    },
+    "allRunning": "PASS",
+    "allStopped": "PASS",
+    "mixedStates": "PASS_WITH_DEFROST_GAP",
+    "sameStateDoubleSubmit": "PASS_ONE_EVENT",
+    "incompatibleRace": "CANONICAL_STATE_PASS_CLIENT_SIGNAL_GAP",
+    "washGuard": "PASS_409",
+    "defrostGuard": "PASS_409",
+    "openDowntimeParity": "PASS",
+    "downtimeTaskRelation": "PASS",
+    "timelineOrdering": "PASS",
+    "serverRestart": "PASS_NO_SYNTHETIC_EVENTS",
+    "publicSensitiveFieldScan": "PASS"
+  },
+  "roles": {
+    "ADMIN": { "login": 201, "list": 200, "detail": 200, "mutation": 200 },
+    "MANAGEMENT": { "login": 201, "list": 200, "detail": 200, "mutation": 200 },
+    "MASTER": { "login": 201, "list": 200, "detail": 200, "mutation": 200 },
+    "TECHNOLOG": { "login": 201, "list": 200, "detail": 200, "mutation": 200 },
+    "TECH_HOLOD": { "login": 201, "list": 200, "detail": 200, "mutation": 403 },
+    "TECH_KIPIA": { "login": 201, "list": 200, "detail": 200, "mutation": 403 },
+    "WORKER": { "login": 201, "list": 403, "detail": 403, "mutation": 403 },
+    "CONTRACTOR": { "login": 201, "list": 403, "detail": 403, "mutation": 403 },
+    "GUEST": { "login": 201, "list": 403, "detail": 403, "mutation": 403 },
+    "blockedLogin": "DENIED",
+    "crossFactory": "DENIED",
+    "restrictedMasterEffectiveDeny": "BYPASSED_BY_SHIFT_ASSIGNMENT_MUTATION"
+  },
+  "browser": {
+    "desktop1440": "PASS",
+    "mobile360": { "horizontalOverflow": 0, "longNameActionable": true },
+    "mobile390": { "horizontalOverflow": 0, "bottomNavOverlap": false },
+    "mobile430": { "horizontalOverflow": 0 },
+    "factorySwitchAtoBtoA": "PASS_NO_STALE_LINE_OR_DIALOG",
+    "twoClientRealtime": "PASS_WITHOUT_RELOAD",
+    "networkFailureCanonicalState": "PASS",
+    "networkFailureHumanFeedback": "FAIL_LINE_012",
+    "androidBrowserBack": "FAIL_LINE_013",
+    "dialogLayering": "FAIL_LINE_014"
+  },
+  "restart": {
+    "hashBefore": "77fcda674b1d3e3d679fe82624389d129309742c206acb96961234175887f8d3",
+    "hashAfter": "77fcda674b1d3e3d679fe82624389d129309742c206acb96961234175887f8d3",
+    "lineEventCountBefore": 23,
+    "lineEventCountAfter": 23,
+    "syntheticEvents": 0
+  },
+  "gaps": {
+    "P0": 0,
+    "P1": 6,
+    "P2": 11,
+    "P3": 2,
+    "ids": [
+      "LINE-001", "LINE-002", "LINE-003", "LINE-004", "LINE-005",
+      "LINE-006", "LINE-007", "LINE-008", "LINE-009", "LINE-010",
+      "LINE-011", "LINE-012", "LINE-013", "LINE-014", "LINE-015",
+      "LINE-016", "LINE-017", "LINE-018", "LINE-019"
+    ]
+  },
+  "cleanup": {
+    "activeFactories": 0,
+    "activeDepartments": 0,
+    "activeUsers": 0,
+    "activeAccesses": 0,
+    "activeLines": 0,
+    "activeAssignments": 0,
+    "openEvents": 0,
+    "activeTasks": 0,
+    "activeWashes": 0,
+    "activeDefrosts": 0,
+    "physicalDeletes": 0,
+    "preexistingChanged": 0
+  },
+  "screenshots": [
+    "01-lines-desktop-mixed.png",
+    "02-lines-mobile-390-mixed.png",
+    "03-lines-mobile-defrost-contradiction.png",
+    "04-lines-mobile-stacked-action-dialog.png",
+    "05-lines-mobile-timeline-defrost.png",
+    "06-lines-mobile-360-long-name-actions.png"
+  ]
+}

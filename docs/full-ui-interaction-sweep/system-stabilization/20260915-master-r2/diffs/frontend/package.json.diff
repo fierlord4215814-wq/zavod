@@ -1,0 +1,32 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-owner-before\\frontend\\package.json" "b/C:\\Users\\79164\\Documents\\work\\frontend\\package.json"
+index 62c68e7a..d0f67ce4 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\D-owner-before\\frontend\\package.json"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\package.json"
+@@ -3,6 +3,7 @@
+   "version": "1.0.0",
+   "private": true,
+   "scripts": {
++    "typecheck": "tsc --project tsconfig.json --noEmit",
+     "dev": "vite",
+     "build": "vite build",
+     "build:e2e": "vite build --mode e2e",
+@@ -110,8 +111,8 @@
+     "physical-field-fixes:v5-plast6-e2e": "playwright test e2e/physical-field-fixes-v5-plast6.spec.ts --project=mobile-360-edge",
+     "pilot-fix:plast3-e2e": "node scripts/pilot-fix-plast3-e2e.js",
+     "pilot-fix:plast4-e2e": "node scripts/pilot-fix-plast4-e2e.js",
+-    "pilot-fix:plast5-e2e": "node scripts/pilot-fix-plast5-e2e.js"
+-    ,"pilot-fix:plast6-e2e": "node scripts/pilot-fix-plast6-e2e.js",
++    "pilot-fix:plast5-e2e": "node scripts/pilot-fix-plast5-e2e.js",
++    "pilot-fix:plast6-e2e": "node scripts/pilot-fix-plast6-e2e.js",
+     "physical-field-fixes:v5-plast8-e2e": "playwright test e2e/physical-field-fixes-v5-plast8.spec.ts --project=desktop-edge",
+     "physical-field-fixes:v5-plast9-e2e": "playwright test e2e/physical-field-fixes-v5-plast9.spec.ts --project=desktop-edge",
+     "physical-field-fixes:v5-plast10-e2e": "playwright test e2e/physical-field-fixes-v5-plast10.spec.ts --project=desktop-edge --workers=1",
+@@ -134,6 +135,8 @@
+   },
+   "devDependencies": {
+     "@playwright/test": "^1.60.0",
++    "@types/react": "18.3.31",
++    "@types/react-dom": "18.3.7",
+     "typescript": "^5.6.0"
+   }
+ }

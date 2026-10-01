@@ -1,0 +1,56 @@
+{
+  "status": "IN_PROGRESS",
+  "mode": "before-publication",
+  "taskId": "af4f5348-156d-454b-a20e-fdfcfad387d6",
+  "createHttp": 201,
+  "operationId": "66befdb5-6429-4edd-a9f3-289908364f91",
+  "snapshot": {
+    "tasks": [
+      {
+        "id": "af4f5348-156d-454b-a20e-fdfcfad387d6",
+        "status": "NEW",
+        "operationId": "66befdb5-6429-4edd-a9f3-289908364f91"
+      }
+    ],
+    "processed": [
+      {
+        "id": "9ee4119f-4d8c-4f73-9efa-299d010b9b9a",
+        "resultKey": "af4f5348-156d-454b-a20e-fdfcfad387d6"
+      }
+    ],
+    "history": [
+      {
+        "id": "36dc16c9-9e54-4cbb-94ef-a00d8be3583d",
+        "taskId": "af4f5348-156d-454b-a20e-fdfcfad387d6",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "audit": [
+      {
+        "id": "a1f2b5b5-a999-4c9a-aa58-40c0a9db52d8",
+        "entityId": "af4f5348-156d-454b-a20e-fdfcfad387d6",
+        "action": "TASK_CREATED"
+      }
+    ],
+    "notifications": [
+      {
+        "id": "13496515-2d09-4719-9e54-0e68d517493b",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+        "departmentId": null,
+        "type": "TASK_CREATED",
+        "entityId": "af4f5348-156d-454b-a20e-fdfcfad387d6",
+        "createdAt": "2026-09-26T23:27:08.468Z"
+      }
+    ]
+  },
+  "secondTaskUiMs": 562,
+  "createdFrames": 0,
+  "unrelatedWsIdentityLeak": false,
+  "reconnect": {
+    "closedSockets": 1,
+    "connectedBefore": 1,
+    "connectedAfter": 2
+  },
+  "error": "Expected values to be strictly equal:\n\n0 !== 1\n"
+}

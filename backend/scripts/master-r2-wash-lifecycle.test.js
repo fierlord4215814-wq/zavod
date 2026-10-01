@@ -1,0 +1,45 @@
+require('./master-offline-guard.cjs');require('reflect-metadata');
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {memory,strict,copy,denied}=require('./master-r2-memory.cjs');
+const {WashService}=require('../dist/modules/wash/wash.service');
+function fixture(){
+  const m=memory(),user={userId:'wash-chain-master',selectedFactoryId:'wash-chain-factory',factoryId:'wash-chain-factory',departmentId:'wash-chain-dept',role:'MASTER',isAdmin:false,isGuest:false,permissions:['wash.read','wash.manage']};
+  const line={id:'wash-chain-line',factoryId:user.selectedFactoryId,name:'Упаковка',status:'STOP',deletedAt:null,deactivatedAt:null};
+  const manager={id:user.userId,factoryId:user.selectedFactoryId,role:'MASTER',blockedAt:null,deletedAt:null},worker={id:'wash-chain-worker',factoryId:user.selectedFactoryId,role:'WORKER',employeeState:'ASSIGNED',version:0,blockedAt:null,deletedAt:null},users=[manager,worker];
+  const sessions=[],controls=[],messages=[],issues=[],reviews=[],events=[],files=[],notices=[],assignments=[{id:'wash-chain-line-fact',factoryId:user.selectedFactoryId,userId:worker.id,lineId:line.id,positionId:null,kind:'LINE',startedAt:new Date(),endedAt:null,version:0}];
+  m.data.line=m.model('line',[line]);m.data.user=m.model('user',users);m.data.userFactoryAccess=m.model('userFactoryAccess',users.map(u=>({userId:u.id,factoryId:user.selectedFactoryId,role:u.role,isActive:true,isGuest:false,user:u})),{includes:['user'],compounds:['userId_factoryId']});
+  m.data.assignment=m.model('assignment',assignments,{defaults:{endedAt:null}});m.data.shiftSession=m.model('shiftSession',[]);m.data.defrostEvent=m.model('defrostEvent',[]);m.data.attachment=m.model('attachment',files);
+  // ADMIN02 checks canonical send-home provenance before transferring factual
+  // line participants to wash. This fixture has no send-home/return history.
+  m.data.auditLog=m.model('auditLog',[]);m.data.shiftReturnRequest=m.model('shiftReturnRequest',[]);
+  m.data.washMessage=m.model('washMessage',messages);m.data.washEvent=m.model('washEvent',events);m.data.washOkkReview=m.model('washOkkReview',reviews);
+  m.data.washIssue=m.model('washIssue',issues,{includes:['session'],defaults:{isResolved:false,assignedToId:null},enrich:r=>({...r,session:sessions.find(s=>s.id===r.washSessionId)})});
+  m.data.washControlItem=m.model('washControlItem',controls,{includes:['line','createdBy','assignedTo','session'],defaults:{assignedToId:null,washSessionId:null,dueAt:null,comment:null},enrich:r=>({...r,line,createdBy:users.find(u=>u.id===r.createdById),assignedTo:users.find(u=>u.id===r.assignedToId)??null,session:sessions.find(s=>s.id===r.washSessionId)??null})});
+  m.data.washSession=m.model('washSession',sessions,{includes:['line','startedBy','assignments','issues','messages','events','controlItems','okkReviews'],defaults:{completedAt:null},enrich:r=>({...r,line,startedBy:manager,assignments:assignments.filter(a=>a.washSessionId===r.id).map(a=>({...a,user:worker})),issues:issues.filter(a=>a.washSessionId===r.id),messages:messages.filter(a=>a.washSessionId===r.id),events:events.filter(a=>a.washSessionId===r.id),controlItems:controls.filter(a=>a.washSessionId===r.id),okkReviews:reviews.filter(a=>a.washSessionId===r.id)})});
+  const settings={washCompleteRequiresNoOpenIssues:true,washCompleteRequiresOkkReview:true,washOkkReviewEnabled:true,washControlEnabled:true,washMiniTasksEnabled:true,washIssueResolveRequiresPhoto:true};
+  m.data.washSettings=strict({findUnique:async()=>settings});
+  const notify=strict(Object.fromEntries(['notifyWashIssueCreated','notifyWashControlItem','notifyWashOkkReviewCreated'].map(name=>[name,async(...args)=>notices.push({name,args:copy(args)})])));
+  const service=new WashService({db:m.db},m.ws,m.audit,m.attachments,notify);
+  return {...m,user,line,worker,sessions,controls,messages,issues,reviews,events,files,assignments,service,settings,notices};
+}
+test('R2-E-J10 request take Start issue mini-task required OKK failure retry completion archive assignments',async()=>{
+  const f=fixture(),request=await f.service.createRequest(f.user,{lineId:f.line.id,description:'Помыть оборудование',operationId:'chain-request'});assert.equal(request.status,'NEW');assert.equal(f.sessions.length,0);
+  await assert.rejects(f.service.startRequest(f.user,request.id,{operationId:'chain-start'}),denied);assert.equal(f.sessions.length,0);
+  await f.service.takeRequest(f.user,request.id,{version:0});assert.equal(f.controls[0].status,'IN_PROGRESS');assert.equal(f.sessions.length,0);
+  const started=await f.service.startRequest(f.user,request.id,{version:1,operationId:'chain-start'}),id=started.washSessionId;assert.equal(f.sessions.length,1);assert.equal(f.worker.employeeState,'WASHING');assert.equal(f.controls[0].status,'WASH_STARTED');assert.equal(f.assignments.filter(a=>a.kind==='WASH'&&a.endedAt===null).length,1);
+  const issue=await f.service.addIssue(id,f.user.userId,{description:'Следы загрязнения',operationId:'chain-issue'},f.user.selectedFactoryId);
+  const complete=()=>f.service.completeWash(id,f.user.userId,f.user.selectedFactoryId,'chain-complete');
+  const state=()=>JSON.stringify([f.sessions.map(s=>({id:s.id,status:s.status,completedAt:s.completedAt,version:s.version})),f.assignments,f.worker,f.controls.map(c=>({id:c.id,status:c.status}))]);
+  let before=state();await assert.rejects(complete(),denied);assert.equal(state(),before);assert.equal(f.operations.some(o=>o.operationId==='chain-complete'),false);
+  await assert.rejects(f.service.setIssueStatus(issue.id,f.user.userId,'RESOLVED','Очищено',f.user.selectedFactoryId),denied);assert.equal(f.issues[0].isResolved,false);
+  f.files.push({id:'issue-photo-memory',entityType:'WASH_ISSUE',entityId:issue.id,deletedAt:null});await f.service.setIssueStatus(issue.id,f.user.userId,'RESOLVED','Очищено',f.user.selectedFactoryId);assert.equal(f.issues[0].isResolved,true);
+  const task=await f.service.createControlItem(id,f.user.userId,{type:'MINI_TASK',title:'Проверить кожух',requiresPhoto:true},f.user.selectedFactoryId);before=state();await assert.rejects(complete(),denied);assert.equal(state(),before);
+  await assert.rejects(f.service.updateControlItem(task.id,f.user.userId,{status:'DONE',comment:'Готово'},f.user.selectedFactoryId),denied);f.files.push({id:'task-photo-memory',entityType:'WASH_CONTROL_ITEM',entityId:task.id,deletedAt:null});await f.service.updateControlItem(task.id,f.user.userId,{status:'DONE',comment:'Кожух установлен'},f.user.selectedFactoryId);
+  before=state();await assert.rejects(complete(),denied);assert.equal(state(),before);
+  await f.service.createOkkReview(id,f.user.userId,{status:'NEEDS_REWORK',rating:4,comment:'Повторить проверку'},f.user.selectedFactoryId);before=state();await assert.rejects(complete(),denied);assert.equal(state(),before);
+  await f.service.createOkkReview(id,f.user.userId,{status:'APPROVED',rating:9,comment:'Оборудование чистое'},f.user.selectedFactoryId);
+  const completed=await complete();assert.equal(completed.status,'DONE');assert.equal(f.controls[0].status,'DONE');assert.equal(f.worker.employeeState,'AVAILABLE');assert.equal(f.assignments.filter(a=>a.kind==='WASH'&&a.endedAt===null).length,0);
+  const writes=f.writes.length;assert.equal((await complete()).id,id);assert.equal(f.writes.length,writes);assert.equal(f.sessions.length,1);
+  assert.equal((await f.service.list(f.user)).length,0);const archive=(await f.service.list(f.user,{includeCompleted:'true'}))[0];assert.equal(archive.id,id);assert.equal(archive.participantsHistory[0].userId,f.worker.id);assert.equal(archive.issues[0].isResolved,true);
+  await assert.rejects(f.service.detail({...f.user,selectedFactoryId:'foreign'},id),denied);assert.equal(f.line.status,'STOP');
+});

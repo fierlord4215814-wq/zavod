@@ -1,0 +1,85 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-visual-label-before\\frontend\\e2e\\review-variants.spec.ts" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\review-variants.spec.ts"
+index 9e3455ae..98cf4790 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-maximum-integration\\snapshots\\G-visual-label-before\\frontend\\e2e\\review-variants.spec.ts"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\review-variants.spec.ts"
+@@ -30,11 +30,14 @@ for(const theme of ['dark','gray','light'])test(`Visual current shared Settings
+     await page.setViewportSize({width,height:844});await settings(page);await page.locator('.device-access-panel').scrollIntoViewIfNeeded();
+     const controls=await measuredButtons(page,'.device-access-panel button');
+     await shot(page,`V-${theme}-${width}-device-settings`,{state:'native-device-access-no-device-used',controls});
++    const deviceColors=await page.locator('.device-access-panel .position-row').first().evaluate(e=>({name:getComputedStyle(e.querySelector('strong')!).color,status:getComputedStyle(e.querySelector('span')!).color,main:getComputedStyle(document.documentElement).getPropertyValue('--text-main').trim(),secondary:getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim()}));records.push({state:'device-text-colors',width,theme,...deviceColors});save();
++    if(theme!=='dark'){expect(deviceColors.name).not.toBe('rgb(255, 255, 255)');expect(deviceColors.status).not.toBe('rgb(174, 185, 215)');}
+     for(const c of controls){expect(c.box.x).toBeGreaterThanOrEqual(0);expect(c.box.right).toBeLessThanOrEqual(width);expect(c.box.height).toBeGreaterThanOrEqual(36);expect(c.hit).toBe(true);for(const line of c.lines){expect(line.left).toBeGreaterThanOrEqual(c.box.left-1);expect(line.right).toBeLessThanOrEqual(c.box.right+1);}}
+     await page.goBack();await page.goBack();await open(page,'Заявки');await page.getByRole('button',{name:'Создать заявку',exact:true}).click();
+     await page.getByLabel('Описание',{exact:true}).fill('Проверить датчик температуры на линии фасовки перед следующей ночной сменой');await page.getByLabel('Тип',{exact:true}).selectOption('LONG');await page.getByLabel('Линия',{exact:true}).selectOption('series-line');
+     const modal=page.locator('.action-modal-backdrop');await modal.getByRole('button',{name:'Подтвердить',exact:true}).scrollIntoViewIfNeeded();
+     await shot(page,`V-${theme}-${width}-task-form`,{state:'populated-real-task-form',controls:await measuredButtons(page,'.action-modal-backdrop .modal-actions button')});
++    const candidateColor=await page.locator('.task-candidate-search label').evaluate(e=>getComputedStyle(e).color);records.push({state:'task-candidate-label-color',width,theme,candidateColor});save();if(theme!=='dark')expect(candidateColor).not.toBe('rgb(203, 213, 225)');
+     expect(await modal.evaluate(e=>e.scrollWidth>e.clientWidth+1)).toBe(false);await modal.getByRole('button',{name:'Отмена',exact:true}).click();await page.getByRole('button',{name:'Закрыть без сохранения',exact:true}).click();
+   }
+   await settings(page);await page.getByRole('button',{name:'Выйти из аккаунта',exact:true}).click();await expect(page.locator('#login-phone')).toBeVisible();await page.getByRole('button',{name:'Установить приложение',exact:true}).click();
+@@ -53,7 +56,7 @@ test('Master THV06 low height breakpoint nav insets and blocking layer hit testi
+   }expect(unknown).toEqual([]);expect(errors).toEqual([]);
+ });
+ 
+-test('Master 069 installed standalone prompt failure recovery and update banner dirty coexistence',async({page})=>{
++test('Master 069 installed event prompt failure recovery and update banner dirty coexistence',async({page})=>{
+   await isolate(page,{replies:linkedReplies});await page.addInitScript(()=>{(window as any).updateMessages=[];Object.defineProperty(navigator,'standalone',{configurable:true,get:()=>Boolean((window as any).isInstalledMode)});});await page.goto('/');
+   await page.getByLabel('Тема',{exact:true}).fill('Не потерять черновик');await page.getByLabel('Тема',{exact:true}).blur();
+   await page.evaluate(()=>window.dispatchEvent(new CustomEvent('zavod:pwa-update',{detail:{worker:{postMessage:(value:unknown)=>(window as any).updateMessages.push(value)}}})));await expect(page.locator('.pwa-status-banner.update')).toBeVisible();
+@@ -62,3 +65,56 @@ test('Master 069 installed standalone prompt failure recovery and update banner
+   await page.evaluate(()=>window.dispatchEvent(Object.assign(new Event('beforeinstallprompt',{cancelable:true}),{prompt:async()=>undefined,userChoice:Promise.resolve({outcome:'dismissed'})})));await page.getByRole('button',{name:'Установить приложение',exact:true}).click();await expect(page.getByRole('button',{name:'Установка отменена',exact:true})).toBeVisible();
+   await page.evaluate(()=>{(window as any).isInstalledMode=true;window.dispatchEvent(new Event('appinstalled'));});await expect(page.getByRole('button',{name:'Приложение установлено',exact:true})).toBeDisabled();await page.goBack();await page.goBack();await expect(page.locator('.pwa-status-banner.update')).toBeVisible();await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('Не потерять черновик');await shot(page,'069-update-install-draft',{state:'fake-installed-event-update-banner-preserves-draft'});expect(unknown).toEqual([]);expect(errors).toEqual([]);
+ });
++
++test('Master 069 cold standalone reload and permission change unavailable error recovery',async({page})=>{
++  await isolate(page,{replies:linkedReplies});await page.addInitScript(()=>{
++    Object.defineProperty(navigator,'standalone',{configurable:true,value:true});
++    const statuses=Object.fromEntries(['camera','microphone'].map(name=>[name,Object.assign(new EventTarget(),{state:'prompt'})]));
++    (window as any).deviceStatuses=statuses;(window as any).deviceCalls=[];(window as any).stops=0;
++    Object.defineProperty(navigator.permissions,'query',{configurable:true,value:async({name}:{name:string})=>{if((window as any).unsupportedQuery)throw Error('unsupported');return statuses[name]||Object.assign(new EventTarget(),{state:'prompt'});}});
++    Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async(constraints:unknown)=>{(window as any).deviceCalls.push(constraints);if((window as any).deviceFailure)throw new DOMException('',(window as any).deviceFailure);return{getTracks:()=>[{stop:()=>{(window as any).stops++;}}]};}});
++  });await page.goto('/');await settings(page);await expect(page.getByRole('button',{name:'Приложение установлено',exact:true})).toBeDisabled();
++  const camera=page.locator('.device-access-panel .position-row').first();expect(await page.evaluate(()=>(window as any).deviceCalls)).toEqual([]);
++  await page.evaluate(()=>{const p=(window as any).deviceStatuses.camera;p.state='denied';p.dispatchEvent(new Event('change'));});await expect(camera).toContainText('Запрещено в настройках сайта');
++  for(const[name,message]of[['NotFoundError','Устройство не найдено.'],['NotReadableError','Устройство занято другим приложением.'],['SecurityError','Для проверки нужен поддерживаемый браузер']]){
++    await page.evaluate(value=>(window as any).deviceFailure=value,name);await camera.getByRole('button').click();await expect(page.locator('.device-access-panel [role=status]')).toContainText(message);
++  }
++  await page.evaluate(()=>{(window as any).deviceFailure=null;});await camera.getByRole('button').click();await expect(camera).toContainText('Разрешено браузером');expect(await page.evaluate(()=>(window as any).stops)).toBe(1);
++  await page.evaluate(()=>{(window as any).unsupportedQuery=true;window.dispatchEvent(new Event('focus'));});await expect(camera).toContainText('Браузер не сообщает статус');
++  await page.evaluate(()=>{Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:undefined});window.dispatchEvent(new Event('focus'));});await expect(camera).toContainText('Недоступно в этом браузере или адресе');await expect(camera.getByRole('button')).toBeDisabled();
++  await page.reload();await settings(page);await expect(page.getByRole('button',{name:'Приложение установлено',exact:true})).toBeDisabled();await shot(page,'069-cold-standalone',{state:'fake-initial-standalone-no-appinstalled-event'});expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++const contextMe=(user='series-user',granted=permissions)=>({userId:user,selectedFactoryId:'series-factory',role:'MASTER',departmentId:'series-department',permissions:granted,isAdmin:false,isGuest:false,displayName:user==='series-user'?'Первый мастер':'Второй мастер',availableFactories:[{id:'series-factory',name:'Изолированный завод',code:'WORKSHOP',role:'MASTER',isGuest:false}]});
++for(const gate of ['read','unread','authority'])test(`Master 044 late ${gate} after logout and login another user cannot restore prior identity`,async({page})=>{
++  let armed=false,release:(()=>void)|undefined,delivered=false,user='series-user';
++  await isolate(page,{role:'MASTER',replies:async(r,p)=>{
++    const captured=user;const held=armed&&((gate==='read'&&p==='/notifications/prior/read')||(gate==='unread'&&p==='/notifications/unread-count')||(gate==='authority'&&p==='/auth/me'));
++    if(held){armed=false;await new Promise<void>(resolve=>release=resolve);}
++    if(p==='/auth/me'){await json(r,contextMe(captured));if(held)delivered=true;return true;}
++    if(p==='/notifications/unread-count'){await json(r,{count:captured==='series-user'?7:0});if(held)delivered=true;return true;}
++    if(p==='/notifications/prior/read'){await json(r,{ok:true});if(held)delivered=true;return true;}
++    if(p==='/auth/login'){user='memory-second-user';await json(r,{userId:user,token:'isolated-second-session',availableFactories:contextMe(user).availableFactories,recommendedFactoryId:'series-factory'});return true;}
++    return linkedReplies(r,p);
++  }});await page.setViewportSize({width:1440,height:844});await page.goto('/');await expect(page.locator('.brand-name')).toBeVisible();armed=true;
++  await page.evaluate(()=>window.dispatchEvent(new CustomEvent('zavod:notification-navigation',{detail:{notificationId:'prior',factoryId:'series-factory',sourceRoute:'tasks'}})));await expect.poll(()=>Boolean(release)).toBe(true);
++  await settings(page);await page.getByRole('button',{name:'Выйти из аккаунта',exact:true}).click();await page.locator('#login-phone').fill('70000000001');await page.getByRole('button',{name:'Войти',exact:true}).click();
++  await page.getByRole('button').filter({hasText:'Изолированный завод'}).last().click();await expect(page.locator('.brand-name')).toBeVisible();
++  release!();await expect.poll(()=>delivered).toBe(true);await page.evaluate(()=>new Promise<void>(r=>requestAnimationFrame(()=>requestAnimationFrame(()=>r()))));
++  expect(await page.evaluate(()=>localStorage.getItem('zavod.devUserId'))).toBe('memory-second-user');await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeHidden();await shot(page,`044-${gate}-new-user`,{state:'real-logout-login-controls-delayed-old-response'});expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});
++
++test('Master 063 capability revoke cancels queued dirty intent and task pending details',async({page})=>{
++  let granted=permissions;const sockets:any[]=[];let release:(()=>void)|undefined,hold=false,delivered=false;
++  await isolate(page,{role:'MASTER',socket:s=>sockets.push(s),replies:async(r,p)=>{
++    if(p==='/auth/me'){await json(r,contextMe('series-user',granted));return true;}
++    if(p===`/tasks/${taskRow.id}`&&hold){await new Promise<void>(resolve=>release=resolve);await json(r,taskRow).catch(()=>{});delivered=true;return true;}
++    return linkedReplies(r,p);
++  }});await page.goto('/');await page.getByLabel('Тема',{exact:true}).fill('Сохранить при отзыве доступа');await page.getByLabel('Тема',{exact:true}).blur();
++  const intent=()=>page.evaluate(id=>window.dispatchEvent(new CustomEvent('zavod:navigate',{detail:{screen:'Tasks',taskId:id}})),taskRow.id);
++  await intent();await expect(page.getByRole('heading',{name:'Закрыть без отправки?',exact:true})).toBeVisible();granted=permissions.filter(p=>!p.startsWith('tasks.'));sockets.at(-1).send(JSON.stringify({type:'auth_context_changed',payload:{message:'Права изменены'}}));
++  await expect(page.getByRole('heading',{name:'Закрыть без отправки?',exact:true})).toBeHidden();await expect(page.getByLabel('Тема',{exact:true})).toHaveValue('Сохранить при отзыве доступа');expect(network.filter(n=>n.path===`/tasks/${taskRow.id}`)).toHaveLength(0);
++  granted=permissions;sockets.at(-1).send(JSON.stringify({type:'auth_context_changed',payload:{message:'Права восстановлены'}}));await expect.poll(()=>network.filter(n=>n.path==='/auth/me').length).toBeGreaterThanOrEqual(3);
++  await page.getByLabel('Тема',{exact:true}).fill('');await page.getByLabel('Тема',{exact:true}).blur();hold=true;await intent();await expect.poll(()=>Boolean(release)).toBe(true);
++  granted=permissions.filter(p=>!p.startsWith('tasks.'));sockets.at(-1).send(JSON.stringify({type:'auth_context_changed',payload:{message:'Право отозвано'}}));await expect(page.getByRole('heading',{name:'Заявки',exact:true})).toBeHidden();release!();await expect.poll(()=>delivered).toBe(true);await expect(page.getByRole('dialog').filter({hasText:taskRow.description})).toHaveCount(0);await shot(page,'063-revoke-pending',{state:'current-auth-event-revokes-actual-capability'});expect(unknown).toEqual([]);expect(errors).toEqual([]);
++});

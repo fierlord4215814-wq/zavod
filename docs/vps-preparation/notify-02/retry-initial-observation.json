@@ -1,0 +1,79 @@
+{
+  "observations": [
+    {
+      "row": {
+        "id": "a85c3027-4e75-4862-bb4b-01848ffd134b",
+        "title": "Учебная проверка уведомлений retry-1790501450937-request-department"
+      },
+      "notices": [
+        {
+          "id": "476762ec-6af4-43a8-a8f8-4e4c5956e0d2",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "384dc80d-d254-423c-bf0a-4d6ba72415dd",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "a85c3027-4e75-4862-bb4b-01848ffd134b",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:30:57.111Z"
+        },
+        {
+          "id": "70e6dc6f-4751-4aa5-9fb5-c34dbab3dc60",
+          "type": "ORDER_REQUEST_CREATED",
+          "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+          "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+          "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+          "entityType": "ORDER_REQUEST",
+          "entityId": "a85c3027-4e75-4862-bb4b-01848ffd134b",
+          "readAt": null,
+          "createdAt": "2026-09-27T09:30:57.109Z"
+        }
+      ],
+      "lists": [
+        {
+          "key": "ADMIN",
+          "permissions": [
+            "notifications.read",
+            "orders.archive.read",
+            "orders.items.manage",
+            "orders.read",
+            "orders.request",
+            "orders.requests.manage",
+            "orders.restock",
+            "orders.settings.manage",
+            "orders.settings.read",
+            "orders.take"
+          ],
+          "http": 200,
+          "matching": [
+            {
+              "id": "70e6dc6f-4751-4aa5-9fb5-c34dbab3dc60",
+              "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+              "departmentId": "b6f3bd41-6820-4137-a28d-c4335f245751",
+              "userId": "3c9bd32f-8bda-49c7-8529-862e77060cf3",
+              "type": "ORDER_REQUEST_CREATED",
+              "title": "Новая заявка на заказ",
+              "message": "Учебная проверка уведомлений retry-1790501450937-request-department",
+              "entityType": "ORDER_REQUEST",
+              "entityId": "a85c3027-4e75-4862-bb4b-01848ffd134b",
+              "severity": "WARNING",
+              "readAt": null,
+              "createdAt": "2026-09-27T09:30:57.109Z",
+              "expiresAt": null,
+              "sourceRoute": "orders"
+            }
+          ]
+        },
+        {
+          "key": "TECH_KIPIA",
+          "permissions": [
+            "notifications.read"
+          ],
+          "http": 200,
+          "matching": []
+        }
+      ]
+    }
+  ],
+  "closed": true
+}

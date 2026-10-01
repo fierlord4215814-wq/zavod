@@ -1,0 +1,2633 @@
+{
+  "schemaVersion": 1,
+  "runId": "PFFV4_20260727T075200Z",
+  "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+  "factory": {
+    "id": "537cbb48-7fba-48b6-80af-659f82cdaeb3",
+    "code": "factory-4",
+    "name": "Завод 4"
+  },
+  "startedAt": "2026-07-27T07:52:00.000Z",
+  "baseline": {
+    "departments": 26,
+    "lines": 17,
+    "jobTitles": 52,
+    "workAreas": 66,
+    "activeFactoryAccesses": 1766,
+    "activeAssignments": 2,
+    "activeShiftSessions": 6,
+    "chats": 248,
+    "announcements": 191,
+    "activeChecklistTemplates": 783,
+    "activeChecklistRuns": 0,
+    "auditEvents": 52368,
+    "runMarkerMatches": 0
+  },
+  "artifacts": [
+    {
+      "model": "Line",
+      "id": "52a26b4c-83da-45b0-8145-a08bb27a2211",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Линия 1785141619844",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "LinePosition",
+      "id": "48a45d17-ac78-45b5-bf9b-8222b2462f35",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Упаковщик",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "LinePosition",
+      "id": "df7f4715-7b71-4241-bd0f-5acc665888b6",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Оператор",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "LineStaffingTemplate",
+      "id": "b91dc31d-3fc4-4db3-9c5d-0599c2c5926e",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Основной состав",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "Task",
+      "id": "22957b79-5d58-465e-b52a-726172896d51",
+      "businessKey": "Stage39 coherence 1785141949781",
+      "marker": "Stage39 coherence 1785141949781",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage39:system-coherence-regression",
+      "cleanupStatus": "CLOSED"
+    },
+    {
+      "model": "JobTitle",
+      "id": "pffv4-stage2-title-12",
+      "businessKey": "pffv4-stage2-worker-12",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "JobTitle",
+      "id": "pffv4-stage2-title-24",
+      "businessKey": "pffv4-stage2-worker-24",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "User",
+      "id": "pffv4-stage2-user-12",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pffv4-stage2-user-12",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "BLOCKED_TEST_IDENTITY"
+    },
+    {
+      "model": "UserFactoryAccess",
+      "id": "49c96fd1-043c-4147-b27f-3106c309083d",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pffv4-stage2-user-12:factory-access",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "User",
+      "id": "pffv4-stage2-user-24",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pffv4-stage2-user-24",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "BLOCKED_TEST_IDENTITY"
+    },
+    {
+      "model": "UserFactoryAccess",
+      "id": "fe3fce1c-f0c1-4ea5-88b0-9475152330e5",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pffv4-stage2-user-24:factory-access",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "User",
+      "id": "pffv4-stage2-user-work-area",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pffv4-stage2-user-work-area",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "BLOCKED_TEST_IDENTITY"
+    },
+    {
+      "model": "UserFactoryAccess",
+      "id": "5f674051-dff5-4854-87cd-816c01bf98d9",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pffv4-stage2-user-work-area:factory-access",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "Line",
+      "id": "pffv4-stage2-line",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ lifecycle line",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "LinePosition",
+      "id": "pffv4-stage2-line-position",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ operator",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "LineStaffingTemplate",
+      "id": "pffv4-stage2-line-template",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ active template",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "LineStaffingTemplateItem",
+      "id": "pffv4-stage2-line-template-item",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ active template item",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "WorkArea",
+      "id": "pffv4-stage2-work-area",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ time area",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "WorkAreaPosition",
+      "id": "pffv4-stage2-work-area-position",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ cleaner",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "53380f6d-4919-4d43-95d9-3e3677ad2f42",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:12h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "f53ee46d-5073-4836-87af-03733fbab2be",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-assignment-12",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "PlannedShiftAssignment",
+      "id": "f769f269-c500-4a50-96b4-e1efd8c58d8a",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:future-slot-2",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftWillBe",
+      "id": "pffv4-stage2-shift-will-be",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:will-be",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "SOFT_REMOVED"
+    },
+    {
+      "model": "LineEvent",
+      "id": "7085e488-4ae1-4ba4-bed3-d621c0bfb3b5",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pause-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "ea99c742-8fec-4b9b-824f-61238378245b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stop-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "3ba8cf4e-464b-49a3-97d8-aee12f5e5fb3",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:24h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "be29707f-94fe-4efa-b0fe-2f9c91f7820e",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-assignment-24",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "e3e152ad-f628-42ff-ba93-aac42783a88c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:work-area-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "1708f5e3-9ddc-4ca0-9fac-05b13d5c3c34",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:work-area-slot-3",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "978a06bd-0728-4f31-a949-17ff76961568",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "61276c59-1ed7-4ed4-a122-35e1196218b9",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "UserSkillCredit",
+      "id": "076bea0c-b1f4-4f78-9d99-980360c4c574",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:skill-credit",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "UserSkillCredit",
+      "id": "8bddb840-79d9-4aba-80d3-08cc6a0aeedd",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:skill-credit",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "AuditLog",
+      "id": "91e1e3da-f6bf-423c-8123-a7705a21523a",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:ASSIGNMENT_RELEASED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "388ddf34-8aa7-49f4-8109-79857f2dad0c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "0634af43-665e-46b9-8f3a-f8ab4af03888",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "c8f43c9e-4b66-4ed6-bdab-6142a6288d3f",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:SKILL_EXPERIENCE_CREDITED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "37ae99b9-67c8-4993-a927-faec9e2fdb03",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "51c8100c-a0a6-43c4-95a1-42b1406a5c01",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "00d6cefa-3d29-4ca8-95b5-4e72d317bdd7",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:SKILL_EXPERIENCE_CREDITED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "55b179e7-b541-474e-b466-5c3fa57820a4",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "186c633c-19c5-4d75-ae57-25c1d7e40f3e",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "7b0d63ca-c7d6-4442-afee-f4a99344a971",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:12h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "PlannedShiftAssignment",
+      "id": "17694e2b-4ffe-49c7-b8aa-716823d052e7",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:future-slot-2",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "e0428766-5473-4529-b20c-1c82dc10c7da",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pause-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "50106128-272d-446c-962d-a79118d84fbf",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stop-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "9a1d4b2d-e388-4caa-b5e6-53a5e8c251b1",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:24h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "5d170c8c-2bbf-4634-8d7f-dcbf336a798c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:work-area-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "ba4eaf3f-ea9c-4a2f-affd-b3f3846e99ae",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "2d5319d6-2213-414a-b9fb-96d35f84d083",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "AuditLog",
+      "id": "b11df957-e585-4720-b0d9-e75bfc6f30c2",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "077dd7aa-bd45-4920-8c1e-663d891970cc",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "5bfeb29a-02fd-481b-8b02-b67a54a6bdff",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "bf5a5343-ac2f-42ee-bb60-60183003d910",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "da913534-add7-4b7c-8579-68e011663e1c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "502d34cb-6765-4859-b886-d9d027f7ac8b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "cd3f92cf-efaa-419a-ac7c-8a796ad7ffb6",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "b6f640f1-3f77-4dfd-a096-58e4657043da",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:12h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "7cd2320e-c69f-4087-baac-a9874adddc21",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-assignment-12",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "PlannedShiftAssignment",
+      "id": "64f00f0e-c0cb-4482-b3a9-1813c8c3c246",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:future-slot-2",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "cc72c771-0789-40a7-8230-5f1b76810744",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pause-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "3d50e7c3-eec8-4c02-90d0-764a7e54cc96",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stop-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "e4f693ee-e822-4fc0-9b0b-8cebc47964b3",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:24h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "4eb1c446-e743-40a2-8044-c60202cdcec9",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-assignment-24",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "6fc48b20-ab06-49bc-a5c3-8b3e29d077c1",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:work-area-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "1075ed8f-b402-44b6-bb9b-85b29373a86d",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:work-area-slot-3",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "3529071f-aece-4b8e-bcef-51113d72aba7",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "8aed6d81-587e-415d-bf5a-57877c2ed0d8",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "AuditLog",
+      "id": "87ce64f6-a6e5-4128-9264-934e7bd7cda3",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "fb05494b-5170-4dd1-86ff-46dd4e207815",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "5efc17b5-ce45-457c-ae9b-0f39ea4c1920",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "7d6603be-b414-44a9-b954-7782257e9a49",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "2f90d7ec-d226-4417-b4fb-9acd6a9fa901",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:ASSIGNMENT_RELEASED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "388e4ac9-b59f-4982-a250-e7c14ec78537",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "7e990f15-445d-4b44-a1b5-3c5ebefc6552",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "fd55e0a4-9dc9-4588-9345-762432376dc5",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:12h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "0d93f965-b2e9-4e87-ae80-be3bd13c6db5",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-assignment-12",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "PlannedShiftAssignment",
+      "id": "39eecb09-5e17-4576-98a7-5943e6255964",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:future-slot-2",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "7c8f2aa7-d001-40d7-8f81-0acd8d9d1ff7",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pause-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "cb41c24a-5fed-4b7c-8341-b831f924c9d7",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stop-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "eacf51cc-d165-492a-bf9a-039b59921866",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:24h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "f0d2a772-03d4-49f6-aa50-9fee28eaf1a0",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-assignment-24",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "68e777e3-dcf4-4b49-b6f0-314d1516acb4",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:work-area-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "9a5b20ad-3c1e-4036-9a97-f40e31404af5",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:work-area-slot-3",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "a9a2fe0d-639e-4f42-a237-b324130b909a",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "ed1cdbda-5f91-4861-9a09-2daa1414985b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "AuditLog",
+      "id": "e6c3e76f-0f9e-464e-8e7d-bee5008dee31",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "5814bbda-1f57-4f69-a425-509b3a164a99",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "90a894cc-1077-4a8d-9ad8-38f3d006857e",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "6964cf91-b57e-4e2e-894c-1e8776c9c2b9",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "a46edebc-af10-4933-a838-cdf0bfc5727c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:ASSIGNMENT_RELEASED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "decd9695-b040-4e12-b286-e9996dc7e9f5",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "d021d6bb-5fcf-4b88-a072-3c75ae4a1e37",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "Chat",
+      "id": "75cdec77-c6b5-4974-a78e-efbe43fdf1dc",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-group",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Chat",
+      "id": "2028bc9d-9f69-4b59-a7e5-4555464794aa",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChatMessage",
+      "id": "07d56825-6b91-465e-9382-a2ff3cd7d5f7",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct-message",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "SOFT_DELETED"
+    },
+    {
+      "model": "Chat",
+      "id": "5c82a09c-9163-4ad4-a62b-18131c8dc9e7",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-group",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Chat",
+      "id": "beb3bf89-e9fa-4405-aebe-5edf7733b705",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChatMessage",
+      "id": "fc813cde-2cca-47ec-90d0-74ee8427393e",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct-message",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "SOFT_DELETED"
+    },
+    {
+      "model": "Chat",
+      "id": "61f0c1a8-0b07-46b2-a7a9-f9f8417cfcbe",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-group",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Chat",
+      "id": "0699ea7b-02a6-41d5-a71d-491fa8139bb4",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChatMessage",
+      "id": "fc6357e1-b55c-498c-ab45-5bfd96840c32",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct-message",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "SOFT_DELETED"
+    },
+    {
+      "model": "Chat",
+      "id": "626eec8d-6315-4ddc-964c-a6af1daca76c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-group",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Chat",
+      "id": "6eb2a897-b0f6-4bf8-ae1b-4e2e039e50cc",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChatMessage",
+      "id": "aeb5c810-e078-4a95-99ed-4071aed31c8f",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct-message",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "SOFT_DELETED"
+    },
+    {
+      "model": "Announcement",
+      "id": "79416755-798a-4a67-b12d-435a6b88e650",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:factory",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "27dd763e-e439-4d20-8aba-75f375a673cf",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:own-department",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "61583026-9e24-477a-82d8-c7f667ec21fe",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:selected",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "1206f450-3bf4-41a4-ace4-00fca7726a7f",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:store-1785246725489-16116",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "86e069ce-e1c0-4e4b-8d57-73fbb6213cca",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "1c0b1321-7c93-4447-b6be-484e102c4708",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:okk-1785246725489-16116",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "fc032fe4-59a4-40ae-80fb-dcbf5c0c6540",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:factory",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "e66126b3-7166-4cd3-85b7-bc42bf5cd7ca",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:own-department",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "b6c8c04b-1f2c-4a94-855e-a3ad716e5558",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:selected",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "a30e65e5-3ec0-4530-9780-d8c733db8c92",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:store-1785247396795-3860",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "b8f5e78f-fba6-435e-ad4e-6431e65488ec",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "5bd6afd2-dc5a-483d-933a-4557490cf89b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:okk-1785247396795-3860",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "ea10cb83-1205-43c6-a53c-992887e849fb",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:factory",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "167aa264-ce86-4a2a-9c39-9c58fdac4bcb",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:own-department",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "6e47bcaa-a86a-4801-b8c6-475230acf743",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:selected",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "38f57e04-d3ca-4626-b828-57252a96d828",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:store-1785247938397-12456",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "bb99b515-cd71-4af6-a5d7-66af604ee431",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "b25b7da5-e68e-479b-b0a9-95fe57b35245",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:okk-1785247938397-12456",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "b8ad8426-ec99-4f10-8c48-467c9c1fd98c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement-recovered",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "4bfe07c6-e3ae-4b02-a374-9072bd0d9869",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement-desktop-recovered",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "a45d1f87-5a94-43a4-a0d8-644ac9568e89",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement-mobile-recovered",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "9400e64b-1bb1-4dae-bfe6-94403996ca0b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "31af2687-b635-4d54-b153-2f28f117d88b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "ec8b3912-1bc0-4873-b215-5e1bad823b77",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "af828413-06f5-4370-ae4c-e5e803c74c5b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "cf06cbf3-4114-4dc6-a789-dcc1e4ec550f",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement-desktop-proxy-recovered",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "4076f744-b326-45f9-9339-f57de665f573",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement-mobile-proxy-recovered",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "b545337f-758e-48a8-86ef-0e2036c0360a",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "86bd5829-3191-4953-a621-dfea980519e8",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "a81853a4-c8f0-4f09-899f-891931a22f25",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "d98c48df-e577-4f6c-bf64-994f8a65d761",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "d4a84d2d-f504-48a2-9871-eeac95fecb67",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "9252dc1f-f9a9-4ac4-9e34-36ef2b70aa76",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "b3fe45ee-3058-4100-a1e2-e0ad31387fc6",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "9f162add-8790-42f3-a1e3-b744171bd6d1",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "76191bbb-6211-45bd-9b00-d7be77e9876d",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "cf76c61d-3c99-48e3-a03d-d69e74082c74",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "08180712-8a39-40a9-b7ae-3ec5ac767bef",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "ef08964f-628a-4c48-9f17-ecc1fcab2648",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "8c479d90-aed7-4bf5-8cef-52692d8512b0",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "04d0c509-027f-4268-9648-78e409f6db93",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "a3d72fe7-9912-48cd-99a7-1e87bc4e645c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "676176a6-404d-4415-8371-27777da919cb",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "e3296c7b-d757-4fa0-bf59-dda654c1bd62",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "b83caf93-880a-4fe6-ab11-50695127aa32",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "fbaccb35-90e5-4a96-9458-44019ea733dc",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "878da37c-a5a4-4a81-b4d5-14c199a126c5",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "74e723c8-a438-4029-9692-27003c160a18",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "927c488a-3c3a-4357-8aa5-02c62e3a7b22",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "e8838888-e158-45e5-b982-b0dbe7219953",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "c2fd3869-80a3-4685-85de-91b1487d153f",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "c0b7b50e-6931-4440-8db7-e4d1bd04fb02",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:factory",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "380fabac-abb6-415e-b084-435f2ae47fb7",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:own-department",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "26cc086f-6b7e-4906-819a-9d0594d3ea8e",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:selected",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "3c90b862-f268-447b-b095-b6e150fc3918",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:store-1785259416003-10988",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "3527a983-3d8a-42b7-a9ae-1452935eb7d1",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "42a0dd83-b2ad-41a3-a856-9567c2479012",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:okk-1785259416003-10988",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Line",
+      "id": "fb8737bb-5c49-42bf-8ce1-bb7e91237f71",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Линия 1785290274864",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "LinePosition",
+      "id": "30290b06-eefd-41b3-8264-9b7d2f41e396",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Упаковщик",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "LinePosition",
+      "id": "c9a843e7-aad8-4dfb-b9b3-9f1a2b3bc1de",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Оператор",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "LineStaffingTemplate",
+      "id": "71fd14d5-740b-44af-9ed9-335b7e72eab2",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Основной состав",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "DEACTIVATED"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "0cb857e1-7647-484a-89a3-8b13e9c2c24d",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:12h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "2a520788-d618-45e8-a26e-759ed333a4d4",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-assignment-12",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "PlannedShiftAssignment",
+      "id": "91d5107e-913c-4c7a-aa8c-77698013bacf",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:future-slot-2",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "426df176-7ff8-4f92-b244-59e96f3090d6",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:pause-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "2d7de6ac-7652-4b3b-bb77-49d49e6b49f6",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stop-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "bf7d7cc4-c86e-4c20-aebd-39f390dd7e6a",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:24h-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "4dbf5e5b-e8ce-4d91-9fa3-fd5bf43b9d5c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-assignment-24",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "ShiftSession",
+      "id": "d4fd3089-f660-4c93-aa91-95410fdff8e4",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:work-area-session",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "Assignment",
+      "id": "fed6cf37-6780-4484-9b8f-5b126dd71255",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:work-area-slot-3",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "c763ff9a-b4b0-448f-9166-06bdab0cbe2d",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "LineEvent",
+      "id": "0c04696a-5a5e-4656-9842-215012002512",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:line-event",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "UserSkillCredit",
+      "id": "86b0ddb8-6f5e-4454-bec7-f937c071dbb5",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:skill-credit",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "UserSkillCredit",
+      "id": "70efa634-07c2-428d-b67b-e772e74107fe",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:skill-credit",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_HISTORY"
+    },
+    {
+      "model": "AuditLog",
+      "id": "ae3f5f89-ba4a-484d-82e8-81facb245b29",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "40859329-ba54-43c1-9b3d-5721702c99e9",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:ASSIGNMENT_RELEASED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "d39564d0-0b47-441a-8334-02358da00d71",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "911b870e-9e6f-4ca8-ad48-cb194ba16b7a",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:SKILL_EXPERIENCE_CREDITED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "9f829ef1-0f4b-4199-8271-6b1cdbe898da",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "6c3310da-6401-4f9c-8e78-df90e654deb9",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:WORK_AREA_PLANNED_COUNT_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "c1f138e2-aa2c-429f-9266-c30c4eec2e0e",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:SKILL_EXPERIENCE_CREDITED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "8188b115-d28c-40bd-a767-54dd2355a00a",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "AuditLog",
+      "id": "241086db-3623-4767-8b2c-93804fe88a15",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:LINE_STATUS_UPDATED",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IMMUTABLE_AUDIT"
+    },
+    {
+      "model": "Chat",
+      "id": "d4072d7e-dbfc-46e1-a887-b5dc3be30a36",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-group",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Chat",
+      "id": "0ccd8cbd-f4cf-431b-99b6-b49f0c18b6ea",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChatMessage",
+      "id": "4e8af91f-ec47-4b24-b1b0-485b5aa85d3a",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage4-direct-message",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "SOFT_DELETED"
+    },
+    {
+      "model": "Announcement",
+      "id": "8ff1b7d8-29ca-4dfd-bfc0-3850814cae4b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:factory",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "e6bfd82d-b465-4f97-ad0b-6096a443c63c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:own-department",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "06f3e0fd-6ca9-4ecb-99c0-107127fa5688",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:selected",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "cc51048f-7d17-4813-9a3a-44c4de655969",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:store-1785290576043-13644",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "2ff4148a-dd8c-46d9-ac51-6fc2baa094ee",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "7dd8ff2d-ce5c-4af1-8f2c-8041aedcaaf7",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:okk-1785290576043-13644",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "155b0c07-71ea-4023-8eae-c01f132bd819",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "4ecc30d1-0278-4ee5-957d-1a5919a58f1d",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "4b419b34-e182-4667-9b23-d5aba3d1ca35",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "Announcement",
+      "id": "91628610-d3aa-48ae-b2bf-918787edfb09",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-announcement",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "6802e296-9084-456a-bc45-68ace56f92c9",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "60ce021c-25db-404a-ab3c-123a599f0dfb",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-browser-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "d0bece00-8c01-432d-9185-e383ef1e2b9e",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic desktop-edge 1785291603212-7857",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "e8fa5a7e-b3f1-4b79-b93f-bbbcf8b1a482",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic desktop-edge 1785285465171-7200",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "488c96a4-e711-44a1-ba76-1100fc242cf9",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic mobile-360-edge 1785285479311-86157",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "5cb3d5c1-3d36-496a-96d7-9e98de147c13",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic mobile-360-edge 1785291617440-15671",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "be1cea08-50c4-406a-af03-428145760b9e",
+      "businessKey": "StagePeriodicLifecycle 1785290679754 every 30 minutes",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "f8427765-4d06-4d49-921c-c689b1be48fe",
+      "businessKey": "StagePeriodicLifecycle 1785269814648 every 30 minutes",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "64240c5c-bdd2-4dad-99d3-0603448e2beb",
+      "businessKey": "StagePeriodicLifecycle 1785269814648 every 2 hours",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "a435df5b-7e62-4fc8-8af2-829edca12630",
+      "businessKey": "StagePeriodicLifecycle 1785269814648 day boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "08fafe1a-59e4-4161-a857-c544c8031ea6",
+      "businessKey": "StagePeriodicLifecycle 1785269814648 night boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "3491e513-334d-48ca-818c-1967e06a7105",
+      "businessKey": "StagePeriodicLifecycle 1785269814648 manual close",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "d6418aea-d9e4-4a69-ac8d-2f248cad8e84",
+      "businessKey": "StagePeriodicLifecycle 1785281252940 every 30 minutes",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "fce4542b-9f90-4e88-a754-94b266a45314",
+      "businessKey": "StagePeriodicLifecycle 1785281252940 every 2 hours",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "ac02aabe-5c79-4cdc-bd75-9c9cabfae089",
+      "businessKey": "StagePeriodicLifecycle 1785281252940 day boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "7c4e3154-9be1-4e4e-9caf-b01e54b05763",
+      "businessKey": "StagePeriodicLifecycle 1785281252940 night boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "5ab281fe-8b62-423c-ae5b-b8bba7552a04",
+      "businessKey": "StagePeriodicLifecycle 1785281252940 manual close",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "f4c86a64-b14a-4b23-855a-b9eddb818d5b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic desktop-edge 1785281913443-75076",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "ae585c74-795a-4501-adc9-78989456c953",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic mobile-360-edge 1785281927422-71406",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "8c86af88-7f47-4d3f-b3da-9911924e190b",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic desktop-edge 1785282168875-41898",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "f16e8168-d229-435f-8f6c-d93f8ebde288",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic mobile-360-edge 1785282179767-27225",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "ff4369aa-c4d0-4914-9441-ef5a280067fd",
+      "businessKey": "StagePeriodicLifecycle 1785290679754 every 2 hours",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "df6a0bd7-f780-4b1c-affc-fcb32a9688d6",
+      "businessKey": "StagePeriodicLifecycle 1785290679754 day boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "b765756b-203a-48f1-9ec1-0467325d8e7d",
+      "businessKey": "StagePeriodicLifecycle 1785290679754 night boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistTemplate",
+      "id": "d5a4b07c-3175-4eed-92e9-7387c627c012",
+      "businessKey": "StagePeriodicLifecycle 1785290679754 manual close",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "a30af1c3-94a3-4bf6-8737-baf6b9ace71b",
+      "businessKey": "StagePeriodicLifecycle 1785290679754 every 30 minutes",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "4c589d04-5c21-45f7-b993-f6ee968f4c4d",
+      "businessKey": "StagePeriodicLifecycle 1785281252940 every 30 minutes",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "2683c1b3-a2c9-4963-b327-6ebca1f0375a",
+      "businessKey": "StagePeriodicLifecycle 1785269814648 day boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "74ed1e8a-74cb-4a2b-addf-a9c84c3d82e7",
+      "businessKey": "StagePeriodicLifecycle 1785269814648 night boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "088f3d27-b077-4aae-8b1b-29247237f162",
+      "businessKey": "StagePeriodicLifecycle 1785269814648 manual close",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "e75fff3b-cb36-4798-a7d6-122b6cc3fda3",
+      "businessKey": "StagePeriodicLifecycle 1785281252940 day boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "0793db27-7a6c-4c5b-9512-c577058687e9",
+      "businessKey": "StagePeriodicLifecycle 1785281252940 night boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "bdc3246c-46aa-4a37-994f-7f43a458406f",
+      "businessKey": "StagePeriodicLifecycle 1785281252940 manual close",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "e38f5526-0177-46c9-a782-4b4b5285ad12",
+      "businessKey": "StagePeriodicLifecycle 1785269814648 every 30 minutes",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "5b80cad1-144e-4da2-b9b6-5e3968076826",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic desktop-edge 1785281913443-75076",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "76e958d2-84b8-4a60-b523-7aca5657b093",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic mobile-360-edge 1785281927422-71406",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "b0a3cfa4-b534-42dd-87ac-810525055f79",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic mobile-360-edge 1785282179767-27225",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "55c88bf2-4be5-4a75-b99e-ca4e3c28f981",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic desktop-edge 1785282168875-41898",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "e89edb7c-b78c-4b7e-8413-2d4bb73c227f",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic desktop-edge 1785285465171-7200",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "fd70070d-b310-4c3b-b8b5-e2ba44eac652",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic mobile-360-edge 1785285479311-86157",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "a105fd6f-343d-4270-86b6-4c2c3caa2a9d",
+      "businessKey": "StagePeriodicLifecycle 1785290679754 day boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "cabdf7d5-67f8-4fb2-b1ec-b3c146fca503",
+      "businessKey": "StagePeriodicLifecycle 1785290679754 night boundary",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "338aafb5-a809-4e12-9619-938718773960",
+      "businessKey": "StagePeriodicLifecycle 1785290679754 manual close",
+      "marker": "StagePeriodicLifecycle",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "5b2c6fb4-7941-400e-8dc7-2f2a61824559",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic desktop-edge 1785291603212-7857",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "ChecklistRun",
+      "id": "9a1e727f-de73-4500-88f2-5c623424c360",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__ Stage6 periodic mobile-360-edge 1785291617440-15671",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "physical-fixes:v4-stage6-regression/e2e",
+      "cleanupStatus": "CLOSED_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Task",
+      "id": "fb0f426e-770f-4839-9c03-7e51217b669a",
+      "businessKey": "pilot-smoke-1785292964403-task",
+      "marker": "pilot-smoke-1785292964403-task",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "CLOSED"
+    },
+    {
+      "model": "Task",
+      "id": "44adb9e4-ece7-40f5-97ce-3b42682c959c",
+      "businessKey": "stage-prepilot-realtime-task-1785293515121",
+      "marker": "stage-prepilot-realtime-task-1785293515121",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "CLOSED"
+    },
+    {
+      "model": "Task",
+      "id": "1f7a8923-679b-4fbc-bf3d-635a97350e3f",
+      "businessKey": "stage-prepilot-realtime-task-1785295039716",
+      "marker": "stage-prepilot-realtime-task-1785295039716",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "CLOSED"
+    },
+    {
+      "model": "Announcement",
+      "id": "3918fd70-b52a-47e4-ada6-74c84c096ef5",
+      "businessKey": "pilot-smoke-1785292964403 announcement",
+      "marker": "pilot-smoke-1785292964403 announcement",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ChatMessage",
+      "id": "0117d2b7-3758-498c-9a49-27516172cdc5",
+      "businessKey": "pilot-smoke-1785292964403-chat",
+      "marker": "pilot-smoke-1785292964403-chat",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "SOFT_DELETED"
+    },
+    {
+      "model": "Notification",
+      "id": "e470ce72-c42a-45ab-a42d-349b82b886ba",
+      "businessKey": "ANNOUNCEMENT:3918fd70-b52a-47e4-ada6-74c84c096ef5",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "dda537e8-b2b7-4a3e-82c6-5acc3e0000d2",
+      "businessKey": "CHECKLIST_RUN_CHECK:ab47e3b8-fc0c-4398-898e-f846b375d5e8",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "759ac5e9-4f85-49de-9734-839343fae04e",
+      "businessKey": "CHECKLIST_RUN_CHECK:df8d87dc-1803-4b00-bbb2-b1fb6e50be75",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "65c44b16-1b7a-4cca-a561-5755aaae8666",
+      "businessKey": "CHECKLIST_RUN_CHECK:17444e77-fc81-4e8a-b8eb-d1fe716581e7",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "85fd9506-2094-4ccf-82d5-392be92a2b33",
+      "businessKey": "CHECKLIST_RUN_CHECK:1c98e24c-456d-4f6d-a92c-c483b053bd8e",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "df7b4b2a-c0e6-4290-a16e-154574d305e1",
+      "businessKey": "CHECKLIST_RUN_CHECK:1fc72cc9-e36b-4a7b-af8f-5b5303139a69",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "2ed3ab69-69b0-42e2-8e9b-af3fb9ad3802",
+      "businessKey": "CHECKLIST_RUN_CHECK:37d57d3c-c570-4e9a-83e4-01b21a4b0ce7",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "75c87bc9-f3c4-418a-8e87-f01cce50167a",
+      "businessKey": "CHECKLIST_RUN_CHECK:11ba68b5-0655-45f4-9dbb-3c740fe72fc0",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "a4d8befc-0646-460f-8b2b-b03da31d099e",
+      "businessKey": "CHECKLIST_RUN_CHECK:60ded914-e6d7-4aa8-b8fc-e3d3f50b9e38",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "fc390f4c-7448-4c29-8bc8-5b278907a6cf",
+      "businessKey": "CHECKLIST_RUN_CHECK:8e216a5f-1c8f-466f-a05e-e3f8ea689782",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "f13635e0-15bc-4555-9d41-850c361f28b1",
+      "businessKey": "CHECKLIST_RUN_CHECK:5e738f38-1d19-4b90-bd80-568e02eab001",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "a212b8d3-28a7-4c79-b69c-1bbd4c6d6acd",
+      "businessKey": "CHECKLIST_RUN_CHECK:40c116ed-7111-4e2e-8930-05bcb23ed664",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "0e1738ff-d575-4653-ba21-4165c65825fd",
+      "businessKey": "CHECKLIST_RUN_CHECK:8bc13bc3-72d7-47d2-b000-3d5a29ad1d28",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "4c37caf6-5be2-4c66-83dc-b7d17604d517",
+      "businessKey": "CHECKLIST_RUN_CHECK:056ec3f7-4206-4b88-a353-fa7fee450867",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "9ef5c4ef-9e9c-4482-ae3e-694fac123a9f",
+      "businessKey": "CHECKLIST_RUN_CHECK:fc915102-e11b-432e-9a2f-4a33d3d6b05c",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "e34b6897-c529-4f1e-8f3c-4fe54bf3f5d1",
+      "businessKey": "CHECKLIST_RUN_CHECK:f827e640-82da-4682-b141-743af6d4ed3a",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "60d6c80e-0c6d-4f81-9384-3d7c48010c81",
+      "businessKey": "CHECKLIST_RUN_CHECK:c27df524-2801-441a-bbdf-21b9b5e35892",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "6bf7d52f-9a0a-4e72-bbc4-ac173e3b3235",
+      "businessKey": "CHECKLIST_RUN_CHECK:5e738f38-1d19-4b90-bd80-568e02eab001",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "20837aee-2dc3-491d-b313-10ec15d510ef",
+      "businessKey": "CHECKLIST_RUN_CHECK:40c116ed-7111-4e2e-8930-05bcb23ed664",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "d84cf577-c479-4815-a4db-31cebe9fd882",
+      "businessKey": "CHECKLIST_RUN_CHECK:8bc13bc3-72d7-47d2-b000-3d5a29ad1d28",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "f3cd8a72-9e07-4da9-9063-7995cdbc63a9",
+      "businessKey": "CHECKLIST_RUN_CHECK:056ec3f7-4206-4b88-a353-fa7fee450867",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "9d917462-c3d4-4cba-9248-ea7b18746d7d",
+      "businessKey": "CHECKLIST_RUN_CHECK:fc915102-e11b-432e-9a2f-4a33d3d6b05c",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "b243d35c-af12-452d-b3d7-031fb222925c",
+      "businessKey": "CHECKLIST_RUN_CHECK:f827e640-82da-4682-b141-743af6d4ed3a",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "78589bcb-84e1-423a-b1ef-166ef79488f2",
+      "businessKey": "CHECKLIST_RUN_CHECK:c27df524-2801-441a-bbdf-21b9b5e35892",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "9b5329b5-51fc-446e-85bf-6e5a6201e751",
+      "businessKey": "CHECKLIST_RUN:2683c1b3-a2c9-4963-b327-6ebca1f0375a",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "c63dc063-74d0-4e8d-b7c0-fc418ea14dab",
+      "businessKey": "CHECKLIST_RUN:2683c1b3-a2c9-4963-b327-6ebca1f0375a",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "43906f43-8047-4532-ad45-2deedc7ce824",
+      "businessKey": "CHECKLIST_RUN:2683c1b3-a2c9-4963-b327-6ebca1f0375a",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "dca89c49-3995-4116-900c-871d6aaa9f92",
+      "businessKey": "CHECKLIST_RUN:74ed1e8a-74cb-4a2b-addf-a9c84c3d82e7",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "3caf9a82-909f-4bd2-adb7-b5aa1eca8b5b",
+      "businessKey": "CHECKLIST_RUN:74ed1e8a-74cb-4a2b-addf-a9c84c3d82e7",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "172f9819-499a-49be-bd5a-2fa4cfde4f78",
+      "businessKey": "CHECKLIST_RUN:74ed1e8a-74cb-4a2b-addf-a9c84c3d82e7",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "b7f57ae8-c32e-4bf8-9ed2-f9aa9d0ef3f1",
+      "businessKey": "CHECKLIST_RUN:e75fff3b-cb36-4798-a7d6-122b6cc3fda3",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "641c2b6e-e8db-4be2-80f9-614668b837dd",
+      "businessKey": "CHECKLIST_RUN:e75fff3b-cb36-4798-a7d6-122b6cc3fda3",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "e1a8c80b-be4d-4c12-bcee-2041f7b6c62c",
+      "businessKey": "CHECKLIST_RUN:e75fff3b-cb36-4798-a7d6-122b6cc3fda3",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "090d4c71-4163-473a-a8fa-5ddd3259c63f",
+      "businessKey": "CHECKLIST_RUN:0793db27-7a6c-4c5b-9512-c577058687e9",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "05c2201a-c7ad-4040-848f-f6efa7bafa0b",
+      "businessKey": "CHECKLIST_RUN:0793db27-7a6c-4c5b-9512-c577058687e9",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "503dccbc-132d-46dc-9f5f-c6dbdefb5047",
+      "businessKey": "CHECKLIST_RUN:0793db27-7a6c-4c5b-9512-c577058687e9",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "7cb614ed-6325-49ae-9e89-9ec60bb72b42",
+      "businessKey": "CHECKLIST_RUN:a105fd6f-343d-4270-86b6-4c2c3caa2a9d",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "55af1d4c-17ec-4dc5-ad31-9a3c85f4d0e4",
+      "businessKey": "CHECKLIST_RUN:a105fd6f-343d-4270-86b6-4c2c3caa2a9d",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "790b9d3b-fd13-4a06-a121-fb8ded750211",
+      "businessKey": "CHECKLIST_RUN:a105fd6f-343d-4270-86b6-4c2c3caa2a9d",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "55fe2bb3-d743-4ff7-a527-907bf40e3600",
+      "businessKey": "CHECKLIST_RUN:cabdf7d5-67f8-4fb2-b1ec-b3c146fca503",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "151f1a82-6914-458f-82b6-1658df5a5bb5",
+      "businessKey": "CHECKLIST_RUN:cabdf7d5-67f8-4fb2-b1ec-b3c146fca503",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "c568d16e-4a1b-46fb-851c-7bb579d44c95",
+      "businessKey": "CHECKLIST_RUN:cabdf7d5-67f8-4fb2-b1ec-b3c146fca503",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "ceafd367-9046-472e-a475-bd28ca1c8857",
+      "businessKey": "SHIFT_WILL_BE:pffv4-stage2-shift-will-be",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "ca3c16b2-d1ab-409c-85b4-d0273490a46d",
+      "businessKey": "TASK:22957b79-5d58-465e-b52a-726172896d51",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "f8c33ad2-d505-46cb-a35e-afafd1cc4898",
+      "businessKey": "TASK:fb0f426e-770f-4839-9c03-7e51217b669a",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "644d61d0-a8fe-441e-92da-98852e11953e",
+      "businessKey": "TASK:fb0f426e-770f-4839-9c03-7e51217b669a",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "68dc33fe-e533-4c95-bb8b-a9040ba5db48",
+      "businessKey": "TASK:44adb9e4-ece7-40f5-97ce-3b42682c959c",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "50ec90c8-fe0e-466b-9612-0faec1942e4b",
+      "businessKey": "TASK:44adb9e4-ece7-40f5-97ce-3b42682c959c",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "68e0ddbe-7f52-400d-9a71-b7b9add99035",
+      "businessKey": "TASK:1f7a8923-679b-4fbc-bf3d-635a97350e3f",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "6b72fb88-f941-488a-8025-fdd07eb6b955",
+      "businessKey": "TASK:1f7a8923-679b-4fbc-bf3d-635a97350e3f",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "b05ce75a-21b0-47ca-b1ba-24cf884ff68e",
+      "businessKey": "TASK:22957b79-5d58-465e-b52a-726172896d51",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "fac22762-858b-4ae7-8392-8c992253d59e",
+      "businessKey": "TASK:1f7a8923-679b-4fbc-bf3d-635a97350e3f",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "5d8715c8-dc7b-4f6a-9c18-c082d3a8737f",
+      "businessKey": "TASK:fb0f426e-770f-4839-9c03-7e51217b669a",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Notification",
+      "id": "db6f8c17-2c3d-4916-8a5b-6a276a431f83",
+      "businessKey": "TASK:44adb9e4-ece7-40f5-97ce-3b42682c959c",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "source": "stage7-acceptance-gates",
+      "cleanupStatus": "READ_PRESERVED_HISTORY"
+    },
+    {
+      "model": "Announcement",
+      "id": "7a2b6b91-c3e2-46d0-af3e-a17eebcaf12c",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:factory",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "73cb36c6-1b67-4a1e-8d02-e44e323dbdc4",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:own-department",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Announcement",
+      "id": "bd5c2357-c957-430c-94fc-3c4f3b7c4666",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-announcement:selected",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "5edb5820-1e15-46e9-b38b-c9d1df768369",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:store-1785350160806-6468",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    },
+    {
+      "model": "Attachment",
+      "id": "6424a029-0aed-477d-93c1-d35c9fa104d6",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return-photo",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "PRESERVED_IN_ARCHIVE"
+    },
+    {
+      "model": "ReturnRecord",
+      "id": "59940152-649f-4644-812b-039801b6bd71",
+      "businessKey": "__PFFV4_PFFV4_20260727T075200Z__:stage5-return:okk-1785350160806-6468",
+      "marker": "__PFFV4_PFFV4_20260727T075200Z__",
+      "createdByRun": "PFFV4_20260727T075200Z",
+      "cleanupStatus": "ARCHIVED"
+    }
+  ],
+  "cleanup": {
+    "status": "PASS",
+    "created": 305,
+    "removedFromActiveRuntime": 118,
+    "immutableHistoryPreserved": 187,
+    "actionsApplied": 53,
+    "remaining": 0,
+    "attachmentFilesChecked": 17,
+    "attachmentFilesMissing": 0,
+    "attachmentParentsMissing": 0,
+    "filesPhysicallyDeleted": 0,
+    "preexistingEntitiesDeleted": 0,
+    "completedAt": "2026-07-29T05:41:35.766Z"
+  }
+}

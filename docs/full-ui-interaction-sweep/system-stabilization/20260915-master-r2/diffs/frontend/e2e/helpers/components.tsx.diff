@@ -1,0 +1,27 @@
+diff --git "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\F-form-tail-before\\frontend\\e2e\\helpers\\components.tsx" "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\components.tsx"
+index 8a80ccf8..cd0b0752 100644
+--- "a/C:\\Users\\79164\\Documents\\work\\docs\\full-ui-interaction-sweep\\system-stabilization\\20260915-master-r2\\snapshots\\F-form-tail-before\\frontend\\e2e\\helpers\\components.tsx"
++++ "b/C:\\Users\\79164\\Documents\\work\\frontend\\e2e\\helpers\\components.tsx"
+@@ -40,11 +40,12 @@ function ChildrenHost(){
+   </section></main>;
+ }
+ function FormHost(){
++  const [replaceType,setReplaceType]=useState(false),[removeOption,setRemoveOption]=useState(false);
+   const [open,setOpen]=useState(true),[late,setLate]=useState(false),[conditional,setConditional]=useState(true),[busy,setBusy]=useState(false),[entity,setEntity]=useState(1),[submitted,setSubmitted]=useState(''),[reorder,setReorder]=useState(false),[optionsRevision,setOptionsRevision]=useState(false);
+   const fields=[{name:'text',label:'Название',defaultValue:late?'Позднее название':''},{name:'number',label:'Количество',type:'number' as const,defaultValue:0},{name:'enabled',label:'Включено',type:'checkbox' as const,defaultValue:false},{name:'choice',label:'Получатель',type:'select' as const,defaultValue:late?'one':'',options:[{label:'Первый отдел',value:'one'},{label:'Второй отдел',value:'two'}]},{name:'date',label:'Дата',type:'date' as const,defaultValue:'2026-09-15'},{name:'time',label:'Время',type:'datetime-local' as const,defaultValue:'2026-09-15T20:00'},...(conditional?[{name:'comment',label:'Комментарий',type:'textarea' as const,defaultValue:''}]:[])];
+   return <main className="app-shell"><section className="card"><h1>Изолированный контракт формы</h1>
+     <button onClick={()=>setOpen(true)}>Открыть форму</button><output>{submitted}</output>
+-    {open&&<ActionModal key={entity} title={`Форма ${entity}`} fields={(reorder?[...fields].reverse():fields).map(f=>f.name==='choice'&&optionsRevision?{...f,options:[{label:'Отдел второй — новое имя',value:'two'},{label:'Отдел первый — новое имя',value:'one'}]}:f)} busy={busy} onCancel={()=>setOpen(false)} onSubmit={async values=>{
++    {open&&<ActionModal key={entity} title={`Форма ${entity}`} fields={(reorder?[...fields].reverse():fields).map(f=>f.name==='text'&&replaceType?{...f,type:'textarea' as const}:f.name==='choice'&&removeOption?{...f,options:[{label:'Первый отдел',value:'one'}]}:f.name==='choice'&&optionsRevision?{...f,options:[{label:'Отдел второй — новое имя',value:'two'},{label:'Отдел первый — новое имя',value:'one'}]}:f)} busy={busy} onCancel={()=>setOpen(false)} onSubmit={async values=>{
+       (window as any).submitCalls=((window as any).submitCalls||0)+1;
+       if((window as any).holdSubmit)await new Promise((resolve,reject)=>{(window as any).releaseSubmit=resolve;(window as any).rejectSubmit=reject;});
+       setSubmitted(JSON.stringify(values));
+@@ -54,6 +55,8 @@ function FormHost(){
+       <button type="button" onClick={()=>setBusy(!busy)}>Внешний busy</button>
+       <button type="button" onClick={()=>setReorder(!reorder)}>Порядок полей</button>
+       <button type="button" onClick={()=>setOptionsRevision(!optionsRevision)}>Обновить варианты</button>
++      <button type="button" onClick={()=>setReplaceType(!replaceType)}>Тип поля</button>
++      <button type="button" onClick={()=>setRemoveOption(!removeOption)}>Наличие варианта</button>
+       <button type="button" onClick={()=>{setEntity(entity+1);setLate(false);setConditional(true);}}>Новая сущность</button>
+     </ActionModal>}
+   </section></main>;

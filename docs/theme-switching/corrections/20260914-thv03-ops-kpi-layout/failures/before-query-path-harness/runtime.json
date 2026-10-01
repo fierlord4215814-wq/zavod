@@ -1,0 +1,29 @@
+{
+  "phase": "before",
+  "batch": "20260914-thv03-ops-kpi-layout",
+  "screenshots": [],
+  "apiReads": [
+    "/auth/me",
+    "/auth/assignment-request",
+    "/notifications/unread-count",
+    "/announcements/current",
+    "/chats",
+    "/tasks",
+    "/error-reports",
+    "/ops/operations/overview",
+    "/ops/overview",
+    "/ops/events",
+    "/ops/audit",
+    "/ops/module-summary"
+  ],
+  "apiWrites": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "WebSocket connection to 'ws://127.0.0.1:5173/ws?factoryId=theme-evidence-factory' failed: Connection closed before receiving a handshake response"
+  ],
+  "requestFailures": [],
+  "isolatedFixtureWrites": [],
+  "computedStyles": [],
+  "visibilityChecks": [],
+  "opsLayoutChecks": []
+}

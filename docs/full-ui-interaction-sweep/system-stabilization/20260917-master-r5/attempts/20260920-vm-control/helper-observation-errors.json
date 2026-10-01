@@ -1,0 +1,32 @@
+{
+  "scope": "PREPARATION_HARNESS_NOT_PRODUCT_TESTS",
+  "consoleCapture": {
+    "requests": ["000004", "000005"],
+    "message": "VM thumbnail failed: 0",
+    "apiReturnValue": 0,
+    "expectedBytes": 1572864,
+    "actualBytes": null,
+    "actualBytesNotLoggedByOriginalHelper": true,
+    "rawImageObtained": false,
+    "result": "FAILED_UNVERIFIED_NOT_PASS"
+  },
+  "nonAdminReadOnlyProbe": {
+    "message": "Cannot bind argument to parameter 'InputObject' because it is null.",
+    "ownVmObjectReturned": false,
+    "doesNotProveVmAbsent": true
+  },
+  "observerEncoderPreflight": {
+    "initial": "CS0012: IImage requires System.Private.Windows.GdiPlus reference",
+    "privilegedObserverExecuted": false,
+    "correction": "Use directly loaded PowerShell/.NET Bitmap and Marshal encoder, not incomplete explicit C# references",
+    "parserErrorsAfterCorrection": 0,
+    "runtimeVerification": "PENDING"
+  },
+  "computerUse": {
+    "observed": "list_windows returned no VMConnect window",
+    "inputActions": 0,
+    "windowsTerminalAutomation": false
+  },
+  "productChanged": false,
+  "workingDbAccessed": false
+}

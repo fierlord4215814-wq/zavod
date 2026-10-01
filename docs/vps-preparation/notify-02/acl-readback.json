@@ -1,0 +1,92 @@
+{
+  "status": "PASS_OWN_COPY_PAIR_OWNER_SYSTEM_ADMIN_ONLY",
+  "secretValuesRead": false,
+  "permissionsChanged": false,
+  "observations": [
+    {
+      "relative": "pair-notify02",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    },
+    {
+      "relative": "pair-notify02\\t1.dump",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    },
+    {
+      "relative": "pair-notify02\\uploads",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    },
+    {
+      "relative": "notify02",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    },
+    {
+      "relative": "notify02\\uploads",
+      "rules": [
+        {
+          "principal": "SYSTEM",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        },
+        {
+          "principal": "current Windows owner",
+          "type": "Allow",
+          "rights": "FullControl",
+          "inherited": true
+        }
+      ]
+    }
+  ]
+}

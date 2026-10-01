@@ -1,0 +1,159 @@
+{
+  "version": "LOCAL03-20260926-FINAL-C0",
+  "screens": [
+    {
+      "label": "Смена",
+      "visible": true
+    },
+    {
+      "label": "Люди",
+      "visible": true
+    },
+    {
+      "label": "Линии",
+      "visible": true
+    },
+    {
+      "label": "Заявки",
+      "visible": true
+    },
+    {
+      "label": "Мойка",
+      "visible": true
+    },
+    {
+      "label": "ОКК",
+      "visible": true
+    },
+    {
+      "label": "Некондиция",
+      "visible": true
+    },
+    {
+      "label": "Заказы / Остатки",
+      "visible": true
+    },
+    {
+      "label": "Чек-листы",
+      "visible": true
+    },
+    {
+      "label": "Возвраты на производство",
+      "visible": true
+    },
+    {
+      "label": "Пересменка / Журнал",
+      "visible": true
+    },
+    {
+      "label": "Чаты",
+      "visible": true
+    },
+    {
+      "label": "Объявления",
+      "visible": true
+    }
+  ],
+  "http": [
+    {
+      "screen": "Смена",
+      "path": "/shift/me",
+      "status": 200
+    },
+    {
+      "screen": "Люди",
+      "path": "/people",
+      "status": 200
+    },
+    {
+      "screen": "Линии",
+      "path": "/lines",
+      "status": 200
+    },
+    {
+      "screen": "Заявки",
+      "path": "/tasks/board",
+      "status": 200
+    },
+    {
+      "screen": "Мойка",
+      "path": "/wash",
+      "status": 200
+    },
+    {
+      "screen": "ОКК",
+      "path": "/okk",
+      "status": 200
+    },
+    {
+      "screen": "Некондиция",
+      "path": "/stock",
+      "status": 200
+    },
+    {
+      "screen": "Заказы / Остатки",
+      "path": "/orders/items",
+      "status": 200
+    },
+    {
+      "screen": "Чек-листы",
+      "path": "/checklists/workspace",
+      "status": 200
+    },
+    {
+      "screen": "Возвраты на производство",
+      "path": "/returns",
+      "status": 200
+    },
+    {
+      "screen": "Пересменка / Журнал",
+      "path": "/shift-log",
+      "status": 200
+    },
+    {
+      "screen": "Чаты",
+      "path": "/chats",
+      "status": 200
+    },
+    {
+      "screen": "Объявления",
+      "path": "/announcements",
+      "status": 200
+    }
+  ],
+  "ws": [
+    "connected"
+  ],
+  "setPassword": 201,
+  "normalLogin": 201,
+  "factorySelected": true,
+  "firstBody": "Чистый завод LOCAL-03 final C0\n\nЗавод\n\nОнлайн · Администратор Администратор У.\nСмена\nЛинии\nЗаявки\nЧек-листы\nЕщё\nСмена\n\nРабочий стол мастера: линии, люди, назначения, заявки и мойка.\n\n≡\nВ работе\n0\n●\nЛюди на смене\n0\nⅡ\nПростой\n0\n!\nЗаявки\n0\nНа производственных линиях:\n0 из 0\nТекущая смена · Чистый завод LOCAL-03 final C0\nТекущая смена · время завода\nВыбрать смену\n⌄\nОтдел для передачи смены\nВыберите отдел\n\nВыберите отдел, чтобы увидеть предыдущую передачу и время следующей. Без отдела запись не создаётся.\n\nЗагружаю смену...\nНет новых событий\nЛинии в работе\n0\nПовременщики и рабочие зоны\n0\nЛинии на мойке\n0\nЛиний на мойке сейчас нет\nОстановленные линии\n0\nОстановленных линий нет\nЗапустить новую линию\nНа смене\n0\nНа текущей смене пока нет сотрудников.",
+  "secondContextInitiallyLogin": true,
+  "secondLogin": 201,
+  "counts": {
+    "factory": 1,
+    "user": 1,
+    "userFactoryAccess": 1,
+    "shiftSession": 0,
+    "assignment": 0,
+    "plannedLineAssignment": 0,
+    "plannedShiftAssignment": 0,
+    "shiftWillBe": 0,
+    "task": 0,
+    "minimumStockItem": 0,
+    "orderRequest": 0,
+    "chat": 0,
+    "chatMessage": 0,
+    "announcement": 0,
+    "checklistRun": 0,
+    "attachment": 0,
+    "washSession": 0,
+    "defrostEvent": 0,
+    "shiftLog": 0,
+    "okkRecord": 0,
+    "returnRecord": 0,
+    "stockDefect": 0
+  },
+  "uploadFiles": 0,
+  "status": "PASS_CLEAN_C0_BROWSER_HTTP_WS_SQL"
+}

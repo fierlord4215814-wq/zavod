@@ -1,0 +1,38 @@
+{
+  "atUtc": "2026-09-27T09:29:12.136Z",
+  "runs": [
+    {
+      "name": "backend-notification-orders-task",
+      "exit": 0,
+      "tests": 121,
+      "pass": 121,
+      "fail": 0,
+      "log": "checks/2026-09-27T09-29-12-135Z/backend-notification-orders-task.txt"
+    },
+    {
+      "name": "stock-domain-targeted",
+      "exit": 0,
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "log": "checks/2026-09-27T09-29-12-135Z/stock-domain-targeted.txt"
+    },
+    {
+      "name": "frontend-retained-navigation-ws",
+      "exit": 0,
+      "tests": 10,
+      "pass": 10,
+      "fail": 0,
+      "log": "checks/2026-09-27T09-29-12-135Z/frontend-retained-navigation-ws.txt"
+    },
+    {
+      "name": "broad-domain-observation",
+      "exit": 1,
+      "tests": 14,
+      "pass": 13,
+      "fail": 1,
+      "log": "checks/2026-09-27T09-29-12-135Z/broad-domain-observation.txt"
+    }
+  ],
+  "status": "PASS_TARGETED_WITH_SEPARATE_BROAD_DOMAIN_OBSERVATION"
+}

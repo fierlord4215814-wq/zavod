@@ -1,0 +1,167 @@
+{
+  "status": "IN_PROGRESS",
+  "cases": [
+    {
+      "case": "empty",
+      "uiDisabled": true,
+      "http": 400
+    },
+    {
+      "case": "form_file_sql_export",
+      "row": {
+        "id": "91f31900-6618-4eef-a3ef-466eca67713e",
+        "title": "Учебное обращение с фото 1790529643559",
+        "description": "Учебная проверка обычной формы, сохранения и безопасного вложения. Никакой внешней отправки.",
+        "section": "Другое",
+        "authorId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "authorRole": "WORKER",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "status": "NEW",
+        "createdAt": "2026-09-27T17:20:43.901Z"
+      },
+      "api": {
+        "id": "91f31900-6618-4eef-a3ef-466eca67713e",
+        "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+        "factoryName": "УЧЕБНЫЙ ЗАВОД T1",
+        "authorId": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+        "authorName": "Учебный-Работник-01 Тестовый",
+        "authorRole": "WORKER",
+        "authorRoleLabel": "Работник",
+        "section": "Другое",
+        "title": "Учебное обращение с фото 1790529643559",
+        "description": "Учебная проверка обычной формы, сохранения и безопасного вложения. Никакой внешней отправки.",
+        "status": "NEW",
+        "statusLabel": "Новое",
+        "createdAt": "2026-09-27T17:20:43.901Z",
+        "updatedAt": "2026-09-27T17:20:43.901Z",
+        "closedAt": null,
+        "closedByName": null,
+        "attachments": [
+          {
+            "id": "76f600e4-f5a7-4751-b7bc-47019df667cc",
+            "factoryId": "e3d1c2ce-f596-461d-9c97-705d176cc25a",
+            "uploadedById": "07c01509-4982-45d6-afc7-34f7bcb0539f",
+            "entityType": "ERROR_REPORT",
+            "entityId": "91f31900-6618-4eef-a3ef-466eca67713e",
+            "kind": "PHOTO",
+            "operationId": "653f6f42-b5c0-46f2-bc3c-b8d12edd163a",
+            "originalName": "учебное-фото.png",
+            "mimeType": "image/png",
+            "sizeBytes": 1461,
+            "publicUrl": "/attachments/76f600e4-f5a7-4751-b7bc-47019df667cc/file",
+            "width": null,
+            "height": null,
+            "durationSec": null,
+            "createdAt": "2026-09-27T17:20:43.940Z",
+            "deletedAt": null
+          }
+        ]
+      },
+      "file": {
+        "id": "76f600e4-f5a7-4751-b7bc-47019df667cc",
+        "bytes": 1461,
+        "sha256": "aedc0226a2ff75243bae00b00fa93d62e35986a5324e4f28ebcc91d64229181b"
+      },
+      "exportManifest": {
+        "schemaVersion": 1,
+        "packageType": "error-report-export",
+        "format": "html+txt",
+        "createdAt": "2026-09-27T17:20:43.954Z",
+        "report": {
+          "id": "91f31900-6618-4eef-a3ef-466eca67713e",
+          "createdAt": "2026-09-27T17:20:43.901Z",
+          "updatedAt": "2026-09-27T17:20:43.901Z",
+          "factory": "УЧЕБНЫЙ ЗАВОД T1",
+          "author": "Учебный-Работник-01 Тестовый",
+          "role": "Работник",
+          "department": "УЧ — Производство T1",
+          "section": "Другое",
+          "title": "Учебное обращение с фото 1790529643559",
+          "status": "NEW"
+        },
+        "files": {
+          "reportHtml": "report.html",
+          "reportTxt": "report.txt",
+          "attachments": [
+            {
+              "id": "76f600e4-f5a7-4751-b7bc-47019df667cc",
+              "originalName": "учебное-фото.png",
+              "kind": "PHOTO",
+              "mimeType": "image/png",
+              "sizeBytes": 1461,
+              "copiedAs": "attachments/01-учебное-фото.png",
+              "copied": true
+            }
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "case": "reader_status",
+      "id": "91f31900-6618-4eef-a3ef-466eca67713e",
+      "closed": {
+        "status": "CLOSED",
+        "closedAt": "2026-09-27T17:20:44.796Z",
+        "closedById": "3c9bd32f-8bda-49c7-8529-862e77060cf3"
+      },
+      "exportStatus": "CLOSED"
+    },
+    {
+      "case": "foreign-author-denied",
+      "route": "/error-reports/91f31900-6618-4eef-a3ef-466eca67713e",
+      "http": 403
+    },
+    {
+      "case": "foreign-author-denied",
+      "route": "/attachments/76f600e4-f5a7-4751-b7bc-47019df667cc/file",
+      "http": 403
+    },
+    {
+      "case": "factory-denied",
+      "http": 403
+    },
+    {
+      "case": "lost-upload-response-retry",
+      "reportId": "4c3c2a27-519f-4ebc-bf58-1d38e77da506",
+      "files": [
+        {
+          "id": "b6120781-f261-404a-b0c5-d310ae8b7164",
+          "sizeBytes": 1461
+        }
+      ]
+    },
+    {
+      "case": "double-click",
+      "ids": [
+        {
+          "id": "658d1ae3-88b9-448a-b125-ac1938a35ead"
+        }
+      ]
+    },
+    {
+      "case": "intentional-identical-text-new-report",
+      "ids": [
+        "658d1ae3-88b9-448a-b125-ac1938a35ead",
+        "30d6ba0e-4d03-4cab-b349-256028a17a00"
+      ]
+    },
+    {
+      "case": "cancel-upload-retry",
+      "id": "f3e9c6db-c1f2-44da-a05c-ff7075816ff1",
+      "intercepted": true
+    },
+    {
+      "case": "invalid-file-ui",
+      "message": "Поддерживаются фото jpg, png, webp, видео mp4/webm/mov, PDF и txt."
+    }
+  ],
+  "created": [
+    "91f31900-6618-4eef-a3ef-466eca67713e",
+    "4c3c2a27-519f-4ebc-bf58-1d38e77da506",
+    "658d1ae3-88b9-448a-b125-ac1938a35ead",
+    "30d6ba0e-4d03-4cab-b349-256028a17a00",
+    "f3e9c6db-c1f2-44da-a05c-ff7075816ff1"
+  ],
+  "error": "locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Описание', { exact: true })\u001b[22m\n"
+}
